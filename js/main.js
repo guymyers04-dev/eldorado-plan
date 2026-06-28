@@ -1582,3 +1582,31 @@ document.getElementById('back-to-top')?.addEventListener('click', () =>
     });
   });
 })();
+
+/* ── Collapsible Sections ── */
+;(function () {
+  const sections = document.querySelectorAll('.collapsible-section');
+  sections.forEach(section => {
+    const header = section.querySelector('.collapsible-header');
+    const content = section.querySelector('.collapsible-content');
+
+    if (!header || !content) return;
+
+    header.addEventListener('click', () => {
+      section.classList.toggle('collapsed');
+    });
+
+    header.setAttribute('role', 'button');
+    header.setAttribute('tabindex', '0');
+    header.setAttribute('aria-expanded', 'false');
+
+    header.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        header.click();
+        const expanded = !section.classList.contains('collapsed');
+        header.setAttribute('aria-expanded', expanded);
+      }
+    });
+  });
+})();
