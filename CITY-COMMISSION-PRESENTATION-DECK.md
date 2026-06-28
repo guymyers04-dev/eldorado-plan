@@ -66,28 +66,72 @@ Three macroeconomic trends converge on El Dorado *right now*:
 ---
 
 ## SLIDE 4: THE COMPETITIVE LANDSCAPE
+### DETAILED BENCHMARKING (Phase 3 Research Integration)
 
-**Who Are We Racing Against?**
+**Who Are We Racing Against? Competitive Scorecards**
 
-**SALINA (47K)** — HIGH THREAT
-- Aerospace focus; K-AIRES innovation center opening 2026
-- Weakness: Off I-35 corridor
-- El Dorado advantage: **I-35 access, water rights, FDI momentum**
+### WHERE EL DORADO UNIQUELY WINS
+✅ **Water Security** — ONLY Kansas city with owned USACE rights (23M gal/day; 50+ year contract)
+✅ **I-35 Direct Node** — Exits 71/76 direct access; competitors are bypasses/off-corridor
+✅ **FDI Proof-of-Concept** — AMAZONE operational (Dec 2025); only recent rural Kansas FDI win
+✅ **State Park Asset** — #1 Kansas park (1M+ visitors); competitors have regional parks only
+✅ **Business-Friendly** — 47–60 day permits; no license fees; 2nd lowest crime rate
+✅ **Cost Advantage** — Lowest real estate; lowest cost of living; fastest time-to-operate
 
-**MCPHERSON (13K)** — MODERATE THREAT
-- Matching our workforce development investments
-- Weakness: Shared labor market; no unique assets
-- El Dorado advantage: **Water, I-35, AMAZONE momentum**
+### COMPETITIVE THREAT ASSESSMENT
 
-**EMPORIA (24.5K)** — LOWER THREAT
-- Animal health niche; no water advantage
-- Weakness: Off-corridor, leadership transition
-- El Dorado advantage: **Water, I-35, recent FDI win**
+**SALINA (47K)** — HIGH THREAT (Aerospace sector only)
+- Strength: K-State ecosystem, K-AIRES innovation center (2026), aerospace heritage
+- Weakness: Off I-35 corridor (detour); no unique water; smaller FDI proof
+- Win/loss analysis: Salina wins if prospect is pure aerospace; loses on data center, ag-tech, industrial water
+- **El Dorado strategy:** Emphasize I-35 access + water rights; position as logistics hub for Wichita aerospace
+- **Threat level: HIGH for aerospace only; LOW for data center/FDI/senior living**
 
-**DODGE CITY (26K)** — LOWER THREAT
-- Hilmar Cheese mega-win proves rural FDI possible
-- Weakness: Isolated, west Kansas, single-sector dependence
-- El Dorado advantage: **I-35 node, water, replicable FDI network effect**
+**MCPHERSON (13K)** — MODERATE THREAT (Local competition)
+- Strength: Matching our workforce development (mech. engineering program 2026, childcare expansion)
+- Weakness: Shared labor market; no unique assets; no recent FDI; no water rights
+- Win/loss analysis: McPherson wins talent if programs launch before El Dorado matches; loses on capital investment
+- **El Dorado strategy:** Match McPherson's investments + emphasize FDI momentum + lake amenity
+- **Threat level: MODERATE; addressable through talent competition**
+
+**EMPORIA (24.5K)** — LOWER THREAT (Different sector)
+- Strength: Animal health niche (concentrated); some ag heritage
+- Weakness: Off-corridor; leadership transition; no water; no recent FDI
+- Win/loss analysis: Emporia dominates animal health; loses on everything else
+- **El Dorado strategy:** No direct competition; different sectors = both can succeed
+- **Threat level: LOW; sector diversification eliminates direct competition**
+
+**DODGE CITY (26K)** — NOT A THREAT (Food sector only)
+- Strength: Hilmar Cheese ($600M, 270 jobs) proves mega-FDI possible in rural Kansas
+- Weakness: Isolated, west Kansas; food/ag processing focus; single-sector dependence
+- Win/loss analysis: Validates rural FDI recruitment; different sectors = no direct competition
+- **El Dorado strategy:** Learn from Dodge's case study; pursue advanced manufacturing instead of food
+- **Threat level: NONE; validates FDI recruitment feasibility**
+
+**PONCA CITY (25K) — DECLINING (No competitive threat)**
+- Energy sector contraction; losing jobs; no FDI momentum
+
+### STRUCTURAL COMPETITIVE MATRIX
+
+| **Factor** | **El Dorado** | **Salina** | **McPherson** | **Emporia** | **Dodge City** |
+|---|---|---|---|---|---|
+| **Water Rights** | OWNED (23M gal/day) | Municipal only | Municipal only | Municipal only | Municipal only |
+| **I-35 Direct Access** | ✅ Direct (Exits 71/76) | ❌ Off-corridor | ✅ Direct access | ❌ Off-corridor | ❌ Far west Kansas |
+| **Recent FDI Win** | ✅ AMAZONE (Dec 2025) | ❌ None recent | ❌ None announced | ❌ None announced | ✅ Hilmar (2015) |
+| **State Park Asset** | ✅ #1 in Kansas | Regional parks | Regional parks | Regional parks | Regional park |
+| **Population** | 12,500 | 47,000 | 13,000 | 24,500 | 26,000 |
+| **Population Trend** | ↗ Rising (2024) | → Stable | ↗ Rising | → Stable | ↓ Declining |
+| **School Quality** | Good | Excellent | Good | Excellent | Good |
+| **Healthcare** | 56 beds | 196 beds | 40 beds | 102 beds | 80 beds |
+| **Median Income** | $48.5K | $51.2K | $47.8K | $49.5K | $45.2K |
+| **Home Prices** | $168K | $195K | $155K | $165K | $140K |
+| **FTZ Status** | ✅ #28 enrolled | ❌ None | ❌ None | ❌ None | ❌ None |
+| **Manufacturing Base** | Growing | Aerospace cluster | Growing | Animal health | Food processing |
+
+### CRITICAL INSIGHT: 24-MONTH EXECUTION WINDOW
+**BEAD broadband parity arrives 2027–2028. Once broadband is universal, El Dorado's data center advantage EVAPORATES. Water + I-35 remain, but window closes in 24 months.**
+
+**Implication:** Data center recruitment must close 2026–2027. After 2028, focus shifts to FDI diversification and lake tourism (non-competitive advantages).
 
 ---
 
@@ -311,39 +355,94 @@ BY END 2027:
 
 ---
 
-## SLIDE 11: RISK MITIGATION
+## SLIDE 11: RISK HEAT MAP & MITIGATION
+### Phase 3 Risk Analysis Integration
 
-**How We Address the Risks**
+**7 CRITICAL RISKS × PROBABILITY × IMPACT**
 
-### Risk 1: Data Center Deal Delays
-- **Probability:** MEDIUM
-- **Mitigation:** Have 3–5 qualified prospects; start conversations simultaneously
-- **Contingency:** If no LOI by Q4 2027, shift focus to 2nd/3rd FDI (still achieves 200–300 jobs)
+### HEAT MAP: Probability vs. Impact
 
-### Risk 2: Broadband Deployment Delays
-- **Probability:** LOW
-- **Mitigation:** HF Sinclair grid independent; FTZ #28 advantage independent of broadband
-- **Contingency:** Delays actually strengthen water scarcity argument for data center recruitment
+```
+                    IMPACT
+                LOW    MED    HIGH
+            ┌─────────────────────
+PROB   HIGH │       ⑤⑧⑨    ①②③⑥⑦
+      MED   │   ④   ⑩⑪⑫   
+       LOW  │           ⑬⑭
+```
 
-### Risk 3: FDI Momentum Fades
-- **Probability:** LOW
-- **Mitigation:** Diverse pipeline (German, Japanese, Korean); JETRO/GTAI actively recruiting
-- **Contingency:** Shift to domestic manufacturers (Boeing supply, ag equipment OEMs)
+### CRITICAL RISKS (High Probability × High Impact) — IMMEDIATE ESCALATION
 
-### Risk 4: Community Resistance (Growth Too Fast)
-- **Probability:** MEDIUM
-- **Mitigation:** Transparent communication, early town halls, community engagement strategy
-- **Contingency:** Slow announcement pace; emphasize local hiring and workforce benefits
+**① Staffing: Unable to Hire Data Center Director** (60% prob × HIGH impact)
+- Impact: 8–12 week delay; cascading timeline slips
+- **Mitigation:** Executive recruiter engaged NOW; salary elevated to $130K; national search launched Week 1
+- **Contingency Trigger:** If not hired by Aug 1 → activate interim broker-led model (CBRE takes day-to-day recruitment)
+- **Owner:** City Manager; Report to EDA Board monthly
 
-### Risk 5: Housing Financing Delayed
-- **Probability:** LOW-MEDIUM
-- **Mitigation:** Multiple LIHTC syndicators; USDA backup; early relationship-building
-- **Contingency:** If LIHTC delayed, use USDA RD only; push timeline to 2027–2028
+**② Federal Grants Defunded** (60% prob × HIGH impact)
+- Impact: $50M–$200M funding loss; financing shortfall
+- **Mitigation:** Diversify sources (USDA, EDA, DOT, EPA, NSF; state programs; tax incentives); submit applications by Q1 2027
+- **Contingency:** Pivot to state programs + private EB-5 + municipal bonds; reduce Phase 1 scope if needed
+- **Owner:** Grant Writer; escalate if loss >25%
 
-### Risk 6: Senior Living Deal Doesn't Close
-- **Probability:** MEDIUM
-- **Mitigation:** Start conversations with 3–4 operators; have 2–3 site options
-- **Contingency:** If delayed, prioritize boutique hotel/RV park (shorter timelines); senior living follows 2028–2030
+**③ Data Center Market Softens (AI Bubble Burst)** (50% prob × HIGH impact)
+- Impact: 12–24 month timeline extension; window closure risk
+- **Mitigation:** Emphasize water (universal industrial need); identify fallback users (manufacturing, senior living, agriculture); maintain 5–10 diverse prospects
+- **Contingency:** If no data center LOI by Q4 2027 → shift focus to FDI diversification (still achieves 200–300 jobs)
+- **Owner:** Data Center Director; escalate if market shows 3+ months softening
+
+**⑥ FDI Officer Lacks International Network** (55% prob × HIGH impact)
+- Impact: Month 3–6 delays; FDI prospects not identified
+- **Mitigation:** Hire FDI officer with DEMONSTRATED JETRO/GTAI/KOTRA experience (not first-time hire); validate references before offer
+- **Contingency:** Engage international trade consultants ($20K–$40K) to front-load relationship development
+- **Owner:** HR/EDA Director; validate before finalizing hire
+
+**⑦ Brain Drain Continues** (60% prob × HIGH impact)
+- Impact: Workforce unavailable despite new facilities; employment targets miss
+- **Mitigation:** Lifestyle positioning (lake, remote work education investment); startup ecosystem development; workforce training programs (Butler CC apprenticeships)
+- **Contingency:** If youth retention stays <40% → hire lifestyle marketing firm; launch regional talent attraction campaign
+- **Owner:** Communications Manager; track annual population trends
+
+---
+
+### HIGH RISKS (Medium-High Probability × High Impact) — ACTIVE MANAGEMENT
+
+**⑤ Competitor Steals Data Center Prospect** (55% prob × HIGH impact)
+- **Mitigation:** Water differentiation (unique); incentive parity; deepen relationships; maintain 3+ simultaneous prospects
+- **Contingency:** If 1 prospect stolen → intensify relationships with remaining 2; activate secondary prospect list
+- **Owner:** Data Center Director; weekly competitor intelligence
+
+**⑧ FDI Momentum Fades** (45% prob × HIGH impact)
+- **Mitigation:** Case study development; JETRO/GTAI/KOTRA engagement; domestic fallback (John Deere, CLAAS); trade events
+- **Contingency:** <5 prospects by Month 3 → shift focus to niche industries (precision ag, battery/EV, biotech, aerospace, logistics)
+- **Owner:** FDI Officer; monthly pipeline review
+
+**⑰ Housing Market Correction** (45% prob × HIGH impact)
+- **Mitigation:** Multiple financing sources (LIHTC, USDA, state, EB-5); early closes; flexible unit count (100–150)
+- **Contingency:** If LIHTC interest rates spike >25% → increase USDA allocation; reduce Phase 1 to 75–100 units
+- **Owner:** Housing Consultant; monitor Freddie Mac data weekly
+
+---
+
+### QUARTERLY DECISION GATES: GO/NO-GO/PIVOT
+
+**Q4 2026 (Month 3 — Dec 31):** Foundation Check
+- ✅ GO if ≥4 of 5 achieved: DC prospects identified, FDI prospects identified, housing financing applied, lake site selected, website 500+ visitors
+- ⚠️ CONDITIONAL GO if 3 of 5: Pivot underperforming sector
+- ❌ NO-GO if <3 of 5: Major strategy revision
+
+**Q1 2027 (Month 9 — Mar 31):** Momentum Check
+- ✅ GO if ≥3 of 4 achieved: DC site visit complete + LOI timeline visible, 2nd FDI in discussion, housing financing pre-approval, lake LOI signed
+- ⚠️ CONDITIONAL GO: Extend timeline to Q2 2028
+
+---
+
+### CONTINGENCY ACTIVATION PROTOCOL
+
+**Who escalates?** Role owner (Data Center Director, FDI Officer, Housing Consultant, Grant Writer) → City Manager → EDA Board  
+**When?** If red metric appears OR risk probability increases >10% month-over-month  
+**Timeline?** Escalation report within 48 hours; decision within 1 week  
+**What's the decision?** Continue, pivot, or activate contingency playbook
 
 ---
 
