@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Implementation Roadmap | El Dorado, KS — Vision 2040</title>
+  <meta name="description" content="Month-by-month implementation strategy, project dependencies, funding pipeline, and critical path items for El Dorado Vision 2040 (2026–2040)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .impl-hero { background: linear-gradient(135deg, #1B3A5C 0%, #0f2a47 100%); color: #fff; padding: 64px 0 48px; text-align: center; }
+    .impl-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 1rem; }
+    .impl-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto; }
+    .impl-body { padding: 56px 0 80px; }
+    .phase-section { margin-bottom: 64px; }
+    .phase-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid #C8902A; }
+    .phase-badge { font-size: 2.5rem; font-weight: 900; min-width: 60px; text-align: center; }
+    .phase-badge.p1 { color: #2563eb; }
+    .phase-badge.p2 { color: #16a34a; }
+    .phase-badge.p3 { color: #dc2626; }
+    .phase-header h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #1B3A5C; margin: 0; }
+    .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+    .timeline-item { background: #fff; border-left: 4px solid #C8902A; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+    .timeline-item h3 { color: #1B3A5C; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .timeline-date { font-size: 0.85rem; color: #C8902A; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .timeline-desc { font-size: 0.95rem; color: #555; line-height: 1.7; }
+    .timeline-leads { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; }
+    .timeline-leads-title { font-size: 0.8rem; color: #999; font-weight: 600; text-transform: uppercase; }
+    .timeline-lead { font-size: 0.85rem; color: #1B3A5C; margin: 0.3rem 0; }
+    .dependency-chart { background: #f8f4ec; border-radius: 10px; padding: 2rem; margin: 2rem 0; }
+    .dependency-chart h3 { color: #1B3A5C; margin-bottom: 1.5rem; }
+    .dep-item { background: #fff; border-left: 4px solid #4A90BF; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; }
+    .dep-item strong { color: #1B3A5C; }
+    .dep-item .status { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.75rem; font-weight: 700; margin-left: 0.5rem; }
+    .status-ready { background: #dcfce7; color: #15803d; }
+    .status-pending { background: #fef3c3; color: #854d0e; }
+    .status-future { background: #fee2e2; color: #b91c1c; }
+    .funding-pipeline { background: linear-gradient(180deg, #f8f4ec 0%, #fff 100%); padding: 2rem; border-radius: 10px; margin: 2rem 0; }
+    .funding-pipeline h3 { color: #1B3A5C; margin-bottom: 1.5rem; }
+    .funding-category { margin-bottom: 2rem; }
+    .funding-cat-title { font-size: 1.05rem; color: #1B3A5C; font-weight: 600; margin-bottom: 1rem; }
+    .funding-item { display: flex; gap: 1rem; margin-bottom: 1rem; padding: 0.8rem; background: #fff; border-radius: 6px; border-left: 3px solid #C8902A; }
+    .funding-amount { min-width: 80px; font-size: 0.9rem; color: #C8902A; font-weight: 700; }
+    .funding-desc { flex: 1; font-size: 0.9rem; color: #555; }
+    .critical-path { background: #e3f2fd; border-left: 4px solid #2563eb; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .critical-path h3 { color: #1d4ed8; margin-bottom: 1rem; }
+    .critical-path ul { list-style: none; padding: 0; }
+    .critical-path li { padding: 0.6rem 0 0.6rem 1.5rem; position: relative; color: #1d4ed8; font-weight: 500; }
+    .critical-path li::before { content: '✓'; position: absolute; left: 0; }
+    .risk-box { background: #fff3cd; border-left: 4px solid #c2410c; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
+    .risk-box h4 { color: #b45309; margin-bottom: 0.5rem; }
+    .risk-box p { font-size: 0.95rem; color: #78350f; margin: 0; }
+    .quick-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .quick-stat { background: linear-gradient(135deg, #1B3A5C 0%, #2c5aa0 100%); color: #fff; padding: 1.5rem; border-radius: 10px; text-align: center; }
+    .quick-stat .number { font-size: 2rem; font-weight: 900; color: #C8902A; }
+    .quick-stat .label { font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.9; }
+    @media(max-width: 640px) { .timeline-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav id="navbar" style="background: #1B3A5C; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center;">
+    <a href="index.html" style="color: #fff; font-weight: 700; font-size: 1.2rem; text-decoration: none;">← El Dorado Vision 2040</a>
+    <div style="display: flex; gap: 2rem;">
+      <a href="resources.html" style="color: rgba(255,255,255,0.8);">Resources</a>
+      <a href="stakeholders.html" style="color: rgba(255,255,255,0.8);">Stakeholders</a>
+      <a href="presentation.html" style="color: rgba(255,255,255,0.8);">Presentation</a>
+      <a href="community-engagement.html" style="color: #C8902A; font-weight: 600;">Community Strategy</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="impl-hero">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <span style="font-size: 0.85rem; color: #C8902A; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700;">Execution Framework</span>
+    <h1>Implementation Roadmap</h1>
+    <p>Month-by-month action plan, critical path dependencies, funding pipeline, and leadership assignments for El Dorado Vision 2040 (2026–2040).</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="impl-body">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+
+<!-- QUICK STATS -->
+<div class="quick-stats">
+  <div class="quick-stat">
+    <div class="number">$900M+</div>
+    <div class="label">Total Investment</div>
+  </div>
+  <div class="quick-stat">
+    <div class="number">1,600+</div>
+    <div class="label">Net New Jobs</div>
+  </div>
+  <div class="quick-stat">
+    <div class="number">15</div>
+    <div class="label">Years (2026–2040)</div>
+  </div>
+  <div class="quick-stat">
+    <div class="number">47</div>
+    <div class="label">Major Projects</div>
+  </div>
+</div>
+
+<!-- PHASE 1 -->
+<div class="phase-section">
+  <div class="phase-header">
+    <div class="phase-badge p1">I</div>
+    <h2>Phase 1: Foundation & Quick Wins (2026–2028)</h2>
+  </div>
+  <p style="font-size: 1.05rem; color: #666; margin-bottom: 2rem;"><strong>Focus:</strong> Build organizational capacity, secure federal/state grants, deliver visible infrastructure improvements, maintain community momentum.</p>
+
+  <!-- YEAR 1: 2026 -->
+  <h3 style="color: #1B3A5C; margin-top: 2.5rem; margin-bottom: 1.5rem; border-left: 4px solid #2563eb; padding-left: 1rem;">Year 1: 2026 (Foundation)</h3>
+
+  <div class="timeline-grid">
+    <div class="timeline-item">
+      <div class="timeline-date">January 2026</div>
+      <h3>Vision 2040 Launch</h3>
+      <div class="timeline-desc">Public announcement of comprehensive plan. City Commission approval. Press conference with mayor, stakeholders. Media strategy execution.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">David Dillner (City Manager)</div>
+        <div class="timeline-lead">El Dorado Inc.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">February 2026</div>
+      <h3>Regional Water Authority Formation</h3>
+      <div class="timeline-desc">Formal agreement between El Dorado + Butler County. Board appointments. Legal framework. Water rights negotiation with USACE.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">City Manager + Butler County Commission</div>
+        <div class="timeline-lead">Water Resources Counsel</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">March 2026</div>
+      <h3>Grant Application Sprint 1</h3>
+      <div class="timeline-desc">Apply for EDA Good Jobs Challenge ($25M), USDA REAP, HUD CDBG, EPA Brownfields. Deadline: Spring 2026. Timeline: 6-9 months to award decision.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">City Finance Director</div>
+        <div class="timeline-lead">Grant Writer (contract)</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">April 2026</div>
+      <h3>SS4A Project Engineering Begins</h3>
+      <div class="timeline-desc">Design phase for 8 SS4A safety projects (Central Ave, Main St, intersections). Engage KDOT, traffic engineering consultants. Community input sessions.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">KDOT (K-254 oversight)</div>
+        <div class="timeline-lead">City Public Works</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">May 2026</div>
+      <h3>Stakeholder Briefing Tour</h3>
+      <div class="timeline-desc">Visit state agencies (KDC, KDOT, KDHE), federal regional offices (EDA, HUD, USDA), regional partners (SCKEDD, GWP). Pitch grant applications, partnerships, FDI recruitment.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">Mayor + City Manager</div>
+        <div class="timeline-lead">El Dorado Inc.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">June 2026</div>
+      <h3>NRHP Historic District Nomination</h3>
+      <div class="timeline-desc">Submit downtown core for National Register of Historic Places designation. Unlocks 45% tax credit stack (federal 20% + Kansas 25%). Timeline: 6-12 months.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">Community Development</div>
+        <div class="timeline-lead">NRHP Consultant</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">July 2026</div>
+      <h3>Butler County Broadband Spine Design</h3>
+      <div class="timeline-desc">BEAD program application approved. Begin engineering for county-wide fiber backbone. Connects El Dorado, Andover, Augusta, surrounding rural areas. Timeline: 2026–2029 build-out.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">Butler County IT</div>
+        <div class="timeline-lead">Network Engineering Firm</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">August 2026</div>
+      <h3>FDI Recruitment Campaign Launch</h3>
+      <div class="timeline-desc">Activate SelectUSA partnership. Begin targeted outreach to JETRO (Japan), GTAI (Germany), KOTRA (South Korea). Develop site packages, ROI models, incentive frameworks.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">El Dorado Inc.</div>
+        <div class="timeline-lead">SelectUSA Coordinator</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">September 2026</div>
+      <h3>Workforce Assessment & Training Plan</h3>
+      <div class="timeline-desc">Partner with Butler CC to assess skill gaps. Design apprenticeship programs for manufacturing, healthcare, tech. Apply for Talent Ready grant, CareerWise Kansas.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">Butler CC President</div>
+        <div class="timeline-lead">Workforce Development Director</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">October 2026</div>
+      <h3>Childcare Expansion Planning</h3>
+      <div class="timeline-desc">Identify Early Learning Campus site (120 slots, $5M). Secure land, design building. Begin CDBG application for 50% funding. Timeline: Break ground Q1 2027.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">Community Development</div>
+        <div class="timeline-lead">Early Childhood Specialist</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">November 2026</div>
+      <h3>Housing Financing Framework</h3>
+      <div class="timeline-desc">Establish RHID (Revenue Incentive District) to fund residential infrastructure. Identify developers for Workforce Rental ($14M LIHTC), senior living ($28M), manufactured home communities.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">City Finance + Planning</div>
+        <div class="timeline-lead">KHRC (housing finance)</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">December 2026</div>
+      <h3>Year 1 Review & Course Correction</h3>
+      <div class="timeline-desc">City Commission review of progress. Grant award decisions (EDA, USDA, HUD expected by year-end). Adjust 2027 priorities based on funding. Public report card.</div>
+      <div class="timeline-leads">
+        <div class="timeline-leads-title">Leads</div>
+        <div class="timeline-lead">City Manager</div>
+        <div class="timeline-lead">Vision 2040 Steering Committee</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRITICAL PATH: PHASE 1 -->
+  <div class="critical-path">
+    <h3>Phase 1 Critical Path (Must Complete On Time)</h3>
+    <ul>
+      <li><strong>Regional Water Authority formation</strong> — Unlocks all water-based revenue/industry recruitment</li>
+      <li><strong>NRHP Historic District nomination</strong> — 45% tax credit stack needed for downtown rehab</li>
+      <li><strong>Grant applications submitted</strong> — 6-9 month review cycles; delays push projects 1+ year</li>
+      <li><strong>SS4A project design</strong> — $10M federal grant requires 50% construction completion by 2028</li>
+      <li><strong>BEAD broadband launch</strong> — $166.6M state program; must begin design/engineering 2026</li>
+      <li><strong>FDI pipeline started</strong> — Need 12-18 months lead time before site visits, LOIs, commitments</li>
+    </ul>
+  </div>
+
+  <!-- DEPENDENCY CHART -->
+  <div class="dependency-chart">
+    <h3>Project Dependencies & Sequencing</h3>
+    <div class="dep-item">
+      <strong>Water Authority Formation</strong> <span class="status status-ready">READY</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Industrial recruitment, water export revenue, data center feasibility</div>
+    </div>
+    <div class="dep-item">
+      <strong>Broadband Spine (BEAD)</strong> <span class="status status-ready">READY</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Remote worker attraction, tech job recruitment, telemedicine, data center</div>
+    </div>
+    <div class="dep-item">
+      <strong>SS4A Safety Projects</strong> <span class="status status-ready">READY</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Downtown activation, pedestrian economy, walkability perception</div>
+    </div>
+    <div class="dep-item">
+      <strong>NRHP Historic District</strong> <span class="status status-pending">PENDING (6-12 mo)</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Downtown rehab (45% HTC stack), arts district, boutique hotel</div>
+    </div>
+    <div class="dep-item">
+      <strong>Grant Awards (EDA, USDA, HUD)</strong> <span class="status status-pending">PENDING (6-9 mo)</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: $200M+ funding for health economy, housing, infrastructure</div>
+    </div>
+    <div class="dep-item">
+      <strong>FDI Deal Closures</strong> <span class="status status-future">FUTURE (12-24 mo)</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Mega-site jobs, tax base growth, workforce needs</div>
+    </div>
+    <div class="dep-item">
+      <strong>Housing Development (LIHTC, RHID)</strong> <span class="status status-pending">PENDING (9-18 mo)</span><br/>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">→ Enables: Population growth, workforce stability, residential tax base</div>
+    </div>
+  </div>
+
+</div><!-- /phase-1 -->
+
+<!-- PHASE 2 -->
+<div class="phase-section">
+  <div class="phase-header">
+    <div class="phase-badge p2">II</div>
+    <h2>Phase 2: Growth & Acceleration (2028–2034)</h2>
+  </div>
+  <p style="font-size: 1.05rem; color: #666; margin-bottom: 2rem;"><strong>Focus:</strong> Complete major capital projects, second-wave business attraction, residential boom, lake/downtown activation at scale.</p>
+
+  <div style="background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+    <h4 style="color: #15803d; margin: 0;">Phase 2 Milestones (Year by Year)</h4>
+    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+      <li style="padding: 0.5rem 0;"><strong>2028:</strong> NW Trafficway breaks ground | SS4A Phase 1 complete | First LIHTC housing move-in | NRHP designation approved</li>
+      <li style="padding: 0.5rem 0;"><strong>2029:</strong> BEAD broadband backbone complete | Second FDI deal announced | SBA Hospital surgical center opens | Downtown historic rehab begins</li>
+      <li style="padding: 0.5rem 0;"><strong>2030:</strong> First mega-site major tenant occupancy (500+ sq ft) | Lake dining/water sports opens | Workforce rental 50% occupied | Oil Museum expansion break ground</li>
+      <li style="padding: 0.5rem 0;"><strong>2031:</strong> SW Trafficway complete | Health economy projects mid-construction | Lake hotel opens | Downtown performing arts center opens</li>
+      <li style="padding: 0.5rem 0;"><strong>2032:</strong> Mega-site 30% occupied (200+ jobs created) | Senior care campus opens | Artist district active | Third FDI deal | Population 15,000+</li>
+      <li style="padding: 0.5rem 0;"><strong>2033–2034:</strong> Second residential wave | Lake activation 80%+ complete | Oil Museum opens | Regional water export generates $5M+/yr revenue</li>
+    </ul>
+  </div>
+
+</div><!-- /phase-2 -->
+
+<!-- PHASE 3 -->
+<div class="phase-section">
+  <div class="phase-header">
+    <div class="phase-badge p3">III</div>
+    <h2>Phase 3: Consolidation & Legacy (2034–2040)</h2>
+  </div>
+  <p style="font-size: 1.05rem; color: #666; margin-bottom: 2rem;"><strong>Focus:</strong> Reach target metrics, establish regional leadership, finalize infrastructure, position for next 25 years.</p>
+
+  <div style="background: #fee2e2; border-left: 4px solid #dc2626; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+    <h4 style="color: #b91c1c; margin: 0;">Phase 3 End State (2040 Target)</h4>
+    <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+      <li style="padding: 0.5rem 0;">✓ Population: 17,600+ (+41% from 2026)</li>
+      <li style="padding: 0.5rem 0;">✓ Jobs: 1,600+ net new (6,800+ total employment)</li>
+      <li style="padding: 0.5rem 0;">✓ Median HH Income: $75,000+ (regional convergence)</li>
+      <li style="padding: 0.5rem 0;">✓ Tax Base: +150% (residential, commercial, industrial)</li>
+      <li style="padding: 0.5rem 0;">✓ Mega-Site: 50%+ occupied (500–800 jobs)</li>
+      <li style="padding: 0.5rem 0;">✓ Lake: 26-venue destination (1.5M visitors/yr)</li>
+      <li style="padding: 0.5rem 0;">✓ Downtown: Thriving arts/cultural district, historic core restored</li>
+      <li style="padding: 0.5rem 0;">✓ Infrastructure: Complete multimodal network (roads, bike, pedestrian, transit)</li>
+      <li style="padding: 0.5rem 0;">✓ Regional Leadership: Water authority, FTZ hub, Wichita MSA gateway</li>
+    </ul>
+  </div>
+
+</div><!-- /phase-3 -->
+
+<!-- FUNDING PIPELINE -->
+<div class="funding-pipeline">
+  <h3>Detailed Funding Pipeline (2026–2034)</h3>
+
+  <div class="funding-category">
+    <div class="funding-cat-title">Federal Programs (Target: $200M+)</div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$25M</div>
+      <div class="funding-desc"><strong>EDA Good Jobs Challenge</strong> — Workforce training, manufacturing/healthcare jobs. Apply 2026, award 2027. Match required: $5M local.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$5–25M</div>
+      <div class="funding-desc"><strong>DOT BUILD Grants</strong> — Transportation infrastructure. NW Trafficway, SW Extension, Central Ave reconstruction. Highly competitive. Apply 2026–2028.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$20M+</div>
+      <div class="funding-desc"><strong>USDA Rural Development</strong> — REAP ($1–5M), Water loans, RBDG, community facilities, USDA 538 housing financing.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$30M+</div>
+      <div class="funding-desc"><strong>HUD CDBG &amp; Section 108</strong> — CDBG ($1–3M/yr), Section 108 (5× leverage), HOME grants, 202 senior housing.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$10M+</div>
+      <div class="funding-desc"><strong>EPA Brownfields &amp; Smart Growth</strong> — Brownfields ($800K), green infrastructure, 7 free TA programs available.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$15M+</div>
+      <div class="funding-desc"><strong>KDOT IKE Legacy &amp; TA Programs</strong> — Transportation Alternatives ($1–3M/yr), HSIP safety grants, local bridge improvement.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$35M</div>
+      <div class="funding-desc"><strong>DOE Industrial Demonstrations</strong> — HF Sinclair refinery decarbonization. Up to $35M for hard-to-decarbonize industries.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$5M+</div>
+      <div class="funding-desc"><strong>SAMHSA/HHS CCBHC Grants</strong> — Behavioral health expansion. SBA Hospital wing eligible ($1–2M grants).</div>
+    </div>
+  </div>
+
+  <div class="funding-category">
+    <div class="funding-cat-title">State Programs (Target: $100M+)</div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$10M+</div>
+      <div class="funding-desc"><strong>Kansas HEAL Grants</strong> — Healthcare infrastructure. SBA Hospital surgical center, behavioral health wing, telehealth hub eligible.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$50M+</div>
+      <div class="funding-desc"><strong>STAR Bond District</strong> — Sales tax increment capture (6.5%, 20 years). Kansas Speedway precedent: $550M project. Mega-site, major developments eligible.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$10M+</div>
+      <div class="funding-desc"><strong>Kansas Business Development Fund</strong> — Business expansion, retention, attraction. Up to $10M per project.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$15M+</div>
+      <div class="funding-desc"><strong>KHRC LIHTC &amp; Homeownership</strong> — Low-income housing tax credits (9% rural), homeownership programs, rehab financing.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$5M+</div>
+      <div class="funding-desc"><strong>Kansas Brownfields &amp; KDHE Matching</strong> — Environmental remediation, water infrastructure upgrades.</div>
+    </div>
+  </div>
+
+  <div class="funding-category">
+    <div class="funding-cat-title">Municipal &amp; Private Capital (Target: $600M+)</div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$100M+</div>
+      <div class="funding-desc"><strong>GO Bonds &amp; Revenue Bonds</strong> — Infrastructure bonds ($50–100M), revenue bonds for utilities expansion, enterprise funds.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$150M+</div>
+      <div class="funding-desc"><strong>Private Real Estate Development</strong> — Residential (workforce rental, senior, MHC), commercial (downtown, lake), mixed-use projects. LIHTC/HTC stacks reduce private costs.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$200M+</div>
+      <div class="funding-desc"><strong>FDI &amp; International Investment</strong> — Foreign direct investment (AMAZONE model), EB-5 visa capital ($800K+ per investor), Canadian pension funds, UK/German companies.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$100M+</div>
+      <div class="funding-desc"><strong>Business Expansion &amp; HF Sinclair</strong> — Existing business growth, refinery modernization, mega-site tenant build-outs.</div>
+    </div>
+
+    <div class="funding-item">
+      <div class="funding-amount">$50M+</div>
+      <div class="funding-desc"><strong>Philanthropic &amp; Local Capital</strong> — Foundation grants, donor-supported downtown improvements, arts, parks, education initiatives.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RISKS & MITIGATION -->
+<div style="margin-top: 3rem;">
+  <h2 style="color: #1B3A5C; margin-bottom: 2rem;">Risk Assessment & Mitigation</h2>
+
+  <div class="risk-box">
+    <h4>Economic Recession</h4>
+    <p><strong>Mitigation:</strong> Healthcare & education jobs are recession-resistant. Maintain 20–25% municipal reserves. Prioritize CDBG/HUD funding (countercyclical programs). Delay mega-site recruitment in downturns; focus on internal capacity building. Federal grants actually increase during recessions.</p>
+  </div>
+
+  <div class="risk-box">
+    <h4>Grant Funding Uncertainty</h4>
+    <p><strong>Mitigation:</strong> Apply for EDA, USDA, DOT, HUD, EPA grants across portfolio (don't rely on single source). Municipal bond authorization provides backup ($150M available). State tax credits (LIHTC, HTC) less volatile than federal grants. Diversify funding sources across 5+ programs.</p>
+  </div>
+
+  <div class="risk-box">
+    <h4>Business Recruitment Delays</h4>
+    <p><strong>Mitigation:</strong> Build mega-site infrastructure now (water, sewer, power, roads) to reduce risk. FDI recruitment typically 12–24 months from contact to LOI. Start now; expect results in 2027–2029. AMAZONE success validates strategy; replicate model with JETRO, GTAI, KOTRA.</p>
+  </div>
+
+  <div class="risk-box">
+    <h4>Population Stagnation</h4>
+    <p><strong>Mitigation:</strong> Housing affordability is key. LIHTC, RHID, owner-occupied rehab make housing accessible to working families. Remote worker attraction via broadband (BEAD). Workforce training pipeline (Butler CC apprenticeships). Young family incentives (childcare, schools, parks).</p>
+  </div>
+
+  <div class="risk-box">
+    <h4>Community Opposition</h4>
+    <p><strong>Mitigation:</strong> (See Community Engagement Strategy page.) Transparent communication, early engagement, visible quick wins, addressing specific concerns, local hiring preferences, community benefit agreements. Most opposition is fear of change; education + trust-building resolves this.</p>
+  </div>
+
+  <div class="risk-box">
+    <h4>Data Center Decision Impact</h4>
+    <p><strong>Mitigation:</strong> Data center project ($500M+) would accelerate entire Vision 2040 timeline by 3–5 years. Current status: zoning ordinance approved (June 2026), no project proposed. Mayor Bill Young: "no project proposed." City has franchise fee revenue ($2.5M+/yr) if project proceeds. Keep open; don't depend on it. Water Authority de-risks other water users.</p>
+  </div>
+</div>
+
+<!-- LEADERSHIP ASSIGNMENTS -->
+<div style="margin-top: 3rem; background: #f8f4ec; padding: 2rem; border-radius: 10px;">
+  <h2 style="color: #1B3A5C; margin-bottom: 2rem;">Leadership &amp; Accountability</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">Executive Sponsor</h3>
+      <p><strong>David Dillner</strong><br/>City Manager</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Overall accountability. Quarterly reports to Commission. Authority to execute contracts, hire consultants, manage budget.</p>
+    </div>
+
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">Project Director</h3>
+      <p><strong>NEW HIRE</strong><br/>Vision 2040 Director</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Day-to-day execution. Grant management. Stakeholder coordination. Team: Finance Officer, Community Engagement Manager, Operations Manager.</p>
+    </div>
+
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">Steering Committee</h3>
+      <p><strong>9 Members</strong><br/>Oversight &amp; Strategy</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">City Manager (chair), Mayor, Planning Director, El Dorado Inc. CEO, Butler CC President, SBA Hospital CEO, Chamber President, 2 community representatives.</p>
+    </div>
+
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">Working Groups</h3>
+      <p><strong>5 Pillars</strong><br/>Implementation Teams</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Economy, Place-Making, People, Infrastructure, Finance. Each with dedicated lead, monthly meetings, performance metrics.</p>
+    </div>
+
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">External Partners</h3>
+      <p><strong>Consultants &amp; Advisors</strong><br/>Specialized Expertise</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Grant writer, FDI recruiter, real estate development consultant, transportation engineer, healthcare strategist (contract basis).</p>
+    </div>
+
+    <div style="background: #fff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #C8902A;">
+      <h3 style="color: #1B3A5C; margin-bottom: 0.5rem;">Community Voice</h3>
+      <p><strong>Public Advisory Board</strong><br/>Residents &amp; Stakeholders</p>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">12 community members (diverse backgrounds). Monthly meetings open to public. Feedback loop for concerns, ideas, accountability.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- SUCCESS METRICS -->
+<div style="margin-top: 3rem;">
+  <h2 style="color: #1B3A5C; margin-bottom: 2rem;">Key Success Metrics (Tracked Quarterly)</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+    <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2563eb;">
+      <h4 style="color: #1d4ed8; margin-bottom: 1rem;">Financial</h4>
+      <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+        <li>$ Grant applications submitted (target: 10+/yr)</li>
+        <li>$ Grant awards received (target: $10M+/yr by Year 3)</li>
+        <li>$ Private investment committed (target: $50M+ by Year 5)</li>
+        <li>$ Municipal bond issuance (track debt ratios)</li>
+      </ul>
+    </div>
+
+    <div style="background: #f0fdf4; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #16a34a;">
+      <h4 style="color: #15803d; margin-bottom: 1rem;">Population &amp; Housing</h4>
+      <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+        <li># Population (target: 13,000 by 2028, 15,000 by 2032)</li>
+        <li># New housing units (target: 1,100 by 2040)</li>
+        <li># Workforce rental units occupied</li>
+        <li># Median home value (track affordability gap)</li>
+      </ul>
+    </div>
+
+    <div style="background: #fef3c3; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #854d0e;">
+      <h4 style="color: #78350f; margin-bottom: 1rem;">Employment &amp; Economy</h4>
+      <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+        <li># Net new jobs (target: 1,600+ by 2040)</li>
+        <li># Median household income (target: $75,000+ by 2040)</li>
+        <li># Mega-site occupancy % (target: 50%+ by 2040)</li>
+        <li># New businesses opened (retention + attraction)</li>
+      </ul>
+    </div>
+
+    <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+      <h4 style="color: #b91c1c; margin-bottom: 1rem;">Infrastructure &amp; Quality of Life</h4>
+      <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+        <li># Projects completed (target: 47 by 2040)</li>
+        <li>% Broadband coverage (target: 95%+ by 2028)</li>
+        <li># Lake visitors (target: 1.5M by 2040)</li>
+        <li>% Pedestrian/bike mode share (track vs. baseline)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+</div><!-- /body -->
+
+<!-- FOOTER -->
+<footer style="background: #1B3A5C; color: #fff; padding: 40px 0; text-align: center; margin-top: 60px;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
+    <p style="color: rgba(255,255,255,.7); font-size: 0.9rem; margin: 0;">El Dorado, KS Vision 2040 · Implementation Roadmap · Updated June 2027</p>
+    <div style="margin-top: 1.5rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+      <a href="index.html" style="color: #C8902A; font-weight: 600;">Full Plan</a>
+      <a href="resources.html" style="color: #C8902A; font-weight: 600;">Resources</a>
+      <a href="stakeholders.html" style="color: #C8902A; font-weight: 600;">Stakeholders</a>
+      <a href="community-engagement.html" style="color: #C8902A; font-weight: 600;">Community Strategy</a>
+      <a href="presentation.html" style="color: #C8902A; font-weight: 600;">Presentation</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

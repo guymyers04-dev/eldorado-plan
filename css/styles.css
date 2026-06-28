@@ -1105,6 +1105,12 @@ footer ul a:hover { color:var(--gold); }
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
+.mp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
 .mp-card {
   display: flex;
   gap: .85rem;
@@ -1198,12 +1204,14 @@ footer ul a:hover { color:var(--gold); }
 
 @media (max-width: 900px) {
   .minor-partners-grid { grid-template-columns: repeat(2, 1fr); }
+  .mp-grid { grid-template-columns: 1fr; }
   .tr-grid { grid-template-columns: 1fr; }
   .cross-section-wrap { flex-direction: column; }
   .cs-arrow { transform: rotate(90deg); }
 }
 @media (max-width: 600px) {
   .minor-partners-grid { grid-template-columns: 1fr; }
+  .mp-grid { grid-template-columns: 1fr; }
   .mp-card { flex-direction: column; }
 }
 
@@ -2028,4 +2036,179 @@ footer ul a:hover { color:var(--gold); }
 @keyframes mapLoad {
   0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
+}
+
+/* ══════════════════════════════════════════════
+   Dropdown / Accordion Components for Niche Industries
+══════════════════════════════════════════════ */
+
+.ni-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ni-card {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: all var(--transition);
+}
+
+.ni-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(200,144,42,.15);
+}
+
+.ni-card-header {
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(27,58,92,.02), rgba(200,144,42,.05));
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  user-select: none;
+}
+
+.ni-card-header:hover {
+  background: linear-gradient(135deg, rgba(27,58,92,.04), rgba(200,144,42,.08));
+}
+
+.ni-card-title {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+.ni-card.dark .ni-card-header {
+  background: linear-gradient(135deg, rgba(27,58,92,.1), rgba(200,144,42,.08));
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.ni-card.dark .ni-card-title {
+  color: var(--white);
+}
+
+.ni-toggle {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--white);
+  font-size: .85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.ni-card.open .ni-toggle {
+  transform: rotate(180deg);
+}
+
+.ni-card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.ni-card.open .ni-card-content {
+  max-height: 2000px;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+
+.ni-card-content p {
+  font-size: .95rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.ni-card-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Targets subsection (nested in dropdown) ── */
+.ni-targets {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.ni-targets h4 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.ni-target {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+.ni-target:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.ni-target h5 {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+
+.ni-target-detail {
+  font-size: .85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0.25rem 0;
+}
+
+.ni-target-detail strong {
+  color: var(--navy);
+}
+
+/* ── Stats row ── */
+.ni-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.ni-stat {
+  background: rgba(200,144,42,.08);
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.ni-stat-val {
+  display: block;
+  font-size: .9rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.ni-stat-key {
+  display: block;
+  font-size: .75rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
 }

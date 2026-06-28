@@ -1568,3 +1568,17 @@ document.getElementById('back-to-top')?.addEventListener('click', () =>
     });
   });
 })();
+
+/* ── Niche Industries Card Dropdowns ── */
+;(function () {
+  const cards = document.querySelectorAll('.ni-card');
+  cards.forEach(card => {
+    const header = card.querySelector('.ni-card-header');
+    if (!header) return;
+
+    header.addEventListener('click', (e) => {
+      e.preventDefault();
+      card.classList.toggle('open');
+    });
+  });
+})();
