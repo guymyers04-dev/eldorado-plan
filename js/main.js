@@ -61,25 +61,54 @@ navList?.querySelectorAll('li:not(.nav-group) > a').forEach(a =>
 
 /* Dropdown group: toggle on click for all screens, hover handles desktop via CSS */
 document.querySelectorAll('.nav-group-btn').forEach(btn => {
+  btn.setAttribute('aria-haspopup', 'true');
+  btn.setAttribute('aria-expanded', 'false');
+
   btn.addEventListener('click', e => {
     e.stopPropagation();
     const group = btn.closest('.nav-group');
     const isOpen = group.classList.contains('open');
     /* Close all other groups */
-    document.querySelectorAll('.nav-group').forEach(g => g.classList.remove('open'));
-    if (!isOpen) group.classList.add('open');
+    document.querySelectorAll('.nav-group').forEach(g => {
+      g.classList.remove('open');
+      g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      group.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  /* Keyboard accessibility: Escape to close */
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      const group = btn.closest('.nav-group');
+      group.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
   });
 });
+
 /* Close on dropdown link click */
 document.querySelectorAll('.nav-dropdown a').forEach(a => {
   a.addEventListener('click', () => {
-    document.querySelectorAll('.nav-group').forEach(g => g.classList.remove('open'));
+    document.querySelectorAll('.nav-group').forEach(g => {
+      g.classList.remove('open');
+      g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+    });
     navList.classList.remove('open');
   });
 });
-/* Close on outside click */
-document.addEventListener('click', () => {
-  document.querySelectorAll('.nav-group').forEach(g => g.classList.remove('open'));
+
+/* Close on outside click - OPTIMIZED with target checking */
+document.addEventListener('click', (e) => {
+  /* Only close if click is outside nav */
+  if (!e.target.closest('#navbar')) {
+    document.querySelectorAll('.nav-group').forEach(g => {
+      g.classList.remove('open');
+      g.querySelector('.nav-group-btn').setAttribute('aria-expanded', 'false');
+    });
+  }
 });
 
 /* ══════════════════════════════════
