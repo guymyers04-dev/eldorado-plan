@@ -115,6 +115,13 @@
           <a href="reference.html#data-charts">Data &amp; Visualizations</a>
           <a href="reference.html#glossary">Glossary of Terms</a>
           <div class="nav-dropdown-sep"></div>
+          <div class="nav-dropdown-label">Engagement Tools</div>
+          <a href="stakeholders.html">👥 Stakeholder Directory</a>
+          <a href="comment-generator.html">💬 Comment Generator</a>
+          <a href="meeting-countdown.html">📅 Meeting Countdown</a>
+          <a href="commission-locator.html">🗺️ Commission Locator</a>
+          <a href="project-tracker.html">📊 Project Tracker</a>
+          <div class="nav-dropdown-sep"></div>
           <a href="reference.html#action">Take Action</a>
           <div class="nav-dropdown-sep"></div>
           <div class="nav-dropdown-label">Strategy & Implementation</div>
@@ -123,7 +130,6 @@
           <div class="nav-dropdown-sep"></div>
           <div class="nav-dropdown-label">Resources &amp; Contacts</div>
           <a href="resources.html">📚 Complete Resource Library</a>
-          <a href="stakeholders.html">👥 350+ Stakeholder Directory</a>
           <a href="presentation.html">🎯 Executive Presentation</a>
           <div class="nav-dropdown-sep"></div>
           <div class="nav-dropdown-label">Project Briefs</div>
@@ -209,9 +215,18 @@
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" style="height:72px"><path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="#F8F4EC"/></svg>
 </div>
 
+<!-- ════ PAGE NAV PILLS (HUB PAGE) ════ -->
+<nav class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#vision" class="page-nav__pill">Our Foundation</a>
+    <a href="#pillars" class="page-nav__pill">Eight Pillars</a>
+    <a href="#quicklinks" class="page-nav__pill">Quick Links</a>
+    <a href="resources.html" class="page-nav__pill">All Resources</a>
+  </div>
+</nav>
 
 <!-- ════ VISION SUMMARY ════ -->
-<section style="background:var(--navy);color:#fff;padding:3rem 0 2rem">
+<section id="vision" style="background:var(--navy);color:#fff;padding:3rem 0 2rem">
   <div class="container">
     <div class="reveal">
       <span class="section-label" style="color:var(--gold)">Our Foundation</span>
@@ -223,7 +238,7 @@
 </section>
 
 <!-- ════ EIGHT PILLARS ════ -->
-<section style="padding:4rem 0 3rem" class="section section--bg-cream">
+<section id="pillars" style="padding:4rem 0 3rem" class="section section--bg-cream">
   <div class="container">
     <div class="text-center reveal">
       <span class="section-label">Eight Thematic Pillars</span>
@@ -396,7 +411,7 @@
 </section>
 
 <!-- ════ HUB QUICK LINKS ════ -->
-<section style="padding:3rem 0">
+<section id="quicklinks" style="padding:3rem 0">
   <div class="container">
     <div class="hub-links">
       <a href="brief.html" class="hub-link">
@@ -455,6 +470,53 @@
           <div style="font-size:0.8rem;color:var(--muted)">Public persuasion</div>
         </div>
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ENGAGEMENT TOOLS ════ -->
+<section style="padding:3rem 0;background:linear-gradient(135deg,#f0f4ff,#f8f9fa);border-top:2px solid #e0e0e0">
+  <div class="container">
+    <div style="max-width:900px;margin:0 auto">
+      <h2 style="font-size:1.8rem;margin-bottom:0.5rem;text-align:center;color:#1a1a1a">Get Involved in Vision 2040</h2>
+      <p style="text-align:center;color:#555;margin-bottom:2rem;font-size:1.05rem">Use these interactive tools to stay informed, contact decision-makers, and influence outcomes.</p>
+      <div class="hub-links" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+        <a href="stakeholders.html" class="hub-link">
+          <span class="hub-link-icon">👥</span>
+          <div>
+            <strong>Stakeholder Directory</strong>
+            <div style="font-size:0.8rem;color:var(--muted)">40+ decision-makers</div>
+          </div>
+        </a>
+        <a href="comment-generator.html" class="hub-link">
+          <span class="hub-link-icon">💬</span>
+          <div>
+            <strong>Comment Generator</strong>
+            <div style="font-size:0.8rem;color:var(--muted)">3-step public comments</div>
+          </div>
+        </a>
+        <a href="meeting-countdown.html" class="hub-link">
+          <span class="hub-link-icon">📅</span>
+          <div>
+            <strong>Meeting Countdown</strong>
+            <div style="font-size:0.8rem;color:var(--muted)">Next commission meeting</div>
+          </div>
+        </a>
+        <a href="commission-locator.html" class="hub-link">
+          <span class="hub-link-icon">🗺️</span>
+          <div>
+            <strong>Commission Locator</strong>
+            <div style="font-size:0.8rem;color:var(--muted)">Find your commissioner</div>
+          </div>
+        </a>
+        <a href="project-tracker.html" class="hub-link">
+          <span class="hub-link-icon">📊</span>
+          <div>
+            <strong>Project Tracker</strong>
+            <div style="font-size:0.8rem;color:var(--muted)">8 projects · Real-time status</div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -531,5 +593,6 @@
 
 
 <script src="js/nav.js"></script>
+<script src="js/analytics.js" defer></script>
 </body>
 </html>
