@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Township & Parcel Opportunities | El Dorado, KS — Vision 2040</title>
+  <meta name="description" content="Interactive township map of El Dorado with parcel grid, zoning reference, and development opportunity filters. Prototype for Phase 9.4 Development Finder tool." />
+  <meta property="og:title" content="Township & Parcel Opportunities | El Dorado Vision 2040" />
+  <meta property="og:description" content="Detailed local map showing El Dorado township, parcels, zoning, and development opportunities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    .township-container {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .township-map {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      height: 600px;
+    }
+    .filter-panel {
+      background: #f8f4ec;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      font-size: 0.9em;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    .filter-panel h4 {
+      margin-top: 0;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 0.5rem;
+    }
+    .filter-group {
+      margin-bottom: 1.25rem;
+    }
+    .filter-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    .filter-button {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .filter-button:hover {
+      background: #1a2d4a;
+    }
+    .zone-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background: rgba(0,0,0,0.1);
+      border-radius: 3px;
+      font-size: 0.8em;
+      margin: 0.25rem 0;
+    }
+    @media (max-width: 768px) {
+      .township-container {
+        grid-template-columns: 1fr;
+      }
+      .filter-panel {
+        order: -1;
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+<body data-page="township-detail-map">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="navbar"></nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span>/</span>
+  <a href="region.html">Region</a>
+  <span>/</span>
+  <span>Township & Parcels</span>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #2E6E35 0%, #4a8a5c 100%);">
+  <div class="hero-content">
+    <h1>Township & Parcel Opportunities</h1>
+    <p class="hero-tagline">El Dorado Local Development Map</p>
+    <p class="hero-subtitle">High-resolution township map with parcel grid, zoning reference, and development opportunity filters. Prototype for Development Finder tool (Phase 9.4).</p>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="content-container">
+
+  <!-- SECTION 1: OVERVIEW -->
+  <section id="overview" class="content-section">
+    <h2>El Dorado Township: Detailed Local Planning & Development</h2>
+
+    <div class="content-grid">
+      <div class="content-block">
+        <h3>Township Geography & Organization</h3>
+        <p>El Dorado Township spans parts of 25S-04E, 25S-05E, 25S-06E, and 26S-05E in the Kansas Public Land Survey system (T-R coordinate system). The city proper occupies the central sections, with surrounding agricultural and rural land comprising the broader township area.</p>
+        <ul>
+          <li><strong>Primary Township:</strong> 25S-05E (El Dorado city center)</li>
+          <li><strong>Adjacent Sections:</strong> 25S-04E (west), 25S-06E (east), 26S-05E (south)</li>
+          <li><strong>City Grid:</strong> Regular street grid (1/8 mile blocks downtown; larger blocks periphery)</li>
+          <li><strong>Area Covered:</strong> Approximately 30 square miles (township + immediate periphery)</li>
+          <li><strong>Nearby Community:</strong> Prospect Township (25S-05E north)</li>
+        </ul>
+      </div>
+
+      <div class="content-block highlight">
+        <h3>📊 Development Inventory Summary</h3>
+        <ul class="metric-list">
+          <li><strong>City Population:</strong> 12,694 (2024 est.) in ~4 sq mi urban core</li>
+          <li><strong>Urban Density:</strong> ~3,200 people/sq mi (moderate)</li>
+          <li><strong>Available Parcels (0.5–5 acres):</strong> ~120 commercial/industrial</li>
+          <li><strong>Available Parcels (5–50 acres):</strong> ~18 North Gateway/South Industrial</li>
+          <li><strong>Zoning Diversity:</strong> 7 zone types (R-1 through I-2 + AG)</li>
+          <li><strong>Primary Growth Zones:</strong> North Gateway, Downtown TIF, South Industrial</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE MAP WITH FILTER -->
+    <div class="content-block" style="margin-top: 2rem;">
+      <h3 style="margin-bottom: 1.5rem;">🗺️ Township Development Map with Filters</h3>
+
+      <div class="township-container">
+        <div id="township-map" class="township-map"></div>
+
+        <!-- FILTER PANEL -->
+        <div class="filter-panel">
+          <h4>🔍 Development Filters</h4>
+          <p style="font-size: 0.85em; color: var(--muted); margin: 0.5rem 0 1rem;">Filter available parcels by type, location, and characteristics. (Prototype: linked to Phase 9.4 Development Finder)</p>
+
+          <div class="filter-group">
+            <label for="zone-filter">Zone Type:</label>
+            <select id="zone-filter">
+              <option value="">All Zones</option>
+              <option value="R-1">R-1 Residential</option>
+              <option value="R-2/R-3">R-2/R-3 Multi-Family</option>
+              <option value="C-1">C-1 Highway Commercial</option>
+              <option value="C-2">C-2 Downtown</option>
+              <option value="I-1">I-1 Light Industrial</option>
+              <option value="I-2">I-2 Heavy Industrial</option>
+              <option value="AG">Agricultural</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="distance-filter">Distance to US-54:</label>
+            <select id="distance-filter">
+              <option value="">Any Distance</option>
+              <option value="0-1">0–1 mile</option>
+              <option value="1-3">1–3 miles</option>
+              <option value="3-5">3–5 miles</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="size-filter">Parcel Size:</label>
+            <select id="size-filter">
+              <option value="">Any Size</option>
+              <option value="0-1">< 1 acre</option>
+              <option value="1-5">1–5 acres</option>
+              <option value="5-20">5–20 acres</option>
+              <option value="20+">20+ acres</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="district-filter">Growth District:</label>
+            <select id="district-filter">
+              <option value="">All Districts</option>
+              <option value="north-gateway">North Gateway</option>
+              <option value="downtown-tif">Downtown TIF</option>
+              <option value="south-industrial">South Industrial</option>
+              <option value="lakeside">Lakeside</option>
+            </select>
+          </div>
+
+          <button class="filter-button" onclick="applyFilters()">Apply Filters</button>
+          <button class="filter-button" style="background: #999;" onclick="resetFilters()">Reset</button>
+
+          <div style="margin-top: 1.5rem; padding: 0.75rem; background: rgba(27,58,92,.06); border-radius: 4px; border-left: 3px solid var(--navy);">
+            <p style="margin: 0; font-size: 0.8em; font-weight: 600; color: var(--navy);">📌 Zoom Level:</p>
+            <p style="margin: 0.25rem 0 0 0; font-size: 0.75em; color: var(--muted);">Use map zoom to view detail. Scroll to pan.</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+        <em>Interactive map shows El Dorado township grid (25S-05E primary), zoning reference overlay (light colors), and major streets.
+        Use filter panel to search for development opportunities. (Prototype interface — full parcel database and listings in Phase 9.4)</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: ZONING REFERENCE -->
+  <section id="zoning" class="content-section">
+    <h2>Zoning Districts at a Glance</h2>
+
+    <div class="content-grid">
+      <div class="content-block">
+        <h4>🏠 Residential Zones</h4>
+        <ul>
+          <li><strong>R-1 Single-Family:</strong> Traditional neighborhoods; 5,000+ sq ft lots; low density</li>
+          <li><strong>R-2/R-3 Multi-Family:</strong> Duplexes, apartments, mixed housing; moderate density</li>
+          <li><strong>Developable Land:</strong> North Gateway zone (150–200 units planned)</li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h4>💼 Commercial Zones</h4>
+        <ul>
+          <li><strong>C-1 Highway Commercial:</strong> US-54/77 corridor; hotels, shops, services</li>
+          <li><strong>C-2 Downtown Commercial:</strong> Central Ave; pedestrian-oriented; mixed-use</li>
+          <li><strong>Downtown TIF District:</strong> Tax increment financing for revitalization</li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h4>🏭 Industrial Zones</h4>
+        <ul>
+          <li><strong>I-1 Light Industrial:</strong> Manufacturing, assembly, light warehousing</li>
+          <li><strong>I-2 Heavy Industrial:</strong> Hazmat, heavy manufacturing, airport corridor</li>
+          <li><strong>South Industrial Park:</strong> Project Horizon data center, aerospace campus</li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h4>🌾 Agricultural Zone</h4>
+        <ul>
+          <li><strong>AG Agricultural:</strong> Farms, ranches, ag-related equipment storage</li>
+          <li><strong>Transition Zone:</strong> Gradual development at township edges</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: DEVELOPMENT OPPORTUNITIES -->
+  <section id="opportunities" class="content-section">
+    <h2>Key Development Opportunities</h2>
+
+    <div class="content-grid">
+      <div class="content-block">
+        <h4>🏘️ North Gateway Development Zone</h4>
+        <p><strong>Location:</strong> US-54/77 north of city; 500+ acres potential</p>
+        <p><strong>Zoning:</strong> Planned R-1, R-2/R-3, C-1 with mixed-use center</p>
+        <p><strong>Opportunity:</strong> 150–200 housing units (workforce + market-rate); hotel; commercial services</p>
+        <p><strong>Infrastructure:</strong> Water + sewer to north side; new roads; transit connection</p>
+      </div>
+
+      <div class="content-block">
+        <h4>📍 Downtown Revitalization (TIF District)</h4>
+        <p><strong>Location:</strong> Central Ave corridor (downtown core)</p>
+        <p><strong>Zoning:</strong> C-2 Downtown Commercial; overlay for mixed-use development</p>
+        <p><strong>Opportunity:</strong> 60–80 residential lofts; ground-floor retail; office</p>
+        <p><strong>Incentive:</strong> Tax Increment Financing (TIF) district capturing 20-year sales tax growth</p>
+      </div>
+
+      <div class="content-block">
+        <h4>🏭 South Industrial & Aerospace Campus</h4>
+        <p><strong>Location:</strong> South Industrial corridor (US-54 + EQA Airport)</p>
+        <p><strong>Zoning:</strong> I-1, I-2 Heavy Industrial; airport compatibility</p>
+        <p><strong>Opportunity:</strong> Project Horizon data center campus; aerospace parts manufacturing; logistics warehousing</p>
+        <p><strong>Infrastructure:</strong> Dedicated water supply; electrical capacity; broadband</p>
+      </div>
+
+      <div class="content-block">
+        <h4>💧 Lakeside Recreation District</h4>
+        <p><strong>Location:</strong> El Dorado Lake shoreline</p>
+        <p><strong>Zoning:</strong> Recreation; mixed lodging + amenities</p>
+        <p><strong>Opportunity:</strong> Hotel (100–150 rooms); RV park; boat rentals; dining/retail</p>
+        <p><strong>Infrastructure:</strong> Marina expansion; parking; water/sewer capacity</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: RELATED LINKS -->
+  <section id="related" class="content-section">
+    <h2>Related Development Tools & Resources</h2>
+    <div class="related-links">
+      <a href="region.html" class="related-card">
+        <h4>Region & Planning Map</h4>
+        <p>Full county-wide zoning and district reference</p>
+      </a>
+      <a href="real-estate-opportunity-map.html" class="related-card">
+        <h4>Real Estate Opportunity Map</h4>
+        <p>Available commercial & residential properties</p>
+      </a>
+      <a href="project-tracker.html" class="related-card">
+        <h4>Project Tracker</h4>
+        <p>Follow Vision 2040 implementation progress</p>
+      </a>
+      <a href="commission-locator.html" class="related-card">
+        <h4>Commission Locator</h4>
+        <p>Find planning & zoning approval contacts</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" class="content-section">
+    <h2>Sources & Data References</h2>
+    <ul class="citation-list">
+      <li>City of El Dorado. "Comprehensive Zoning Map" (2024).</li>
+      <li>El Dorado GIS Department. "Parcel Map & Township Grid" (2024).</li>
+      <li>Kansas Land Information System (KLIS). "Public Land Survey System Grid" (2024).</li>
+      <li>City Planning Department. "North Gateway Development Zone Master Plan" (2023).</li>
+      <li>El Dorado Economic Development. "Available Properties Inventory" (2024).</li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// TOWNSHIP DETAIL MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+  const map = L.map('township-map').setView([37.82, -96.87], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Township/Range grid lines (approximate)
+  const gridLines = [
+    // Section grid (township lines)
+    { coords: [[37.92, -96.70], [37.92, -97.04]], name: '25S boundary (north)' },
+    { coords: [[37.82, -96.70], [37.82, -97.04]], name: '25S-26S boundary' },
+    { coords: [[37.72, -96.70], [37.72, -97.04]], name: '26S boundary (south)' },
+    // Range lines
+    { coords: [[37.72, -97.04], [37.92, -97.04]], name: '04E boundary (west)' },
+    { coords: [[37.72, -96.87], [37.92, -96.87]], name: '05E boundary (center)' },
+    { coords: [[37.72, -96.70], [37.92, -96.70]], name: '06E boundary (east)' }
+  ];
+
+  gridLines.forEach(line => {
+    L.polyline(line.coords, {
+      color: '#ccc',
+      weight: 1,
+      opacity: 0.6,
+      dashArray: '5, 5'
+    }).addTo(map);
+  });
+
+  // Development zone polygons with zoning reference overlay
+  const developmentZones = [
+    {
+      name: 'North Gateway Development',
+      coords: [[37.90, -96.95], [37.90, -96.79], [37.82, -96.79], [37.82, -96.95]],
+      color: '#2E6E35',
+      opacity: 0.15,
+      zoning: 'R-1/R-2/C-1 Mixed',
+      desc: '150–200 residential units, commercial center'
+    },
+    {
+      name: 'Downtown TIF District',
+      coords: [[37.84, -96.90], [37.84, -96.84], [37.80, -96.84], [37.80, -96.90]],
+      color: '#1B3A5C',
+      opacity: 0.15,
+      zoning: 'C-2 Downtown',
+      desc: '60–80 lofts, ground-floor retail'
+    },
+    {
+      name: 'South Industrial Park',
+      coords: [[37.70, -96.95], [37.70, -96.79], [37.76, -96.79], [37.76, -96.95]],
+      color: '#7B5EA7',
+      opacity: 0.15,
+      zoning: 'I-1/I-2 Industrial',
+      desc: 'Data center, aerospace, warehousing'
+    },
+    {
+      name: 'Lakeside Recreation',
+      coords: [[37.88, -96.88], [37.88, -96.82], [37.84, -96.82], [37.84, -96.88]],
+      color: '#4A90BF',
+      opacity: 0.15,
+      zoning: 'Recreation Mixed',
+      desc: 'Hotel, RV park, dining, water sports'
+    }
+  ];
+
+  developmentZones.forEach(zone => {
+    const polygon = L.polygon(zone.coords, {
+      color: zone.color,
+      fillColor: zone.color,
+      fillOpacity: zone.opacity,
+      weight: 2
+    }).addTo(map);
+
+    polygon.bindPopup(`
+      <div style="font-size: 0.95em;">
+        <strong>${zone.name}</strong><br>
+        <span class="zone-badge" style="background: ${zone.color}20; border-left: 3px solid ${zone.color}">
+          ${zone.zoning}
+        </span><br>
+        <span style="color: #666; font-size: 0.9em;">${zone.desc}</span>
+      </div>
+    `);
+  });
+
+  // Key landmarks
+  const landmarks = [
+    { name: 'El Dorado City Center', lat: 37.825, lng: -96.87, icon: '🏛️', type: 'downtown' },
+    { name: 'El Dorado Lake', lat: 37.90, lng: -96.87, icon: '💧', type: 'lake' },
+    { name: 'EQA Airport', lat: 37.72, lng: -96.87, icon: '✈️', type: 'airport' },
+    { name: 'Prospect (North)', lat: 37.95, lng: -96.87, icon: '📍', type: 'community' },
+    { name: 'US-54/77 Interchange', lat: 37.82, lng: -96.87, icon: '🛣️', type: 'interchange' }
+  ];
+
+  landmarks.forEach(landmark => {
+    const marker = L.circleMarker([landmark.lat, landmark.lng], {
+      radius: 7,
+      fillColor: '#ff6b6b',
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.8
+    }).addTo(map);
+
+    marker.bindPopup(`<strong>${landmark.icon} ${landmark.name}</strong>`);
+  });
+
+  // Legend
+  const legend = L.control({ position: 'bottomleft' });
+  legend.onAdd = function(map) {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = '<div style="background: white; padding: 12px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+      '<p style="margin: 0 0 8px 0;"><strong>📍 Township & Development Zones</strong></p>' +
+      '<p style="margin: 4px 0; font-size: 0.85em;"><span style="color: #2E6E35;">▮</span> North Gateway</p>' +
+      '<p style="margin: 4px 0; font-size: 0.85em;"><span style="color: #1B3A5C;">▮</span> Downtown TIF</p>' +
+      '<p style="margin: 4px 0; font-size: 0.85em;"><span style="color: #7B5EA7;">▮</span> South Industrial</p>' +
+      '<p style="margin: 4px 0; font-size: 0.85em;"><span style="color: #4A90BF;">▮</span> Lakeside Recreation</p>' +
+      '<p style="margin: 8px 0 0 0; font-size: 0.8em; color: #666;">Grid lines show township/range boundaries</p>' +
+      '</div>';
+    return div;
+  };
+  legend.addTo(map);
+
+  // Scale
+  L.control.scale().addTo(map);
+});
+
+// Filter functions (placeholder for Phase 9.4 integration)
+function applyFilters() {
+  const zone = document.getElementById('zone-filter').value;
+  const distance = document.getElementById('distance-filter').value;
+  const size = document.getElementById('size-filter').value;
+  const district = document.getElementById('district-filter').value;
+
+  // In Phase 9.4, this will query the parcel database
+  alert('Filter applied:\nZone: ' + (zone || 'Any') + '\nDistance: ' + (distance || 'Any') + '\nSize: ' + (size || 'Any') + '\nDistrict: ' + (district || 'Any') + '\n\nFull parcel results coming in Phase 9.4 Development Finder.');
+}
+
+function resetFilters() {
+  document.getElementById('zone-filter').value = '';
+  document.getElementById('distance-filter').value = '';
+  document.getElementById('size-filter').value = '';
+  document.getElementById('district-filter').value = '';
+}
+</script>
+
+</body>
+</html>
