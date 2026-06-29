@@ -1,101 +1,45 @@
 /* El Dorado Vision 2040 — main.js */
 
-/* ── Scroll reveal ── */
+/* ── Scroll reveal animation ── */
 document.querySelectorAll('.reveal').forEach(el => {
   new IntersectionObserver(([e], obs) => {
     if (e.isIntersecting) { el.classList.add('visible'); obs.unobserve(el); }
   }, { threshold: 0.1 }).observe(el);
 });
 
-/* ── Page nav pills tracking ── */
+/* ── Page nav pills tracking (fixed for all pages including detail pages) ── */
 const pageNavObserver = new IntersectionObserver((entries) => {
+  let topSection = null;
+  let topY = Infinity;
+
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const id = entry.target.id;
-      const pill = document.querySelector(`.page-nav__pill[href="#${id}"]`);
-      if (pill) {
-        document.querySelectorAll('.page-nav__pill').forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
+      const rect = entry.target.getBoundingClientRect();
+      // Find the section closest to top of viewport
+      if (rect.top >= -100 && rect.top < topY) {
+        topY = rect.top;
+        topSection = entry.target;
       }
     }
   });
-}, { threshold: 0.3 });
 
-document.querySelectorAll('section[id]').forEach(section => {
-  pageNavObserver.observe(section);
+  // Update active pill for topmost section only
+  if (topSection) {
+    const id = topSection.id;
+    const pill = document.querySelector(`.page-nav__pill[href="#${id}"]`);
+    if (pill) {
+      document.querySelectorAll('.page-nav__pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    }
+  }
+}, { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1.0] });
+
+document.querySelectorAll('[id]').forEach(el => {
+  pageNavObserver.observe(el);
 });
-
-/* ══════════════════════════════════════════════
-   NAVIGATION STATE MANAGER — Optimized Active Section Detection
-══════════════════════════════════════════════ */
-class NavigationStateManager {
-  static navLinkMap = new Map();
-  static navButtonMap = new Map();
-  static currentSection = null;
-  static observer = null;
-
-  static init() {
-    // Cache all nav links and their associated groups
-    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-      const href = link.getAttribute('href');
-      const group = link.closest('.nav-group');
-      NavigationStateManager.navLinkMap.set(href, { link, group });
-    });
-
-    // Cache nav group buttons
-    document.querySelectorAll('.nav-group-btn').forEach(btn => {
-      const group = btn.closest('.nav-group');
-      NavigationStateManager.navButtonMap.set(group, btn);
-    });
-
-    // Use IntersectionObserver to detect active section (more efficient than scroll calculations)
-    NavigationStateManager.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const sectionId = '#' + entry.target.id;
-          NavigationStateManager.setActiveSection(sectionId);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    // Observe all sections
-    document.querySelectorAll('section[id]').forEach(section => {
-      NavigationStateManager.observer.observe(section);
-    });
-  }
-
-  static setActiveSection(sectionId) {
-    if (NavigationStateManager.currentSection === sectionId) return;
-
-    // Deactivate previous
-    if (NavigationStateManager.currentSection) {
-      const prevLink = NavigationStateManager.navLinkMap.get(NavigationStateManager.currentSection);
-      if (prevLink) {
-        prevLink.link.classList.remove('active');
-        if (prevLink.group) {
-          const btn = NavigationStateManager.navButtonMap.get(prevLink.group);
-          if (btn) btn.classList.remove('has-active');
-        }
-      }
-    }
-
-    // Activate new
-    const currLink = NavigationStateManager.navLinkMap.get(sectionId);
-    if (currLink) {
-      currLink.link.classList.add('active');
-      if (currLink.group) {
-        const btn = NavigationStateManager.navButtonMap.get(currLink.group);
-        if (btn) btn.classList.add('has-active');
-      }
-    }
-
-    NavigationStateManager.currentSection = sectionId;
-  }
-}
 
 /* ── Unified scroll handler (RAF-throttled) ── */
 const _scrollBar = document.getElementById('scroll-progress');
-const _bttBtn    = document.getElementById('back-to-top');
 const _hero      = document.getElementById('hero');
 let _rafPending  = false;
 
@@ -113,21 +57,14 @@ function onScroll() {
       _scrollBar.style.width = (total > 0 ? (y / total * 100) : 0) + '%';
     }
 
-    /* Back to top button */
-    _bttBtn?.classList.toggle('btt-visible', y > 600);
-
-    /* Hero parallax */
-    if (_hero && y < window.innerHeight * 1.5) {
+    /* Hero parallax — disabled on mobile for performance */
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (_hero && !isMobile && y < window.innerHeight * 1.5) {
       _hero.style.backgroundPositionY = `calc(center + ${y * 0.28}px)`;
     }
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
-
-// Initialize navigation state manager on DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-  NavigationStateManager.init();
-});
 
 /* ── Mobile nav & dropdown toggles ── */
 const toggle  = document.querySelector('.nav-toggle');
@@ -1596,10 +1533,7 @@ function makeChart(id, config) {
    VISUAL ENHANCEMENTS — Scroll Progress, Counters, Stagger, Parallax
 ══════════════════════════════════════════════ */
 
-/* ── Back to top button click ── */
-document.getElementById('back-to-top')?.addEventListener('click', () =>
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-);
+/* Back to top button — removed (element never created) */
 
 /* ── Animated number counters ── */
 ;(function () {
