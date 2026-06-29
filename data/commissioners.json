@@ -1,0 +1,190 @@
+{
+  "commissioners": [
+    {
+      "id": 3,
+      "name": "Rebecca Martinez",
+      "district": 1,
+      "title": "City Commissioner",
+      "email": "martinez@eldoradoks.net",
+      "phone": "(316) 321-1236",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Martinez",
+      "bio": "District 1 Commissioner. Passionate about affordable housing and neighborhood revitalization. Rebecca has lived in the North End for 15 years and advocates for equitable development.",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM at City Hall",
+      "officeHours": "Tuesdays 2-4 PM, Thursdays 10 AM-12 PM (City Hall, Room 202)",
+      "address": "City Hall, 220 W Central Ave, El Dorado, KS 67042",
+      "term": "2023-2027",
+      "socialMedia": {
+        "facebook": "rebecca.martinez",
+        "twitter": "",
+        "email": "martinez@eldoradoks.net"
+      },
+      "votingRecord": [
+        {
+          "project": "Downtown Revitalization",
+          "vote": "yes",
+          "date": "2024-03-18",
+          "reason": "Critical for walkability and mixed-income housing"
+        },
+        {
+          "project": "North Gateway District",
+          "vote": "yes",
+          "date": "2024-02-20",
+          "reason": "Strong local employment growth potential"
+        },
+        {
+          "project": "El Dorado Lake Expansion",
+          "vote": "abstain",
+          "date": "2024-01-15",
+          "reason": "Environmental impact study still pending"
+        },
+        {
+          "project": "Health Economy Campus",
+          "vote": "yes",
+          "date": "2023-12-10",
+          "reason": "Healthcare jobs and training opportunities"
+        },
+        {
+          "project": "Trail Network Expansion",
+          "vote": "yes",
+          "date": "2023-11-20",
+          "reason": "Community quality of life enhancement"
+        }
+      ],
+      "meetingAttendance": {
+        "totalMeetings": 24,
+        "attendedMeetings": 23,
+        "attendancePercentage": 96
+      },
+      "districtDescription": "North and Northeast El Dorado - includes downtown, university district, and emerging neighborhoods north of Central Ave"
+    },
+    {
+      "id": 4,
+      "name": "James Park",
+      "district": 2,
+      "title": "City Commissioner",
+      "email": "park@eldoradoks.net",
+      "phone": "(316) 321-1237",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Park",
+      "bio": "District 2 Commissioner focused on economic development and industrial recruitment. James represents the business community and has 20 years of manufacturing experience.",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM at City Hall",
+      "officeHours": "Wednesdays 1-3 PM, Saturdays 9-11 AM (Park's Hardware Store, Main St)",
+      "address": "City Hall, 220 W Central Ave, El Dorado, KS 67042",
+      "term": "2022-2026",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": "@JimPark_ED",
+        "email": "park@eldoradoks.net"
+      },
+      "votingRecord": [
+        {
+          "project": "North Gateway District",
+          "vote": "yes",
+          "date": "2024-02-20",
+          "reason": "Strategic industrial zoning and job creation"
+        },
+        {
+          "project": "Downtown Revitalization",
+          "vote": "yes",
+          "date": "2024-03-18",
+          "reason": "Retail revitalization brings economic activity"
+        },
+        {
+          "project": "Electric Vehicle Infrastructure",
+          "vote": "yes",
+          "date": "2024-04-01",
+          "reason": "Future-proof infrastructure for business recruitment"
+        },
+        {
+          "project": "El Dorado Lake Expansion",
+          "vote": "yes",
+          "date": "2024-01-15",
+          "reason": "Tourism and recreation revenue opportunities"
+        },
+        {
+          "project": "Kansas Oil Museum",
+          "vote": "yes",
+          "date": "2023-10-20",
+          "reason": "Heritage tourism and educational value"
+        }
+      ],
+      "meetingAttendance": {
+        "totalMeetings": 24,
+        "attendedMeetings": 22,
+        "attendancePercentage": 92
+      },
+      "districtDescription": "South and Southeast El Dorado - includes industrial corridor, commercial areas, and residential south of Central Ave"
+    },
+    {
+      "id": 5,
+      "name": "Susan Chen",
+      "district": 3,
+      "title": "City Commissioner",
+      "email": "chen@eldoradoks.net",
+      "phone": "(316) 321-1238",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Chen",
+      "bio": "District 3 Commissioner. Advocates for parks, trails, and environmental sustainability. Susan is a retired environmental scientist and works with regional conservation groups.",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM at City Hall",
+      "officeHours": "Thursdays 3-5 PM, Sundays 2-4 PM (El Dorado Lake Pavilion, seasonal)",
+      "address": "City Hall, 220 W Central Ave, El Dorado, KS 67042",
+      "term": "2023-2027",
+      "socialMedia": {
+        "facebook": "susan.chen.ed",
+        "twitter": "",
+        "email": "chen@eldoradoks.net"
+      },
+      "votingRecord": [
+        {
+          "project": "Trail Network Expansion",
+          "vote": "yes",
+          "date": "2023-11-20",
+          "reason": "Regional connectivity and healthy community outcomes"
+        },
+        {
+          "project": "El Dorado Lake Expansion",
+          "vote": "yes",
+          "date": "2024-01-15",
+          "reason": "Recreation and wildlife habitat with proper environmental stewardship"
+        },
+        {
+          "project": "Performing Arts Center",
+          "vote": "yes",
+          "date": "2023-09-15",
+          "reason": "Cultural enrichment and green building standards"
+        },
+        {
+          "project": "Electric Vehicle Infrastructure",
+          "vote": "yes",
+          "date": "2024-04-01",
+          "reason": "Climate action and reduced carbon footprint"
+        },
+        {
+          "project": "Downtown Revitalization",
+          "vote": "yes",
+          "date": "2024-03-18",
+          "reason": "Mixed-use development with green space integration"
+        }
+      ],
+      "meetingAttendance": {
+        "totalMeetings": 24,
+        "attendedMeetings": 24,
+        "attendancePercentage": 100
+      },
+      "districtDescription": "West and Southwest El Dorado - includes residential neighborhoods, El Dorado Lake area, and park/recreation facilities"
+    }
+  ],
+  "projects": [
+    "Downtown Revitalization",
+    "North Gateway District",
+    "El Dorado Lake Expansion",
+    "Health Economy Campus",
+    "Kansas Oil Museum",
+    "Performing Arts Center",
+    "Electric Vehicle Infrastructure",
+    "Trail Network Expansion"
+  ],
+  "voteDescriptions": {
+    "yes": "Voted YES - Supports the project",
+    "no": "Voted NO - Opposes the project",
+    "abstain": "Abstained - Did not vote / Conflict of interest"
+  }
+}
