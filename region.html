@@ -641,7 +641,43 @@
       <h2>Zoning &amp; Planning Map</h2>
       <p class="lead">Interactive map showing existing zoning districts, FEMA-designated flood zones (Walnut River corridor), and proposed development improvement zones. Toggle layers using the controls in the top-right corner of the map.</p>
     </div>
-    <div id="map-zoning" class="reveal"></div>
+    <!-- Map Tabs Navigation -->
+    <div class="reveal" style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+      <button class="map-tab active" data-tab="zoning" style="padding: 0.75rem 1.25rem; background: var(--navy); color: white; border: 2px solid var(--navy); border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
+        🗺️ Zoning & Development
+      </button>
+      <button class="map-tab" data-tab="fire-districts" style="padding: 0.75rem 1.25rem; background: transparent; color: var(--navy); border: 2px solid var(--navy); border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
+        🚒 Fire Districts
+      </button>
+      <button class="map-tab" data-tab="commission" style="padding: 0.75rem 1.25rem; background: transparent; color: var(--navy); border: 2px solid var(--navy); border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
+        🏛️ County Commission
+      </button>
+      <button class="map-tab" data-tab="township" style="padding: 0.75rem 1.25rem; background: transparent; color: var(--navy); border: 2px solid var(--navy); border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.2s;">
+        📍 Township & Parcels
+      </button>
+    </div>
+
+    <!-- Tab Content: Zoning Map (Default) -->
+    <div id="zoning-tab" class="map-tab-content reveal" style="display: block;">
+      <div id="map-zoning"></div>
+    </div>
+
+    <!-- Tab Content: Fire Districts Map -->
+    <div id="fire-districts-tab" class="map-tab-content reveal" style="display: none;">
+      <iframe src="fire-districts-map.html" width="100%" height="600" frameborder="0" style="border-radius: var(--radius);"></iframe>
+    </div>
+
+    <!-- Tab Content: County Commission Map -->
+    <div id="commission-tab" class="map-tab-content reveal" style="display: none;">
+      <iframe src="county-commission-map.html" width="100%" height="600" frameborder="0" style="border-radius: var(--radius); display: none;" id="commission-iframe"></iframe>
+      <p id="commission-placeholder" style="text-align: center; padding: 2rem; color: var(--muted);">County Commission Districts map coming soon...</p>
+    </div>
+
+    <!-- Tab Content: Township Map -->
+    <div id="township-tab" class="map-tab-content reveal" style="display: none;">
+      <iframe src="township-detail-map.html" width="100%" height="600" frameborder="0" style="border-radius: var(--radius); display: none;" id="township-iframe"></iframe>
+      <p id="township-placeholder" style="text-align: center; padding: 2rem; color: var(--muted);">Township & Parcel map coming soon...</p>
+    </div>
     <div class="zoning-legend reveal" style="transition-delay:.15s">
       <div class="zoning-legend-group">
         <h4>Existing Zoning</h4>
@@ -856,5 +892,53 @@
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
 <script src="js/analytics.js" defer></script>
+
+<!-- Map Tabs Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mapTabs = document.querySelectorAll('.map-tab');
+  const mapTabContents = document.querySelectorAll('.map-tab-content');
+
+  mapTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetTab = this.getAttribute('data-tab');
+
+      // Remove active class from all tabs
+      mapTabs.forEach(t => {
+        t.style.background = 'transparent';
+        t.style.color = 'var(--navy)';
+      });
+
+      // Hide all content
+      mapTabContents.forEach(content => {
+        content.style.display = 'none';
+      });
+
+      // Add active class to clicked tab
+      this.style.background = 'var(--navy)';
+      this.style.color = 'white';
+
+      // Show targeted content
+      const activeContent = document.getElementById(targetTab + '-tab');
+      if (activeContent) {
+        activeContent.style.display = 'block';
+
+        // Show iframes if they exist and hide placeholders
+        if (targetTab === 'commission') {
+          const iframe = document.getElementById('commission-iframe');
+          const placeholder = document.getElementById('commission-placeholder');
+          if (iframe) iframe.style.display = 'block';
+          if (placeholder) placeholder.style.display = 'none';
+        } else if (targetTab === 'township') {
+          const iframe = document.getElementById('township-iframe');
+          const placeholder = document.getElementById('township-placeholder');
+          if (iframe) iframe.style.display = 'block';
+          if (placeholder) placeholder.style.display = 'none';
+        }
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
