@@ -4511,3 +4511,114 @@ footer ul a:hover { color:var(--gold); }
   font-size: 1.2rem;
   max-width: none;
 }
+
+/* ════════════════════════════════════════════
+   PHASE 2A: SECTION STYLING & VISUAL RHYTHM
+════════════════════════════════════════════ */
+
+/* Section background utilities for visual rhythm */
+.section--bg-cream {
+  background: var(--cream);
+}
+
+.section--bg-navy {
+  background: linear-gradient(135deg, var(--navy) 0%, #2a5a8c 100%);
+  color: #fff;
+}
+
+.section--bg-dark {
+  background: var(--dark);
+  color: #fff;
+}
+
+.section--bg-white {
+  background: var(--white);
+}
+
+/* Category badges - Left border color coding */
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: transparent;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.3s ease;
+}
+
+/* Economy sections - Green */
+.section--economy::before {
+  width: 6px;
+  background: #2E6E35;
+}
+
+/* Place/Infrastructure sections - Sky Blue */
+.section--place::before {
+  width: 6px;
+  background: #4A90BF;
+}
+
+/* Finance/Funding sections - Gold */
+.section--finance::before {
+  width: 6px;
+  background: #C8902A;
+}
+
+/* Regional/Policy sections - Purple */
+.section--regional::before {
+  width: 6px;
+  background: #7B5EA7;
+}
+
+/* Community/People sections - Rust */
+.section--people::before {
+  width: 6px;
+  background: #A63D2F;
+}
+
+/* Enhanced section headers */
+.section-header {
+  margin-bottom: 3.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header.center {
+  margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-header.center h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section label styling improvements */
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: block;
+  line-height: 1.4;
+  opacity: 1;
+}
+
+/* Responsive adjustments for category badges on mobile */
+@media (max-width: 768px) {
+  .section::before {
+    width: 4px;
+  }
+}
