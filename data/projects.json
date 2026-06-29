@@ -2,312 +2,207 @@
   "projects": [
     {
       "id": 1,
-      "name": "Downtown Revitalization",
-      "theme": "downtown",
+      "name": "I-35 Interchange Strategy",
+      "description": "Regional I-35 corridor improvements: Exit 71 & 76 optimization, truck-friendly infrastructure, regional commerce gateway",
       "status": "In Progress",
       "statusCode": "in-progress",
       "phase": 1,
-      "startYear": 2024,
-      "targetYear": 2028,
-      "department": "Planning & Development",
-      "owner": "Maria Gonzalez",
-      "budget": {
-        "total": 12500000,
-        "allocated": 8750000,
-        "spent": 2150000,
-        "percentage": 17.2
-      },
-      "description": "Mixed-use development of Central Avenue corridor including retail, residential, and dining. 240+ parking spaces, pedestrian connectivity, and public art installations.",
-      "keyMetrics": [
-        { "label": "Retail Sq Ft", "value": "85,000", "target": "100,000" },
-        { "label": "Residential Units", "value": "240", "target": "300" },
-        { "label": "Public Parking", "value": "180", "target": "240" }
-      ],
-      "nextMilestone": "Phase 2 construction permits",
-      "milestoneDate": "2026-06-30",
-      "relatedPages": ["downtown", "economy"],
-      "riskLevel": "low",
-      "fundingSources": [
-        { "source": "City Bond", "amount": 3500000 },
-        { "source": "Private Development", "amount": 7000000 },
-        { "source": "CMAQ Federal Grant", "amount": 2000000 }
-      ]
+      "theme": "corridors",
+      "department": "City Engineering",
+      "budget": 21500000,
+      "spent": 8500000,
+      "timeline": "2024-2027",
+      "nextMilestone": "Final design approval — Q2 2026",
+      "progress": 40,
+      "jobs": 525,
+      "funding": ["State KDOT", "Federal FHWA", "City Bonds"]
     },
     {
       "id": 2,
-      "name": "North Gateway District",
-      "theme": "economy",
-      "status": "Approved",
-      "statusCode": "approved",
+      "name": "Highway 77 Corridor Improvements",
+      "description": "Agricultural spine: 4-lane conversion, passing lanes, truck infrastructure, safety improvements. Kansas City to Oklahoma border",
+      "status": "Planning",
+      "statusCode": "planning",
       "phase": 1,
-      "startYear": 2025,
-      "targetYear": 2030,
-      "department": "Economic Development",
-      "owner": "Sarah Hoefgen (El Dorado Inc.)",
-      "budget": {
-        "total": 18750000,
-        "allocated": 5625000,
-        "spent": 875000,
-        "percentage": 4.7
-      },
-      "description": "Strategic industrial corridor with 450+ acres zoned for manufacturing, data centers, and logistics. Infrastructure improvements include water/sewer extension, road widening, and railroad siding.",
-      "keyMetrics": [
-        { "label": "Industrial Land", "value": "320 acres", "target": "450 acres" },
-        { "label": "Expected Jobs", "value": "450+", "target": "600+" },
-        { "label": "Investment", "value": "$18.75M", "target": "$25M+" }
-      ],
-      "nextMilestone": "Infrastructure master plan completion",
-      "milestoneDate": "2025-12-31",
-      "relatedPages": ["economy", "region"],
-      "riskLevel": "medium",
-      "fundingSources": [
-        { "source": "EDA Public Works Grant", "amount": 4500000 },
-        { "source": "State KDOC Grant", "amount": 1125000 },
-        { "source": "Private Sector", "amount": 13125000 }
-      ]
+      "theme": "corridors",
+      "department": "Kansas DOT",
+      "budget": 40500000,
+      "spent": 2100000,
+      "timeline": "2024-2032",
+      "nextMilestone": "Environmental Assessment completion — Q4 2026",
+      "progress": 5,
+      "jobs": 0,
+      "funding": ["KDOT", "EDA", "SCKEDD"]
     },
     {
       "id": 3,
-      "name": "El Dorado Lake Expansion",
-      "theme": "place",
-      "status": "In Progress",
-      "statusCode": "in-progress",
-      "phase": 2,
-      "startYear": 2024,
-      "targetYear": 2027,
-      "department": "Parks & Recreation",
-      "owner": "Jennifer Lee",
-      "budget": {
-        "total": 8200000,
-        "allocated": 6150000,
-        "spent": 3680000,
-        "percentage": 44.9
-      },
-      "description": "West marina expansion, glamping facilities, amphitheater, and circumnavigation trail. Environmental remediation and wildlife habitat restoration. Target: 210K annual visitors by 2040.",
-      "keyMetrics": [
-        { "label": "New Marina Slips", "value": "92", "target": "150" },
-        { "label": "Glamping Units", "value": "24", "target": "48" },
-        { "label": "Trail Miles", "value": "8.2", "target": "12" }
-      ],
-      "nextMilestone": "Amphitheater opening",
-      "milestoneDate": "2025-08-15",
-      "relatedPages": ["place", "recreation"],
-      "riskLevel": "medium",
-      "fundingSources": [
-        { "source": "KDWPT Lake Concession", "amount": 2050000 },
-        { "source": "LWCF Federal Grant", "amount": 2050000 },
-        { "source": "City Parks Bond", "amount": 2050000 },
-        { "source": "Private Concessions", "amount": 2050000 }
-      ]
+      "name": "Highway 54 Corridor East-West Expansion",
+      "description": "East-west corridor: agricultural goods + tourism gateway. Emporia to Dodge City connectivity",
+      "status": "Approved",
+      "statusCode": "approved",
+      "phase": 1,
+      "theme": "corridors",
+      "department": "Kansas DOT / KDOT District",
+      "budget": 29000000,
+      "spent": 0,
+      "timeline": "2025-2031",
+      "nextMilestone": "Preliminary Design — Q3 2026",
+      "progress": 0,
+      "jobs": 0,
+      "funding": ["KDOT", "Federal Highway", "Regional EDA"]
     },
     {
       "id": 4,
-      "name": "Health Economy Campus",
-      "theme": "people",
-      "status": "Planning",
-      "statusCode": "planning",
-      "phase": 2,
-      "startYear": 2026,
-      "targetYear": 2031,
-      "department": "Economic Development",
-      "owner": "Sarah Hoefgen (El Dorado Inc.)",
-      "budget": {
-        "total": 15000000,
-        "allocated": 2250000,
-        "spent": 450000,
-        "percentage": 3.0
-      },
-      "description": "Anchor healthcare facility expansion with medical office complex, urgent care, specialty clinics, and health professions training center. Partnership with Butler CC. Target: 275+ healthcare jobs.",
-      "keyMetrics": [
-        { "label": "Healthcare Jobs", "value": "180", "target": "275+" },
-        { "label": "Medical Office Sq Ft", "value": "45,000", "target": "85,000" },
-        { "label": "Training Capacity", "value": "120 students/yr", "target": "250 students/yr" }
-      ],
-      "nextMilestone": "Facility master plan approval",
-      "milestoneDate": "2026-06-30",
-      "relatedPages": ["people", "build"],
-      "riskLevel": "medium",
-      "fundingSources": [
-        { "source": "HUD CDBG", "amount": 1875000 },
-        { "source": "Private Healthcare Investment", "amount": 10125000 },
-        { "source": "Regional Workforce Grant", "amount": 3000000 }
-      ]
+      "name": "North Expansion Zone Development",
+      "description": "North Gateway residential + mixed-use: 150-200 housing units, hotel, commercial services. Workforce housing priority",
+      "status": "In Progress",
+      "statusCode": "in-progress",
+      "phase": 1,
+      "theme": "growth",
+      "department": "Economic Development / City Planning",
+      "budget": 82500000,
+      "spent": 15200000,
+      "timeline": "2024-2035",
+      "nextMilestone": "Phase 1 infrastructure complete — Q1 2027",
+      "progress": 18,
+      "jobs": 350,
+      "funding": ["Private Investment", "City TIF", "Developer Participation"]
     },
     {
       "id": 5,
-      "name": "Kansas Oil Museum Expansion",
+      "name": "Lakeside Recreation District Development",
+      "description": "Hotel (100-150 rooms), RV park (80-100 sites), marina expansion, water sports hub. Regional tourism anchor",
+      "status": "In Progress",
+      "statusCode": "in-progress",
+      "phase": 1,
       "theme": "place",
-      "status": "Approved",
-      "statusCode": "approved",
-      "phase": 2,
-      "startYear": 2025,
-      "targetYear": 2028,
-      "department": "Tourism & Parks",
-      "owner": "Jennifer Lee",
-      "budget": {
-        "total": 6750000,
-        "allocated": 2025000,
-        "spent": 405000,
-        "percentage": 6.0
-      },
-      "description": "Museum facility expansion with interactive exhibits, heritage tourism programming, overnight visitor accommodations (RV/glamping), and tour operator partnerships. Target: 45K annual visitors.",
-      "keyMetrics": [
-        { "label": "Annual Visitors", "value": "22,500", "target": "45,000" },
-        { "label": "Museum Sq Ft", "value": "8,400", "target": "14,200" },
-        { "label": "Overnight Beds", "value": "32", "target": "64" }
-      ],
-      "nextMilestone": "Expansion groundbreaking",
-      "milestoneDate": "2025-05-30",
-      "relatedPages": ["place", "tourism"],
-      "riskLevel": "low",
-      "fundingSources": [
-        { "source": "City Tourism Tax", "amount": 2025000 },
-        { "source": "State Heritage Grant", "amount": 2250000 },
-        { "source": "Private Donors", "amount": 2475000 }
-      ]
+      "department": "Parks & Recreation / Tourism",
+      "budget": 55000000,
+      "spent": 11800000,
+      "timeline": "2024-2033",
+      "nextMilestone": "Hotel permits issued — Q2 2026",
+      "progress": 21,
+      "jobs": 175,
+      "funding": ["EB-5 Regional Center", "USDA", "Private Hospitality"]
     },
     {
       "id": 6,
-      "name": "Performing Arts Center",
+      "name": "South Downtown Revitalization (TIF District)",
+      "description": "Central Ave. renewal: 60-80 residential lofts, ground-floor retail, streetscape improvements. Historic adaptive reuse",
+      "status": "In Progress",
+      "statusCode": "in-progress",
+      "phase": 1,
       "theme": "place",
-      "status": "Planning",
-      "statusCode": "planning",
-      "phase": 3,
-      "startYear": 2027,
-      "targetYear": 2032,
-      "department": "Arts & Culture",
-      "owner": "TBD",
-      "budget": {
-        "total": 22500000,
-        "allocated": 1687500,
-        "spent": 337500,
-        "percentage": 1.5
-      },
-      "description": "Multi-use performing arts facility (800-seat theater, black box studio, exhibition space) with cultural programming, regional tour circuit integration, and green building certification.",
-      "keyMetrics": [
-        { "label": "Theater Seating", "value": "650", "target": "800" },
-        { "label": "Annual Events", "value": "45", "target": "120" },
-        { "label": "Regional Tours", "value": "8/year", "target": "24/year" }
-      ],
-      "nextMilestone": "Community cultural needs survey",
-      "milestoneDate": "2025-10-31",
-      "relatedPages": ["place", "build"],
-      "riskLevel": "high",
-      "fundingSources": [
-        { "source": "NEA Arts Grant", "amount": 2250000 },
-        { "source": "State Cultural Incentive", "amount": 2250000 },
-        { "source": "Community Bonds & Fundraising", "amount": 17500000 }
-      ]
+      "department": "Community Development",
+      "budget": 31500000,
+      "spent": 6300000,
+      "timeline": "2024-2030",
+      "nextMilestone": "First building conversion complete — Q4 2026",
+      "progress": 20,
+      "jobs": 150,
+      "funding": ["TIF Financing", "State Historic Tax Credits", "Private Developers"]
     },
     {
       "id": 7,
-      "name": "Electric Vehicle Infrastructure",
-      "theme": "build",
-      "status": "In Progress",
-      "statusCode": "in-progress",
+      "name": "East El Dorado Connectivity",
+      "description": "Road/utility extensions connecting east side residential + industrial. Gateway to Prospect",
+      "status": "Approved",
+      "statusCode": "approved",
       "phase": 1,
-      "startYear": 2024,
-      "targetYear": 2026,
+      "theme": "corridors",
       "department": "Public Works",
-      "owner": "Daniel Brown",
-      "budget": {
-        "total": 3500000,
-        "allocated": 2450000,
-        "spent": 1225000,
-        "percentage": 35.0
-      },
-      "description": "City-wide EV charging network with 48 Level 2 chargers and 12 DC fast chargers installed at public parking, city fleet depot, downtown, and commercial corridors. NEVI grant funding covers 80% of costs.",
-      "keyMetrics": [
-        { "label": "Chargers Installed", "value": "36", "target": "60" },
-        { "label": "DC Fast Chargers", "value": "8", "target": "12" },
-        { "label": "Charge Sessions/Month", "value": "1,245", "target": "3,500" }
-      ],
-      "nextMilestone": "Final 24 chargers installed",
-      "milestoneDate": "2026-03-31",
-      "relatedPages": ["build", "region"],
-      "riskLevel": "low",
-      "fundingSources": [
-        { "source": "NEVI Federal Grant (80%)", "amount": 2800000 },
-        { "source": "City Capital", "amount": 700000 }
-      ]
+      "budget": 40000000,
+      "spent": 0,
+      "timeline": "2025-2030",
+      "nextMilestone": "Preliminary engineering — Q2 2026",
+      "progress": 0,
+      "jobs": 250,
+      "funding": ["City Bonds", "State Rural Infrastructure"]
     },
     {
       "id": 8,
-      "name": "Trail Network Expansion",
-      "theme": "place",
+      "name": "Butler Community College Expansion",
+      "description": "Enrollment growth support: new facilities, workforce programs (healthcare, tech, trades), regional satellite campuses",
       "status": "In Progress",
       "statusCode": "in-progress",
       "phase": 1,
-      "startYear": 2023,
-      "targetYear": 2027,
-      "department": "Parks & Recreation",
-      "owner": "Jennifer Lee",
-      "budget": {
-        "total": 5400000,
-        "allocated": 4050000,
-        "spent": 2430000,
-        "percentage": 45.0
-      },
-      "description": "Connected bike/pedestrian trail system linking downtown, El Dorado Lake, neighborhoods, and regional trail network. 28 miles of paved trails with shade structures, water fountains, and wayfinding. Regional connector to Walnut River Greenway.",
-      "keyMetrics": [
-        { "label": "Miles Completed", "value": "12.6", "target": "28" },
-        { "label": "Daily Users", "value": "485", "target": "1,200" },
-        { "label": "Regional Connections", "value": "3", "target": "6" }
-      ],
-      "nextMilestone": "Downtown loop completion",
-      "milestoneDate": "2025-09-30",
-      "relatedPages": ["place", "recreation"],
-      "riskLevel": "low",
-      "fundingSources": [
-        { "source": "CMAQ Federal Grant", "amount": 2700000 },
-        { "source": "LWCF Federal Grant", "amount": 1350000 },
-        { "source": "City Parks Bond", "amount": 1350000 }
-      ]
+      "theme": "people",
+      "department": "Butler CC Administration",
+      "budget": 52500000,
+      "spent": 18900000,
+      "timeline": "2024-2035",
+      "nextMilestone": "New Workforce Center opens — Q1 2027",
+      "progress": 36,
+      "jobs": 0,
+      "funding": ["State Higher Ed", "BCC Bonds", "KDOL Workforce Grants"]
+    },
+    {
+      "id": 9,
+      "name": "Project Horizon: Data Center Campus",
+      "description": "50+ MW-capable data center + tech campus. Fiber backbone, dedicated water supply, power infrastructure. Regional tech anchor",
+      "status": "Planning",
+      "statusCode": "planning",
+      "phase": 2,
+      "theme": "industries",
+      "department": "Economic Development",
+      "budget": 175000000,
+      "spent": 2800000,
+      "timeline": "2026-2032",
+      "nextMilestone": "Site analysis + master plan — Q3 2026",
+      "progress": 1,
+      "jobs": 200,
+      "funding": ["Private Tech Investor", "USDA Broadband", "State Data Center Incentives"]
+    },
+    {
+      "id": 10,
+      "name": "Lake Activity Zones & Water Sports",
+      "description": "5-zone lake management: Water Sports, Family Rec, Commercial Services, Conservation, Infrastructure. Interactive watersports programs",
+      "status": "Approved",
+      "statusCode": "approved",
+      "phase": 1,
+      "theme": "place",
+      "department": "Parks & Lake Management",
+      "budget": 7500000,
+      "spent": 1200000,
+      "timeline": "2024-2028",
+      "nextMilestone": "Zone signage + management plan launch — Q3 2026",
+      "progress": 16,
+      "jobs": 100,
+      "funding": ["City Parks Budget", "State Water Quality Grants", "User Fees"]
+    },
+    {
+      "id": 11,
+      "name": "Regional Water Authority Integration",
+      "description": "El Dorado Lake water supply optimization for industrial + residential growth. Regional water contracts, infrastructure upgrades",
+      "status": "In Progress",
+      "statusCode": "in-progress",
+      "phase": 1,
+      "theme": "corridors",
+      "department": "Public Works / Water Utility",
+      "budget": 18000000,
+      "spent": 4200000,
+      "timeline": "2024-2028",
+      "nextMilestone": "Industrial water contracts signed — Q2 2026",
+      "progress": 23,
+      "jobs": 0,
+      "funding": ["USDA Water Grants", "State Infrastructure", "City Budget"]
+    },
+    {
+      "id": 12,
+      "name": "Fiber Broadband Network Expansion",
+      "description": "Gigabit fiber to all city + 5-mile rural radius. Federal BEAD grant funded. Tech workforce enabler",
+      "status": "In Progress",
+      "statusCode": "in-progress",
+      "phase": 1,
+      "theme": "people",
+      "department": "Information Technology",
+      "budget": 12000000,
+      "spent": 3600000,
+      "timeline": "2024-2027",
+      "nextMilestone": "First 500 locations live — Q4 2026",
+      "progress": 30,
+      "jobs": 80,
+      "funding": ["NTIA BEAD Grant", "State Broadband", "Private ISP Participation"]
     }
-  ],
-  "statuses": {
-    "planning": {
-      "label": "Planning",
-      "color": "#f39c12",
-      "icon": "📋",
-      "description": "In design/planning phase"
-    },
-    "approved": {
-      "label": "Approved",
-      "color": "#3498db",
-      "icon": "✅",
-      "description": "Approved, awaiting funding/construction start"
-    },
-    "in-progress": {
-      "label": "In Progress",
-      "color": "#2ecc71",
-      "icon": "🚀",
-      "description": "Active construction or implementation"
-    },
-    "complete": {
-      "label": "Complete",
-      "color": "#27ae60",
-      "icon": "🎉",
-      "description": "Project finished and operational"
-    },
-    "on-hold": {
-      "label": "On Hold",
-      "color": "#e74c3c",
-      "icon": "⏸️",
-      "description": "Paused pending funding or approval"
-    }
-  },
-  "themes": [
-    { "id": "downtown", "label": "Downtown Revitalization", "color": "#e74c3c" },
-    { "id": "economy", "label": "Economic Development", "color": "#3498db" },
-    { "id": "place", "label": "Place & Recreation", "color": "#2ecc71" },
-    { "id": "people", "label": "People & Education", "color": "#f39c12" },
-    { "id": "build", "label": "Infrastructure & Build", "color": "#9b59b6" },
-    { "id": "region", "label": "Regional Leadership", "color": "#1abc9c" }
-  ],
-  "phases": {
-    "1": { "label": "Phase 1 (2024-2025)", "years": "Near-term" },
-    "2": { "label": "Phase 2 (2026-2028)", "years": "Mid-term" },
-    "3": { "label": "Phase 3 (2029-2040)", "years": "Long-term" }
-  }
+  ]
 }
