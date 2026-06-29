@@ -3,751 +3,490 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stakeholder Directory | El Dorado, KS — Vision 2040</title>
-  <meta name="description" content="Comprehensive contact directory for El Dorado, Kansas Vision 2040 — all key stakeholders, decision-makers, businesses, government agencies, and regional partners." />
+  <title>El Dorado Vision 2040 | Stakeholder Directory</title>
+  <meta name="description" content="Directory of 50+ decision-makers, enablers, and advocates driving Vision 2040 implementation." />
+  <meta property="og:title" content="El Dorado Vision 2040 | Stakeholder Directory" />
+  <meta property="og:description" content="Searchable directory of mayors, commissioners, economic leaders, and community advocates" />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .sk-hero{background:var(--navy);color:#fff;padding:64px 0 48px;text-align:center}
-    .sk-hero h1{color:#fff;margin-bottom:.5rem}
-    .sk-hero p{color:rgba(255,255,255,.78);font-size:1.05rem}
-    .sk-search{margin:1.5rem auto 0;max-width:480px;position:relative}
-    .sk-search input{width:100%;padding:.8rem 1rem .8rem 2.8rem;border-radius:50px;border:none;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,.25)}
-    .sk-search-icon{position:absolute;left:.9rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.1rem}
-    .sk-body{padding:56px 0 80px}
-    .sk-sec{margin-bottom:56px}
-    .sk-sec-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.2rem;padding-bottom:.75rem;border-bottom:2px solid var(--gold)}
-    .sk-sec-icon{font-size:1.5rem}
-    .sk-sec h2{font-size:1.5rem;color:var(--navy);margin:0}
-    .sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-    .sk-card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.3rem;transition:box-shadow .2s}
-    .sk-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.12)}
-    .sk-card h4{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--navy);margin:0;font-weight:600}
-    .sk-card p{font-size:.82rem;color:var(--muted);margin:0}
-    .sk-badge{font-size:.6rem;font-weight:700;padding:.25rem .5rem;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;display:inline-block;margin-bottom:.4rem}
-    .badge-city{background:#dbeafe;color:#1d4ed8}
-    .badge-county{background:#f3e8ff;color:#7c3aed}
-    .badge-state{background:#fef3c7;color:#92400e}
-    .badge-fed{background:#ffedd5;color:#c2410c}
-    .badge-regional{background:#dcfce7;color:#15803d}
-    .badge-biz{background:#fee2e2;color:#b91c1c}
-    .badge-org{background:#f0f9ff;color:#0c4a6e}
-    .sk-role{color:var(--gold);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
-    .sk-contact{font-size:.78rem;color:var(--text);margin-top:.4rem;padding-top:.4rem;border-top:1px solid #e5e7eb}
-    .sk-contact div{margin:.2rem 0}
-    .sk-contact a{color:var(--navy);font-weight:500}
-    .sk-contact a:hover{color:var(--gold)}
-    .sk-filters{background:var(--cream);padding:2rem 0;margin-bottom:2rem}
-    .sk-filters-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
-    .sk-filter-btn{padding:.5rem 1rem;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;transition:.2s}
-    .sk-filter-btn:hover,.sk-filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
-    @media(max-width:640px){.sk-grid{grid-template-columns:1fr}}
+    .stakeholder-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+    }
+
+    .stakeholder-hero h1 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .stakeholder-hero p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .filter-section {
+      background: var(--cream);
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(200,144,42,0.2);
+    }
+
+    .filter-controls {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .filter-group label {
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .filter-group input,
+    .filter-group select {
+      padding: 10px 12px;
+      border: 1px solid rgba(27,58,92,0.2);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: white;
+      font-family: inherit;
+    }
+
+    .filter-group input::placeholder {
+      color: var(--muted);
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .tier-decision-authority {
+      background: rgba(27,58,92,0.15);
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+
+    .tier-enabler {
+      background: rgba(200,144,42,0.15);
+      color: #8b6f47;
+      border: 1px solid rgba(200,144,42,0.4);
+    }
+
+    .tier-implementer {
+      background: rgba(74,144,191,0.15);
+      color: var(--sky);
+      border: 1px solid var(--sky);
+    }
+
+    .tier-force-multiplier {
+      background: rgba(46,110,53,0.15);
+      color: var(--green);
+      border: 1px solid var(--green);
+    }
+
+    .tier-advocate {
+      background: rgba(212,80,80,0.15);
+      color: #c44536;
+      border: 1px solid #c44536;
+    }
+
+    .stakeholders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .stakeholder-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(200,144,42,0.1);
+    }
+
+    .stakeholder-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .stakeholder-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--cream) 0%, rgba(200,144,42,0.1) 100%);
+    }
+
+    .stakeholder-content {
+      padding: 1.5rem;
+    }
+
+    .stakeholder-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .stakeholder-title {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .stakeholder-organization {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .stakeholder-tier {
+      margin-bottom: 1rem;
+    }
+
+    .stakeholder-contact {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 1px solid rgba(200,144,42,0.3);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: var(--navy);
+    }
+
+    .contact-btn:hover {
+      background: var(--gold);
+      color: white;
+      border-color: var(--gold);
+      transform: scale(1.1);
+    }
+
+    .stakeholder-projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(200,144,42,0.08);
+      color: var(--gold);
+      border-radius: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .results-info {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    .no-results h3 {
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .filter-section {
+        padding: 1.5rem;
+      }
+
+      .filter-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .stakeholders-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stakeholder-hero {
+        padding: 2rem 0;
+      }
+
+      .stakeholder-hero h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
-<body>
+<body data-page="stakeholders">
 
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="city">El Dorado, KS</span>
-      <span class="tagline">Vision 2040 · Stakeholders</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">← Full Plan</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="presentation.html">Presentation</a></li>
-      <li><a href="brief.html">Project Briefs</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-  </div>
-</nav>
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
 
-<!-- HERO -->
-<section class="sk-hero">
+<!-- ════ HERO ════ -->
+<div class="stakeholder-hero">
   <div class="container">
-    <span class="section-label">Complete Stakeholder Network</span>
+    <div class="breadcrumb" style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+      <a href="index.html" style="color: white;">Home</a> › Stakeholders
+    </div>
     <h1>Stakeholder Directory</h1>
-    <p>350+ key contacts across local, regional, state, federal, and international organizations — decision-makers, business leaders, agency heads, and community partners for El Dorado Vision 2040.</p>
-    <div class="sk-search">
-      <span class="sk-search-icon">🔍</span>
-      <input type="text" id="skSearch" placeholder="Search by name, role, email, phone, or organization…" />
+    <p>Meet the 50+ decision-makers, enablers, and community advocates driving Vision 2040. Connect directly with city leaders, economic development professionals, and key stakeholders shaping El Dorado's future.</p>
+  </div>
+</div>
+
+<!-- ════ FILTERS ════ -->
+<section class="container" style="margin-bottom: 3rem">
+  <div class="filter-section">
+    <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: var(--navy)">Filter & Search</h3>
+    <div class="filter-controls">
+      <div class="filter-group">
+        <label for="search-input">Search by name or organization:</label>
+        <input type="text" id="search-input" placeholder="e.g., Mayor, Chamber, Hospital..." />
+      </div>
+      <div class="filter-group">
+        <label for="tier-filter">Filter by role tier:</label>
+        <select id="tier-filter">
+          <option value="">All Roles</option>
+          <option value="decision-authority">Decision Authority (Mayor, Commissioners, Directors)</option>
+          <option value="enabler">Enabler (Economic Dev, Business Leaders)</option>
+          <option value="implementer">Implementer (Education, Healthcare)</option>
+          <option value="force-multiplier">Force Multiplier (Regional Partners)</option>
+          <option value="advocate">Advocate (Community Leaders, Nonprofits)</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="project-filter">Filter by project interest:</label>
+        <select id="project-filter">
+          <option value="">All Projects</option>
+          <option value="downtown">Downtown Revitalization</option>
+          <option value="economy">Economic Development</option>
+          <option value="north-gateway">North Gateway District</option>
+          <option value="place">Place & Recreation</option>
+          <option value="housing">Housing</option>
+          <option value="education">Education & Workforce</option>
+          <option value="lake">Lake & Waterfront</option>
+          <option value="infrastructure">Infrastructure</option>
+        </select>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FILTERS -->
-<section class="sk-filters">
-  <div class="sk-filters-inner">
-    <button class="sk-filter-btn active" data-filter="all">All Categories</button>
-    <button class="sk-filter-btn" data-filter="city">City Government</button>
-    <button class="sk-filter-btn" data-filter="county">Butler County</button>
-    <button class="sk-filter-btn" data-filter="state">State Agencies</button>
-    <button class="sk-filter-btn" data-filter="fed">Federal</button>
-    <button class="sk-filter-btn" data-filter="biz">Major Employers</button>
-    <button class="sk-filter-btn" data-filter="org">Nonprofits &amp; Orgs</button>
+<!-- ════ RESULTS ════ -->
+<section class="container">
+  <div class="results-info">
+    <strong id="results-count">20</strong> stakeholders found
+  </div>
+
+  <div id="stakeholders-container" class="stakeholders-grid">
+    <!-- Populated by JavaScript -->
+  </div>
+
+  <div id="no-results" class="no-results" style="display: none;">
+    <h3>No stakeholders found</h3>
+    <p>Try adjusting your search or filters to find the person you're looking for.</p>
   </div>
 </section>
 
-<!-- BODY -->
-<div class="sk-body">
-<div class="container">
-
-  <!-- CITY GOVERNMENT -->
-  <div class="sk-sec" data-category="city">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🏛️</span><h2>City of El Dorado — Government</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-city">CITY MANAGER</span>
-        <h4>David Dillner</h4>
-        <p class="sk-role">City Manager</p>
-        <div class="sk-contact">
-          <div>📍 220 E. First St, El Dorado, KS 67042</div>
-          <div>📞 (316) 321-9100</div>
-          <div>✉️ <a href="mailto:ddillner@eldoks.gov">ddillner@eldoks.gov</a></div>
-          <div style="color:var(--muted);font-size:.75rem;margin-top:.3rem">Oversees all city operations, capital projects, CIP implementation.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">MAYOR</span>
-        <h4>Bill Young</h4>
-        <p class="sk-role">Mayor</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-9100</div>
-          <div>Chairs City Commission. 2026 data center decision leadership.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">PLANNING</span>
-        <h4>Planning &amp; Zoning Department</h4>
-        <p class="sk-role">Zoning &amp; Development</p>
-        <div class="sk-contact">
-          <div>📍 City Hall, 220 E. First St</div>
-          <div>📞 (316) 321-9100</div>
-          <div>✉️ <a href="mailto:planning@eldoks.gov">planning@eldoks.gov</a></div>
-          <div>Manages zoning, site plans, development permits, CUP approvals.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">DEVELOPMENT</span>
-        <h4>Community Development Department</h4>
-        <p class="sk-role">CIP / Economic Dev. Liaison</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-9100</div>
-          <div>CDBG administration, NRP tax abatement programs, grant management.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">FINANCE</span>
-        <h4>Finance Department</h4>
-        <p class="sk-role">Budget &amp; Financial Services</p>
-        <div class="sk-contact">
-          <div>📍 City Hall</div>
-          <div>📞 (316) 321-9100</div>
-          <div>Bond issuance, debt service, utility rate administration, post-issuance compliance.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">PUBLIC WORKS</span>
-        <h4>Public Works Department</h4>
-        <p class="sk-role">Infrastructure &amp; Streets</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-9100</div>
-          <div>Street maintenance, sidewalk repair, water/sewer operations, pavement management.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">POLICE</span>
-        <h4>El Dorado Police Department</h4>
-        <p class="sk-role">Public Safety</p>
-        <div class="sk-contact">
-          <div>📍 220 E. First St</div>
-          <div>📞 Non-Emergency: (316) 321-9100 | Emergency: 911</div>
-          <div>SS4A safety project coordination, crash data, traffic management.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-city">FIRE</span>
-        <h4>El Dorado Fire Department</h4>
-        <p class="sk-role">Emergency Services</p>
-        <div class="sk-contact">
-          <div>📍 220 E. First St</div>
-          <div>📞 (316) 321-9100 | Emergency: 911</div>
-          <div>Post-crash care, emergency preparedness, disaster response.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CITY COMMISSION -->
-  <div class="sk-sec" data-category="city">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">📋</span><h2>City Commission Members</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-city">COMMISSIONER</span>
-        <h4>City Commission</h4>
-        <p class="sk-role">7 Members (Including Mayor)</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-9100</div>
-          <div>✉️ <a href="https://www.eldoks.gov/529/City-Commission" target="_blank" rel="noopener">Commission Page</a></div>
-          <div>Monthly meetings 1st &amp; 3rd Tuesdays. All major project approvals (zoning, bonds, contracts).</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BUTLER COUNTY -->
-  <div class="sk-sec" data-category="county">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🗳️</span><h2>Butler County Government</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-county">COUNTY SEAT</span>
-        <h4>Butler County Commission</h4>
-        <p class="sk-role">County Government</p>
-        <div class="sk-contact">
-          <div>📍 204 W. Central Ave, El Dorado, KS 67042</div>
-          <div>📞 (316) 322-4200</div>
-          <div>County-level zoning, comprehensive plan alignment, rural development coordination.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-county">PLANNING</span>
-        <h4>Toby Stewart</h4>
-        <p class="sk-role">Butler County Planning Director</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="mailto:tstewart@bucoks.com">tstewart@bucoks.com</a></div>
-          <div>Lead on County Comprehensive Plan 2025–2028. Critical for regional alignment.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-county">ECONOMIC DEV</span>
-        <h4>Butler County Economic Development Office</h4>
-        <p class="sk-role">County EDO</p>
-        <div class="sk-contact">
-          <div>📍 121 S. Gordy, Suite 202, El Dorado, KS 67042</div>
-          <div>📞 (316) 322-4325</div>
-          <div>County-wide business recruitment and retention coordination.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-county">ELECTED OFFICIALS</span>
-        <h4>Butler County Elected Officials</h4>
-        <p class="sk-role">Commission, Clerk, Treasurer</p>
-        <div class="sk-contact">
-          <div>📞 (316) 322-4200</div>
-          <div>✉️ <a href="https://www.bucoks.gov/126/Elected-Officials" target="_blank" rel="noopener">Full Directory</a></div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-county">BOARDS</span>
-        <h4>Butler County Boards &amp; Commissions</h4>
-        <p class="sk-role">Planning, Zoning, Environmental</p>
-        <div class="sk-contact">
-          <div>📞 (316) 322-4200</div>
-          <div>✉️ <a href="https://www.bucoks.gov/122/Boards-Commissions" target="_blank" rel="noopener">Boards Directory</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- STATE AGENCIES -->
-  <div class="sk-sec" data-category="state">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🌾</span><h2>Kansas State Government</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-state">COMMERCE</span>
-        <h4>Kansas Department of Commerce (KDC)</h4>
-        <p class="sk-role">State Economic Dev.</p>
-        <div class="sk-contact">
-          <div>📞 (785) 296-3481</div>
-          <div>✉️ <a href="https://kansascommerce.gov" target="_blank" rel="noopener">kansascommerce.gov</a></div>
-          <div>HEAL grants, STAR Bonds, Framework for Growth, SelectUSA partner.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">KDOT</span>
-        <h4>Kansas Department of Transportation (KDOT)</h4>
-        <p class="sk-role">State Transportation</p>
-        <div class="sk-contact">
-          <div>📞 (785) 296-3585</div>
-          <div>✉️ <a href="https://www.ksdot.gov" target="_blank" rel="noopener">ksdot.gov</a></div>
-          <div>K-254 / Central Ave, IKE Legacy, TA, HSIP, SS4A coordination.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">KDHE</span>
-        <h4>Kansas Department of Health &amp; Environment (KDHE)</h4>
-        <p class="sk-role">Environment &amp; Water</p>
-        <div class="sk-contact">
-          <div>📞 (785) 296-1500</div>
-          <div>✉️ <a href="https://www.kdhe.ks.gov" target="_blank" rel="noopener">kdhe.ks.gov</a></div>
-          <div>Water quality, brownfields, Walnut River Basin, environmental permits.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">KDWP</span>
-        <h4>Kansas Department of Wildlife &amp; Parks (KDWP)</h4>
-        <p class="sk-role">State Parks &amp; Recreation</p>
-        <div class="sk-contact">
-          <div>📞 (316) 672-5911 (El Dorado State Park)</div>
-          <div>✉️ <a href="https://ksoutdoors.com" target="_blank" rel="noopener">ksoutdoors.com</a></div>
-          <div>El Dorado State Park master plan, lake management, recreation programming.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">EDUCATION</span>
-        <h4>Kansas Department of Education (KSDE)</h4>
-        <p class="sk-role">K-12 Schools</p>
-        <div class="sk-contact">
-          <div>📞 (785) 296-3200</div>
-          <div>✉️ <a href="https://www.ksde.gov" target="_blank" rel="noopener">ksde.gov</a></div>
-          <div>USD 490, USD 375, USD 389 oversight, school transportation, grants.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">LEGISLATURE</span>
-        <h4>Kansas Legislature — District Representatives</h4>
-        <p class="sk-role">State House &amp; Senate</p>
-        <div class="sk-contact">
-          <div>📞 (785) 296-7622</div>
-          <div>✉️ <a href="https://www.kslegislature.gov" target="_blank" rel="noopener">kslegislature.gov</a></div>
-          <div>Legislative advocacy for SB 98 data center exemption, transportation funding, tax incentives.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-state">KHRC</span>
-        <h4>Kansas Housing Resources Corp. (KHRC)</h4>
-        <p class="sk-role">Housing Finance</p>
-        <div class="sk-contact">
-          <div>📞 (316) 660-3663 (Wichita)</div>
-          <div>✉️ <a href="https://www.kshousingcorp.org" target="_blank" rel="noopener">kshousingcorp.org</a></div>
-          <div>LIHTC administration, homeownership programs, affordable housing grants.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FEDERAL AGENCIES -->
-  <div class="sk-sec" data-category="fed">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🦅</span><h2>Federal Agencies</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">USDOT</span>
-        <h4>USDOT / FHWA — Safe Streets for All (SS4A)</h4>
-        <p class="sk-role">Federal Transportation</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.transportation.gov/SS4A" target="_blank" rel="noopener">SS4A Program</a></div>
-          <div>Funds El Dorado 8 priority safety projects, crash data analysis, community engagement support.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">EDA</span>
-        <h4>U.S. Department of Commerce — EDA</h4>
-        <p class="sk-role">Economic Development</p>
-        <div class="sk-contact">
-          <div>📞 (720) 846-1800</div>
-          <div>✉️ <a href="https://www.eda.gov" target="_blank" rel="noopener">eda.gov</a></div>
-          <div>Good Jobs Challenge, public works grants, spec building programs, SCKEDD is certified CDC.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">HUD</span>
-        <h4>U.S. Department of Housing &amp; Urban Development (HUD)</h4>
-        <p class="sk-role">Housing &amp; Community Dev.</p>
-        <div class="sk-contact">
-          <div>📞 (913) 551-5500 (Kansas City Regional)</div>
-          <div>✉️ <a href="https://www.hud.gov" target="_blank" rel="noopener">hud.gov</a></div>
-          <div>CDBG, Section 108, HOME grants, affordable housing programs.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">USDA</span>
-        <h4>USDA Rural Development</h4>
-        <p class="sk-role">Rural Grants &amp; Loans</p>
-        <div class="sk-contact">
-          <div>📞 (316) 262-7592 (Wichita Area)</div>
-          <div>✉️ <a href="https://www.rd.usda.gov" target="_blank" rel="noopener">rd.usda.gov</a></div>
-          <div>REAP, VAPG, Water &amp; Waste loans, USDA 538 financing, community facilities.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">EPA</span>
-        <h4>U.S. Environmental Protection Agency (EPA)</h4>
-        <p class="sk-role">Environment &amp; Smart Growth</p>
-        <div class="sk-contact">
-          <div>📞 (913) 551-7003 (Kansas City Regional)</div>
-          <div>✉️ <a href="https://www.epa.gov/smartgrowth" target="_blank" rel="noopener">EPA Smart Growth</a></div>
-          <div>Brownfields, green infrastructure, 7 free TA programs available to El Dorado.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">DOE</span>
-        <h4>U.S. Department of Energy (DOE)</h4>
-        <p class="sk-role">Industrial Decarbonization</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.energy.gov/industrial-technologies" target="_blank" rel="noopener">energy.gov</a></div>
-          <div>Industrial Demonstrations ($35M), HF Sinclair refinery decarbonization candidate.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">USACE</span>
-        <h4>U.S. Army Corps of Engineers — Tulsa District</h4>
-        <p class="sk-role">Water Resources</p>
-        <div class="sk-contact">
-          <div>📞 (918) 669-7611</div>
-          <div>✉️ <a href="https://www.swt.usace.army.mil" target="_blank" rel="noopener">USACE El Dorado Lake</a></div>
-          <div>El Dorado Lake master plan, water rights management, environmental compliance.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-fed">SAMHSA</span>
-        <h4>SAMHSA / HHS — Behavioral Health</h4>
-        <p class="sk-role">Mental Health Grants</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.samhsa.gov" target="_blank" rel="noopener">samhsa.gov</a></div>
-          <div>CCBHC expansion grants ($1–2M), SBA Hospital Behavioral Health Wing eligible.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- REGIONAL PARTNERS -->
-  <div class="sk-sec" data-category="regional">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🗺️</span><h2>Regional Economic Development Partners</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-regional">SCKEDD</span>
-        <h4>SCKEDD — South Central KS EDD</h4>
-        <p class="sk-role">14-County Economic District</p>
-        <div class="sk-contact">
-          <div>📍 Bel Aire, KS</div>
-          <div>📞 (316) 771-0768</div>
-          <div>✉️ <a href="https://sckedd.org" target="_blank" rel="noopener">sckedd.org</a></div>
-          <div>Certified CDC for Butler County. SBA 504/7(a), microloans, EDA programs.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-regional">GWP</span>
-        <h4>Greater Wichita Partnership</h4>
-        <p class="sk-role">Regional MSA Development</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://greaterwichitapartnership.org" target="_blank" rel="noopener">gwp.org</a></div>
-          <div>Wichita MSA includes Butler County. Regional data resources, aerospace cluster.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-regional">FHEDD</span>
-        <h4>Flint Hills Economic Dev. District</h4>
-        <p class="sk-role">Regional Multi-County</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://flinthillsregion.org" target="_blank" rel="noopener">flinthillsregion.org</a></div>
-          <div>El Dorado = western gateway to Flint Hills region.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-regional">KEDA</span>
-        <h4>KEDA — Kansas Economic Dev. Alliance</h4>
-        <p class="sk-role">Statewide Industry Org</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://kansaseda.com" target="_blank" rel="noopener">kansaseda.com</a></div>
-          <div>~100-member statewide organization, legislative advocacy, SB 98 champion.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-regional">WAMPO</span>
-        <h4>WAMPO — Wichita Area MPO</h4>
-        <p class="sk-role">Regional Transportation</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.wampo.org" target="_blank" rel="noopener">wampo.org</a></div>
-          <div>Metropolitan Planning Organization, federal transportation funding coordination.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MAJOR EMPLOYERS & INDUSTRY -->
-  <div class="sk-sec" data-category="biz">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🏭</span><h2>Major Employers &amp; Industry Partners</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">REFINING</span>
-        <h4>HF Sinclair — El Dorado Refinery</h4>
-        <p class="sk-role">Largest Kansas Refinery | ~400 Employees</p>
-        <div class="sk-contact">
-          <div>📍 600 W. 16th Ave, El Dorado, KS 67042</div>
-          <div>📞 (316) 321-5400</div>
-          <div>✉️ <a href="https://www.hfsinclair.com" target="_blank" rel="noopener">hfsinclair.com</a></div>
-          <div>135K bbl/day capacity, DOE Industrial Demos candidate, employee giving $449K United Way 2024.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">AGRICULTURE</span>
-        <h4>AMAZONE — North American Center</h4>
-        <p class="sk-role">German FDI | 30+ Employees | 2025 Win</p>
-        <div class="sk-contact">
-          <div>📍 1220 N Haverhill Rd, El Dorado, KS 67042</div>
-          <div>Opened December 2, 2025. Agricultural machinery distribution and assembly.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">HEALTHCARE</span>
-        <h4>Susan B. Allen Memorial Hospital (SBA)</h4>
-        <p class="sk-role">74-Bed Regional Medical Center</p>
-        <div class="sk-contact">
-          <div>📍 1 Hospital Dr, El Dorado, KS 67042</div>
-          <div>📞 (316) 321-2100</div>
-          <div>✉️ <a href="https://www.sbamh.com" target="_blank" rel="noopener">sbamh.com</a></div>
-          <div>CEO: Melissa Hall. Cancer Center of Kansas affiliate. $15.7M annual revenue.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">LOGISTICS</span>
-        <h4>Savage Services — Transload Terminal</h4>
-        <p class="sk-role">Multi-Commodity Rail Logistics</p>
-        <div class="sk-contact">
-          <div>📍 El Dorado Industrial Park (BNSF line)</div>
-          <div>Built 2011, operates 5 days/week. 46 BNSF trains/day through El Dorado.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">RAILROADS</span>
-        <h4>BNSF Railway — El Dorado Main Line</h4>
-        <p class="sk-role">Freight Rail | 46 Trains/Day</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.bnsf.com" target="_blank" rel="noopener">bnsf.com</a></div>
-          <div>Main line through city. BNSF Logistics Park KC 134 mi. Connects to Wichita industrial base.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">GOVERNMENT</span>
-        <h4>El Dorado Correctional Facility (KDOC)</h4>
-        <p class="sk-role">State Prison | Major Employer</p>
-        <div class="sk-contact">
-          <div>📍 El Dorado, KS</div>
-          <div>Maximum-security facility. Significant public-sector employment anchor.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">UTILITIES</span>
-        <h4>Evergy — El Dorado</h4>
-        <p class="sk-role">Primary Electric Utility</p>
-        <div class="sk-contact">
-          <div>📞 (800) 383-1183</div>
-          <div>Rate: 13.80¢/kWh residential (3.6% below KS avg). Largest MWh supplier in city.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-biz">UTILITIES</span>
-        <h4>Butler Electric Cooperative</h4>
-        <p class="sk-role">Rural Electric &amp; Broadband</p>
-        <div class="sk-contact">
-          <div>📍 216 S. Vine, El Dorado, KS 67042</div>
-          <div>📞 (316) 321-9600</div>
-          <div>Velocity internet division. Rural broadband provider, BEAD program partner.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NONPROFITS & COMMUNITY ORGS -->
-  <div class="sk-sec" data-category="org">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🤝</span><h2>Nonprofits, Educational &amp; Community Organizations</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-org">EDUCATION</span>
-        <h4>Butler Community College</h4>
-        <p class="sk-role">2nd-Largest CC in Kansas | 6,841 Students</p>
-        <div class="sk-contact">
-          <div>📍 Main campus: El Dorado, KS</div>
-          <div>📞 (316) 321-2222</div>
-          <div>✉️ <a href="https://butlercc.edu" target="_blank" rel="noopener">butlercc.edu</a></div>
-          <div>$46M annual county impact. 7 satellite locations. Workforce training, degree programs.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">SCHOOL DISTRICT</span>
-        <h4>USD 490 — El Dorado School District</h4>
-        <p class="sk-role">2,133 Students | 6 Schools</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-7000</div>
-          <div>✉️ <a href="https://www.usd490.org" target="_blank" rel="noopener">usd490.org</a></div>
-          <div>1-to-1 laptop program, new elementary schools 2012, middle school 2014, performing arts center bond 2015.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">SCHOOL DISTRICT</span>
-        <h4>USD 375 — Circle School District</h4>
-        <p class="sk-role">Regional School District</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.usd375.org" target="_blank" rel="noopener">usd375.org</a></div>
-          <div>Serves western El Dorado and K-254 corridor. Circle High School in Towanda.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">CHAMBER</span>
-        <h4>El Dorado Area Chamber of Commerce</h4>
-        <p class="sk-role">Local Business Organization</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-1485</div>
-          <div>✉️ <a href="https://www.eldoradochamber.com" target="_blank" rel="noopener">eldoradochamber.com</a></div>
-          <div>Business directory, visitors center, community events, small business advocate.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">ECON DEV</span>
-        <h4>El Dorado Inc. — Economic Development</h4>
-        <p class="sk-role">City ED Organization</p>
-        <div class="sk-contact">
-          <div>📍 201 E. Central Ave, El Dorado, KS 67042</div>
-          <div>📞 (316) 321-1485</div>
-          <div>✉️ <a href="https://www.eldorado-inc.com" target="_blank" rel="noopener">eldorado-inc.com</a></div>
-          <div>Mega-site marketing, AMAZONE deal, site selector resources, business incentives.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">RECREATION</span>
-        <h4>El Dorado Parks &amp; Recreation</h4>
-        <p class="sk-role">Parks &amp; Facilities</p>
-        <div class="sk-contact">
-          <div>📞 (316) 321-9100</div>
-          <div>Lake programming, golf club, sports complex, trail maintenance, community events.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">NONPROFITS</span>
-        <h4>Main Street America / El Dorado Main Street</h4>
-        <p class="sk-role">Downtown Revitalization</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.mainstreet.org" target="_blank" rel="noopener">mainstreet.org</a></div>
-          <div>National downtown program. $18.03 ROI per $1 invested. Accreditation recommended for El Dorado.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">COMMUNITY</span>
-        <h4>Walnut Valley Sailing Club</h4>
-        <p class="sk-role">Lake Recreation</p>
-        <div class="sk-contact">
-          <div>📍 El Dorado Lake</div>
-          <div>Junior sailing program, regatta calendar, "Walnut Valley Basecamp" event overflow hub.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- INTERNATIONAL PARTNERS -->
-  <div class="sk-sec" data-category="org">
-    <div class="sk-sec-hdr"><span class="sk-sec-icon">🌍</span><h2>International &amp; Foreign Trade Partners</h2></div>
-    <div class="sk-grid">
-      <div class="sk-card">
-        <span class="sk-badge badge-org">JAPAN</span>
-        <h4>JETRO — Japan External Trade Org</h4>
-        <p class="sk-role">Japanese FDI Support</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.jetro.go.jp/en/" target="_blank" rel="noopener">jetro.go.jp</a></div>
-          <div>Supports Japanese company expansion. Kansas home to Kawasaki, Sumitomo.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">GERMANY</span>
-        <h4>GTAI — Germany Trade &amp; Invest</h4>
-        <p class="sk-role">German FDI Support</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.gtai.de/en" target="_blank" rel="noopener">gtai.de</a></div>
-          <div>AMAZONE (2025) is GTAI success story. Ag machinery, advanced manufacturing sectors.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">S. KOREA</span>
-        <h4>KOTRA — Korea Trade-Investment Agency</h4>
-        <p class="sk-role">Korean FDI Support</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.kotra.or.kr/eng/" target="_blank" rel="noopener">kotra.or.kr</a></div>
-          <div>Battery manufacturing, EV components, semiconductor industries.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">CANADA</span>
-        <h4>Canadian Pension Funds &amp; Investors</h4>
-        <p class="sk-role">Canadian FDI</p>
-        <div class="sk-contact">
-          <div>Target: Canadian pension funds for hotel, senior care, and infrastructure projects.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">UK</span>
-        <h4>UK Trade &amp; Investment / Rolls-Royce</h4>
-        <p class="sk-role">UK FDI</p>
-        <div class="sk-contact">
-          <div>CFIUS-safe. Aerospace supply chain opportunities given Wichita MSA aerospace cluster.</div>
-        </div>
-      </div>
-      <div class="sk-card">
-        <span class="sk-badge badge-org">SELECTUSA</span>
-        <h4>SelectUSA — Federal FDI Program</h4>
-        <p class="sk-role">U.S. Govt FDI Support</p>
-        <div class="sk-contact">
-          <div>✉️ <a href="https://www.selectusa.gov" target="_blank" rel="noopener">selectusa.gov</a></div>
-          <div>Free federal support for Japanese, German, Korean, Canadian, British recruitment.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /container -->
-</div><!-- /sk-body -->
-
-<!-- FOOTER -->
-<footer style="background:var(--navy);color:#fff;padding:40px 0;text-align:center">
+<!-- ════ INFO SECTION ════ -->
+<section style="background: var(--cream); padding: 3rem 0; margin-top: 4rem;">
   <div class="container">
-    <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin:0 auto">El Dorado, KS Vision 2040 · Stakeholder Directory · 350+ Contacts · Last updated June 2026</p>
-    <div style="margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap">
-      <a href="index.html" style="color:var(--gold);font-weight:600">← Full Plan</a>
-      <a href="resources.html" style="color:var(--gold);font-weight:600">Resources</a>
-      <a href="presentation.html" style="color:var(--gold);font-weight:600">Presentation</a>
-      <a href="brief.html" style="color:var(--gold);font-weight:600">Project Briefs</a>
+    <h2 style="margin-bottom: 2rem;">How to Use This Directory</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+      <div>
+        <h4 style="color: var(--navy); margin-bottom: 0.5rem;">🔍 Find Your Representative</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Search by name, organization, or role to find your city commissioner, economic development contact, or other key decision-maker.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--navy); margin-bottom: 0.5rem;">📞 Get in Touch</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Click the email or phone icons to contact stakeholders directly. Find office hours and meeting schedules to catch them in person.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--navy); margin-bottom: 0.5rem;">📋 See What They're Working On</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Project tags show which Vision 2040 initiatives each stakeholder is focused on, helping you find allies for your interests.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--navy); margin-bottom: 0.5rem;">🤝 Understand Decision-Making</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Role tiers show who makes decisions, who enables implementation, and who advocates for specific projects.</p>
+      </div>
     </div>
   </div>
-</footer>
+</section>
 
+<!-- ════ TIER LEGEND ════ -->
+<section class="container" style="padding: 3rem 0;">
+  <h3 style="margin-bottom: 2rem;">Role Tiers Explained</h3>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+    <div style="padding: 1.5rem; background: rgba(27,58,92,0.05); border-radius: 8px; border-left: 4px solid var(--navy);">
+      <h4 style="color: var(--navy); margin: 0 0 0.5rem 0;">🏛️ Decision Authority</h4>
+      <p style="color: var(--muted); margin: 0; font-size: 0.95rem;">Mayor, City Manager, Commissioners, Department Heads — make formal decisions on Vision 2040 projects.</p>
+    </div>
+    <div style="padding: 1.5rem; background: rgba(200,144,42,0.05); border-radius: 8px; border-left: 4px solid rgba(200,144,42,0.6);">
+      <h4 style="color: #8b6f47; margin: 0 0 0.5rem 0;">🚀 Enabler</h4>
+      <p style="color: var(--muted); margin: 0; font-size: 0.95rem;">Economic development leaders, business organizations, and chambers — create enabling conditions for projects.</p>
+    </div>
+    <div style="padding: 1.5rem; background: rgba(74,144,191,0.05); border-radius: 8px; border-left: 4px solid var(--sky);">
+      <h4 style="color: var(--sky); margin: 0 0 0.5rem 0;">⚙️ Implementer</h4>
+      <p style="color: var(--muted); margin: 0; font-size: 0.95rem;">School districts, colleges, healthcare — carry out Vision 2040 initiatives through their operations.</p>
+    </div>
+    <div style="padding: 1.5rem; background: rgba(46,110,53,0.05); border-radius: 8px; border-left: 4px solid var(--green);">
+      <h4 style="color: var(--green); margin: 0 0 0.5rem 0;">🌍 Force Multiplier</h4>
+      <p style="color: var(--muted); margin: 0; font-size: 0.95rem;">County, regional partners — amplify El Dorado's efforts at county and regional levels.</p>
+    </div>
+    <div style="padding: 1.5rem; background: rgba(212,80,80,0.05); border-radius: 8px; border-left: 4px solid #c44536;">
+      <h4 style="color: #c44536; margin: 0 0 0.5rem 0;">💬 Advocate</h4>
+      <p style="color: var(--muted); margin: 0; font-size: 0.95rem;">Nonprofit leaders, business owners, community members — advocate for and support Vision 2040 projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER CTA ════ -->
+<section style="background: var(--navy); color: white; padding: 3rem 0; text-align: center; margin-top: 4rem;">
+  <div class="container">
+    <h3 style="color: white; margin-bottom: 1rem;">Want to Get Involved?</h3>
+    <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Connect with stakeholders, submit public comments, or track Vision 2040 project progress. Use the tools below to engage with El Dorado's future.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="index.html" class="btn btn--primary" style="background: var(--gold); color: var(--navy);">← Back to Home</a>
+      <a href="reference.html#action" class="btn btn--secondary" style="color: white; border-color: white;">View Action Resources</a>
+    </div>
+  </div>
+</section>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
 <script>
-  const searchInput = document.getElementById('skSearch');
-  const filterBtns = document.querySelectorAll('.sk-filter-btn');
-  const cards = document.querySelectorAll('.sk-card');
-  const sections = document.querySelectorAll('.sk-sec');
+// Stakeholder data loading and filtering
+let allStakeholders = [];
 
-  let activeFilter = 'all';
+async function loadStakeholders() {
+  try {
+    const response = await fetch('data/stakeholders.json');
+    const data = await response.json();
+    allStakeholders = data.stakeholders;
+    renderStakeholders(allStakeholders);
+    setupFilterListeners();
+  } catch (error) {
+    console.error('Error loading stakeholders:', error);
+    document.getElementById('stakeholders-container').innerHTML = '<div class="no-results"><h3>Error loading stakeholders</h3></div>';
+  }
+}
 
-  function updateDisplay() {
-    const q = searchInput.value.toLowerCase().trim();
-    cards.forEach(card => {
-      const text = card.textContent.toLowerCase();
-      const matchesSearch = q === '' || text.includes(q);
-      const parent = card.closest('.sk-sec');
-      const category = parent ? parent.dataset.category : 'all';
-      const matchesFilter = activeFilter === 'all' || activeFilter === category;
-      card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-    });
-    sections.forEach(sec => {
-      const hasVisible = Array.from(sec.querySelectorAll('.sk-card')).some(c => c.style.display !== 'none');
-      sec.style.display = hasVisible ? '' : 'none';
-    });
+function renderStakeholders(stakeholders) {
+  const container = document.getElementById('stakeholders-container');
+  const noResults = document.getElementById('no-results');
+  const resultsCount = document.getElementById('results-count');
+
+  resultsCount.textContent = stakeholders.length;
+
+  if (stakeholders.length === 0) {
+    container.style.display = 'none';
+    noResults.style.display = 'block';
+    return;
   }
 
-  searchInput.addEventListener('input', updateDisplay);
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      updateDisplay();
-    });
-  });
+  container.style.display = 'grid';
+  noResults.style.display = 'none';
 
-  // Nav toggle
-  document.querySelector('.nav-toggle')?.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('open');
-  });
+  container.innerHTML = stakeholders.map(s => `
+    <div class="stakeholder-card">
+      <img src="${s.photo}" alt="${s.name}" class="stakeholder-photo" />
+      <div class="stakeholder-content">
+        <div class="stakeholder-name">${s.name}</div>
+        <div class="stakeholder-title">${s.title}</div>
+        <div class="stakeholder-organization">${s.organization}</div>
+        <div class="stakeholder-tier">
+          <span class="tier-badge tier-${s.tier}">${s.tierLabel}</span>
+        </div>
+        <div class="stakeholder-contact">
+          ${s.email ? `<a href="mailto:${s.email}" class="contact-btn" title="Email">✉️</a>` : ''}
+          ${s.phone ? `<a href="tel:${s.phone.replace(/[^\d+]/g, '')}" class="contact-btn" title="Call">📞</a>` : ''}
+          ${s.socialMedia?.twitter ? `<a href="https://twitter.com/${s.socialMedia.twitter.replace('@', '')}" target="_blank" rel="noopener" class="contact-btn" title="Twitter">𝕏</a>` : ''}
+          ${s.socialMedia?.facebook ? `<a href="https://facebook.com/${s.socialMedia.facebook}" target="_blank" rel="noopener" class="contact-btn" title="Facebook">f</a>` : ''}
+        </div>
+        ${s.projects && s.projects.length > 0 ? `
+          <div class="stakeholder-projects">
+            ${s.projects.map(p => `<span class="project-tag">${p}</span>`).join('')}
+          </div>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function setupFilterListeners() {
+  const searchInput = document.getElementById('search-input');
+  const tierFilter = document.getElementById('tier-filter');
+  const projectFilter = document.getElementById('project-filter');
+
+  const applyFilters = () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedTier = tierFilter.value;
+    const selectedProject = projectFilter.value;
+
+    const filtered = allStakeholders.filter(s => {
+      const matchesSearch = searchTerm === '' ||
+        s.name.toLowerCase().includes(searchTerm) ||
+        s.title.toLowerCase().includes(searchTerm) ||
+        s.organization.toLowerCase().includes(searchTerm);
+
+      const matchesTier = selectedTier === '' || s.tier === selectedTier;
+      const matchesProject = selectedProject === '' || (s.projects && s.projects.includes(selectedProject));
+
+      return matchesSearch && matchesTier && matchesProject;
+    });
+
+    renderStakeholders(filtered);
+  };
+
+  searchInput.addEventListener('input', applyFilters);
+  tierFilter.addEventListener('change', applyFilters);
+  projectFilter.addEventListener('change', applyFilters);
+}
+
+// Load stakeholders on page load
+document.addEventListener('DOMContentLoaded', loadStakeholders);
 </script>
+
 </body>
 </html>

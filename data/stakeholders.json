@@ -1,0 +1,949 @@
+{
+  "stakeholders": [
+    {
+      "id": 1,
+      "name": "Stephen Hayes",
+      "title": "Mayor",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "hayes@eldoradoks.net",
+      "phone": "(316) 321-1234",
+      "photo": "https://via.placeholder.com/400x400?text=Mayor+Hayes",
+      "district": "At-Large",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM",
+      "officeHours": "By appointment",
+      "projects": [
+        "downtown",
+        "economy",
+        "governance"
+      ],
+      "bio": "Mayor of El Dorado since 2021. Focuses on downtown revitalization and regional economic development.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": "@MayorHayes"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Thomas Reid",
+      "title": "City Manager",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "reid@eldoradoks.net",
+      "phone": "(316) 321-1235",
+      "photo": "https://via.placeholder.com/400x400?text=City+Manager+Reid",
+      "district": "At-Large",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "economy",
+        "infrastructure",
+        "governance"
+      ],
+      "bio": "City Manager overseeing Vision 2040 implementation and day-to-day city operations.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 3,
+      "name": "Rebecca Martinez",
+      "title": "City Commissioner",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "martinez@eldoradoks.net",
+      "phone": "(316) 321-1236",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Martinez",
+      "district": "District 1",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM",
+      "officeHours": "By appointment",
+      "projects": [
+        "housing",
+        "place",
+        "downtown"
+      ],
+      "bio": "District 1 Commissioner. Passionate about affordable housing and neighborhood revitalization.",
+      "socialMedia": {
+        "facebook": "rebecca.martinez",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 4,
+      "name": "James Park",
+      "title": "City Commissioner",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "park@eldoradoks.net",
+      "phone": "(316) 321-1237",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Park",
+      "district": "District 2",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM",
+      "officeHours": "By appointment",
+      "projects": [
+        "economy",
+        "north-gateway",
+        "infrastructure"
+      ],
+      "bio": "District 2 Commissioner focused on economic development and industrial recruitment.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": "@JimPark_ED"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Susan Chen",
+      "title": "City Commissioner",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "chen@eldoradoks.net",
+      "phone": "(316) 321-1238",
+      "photo": "https://via.placeholder.com/400x400?text=Commissioner+Chen",
+      "district": "District 3",
+      "meetingSchedule": "City Commission: 1st & 3rd Monday, 6:00 PM",
+      "officeHours": "By appointment",
+      "projects": [
+        "place",
+        "recreation",
+        "sustainability"
+      ],
+      "bio": "District 3 Commissioner. Advocates for parks, trails, and environmental sustainability.",
+      "socialMedia": {
+        "facebook": "susan.chen.ed",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 6,
+      "name": "Daniel Brown",
+      "title": "Director of Public Works",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "dbrown@eldoradoks.net",
+      "phone": "(316) 321-1239",
+      "photo": "https://via.placeholder.com/400x400?text=Director+Brown",
+      "district": "At-Large",
+      "meetingSchedule": "Commission updates as needed",
+      "officeHours": "Monday-Friday, 7 AM - 4 PM",
+      "projects": [
+        "infrastructure",
+        "place",
+        "north-gateway"
+      ],
+      "bio": "Director of Public Works overseeing street, utility, and infrastructure projects.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 7,
+      "name": "Maria Gonzalez",
+      "title": "Director of Planning & Development",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "mgonzalez@eldoradoks.net",
+      "phone": "(316) 321-1240",
+      "photo": "https://via.placeholder.com/400x400?text=Director+Gonzalez",
+      "district": "At-Large",
+      "meetingSchedule": "Commission updates as needed",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "zoning",
+        "north-gateway",
+        "downtown",
+        "economy"
+      ],
+      "bio": "Director of Planning & Development managing zoning, development review, and Vision 2040 coordination.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 8,
+      "name": "Jennifer Lee",
+      "title": "Parks & Recreation Director",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "jlee@eldoradoks.net",
+      "phone": "(316) 321-1241",
+      "photo": "https://via.placeholder.com/400x400?text=Director+Lee",
+      "district": "At-Large",
+      "meetingSchedule": "Commission updates as needed",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "place",
+        "recreation",
+        "lake",
+        "trails"
+      ],
+      "bio": "Parks & Recreation Director overseeing all city parks, lake, and recreational programming.",
+      "socialMedia": {
+        "facebook": "eldorado.parks",
+        "twitter": "@EDParksRec"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Michael Torres",
+      "title": "Finance Director",
+      "organization": "City of El Dorado",
+      "tier": "decision-authority",
+      "tierLabel": "Decision Authority",
+      "email": "mtorres@eldoradoks.net",
+      "phone": "(316) 321-1242",
+      "photo": "https://via.placeholder.com/400x400?text=Director+Torres",
+      "district": "At-Large",
+      "meetingSchedule": "Commission updates as needed",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "finance",
+        "funding",
+        "tif-district"
+      ],
+      "bio": "Finance Director managing city budget, grants, and Vision 2040 financial strategy.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 10,
+      "name": "David Zimmerman",
+      "title": "Executive Director",
+      "organization": "El Dorado Inc.",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "dzimmerman@eldoradoinc.org",
+      "phone": "(316) 321-2000",
+      "photo": "https://via.placeholder.com/400x400?text=David+Zimmerman",
+      "district": "N/A",
+      "meetingSchedule": "Economic Dev Committee: 2nd Tuesday, 8 AM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "economy",
+        "north-gateway",
+        "megasite",
+        "recruitment"
+      ],
+      "bio": "Executive Director of El Dorado Inc., leading economic development and business recruitment.",
+      "socialMedia": {
+        "facebook": "eldoradoinc",
+        "twitter": "@EldoradoInc"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Patricia Anderson",
+      "title": "Executive Director",
+      "organization": "El Dorado Chamber of Commerce",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "panderson@eldoradochamber.com",
+      "phone": "(316) 321-2001",
+      "photo": "https://via.placeholder.com/400x400?text=Patricia+Anderson",
+      "district": "N/A",
+      "meetingSchedule": "Chamber Board: 2nd Thursday, 12 PM",
+      "officeHours": "Monday-Friday, 9 AM - 5 PM",
+      "projects": [
+        "business",
+        "tourism",
+        "downtown",
+        "events"
+      ],
+      "bio": "Chamber Executive Director supporting local business and community engagement.",
+      "socialMedia": {
+        "facebook": "eldoradochamber",
+        "twitter": "@EDChamber"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Robert Nelson",
+      "title": "County Commissioner",
+      "organization": "Butler County Commission",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "rnelson@butlercountykansas.org",
+      "phone": "(316) 322-4000",
+      "photo": "https://via.placeholder.com/400x400?text=Robert+Nelson",
+      "district": "County",
+      "meetingSchedule": "County Commission: 1st & 3rd Monday, 9 AM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional",
+        "infrastructure",
+        "economic-development"
+      ],
+      "bio": "Butler County Commissioner coordinating regional planning and county-city partnerships.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 13,
+      "name": "Karen Williams",
+      "title": "Superintendent",
+      "organization": "USD 490",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "kwilliams@usd490.org",
+      "phone": "(316) 321-3000",
+      "photo": "https://via.placeholder.com/400x400?text=Karen+Williams",
+      "district": "N/A",
+      "meetingSchedule": "School Board: 2nd Monday, 7 PM",
+      "officeHours": "Monday-Friday, 8 AM - 4 PM",
+      "projects": [
+        "education",
+        "workforce",
+        "community"
+      ],
+      "bio": "USD 490 Superintendent coordinating K-12 education and workforce development.",
+      "socialMedia": {
+        "facebook": "usd490",
+        "twitter": "@USD490"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Dr. Landon Johnson",
+      "title": "President",
+      "organization": "Butler Community College",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "ljohnson@butlercc.edu",
+      "phone": "(316) 321-4000",
+      "photo": "https://via.placeholder.com/400x400?text=Dr+Johnson",
+      "district": "N/A",
+      "meetingSchedule": "College Board: 3rd Tuesday, 6 PM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "education",
+        "workforce",
+        "health-economy",
+        "culture"
+      ],
+      "bio": "Butler CC President directing higher education and workforce training initiatives.",
+      "socialMedia": {
+        "facebook": "butlercc",
+        "twitter": "@ButlerCC"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Linda Foster",
+      "title": "Executive Director",
+      "organization": "El Dorado Main Street",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "lfoster@eldoradomainstreet.org",
+      "phone": "(316) 321-5000",
+      "photo": "https://via.placeholder.com/400x400?text=Linda+Foster",
+      "district": "N/A",
+      "meetingSchedule": "Main Street Board: 1st Thursday, 5 PM",
+      "officeHours": "Monday-Friday, 9 AM - 5 PM",
+      "projects": [
+        "downtown",
+        "historic-preservation",
+        "retail",
+        "events"
+      ],
+      "bio": "El Dorado Main Street Executive Director leading downtown activation and business support.",
+      "socialMedia": {
+        "facebook": "eldoradomainstreet",
+        "twitter": "@EDMainStreet"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Christopher Hayes",
+      "title": "President & CEO",
+      "organization": "Susan B. Allen Memorial Hospital",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "chayes@sballenmemorial.org",
+      "phone": "(316) 321-6000",
+      "photo": "https://via.placeholder.com/400x400?text=Christopher+Hayes",
+      "district": "N/A",
+      "meetingSchedule": "Hospital Board: 2nd Monday, 6 PM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "health-economy",
+        "workforce",
+        "community-health"
+      ],
+      "bio": "Hospital CEO leading healthcare services and health economy development.",
+      "socialMedia": {
+        "facebook": "sballenmemorial",
+        "twitter": "@SBAllenHospital"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Rachel Summers",
+      "title": "Executive Director",
+      "organization": "United Way of Butler County",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "rsummers@uwbutlercounty.org",
+      "phone": "(316) 321-7000",
+      "photo": "https://via.placeholder.com/400x400?text=Rachel+Summers",
+      "district": "N/A",
+      "meetingSchedule": "Board meetings: Monthly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "community",
+        "nonprofit-support",
+        "human-services"
+      ],
+      "bio": "United Way Director coordinating nonprofit and community support services.",
+      "socialMedia": {
+        "facebook": "uwbutlercounty",
+        "twitter": "@UWButlerCo"
+      }
+    },
+    {
+      "id": 18,
+      "name": "James Mitchell",
+      "title": "Director",
+      "organization": "Butler County Economic Development Organization",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "jmitchell@butlercountyledo.org",
+      "phone": "(316) 321-8000",
+      "photo": "https://via.placeholder.com/400x400?text=James+Mitchell",
+      "district": "N/A",
+      "meetingSchedule": "Board: 1st Thursday, 8 AM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional-economy",
+        "recruitment",
+        "business-development"
+      ],
+      "bio": "County EDO Director managing regional economic development strategy.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 19,
+      "name": "Margaret Stone",
+      "title": "Museum Director",
+      "organization": "Kansas Oil Museum",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "mstone@kansasoilmuseum.org",
+      "phone": "(316) 321-9000",
+      "photo": "https://via.placeholder.com/400x400?text=Margaret+Stone",
+      "district": "N/A",
+      "meetingSchedule": "Museum Board: Quarterly",
+      "officeHours": "Tuesday-Sunday, 10 AM - 5 PM",
+      "projects": [
+        "heritage",
+        "tourism",
+        "culture",
+        "downtown"
+      ],
+      "bio": "Kansas Oil Museum Director preserving and promoting El Dorado's oil-boom heritage.",
+      "socialMedia": {
+        "facebook": "kansasoilmuseum",
+        "twitter": "@KansasOilMus"
+      }
+    },
+    {
+      "id": 20,
+      "name": "William Cooper",
+      "title": "Mayor",
+      "organization": "City of Andover",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "wcooper@andoverks.gov",
+      "phone": "(316) 733-2800",
+      "photo": "https://via.placeholder.com/400x400?text=William+Cooper",
+      "district": "Region",
+      "meetingSchedule": "Regional meetings: Monthly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional-planning",
+        "cooperation"
+      ],
+      "bio": "Andover Mayor coordinating regional collaboration on Vision 2040.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 21,
+      "name": "Sarah Johnson",
+      "title": "Arts Director",
+      "organization": "El Dorado Arts Council",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "sjohnson@eldoradoarts.org",
+      "phone": "(316) 321-9100",
+      "photo": "https://via.placeholder.com/400x400?text=Sarah+Johnson",
+      "district": "N/A",
+      "meetingSchedule": "Board: Monthly",
+      "officeHours": "Monday-Friday, 10 AM - 4 PM",
+      "projects": [
+        "culture",
+        "downtown",
+        "arts"
+      ],
+      "bio": "Arts Council Director supporting cultural programming and creative development.",
+      "socialMedia": {
+        "facebook": "eldoradoartscouncil",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 22,
+      "name": "George Martinez",
+      "title": "Chamber President",
+      "organization": "Butler County Chamber Alliance",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "gmartinez@buttercountychamber.org",
+      "phone": "(316) 322-5000",
+      "photo": "https://via.placeholder.com/400x400?text=George+Martinez",
+      "district": "N/A",
+      "meetingSchedule": "Alliance Board: Quarterly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional-business",
+        "economic-development"
+      ],
+      "bio": "Regional chamber alliance president coordinating multi-county business initiatives.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 23,
+      "name": "Emily Rodriguez",
+      "title": "Community Development Director",
+      "organization": "Community Action Partnership",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "erodriguez@capbutlerco.org",
+      "phone": "(316) 321-9200",
+      "photo": "https://via.placeholder.com/400x400?text=Emily+Rodriguez",
+      "district": "N/A",
+      "meetingSchedule": "Board: Bi-weekly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "community",
+        "housing",
+        "workforce"
+      ],
+      "bio": "Community Action Director addressing poverty and supporting workforce development.",
+      "socialMedia": {
+        "facebook": "capbutlercounty",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 24,
+      "name": "Dr. Amanda Wells",
+      "title": "Health Officer",
+      "organization": "Butler County Health Department",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "awells@butlercountyhd.gov",
+      "phone": "(316) 322-4100",
+      "photo": "https://via.placeholder.com/400x400?text=Dr+Amanda+Wells",
+      "district": "N/A",
+      "meetingSchedule": "Health Board: 2nd Thursday, 3 PM",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "health-economy",
+        "wellness",
+        "community-health"
+      ],
+      "bio": "Health Officer overseeing public health and wellness initiatives.",
+      "socialMedia": {
+        "facebook": "butlercountyhd",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 25,
+      "name": "Justin Brooks",
+      "title": "Lake Manager",
+      "organization": "El Dorado Lake Authority",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "jbrooks@eldoradolake.org",
+      "phone": "(316) 321-9300",
+      "photo": "https://via.placeholder.com/400x400?text=Justin+Brooks",
+      "district": "N/A",
+      "meetingSchedule": "Lake Board: Monthly",
+      "officeHours": "Monday-Friday, 7 AM - 5 PM",
+      "projects": [
+        "lake",
+        "recreation",
+        "tourism",
+        "waterfront"
+      ],
+      "bio": "Lake Manager overseeing recreation, conservation, and waterfront development.",
+      "socialMedia": {
+        "facebook": "eldoradolake",
+        "twitter": "@EldoradoLake"
+      }
+    },
+    {
+      "id": 26,
+      "name": "Patricia Hayes",
+      "title": "Tourism Director",
+      "organization": "El Dorado Convention & Visitors Bureau",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "phayes@eldoradotourism.org",
+      "phone": "(316) 321-9400",
+      "photo": "https://via.placeholder.com/400x400?text=Patricia+Hayes",
+      "district": "N/A",
+      "meetingSchedule": "Board: Monthly",
+      "officeHours": "Monday-Friday, 9 AM - 5 PM",
+      "projects": [
+        "tourism",
+        "hospitality",
+        "events",
+        "lake"
+      ],
+      "bio": "CVB Director promoting El Dorado as a tourism destination.",
+      "socialMedia": {
+        "facebook": "eldoradotourism",
+        "twitter": "@VisitElDorado"
+      }
+    },
+    {
+      "id": 27,
+      "name": "Marcus Anderson",
+      "title": "TIF District Manager",
+      "organization": "City of El Dorado Finance",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "manderson@eldoradoks.net",
+      "phone": "(316) 321-1242",
+      "photo": "https://via.placeholder.com/400x400?text=Marcus+Anderson",
+      "district": "N/A",
+      "meetingSchedule": "TIF Board: Quarterly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "finance",
+        "north-gateway",
+        "downtown",
+        "tif-district"
+      ],
+      "bio": "TIF Manager coordinating tax increment financing for priority development zones.",
+      "socialMedia": {
+        "facebook": "",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 28,
+      "name": "Donna Mitchell",
+      "title": "Executive Director",
+      "organization": "El Dorado Public Library",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "dmitchell@eldoradolibrary.org",
+      "phone": "(316) 321-9500",
+      "photo": "https://via.placeholder.com/400x400?text=Donna+Mitchell",
+      "district": "N/A",
+      "meetingSchedule": "Library Board: 2nd Wednesday, 6 PM",
+      "officeHours": "Monday-Saturday, 10 AM - 6 PM",
+      "projects": [
+        "community",
+        "education",
+        "culture"
+      ],
+      "bio": "Library Director providing community programming and information resources.",
+      "socialMedia": {
+        "facebook": "eldoradolibrary",
+        "twitter": "@EDLibrary"
+      }
+    },
+    {
+      "id": 29,
+      "name": "Brian Stewart",
+      "title": "Golf Course Manager",
+      "organization": "El Dorado Golf Club",
+      "tier": "enabler",
+      "tierLabel": "Enabler",
+      "email": "bstewart@eldoradogolf.org",
+      "phone": "(316) 321-9600",
+      "photo": "https://via.placeholder.com/400x400?text=Brian+Stewart",
+      "district": "N/A",
+      "meetingSchedule": "Club Board: Monthly",
+      "officeHours": "Daily, 7 AM - 5 PM",
+      "projects": [
+        "golf",
+        "recreation",
+        "tourism"
+      ],
+      "bio": "Golf Course Manager overseeing facility renovation and championship programming.",
+      "socialMedia": {
+        "facebook": "eldoradogolfclub",
+        "twitter": "@EDGolfClub"
+      }
+    },
+    {
+      "id": 30,
+      "name": "Nicole Taylor",
+      "title": "Housing Advocate",
+      "organization": "Home Forward Organization",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "ntaylor@homeforward.org",
+      "phone": "(316) 321-9700",
+      "photo": "https://via.placeholder.com/400x400?text=Nicole+Taylor",
+      "district": "N/A",
+      "meetingSchedule": "Board: Quarterly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "housing",
+        "community",
+        "workforce"
+      ],
+      "bio": "Housing advocate promoting affordable housing and homeownership initiatives.",
+      "socialMedia": {
+        "facebook": "homeforwardorg",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 31,
+      "name": "Charles Wilson",
+      "title": "County Clerk",
+      "organization": "Butler County",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "cwilson@butlercountykansas.org",
+      "phone": "(316) 322-4050",
+      "photo": "https://via.placeholder.com/400x400?text=Charles+Wilson",
+      "district": "County",
+      "meetingSchedule": "Commission: 1st & 3rd Monday",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional",
+        "governance"
+      ],
+      "bio": "County Clerk coordinating county and city records and governance.",
+      "socialMedia": {}
+    },
+    {
+      "id": 32,
+      "name": "Dr. Rachel Stevens",
+      "title": "Regional Planning Director",
+      "organization": "SCKEDD (Southeast Kansas Economic Development District)",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "rstevens@sckedd.org",
+      "phone": "(620) 231-1212",
+      "photo": "https://via.placeholder.com/400x400?text=Dr+Rachel+Stevens",
+      "district": "Region",
+      "meetingSchedule": "District Board: Monthly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "regional-planning",
+        "economic-development"
+      ],
+      "bio": "Regional planning director supporting multi-county development initiatives.",
+      "socialMedia": {}
+    },
+    {
+      "id": 33,
+      "name": "Kevin Moore",
+      "title": "HR Director",
+      "organization": "Susan B. Allen Hospital",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "kmoore@sballenmemorial.org",
+      "phone": "(316) 321-6050",
+      "photo": "https://via.placeholder.com/400x400?text=Kevin+Moore",
+      "district": "N/A",
+      "meetingSchedule": "HR meetings: Weekly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "workforce",
+        "health-economy"
+      ],
+      "bio": "HR Director managing workforce development and recruitment.",
+      "socialMedia": {}
+    },
+    {
+      "id": 34,
+      "name": "Jessica Wong",
+      "title": "Facilities Manager",
+      "organization": "Butler Community College",
+      "tier": "implementer",
+      "tierLabel": "Implementer",
+      "email": "jwong@butlercc.edu",
+      "phone": "(316) 321-4050",
+      "photo": "https://via.placeholder.com/400x400?text=Jessica+Wong",
+      "district": "N/A",
+      "meetingSchedule": "Facilities meetings: Bi-weekly",
+      "officeHours": "Monday-Friday, 7 AM - 4 PM",
+      "projects": [
+        "education",
+        "campus-development"
+      ],
+      "bio": "Facilities Manager overseeing campus expansion and infrastructure.",
+      "socialMedia": {}
+    },
+    {
+      "id": 35,
+      "name": "Richard Hayes",
+      "title": "Executive Director",
+      "organization": "Walnut Valley Sailing Club",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "rhayes@walnutvalleysailing.org",
+      "phone": "(316) 321-9800",
+      "photo": "https://via.placeholder.com/400x400?text=Richard+Hayes",
+      "district": "N/A",
+      "meetingSchedule": "Club meetings: Monthly",
+      "officeHours": "By appointment",
+      "projects": [
+        "lake",
+        "recreation",
+        "tourism"
+      ],
+      "bio": "Sailing Club Director promoting water sports and lake recreation.",
+      "socialMedia": {
+        "facebook": "walnutvalleysailing",
+        "twitter": "@WVSailingClub"
+      }
+    },
+    {
+      "id": 36,
+      "name": "Michelle Davis",
+      "title": "Retail Business Owner",
+      "organization": "Main Street Boutique",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "mdavis@mainstreetboutique.com",
+      "phone": "(316) 321-9900",
+      "photo": "https://via.placeholder.com/400x400?text=Michelle+Davis",
+      "district": "Downtown",
+      "meetingSchedule": "Retailer meetings: Monthly",
+      "officeHours": "Monday-Saturday, 10 AM - 6 PM",
+      "projects": [
+        "downtown",
+        "business",
+        "retail"
+      ],
+      "bio": "Downtown retailer advocating for Main Street revitalization and business support.",
+      "socialMedia": {
+        "facebook": "mainstreetboutique",
+        "twitter": ""
+      }
+    },
+    {
+      "id": 37,
+      "name": "Thomas Abbott",
+      "title": "Restaurant Owner",
+      "organization": "Downtown Bistro",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "tabbott@downtownbistro.com",
+      "phone": "(316) 321-9910",
+      "photo": "https://via.placeholder.com/400x400?text=Thomas+Abbott",
+      "district": "Downtown",
+      "meetingSchedule": "Operator meetings: Monthly",
+      "officeHours": "Dinner service, 5 PM - 10 PM",
+      "projects": [
+        "downtown",
+        "hospitality",
+        "dining"
+      ],
+      "bio": "Restaurant owner investing in downtown dining and culinary innovation.",
+      "socialMedia": {
+        "facebook": "downtownbistro",
+        "twitter": "@DowntownBistro"
+      }
+    },
+    {
+      "id": 38,
+      "name": "Lauren Green",
+      "title": "Coordinator",
+      "organization": "Kansas Department of Commerce",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "lgreen@kansascommerce.gov",
+      "phone": "(785) 296-3056",
+      "photo": "https://via.placeholder.com/400x400?text=Lauren+Green",
+      "district": "State",
+      "meetingSchedule": "As needed",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "state-support",
+        "economic-development",
+        "grants"
+      ],
+      "bio": "State commerce representative providing funding and business support.",
+      "socialMedia": {}
+    },
+    {
+      "id": 39,
+      "name": "David Park",
+      "title": "Transportation Planner",
+      "organization": "Wichita Area Metropolitan Planning Organization",
+      "tier": "force-multiplier",
+      "tierLabel": "Force Multiplier",
+      "email": "dpark@wichitampo.org",
+      "phone": "(316) 660-1520",
+      "photo": "https://via.placeholder.com/400x400?text=David+Park",
+      "district": "Metro",
+      "meetingSchedule": "Council: Monthly",
+      "officeHours": "Monday-Friday, 8 AM - 5 PM",
+      "projects": [
+        "transportation",
+        "regional-infrastructure"
+      ],
+      "bio": "MPO transportation planner coordinating regional transit and road projects.",
+      "socialMedia": {}
+    },
+    {
+      "id": 40,
+      "name": "Amy Foster",
+      "title": "Executive Director",
+      "organization": "El Dorado Community Foundation",
+      "tier": "advocate",
+      "tierLabel": "Advocate",
+      "email": "afoster@eldoradofoundation.org",
+      "phone": "(316) 321-9920",
+      "photo": "https://via.placeholder.com/400x400?text=Amy+Foster",
+      "district": "N/A",
+      "meetingSchedule": "Board: Quarterly",
+      "officeHours": "Monday-Friday, 9 AM - 5 PM",
+      "projects": [
+        "community",
+        "funding",
+        "nonprofit-support"
+      ],
+      "bio": "Foundation Director supporting community philanthropy and project funding.",
+      "socialMedia": {
+        "facebook": "eldoradofoundation",
+        "twitter": ""
+      }
+    }
+  ]
+}
