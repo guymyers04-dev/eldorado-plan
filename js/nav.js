@@ -181,11 +181,28 @@
             ]
           },
           {
+            label: 'Revenue Hubs',
+            separator: true,
+            items: [
+              { label: '🚚 Logistics Hub', href: 'logistics-hub.html' },
+              { label: '🏖️ Tourism & Visitor Economy', href: 'tourism-visitor-economy.html' },
+              { label: '🎓 USD 490 Economic Engine', href: 'usd-490-economic-engine.html' },
+              { label: '💰 Tax Base Growth Strategy', href: 'tax-base-growth-strategy.html' }
+            ]
+          },
+          {
             label: 'Engagement Tools & Metrics',
             separator: true,
             items: [
               { label: '💡 Initiatives Catalog', href: 'initiatives.html' },
-              { label: '📈 Metrics Dashboard', href: 'metrics-dashboard.html' }
+              { label: '📈 Metrics Dashboard', href: 'metrics-dashboard.html' },
+              { label: '📋 Business Recruitment', href: 'tools/recruitment-form.html' },
+              { label: '💵 ROI Calculator', href: 'tools/roi-calculator.html' },
+              { label: '🎯 Economic Simulator', href: 'tools/economic-simulator.html' },
+              { label: '💬 Tourism Survey', href: 'tools/tourism-survey.html' },
+              { label: '💡 Community Ideas', href: 'tools/ideas.html' },
+              { label: '💼 Job Board', href: 'tools/jobs.html' },
+              { label: '✓ Leadership Feedback', href: 'tools/feedback.html' }
             ]
           }
         ]
