@@ -211,7 +211,8 @@
   };
 
   function buildNavHTML() {
-    let html = '<div class="nav-inner">';
+    let html = '<a href="#main-content" class="skip-to-content">Skip to main content</a>';
+    html += '<div class="nav-inner">';
 
     // Brand
     html += `<a href="${navStructure.brand.href}" class="nav-brand">
@@ -232,8 +233,8 @@
       } else {
         // Dropdown group
         html += `<li class="nav-group${activeClass}">
-          <button class="nav-group-btn" aria-haspopup="true">${link.label}</button>
-          <div class="nav-dropdown" role="menu">`;
+          <button class="nav-group-btn" aria-haspopup="true" aria-expanded="false" aria-label="Toggle ${link.label} menu">${link.label}</button>
+          <div class="nav-dropdown" role="menu" aria-label="${link.label} submenu">`;
 
         link.submenu.forEach((section, idx) => {
           if (idx > 0 && section.separator) {
@@ -312,8 +313,70 @@
         // Toggle this group
         if (isOpen) {
           group.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
         } else {
           group.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      // Keyboard navigation (arrows)
+      btn.addEventListener('keydown', (e) => {
+        const group = btn.closest('.nav-group');
+        const dropdown = group.querySelector('.nav-dropdown');
+        const isOpen = group.classList.contains('open');
+
+        switch(e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            if (!isOpen) {
+              group.classList.add('open');
+            } else {
+              const firstLink = dropdown.querySelector('a');
+              if (firstLink) firstLink.focus();
+            }
+            break;
+          case 'ArrowUp':
+            e.preventDefault();
+            if (isOpen) {
+              group.classList.remove('open');
+              btn.focus();
+            }
+            break;
+        }
+      });
+    });
+
+    // Dropdown link keyboard navigation
+    const dropdownLinks = navbar.querySelectorAll('.nav-dropdown a');
+    dropdownLinks.forEach((link, idx) => {
+      link.addEventListener('keydown', (e) => {
+        const dropdown = link.closest('.nav-dropdown');
+        const allLinks = Array.from(dropdown.querySelectorAll('a'));
+        const currentIdx = allLinks.indexOf(link);
+
+        switch(e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            const nextLink = allLinks[currentIdx + 1];
+            if (nextLink) nextLink.focus();
+            break;
+          case 'ArrowUp':
+            e.preventDefault();
+            const prevLink = allLinks[currentIdx - 1];
+            if (prevLink) {
+              prevLink.focus();
+            } else {
+              const btn = dropdown.closest('.nav-group').querySelector('.nav-group-btn');
+              if (btn) btn.focus();
+            }
+            break;
+          case 'Escape':
+            e.preventDefault();
+            const group = dropdown.closest('.nav-group');
+            group.classList.remove('open');
+            group.querySelector('.nav-group-btn').focus();
+            break;
         }
       });
     });
@@ -330,7 +393,11 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         navbar.classList.remove('mobile-open');
-        navbar.querySelectorAll('.nav-group.open').forEach(g => g.classList.remove('open'));
+        navbar.querySelectorAll('.nav-group.open').forEach(g => {
+          g.classList.remove('open');
+          const btn = g.querySelector('.nav-group-btn');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
       }
     });
 
