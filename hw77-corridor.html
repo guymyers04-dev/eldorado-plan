@@ -88,6 +88,16 @@
         <li>Regional hub positioning for precision agriculture equipment manufacturers</li>
       </ul>
     </div>
+
+    <!-- INTERACTIVE MAP -->
+    <div class="content-block">
+      <h3>📍 Highway 77 Corridor Map</h3>
+      <div id="hw77-map" style="width: 100%; height: 400px; border-radius: 8px; margin-top: 20px;"></div>
+      <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+        <em>HW-77 runs north-south through El Dorado, connecting Kansas City region (north) to Oklahoma border (south).
+        Agricultural backbone for 5-county region. Explore the corridor's strategic position and key communities.</em>
+      </p>
+    </div>
   </section>
 
   <!-- SECTION 2: THE VISION -->
@@ -328,6 +338,67 @@
 
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+// HW-77 CORRIDOR MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+  const map = L.map('hw77-map').setView([38.5, -96.87], 8);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  const locations = [
+    { name: 'Kansas City Region', lat: 39.5, lng: -96.87, type: 'anchor', desc: 'Major distribution hub, 3+ hours north' },
+    { name: 'El Dorado', lat: 37.825, lng: -96.87, type: 'primary', desc: 'Agricultural center, HW-77 strategic node' },
+    { name: 'Lyon County', lat: 38.2, lng: -96.87, type: 'region', desc: 'Prime agricultural production' },
+    { name: 'Greenwood County', lat: 37.4, lng: -96.87, type: 'region', desc: 'Agricultural production zone' },
+    { name: 'Oklahoma Border', lat: 36.5, lng: -96.87, type: 'boundary', desc: 'Southern terminus of HW-77' }
+  ];
+
+  locations.forEach(loc => {
+    const color = loc.type === 'primary' ? '#00aa00' :
+                  loc.type === 'anchor' ? '#0066cc' :
+                  loc.type === 'region' ? '#88cc00' : '#cccccc';
+
+    const marker = L.circleMarker([loc.lat, loc.lng], {
+      radius: loc.type === 'primary' ? 10 : 6,
+      fillColor: color,
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.8
+    }).addTo(map);
+
+    marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.desc}`);
+  });
+
+  // HW-77 corridor line
+  const hw77Corridor = [
+    [39.5, -96.87],   // Kansas City region
+    [38.5, -96.87],   // Lyon County
+    [37.825, -96.87], // El Dorado
+    [37.0, -96.87],   // Greenwood County
+    [36.5, -96.87]    // Oklahoma border
+  ];
+  L.polyline(hw77Corridor, { color: '#00aa00', weight: 4, opacity: 0.8 }).addTo(map);
+
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function(map) {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = '<div style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+      '<p style="margin: 0 0 5px 0;"><strong>HW-77 Corridor Map</strong></p>' +
+      '<p style="margin: 2px 0;"><span style="color: #00aa00; font-size: 20px;">●</span> Agricultural hub (El Dorado)</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #0066cc; font-size: 20px;">●</span> Major distribution hub</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #88cc00; font-size: 20px;">●</span> Agricultural region</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #00aa00; text-weight: bold;">━━━</span> HW-77 corridor</p>' +
+      '</div>';
+    return div;
+  };
+  legend.addTo(map);
+});
+</script>
 
 </body>
 </html>

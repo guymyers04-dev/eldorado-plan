@@ -104,6 +104,16 @@
       </table>
       <p><em>Analysis: El Dorado occupies the "Goldilocks zone"—close enough to Wichita for regular service traffic, far enough from Newton/Emporia to avoid direct competition, and positioned for growth.</em></p>
     </div>
+
+    <!-- INTERACTIVE MAP -->
+    <div class="content-block">
+      <h3>📍 Regional Context Map</h3>
+      <div id="i35-map" style="width: 100%; height: 400px; border-radius: 8px; margin-top: 20px;"></div>
+      <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+        <em>El Dorado's position on I-35: Gateway between Wichita (45 mi north) and Oklahoma border (90+ mi south).
+        Exits 79/81 create natural truck stop corridor opportunity. Zoom/pan to explore regional context.</em>
+      </p>
+    </div>
   </section>
 
   <!-- SECTION 2: THE VISION -->
@@ -339,6 +349,70 @@
 
 <script src="js/nav.js"></script>
 <script src="js/main.js"></script>
+
+<script>
+// I-35 CORRIDOR MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize map centered on El Dorado
+  const map = L.map('i35-map').setView([37.825, -96.870], 8);
+
+  // Add tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 19
+  }).addTo(map);
+
+  // Key locations
+  const locations = [
+    { name: 'El Dorado (Exits 79/81)', lat: 37.825, lng: -96.870, type: 'primary', desc: 'Strategic truck stop corridor opportunity' },
+    { name: 'Wichita (I-35 junction)', lat: 37.687, lng: -97.431, type: 'anchor', desc: 'Regional hub, 45 mi north' },
+    { name: 'Newton (Exit 30)', lat: 38.055, lng: -97.335, type: 'competitor', desc: 'Established truck stops, close competition' },
+    { name: 'Emporia (Exit 127)', lat: 38.405, lng: -96.189, type: 'competitor', desc: 'Established corridor, 75 mi north' },
+    { name: 'Oklahoma Border', lat: 36.500, lng: -96.870, type: 'boundary', desc: '90+ mi south of El Dorado' }
+  ];
+
+  // Add markers with custom colors
+  locations.forEach(loc => {
+    const color = loc.type === 'primary' ? '#00aa00' :
+                  loc.type === 'anchor' ? '#0066cc' :
+                  loc.type === 'competitor' ? '#ff6600' : '#cccccc';
+
+    const marker = L.circleMarker([loc.lat, loc.lng], {
+      radius: loc.type === 'primary' ? 10 : 6,
+      fillColor: color,
+      color: '#fff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.8
+    }).addTo(map);
+
+    marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.desc}`);
+  });
+
+  // Add I-35 corridor line (approximate)
+  const i35Corridor = [
+    [39.0, -96.87],   // Kansas border
+    [37.825, -96.87], // El Dorado
+    [36.5, -96.87]    // Oklahoma border
+  ];
+  L.polyline(i35Corridor, { color: '#cc0000', weight: 3, opacity: 0.7, dashArray: '5,5' }).addTo(map);
+
+  // Add legend
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = function(map) {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = '<div style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+      '<p style="margin: 0 0 5px 0;"><strong>I-35 Corridor Map</strong></p>' +
+      '<p style="margin: 2px 0;"><span style="color: #00aa00; font-size: 20px;">●</span> Primary opportunity (El Dorado)</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #0066cc; font-size: 20px;">●</span> Regional anchor (Wichita)</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #ff6600; font-size: 20px;">●</span> Competitor exits</p>' +
+      '<p style="margin: 2px 0;"><span style="color: #cc0000; text-weight: bold;">━━━</span> I-35 corridor</p>' +
+      '</div>';
+    return div;
+  };
+  legend.addTo(map);
+});
+</script>
 
 </body>
 </html>
