@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Dorado, KS — Vision 2040 | Infrastructure & Build</title>
+  <meta name="description" content="City infrastructure, transportation, corridors, and bridges" />
+  <meta property="og:title" content="El Dorado, KS — Vision 2040 | Infrastructure & Build" />
+  <meta property="og:description" content="City infrastructure, transportation, corridors, and bridges" />
+  <meta property="og:type" content="website" />
+  <meta name="geo.region" content="US-KS" />
+  <meta name="geo.placename" content="El Dorado, Kansas" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-page="build">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV MOUNT ════ -->
+<div id="nav-mount"></div>
+
+<!-- ════ PAGE HERO ════ -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a> › Build</div>
+    <h1>Infrastructure & Build</h1>
+    <p class="page-subtitle">City infrastructure, transportation, corridors, and bridges</p>
+  </div>
+</div>
+
+<!-- ════ PAGE NAV PILLS ════ -->
+<nav class="page-nav">
+  <div class="page-nav-inner">
+    <a href="#infrastructure" class="page-nav__pill">City Infrastructure</a>
+    <a href="#transportation" class="page-nav__pill">Transportation, Corridors & Bridges</a>
+  </div>
+</nav>
+
+<!-- ════ SECTIONS ════ -->
+<section id="infrastructure">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Foundations for Growth</span>
+      <h2>Infrastructure Upgrades</h2>
+      <p class="lead">Modern cities are built on invisible systems. These eight projects create the digital backbone, utility resilience, and environmental buffers that every other initiative depends on — and most are eligible for substantial federal cost-share.</p>
+    </div>
+    <div class="infra-grid reveal">
+      <div class="infra-item">
+        <div class="infra-icon">📡</div>
+        <div class="infra-text">
+          <h4>Citywide Gigabit Fiber Network — Velocity Already Underway</h4>
+          <p><strong>This investment is already starting.</strong> Velocity (Butler Electric Cooperative's fiber subsidiary) is actively deploying fiber-to-the-home in El Dorado — beginning on the west and north sides of the city, which aligns precisely with the North Gateway District and West Gateway residential development zones in this plan. Currently only 1.3% of El Dorado has fiber access (83.5% have cable, 36.7% DSL). Velocity's rollout is the catalytic first step. Vision 2040's role is to accelerate completion to all 5,200 addresses, coordinate with Velocity on dark fiber for municipal uses, and ensure anchor institutions (schools, hospital, City Hall, Butler CC) receive gigabit service in Phase 1. Apply for BEAD Program funding (NTIA) to cover 50–70% of final-mile costs in underserved zones.</p>
+          <span class="cost">Est. $12–16M full buildout · Velocity partnership + BEAD + USDA ReConnect · North/West already underway</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">☀️</div>
+        <div class="infra-text">
+          <h4>Community Solar Microgrid</h4>
+          <p>Install a 10MW solar array west of the city feeding a community microgrid with battery storage. Partner with Evergy on a shared-savings model — subscribers receive 15–20% rate reduction. Provides grid resilience during extreme weather events (which have disrupted service 3+ times in the past decade) and sends a signal to industrial recruits about energy reliability and cost predictability.</p>
+          <span class="cost">Est. $18–24M · IRA Investment Tax Credits + utility partnership</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">💧</div>
+        <div class="infra-text">
+          <h4>Water Treatment Plant Modernization</h4>
+          <p>El Dorado's water infrastructure was largely built in the 1960s. Upgrade the treatment plant to handle a growing population and new industrial demand (especially cooling water for the data center). Add UV disinfection, replace lead service lines in pre-1986 neighborhoods, and install remote-monitoring sensors throughout the distribution network. Also required to support the North Gateway District extension.</p>
+          <span class="cost">Est. $22M · EPA WIFIA Loan Program (low-interest)</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🌧️</div>
+        <div class="infra-text">
+          <h4>Walnut River Flood Mitigation</h4>
+          <p>The Walnut River has flooded downtown and east-side neighborhoods repeatedly (see Zoning Map for FEMA Zone AE areas). Install green infrastructure upstream — bioswales, retention basins, restored natural floodplain buffers. Elevate key road and utility infrastructure in the 100-year floodplain. This protects existing property values and enables North Gateway development on land currently subject to insurance surcharges.</p>
+          <span class="cost">Est. $9M · FEMA BRIC + HUD CDBG-DR grants</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🏗️</div>
+        <div class="infra-text">
+          <h4>Industrial Pad-Ready Site Program — 1,600 Acres in Motion</h4>
+          <p>El Dorado is actively marketing <strong>1,600 contiguous developable acres</strong> north and west of the city — among the largest certified industrial land pools in the Wichita metro. The $3M B.A.S.E. grant (Kansas Dept. of Commerce) plus $1M KDOT stormwater co-funding is extending a 16-inch water transmission main along Central Avenue and completing site certification (environmental assessments, boundary surveys, site clearing) on the first phase. The infrastructure investment in this plan — TIF-funded utilities, graded pads, environmental clearances — converts this raw acreage into a portfolio of shovel-ready sites competitive with any in Kansas.</p>
+          <span class="cost">B.A.S.E. grant $3M + $1M KDOT (active 2024–25) · Future EDA Public Works Grant (50% match) · TIF 15-yr cost recovery</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🔋</div>
+        <div class="infra-text">
+          <h4>Smart Grid Modernization</h4>
+          <p>Install smart meters citywide, deploy distribution automation (fault detection, self-healing switches), and create EV grid-readiness infrastructure in all new development zones. Pre-wire transformer capacity at the North Gateway, industrial park, and data center site so future load growth doesn't require reactive emergency upgrades. Coordinate with Evergy on demand-response programs reducing peak demand charges for industrial users by 12–18%.</p>
+          <span class="cost">Est. $5M · Utility-funded with rate recovery</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🗑️</div>
+        <div class="infra-text">
+          <h4>Smart Waste &amp; Regional Recycling</h4>
+          <p>Replace aging solid waste fleet with automated collection vehicles, deploy smart-fill sensors in public bins to optimize pickup routes, and establish a regional Materials Recovery Facility (MRF) shared with Augusta and Andover. Add curbside composting for residential zones. Reduces operational costs ~20% over 10 years while supporting the city's sustainability narrative as it recruits ESG-conscious industrial tenants.</p>
+          <span class="cost">Est. $4.5M · Revenue bond + County partnership</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🌳</div>
+        <div class="infra-text">
+          <h4>Urban Tree Canopy &amp; Green Corridors</h4>
+          <p>Plant 2,000 trees over 10 years along rights-of-way, in parks, and in all new development zones. Studies in comparable Kansas cities show street trees increase adjacent retail sales 12–15%, reduce cooling energy use in adjacent buildings, and directly support mental health outcomes. Establish green corridors connecting downtown to the Walnut River greenway and from residential neighborhoods to the North Gateway linear park.</p>
+          <span class="cost">Est. $1.5M · USDA Urban &amp; Community Forestry Program</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">📶</div>
+        <div class="infra-text">
+          <h4>Municipal Wireless Network &amp; Smart City Sensor Layer</h4>
+          <p>Deploy a municipal WiFi6 mesh network in downtown El Dorado, all parks, the North Gateway district, and El Dorado Lake's public areas — providing free public wireless access and the backbone for a smart city sensor infrastructure. Smart sensors monitor traffic flow, parking occupancy, air quality, stormwater levels, and water system pressure in real time. The data layer reduces public works response time by 30–40%, enables dynamic parking pricing, and provides the city commission with objective performance metrics on every major infrastructure system. Total cost is 70% lower when deployed alongside the fiber network buildout rather than as a standalone project.</p>
+          <span class="cost">Est. $2.5M · Bundled with BEAD fiber deployment</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🅿️</div>
+        <div class="infra-text">
+          <h4>Smart Parking Management System</h4>
+          <p>Install in-ground parking sensors in all downtown and North Gateway surface lots, connected to a real-time wayfinding app and dynamic signage at key intersections. Eliminates the "no parking" perception that deters downtown visitors — 30% of downtown traffic in comparable cities is drivers circling for parking. Dynamic pricing (higher on event nights, lower midweek) maximizes utilization and revenue. Real-time occupancy data feeds the BID's monthly performance report, providing objective metrics on downtown health. Revenue generated flows directly into the Downtown Improvement Fund. Phase 2 adds automated enforcement with license plate recognition cameras.</p>
+          <span class="cost">Est. $800K · Operated as a revenue-generating city utility</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">💧</div>
+        <div class="infra-text">
+          <h4>Stormwater Capture &amp; Reclaimed Water System</h4>
+          <p>Construct stormwater capture cisterns at key municipal facilities — the athletic complex, golf course, and parks maintenance yard — and develop a reclaimed water distribution system for non-potable irrigation uses. El Dorado's golf course alone uses 15–20 million gallons of treated drinking water per year on turf that can be irrigated with reclaimed water at a fraction of the cost. The reclaimed water system reduces demand on the upgraded water treatment plant, lowering long-term operating costs and extending the plant's capacity margin for new residential and industrial growth. EPA WaterSense certification qualifies the city for infrastructure loan interest rate reductions.</p>
+          <span class="cost">Est. $3.8M · EPA WaterSense partnership + utility savings offset</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🔌</div>
+        <div class="infra-text">
+          <h4>Underground Utility Conversion — Downtown Core</h4>
+          <p>Relocate overhead electric and telecom lines underground along the 8-block Central Avenue streetscape improvement zone and the North Gateway main corridor. Overhead utilities are the single most damaging visual element on an otherwise historic downtown streetscape — their removal is universally cited by downtown revitalization practitioners as having an outsized positive impact on street character and adjacent property values. Kansas utilities are required to participate in undergrounding programs at cost-shared rates; timing it with the streetscape project reduces total cost by 35–45% versus a standalone utility project. Storm resilience benefit: underground lines are not damaged by ice storms or straight-line winds that average two outage events per year.</p>
+          <span class="cost">Est. $4.2M · Coordinated with KDOT streetscape + utility cost-sharing</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">📡</div>
+        <div class="infra-text">
+          <h4>5G Small Cell &amp; Telecom Infrastructure Program</h4>
+          <p>Negotiate with wireless carriers (Verizon, AT&amp;T, T-Mobile) for accelerated 5G small cell deployment in the North Gateway district, south industrial corridor, and El Dorado Lake area — all currently underserved by 4G coverage. Small cells attach to existing street light poles at carrier expense; the city receives annual attachment fees ($1,500–$3,000 per pole per carrier). 5G coverage at the data center site and industrial park is a site-selection prerequisite that carriers will deploy faster if the city facilitates access to city-owned poles under a master license agreement. Total estimated city annual revenue from attachment fees: $120,000–$200,000 at full deployment.</p>
+          <span class="cost">Est. $0 city cost · Carrier-funded; pole attachment fees generate $120–$200K/yr city revenue</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">🌡️</div>
+        <div class="infra-text">
+          <h4>Extreme Weather Resilience &amp; Emergency Power Infrastructure</h4>
+          <p>Install generator backup systems at all critical public infrastructure — City Hall, Fire Stations 1 and 2, the water treatment plant, the wastewater facility, and the community recreation center — ensuring continuity of essential services during ice storms, tornadoes, and derechos that have disrupted El Dorado operations multiple times in the past decade. Integrate 72-hour emergency fuel storage for the full generator fleet. Deploy a public shelter designation and digital notification network with quarterly tested alert systems. Pre-position emergency supply caches (water, food, medical) at Fire Station 1 and Butler CC. FEMA BRIC grants cover up to 75% of eligible resilience infrastructure costs.</p>
+          <span class="cost">Est. $2.8M · FEMA BRIC (75%) + general obligation bond</span>
+        </div>
+      </div>
+      <div class="infra-item">
+        <div class="infra-icon">♻️</div>
+        <div class="infra-text">
+          <h4>Regional Materials Recovery &amp; Composting Facility</h4>
+          <p>Establish a shared Materials Recovery Facility (MRF) with Augusta and Andover — handling commingled recyclables, electronics, and construction waste for Butler County. Add curbside composting for all El Dorado residential zones, diverting 30–40% of solid waste from the landfill. Smart-fill sensors in public collection bins optimize pickup routes, reducing collection vehicle miles driven by 15–20%. The regional MRF model spreads capital costs across three municipalities ($4.5M total vs. $5.5M standalone) and positions El Dorado as the sustainability leader in the region — a growing factor in corporate site selection decisions, particularly for ESG-committed industrial tenants.</p>
+          <span class="cost">Est. $1.5M city share · Revenue bond + county partnership (3-city shared facility)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ LAKE ════ -->
+
+<section id="transportation">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Mobility &amp; Connectivity</span>
+      <h2>Transportation Improvements</h2>
+      <p class="lead">A city that is easy to get to — and easy to move around — attracts residents, workers, and investment. El Dorado has strong highway bones. The gaps are in first/last mile, Wichita connectivity, and sustainable mobility options.</p>
+    </div>
+    <div class="transport-grid">
+      <div class="transport-card tc-highway reveal">
+        <div class="tc-icon">🛣️</div>
+        <h3>US-54 / US-77 Interchange Upgrade</h3>
+        <p>The intersection of US-54 and US-77 is El Dorado's economic front door and handles significant freight traffic from the south industrial corridor. The current design creates dangerous conflict points and congestion during industrial shift changes. Upgrade to a modern diverging-diamond interchange with dedicated freight turning lanes, coordinated signal timing, and pedestrian refuge islands.</p>
+        <div class="tc-projects"><ul>
+          <li>Diverging-diamond interchange design</li>
+          <li>Dedicated freight-priority turning lanes</li>
+          <li>Coordinated adaptive signal timing</li>
+          <li>Est. $14M — KDOT partnership (80% state)</li>
+          <li>Landscaped median and gateway welcome signage at city entry</li>
+          <li>Dedicated truck inspection pull-out for commercial vehicles</li>
+          <li>Emergency crossover and median break for incident management</li>
+          <li>Real-time traffic monitoring cameras integrated with KDOT network</li>
+          <li>Pedestrian refuge islands at all crosswalk approaches</li>
+          <li>LED roadway lighting on all interchange ramps</li>
+          <li>Wayfinding signs directing travelers to El Dorado Lake, downtown, and hospital</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-transit reveal" style="transition-delay:.1s">
+        <div class="tc-icon">🚌</div>
+        <h3>Wichita Express Bus Connection</h3>
+        <p>Launch a weekday commuter bus route: El Dorado → Augusta → Wichita east side → downtown Wichita. Three morning/three evening runs. A Park-and-Ride facility at the US-54/77 junction with 200 covered spaces anchors the route. Price it at $5 each way / $80 monthly pass. Makes El Dorado viable for Wichita workers who can't afford metro rents — and positions it as a bedroom community alternative to Derby and Andover.</p>
+        <div class="tc-projects"><ul>
+          <li>200-space Park-and-Ride at US-54/US-77</li>
+          <li>6 daily runs (3 AM inbound / 3 PM outbound)</li>
+          <li>$5 one-way; $80/month unlimited pass</li>
+          <li>Est. $3M capital + $600K/yr operating</li>
+          <li>Wi-Fi on all buses; USB charging at every seat</li>
+          <li>ADA-accessible low-floor vehicles — 100% accessible fleet</li>
+          <li>Real-time arrival tracking via Google Maps and Transit App integration</li>
+          <li>Employer-sponsored bulk pass programs: refinery, aerospace campus, hospital</li>
+          <li>Guaranteed connection times matched to Wichita Metro Area Transit network</li>
+          <li>TDM (Transportation Demand Management) program for major employers</li>
+          <li>Express premium tier: reserved seating, guaranteed departure</li>
+          <li>Annual ridership report to city commission and CMAQ federal funder</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-bike reveal" style="transition-delay:.2s">
+        <div class="tc-icon">🚴</div>
+        <h3>Connected Bike Network</h3>
+        <p>20 miles of connected bicycle infrastructure — protected lanes on Central Avenue and along US-77 frontage roads, plus shared-use paths in residential areas. Connects downtown to El Dorado Lake, Butler CC, the sports complex, and all major residential zones. Includes 10 bike-share stations (30 e-bikes) and secure covered parking at the transit hub, library, and recreation center.</p>
+        <div class="tc-projects"><ul>
+          <li>8 miles protected bike lanes (downtown/arterial)</li>
+          <li>12 miles shared-use path (residential/trail)</li>
+          <li>10 bike-share stations with 30 e-bikes</li>
+          <li>Est. $4.5M — CMAQ federal grant eligible</li>
+          <li>Secured indoor bike parking at transit hub, library, and downtown parking</li>
+          <li>Bike repair stations with pumps every 1.5 miles on primary routes</li>
+          <li>County connector route linking El Dorado to Augusta bike trail</li>
+          <li>Designated safe bike-to-school corridors for all USD 490 campuses</li>
+          <li>Bicycle boulevard on low-volume residential street parallel to Central Ave</li>
+          <li>Wayfinding signs with distance and QR-linked trail maps at every intersection</li>
+          <li>Annual bike count and mode-share tracking for federal grant reporting</li>
+          <li>Flint Hills Gravel Route designation for touring cyclists (50+ miles)</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-ev reveal">
+        <div class="tc-icon">⚡</div>
+        <h3>EV Charging Network</h3>
+        <p>Install 8 DC Fast Chargers and 40 Level-2 stations at strategic locations — downtown plaza, El Dorado State Park entrance, hospital campus, transit hub, industrial parks, north marina, and the data center site. Apply for NEVI Formula Program funding (Kansas received $39.5M over 5 years). Position El Dorado as the charge stop on the Wichita–Emporia corridor, capturing I-35/US-54 pass-through traffic.</p>
+        <div class="tc-projects"><ul>
+          <li>8 DC Fast Chargers (150kW each)</li>
+          <li>40 Level-2 stations (citywide)</li>
+          <li>Open ChargePoint network (public access)</li>
+          <li>Est. $1.2M — 80% NEVI-funded</li>
+          <li>Workplace charging grant program: 50% city match for employers adding Level-2 stations</li>
+          <li>Hotel and marina destination charging at boutique hotel and lake amenity hub</li>
+          <li>School bus electrification pilot: 3 USD 490 buses converted in Phase 2</li>
+          <li>City fleet electrification: 10 EVs in city vehicle pool by 2028</li>
+          <li>EV-ready building code requirement for all new commercial construction</li>
+          <li>ChargePoint roaming integration for cross-Kansas EV network access</li>
+          <li>Real-time charger availability displayed on city website and navigation apps</li>
+          <li>Overnight RV electric hookups at north marina and Oil Museum lot</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-ped reveal" style="transition-delay:.1s">
+        <div class="tc-icon">🚶</div>
+        <h3>Safe Pedestrian Infrastructure</h3>
+        <p>Conduct a citywide sidewalk audit, repair or install 6 miles of missing sidewalk links in school zones and along major arterials. Install HAWK pedestrian signals at 8 high-risk crossings. Build a pedestrian bridge over the Walnut River connecting east-side neighborhoods to downtown — eliminating a significant barrier that forces pedestrians onto a 4-lane road crossing to reach Central Avenue.</p>
+        <div class="tc-projects"><ul>
+          <li>6 miles new/repaired sidewalk</li>
+          <li>8 HAWK pedestrian signal installations</li>
+          <li>Walnut River pedestrian bridge</li>
+          <li>Est. $3.8M — Safe Streets for All grant</li>
+          <li>Vision Zero policy adoption: target zero pedestrian/cyclist fatalities by 2035</li>
+          <li>School safe routes program: designated walking corridors to all USD 490 campuses</li>
+          <li>200 non-ADA compliant curb ramp replacements citywide</li>
+          <li>Crosswalk countdown timers at all signalized intersections</li>
+          <li>LED lighting upgrade on all designated pedestrian corridors</li>
+          <li>Pedestrian volume counts integrated with smart sensor network</li>
+          <li>Accessible surface improvements along Walnut River greenway</li>
+          <li>Speed table installations in school zones and near senior campus</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-highway reveal" style="transition-delay:.1s">
+        <div class="tc-icon">🚂</div>
+        <h3>Freight Rail Advantage — BNSF &amp; Union Pacific</h3>
+        <p>El Dorado sits on the BNSF main line carrying <strong>46 trains per day</strong> — one of the highest-frequency freight corridors in Kansas. Union Pacific maintains an industrial lead line from Wichita. Both Class 1 railroads provide El Dorado manufacturers direct access to national rail networks without short-line surcharges. Savage Services operates a multi-commodity transload terminal on the BNSF line (built 2011 with HollyFrontier Refining), handling liquid bulk, dry bulk, hazmat, steel, lumber, and container unloading. Union Tank Car Company (UTLX) — the largest railcar lessor in North America — operates its 40-acre El Dorado repair facility directly adjacent to the BNSF line. This rail infrastructure is a tier-1 site selection asset for any manufacturer requiring freight rail access.</p>
+        <div class="tc-projects"><ul>
+          <li>BNSF main line: 46 trains/day — direct Class 1 national freight access</li>
+          <li>Union Pacific industrial lead from Wichita — second Class 1 carrier</li>
+          <li>Savage Services transload terminal on BNSF: liquid bulk, dry bulk, hazmat, container</li>
+          <li>UTLX railcar repair facility: 40 acres adjacent to BNSF, ~70 employees</li>
+          <li>No short-line interchange costs — direct Class 1 pricing for El Dorado shippers</li>
+          <li>BNSF transload facility within 5 miles of all industrial park sites</li>
+          <li>Rail-served industrial pad development: pre-extend rail spur to shovel-ready sites</li>
+          <li>Tank car, flatcar, boxcar, pneumatic, hopper, and container service all available</li>
+          <li>Hazmat-rated transload capability supports chemical, agricultural, and fuel industries</li>
+          <li>Rail access combined with I-35 highway: multi-modal freight package competitive with metro sites</li>
+          <li>Market BNSF connection in all industrial recruitment materials and LOIS site listings</li>
+        </ul></div>
+      </div>
+      <div class="transport-card tc-air reveal" style="transition-delay:.2s">
+        <div class="tc-icon">✈️</div>
+        <h3>El Dorado Airport (EQA) Upgrades</h3>
+        <p>El Dorado's general aviation airport is an underused asset. Wichita's Dwight D. Eisenhower National Airport is increasingly congested for business aviation. Extend EQA's runway to 5,500 ft to accommodate larger business jets, add instrument approach capability (ILS), construct 20 new T-hangar units (high demand from Wichita aviation businesses needing overflow), and install 24-hour self-serve fuel. Position EQA as Wichita's business aviation relief valve.</p>
+        <div class="tc-projects"><ul>
+          <li>Runway extension to 5,500 ft</li>
+          <li>ILS instrument approach installation</li>
+          <li>20-unit T-hangar development (private)</li>
+          <li>Est. $7M — FAA AIP (90% federal)</li>
+          <li>24-hour self-serve avgas and Jet-A fuel with automated credit card dispensing</li>
+          <li>Pilot lounge renovation: weather station, flight planning workstation, crew car</li>
+          <li>Customs and Border Protection facility feasibility study for international charter</li>
+          <li>On-airport car rental arrangement with regional agency</li>
+          <li>Airport beacon upgrade and approach lighting modernization</li>
+          <li>UAS (drone) corridor designation and testing zone partnership with Butler CC</li>
+          <li>Charter service marketing to data center and aerospace company executives</li>
+          <li>Rebranding: "El Dorado Regional Airport (EQA)" with updated signage and online presence</li>
+          <li>Fuel farm expansion to support increased traffic from renovated hangars</li>
+        </ul></div>
+      </div>
+
+      <div class="transport-card tc-amtrak reveal">
+        <div class="tc-icon">🚂</div>
+        <h3>Amtrak Thruway — Newton Station Connector</h3>
+        <p>Newton, Kansas — 30 miles west of El Dorado — is a functioning Amtrak Southwest Chief stop on one of Amtrak's busiest long-distance corridors (Chicago–Los Angeles). An Amtrak Thruway motor coach connection, Newton → Augusta → El Dorado Lake → Downtown, would place El Dorado on the national rail network without requiring a new rail line. Two daily runs aligned with Southwest Chief arrivals and departures. A dedicated El Dorado stop at the Lake Visitor Center and Downtown plaza. If a future Heartland Flyer expansion or new Midwest rail corridor materializes, El Dorado's US-54 position makes it a strong standalone Amtrak station candidate — the city should advocate proactively and build the political case now.</p>
+        <div class="tc-projects"><ul>
+          <li>Amtrak Thruway motor coach: Newton → Augusta → El Dorado</li>
+          <li>2 daily runs aligned with Southwest Chief schedule</li>
+          <li>Stops: El Dorado Lake Visitor Center + Downtown Plaza</li>
+          <li>Est. $280K/yr operating (KDOT Thruway subsidy eligible)</li>
+          <li>KDOT feasibility study — Phase 1 priority action</li>
+          <li>Long-range: standalone El Dorado Amtrak station advocacy</li>
+          <li>Passenger shelter, seating, and real-time display board at downtown stop</li>
+          <li>Amtrak Thruway ticketing integration — bookable on amtrak.com</li>
+          <li>Luggage and bicycle accommodation on all buses</li>
+          <li>Package tour with Visit Wichita and Visit Kansas for long-distance rail visitors</li>
+          <li>Seasonal pricing during summer festival weekends and El Dorado Lake events</li>
+          <li>Annual ridership targets tied to KDOT subsidy renewal criteria</li>
+          <li>Free downtown destination map given to all arriving Thruway passengers</li>
+        </ul></div>
+      </div>
+
+      <div class="transport-card tc-highway reveal">
+        <div class="tc-icon">🌉</div>
+        <h3>Bridge Inventory — Repair, Beautification &amp; New Crossings</h3>
+        <p>El Dorado's bridges are both functional infrastructure and potential landmarks. The Walnut River runs through the heart of the city, and several key crossings are aging or aesthetically unremarkable. Vision 2040 addresses bridges on three fronts: safety and structural repair, aesthetic enhancement of existing crossings, and strategic new crossings that unlock connectivity for pedestrians and cyclists.</p>
+        <div class="tc-projects"><ul>
+          <li><strong>Walnut River Pedestrian Bridge (Downtown):</strong> New 180-ft signature pedestrian and bicycle bridge connecting east-side neighborhoods to the downtown core — eliminating the current four-lane barrier that forces walkers onto US-54 overpasses. Steel arch design with local limestone accent work; LED pathway lighting; viewpoint overlook deck at the midpoint; native riparian planting on both approaches. Est. $1.6M — Safe Streets for All federal grant.</li>
+          <li><strong>Walnut River Greenway Footbridge Network:</strong> Three additional pedestrian footbridges (each 60–90 ft) at trail crossings along the Walnut River Greenway corridor — enabling a continuous off-road trail loop accessible to cyclists, pedestrians, and mobility-assisted users without any at-grade road crossings. Simple low-profile steel deck bridges with wood handrails; designed for durability over aesthetics. Est. $280K each.</li>
+          <li><strong>El Dorado Lake Scenic Causeway Overlook:</strong> The existing causeway road at El Dorado Lake is a high-traffic route used by campers, boaters, and day visitors but offers no organized viewpoint or pull-off. Add a designated scenic overlook platform (20×40 ft concrete and stone cantilevered deck) at the highest-profile lake-view point on the causeway — with informational panels, bench seating, and a photographic framing structure. This costs $75K–$100K and creates the single most photographed viewpoint in Butler County.</li>
+          <li><strong>Central Avenue / Walnut River Bridge Beautification:</strong> The existing vehicle bridge on Central Avenue over the Walnut River is structurally sound but visually blank. Add: decorative cast-iron railing panels in oil-derrick motif; limestone-capped parapet walls; LED downlighting on both sides illuminating the river below; and "Welcome to El Dorado" metal lettering integrated into the railing at the east approach. A $120K beautification investment that transforms a daily commuter crossing into a downtown landmark.</li>
+          <li><strong>US-77 / Walnut River Bridge Upgrade:</strong> Schedule structural assessment and targeted repair of the US-77 bridge over the Walnut River — a freight and commuter artery that serves the industrial corridor. Coordinate with KDOT on the repair timeline and apply for IIJA Bridge Formula Program funds (100% federal for eligible bridges).</li>
+          <li><strong>North Gateway District Connector Bridge:</strong> As the North Gateway residential area builds out, a new vehicular bridge over the Walnut River's north branch drainage channel will be required to connect the district's internal road network to existing streets east and west. Designed for 30-year traffic loads; include 10-ft shared-use path on one side. Coordinate with subdivision developer contributions and city TIF financing. Est. $480K.</li>
+          <li><strong>Railroad Underpass Improvements:</strong> The BNSF rail crossings at-grade and the Main Street underpass beneath the rail corridor are visually bleak transitions that greet visitors arriving from the east side. Pressure-wash and paint underpass walls, install LED lighting on the underpass ceiling, and commission a mural on the eastern retaining wall that serves as a "welcome to downtown" signal for eastbound traffic on Central Avenue.</li>
+        </ul></div>
+      </div>
+
+      <div class="transport-card tc-commuter reveal" style="transition-delay:.1s">
+        <div class="tc-icon">🚌</div>
+        <h3>Year-Round Commuter + Seasonal Lake Express</h3>
+        <p>El Dorado's transit strategy serves two distinct markets that require two distinct branded services. <strong>El Dorado Commuter Express</strong> serves the 1,500+ residents who commute daily to Wichita — 365-day weekday service, 6 runs per day, monthly pass pricing that makes the math easy. <strong>El Dorado Lake Shuttle</strong> serves visitors heading to the lake from Wichita, the ICT airport, and regional towns — Memorial Day through Labor Day, bike-rack equipped, priced for day-trippers. Both anchor at the US-54/US-77 Park-and-Ride hub with 200 covered EV-ready parking spaces and real-time arrival displays.</p>
+        <div class="tc-projects"><ul>
+          <li><strong>Commuter Express:</strong> 365-day service · 6 weekday runs (3 AM / 3 PM) · $80/mo pass</li>
+          <li><strong>Lake Shuttle:</strong> Memorial Day–Labor Day · 4 daily runs · $6 one-way · bike rack</li>
+          <li><strong>ICT Airport Connector:</strong> Seasonal · 4 daily runs · $12 round-trip · Wichita Eisenhower</li>
+          <li>Corporate pass program for aerospace, data center, and refinery commuters</li>
+          <li>Google Maps + Transit App real-time integration</li>
+          <li>Est. $3M capital + $900K/yr operating (50% CMAQ-eligible)</li>
+          <li>Mobile app ticketing with digital monthly pass and family fare options</li>
+          <li>Onboard climate control, Wi-Fi, and USB charging standard on all vehicles</li>
+          <li>Luggage and recreational equipment storage for lake visitors</li>
+          <li>Pet-friendly policy on Lake Shuttle with designated seating</li>
+          <li>Senior and disabled discount pass: 50% off monthly rate</li>
+          <li>Annual service review and route adjustment based on ridership data</li>
+          <li>Social media and concierge marketing partnership with Wichita hotels</li>
+          <li>Student pass: Butler CC students ride free with valid ID</li>
+        </ul></div>
+      </div>
+    </div>
+
+    <!-- ─ CORRIDOR VITALIZATION ─ -->
+    <div class="section-header reveal" style="margin-top:4rem">
+      <span class="section-label">Traffic Flow &amp; Economic Corridors</span>
+      <h3>Corridor Vitalization — Six Key Arteries</h3>
+      <p class="lead" style="font-size:.96rem">A city's corridors are its economic bloodstream. Cars, trucks, cyclists, and pedestrians flow through them constantly — and their visual quality, safety, and connectivity determine whether visitors stop and spend money, or drive through without a second glance. El Dorado has six primary corridors, each with distinct character and distinct potential. This section plans each as a complete streetscape experience — not just pavement, but trees, lighting, signage, landscaping, art, and activity that signal investment and invite engagement.</p>
+    </div>
+
+    <div class="infra-grid reveal">
+
+      <div class="infra-item">
+        <div class="infra-icon">🏛️</div>
+        <div class="infra-text">
+          <h4>Central Avenue Corridor — Downtown Heart</h4>
+          <p>Central Avenue from Main Street to E. Central (Oil Museum block) is El Dorado's primary commercial and civic spine. The corridor carries a mix of daily commuter traffic, visitor access to downtown, and pedestrian activity that is currently poorly supported. Vision 2040 treats Central Avenue as a complete street: decorative lamp posts with hanging flower baskets, stamped crosswalks, bump-out parklets, canopy street trees in grates, and a redesigned Central Plaza fountain anchor. Signal timing optimization reduces stop-and-go congestion for through traffic while pedestrian phases are extended. A dedicated left-turn storage lane at the US-77/Central Ave intersection eliminates the primary source of peak-hour delay. Underground utility burial on the four most prominent blocks removes the visual clutter of overhead wires. Target: Central Avenue becomes a street that residents use voluntarily — not just to move through, but to be on.</p>
+          <span class="cost">$1.1M streetscape · Signal optimization $180K · Underground utilities $650K (Phase 2) · Maintained by Main Street BID</span>
+        </div>
+      </div>
+
+      <div class="infra-item">
+        <div class="infra-icon">🛣️</div>
+        <div class="infra-text">
+          <h4>US-77 North Corridor — Gateway &amp; Industrial Access</h4>
+          <p>US-77 from I-35 Exit 71 south to the Central Avenue intersection is El Dorado's highest-visibility entry corridor — the route every visitor from the interstate takes. It currently presents as a generic highway approach with minimal landscaping, aging signage, and no sense of arrival. Vision 2040 interventions: landscape median plantings on the US-77 median (native grasses and flowering perennials maintained by a TxDOT-style adopt-a-highway program); a signature gateway monument at Exit 71; wayfinding signage at every key turn directing visitors to lake, downtown, museum; and coordinated LED roadway lighting at the three major intersections between I-35 and downtown. The corridor also serves the North Gateway District's primary access road — it must function as both an interstate gateway and a neighborhood street simultaneously, which requires careful design of lane widths, crosswalks, and speed management north of the railroad crossing.</p>
+          <span class="cost">$385K landscaping + signage · $310K lighting upgrades · Coordination with KDOT US-77 maintenance agreement</span>
+        </div>
+      </div>
+
+      <div class="infra-item">
+        <div class="infra-icon">🏭</div>
+        <div class="infra-text">
+          <h4>Haverhill Road / North Industrial Corridor</h4>
+          <p>Haverhill Road is the primary access route to the mega-site, the North Gateway industrial zone, and the AMAZONE manufacturing facility. AMAZONE (1220 N Haverhill Rd) is already generating daily freight and employee traffic — and the road they use reflects on El Dorado's industrial brand in the eyes of every supplier, visitor, and potential tenant who drives it. Investments: pavement overlay and intersection repair on the section from Central Ave to the mega-site boundary; industrial wayfinding signs directing freight to the transload terminal and mega-site entry; heavy-load capacity shoulder improvements supporting OOD (overdimensional) transport for large manufacturing deliveries; perimeter landscaping of the industrial park boundary visible from the road; and consistent LED area lighting at all major intersections. The corridor becomes El Dorado's "first impression" for every site selector and industry visitor — it must communicate competence and investment.</p>
+          <span class="cost">$520K road overlay + shoulders · $140K wayfinding + lighting · Coordinated with El Dorado Inc. site marketing materials</span>
+        </div>
+      </div>
+
+      <div class="infra-item">
+        <div class="infra-icon">🏘️</div>
+        <div class="infra-text">
+          <h4>Chase Street / East Side Residential Corridor</h4>
+          <p>Chase Street and the parallel east-side grid serve El Dorado's established residential neighborhoods — the legacy housing stock east of the Walnut River that the plan targets for rehabilitation and investment through the Legacy Neighborhood Revitalization program. The east-side corridor has aging sidewalks, intermittent street trees, and minimal lighting on residential blocks. Vision 2040 upgrades: complete the sidewalk network on all residential blocks within the school safe routes program footprint (connecting El Dorado Middle School and El Dorado High School to surrounding neighborhoods); install pedestrian-scale LED lighting on the corridor's major cross-streets; plant 200+ street trees over five years along Chase, Vine, and parallel residential streets — creating the visible canopy that signals neighborhood investment to potential homebuyers; and install 30 "neighborhood art" bench-and-planter installations at key block midpoints through a partnership with Butler CC art students. The east side is El Dorado's most overlooked asset. With tree canopy and walkable streets, it becomes competitive with new suburban development at a fraction of the infrastructure cost.</p>
+          <span class="cost">$380K sidewalk completion · $120K LED lighting · $290K street trees (5-yr program) · $65K bench/planter installations</span>
+        </div>
+      </div>
+
+      <div class="infra-item">
+        <div class="infra-icon">🌊</div>
+        <div class="infra-text">
+          <h4>Walnut River Greenway Corridor — Nature Trail Spine</h4>
+          <p>The Walnut River is El Dorado's greatest underutilized public asset after El Dorado Lake itself. The river runs through the heart of the city — through established neighborhoods, past downtown, and north toward the lake — but currently functions primarily as a flood-control channel rather than a community amenity. Vision 2040 transforms the river corridor into a continuous 6-mile linear park and trail: paved multi-use path on the east bank from the downtown pedestrian bridge north to the Walnut River campground area near the lake; three new pedestrian footbridges enabling east-west trail crossings without using vehicle roads; native riparian plantings (cottonwood, bur oak, buttonbush, wild bergamot) on both banks replacing invasive species; interpretive signage at key natural features; three formal access points with parking, restrooms, and trail-head facilities; kayak and canoe launch ramps at two locations; and habitat restoration in the widest floodplain sections creating wildlife corridors visible from the trail. The Walnut River Corridor becomes El Dorado's equivalent of the Riverwalk — a destination in itself, not just a functional drainage ditch.</p>
+          <span class="cost">$4.2M corridor-wide (Phases 1–3) · LWCF grants + EPA Recreation Economy for Rural Communities TA · City Parks budget phased contribution</span>
+        </div>
+      </div>
+
+      <div class="infra-item">
+        <div class="infra-icon">🌅</div>
+        <div class="infra-text">
+          <h4>US-54 / US-400 West Corridor — Wichita Commuter Gateway</h4>
+          <p>US-54 from the Butler County line west to the Central Avenue intersection is the primary route used by El Dorado's 1,500+ daily Wichita commuters and by visitors from ICT Airport. It is also the corridor with the highest potential to attract commercial development as El Dorado's population grows — the US-54 frontage zone already has the zoning, utilities, and traffic counts to support a regional commercial node. Vision 2040 interventions: a welcoming gateway monument at the county/city limits boundary; native wildflower and ornamental grass median plantings from the city limits to the first traffic signal (highly visible to commuters at 55 mph); coordinated signage directing travelers to the Park-and-Ride facility and commuter bus stop; improved deceleration lanes at the Central Avenue intersection; and a commercial node plan for the US-54 frontage zone designating parcels for highway commercial development (gas, food, lodging) that capture pass-through spending currently skipping El Dorado entirely. A 2,500-car-per-day average daily traffic count on US-54 represents $35–$55M in annual potential commercial capture if one full-service interchange service area is developed.</p>
+          <span class="cost">$175K landscaping + signage · $280K intersection improvements · Commercial node plan $45K (planning phase) · KDOT US-54 maintenance coordination</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ PUBLIC SAFETY ════ -->
+
+<!-- ════ NEXT PAGE CTA ════ -->
+<div class="next-page-card">
+  <h3>Continue Exploring</h3>
+  <p>Discover Finance & Investment</p>
+  <a href="finance.html" class="btn btn--primary">Next: Finance & Investment →</a>
+</div>
+
+
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="city">El Dorado, Kansas — Vision 2040</span>
+        <p>A comprehensive community improvement plan covering economic development, the North Gateway District, education, residential growth, infrastructure, El Dorado Lake, downtown revitalization, parks and recreation, transportation, public safety, tax implications, zoning, and data visualizations.</p>
+        <p style="margin-top:.65rem;font-size:.8rem">Butler County Seat · Founded 1857 · Pop. 12,694 (2024 Census est.) · 29 mi E of Wichita · Not an official city document</p>
+      </div>
+      <div>
+        <h4>Plan Sections</h4>
+        <ul>
+          <li><a href="#vision">Vision &amp; Overview</a></li>
+          <li><a href="#partners">Anchor City Partners</a></li>
+          <li><a href="#north-gateway">North Gateway District</a></li>
+          <li><a href="#industry">Industry &amp; Economy</a></li>
+          <li><a href="#health-economy">Health Economy</a></li>
+          <li><a href="#k12-education">K–12 Education Excellence (USD 490)</a></li>
+          <li><a href="#education">Higher Education &amp; Workforce (Butler CC)</a></li>
+          <li><a href="#workforce-childcare">Childcare &amp; Housing Stability</a></li>
+          <li><a href="#residential">Residential Development</a></li>
+          <li><a href="#infrastructure">Infrastructure</a></li>
+          <li><a href="#lake">El Dorado Lake</a></li>
+          <li><a href="#downtown">Downtown</a></li>
+          <li><a href="#arts-heritage">Arts, Culture &amp; Heritage</a></li>
+          <li><a href="#tourism">Tourism Capital</a></li>
+          <li><a href="#parks">Parks &amp; Recreation</a></li>
+          <li><a href="#golf">Golf Club Renovation</a></li>
+          <li><a href="#beautification">Beautification &amp; Fountains</a></li>
+          <li><a href="#transportation">Transportation</a></li>
+          <li><a href="#public-safety">Public Safety</a></li>
+          <li><a href="#tax-impact">Tax Implications</a></li>
+          <li><a href="#data-charts">Data &amp; Charts</a></li>
+          <li><a href="#zoning">Zoning Map</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#funding">Funding Sources</a></li>
+          <li><a href="#foreign-investment">Foreign Direct Investment</a></li>
+          <li><a href="#niche-industries">Niche Industries &amp; Emerging Opp.</a></li>
+          <li><a href="#government-cooperation">Government &amp; Representatives</a></li>
+          <li><a href="#butler-county">Butler County — Regional Integration</a></li>
+          <li><a href="#surrounding-region">Surrounding Region — 100-Mile Context</a></li>
+          <li><a href="#glossary">Glossary of Terms</a></li>
+          <li><a href="#action">Take Action</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Key Resources</h4>
+        <ul>
+          <li><a href="https://www.eldoradoks.net" target="_blank">City of El Dorado</a></li>
+          <li><a href="https://www.butlercountychamber.com" target="_blank">Butler County Chamber</a></li>
+          <li><a href="https://www.butlercc.edu" target="_blank">Butler Community College</a></li>
+          <li><a href="https://kdwpt.state.ks.us" target="_blank">KS Dept of Wildlife &amp; Parks</a></li>
+          <li><a href="https://www.kansascommerce.gov" target="_blank">KS Department of Commerce</a></li>
+          <li><a href="https://www.eda.gov" target="_blank">EDA Grant Portal</a></li>
+          <li><a href="https://www.grants.gov" target="_blank">Grants.gov (Federal)</a></li>
+          <li><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" target="_blank">FEMA Flood Map Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>El Dorado, KS — Vision 2040 Planning Framework</span>
+      <span class="gold">Community planning resource · Not an official city document</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

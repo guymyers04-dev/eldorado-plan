@@ -7,6 +7,24 @@ document.querySelectorAll('.reveal').forEach(el => {
   }, { threshold: 0.1 }).observe(el);
 });
 
+/* ── Page nav pills tracking ── */
+const pageNavObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      const pill = document.querySelector(`.page-nav__pill[href="#${id}"]`);
+      if (pill) {
+        document.querySelectorAll('.page-nav__pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section[id]').forEach(section => {
+  pageNavObserver.observe(section);
+});
+
 /* ══════════════════════════════════════════════
    NAVIGATION STATE MANAGER — Optimized Active Section Detection
 ══════════════════════════════════════════════ */

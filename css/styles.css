@@ -3777,6 +3777,317 @@ footer ul a:hover { color:var(--gold); }
   }
 }
 
+/* ══════════════════════════════════════════════════════════
+   PHASE 2: SECTION CATEGORY BADGES, ENHANCED CTAs, TIER SYSTEM
+══════════════════════════════════════════════════════════ */
+
+/* ── Section Category Badges ── */
+.section-category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  background: rgba(46,110,53,.15);
+  color: var(--green);
+  transition: all var(--transition);
+}
+
+/* Category color variants by page */
+.section--economy .section-category,
+#economy .section-category {
+  background: rgba(46,110,53,.15);
+  color: var(--green);
+}
+
+.section--place .section-category,
+#place .section-category {
+  background: rgba(74,144,191,.15);
+  color: var(--sky);
+}
+
+.section--people .section-category,
+#people .section-category {
+  background: rgba(123,94,167,.15);
+  color: var(--purple);
+}
+
+.section--build .section-category,
+#build .section-category {
+  background: rgba(200,144,42,.15);
+  color: var(--gold);
+}
+
+.section--finance .section-category,
+#finance .section-category {
+  background: rgba(200,144,42,.15);
+  color: var(--gold);
+}
+
+.section--region .section-category,
+#region .section-category {
+  background: rgba(123,94,167,.15);
+  color: var(--purple);
+}
+
+.section--housing .section-category,
+#housing .section-category {
+  background: rgba(74,144,191,.15);
+  color: var(--sky);
+}
+
+.section--reference .section-category,
+#reference .section-category {
+  background: rgba(27,58,92,.12);
+  color: var(--navy);
+}
+
+/* ── Enhanced Hero CTAs ── */
+.hero-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 700px;
+  margin-top: 2rem;
+}
+
+.btn--primary-large {
+  padding: 1.1rem 3rem;
+  font-size: 1.1rem;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: max-content;
+  border: none;
+}
+
+.btn-icon-arrow {
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.btn--primary:hover .btn-icon-arrow {
+  transform: translateX(4px);
+}
+
+.cta-secondary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.cta-link {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  color: var(--gold);
+  font-weight: 600;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  text-decoration: none;
+}
+
+.cta-link:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200,144,42,.25);
+}
+
+.cta-icon {
+  font-size: 1.8rem;
+  display: block;
+}
+
+.cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.95rem;
+}
+
+.cta-label {
+  font-size: 0.65rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .btn--primary-large {
+    width: 100%;
+  }
+
+  .cta-secondary {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-link {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .cta-text {
+    flex: 1;
+  }
+}
+
+/* ── Contact Card Tier System ── */
+.contact-card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: var(--white);
+  border-left: 5px solid var(--navy);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.14);
+}
+
+/* Tier-based border colors */
+.contact-card.tier-1,
+.contact-card[data-tier="Decision-Maker"] {
+  border-left-color: var(--navy);
+}
+
+.contact-card.tier-2,
+.contact-card[data-tier="Enabler"] {
+  border-left-color: var(--gold);
+}
+
+.contact-card.tier-3,
+.contact-card[data-tier="Advocate"] {
+  border-left-color: var(--green);
+}
+
+/* Card badge (tier indicator) */
+.card-badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.contact-card.tier-1 .card-badge,
+.contact-card[data-tier="Decision-Maker"] .card-badge {
+  background: rgba(27,58,92,.12);
+  color: var(--navy);
+  content: "Decision-Maker";
+}
+
+.contact-card.tier-2 .card-badge,
+.contact-card[data-tier="Enabler"] .card-badge {
+  background: rgba(200,144,42,.12);
+  color: var(--gold);
+  content: "Enabler";
+}
+
+.contact-card.tier-3 .card-badge,
+.contact-card[data-tier="Advocate"] .card-badge {
+  background: rgba(46,110,53,.12);
+  color: var(--green);
+  content: "Advocate";
+}
+
+.contact-card h4 {
+  margin: 0 0 0.25rem;
+  color: var(--navy);
+  font-size: 1.1rem;
+}
+
+.card-title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.card-details {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.card-details p {
+  margin: 0.5rem 0;
+}
+
+.card-details a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.card-details a:hover {
+  text-decoration: underline;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn--small {
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  display: inline-block;
+}
+
+.btn--outline-small {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn--outline-small:hover {
+  background: rgba(200,144,42,.1);
+}
+
+/* ── Mobile Optimizations ── */
+@media (max-width: 768px) {
+  .section-category {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-ctas {
+    max-width: 100%;
+  }
+
+  .cta-link {
+    gap: 0.75rem;
+  }
+
+  .card-actions {
+    gap: 0.5rem;
+  }
+
+  .btn--small {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
 /* ── Page Hero (Breadcrumb + Title) ── */
 .page-hero {
   background: linear-gradient(135deg, var(--navy) 0%, #243d5f 100%);
