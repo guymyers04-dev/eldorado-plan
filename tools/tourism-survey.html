@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourism Amenity Survey | Vision 2040</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    body[data-page="survey"] .page-nav { display: none; }
+    .survey-hero { background: linear-gradient(135deg, #4A90BF 0%, #2E6E35 100%); color: white; padding: 3rem 2rem; text-align: center; }
+    .survey-container { max-width: 600px; margin: 2rem auto; padding: 0 2rem; }
+    .survey-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 2rem; }
+    .question { margin-bottom: 1.5rem; }
+    .question label { display: flex; align-items: center; padding: 0.75rem; border-radius: 4px; cursor: pointer; margin-bottom: 0.5rem; }
+    .question label:hover { background: #f5f5f5; }
+    .question input[type="checkbox"] { margin-right: 0.75rem; width: 18px; height: 18px; cursor: pointer; }
+    .survey-submit { background: #4A90BF; color: white; padding: 1rem 2rem; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; }
+    .results-board { background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+    .result-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #ddd; }
+    .result-bar { flex: 1; background: #4A90BF; height: 20px; border-radius: 4px; margin: 0 1rem; }
+    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+  </style>
+</head>
+<body data-page="survey">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
+
+<div class="breadcrumb">
+  <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="../place-lake.html" style="color: var(--gold); text-decoration: none;">Lake & Recreation</a> › Visitor Survey
+</div>
+
+<div class="survey-hero">
+  <div class="container">
+    <h1>Help Shape El Dorado's Future</h1>
+    <p style="font-size: 1.1rem; opacity: 0.95;">What would make you stay longer at El Dorado Lake? Your feedback directly influences our development strategy.</p>
+  </div>
+</div>
+
+<div class="survey-container">
+  <div class="survey-card">
+    <h3 style="color: var(--navy); margin-top: 0;">What amenities would enhance your visit? (Select all that apply)</h3>
+
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="waterfront-dining"> Waterfront dining (restaurants with lake views)</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="water-sports"> Water sports rentals (jet skis, paddleboards, kayaks)</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="boutique-hotel"> Boutique hotel/resort lodging</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="golf"> Championship golf course</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="events-venue"> Event venue (weddings, conferences)</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="live-music"> Live music & entertainment</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="trails"> Hiking & biking trails</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="shopping"> Retail & gift shops</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="brewery"> Craft brewery/local drinks</label>
+    </div>
+    <div class="question">
+      <label><input type="checkbox" name="amenity" value="nature"> Nature center/outdoor education</label>
+    </div>
+
+    <button onclick="submitSurvey()" class="survey-submit">Submit Your Feedback</button>
+  </div>
+
+  <div id="resultsBoard" class="results-board" style="display: none;">
+    <h3 style="color: var(--navy); margin-top: 0;">Community Feedback Results (Real-Time)</h3>
+    <div id="resultsContainer"></div>
+    <p style="font-size: 0.85rem; color: #999; margin-top: 1rem; text-align: center;">Results update as responses come in. Thank you for participating!</p>
+  </div>
+</div>
+
+<footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas</p>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+  // Load and display survey results
+  function loadResults() {
+    const responses = JSON.parse(localStorage.getItem('surveyResponses') || '{}');
+    const amenities = ['waterfront-dining', 'water-sports', 'boutique-hotel', 'golf', 'events-venue', 'live-music', 'trails', 'shopping', 'brewery', 'nature'];
+    const total = Object.values(responses).reduce((a, b) => a + b, 0) || 1;
+
+    const labels = {
+      'waterfront-dining': 'Waterfront Dining',
+      'water-sports': 'Water Sports Rentals',
+      'boutique-hotel': 'Boutique Hotel',
+      'golf': 'Championship Golf',
+      'events-venue': 'Event Venue',
+      'live-music': 'Live Music',
+      'trails': 'Hiking & Biking Trails',
+      'shopping': 'Retail & Shops',
+      'brewery': 'Craft Brewery',
+      'nature': 'Nature Center'
+    };
+
+    let html = '';
+    amenities.forEach(amenity => {
+      const count = responses[amenity] || 0;
+      const percent = ((count / total) * 100).toFixed(0);
+      html += `
+        <div class="result-item">
+          <span>${labels[amenity]}</span>
+          <span>${count} votes (${percent}%)</span>
+        </div>
+      `;
+    });
+
+    document.getElementById('resultsContainer').innerHTML = html;
+    document.getElementById('resultsBoard').style.display = 'block';
+  }
+
+  function submitSurvey() {
+    const selected = Array.from(document.querySelectorAll('input[name="amenity"]:checked')).map(cb => cb.value);
+
+    if (selected.length === 0) {
+      alert('Please select at least one amenity.');
+      return;
+    }
+
+    // Store response
+    let responses = JSON.parse(localStorage.getItem('surveyResponses') || '{}');
+    selected.forEach(amenity => {
+      responses[amenity] = (responses[amenity] || 0) + 1;
+    });
+    localStorage.setItem('surveyResponses', JSON.stringify(responses));
+
+    // Show results
+    alert('Thank you for your feedback! Results are displayed below.');
+    document.querySelectorAll('input[name="amenity"]').forEach(cb => cb.checked = false);
+    loadResults();
+
+    // Analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'tourism_survey_submit', { amenities_selected: selected.length });
+    }
+  }
+
+  // Load results on page load
+  window.addEventListener('load', loadResults);
+</script>
+<script src="../js/analytics.js" defer></script>
+
+</body>
+</html>

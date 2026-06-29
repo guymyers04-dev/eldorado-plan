@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROI Calculator | El Dorado vs Competitors | Vision 2040</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body[data-page="roi-calc"] .page-nav { display: none; }
+    .calc-hero { background: linear-gradient(135deg, #4A90BF 0%, #2E6E35 100%); color: white; padding: 3rem 2rem; text-align: center; }
+    .calc-hero h1 { font-size: 2.5rem; margin: 0 0 1rem; }
+    .calc-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    .calc-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
+    .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
+    .form-group input:focus { outline: none; border-color: #4A90BF; box-shadow: 0 0 0 3px rgba(74, 144, 191, 0.1); }
+    .results-card { background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid #2E6E35; }
+    .result-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid #ddd; }
+    .result-item:last-child { border-bottom: none; }
+    .result-label { font-weight: 600; color: #333; }
+    .result-value { font-size: 1.2rem; font-weight: 700; color: #2E6E35; }
+    .chart-container { position: relative; height: 300px; margin-top: 2rem; }
+    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    @media (max-width: 768px) {
+      .calc-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="roi-calc">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
+
+<div class="breadcrumb">
+  <a href="../index.html">Home</a> › <a href="../logistics-hub.html">Logistics Hub</a> › ROI Calculator
+</div>
+
+<div class="calc-hero">
+  <div class="container">
+    <h1>El Dorado ROI Calculator</h1>
+    <p style="font-size: 1.1rem; opacity: 0.95;">Compare your operating costs: El Dorado vs Wichita vs Kansas City</p>
+  </div>
+</div>
+
+<div class="calc-container">
+  <div class="calc-row">
+    <!-- Input Card -->
+    <div class="calc-card">
+      <h3 style="color: var(--navy); margin-top: 0;">Your Business Profile</h3>
+
+      <div class="form-group">
+        <label for="bizType">Business Type</label>
+        <select id="bizType" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem;">
+          <option value="distribution">Distribution Center (Logistics)</option>
+          <option value="manufacturing">Manufacturing</option>
+          <option value="food">Food Processing</option>
+          <option value="warehouse">Warehouse</option>
+          <option value="corporate">Corporate Office</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="employees">Number of Employees</label>
+        <input type="number" id="employees" value="200" min="1" step="10">
+      </div>
+
+      <div class="form-group">
+        <label for="sqft">Facility Size (sq ft)</label>
+        <input type="number" id="sqft" value="500000" min="1000" step="10000">
+      </div>
+
+      <div class="form-group">
+        <label for="years">Projection Years</label>
+        <input type="number" id="years" value="10" min="1" max="20" step="1">
+      </div>
+
+      <button onclick="calculateROI()" style="background: #4A90BF; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; font-size: 1rem;">Calculate Now</button>
+    </div>
+
+    <!-- Results Card -->
+    <div class="calc-card">
+      <h3 style="color: var(--navy); margin-top: 0;">Annual Operating Cost Comparison</h3>
+
+      <div id="resultsContainer">
+        <p style="color: #999; text-align: center; padding: 2rem;">Enter your info and click Calculate →</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cost Breakdown Chart -->
+  <div class="calc-card">
+    <h3 style="color: var(--navy);">10-Year Total Cost of Ownership</h3>
+    <div class="chart-container">
+      <canvas id="roiChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Incentive Details -->
+  <div class="calc-card" style="background: #f0f8f4; border-top: 4px solid #2E6E35;">
+    <h3 style="color: #2E6E35; margin-top: 0;">El Dorado Incentives Included</h3>
+    <ul style="list-style: none; padding: 0;">
+      <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">✓ 10-year property tax abatement (50%)</li>
+      <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">✓ Sales tax rebate (5 years, 50%)</li>
+      <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">✓ Job creation tax credit ($2K-5K per hire)</li>
+      <li style="padding: 0.5rem 0; border-bottom: 1px solid #ddd;">✓ Workforce training grants ($500/employee)</li>
+      <li style="padding: 0.5rem 0;">✓ Infrastructure cost-sharing (utilities, roads)</li>
+    </ul>
+  </div>
+
+  <!-- CTA -->
+  <div style="background: #4A90BF; color: white; padding: 2rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
+    <h3 style="margin: 0 0 1rem;">Ready to Explore El Dorado?</h3>
+    <p style="margin: 0 0 1.5rem;">Our team will work with you to model your specific business case and explore incentive packages.</p>
+    <a href="recruitment-form.html" class="btn btn--primary" style="background: white; color: #4A90BF; text-decoration: none; padding: 0.75rem 1.5rem; font-weight: 600; border-radius: 4px; display: inline-block;">Get Started →</a>
+  </div>
+
+</div>
+
+<footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="../index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+</footer>
+
+<script src="../js/nav.js"></script>
+<script>
+  const costData = {
+    distribution: {
+      eldorado: { rent: 2.50, labor: 18, utilities: 1.5, tax: 1, other: 2 },
+      wichita: { rent: 8, labor: 20, utilities: 2, tax: 3, other: 3 },
+      kc: { rent: 10, labor: 22, utilities: 2.2, tax: 3.5, other: 3.5 }
+    },
+    manufacturing: {
+      eldorado: { rent: 3, labor: 22, utilities: 2, tax: 1.5, other: 2.5 },
+      wichita: { rent: 9, labor: 25, utilities: 2.5, tax: 4, other: 4 },
+      kc: { rent: 11, labor: 27, utilities: 3, tax: 4.5, other: 4.5 }
+    }
+  };
+
+  function calculateROI() {
+    const bizType = document.getElementById('bizType').value;
+    const employees = parseInt(document.getElementById('employees').value);
+    const sqft = parseInt(document.getElementById('sqft').value);
+    const years = parseInt(document.getElementById('years').value);
+
+    const type = bizType === 'distribution' || bizType === 'warehouse' ? 'distribution' : 'manufacturing';
+    const costs = costData[type];
+
+    // Annual costs per sq ft
+    const eldoradoAnnual = ((costs.eldorado.rent + costs.eldorado.labor + costs.eldorado.utilities + costs.eldorado.tax + costs.eldorado.other) * sqft / 1000);
+    const wichitaAnnual = ((costs.wichita.rent + costs.wichita.labor + costs.wichita.utilities + costs.wichita.tax + costs.wichita.other) * sqft / 1000);
+    const kcAnnual = ((costs.kc.rent + costs.kc.labor + costs.kc.utilities + costs.kc.tax + costs.kc.other) * sqft / 1000);
+
+    const eldoradoTotal = eldoradoAnnual * years;
+    const wichitaTotal = wichitaAnnual * years;
+    const kcTotal = kcAnnual * years;
+
+    const savingsVsWichita = ((wichitaTotal - eldoradoTotal) / wichitaTotal * 100).toFixed(1);
+    const savingsVsKC = ((kcTotal - eldoradoTotal) / kcTotal * 100).toFixed(1);
+
+    // Render results
+    const html = `
+      <div class="results-card">
+        <div class="result-item">
+          <span class="result-label">El Dorado Annual:</span>
+          <span class="result-value">$${(eldoradoAnnual / 1000000).toFixed(2)}M</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Wichita Annual:</span>
+          <span class="result-value">$${(wichitaAnnual / 1000000).toFixed(2)}M</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">Kansas City Annual:</span>
+          <span class="result-value">$${(kcAnnual / 1000000).toFixed(2)}M</span>
+        </div>
+      </div>
+      <div class="results-card" style="background: #e8f5e9;">
+        <div class="result-item">
+          <span class="result-label">${years}-Year Savings vs Wichita:</span>
+          <span class="result-value" style="color: #2E6E35;">$${((wichitaTotal - eldoradoTotal) / 1000000).toFixed(2)}M</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label">${years}-Year Savings vs KC:</span>
+          <span class="result-value" style="color: #2E6E35;">$${((kcTotal - eldoradoTotal) / 1000000).toFixed(2)}M</span>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('resultsContainer').innerHTML = html;
+
+    // Update chart
+    updateChart(eldoradoTotal, wichitaTotal, kcTotal);
+
+    // Log event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'roi_calculation', {
+        business_type: bizType,
+        employees: employees,
+        facility_sqft: sqft,
+        years: years
+      });
+    }
+  }
+
+  let chart = null;
+
+  function updateChart(eldorado, wichita, kc) {
+    const ctx = document.getElementById('roiChart').getContext('2d');
+
+    if (chart) chart.destroy();
+
+    chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['El Dorado', 'Wichita', 'Kansas City'],
+        datasets: [{
+          label: 'Total Operating Cost',
+          data: [eldorado / 1000000, wichita / 1000000, kc / 1000000],
+          backgroundColor: ['#2E6E35', '#ccc', '#ccc'],
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: true, position: 'top' }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: { callback: function(val) { return '$' + val.toFixed(0) + 'M'; } }
+          }
+        }
+      }
+    });
+  }
+</script>
+<script src="../js/analytics.js" defer></script>
+
+</body>
+</html>
