@@ -528,9 +528,12 @@
         <p>A comprehensive community improvement plan covering economic development, the North Gateway District, education, residential growth, infrastructure, El Dorado Lake, downtown revitalization, parks and recreation, transportation, public safety, tax implications, zoning, and data visualizations.</p>
         <p style="margin-top:.65rem;font-size:.8rem">Butler County Seat · Founded 1857 · Pop. 12,694 (2024 Census est.) · 29 mi E of Wichita · Not an official city document</p>
       </div>
-      <div>
-        <h4>Plan Sections</h4>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem">
+      <div class="footer-section">
+        <div class="footer-section-header" onclick="toggleFooterSection(this)">
+          <h4>Plan Sections</h4>
+          <span class="footer-section-toggle">▼</span>
+        </div>
+        <div class="footer-section-content">
           <ul>
             <li><a href="#vision">Vision &amp; Overview</a></li>
             <li><a href="#partners">Anchor City Partners</a></li>
@@ -542,8 +545,6 @@
             <li><a href="#workforce-childcare">Childcare &amp; Housing Stability</a></li>
             <li><a href="#residential">Residential Development</a></li>
             <li><a href="#infrastructure">Infrastructure</a></li>
-          </ul>
-          <ul>
             <li><a href="#lake">El Dorado Lake</a></li>
             <li><a href="#downtown">Downtown</a></li>
             <li><a href="#arts-heritage">Arts, Culture &amp; Heritage</a></li>
@@ -554,8 +555,6 @@
             <li><a href="#transportation">Transportation</a></li>
             <li><a href="#public-safety">Public Safety</a></li>
             <li><a href="#tax-impact">Tax Implications</a></li>
-          </ul>
-          <ul>
             <li><a href="#data-charts">Data &amp; Charts</a></li>
             <li><a href="#zoning">Zoning Map</a></li>
             <li><a href="#timeline">Timeline</a></li>
@@ -570,18 +569,23 @@
           </ul>
         </div>
       </div>
-      <div>
-        <h4>Key Resources</h4>
-        <ul>
-          <li><a href="https://www.eldoradoks.net" target="_blank">City of El Dorado</a></li>
-          <li><a href="https://www.butlercountychamber.com" target="_blank">Butler County Chamber</a></li>
-          <li><a href="https://www.butlercc.edu" target="_blank">Butler Community College</a></li>
-          <li><a href="https://kdwpt.state.ks.us" target="_blank">KS Dept of Wildlife &amp; Parks</a></li>
-          <li><a href="https://www.kansascommerce.gov" target="_blank">KS Department of Commerce</a></li>
-          <li><a href="https://www.eda.gov" target="_blank">EDA Grant Portal</a></li>
-          <li><a href="https://www.grants.gov" target="_blank">Grants.gov (Federal)</a></li>
-          <li><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" target="_blank">FEMA Flood Map Service</a></li>
-        </ul>
+      <div class="footer-section">
+        <div class="footer-section-header" onclick="toggleFooterSection(this)">
+          <h4>Key Resources</h4>
+          <span class="footer-section-toggle">▼</span>
+        </div>
+        <div class="footer-section-content">
+          <ul style="grid-template-columns: 1fr">
+            <li><a href="https://www.eldoradoks.net" target="_blank">City of El Dorado</a></li>
+            <li><a href="https://www.butlercountychamber.com" target="_blank">Butler County Chamber</a></li>
+            <li><a href="https://www.butlercc.edu" target="_blank">Butler Community College</a></li>
+            <li><a href="https://kdwpt.state.ks.us" target="_blank">KS Dept of Wildlife &amp; Parks</a></li>
+            <li><a href="https://www.kansascommerce.gov" target="_blank">KS Department of Commerce</a></li>
+            <li><a href="https://www.eda.gov" target="_blank">EDA Grant Portal</a></li>
+            <li><a href="https://www.grants.gov" target="_blank">Grants.gov (Federal)</a></li>
+            <li><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" target="_blank">FEMA Flood Map Service</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -590,6 +594,31 @@
     </div>
   </div>
 </footer>
+
+<script>
+function toggleFooterSection(headerElement) {
+  const content = headerElement.nextElementSibling;
+  const toggle = headerElement.querySelector('.footer-section-toggle');
+
+  content.classList.toggle('collapsed');
+  toggle.classList.toggle('open');
+}
+
+// Initialize all footer sections as collapsed on mobile
+function initFooterSections() {
+  if (window.innerWidth < 900) {
+    document.querySelectorAll('.footer-section-content').forEach(content => {
+      content.classList.add('collapsed');
+    });
+    document.querySelectorAll('.footer-section-toggle').forEach(toggle => {
+      toggle.classList.remove('open');
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', initFooterSections);
+window.addEventListener('resize', initFooterSections);
+</script>
 
 
 <script src="js/nav.js"></script>

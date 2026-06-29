@@ -4747,3 +4747,77 @@ footer ul a:hover { color:var(--gold); }
     width: 4px;
   }
 }
+
+/* ════════════════════════════════════════════════
+   FOOTER DROPDOWN SECTIONS
+════════════════════════════════════════════════ */
+.footer-section {
+  margin-bottom: 1.5rem;
+}
+
+.footer-section-header {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section-header:hover {
+  color: var(--gold);
+}
+
+.footer-section-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer-section-toggle {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.footer-section-toggle.open {
+  transform: rotate(180deg);
+}
+
+.footer-section-content {
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.footer-section-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.footer-section-content ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.footer-section-content ul li {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .footer-section-content ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-section-content ul {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
