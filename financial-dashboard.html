@@ -29,9 +29,9 @@
 
 <header class="hero hero-sm" style="background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);">
   <div class="hero-content">
-    <h1>Phase 8 Financial Dashboard</h1>
+    <h1>Financial Dashboard: Vision 2040 & County Context</h1>
     <p class="hero-tagline">Investment, Jobs & Economic Impact</p>
-    <p class="hero-subtitle">Interactive analysis of Phase 8 infrastructure investment: $318–402M cumulative, 1,500–2,400 jobs, $3.5–6.7M annual tax revenue</p>
+    <p class="hero-subtitle">Phase 8–9 infrastructure investment ($318–402M) and Butler County fiscal health ($55M+ reserves). Vision 2040 aligns with county-wide capacity for coordinated development.</p>
   </div>
 </header>
 
@@ -64,6 +64,33 @@
       </div>
     </div>
 
+    <!-- BUTLER COUNTY FISCAL HEALTH SECTION -->
+    <div class="content-block" style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(46,110,53,.08) 0%, rgba(74,144,191,.08) 100%); border-left: 4px solid var(--green); border-radius: 8px;">
+      <h3 style="margin-top: 0; color: var(--navy);">🏛️ Butler County Fiscal Health (2025)</h3>
+      <p style="color: #666; margin-bottom: 15px;">Butler County maintains strong fiscal reserves and fund allocation. This data demonstrates county capacity to support and co-invest in Vision 2040 priorities.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+        <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--navy);">
+          <p style="margin: 0; font-size: 0.85em; color: #666;">Total County Funds (Year-end 2025)</p>
+          <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--navy);">$55.0M</p>
+        </div>
+        <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--green);">
+          <p style="margin: 0; font-size: 0.85em; color: #666;">Annual Receipts (2025)</p>
+          <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--green);">$76.0M</p>
+        </div>
+        <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--sky);">
+          <p style="margin: 0; font-size: 0.85em; color: #666;">Special Purpose Funds</p>
+          <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--sky);">$45.5M</p>
+        </div>
+        <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid #F57C00;">
+          <p style="margin: 0; font-size: 0.85em; color: #666;">Hwy/Infrastructure Funds</p>
+          <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: #F57C00;">$8.9M</p>
+        </div>
+      </div>
+
+      <p style="font-size: 0.9em; color: #666; margin: 10px 0;"><strong>Key Insight:</strong> County's Special Highway Improvement Fund ($8.9M) and broader fiscal position ($55M+ reserves) create capacity for infrastructure cost-sharing with Vision 2040 priorities, particularly I-35/HW-77/HW-54 corridors and regional utilities.</p>
+    </div>
+
     <h3 style="margin-top: 30px;">Investment by Topic (15-Year Cumulative)</h3>
     <div style="position: relative; height: 400px; margin-bottom: 40px;">
       <canvas id="investmentChart"></canvas>
@@ -77,6 +104,16 @@
     <h3>Annual Tax Revenue at Full Build-Out</h3>
     <div style="position: relative; height: 400px; margin-bottom: 40px;">
       <canvas id="taxChart"></canvas>
+    </div>
+
+    <h3>Butler County Fund Breakdown (2025)</h3>
+    <div style="position: relative; height: 400px; margin-bottom: 40px;">
+      <canvas id="countyFundsChart"></canvas>
+    </div>
+
+    <h3>Potential Funding Sources: Vision 2040 + County Support</h3>
+    <div style="position: relative; height: 400px; margin-bottom: 40px;">
+      <canvas id="fundingSourceChart"></canvas>
     </div>
 
     <h3>15-Year Development Timeline & Phases</h3>
@@ -180,13 +217,30 @@
   <section id="sources" class="content-section">
     <h2>Data & Methodology</h2>
     <div class="content-block">
-      <p>All financial projections based on Phase 8 research and comparable case studies:</p>
+      <h3>Vision 2040 Financial Projections (Phase 8)</h3>
       <ul>
         <li><strong>Investment figures:</strong> Engineering estimates, comparable project costs, regional precedents</li>
         <li><strong>Job projections:</strong> Bureau of Labor Statistics occupational data, operational ratios (jobs per $M invested)</li>
         <li><strong>Tax revenue:</strong> El Dorado municipal rate structures, property tax assessments, sales tax assumptions</li>
         <li><strong>Economic multiplier:</strong> Standard regional economic impact models (1.5–1.6x for mixed development portfolios)</li>
       </ul>
+    </div>
+
+    <div class="content-block">
+      <h3>Butler County Fiscal Data (2025)</h3>
+      <ul>
+        <li><strong>Source:</strong> Butler County Audited Financial Statements (Year Ended December 31, 2025)</li>
+        <li><strong>Total Funds:</strong> $55,035,379 (ending unencumbered cash balance)</li>
+        <li><strong>Annual Receipts:</strong> $76,043,727 (FY 2025)</li>
+        <li><strong>Special Purpose Funds:</strong> $45,496,440 (largest reserve pool for infrastructure investment)</li>
+        <li><strong>Special Highway Improvement Fund:</strong> $8,930,135 (direct corridor investment capacity)</li>
+        <li><strong>Audit Firm:</strong> Loyd Group, LLC, Galva, Kansas</li>
+      </ul>
+    </div>
+
+    <div class="content-block" style="padding: 15px; background: rgba(46,110,53,.06); border-radius: 6px; border-left: 3px solid var(--green);">
+      <h4 style="margin-top: 0; color: var(--navy);">County Coordination Intent</h4>
+      <p style="margin: 0; font-size: 0.95em;">Butler County's fiscal health and substantial reserves demonstrate capacity to co-invest in Vision 2040 priorities. County participation in economic development initiatives, joint infrastructure agreements, and JEDA (Joint Economic Development Agreement) coordination are critical for optimizing state and federal grant access and accelerating implementation timelines.</p>
     </div>
   </section>
 
@@ -288,6 +342,88 @@ document.addEventListener('DOMContentLoaded', function() {
       plugins: {
         legend: {
           position: 'bottom'
+        }
+      }
+    }
+  });
+
+  // Chart 4: Butler County Fund Breakdown
+  const countyFundsCtx = document.getElementById('countyFundsChart').getContext('2d');
+  new Chart(countyFundsCtx, {
+    type: 'bar',
+    data: {
+      labels: ['General Fund', 'Special Purpose', 'Business Funds', 'Capital Projects', 'Bond & Interest'],
+      datasets: [{
+        label: 'County Funds (Millions $)',
+        data: [0.06, 45.5, 9.3, 0.07, 0.12],
+        backgroundColor: [
+          '#1B3A5C', '#2E6E35', '#F57C00', '#0099ff', '#7B5EA7'
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Amount ($M)' }
+        }
+      }
+    }
+  });
+
+  // Chart 5: Potential Funding Sources
+  const fundingSourceCtx = document.getElementById('fundingSourceChart').getContext('2d');
+  new Chart(fundingSourceCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Years 1–3', 'Years 4–7', 'Years 8–15'],
+      datasets: [
+        {
+          label: 'Vision 2040 Private Investment',
+          data: [107, 80, 115],
+          backgroundColor: '#1a5f7a',
+          borderColor: '#fff',
+          borderWidth: 1
+        },
+        {
+          label: 'County Infrastructure Funds',
+          data: [8, 12, 18],
+          backgroundColor: '#2E6E35',
+          borderColor: '#fff',
+          borderWidth: 1
+        },
+        {
+          label: 'State/Federal Grants (Est.)',
+          data: [22, 35, 50],
+          backgroundColor: '#F57C00',
+          borderColor: '#fff',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      },
+      scales: {
+        x: {
+          stacked: false,
+        },
+        y: {
+          beginAtZero: true,
+          stacked: false,
+          title: { display: true, text: 'Investment ($M)' }
         }
       }
     }
