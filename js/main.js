@@ -7,10 +7,75 @@ document.querySelectorAll('.reveal').forEach(el => {
   }, { threshold: 0.1 }).observe(el);
 });
 
+/* ══════════════════════════════════════════════
+   NAVIGATION STATE MANAGER — Optimized Active Section Detection
+══════════════════════════════════════════════ */
+class NavigationStateManager {
+  static navLinkMap = new Map();
+  static navButtonMap = new Map();
+  static currentSection = null;
+  static observer = null;
+
+  static init() {
+    // Cache all nav links and their associated groups
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+      const href = link.getAttribute('href');
+      const group = link.closest('.nav-group');
+      NavigationStateManager.navLinkMap.set(href, { link, group });
+    });
+
+    // Cache nav group buttons
+    document.querySelectorAll('.nav-group-btn').forEach(btn => {
+      const group = btn.closest('.nav-group');
+      NavigationStateManager.navButtonMap.set(group, btn);
+    });
+
+    // Use IntersectionObserver to detect active section (more efficient than scroll calculations)
+    NavigationStateManager.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = '#' + entry.target.id;
+          NavigationStateManager.setActiveSection(sectionId);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Observe all sections
+    document.querySelectorAll('section[id]').forEach(section => {
+      NavigationStateManager.observer.observe(section);
+    });
+  }
+
+  static setActiveSection(sectionId) {
+    if (NavigationStateManager.currentSection === sectionId) return;
+
+    // Deactivate previous
+    if (NavigationStateManager.currentSection) {
+      const prevLink = NavigationStateManager.navLinkMap.get(NavigationStateManager.currentSection);
+      if (prevLink) {
+        prevLink.link.classList.remove('active');
+        if (prevLink.group) {
+          const btn = NavigationStateManager.navButtonMap.get(prevLink.group);
+          if (btn) btn.classList.remove('has-active');
+        }
+      }
+    }
+
+    // Activate new
+    const currLink = NavigationStateManager.navLinkMap.get(sectionId);
+    if (currLink) {
+      currLink.link.classList.add('active');
+      if (currLink.group) {
+        const btn = NavigationStateManager.navButtonMap.get(currLink.group);
+        if (btn) btn.classList.add('has-active');
+      }
+    }
+
+    NavigationStateManager.currentSection = sectionId;
+  }
+}
+
 /* ── Unified scroll handler (RAF-throttled) ── */
-const sections  = document.querySelectorAll('section[id]');
-const navLinks  = document.querySelectorAll('nav a[href^="#"]');
-const navGroups = document.querySelectorAll('.nav-group');
 const _scrollBar = document.getElementById('scroll-progress');
 const _bttBtn    = document.getElementById('back-to-top');
 const _hero      = document.getElementById('hero');
@@ -23,14 +88,6 @@ function onScroll() {
     _rafPending = false;
     const y = window.scrollY;
     const d = document.documentElement;
-
-    /* Active nav */
-    let cur = '';
-    sections.forEach(s => { if (y >= s.offsetTop - 130) cur = s.id; });
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
-    navGroups.forEach(g => {
-      g.querySelector('.nav-group-btn')?.classList.toggle('has-active', !!g.querySelector('a.active'));
-    });
 
     /* Scroll progress bar */
     if (_scrollBar) {
@@ -48,6 +105,11 @@ function onScroll() {
   });
 }
 window.addEventListener('scroll', onScroll, { passive: true });
+
+// Initialize navigation state manager on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  NavigationStateManager.init();
+});
 
 /* ── Mobile nav & dropdown toggles ── */
 const toggle  = document.querySelector('.nav-toggle');
