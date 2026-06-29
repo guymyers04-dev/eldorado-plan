@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regional Context & Market Analysis | El Dorado Vision 2040</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .visualization-container { max-width: 1400px; margin: 0 auto; padding: 48px 24px; }
+    .viz-header { margin-bottom: 48px; }
+    .viz-header h1 { margin-bottom: 16px; }
+    .viz-header .description { font-size: 1.1rem; color: #666; max-width: 900px; }
+
+    .map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    #map {
+      height: 700px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .map-legend {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      max-height: 700px;
+      overflow-y: auto;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .legend-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .legend-label { flex: 1; }
+
+    .data-section {
+      margin: 48px 0;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .data-table th {
+      background: #1B3A5C;
+      color: white;
+      padding: 16px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .data-table td {
+      padding: 14px 12px;
+      border-bottom: 1px solid #e8dcc8;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:nth-child(even) { background: #f9f7f4; }
+    .data-table tr:hover { background: #f3e5f5; }
+
+    .market-card {
+      background: linear-gradient(135deg, #fff 0%, #f9f7f4 100%);
+      border: 1px solid #e0d4c4;
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .market-card h3 {
+      color: #1B3A5C;
+      margin-bottom: 12px;
+    }
+
+    .market-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .metric-item {
+      background: rgba(255,255,255,0.7);
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .metric-item strong { color: #C8902A; display: block; font-size: 1rem; }
+    .metric-item small { color: #999; display: block; font-size: 0.75rem; }
+
+    .competitive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .competitor-card {
+      background: #fff;
+      border: 2px solid #e0d4c4;
+      border-radius: 12px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .competitor-card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      border-color: #2E6E35;
+    }
+
+    .competitor-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1B3A5C;
+      margin-bottom: 8px;
+    }
+
+    .competitor-state {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    .comp-metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .comp-metric:last-child { border-bottom: none; }
+    .comp-label { color: #666; }
+    .comp-value { font-weight: 600; color: #1B3A5C; }
+
+    .advantage-badge {
+      display: inline-block;
+      background: #E8F5E9;
+      color: #2E6E35;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 6px;
+    }
+
+    .region-summary {
+      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+      border: 2px solid #2E6E35;
+      border-radius: 12px;
+      padding: 28px;
+      margin: 48px 0;
+    }
+
+    .region-summary h2 {
+      color: #2E6E35;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .map-wrapper {
+        grid-template-columns: 1fr;
+      }
+      #map { height: 400px; }
+      .map-legend { max-height: none; }
+      .market-metrics { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="visualization">
+  <div class="visualization-container">
+    <div class="viz-header">
+      <h1>Regional Competitive Landscape</h1>
+      <p class="description">
+        El Dorado's position within the 100-mile regional market, competitive benchmarking against peer
+        communities, and strategic advantages for workforce and business recruitment.
+      </p>
+    </div>
+
+    <div class="map-wrapper">
+      <div id="map"></div>
+      <div class="map-legend">
+        <h4 style="margin-bottom: 16px; color: #1B3A5C;">Markets & Distances</h4>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #C8902A;"></div>
+          <div class="legend-label"><strong>El Dorado Hub</strong></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #4A90BF;"></div>
+          <div class="legend-label"><strong>Major MSA</strong> (100K+)</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #2E6E35;"></div>
+          <div class="legend-label"><strong>Competitor Hub</strong></div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #FFD54F;"></div>
+          <div class="legend-label"><strong>Regional Market</strong> (50K+)</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #FF6F00; opacity: 0.3;"></div>
+          <div class="legend-label"><strong>100-Mile Radius</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="region-summary">
+      <h2>Regional Market Overview</h2>
+      <p style="color: #2C2C2C; margin-bottom: 16px; line-height: 1.8;">
+        El Dorado sits at a strategic crossroads: 36 miles south of Wichita (645K MSA), 130 miles from
+        Oklahoma City (1.4M), 160 miles from Tulsa (980K), and 210 miles from Kansas City (2.2M).
+        This positions the city as a regional hub for logistics, industrial operations, and workforce
+        recruitment from a combined 5.2M person region.
+      </p>
+      <ul style="color: #2C2C2C; line-height: 1.8; padding-left: 20px;">
+        <li><strong>Workforce advantage:</strong> 18,500 available workers within 30-mile radius (vs. 50K+ in competitor cities)</li>
+        <li><strong>Cost advantage:</strong> Land ($24–30K/acre) 20–30% cheaper than peer communities</li>
+        <li><strong>Logistics advantage:</strong> US-77 corridor offers 75% faster truck transit vs. I-35 (see US-77 Strategic Map)</li>
+        <li><strong>Positioning:</strong> Underserved region between major metros; opportunity to capture logistics/distribution growth</li>
+      </ul>
+    </div>
+
+    <h2 style="margin: 48px 0 32px 0;">Major Regional Markets (Opportunity Analysis)</h2>
+
+    <div class="market-card">
+      <h3>Wichita Metropolitan Area (645K)</h3>
+      <p style="color: #666; margin-bottom: 12px;">
+        Anchor market 36 miles north. Primary regional employer (aviation, energy, healthcare). El Dorado serves as
+        satellite location for distribution, light manufacturing, and executive workforce relocation.
+      </p>
+      <div class="market-metrics">
+        <div class="metric-item">
+          <strong>5-Yr Growth</strong>
+          <small>2.1% annual</small>
+        </div>
+        <div class="metric-item">
+          <strong>Job Sectors</strong>
+          <small>Aerospace, energy, healthcare</small>
+        </div>
+        <div class="metric-item">
+          <strong>Median Income</strong>
+          <small>$58K</small>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">
+        <strong>El Dorado Strategy:</strong> Recruit Wichita overflow (distribution centers, back-office operations, remote workers)
+      </p>
+    </div>
+
+    <div class="market-card">
+      <h3>Oklahoma City Metropolitan Area (1.4M)</h3>
+      <p style="color: #666; margin-bottom: 12px;">
+        Major regional hub 130 miles south. Fast-growing energy, healthcare, and tech sectors. El Dorado positioned
+        as cost-advantaged satellite for logistics and manufacturing.
+      </p>
+      <div class="market-metrics">
+        <div class="metric-item">
+          <strong>5-Yr Growth</strong>
+          <small>3.2% annual</small>
+        </div>
+        <div class="metric-item">
+          <strong>Job Sectors</strong>
+          <small>Energy, healthcare, tech</small>
+        </div>
+        <div class="metric-item">
+          <strong>Median Income</strong>
+          <small>$54K</small>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">
+        <strong>El Dorado Strategy:</strong> Cross-dock operations, industrial recruitment from I-35 corridor</p>
+    </div>
+
+    <div class="market-card">
+      <h3>Tulsa Metropolitan Area (980K)</h3>
+      <p style="color: #666; margin-bottom: 12px;">
+        Growing metro 160 miles southeast. Energy and aerospace sectors. El Dorado provides cost-advantaged overflow
+        and logistics support for regional supply chains.
+      </p>
+      <div class="market-metrics">
+        <div class="metric-item">
+          <strong>5-Yr Growth</strong>
+          <small>1.8% annual</small>
+        </div>
+        <div class="metric-item">
+          <strong>Job Sectors</strong>
+          <small>Energy, aerospace, logistics</small>
+        </div>
+        <div class="metric-item">
+          <strong>Median Income</strong>
+          <small>$52K</small>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">
+        <strong>El Dorado Strategy:</strong> Supply chain hub, niche manufacturing support</p>
+    </div>
+
+    <h2 style="margin: 48px 0 32px 0;">Competitive Benchmarking vs. Peer Communities</h2>
+
+    <div class="competitive-grid">
+      <div class="competitor-card">
+        <div class="competitor-name">
+          El Dorado, KS
+          <span class="advantage-badge">HOME MARKET</span>
+        </div>
+        <div class="competitor-state">Butler County</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">13,200</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">59,400</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$4.50/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$24–30K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.65%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">3.2% unemployment</span>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-name">Little Rock, AR</div>
+        <div class="competitor-state">Pulaski County • 420 mi</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">196,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">839,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$4.75/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$32–38K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.58%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">3.8% unemployment</span>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-name">Joplin, MO</div>
+        <div class="competitor-state">Jasper County • 165 mi</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">51,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">180,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$4.25/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$22–28K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.81%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">4.2% unemployment</span>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-name">Fayetteville, AR</div>
+        <div class="competitor-state">Washington County • 220 mi</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">87,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">541,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$5.50/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$38–50K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.45%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">2.9% unemployment</span>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-name">Springfield, MO</div>
+        <div class="competitor-state">Greene County • 195 mi</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">169,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">483,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$5.25/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$35–42K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.72%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">4.1% unemployment</span>
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-name">Manhattan, KS</div>
+        <div class="competitor-state">Riley County • 145 mi</div>
+        <div class="comp-metric">
+          <span class="comp-label">Population</span>
+          <span class="comp-value">56,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">MSA</span>
+          <span class="comp-value">226,000</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Industrial Rent</span>
+          <span class="comp-value">$5.10/sf</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Land Cost/Acre</span>
+          <span class="comp-value">$28–35K</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Property Tax Rate</span>
+          <span class="comp-value">0.68%</span>
+        </div>
+        <div class="comp-metric">
+          <span class="comp-label">Labor Availability</span>
+          <span class="comp-value">3.5% unemployment</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; padding: 24px; background: #E8F5E9; border-radius: 10px;">
+      <h3 style="color: #2E6E35; margin-bottom: 16px;">El Dorado's Competitive Advantages</h3>
+      <ul style="color: #2C2C2C; line-height: 1.9; padding-left: 20px;">
+        <li><strong>Lowest land costs:</strong> $24–30K/acre (vs. $32–50K in competitor cities)</li>
+        <li><strong>Lowest industrial rent:</strong> $4.50/sf (tied with Joplin; 10–20% cheaper than Fayetteville, Springfield)</li>
+        <li><strong>Strategic corridor access:</strong> US-77 provides faster truck transit to multi-state region than I-35 competitors</li>
+        <li><strong>Regional workforce pool:</strong> 18,500 available workers within 30 miles; lower wage expectations</li>
+        <li><strong>Quality of life:</strong> Outdoor recreation (lake, golf), affordable housing ($120K median), strong schools (USD 490)</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid #e0d4c4; font-size: 0.9rem; color: #999;">
+      <strong>Sources:</strong> US Census Bureau (2020/2024), ESRI Demographics, CoStar Market Analytics, Kansas DOT, Oklahoma DOT, Bureau of Labor Statistics, NAR Regional Data
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize map
+    const map = L.map('map').setView([37.5, -96.0], 7);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    // 100-mile radius circle
+    const radiusCircle = L.circle([37.8065, -96.6576], {
+      radius: 160934, // ~100 miles in meters
+      color: '#FF6F00',
+      fill: true,
+      fillColor: '#FF6F00',
+      fillOpacity: 0.05,
+      weight: 2,
+      dashArray: '5, 5'
+    }).addTo(map);
+
+    // El Dorado (center)
+    L.marker([37.8065, -96.6576], {
+      icon: L.icon({
+        html: '<div style="width: 40px; height: 40px; background: #C8902A; border: 4px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">EL</div>',
+        className: '',
+        iconSize: [40, 40],
+        popupAnchor: [0, -20]
+      })
+    }).addTo(map).bindPopup('<strong>El Dorado, KS (HOME)</strong><br/>Population: 13,200<br/>Regional Hub Position');
+
+    // Major markets
+    L.marker([37.6872, -97.4307], {
+      icon: L.icon({
+        html: '<div style="width: 32px; height: 32px; background: #4A90BF; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">W</div>',
+        className: '',
+        iconSize: [32, 32],
+        popupAnchor: [0, -16]
+      })
+    }).addTo(map).bindPopup('<strong>Wichita, KS</strong><br/>Population: 645K<br/>Distance: 36 miles');
+
+    L.marker([35.4676, -97.5164], {
+      icon: L.icon({
+        html: '<div style="width: 32px; height: 32px; background: #4A90BF; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">OKC</div>',
+        className: '',
+        iconSize: [32, 32],
+        popupAnchor: [0, -16]
+      })
+    }).addTo(map).bindPopup('<strong>Oklahoma City, OK</strong><br/>Population: 1.4M<br/>Distance: 130 miles');
+
+    L.marker([36.1539, -95.9925], {
+      icon: L.icon({
+        html: '<div style="width: 32px; height: 32px; background: #4A90BF; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">T</div>',
+        className: '',
+        iconSize: [32, 32],
+        popupAnchor: [0, -16]
+      })
+    }).addTo(map).bindPopup('<strong>Tulsa, OK</strong><br/>Population: 413K<br/>Distance: 160 miles');
+
+    L.marker([39.0997, -94.5786], {
+      icon: L.icon({
+        html: '<div style="width: 32px; height: 32px; background: #4A90BF; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">KC</div>',
+        className: '',
+        iconSize: [32, 32],
+        popupAnchor: [0, -16]
+      })
+    }).addTo(map).bindPopup('<strong>Kansas City, MO</strong><br/>Population: 2.2M<br/>Distance: 210 miles');
+
+    // Competitors
+    const competitors = [
+      { lat: 34.7465, lng: -92.2896, name: 'Little Rock', dist: 420 },
+      { lat: 37.0842, lng: -94.5133, name: 'Joplin', dist: 165 },
+      { lat: 34.7515, lng: -92.3715, name: 'Fayetteville', dist: 220 },
+      { lat: 37.2089, lng: -93.2923, name: 'Springfield', dist: 195 }
+    ];
+
+    competitors.forEach(c => {
+      L.marker([c.lat, c.lng], {
+        icon: L.icon({
+          html: `<div style="width: 28px; height: 28px; background: #2E6E35; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">C</div>`,
+          className: '',
+          iconSize: [28, 28],
+          popupAnchor: [0, -14]
+        })
+      }).addTo(map).bindPopup(`<strong>${c.name}</strong><br/>Competitor Hub<br/>Distance: ${c.dist} miles`);
+    });
+
+    // Regional markets
+    L.marker([38.2527, -94.5133], {
+      icon: L.icon({
+        html: '<div style="width: 24px; height: 24px; background: #FFD54F; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">M</div>',
+        className: '',
+        iconSize: [24, 24],
+        popupAnchor: [0, -12]
+      })
+    }).addTo(map).bindPopup('<strong>Manhattan, KS</strong><br/>Regional Market<br/>Distance: 145 miles');
+  </script>
+</body>
+</html>
