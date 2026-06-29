@@ -1464,8 +1464,11 @@ function initCharts() {
 }
 
 function makeChart(id, config) {
+  // Register with ChartManager for lazy loading instead of creating immediately
+  ChartManager.register(id, config);
+  // Mark as initialized to prevent duplicate registration
   const el = document.getElementById(id);
-  if (el && !el.dataset.init) { new Chart(el, config); el.dataset.init = '1'; }
+  if (el) { el.dataset.init = '1'; }
 }
 
 /* ══════════════════════════════════════════════
@@ -1639,3 +1642,67 @@ document.getElementById('back-to-top')?.addEventListener('click', () =>
     });
   });
 })();
+
+/* ══════════════════════════════════════════════
+   CHART.JS LAZY LOADING MANAGER
+═════════════════════════════════════════════ */
+class ChartManager {
+  static charts = new Map();
+  static observer = null;
+  static rendered = new Set();
+
+  static register(chartId, config) {
+    ChartManager.charts.set(chartId, config);
+  }
+
+  static init() {
+    if (ChartManager.observer) return; // Already initialized
+
+    // Create IntersectionObserver to render charts on visibility
+    ChartManager.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !ChartManager.rendered.has(entry.target.id)) {
+          const chartId = entry.target.id;
+          const config = ChartManager.charts.get(chartId);
+          if (config) {
+            ChartManager.render(chartId, config);
+            ChartManager.observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Observe all registered chart canvases
+    ChartManager.charts.forEach((config, chartId) => {
+      const canvas = document.getElementById(chartId);
+      if (canvas) {
+        ChartManager.observer.observe(canvas);
+      }
+    });
+  }
+
+  static render(chartId, config) {
+    const canvas = document.getElementById(chartId);
+    if (canvas && !ChartManager.rendered.has(chartId)) {
+      try {
+        new Chart(canvas, config);
+        ChartManager.rendered.add(chartId);
+      } catch (e) {
+        console.warn(`Failed to render chart ${chartId}:`, e);
+      }
+    }
+  }
+
+  // For immediate chart rendering (above-the-fold content)
+  static renderNow(chartId) {
+    const config = ChartManager.charts.get(chartId);
+    if (config) {
+      ChartManager.render(chartId, config);
+    }
+  }
+}
+
+// Initialize ChartManager when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  ChartManager.init();
+});
