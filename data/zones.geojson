@@ -1,0 +1,159 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "north-gateway-1",
+        "zone": "C-1",
+        "district": "North Gateway",
+        "height": 35,
+        "use": "Commercial",
+        "color": "#0066cc",
+        "name": "North Gateway Commercial Pad A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.382, 37.651],
+          [-97.378, 37.651],
+          [-97.378, 37.649],
+          [-97.382, 37.649],
+          [-97.382, 37.651]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "north-gateway-2",
+        "zone": "Mixed-Use",
+        "district": "North Gateway",
+        "height": 55,
+        "use": "Mixed-Use",
+        "color": "#9966cc",
+        "name": "North Gateway Mixed-Use Village"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.386, 37.654],
+          [-97.380, 37.654],
+          [-97.380, 37.650],
+          [-97.386, 37.650],
+          [-97.386, 37.654]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "north-gateway-3",
+        "zone": "R-2",
+        "district": "North Gateway",
+        "height": 45,
+        "use": "Residential",
+        "color": "#00cc66",
+        "name": "North Gateway Residential Park"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.390, 37.657],
+          [-97.381, 37.657],
+          [-97.381, 37.650],
+          [-97.390, 37.650],
+          [-97.390, 37.657]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "downtown-1",
+        "zone": "C-2",
+        "district": "Downtown TIF",
+        "height": 50,
+        "use": "Downtown Commercial",
+        "color": "#ff8800",
+        "name": "Downtown Central Ave Revitalization"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.376, 37.647],
+          [-97.374, 37.647],
+          [-97.374, 37.644],
+          [-97.376, 37.644],
+          [-97.376, 37.647]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "south-industrial-1",
+        "zone": "I-1",
+        "district": "South Industrial",
+        "height": 65,
+        "use": "Industrial",
+        "color": "#cc0000",
+        "name": "South Industrial Light Manufacturing"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.375, 37.640],
+          [-97.368, 37.640],
+          [-97.368, 37.635],
+          [-97.375, 37.635],
+          [-97.375, 37.640]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "south-industrial-2",
+        "zone": "I-2",
+        "district": "South Industrial",
+        "height": 80,
+        "use": "Heavy Industrial",
+        "color": "#990000",
+        "name": "Project Horizon Data Center"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.360, 37.632],
+          [-97.348, 37.632],
+          [-97.348, 37.620],
+          [-97.360, 37.620],
+          [-97.360, 37.632]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lakeside-1",
+        "zone": "Mixed-Use",
+        "district": "Lakeside",
+        "height": 55,
+        "use": "Hospitality",
+        "color": "#9966cc",
+        "name": "Lakeside Hotel + Resort"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-97.395, 37.660],
+          [-97.388, 37.660],
+          [-97.388, 37.653],
+          [-97.395, 37.653],
+          [-97.395, 37.660]
+        ]]
+      }
+    }
+  ]
+}
