@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Public Comment Generator | El Dorado Vision 2040</title>
+  <meta name="description" content="Generate 2-minute public comments for Vision 2040 projects. Kansas Open Meetings Law compliant." />
+  <meta property="og:title" content="Public Comment Generator | El Dorado Vision 2040" />
+  <meta property="og:description" content="Easy tool to create public comments for City Commission meetings" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .generator-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .generator-hero {
+      background: linear-gradient(135deg, var(--gold) 0%, #c8902a 100%);
+      color: var(--navy);
+      padding: 3rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+      border-radius: 12px;
+    }
+
+    .generator-hero h1 {
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .generator-hero p {
+      color: rgba(27,58,92,0.85);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .form-section {
+      background: white;
+      border: 2px solid rgba(200,144,42,0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-section h3 {
+      color: var(--navy);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-group.optional label::after {
+      content: " (optional)";
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .form-group select,
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid rgba(27,58,92,0.2);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+      font-size: 0.9rem;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .form-group select:focus,
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(200,144,42,0.1);
+    }
+
+    .form-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .preview-section {
+      background: var(--cream);
+      border: 2px solid rgba(200,144,42,0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .preview-section h3 {
+      color: var(--navy);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .comment-preview {
+      background: white;
+      border: 1px solid rgba(200,144,42,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      line-height: 1.8;
+      color: var(--navy);
+      font-size: 0.95rem;
+      min-height: 150px;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .comment-preview.empty {
+      color: var(--muted);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      background: #b8812a;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(200,144,42,0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream);
+      border-color: #b8812a;
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .law-compliance {
+      background: rgba(74,144,191,0.05);
+      border-left: 4px solid var(--sky);
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin-bottom: 2rem;
+    }
+
+    .law-compliance h4 {
+      color: var(--sky);
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .law-compliance ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .law-compliance li {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid rgba(200,144,42,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(200,144,42,0.1);
+      transform: translateY(-2px);
+    }
+
+    .project-card h4 {
+      color: var(--navy);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .success-message {
+      background: rgba(46,110,53,0.05);
+      border-left: 4px solid var(--green);
+      color: var(--green);
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      display: none;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .generator-container {
+        padding: 0 1rem;
+      }
+
+      .form-section {
+        padding: 1.5rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="comment-generator">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
+
+<!-- ════ HERO ════ -->
+<section class="container" style="margin-top: 3rem;">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Comment Generator</div>
+</section>
+
+<div class="generator-container">
+  <div class="generator-hero">
+    <h1>Public Comment Generator</h1>
+    <p>Write a 2-minute public comment for City Commission meetings in 3 easy steps. Kansas Open Meetings Law compliant — ready to read aloud or email.</p>
+  </div>
+
+  <div class="law-compliance">
+    <h4>✓ Kansas Open Meetings Law Compliant</h4>
+    <ul>
+      <li><strong>Comment length:</strong> 2 minutes (approximately 240-300 words)</li>
+      <li><strong>Format:</strong> Fits Kansas standard public comment protocols</li>
+      <li><strong>Tone:</strong> Professional and appropriate for government record</li>
+      <li><strong>Timing:</strong> Perfect for City Commission meetings (1st & 3rd Monday, 6 PM)</li>
+    </ul>
+  </div>
+
+  <div id="success-message" class="success-message">
+    ✓ Comment generated successfully! Copy it below to email or print for your commission meeting.
+  </div>
+
+  <!-- ════ STEP 1: SELECT PROJECT ════ -->
+  <div class="form-section">
+    <h3><span class="section-number">1</span> Choose a Vision 2040 Project</h3>
+    <div class="project-grid" id="projects-grid">
+      <!-- Populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- ════ STEP 2: PERSONALIZE ════ -->
+  <form id="comment-form" class="form-section">
+    <h3><span class="section-number">2</span> Tell Us About Your Perspective</h3>
+
+    <div class="form-group">
+      <label for="name">Your name:</label>
+      <input type="text" id="name" placeholder="John Smith" />
+    </div>
+
+    <div class="form-group optional">
+      <label for="neighborhood">Your neighborhood or area of interest:</label>
+      <input type="text" id="neighborhood" placeholder="e.g., Downtown, North Gateway, Lake area" />
+    </div>
+
+    <div class="form-group optional">
+      <label for="stakeholder-role">Your role in the community (optional):</label>
+      <select id="stakeholder-role">
+        <option value="">--- Select one ---</option>
+        <option value="resident">Resident</option>
+        <option value="business-owner">Business Owner</option>
+        <option value="educator">Educator</option>
+        <option value="nonprofit-leader">Nonprofit Leader</option>
+        <option value="professional">Professional</option>
+        <option value="student">Student</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="concern-type">What aspect matters most to you?</label>
+      <select id="concern-type">
+        <option value="">--- Select one ---</option>
+        <option value="economic-impact">Economic impact (jobs, business growth)</option>
+        <option value="community-benefit">Community benefit (quality of life)</option>
+        <option value="environmental">Environmental (sustainability, green space)</option>
+        <option value="infrastructure">Infrastructure (roads, utilities, services)</option>
+        <option value="cultural">Cultural (arts, heritage, community identity)</option>
+        <option value="housing">Housing (affordability, availability)</option>
+        <option value="education">Education (schools, workforce training)</option>
+      </select>
+      <div class="form-hint">This helps personalize your comment to what matters most to you.</div>
+    </div>
+
+    <div class="form-group optional">
+      <label for="personal-story">A brief personal story or connection (optional):</label>
+      <textarea id="personal-story" placeholder="How does this project affect you or your family? (e.g., 'I work downtown and would use the new plaza' or 'My kids play in the parks')" maxlength="300"></textarea>
+      <div class="form-hint">Optional but powerful — personal stories are more memorable to commissioners.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="key-point">Your main point (what you most want commissioners to know):</label>
+      <textarea id="key-point" placeholder="e.g., 'This project will create jobs' or 'We need better trails for families'" maxlength="200"></textarea>
+      <div class="form-hint">One sentence that captures your main message.</div>
+    </div>
+  </form>
+
+  <!-- ════ STEP 3: REVIEW & SHARE ════ -->
+  <div class="preview-section">
+    <h3><span class="section-number">3</span> Your Generated Comment</h3>
+    <div id="comment-preview" class="comment-preview empty">
+      Select a project in Step 1 and fill out the form in Step 2 to generate your comment.
+    </div>
+    <div class="action-buttons">
+      <button id="generate-btn" class="btn-primary" onclick="generateComment()">Generate Comment</button>
+      <button id="copy-btn" class="btn-secondary" onclick="copyComment()" style="display: none;">Copy to Clipboard</button>
+      <button id="email-btn" class="btn-secondary" onclick="emailComment()" style="display: none;">Email to Commission</button>
+      <button id="print-btn" class="btn-secondary" onclick="printComment()" style="display: none;">Print</button>
+    </div>
+  </div>
+
+  <!-- ════ HOW TO SUBMIT ════ -->
+  <section style="background: var(--cream); padding: 2rem; border-radius: 12px; margin-bottom: 3rem;">
+    <h3 style="color: var(--navy); margin-top: 0;">How to Submit Your Comment</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+      <div>
+        <h4 style="color: var(--gold); margin-bottom: 0.5rem;">📧 Email Submission</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Email your comment to the City Commission at <strong>commission@eldoradoks.net</strong> by Monday, 5 PM before the meeting. Include "Public Comment:" in the subject line.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--gold); margin-bottom: 0.5rem;">🎤 In-Person Submission</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Print your comment and read it at the City Commission meeting. Arrive by 6 PM (meetings held 1st & 3rd Monday). Public comment period is 30 minutes, approximately 2 minutes per speaker.</p>
+      </div>
+      <div>
+        <h4 style="color: var(--gold); margin-bottom: 0.5rem;">📮 Written Submission</h4>
+        <p style="color: var(--muted); line-height: 1.6;">Mail your comment to: City Commission, City Hall, 220 W Central Ave, El Dorado, KS 67042. Must arrive 5 days before the meeting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER CTA ════ -->
+  <section style="background: var(--navy); color: white; padding: 2rem; border-radius: 12px; text-align: center; margin-bottom: 3rem;">
+    <h3 style="color: white; margin-top: 0;">Want More Ways to Get Involved?</h3>
+    <p style="margin-bottom: 1.5rem;">Connect with decision-makers and track Vision 2040 project progress.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="stakeholders.html" class="btn-primary" style="display: inline-block; background: var(--gold); color: var(--navy); padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">Find Your Commissioner</a>
+      <a href="reference.html#action" class="btn-secondary" style="display: inline-block; background: rgba(255,255,255,0.1); color: white; border: 2px solid white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600;">More Action Tools</a>
+    </div>
+  </section>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Project data for comment generation
+const projects = [
+  { id: "downtown", name: "Downtown Revitalization", description: "Central Avenue streetscape, historic preservation, and business activation" },
+  { id: "north-gateway", name: "North Gateway District", description: "Mixed-income housing and residential development" },
+  { id: "lake", name: "El Dorado Lake Expansion", description: "West Marina, amphitheater, glamping, and trail network" },
+  { id: "health-economy", name: "Health Economy Campus", description: "Hospital expansion, college health programs, senior living" },
+  { id: "oil-museum", name: "Kansas Oil Museum", description: "Museum expansion and heritage tourism development" },
+  { id: "performing-arts", name: "Performing Arts Center", description: "400-seat amphitheater for live performances and events" },
+  { id: "electric-vehicle", name: "Electric Vehicle Infrastructure", description: "Charging stations and green transportation" },
+  { id: "trails", name: "Trail Network Expansion", description: "26-mile circumnavigation trail and Walnut River path" }
+];
+
+let selectedProject = null;
+
+function renderProjectCards() {
+  const grid = document.getElementById('projects-grid');
+  grid.innerHTML = projects.map(p => `
+    <div class="project-card" onclick="selectProject('${p.id}', '${p.name}')">
+      <h4>${p.name}</h4>
+      <p>${p.description}</p>
+    </div>
+  `).join('');
+}
+
+function selectProject(id, name) {
+  selectedProject = { id, name };
+  // Highlight selected
+  document.querySelectorAll('.project-card').forEach(card => card.style.borderColor = '');
+  event.target.closest('.project-card').style.borderColor = 'var(--gold)';
+  event.target.closest('.project-card').style.borderWidth = '2px';
+  generateComment();
+}
+
+function generateComment() {
+  const name = document.getElementById('name').value.trim();
+  const neighborhood = document.getElementById('neighborhood').value.trim();
+  const concernType = document.getElementById('concern-type').value;
+  const personalStory = document.getElementById('personal-story').value.trim();
+  const keyPoint = document.getElementById('key-point').value.trim();
+
+  if (!selectedProject) {
+    alert('Please select a project first.');
+    return;
+  }
+
+  if (!concernType || !keyPoint) {
+    alert('Please fill in at least "What aspect matters most" and "Your main point".');
+    return;
+  }
+
+  const greeting = name ? `Good evening, my name is ${name}.` : 'Good evening.';
+  const neighborhood_text = neighborhood ? ` I'm from ${neighborhood}.` : '';
+
+  const projectIntro = `I'm speaking tonight in support of the ${selectedProject.name} project outlined in El Dorado's Vision 2040 plan.`;
+
+  let body = ``;
+  if (personalStory) {
+    body = `${personalStory} `;
+  }
+  body += `This project matters because ${keyPoint}.`;
+
+  const concern_explanations = {
+    "economic-impact": "This will create jobs and strengthen our local economy.",
+    "community-benefit": "This will improve quality of life for our residents and families.",
+    "environmental": "This will enhance our green spaces and environmental sustainability.",
+    "infrastructure": "This will modernize our city infrastructure and services.",
+    "cultural": "This will celebrate our heritage and cultural identity.",
+    "housing": "This will address our housing needs and provide options for all residents.",
+    "education": "This will support our schools and workforce development."
+  };
+
+  body += ` ${concern_explanations[concernType] || ''}`;
+
+  const closing = `I urge the City Commission to move forward with this vision. El Dorado's future depends on investments like this. Thank you for your service to our community.`;
+
+  const fullComment = `${greeting}${neighborhood_text} ${projectIntro}\n\n${body}\n\n${closing}`;
+
+  const preview = document.getElementById('comment-preview');
+  preview.textContent = fullComment;
+  preview.classList.remove('empty');
+
+  document.getElementById('copy-btn').style.display = 'inline-block';
+  document.getElementById('email-btn').style.display = 'inline-block';
+  document.getElementById('print-btn').style.display = 'inline-block';
+
+  document.getElementById('success-message').classList.add('show');
+  setTimeout(() => document.getElementById('success-message').classList.remove('show'), 5000);
+}
+
+function copyComment() {
+  const text = document.getElementById('comment-preview').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    alert('Comment copied to clipboard!');
+  });
+}
+
+function emailComment() {
+  const text = document.getElementById('comment-preview').textContent;
+  const subject = `Public Comment: ${selectedProject.name}`;
+  const mailto = `mailto:commission@eldoradoks.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  window.location.href = mailto;
+}
+
+function printComment() {
+  const text = document.getElementById('comment-preview').textContent;
+  const printWindow = window.open('', '', 'width=800,height=600');
+  printWindow.document.write(`
+    <html><head><title>Public Comment</title>
+    <style>body { font-family: Arial, sans-serif; line-height: 1.8; padding: 2rem; }</style>
+    </head><body>
+    <h2>El Dorado Vision 2040 — Public Comment</h2>
+    <p style="color: #666; font-size: 0.9rem;">Submit to: City Commission, 220 W Central Ave, El Dorado, KS 67042</p>
+    <hr />
+    <pre style="font-family: Arial, white-space: pre-wrap;">${text}</pre>
+    <hr />
+    <p style="color: #666; font-size: 0.85rem;">Generated via Public Comment Generator at vision2040eldorado.org</p>
+    </body></html>
+  `);
+  printWindow.document.close();
+  printWindow.print();
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', renderProjectCards);
+</script>
+
+</body>
+</html>
