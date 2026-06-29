@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lake & Golf Expansion Map | El Dorado Vision 2040</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .visualization-container { max-width: 1400px; margin: 0 auto; padding: 48px 24px; }
+    .viz-header { margin-bottom: 48px; }
+    .viz-header h1 { margin-bottom: 16px; }
+    .viz-header .description { font-size: 1.1rem; color: #666; max-width: 900px; }
+
+    .map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    #map {
+      height: 600px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    .map-legend {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .legend-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .legend-label { flex: 1; font-size: 0.9rem; }
+
+    .opportunity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .opportunity-card {
+      background: linear-gradient(135deg, #f9f7f4 0%, #fdfbf7 100%);
+      border: 1px solid #e8dcc8;
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .opportunity-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
+    }
+
+    .opportunity-card h3 {
+      color: #2E6E35;
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .opportunity-tag {
+      display: inline-block;
+      background: #E8F5E9;
+      color: #2E6E35;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .opportunity-details {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #555;
+      margin: 12px 0;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #e0d4c4;
+      font-size: 0.9rem;
+    }
+
+    .metric:last-child { border-bottom: none; }
+    .metric-label { color: #666; }
+    .metric-value { font-weight: 700; color: #1B3A5C; }
+
+    .expansion-zones {
+      background: #E8F5E9;
+      border: 2px solid #2E6E35;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 48px 0;
+    }
+
+    .expansion-zones h3 {
+      color: #2E6E35;
+      margin-bottom: 16px;
+    }
+
+    .zone-item {
+      padding: 12px 0;
+      border-bottom: 1px solid #c8e6c9;
+    }
+
+    .zone-item:last-child { border-bottom: none; }
+    .zone-item strong { color: #1B3A5C; }
+
+    .roi-projection {
+      background: #FFF3E0;
+      border: 2px solid #F57C00;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+
+    .roi-projection h4 {
+      color: #F57C00;
+      margin-bottom: 16px;
+    }
+
+    .roi-metric {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 12px 0;
+    }
+
+    .roi-item {
+      background: rgba(255,255,255,0.6);
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .roi-item-label { font-size: 0.85rem; color: #666; }
+    .roi-item-value { font-size: 1.4rem; font-weight: 700; color: #F57C00; margin-top: 4px; }
+
+    @media (max-width: 768px) {
+      .map-wrapper {
+        grid-template-columns: 1fr;
+      }
+      #map { height: 400px; }
+      .map-legend { max-height: none; }
+      .roi-metric {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body data-page="visualization">
+  <div class="visualization-container">
+    <div class="viz-header">
+      <h1>Lake & Golf Recreation Expansion</h1>
+      <p class="description">
+        Strategic expansion zones for El Dorado Lake tourism infrastructure (sailing, fishing, water sports) and
+        El Dorado Country Club golf amenities, positioned to attract regional destination spending.
+      </p>
+    </div>
+
+    <div class="map-wrapper">
+      <div id="map"></div>
+      <div class="map-legend">
+        <h4 style="margin-bottom: 16px; color: #1B3A5C;">Facilities</h4>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #2E6E35;"></div>
+          <div class="legend-label">Current Lake</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #66BB6A;"></div>
+          <div class="legend-label">Golf Course</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #FFD54F;"></div>
+          <div class="legend-label">Expansion Zone</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #4A90BF;"></div>
+          <div class="legend-label">Support Facilities</div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #A5D6A7; opacity: 0.4;"></div>
+          <div class="legend-label">Recreation Area</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="expansion-zones">
+      <h3>Expansion Zones (5-Year Horizon)</h3>
+      <div class="zone-item">
+        <strong>Zone 1: North Lake Shore (45 acres)</strong>
+        — Marina expansion, 75-slip boat dock, pavilion facilities, seasonal rental cabins. Investment: $3.2M. Timeline: 18 months.
+      </div>
+      <div class="zone-item">
+        <strong>Zone 2: South Golf Expansion (85 acres)</strong>
+        — 9-hole executive course addition, practice range, clubhouse amenities. Investment: $4.8M. Timeline: 24 months.
+      </div>
+      <div class="zone-item">
+        <strong>Zone 3: Lake Activity Hub (12 acres)</strong>
+        — Kayak/paddleboard rental, fishing charter office, restaurant/bar, event space. Investment: $1.6M. Timeline: 12 months.
+      </div>
+      <div class="zone-item">
+        <strong>Zone 4: Hospitality Node (22 acres)</strong>
+        — 50-room boutique hotel, full-service spa, RV park (80 spaces). Investment: $8.5M. Timeline: 30 months.
+      </div>
+    </div>
+
+    <div class="opportunity-grid">
+      <div class="opportunity-card">
+        <span class="opportunity-tag">CURRENT ASSET</span>
+        <h3>El Dorado Lake</h3>
+        <div class="opportunity-details">
+          7,440-acre reservoir hosting sailing regattas, fishing tournaments, and recreational activities.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Visitors</span>
+          <span class="metric-value">28,000</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Avg Spend/Visit</span>
+          <span class="metric-value">$65</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Current Revenue</span>
+          <span class="metric-value">$1.82M</span>
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <span class="opportunity-tag">EXPANSION</span>
+        <h3>Marina & Water Sports</h3>
+        <div class="opportunity-details">
+          Add 75 boat slips, kayak rentals, paddle-boarding instruction, and fishing charter services.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Investment Required</span>
+          <span class="metric-value">$3.2M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Revenue Lift</span>
+          <span class="metric-value">+$1.1M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Jobs Created</span>
+          <span class="metric-value">22 FTE</span>
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <span class="opportunity-tag">CURRENT ASSET</span>
+        <h3>El Dorado Country Club</h3>
+        <div class="opportunity-details">
+          18-hole championship course (established 1924) with 600+ members and strong regional reputation.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Members</span>
+          <span class="metric-value">620</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Daily Fee Revenue</span>
+          <span class="metric-value">$420K/yr</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Tournaments</span>
+          <span class="metric-value">24</span>
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <span class="opportunity-tag">EXPANSION</span>
+        <h3>9-Hole Executive Course</h3>
+        <div class="opportunity-details">
+          Companion 9-hole course targeting beginner/intermediate players and corporate outings.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Investment Required</span>
+          <span class="metric-value">$4.8M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Revenue Lift</span>
+          <span class="metric-value">+$680K</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Jobs Created</span>
+          <span class="metric-value">18 FTE</span>
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <span class="opportunity-tag">DEVELOPMENT</span>
+        <h3>Boutique Hotel & Spa</h3>
+        <div class="opportunity-details">
+          50-room lakeside hotel with full-service spa, restaurant, event facilities for golf outings and conferences.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Investment Required</span>
+          <span class="metric-value">$8.5M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Revenue Lift</span>
+          <span class="metric-value">+$2.8M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Jobs Created</span>
+          <span class="metric-value">45 FTE</span>
+        </div>
+      </div>
+
+      <div class="opportunity-card">
+        <span class="opportunity-tag">DEVELOPMENT</span>
+        <h3>RV Park & Hospitality</h3>
+        <div class="opportunity-details">
+          80-space RV park with full hookups, pools, activity centers. Attracts 3–4-day stays and retiree events.
+        </div>
+        <div class="metric">
+          <span class="metric-label">Investment Required</span>
+          <span class="metric-value">$2.4M</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Annual Revenue Lift</span>
+          <span class="metric-value">+$580K</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Jobs Created</span>
+          <span class="metric-value">12 FTE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-projection">
+      <h4>5-Year Expansion ROI Modeling (Full Vision)</h4>
+      <div class="roi-metric">
+        <div class="roi-item">
+          <div class="roi-item-label">Total Investment</div>
+          <div class="roi-item-value">$20.5M</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-item-label">Annual Revenue (Year 5)</div>
+          <div class="roi-item-value">+$7.2M</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-item-label">Direct Jobs Created</div>
+          <div class="roi-item-value">97 FTE</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-item-label">Annual Tax Impact (Est.)</div>
+          <div class="roi-item-value">+$485K</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-item-label">Visitor Growth (Est.)</div>
+          <div class="roi-item-value">+95K/yr</div>
+        </div>
+        <div class="roi-item">
+          <div class="roi-item-label">Payback Period</div>
+          <div class="roi-item-value">6.8 years</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px; padding: 24px; background: #F3E5F5; border-radius: 10px;">
+      <h3 style="color: #7B5EA7; margin-bottom: 16px;">Regional Tournament Strategy</h3>
+      <p style="color: #555; margin-bottom: 12px;">
+        Position El Dorado as a destination for regional golf tournaments, sailing regattas, and water sports championships:
+      </p>
+      <ul style="margin: 0; padding-left: 20px; color: #2C2C2C;">
+        <li><strong>Golf:</strong> Host 4–6 regional amateur and corporate tournaments annually (Tue–Thu off-peak days)</li>
+        <li><strong>Sailing:</strong> Partner with US Sailing to host Midwest District championships (July–August)</li>
+        <li><strong>Fishing:</strong> Sponsor regional bass/walleye tournaments; promote via tournament circuit</li>
+        <li><strong>Revenue synergy:</strong> Golf tournament attendees (avg 120/event) spend $2,400 on accommodations + meals per tournament</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 32px; padding-top: 32px; border-top: 2px solid #e0d4c4; font-size: 0.9rem; color: #999;">
+      <strong>Sources:</strong> El Dorado Lake Master Plan (2024), ESRI Tourism Analytics, PGA Tour Regional Data, US Sailing, CoStar Recreation Benchmarks
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    // Initialize map centered on El Dorado Lake area
+    const map = L.map('map').setView([37.75, -96.65], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19
+    }).addTo(map);
+
+    // Lake boundary (simplified)
+    const lakeBoundary = L.circle([37.75, -96.65], {
+      radius: 4500,
+      color: '#2E6E35',
+      fill: true,
+      fillColor: '#A5D6A7',
+      fillOpacity: 0.3,
+      weight: 2
+    }).addTo(map).bindPopup('El Dorado Lake<br/>7,440 acres');
+
+    // Current golf course
+    const golfMarker = L.marker([37.76, -96.63], {
+      icon: L.icon({
+        html: '<div style="width: 30px; height: 30px; background: #66BB6A; border: 3px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">G</div>',
+        className: '',
+        iconSize: [30, 30],
+        popupAnchor: [0, -15]
+      })
+    }).addTo(map).bindPopup('<strong>El Dorado Country Club</strong><br/>18-hole championship<br/>620 members');
+
+    // Expansion zones
+    const northLakeZone = L.circle([37.81, -96.65], {
+      radius: 600,
+      color: '#FFD54F',
+      fill: true,
+      fillColor: '#FFE082',
+      fillOpacity: 0.5,
+      weight: 2,
+      dashArray: '5, 5'
+    }).addTo(map).bindPopup('<strong>Zone 1: North Lake Shore</strong><br/>Marina + Boat Dock<br/>45 acres');
+
+    const southGolfZone = L.circle([37.68, -96.66], {
+      radius: 700,
+      color: '#FFD54F',
+      fill: true,
+      fillColor: '#FFE082',
+      fillOpacity: 0.5,
+      weight: 2,
+      dashArray: '5, 5'
+    }).addTo(map).bindPopup('<strong>Zone 2: South Golf</strong><br/>9-hole Executive Course<br/>85 acres');
+
+    // Activity hub
+    const activityHub = L.marker([37.74, -96.64], {
+      icon: L.icon({
+        html: '<div style="width: 28px; height: 28px; background: #4A90BF; border: 3px solid white; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">HUB</div>',
+        className: '',
+        iconSize: [28, 28],
+        popupAnchor: [0, -14]
+      })
+    }).addTo(map).bindPopup('<strong>Lake Activity Hub</strong><br/>Restaurant, Rentals, Events');
+
+    // Hotel marker
+    const hotelMarker = L.marker([37.77, -96.62], {
+      icon: L.icon({
+        html: '<div style="width: 28px; height: 28px; background: #E91E63; border: 3px solid white; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">H</div>',
+        className: '',
+        iconSize: [28, 28],
+        popupAnchor: [0, -14]
+      })
+    }).addTo(map).bindPopup('<strong>Boutique Hotel & Spa</strong><br/>50 rooms, pool, restaurant');
+  </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Initiatives Catalog | Vision 2040</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body[data-page="initiatives"] .page-nav {
+      display: none;
+    }
+  </style>
+</head>
+<body data-page="initiatives" data-page="initiatives">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+    <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> › Initiatives Catalog
+  </div>
+
+  <!-- Hero Section -->
+  <section style="background: linear-gradient(135deg, var(--navy) 0%, #2a5a8a 100%); color: white; padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="margin: 0 0 1rem; font-size: 2.5rem; line-height: 1.2;">80 Niche Ideas to Expand Vision 2040</h1>
+      <p style="margin: 0; font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: 0 auto;">
+        Discover initiatives across 8 thematic sections. Filter by section, priority, and cost. Each idea includes implementation guidance, budget estimates, and timeline.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Controls -->
+  <div class="container" style="margin-top: 2rem;">
+    <div class="initiatives-controls">
+      <input type="text" id="search-input" placeholder="Search initiatives by title or description..." style="flex: 1; min-width: 250px;">
+
+      <div class="filter-group">
+        <label>Section:</label>
+        <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="filter-pill active" data-filter-type="section" data-filter-value="">All</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="economy">Economy</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="housing">Housing</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="place">Place</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="people">People</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="build">Build</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="finance">Finance</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="region">Region</button>
+          <button class="filter-pill" data-filter-type="section" data-filter-value="engagement">Engagement</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Priority:</label>
+        <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="filter-pill active" data-filter-type="priority" data-filter-value="">All</button>
+          <button class="filter-pill" data-filter-type="priority" data-filter-value="quick-win">Quick Win</button>
+          <button class="filter-pill" data-filter-type="priority" data-filter-value="strategic">Strategic</button>
+          <button class="filter-pill" data-filter-type="priority" data-filter-value="transformational">Transformational</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Cost:</label>
+        <div class="filter-pills" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <button class="filter-pill active" data-filter-type="costRange" data-filter-value="">All</button>
+          <button class="filter-pill" data-filter-type="costRange" data-filter-value="low">Low (&lt;$50K)</button>
+          <button class="filter-pill" data-filter-type="costRange" data-filter-value="medium">Medium</button>
+          <button class="filter-pill" data-filter-type="costRange" data-filter-value="high">High ($500K+)</button>
+        </div>
+      </div>
+
+      <div class="initiatives-count" style="margin-left: auto; align-self: center;"><span id="initiatives-count">80</span> initiatives</div>
+    </div>
+  </div>
+
+  <!-- Initiatives Grid -->
+  <div class="container" style="margin: 2rem 0;">
+    <div id="initiatives-grid" class="initiatives-grid">
+      <!-- Rendered by JavaScript -->
+    </div>
+  </div>
+
+  <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+    <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let allInitiatives = [];
+    const activeFilters = {
+      search: '',
+      section: '',
+      priority: '',
+      costRange: ''
+    };
+
+    async function loadInitiatives() {
+      try {
+        const response = await fetch('data/initiatives.json');
+        const data = await response.json();
+        allInitiatives = data.initiatives;
+        renderInitiatives();
+        setupEventListeners();
+      } catch (error) {
+        console.error('Error loading initiatives:', error);
+      }
+    }
+
+    function renderInitiatives() {
+      const filtered = allInitiatives.filter(initiative => {
+        const matchesSearch = !activeFilters.search ||
+          initiative.title.toLowerCase().includes(activeFilters.search.toLowerCase()) ||
+          initiative.description.toLowerCase().includes(activeFilters.search.toLowerCase()) ||
+          initiative.whyMatters.toLowerCase().includes(activeFilters.search.toLowerCase());
+
+        const matchesSection = !activeFilters.section || initiative.sectionSlug === activeFilters.section;
+        const matchesPriority = !activeFilters.priority || initiative.priority === activeFilters.priority;
+        const matchesCost = !activeFilters.costRange || initiative.costRange === activeFilters.costRange;
+
+        return matchesSearch && matchesSection && matchesPriority && matchesCost;
+      });
+
+      const grid = document.getElementById('initiatives-grid');
+      grid.innerHTML = filtered.map(initiative => `
+        <div class="initiative-card" data-section="${initiative.sectionSlug}" data-priority="${initiative.priority}" data-cost="${initiative.costRange}">
+          <div class="initiative-card-header">
+            <span class="initiative-badge" style="background: ${initiative.sectionColor};">${initiative.section}</span>
+            <span class="priority-badge priority-${initiative.priority}">${initiative.priority === 'quick-win' ? 'Quick Win' : initiative.priority === 'strategic' ? 'Strategic' : 'Transformational'}</span>
+          </div>
+          <h3>${initiative.title}</h3>
+          <p class="initiative-description">${initiative.description}</p>
+          <div class="initiative-why">
+            <strong>Why El Dorado:</strong> ${initiative.whyMatters}
+          </div>
+          <div class="initiative-impl">
+            <strong>First Step:</strong> ${initiative.implementation}
+          </div>
+          <div class="initiative-footer">
+            <span class="cost-badge">${initiative.costLabel}</span>
+            <span class="timeline-badge">${initiative.timelineLabel}</span>
+            ${initiative.hasDedicatedPage ? `<a href="${initiative.dedicatedPage}" class="btn btn--primary btn--sm">View Full Plan →</a>` : '<a href="initiatives.html" class="btn btn--primary btn--sm">See All →</a>'}
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('initiatives-count').textContent = filtered.length;
+    }
+
+    function setupEventListeners() {
+      // Search input
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        activeFilters.search = e.target.value;
+        updatePills();
+        renderInitiatives();
+      });
+
+      // Filter pills
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          const filterType = e.target.dataset.filterType;
+          const filterValue = e.target.dataset.filterValue;
+
+          // Remove active from siblings
+          document.querySelectorAll(`[data-filter-type="${filterType}"]`).forEach(p => {
+            p.classList.remove('active');
+          });
+
+          // Add active to clicked
+          e.target.classList.add('active');
+
+          // Update filter
+          activeFilters[filterType] = filterValue;
+          renderInitiatives();
+        });
+      });
+    }
+
+    function updatePills() {
+      // Reset section pills to show "All" is possible again
+      if (!activeFilters.section && !activeFilters.priority && !activeFilters.costRange && !activeFilters.search) {
+        document.querySelectorAll('[data-filter-value=""]').forEach(p => {
+          p.classList.add('active');
+        });
+      }
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', loadInitiatives);
+  </script>
+<script src="js/analytics.js" defer></script>
+</body>
+</html>

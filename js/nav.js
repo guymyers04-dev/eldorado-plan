@@ -179,6 +179,14 @@
               { label: 'Brief 23 · EPA Smart Growth & Green Infra', href: 'brief.html#brief-smartgrowth' },
               { label: 'Brief 24 · Strategic Partner Network', href: 'brief.html#brief-partners' }
             ]
+          },
+          {
+            label: 'Engagement Tools & Metrics',
+            separator: true,
+            items: [
+              { label: '💡 Initiatives Catalog', href: 'initiatives.html' },
+              { label: '📈 Metrics Dashboard', href: 'metrics-dashboard.html' }
+            ]
           }
         ]
       }

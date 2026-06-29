@@ -4830,3 +4830,650 @@ footer ul a:hover { color:var(--gold); }
     gap: 0.75rem;
   }
 }
+
+/* === Phase 3 Components: Initiatives Catalog & Metrics Dashboard === */
+
+/* Initiatives Catalog: Filter Controls */
+.initiatives-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--cream);
+  border-radius: var(--radius);
+  margin-bottom: 3rem;
+  position: sticky;
+  top: 76px;
+  z-index: 50;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.initiatives-controls input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: Inter, system-ui;
+  transition: border-color var(--transition);
+}
+
+.initiatives-controls input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.filter-pill {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all var(--transition);
+  user-select: none;
+}
+
+.filter-pill:hover {
+  border-color: var(--gold);
+}
+
+.filter-pill.active {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
+}
+
+.initiatives-count {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--muted);
+  align-self: center;
+}
+
+/* Initiatives Grid */
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+/* Initiative Card */
+.initiative-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.initiative-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.initiative-card-header {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.initiative-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.priority-quick-win {
+  background: var(--green);
+  color: white;
+}
+
+.priority-strategic {
+  background: var(--sky);
+  color: white;
+}
+
+.priority-transformational {
+  background: var(--purple);
+  color: white;
+}
+
+.initiative-card h3 {
+  font-size: 1.3rem;
+  margin: 0.5rem 0 1rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.initiative-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.initiative-why {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #f9f9f9;
+  border-left: 3px solid var(--gold);
+  border-radius: 2px;
+}
+
+.initiative-why strong {
+  color: var(--text);
+}
+
+.initiative-impl {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.initiative-impl strong {
+  color: var(--text);
+}
+
+.initiative-footer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cost-badge,
+.timeline-badge {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  background: #f0f0f0;
+  color: var(--muted);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.initiative-card .btn--primary {
+  margin-left: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Metrics Dashboard: KPI Cards */
+.kpi-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 2rem;
+}
+
+.kpi-card-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.kpi-card-title {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin: 0;
+  flex: 1;
+}
+
+.section-readiness-score {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+  line-height: 1;
+}
+
+.section-readiness-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.kpi-item {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.kpi-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.kpi-current {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.kpi-target {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.kpi-progress {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.kpi-progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 3px;
+  transition: width var(--transition);
+}
+
+.metric-ring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metric-ring-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.metric-ring-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Project Progress Card */
+.project-progress-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 1.5rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.project-status-badge {
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.progress-row {
+  margin-bottom: 1.25rem;
+}
+
+.progress-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--sky));
+  border-radius: 4px;
+  transition: width var(--transition);
+}
+
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.metric-box {
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.metric-name {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+/* Initiative Sub-Page Hero */
+.initiative-sub-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, #2a5a8a 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.initiative-sub-hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.initiative-sub-hero-meta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.initiative-sub-hero-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+}
+
+/* Implementation Phases */
+.implementation-phases {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.phase-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--card-shadow);
+  border-top: 4px solid var(--gold);
+}
+
+.phase-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: var(--gold);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.phase-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.phase-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Budget Breakdown */
+.budget-breakdown {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  margin: 2rem 0;
+}
+
+.budget-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.budget-item:last-child {
+  border-bottom: none;
+}
+
+.budget-label {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.budget-value {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* Success Metrics Grid */
+.success-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.metric-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+}
+
+.metric-card-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.metric-card-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Related Initiatives */
+.related-initiatives {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  margin: 2rem 0;
+}
+
+.related-initiatives h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.related-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.related-link {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  border-left: 3px solid var(--gold);
+  transition: all var(--transition);
+}
+
+.related-link:hover {
+  background: var(--cream);
+  transform: translateX(4px);
+}
+
+/* Responsive adjustments for Phase 3 components */
+@media (max-width: 1100px) {
+  .initiatives-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .kpi-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .initiatives-controls {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .initiatives-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .initiative-footer {
+    flex-direction: column;
+  }
+
+  .initiative-card .btn--primary {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .initiative-sub-hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .initiative-sub-hero-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .implementation-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .success-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .section-readiness-score,
+  .section-readiness-label {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .initiative-card {
+    padding: 1.25rem;
+  }
+
+  .initiative-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

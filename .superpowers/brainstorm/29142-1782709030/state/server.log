@@ -1,0 +1,5 @@
+{"type":"server-started","port":65210,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:65210","screen_dir":"/Users/guyh/eldorado-plan/.superpowers/brainstorm/29142-1782709030/content","state_dir":"/Users/guyh/eldorado-plan/.superpowers/brainstorm/29142-1782709030/state"}
+{"type":"screen-added","file":"/Users/guyh/eldorado-plan/.superpowers/brainstorm/29142-1782709030/content/phase3_directions.html"}
+{"type":"screen-added","file":"/Users/guyh/eldorado-plan/.superpowers/brainstorm/29142-1782709030/content/niche_ideas_landscape.html"}
+{"type":"screen-added","file":"/Users/guyh/eldorado-plan/.superpowers/brainstorm/29142-1782709030/content/brainstorm_complete.html"}
+{"type":"server-stopped","reason":"idle timeout"}

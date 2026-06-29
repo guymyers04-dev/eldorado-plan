@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metrics Dashboard | Vision 2040</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body[data-page="metrics-dashboard"] .page-nav {
+      display: none;
+    }
+    .chart-container {
+      position: relative;
+      height: 300px;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body data-page="metrics-dashboard" data-page="metrics-dashboard">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+    <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> › Metrics Dashboard
+  </div>
+
+  <!-- Hero Section -->
+  <section style="background: linear-gradient(135deg, var(--navy) 0%, #2a5a8a 100%); color: white; padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="margin: 0 0 1rem; font-size: 2.5rem;">Vision 2040 Progress Dashboard</h1>
+      <p style="margin: 0 0 3rem; font-size: 1.1rem; opacity: 0.95; max-width: 700px; margin: 0 auto 3rem;">
+        Track project progress, section readiness scores, engagement metrics, and Vision 2040 KPIs across all 8 thematic areas.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">7.2/10</div>
+          <div style="font-size: 0.9rem; opacity: 0.9;">Overall Readiness</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">80+</div>
+          <div style="font-size: 0.9rem; opacity: 0.9;">Initiatives Planned</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">8</div>
+          <div style="font-size: 0.9rem; opacity: 0.9;">Thematic Areas</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+          <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">39</div>
+          <div style="font-size: 0.9rem; opacity: 0.9;">Pages Live</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="margin: 3rem 0;">
+    <!-- Section 1: Vision Readiness Chart -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--navy);">Vision 2040 Readiness</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+        <div class="chart-container">
+          <canvas id="radarChart"></canvas>
+        </div>
+        <div>
+          <p style="font-size: 1.05rem; line-height: 1.6; color: #555;">
+            El Dorado's Vision 2040 readiness is assessed across 8 thematic pillars. This radar chart shows current scores (out of 10) on: Economy, Housing, Place, People, Build, Finance, Region, and Engagement. The closer to the outer edge, the higher the readiness score. Overall readiness: <strong>7.2/10</strong> (as of June 2026).
+          </p>
+          <a href="initiatives.html" class="btn btn--primary" style="margin-top: 1rem;">Explore Initiatives by Theme →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Project Progress -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--navy);">Project Progress Tracker</h2>
+      <p style="font-size: 1rem; color: #666; margin-bottom: 2rem;">All 8 Vision 2040 projects: current budget utilization, timeline progress, and key metrics.</p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+        <div class="chart-container">
+          <canvas id="budgetChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="doughnutChart"></canvas>
+        </div>
+      </div>
+
+      <div id="projects-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+        <!-- Projects rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Section 3: Section Scorecards -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--navy);">Thematic Section Scorecard</h2>
+      <div id="scorecards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <!-- Scorecards rendered by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Section 4: Engagement Metrics -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--navy);">Engagement Tools Performance</h2>
+      <div id="engagement-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <!-- Engagement metrics rendered by JavaScript -->
+      </div>
+    </section>
+  </div>
+
+  <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+    <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let projectsData = [];
+    let readinessChartInstance, budgetChartInstance, doughnutChartInstance;
+
+    // Hardcoded section data
+    const sectionScores = {
+      economy: { color: '#C8902A', score: 7, kpis: [
+        { label: 'Job Growth', current: 120, target: 500 },
+        { label: 'New Businesses', current: 5, target: 25 },
+        { label: 'Remote Workers', current: 12, target: 25 }
+      ]},
+      housing: { color: '#2E6E35', score: 6.5, kpis: [
+        { label: 'ADUs Created', current: 3, target: 50 },
+        { label: 'Workforce Units', current: 0, target: 30 },
+        { label: 'Affordability Index', current: 65, target: 80 }
+      ]},
+      place: { color: '#4A90BF', score: 8, kpis: [
+        { label: 'Trail Miles', current: 1.2, target: 10 },
+        { label: 'Events/Year', current: 8, target: 12 },
+        { label: 'Downtown Foot Traffic', current: 45, target: 70 }
+      ]},
+      people: { color: '#7B5EA7', score: 7.5, kpis: [
+        { label: 'Youth Retention %', current: 35, target: 60 },
+        { label: 'Programs Enrolled', current: 180, target: 400 },
+        { label: 'Seniors Engaged', current: 120, target: 200 }
+      ]},
+      build: { color: '#A63D2F', score: 7, kpis: [
+        { label: 'Green Infra Projects', current: 1, target: 5 },
+        { label: 'Solar Capacity (kW)', current: 0, target: 150 },
+        { label: '15-Min Score', current: 6.2, target: 8.5 }
+      ]},
+      finance: { color: '#1B3A5C', score: 6, kpis: [
+        { label: 'Grants Secured ($K)', current: 280, target: 800 },
+        { label: 'TIF Revenue (annual)', current: 45, target: 200 },
+        { label: 'Crowdfunding Raised', current: 35, target: 200 }
+      ]},
+      region: { color: '#A63D2F', score: 6.5, kpis: [
+        { label: 'Broadband Coverage %', current: 72, target: 95 },
+        { label: 'Farm Partners', current: 4, target: 15 },
+        { label: 'Annual Tourists', current: 8500, target: 25000 }
+      ]},
+      engagement: { color: '#5A5A5A', score: 7.5, kpis: [
+        { label: 'Comment Submissions', current: 24, target: 200 },
+        { label: 'Tool Monthly Users', current: 480, target: 1500 },
+        { label: 'Civic Participants', current: 620, target: 2000 }
+      ]}
+    };
+
+    const engagementTools = [
+      { name: 'Stakeholder Directory', icon: '👥', current: 485, target: 1000 },
+      { name: 'Comment Generator', icon: '💬', current: 24, target: 200 },
+      { name: 'Meeting Countdown', icon: '⏱️', current: 156, target: 500 },
+      { name: 'Commission Locator', icon: '🗺️', current: 234, target: 1000 },
+      { name: 'Project Tracker', icon: '📊', current: 445, target: 1500 }
+    ];
+
+    async function loadProjectData() {
+      try {
+        const response = await fetch('data/projects.json');
+        const data = await response.json();
+        projectsData = data.projects;
+        renderProjects();
+        renderScorecards();
+        renderEngagement();
+        initCharts();
+      } catch (error) {
+        console.error('Error loading project data:', error);
+      }
+    }
+
+    function renderProjects() {
+      const container = document.getElementById('projects-container');
+      container.innerHTML = projectsData.map(project => `
+        <div class="project-progress-card">
+          <div class="project-header">
+            <div class="project-title">${project.name}</div>
+            <span class="project-status-badge">${project.statusCode.toUpperCase()}</span>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label">
+              <span>Budget Utilization</span>
+              <span>${project.budget.percentage}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar-fill" style="width: ${project.budget.percentage}%"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem;">
+              $${project.budget.spent}M of $${project.budget.total}M allocated
+            </div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-label">
+              <span>Timeline Progress</span>
+              <span>${Math.round((new Date().getFullYear() - project.startYear) / (project.targetYear - project.startYear) * 100)}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-bar-fill" style="width: ${Math.round((new Date().getFullYear() - project.startYear) / (project.targetYear - project.startYear) * 100)}%"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem;">
+              ${project.startYear} → ${project.targetYear}
+            </div>
+          </div>
+          ${project.nextMilestone ? `
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.9rem;">
+              <strong>Next Milestone:</strong> ${project.nextMilestone} (${project.milestoneDate})
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function renderScorecards() {
+      const container = document.getElementById('scorecards-container');
+      container.innerHTML = Object.entries(sectionScores).map(([key, data]) => {
+        const section = key.charAt(0).toUpperCase() + key.slice(1);
+        return `
+          <div class="kpi-card" style="border-top: 4px solid ${data.color};">
+            <div class="kpi-card-header">
+              <h3 class="kpi-card-title">${section}</h3>
+              <div>
+                <div class="section-readiness-score">${data.score}</div>
+                <div class="section-readiness-label">/10 Readiness</div>
+              </div>
+            </div>
+            <div class="kpi-grid">
+              ${data.kpis.map(kpi => {
+                const percentage = Math.round((kpi.current / kpi.target) * 100);
+                return `
+                  <div class="kpi-item">
+                    <div class="kpi-label">${kpi.label}</div>
+                    <div class="kpi-current">${kpi.current}</div>
+                    <div class="kpi-target">Target: ${kpi.target}</div>
+                    <div class="kpi-progress">
+                      <div class="kpi-progress-fill" style="width: ${Math.min(percentage, 100)}%; background: ${data.color};"></div>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+              <a href="initiatives.html?section=${key}" class="btn btn--primary btn--sm">View ${section} Initiatives →</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderEngagement() {
+      const container = document.getElementById('engagement-container');
+      container.innerHTML = engagementTools.map(tool => {
+        const percentage = Math.round((tool.current / tool.target) * 100);
+        return `
+          <div class="metric-card">
+            <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">${tool.icon}</div>
+            <div style="font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem;">${tool.name}</div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--gold); margin: 1rem 0;">
+              ${tool.current}
+            </div>
+            <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem;">
+              of ${tool.target} target
+            </div>
+            <div class="kpi-progress">
+              <div class="kpi-progress-fill" style="width: ${Math.min(percentage, 100)}%;"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem;">
+              ${percentage}% of target
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function initCharts() {
+      // Radar chart data
+      const radarCtx = document.getElementById('radarChart').getContext('2d');
+      readinessChartInstance = new Chart(radarCtx, {
+        type: 'radar',
+        data: {
+          labels: ['Economy', 'Housing', 'Place', 'People', 'Build', 'Finance', 'Region', 'Engagement'],
+          datasets: [{
+            label: 'Readiness Score',
+            data: [7, 6.5, 8, 7.5, 7, 6, 6.5, 7.5],
+            borderColor: '#C8902A',
+            backgroundColor: 'rgba(200, 144, 42, 0.1)',
+            pointBackgroundColor: '#C8902A',
+            pointBorderColor: '#fff',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            r: {
+              beginAtZero: true,
+              max: 10,
+              ticks: { stepSize: 2 }
+            }
+          }
+        }
+      });
+
+      // Budget chart
+      const budgetCtx = document.getElementById('budgetChart').getContext('2d');
+      budgetChartInstance = new Chart(budgetCtx, {
+        type: 'bar',
+        data: {
+          labels: projectsData.slice(0, 4).map(p => p.name.split(' ').slice(0, 2).join(' ')),
+          datasets: [
+            {
+              label: 'Spent',
+              data: projectsData.slice(0, 4).map(p => p.budget.spent),
+              backgroundColor: '#C8902A'
+            },
+            {
+              label: 'Allocated',
+              data: projectsData.slice(0, 4).map(p => p.budget.allocated - p.budget.spent),
+              backgroundColor: '#4A90BF'
+            },
+            {
+              label: 'Total Budget',
+              data: projectsData.slice(0, 4).map(p => p.budget.total - p.budget.allocated),
+              backgroundColor: '#e0e0e0'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          plugins: { legend: { position: 'top' } }
+        }
+      });
+
+      // Doughnut chart
+      const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+      doughnutChartInstance = new Chart(doughnutCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Spent', 'Remaining'],
+          datasets: [{
+            data: [10.2, 81.9],
+            backgroundColor: ['#C8902A', '#4A90BF'],
+            borderWidth: 2,
+            borderColor: 'white'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { position: 'bottom' } }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadProjectData);
+  </script>
+<script src="js/analytics.js" defer></script>
+</body>
+</html>

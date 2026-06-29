@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "lastUpdated": "2026-06-29",
+    "sources": [
+      "US Census Bureau (2020 Census, ACS 2024)",
+      "Kansas Department of Transportation",
+      "Kansas Department of Commerce",
+      "ESRI Demographics (2025)",
+      "CoStar Market Analytics",
+      "Bureau of Labor Statistics",
+      "El Dorado Municipal Budget FY2026",
+      "Kansas Health Matters"
+    ]
+  },
+  "taxProjections": {
+    "baseline": {
+      "year": 2026,
+      "propertyTax": 4200000,
+      "salesTax": 2100000,
+      "utilityTax": 580000,
+      "otherTax": 320000,
+      "total": 7200000
+    },
+    "scenario10yr": {
+      "year": 2036,
+      "propertyTax": 6800000,
+      "salesTax": 4200000,
+      "utilityTax": 950000,
+      "otherTax": 620000,
+      "total": 12570000
+    },
+    "scenario20yr": {
+      "year": 2046,
+      "propertyTax": 9400000,
+      "salesTax": 6800000,
+      "utilityTax": 1500000,
+      "otherTax": 1000000,
+      "total": 18700000
+    },
+    "scenario30yr": {
+      "year": 2056,
+      "propertyTax": 12500000,
+      "salesTax": 9200000,
+      "utilityTax": 2100000,
+      "otherTax": 1400000,
+      "total": 25200000
+    }
+  },
+  "tourismModeling": {
+    "currentState": {
+      "annualVisitors": 45000,
+      "avgSpendPerVisitor": 85,
+      "totalRevenue": 3825000,
+      "hotelNights": 18000,
+      "avgHotelSpend": 95,
+      "hotelRevenue": 1710000
+    },
+    "scenarios": [
+      {
+        "name": "Conservative (Golf Expansion Only)",
+        "year": 2031,
+        "visitors": 72000,
+        "spendPerVisitor": 110,
+        "revenue": 7920000,
+        "hotelNights": 35000,
+        "hotelRevenue": 3325000,
+        "annualTaxImpact": 485000,
+        "jobsCreated": 28
+      },
+      {
+        "name": "Moderate (Lake + Golf + Events)",
+        "year": 2031,
+        "visitors": 95000,
+        "spendPerVisitor": 130,
+        "revenue": 12350000,
+        "hotelNights": 52000,
+        "hotelRevenue": 5200000,
+        "annualTaxImpact": 758000,
+        "jobsCreated": 52
+      },
+      {
+        "name": "Aggressive (Full Vision)",
+        "year": 2031,
+        "visitors": 140000,
+        "spendPerVisitor": 155,
+        "revenue": 21700000,
+        "hotelNights": 72000,
+        "hotelRevenue": 8640000,
+        "annualTaxImpact": 1335000,
+        "jobsCreated": 85
+      }
+    ]
+  },
+  "logisticsProjections": {
+    "baseline": {
+      "year": 2026,
+      "facilities": 3,
+      "jobs": 145,
+      "annualPayroll": 6500000,
+      "squareFeet": 180000
+    },
+    "year5": {
+      "year": 2031,
+      "scenarioLow": {
+        "facilities": 5,
+        "jobs": 285,
+        "annualPayroll": 13200000,
+        "squareFeet": 340000
+      },
+      "scenarioMid": {
+        "facilities": 8,
+        "jobs": 480,
+        "annualPayroll": 22400000,
+        "squareFeet": 580000
+      },
+      "scenarioHigh": {
+        "facilities": 12,
+        "jobs": 720,
+        "annualPayroll": 34000000,
+        "squareFeet": 850000
+      }
+    },
+    "year10": {
+      "year": 2036,
+      "scenarioLow": {
+        "facilities": 8,
+        "jobs": 520,
+        "annualPayroll": 24000000,
+        "squareFeet": 620000
+      },
+      "scenarioMid": {
+        "facilities": 15,
+        "jobs": 980,
+        "annualPayroll": 45600000,
+        "squareFeet": 1200000
+      },
+      "scenarioHigh": {
+        "facilities": 22,
+        "jobs": 1450,
+        "annualPayroll": 68000000,
+        "squareFeet": 1800000
+      }
+    }
+  },
+  "usd490Footprint": {
+    "budget": 52800000,
+    "employees": 650,
+    "payroll": 38500000,
+    "procurement": 4200000,
+    "operationsAndMaintenance": 9800000,
+    "studentEnrollment": 3850,
+    "communityProgramAttendees": 12400,
+    "sources": [
+      "USD 490 Annual Budget FY2026",
+      "USD 490 Strategic Plan 2024-2029"
+    ]
+  },
+  "marketDistances": {
+    "elDorado": {
+      "lat": 37.8065,
+      "lng": -96.6576,
+      "name": "El Dorado, KS"
+    },
+    "wichita": {
+      "distance": 36,
+      "population": 385000,
+      "msa": 645000
+    },
+    "oklahmaCity": {
+      "distance": 130,
+      "population": 680000,
+      "msa": 1400000
+    },
+    "kansasCity": {
+      "distance": 210,
+      "population": 500000,
+      "msa": 2200000
+    },
+    "tulsa": {
+      "distance": 160,
+      "population": 413000,
+      "msa": 980000
+    }
+  },
+  "competitorBenchmarks": {
+    "littleRock": {
+      "name": "Little Rock, AR",
+      "population": 196000,
+      "msa": 839000,
+      "distance": 420,
+      "industrialRent": 4.75,
+      "avgPropertyTax": 0.58,
+      "incentivesAvailable": true
+    },
+    "joplin": {
+      "name": "Joplin, MO",
+      "population": 51000,
+      "msa": 180000,
+      "distance": 165,
+      "industrialRent": 4.25,
+      "avgPropertyTax": 0.81,
+      "incentivesAvailable": true
+    },
+    "fayetteville": {
+      "name": "Fayetteville, AR",
+      "population": 87000,
+      "msa": 541000,
+      "distance": 220,
+      "industrialRent": 5.50,
+      "avgPropertyTax": 0.45,
+      "incentivesAvailable": true
+    },
+    "springfield": {
+      "name": "Springfield, MO",
+      "population": 169000,
+      "msa": 483000,
+      "distance": 195,
+      "industrialRent": 5.25,
+      "avgPropertyTax": 0.72,
+      "incentivesAvailable": true
+    }
+  },
+  "realEstate": {
+    "megaSite": {
+      "acres": 1131,
+      "squareFeet": 49259000,
+      "currentZoning": "Agricultural / Light Industrial",
+      "proposedZoning": "Mixed-Use Industrial + Commercial",
+      "infrastructure": {
+        "sewer": "Available (capacity for 500+ jobs)",
+        "water": "Available (4M gallons/day capacity)",
+        "power": "Available (substation within 2 miles)",
+        "gas": "Available (Atmos Energy main line)"
+      },
+      "roi": {
+        "conservativeEstimate": 0.12,
+        "moderateEstimate": 0.18,
+        "aggressiveEstimate": 0.25
+      }
+    },
+    "parcels": [
+      {
+        "id": "north-1",
+        "address": "US-54 North Corridor",
+        "acres": 87,
+        "zoning": "Light Industrial",
+        "price": 2100000,
+        "pricePerAcre": 24138,
+        "infrastructure": "High",
+        "developmentPotential": "Distribution Center"
+      },
+      {
+        "id": "downtown-1",
+        "address": "Central Avenue Mixed-Use Zone",
+        "acres": 3.2,
+        "zoning": "Downtown Mixed-Use",
+        "price": 950000,
+        "pricePerAcre": 296875,
+        "infrastructure": "High",
+        "developmentPotential": "Retail + Office + Residential"
+      },
+      {
+        "id": "east-1",
+        "address": "East Highway Corridor",
+        "acres": 52,
+        "zoning": "Commercial",
+        "price": 1560000,
+        "pricePerAcre": 30000,
+        "infrastructure": "Medium",
+        "developmentPotential": "Retail + Food Service"
+      }
+    ]
+  },
+  "laborMarket": {
+    "workforce": 18500,
+    "unemploymentRate": 3.2,
+    "medianHouseholdIncome": 52000,
+    "availableWorkers": 592,
+    "trainingCapacity": {
+      "vocational": 150,
+      "collegeCredits": 240
+    }
+  }
+}
