@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participatory Budget — El Dorado Vision 2040</title>
+  <meta name="description" content="Vote on El Dorado's community budget. Allocate $500K across parks, infrastructure, programs, and community projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .budget-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .budget-header { text-align: center; margin-bottom: 50px; }
+    .budget-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .budget-header p { font-size: 1.125rem; color: #666; max-width: 700px; margin: 0 auto; }
+    .budget-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; background: #f8f8f8; padding: 30px; border-radius: 8px; }
+    .summary-card { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; text-align: center; }
+    .summary-value { font-size: 2rem; font-weight: 700; color: #d4a574; }
+    .summary-label { font-size: 0.9rem; color: #666; margin-top: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .voting-section { margin-bottom: 50px; }
+    .voting-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 30px; }
+    .project-card { background: white; border: 2px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+    .project-card:hover { border-color: #d4a574; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .project-card.selected { border-color: #d4a574; background: #fffbf7; }
+    .project-header { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); padding: 20px; }
+    .project-name { font-size: 1.2rem; font-weight: 700; color: #222; margin-bottom: 8px; }
+    .project-cost { font-size: 1.4rem; font-weight: 700; color: #d4a574; }
+    .project-body { padding: 20px; }
+    .project-desc { color: #666; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6; }
+    .project-meta { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .project-votes { font-size: 0.9rem; color: #27a745; font-weight: 600; }
+    .project-impact { font-size: 0.85rem; color: #666; }
+    .vote-button { width: 100%; padding: 12px; background: #d4a574; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; }
+    .vote-button:hover { background: #c49563; transform: translateY(-2px); }
+    .vote-button.voted { background: #27a745; }
+    .progress-section { background: #f8f8f8; padding: 30px; border-radius: 8px; margin-bottom: 40px; }
+    .progress-bar-container { margin-bottom: 25px; }
+    .progress-label { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; font-weight: 600; }
+    .progress-bar { background: #ddd; height: 24px; border-radius: 3px; overflow: hidden; }
+    .progress-fill { background: linear-gradient(90deg, #d4a574 0%, #c49563 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.85rem; font-weight: 600; }
+    .results-section { background: white; padding: 30px; border-radius: 8px; border: 1px solid #eee; display: none; }
+    .results-section.show { display: block; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+    .results-card { background: #f8f8f8; padding: 20px; border-radius: 6px; border-left: 4px solid #27a745; }
+    .results-title { font-weight: 700; color: #222; margin-bottom: 8px; }
+    .results-value { font-size: 1.4rem; font-weight: 700; color: #27a745; }
+    .cta-section { background: linear-gradient(135deg, #d4a574 0%, #c49563 100%); color: white; padding: 40px; border-radius: 8px; text-align: center; margin-bottom: 40px; }
+    .cta-section h2 { color: white; margin-bottom: 15px; }
+    .cta-section p { font-size: 1.1rem; margin-bottom: 20px; }
+    .cta-button { padding: 12px 28px; background: white; color: #d4a574; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 1rem; }
+    .cta-button:hover { background: #f0f0f0; }
+    .info-box { background: #f0f0f0; padding: 20px; border-radius: 6px; border-left: 4px solid #2c3e50; margin-bottom: 30px; }
+    .info-box h4 { margin-bottom: 10px; color: #222; }
+    .info-box ul { list-style: none; padding: 0; font-size: 0.95rem; color: #666; line-height: 1.8; }
+    .info-box li { margin-bottom: 8px; }
+  </style>
+</head>
+<body data-page="participatory-budget">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="budget-header">
+    <h1>Participatory Budget 2026</h1>
+    <p>Vote on how El Dorado allocates $500,000 in community funds. Choose up to 5 projects using quadratic voting — the more you care about an issue, the more you vote on it.</p>
+  </div>
+</div>
+
+<div class="budget-container">
+
+  <div class="budget-summary">
+    <div class="summary-card">
+      <div class="summary-value">$500K</div>
+      <div class="summary-label">Total Budget</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-value" id="votes-available">15</div>
+      <div class="summary-label">Votes Available</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-value" id="votes-used">0</div>
+      <div class="summary-label">Votes Used</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-value" id="projects-selected">0</div>
+      <div class="summary-label">Projects Selected</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <h4>💡 How Quadratic Voting Works</h4>
+    <ul>
+      <li><strong>1st vote:</strong> Costs 1 point (1² = 1)</li>
+      <li><strong>2nd vote:</strong> Costs 4 points total (2² = 4)</li>
+      <li><strong>3rd vote:</strong> Costs 9 points total (3² = 9)</li>
+      <li><strong>4th vote:</strong> Costs 16 points total (4² = 16)</li>
+      <li><strong>5th vote:</strong> Costs 25 points total (5² = 25)</li>
+    </ul>
+    <p style="margin-top: 15px; font-size: 0.9rem;"><em>This gives your passion a voice — show how much you care about each project by voting multiple times. You have 15 points to distribute.</em></p>
+  </div>
+
+  <div class="voting-section">
+    <h2 style="margin-bottom: 30px;">Vote on Projects (Click to Vote)</h2>
+    <div class="voting-grid">
+      <!-- PROJECTS WILL BE GENERATED BY JAVASCRIPT -->
+    </div>
+  </div>
+
+  <div class="progress-section">
+    <h3 style="margin-bottom: 30px;">Current Vote Allocation</h3>
+    <div id="progress-container">
+      <!-- PROGRESS BARS WILL BE GENERATED BY JAVASCRIPT -->
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Vote?</h2>
+    <p>Your vote matters. Help shape El Dorado's community priorities for 2026.</p>
+    <button class="cta-button" onclick="submitVotes()">Submit My Votes</button>
+    <div style="margin-top: 15px; font-size: 0.9rem;">Results will be announced at City Council meeting (May 15, 2026)</div>
+  </div>
+
+  <div class="results-section" id="results-section">
+    <h2>Your Votes Submitted! ✅</h2>
+    <p style="color: #666; margin-bottom: 20px;">Thank you for participating in El Dorado's democratic budgeting process. Check back on May 15 to see the final results and which projects won community funding.</p>
+    <div class="results-grid" id="results-grid"></div>
+  </div>
+
+  <div style="background: #f8f8f8; padding: 40px; border-radius: 8px; margin-top: 40px; margin-bottom: 40px;">
+    <h2 style="margin-bottom: 20px;">What Happens Next?</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+      <div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 10px;">📊 Voting Timeline</h3>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ <strong>Now:</strong> Online voting (today through May 10)</li>
+          <li>✓ <strong>May 11:</strong> Tabulate results, verify votes</li>
+          <li>✓ <strong>May 15:</strong> Announce winners at City Council</li>
+          <li>✓ <strong>June-Aug:</strong> Winning projects break ground</li>
+          <li>✓ <strong>By Dec 2026:</strong> First projects completed</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 10px;">🏆 Success Stories</h3>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ Participatory budgets increase civic engagement 40%+</li>
+          <li>✓ Projects reflect actual community priorities</li>
+          <li>✓ Builds trust in local government decision-making</li>
+          <li>✓ Creates accountability: residents see projects built</li>
+          <li>✓ Average 35% adult population participation (Year 1)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a> • <a href="#" style="color: #d4a574;">Contact City Manager</a></p>
+</footer>
+
+<script>
+// Project data
+const projects = [
+  { id: 1, name: "Riverside Park Renovation", cost: "$85K", desc: "Upgrade aging park with new playground, walking trails, picnic areas, and shade structures.", impact: "Recreation" },
+  { id: 2, name: "Downtown Main Street Beautification", cost: "$120K", desc: "Streetscaping, new benches, planters, lighting. Attract retailers and restaurants.", impact: "Economic" },
+  { id: 3, name: "Fiber Broadband Infrastructure", cost: "$180K", desc: "High-speed internet to underserved neighborhoods. Critical for remote work and education.", impact: "Technology" },
+  { id: 4, name: "Youth Recreation Center Expansion", cost: "$95K", desc: "New climbing wall, gaming lounge, music studio. Keep kids engaged after school.", impact: "Youth" },
+  { id: 5, name: "Lake Trail Safety Lighting", cost: "$45K", desc: "LED lighting on walking/biking trail. Enable evening recreation year-round.", impact: "Safety" },
+  { id: 6, name: "Community Garden Hubs (3 sites)", cost: "$55K", desc: "Raised beds, tools, education program. Support urban agriculture and food security.", impact: "Community" },
+  { id: 7, name: "Library Tech Lab Upgrade", cost: "$70K", desc: "New computers, 3D printers, coding equipment. Free access to all residents.", impact: "Education" },
+  { id: 8, name: "Senior Center Renovation", cost: "$110K", desc: "Accessible design, new fitness area, kitchen upgrade. Support aging-in-place.", impact: "Seniors" },
+  { id: 9, name: "Small Business Facade Grants", cost: "$60K", desc: "Matching grants for storefronts. Encourage entrepreneurship and downtown vitality.", impact: "Business" },
+  { id: 10, name: "Water Quality Testing Program", cost: "$40K", desc: "Lake monitoring equipment and staff. Ensure safe recreation and environmental health.", impact: "Environment" },
+  { id: 11, name: "Police Community Programs", cost: "$35K", desc: "Youth mentoring, safety training, neighborhood patrols. Build police-community trust.", impact: "Safety" },
+  { id: 12, name: "Affordable Housing Feasibility Study", cost: "$50K", desc: "Analyze options for workforce housing. Plan for long-term affordability.", impact: "Housing" },
+  { id: 13, name: "Street Repair & Pothole Program", cost: "$100K", desc: "Fix critical roads, pot holes, sidewalks. Improve traffic safety.", impact: "Infrastructure" },
+  { id: 14, name: "Arts & Culture Programming", cost: "$75K", desc: "Concerts, exhibits, theater productions. Make El Dorado a cultural destination.", impact: "Culture" },
+  { id: 15, name: "School Athletics Equipment", cost: "$80K", desc: "Update sports fields, equipment, facilities. Support USD 490 student-athletes.", impact: "Education" }
+];
+
+let votes = {};
+let voteCounts = {};
+projects.forEach(p => { votes[p.id] = 0; voteCounts[p.id] = 0; });
+
+function initializeProjects() {
+  const grid = document.querySelector('.voting-grid');
+  projects.forEach(project => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.id = `project-${project.id}`;
+    card.innerHTML = `
+      <div class="project-header">
+        <div class="project-name">${project.name}</div>
+        <div class="project-cost">${project.cost}</div>
+      </div>
+      <div class="project-body">
+        <div class="project-desc">${project.desc}</div>
+        <div class="project-meta">
+          <span class="project-impact">📌 ${project.impact}</span>
+          <span class="project-votes" id="votes-${project.id}">0 votes</span>
+        </div>
+        <button class="vote-button" onclick="addVote(${project.id})">Vote for This</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function addVote(projectId) {
+  const currentVotes = votes[projectId];
+  const nextVoteCost = Math.pow(currentVotes + 1, 2);
+  const totalVotesUsed = Object.values(votes).reduce((a, b) => a + b, 0);
+  
+  if (totalVotesUsed < 15) {
+    if (totalVotesUsed + nextVoteCost <= 15) {
+      votes[projectId]++;
+      voteCounts[projectId]++;
+      updateDisplay();
+    } else {
+      alert(`Not enough votes! This vote costs ${nextVoteCost} points, you have ${15 - totalVotesUsed} left.`);
+    }
+  } else {
+    alert('You\'ve used all 15 voting points!');
+  }
+}
+
+function updateDisplay() {
+  const totalUsed = Object.values(votes).reduce((a, b) => a + b, 0);
+  document.getElementById('votes-used').textContent = totalUsed;
+  document.getElementById('votes-available').textContent = 15 - totalUsed;
+  document.getElementById('projects-selected').textContent = Object.values(voteCounts).filter(v => v > 0).length;
+
+  projects.forEach(project => {
+    const card = document.getElementById(`project-${project.id}`);
+    const voteDisplay = document.getElementById(`votes-${project.id}`);
+    const btn = card.querySelector('.vote-button');
+    
+    if (votes[project.id] > 0) {
+      card.classList.add('selected');
+      voteDisplay.textContent = `${votes[project.id]} vote${votes[project.id] > 1 ? 's' : ''}`;
+      btn.textContent = `Voted ${votes[project.id]}x`;
+      btn.classList.add('voted');
+    } else {
+      card.classList.remove('selected');
+      voteDisplay.textContent = '0 votes';
+      btn.textContent = 'Vote for This';
+      btn.classList.remove('voted');
+    }
+  });
+
+  updateProgress();
+}
+
+function updateProgress() {
+  const container = document.getElementById('progress-container');
+  container.innerHTML = '';
+  
+  const sorted = projects
+    .map(p => ({ ...p, voteCount: voteCounts[p.id] }))
+    .sort((a, b) => b.voteCount - a.voteCount)
+    .slice(0, 10);
+
+  sorted.forEach(project => {
+    const maxVotes = Math.max(...sorted.map(p => p.voteCount), 5);
+    const percentage = (project.voteCount / maxVotes) * 100;
+    
+    const progressDiv = document.createElement('div');
+    progressDiv.className = 'progress-bar-container';
+    progressDiv.innerHTML = `
+      <div class="progress-label">
+        <span>${project.name}</span>
+        <span>${project.voteCount} votes</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: ${percentage}%">${project.voteCount > 0 ? project.voteCount : ''}</div>
+      </div>
+    `;
+    container.appendChild(progressDiv);
+  });
+}
+
+function submitVotes() {
+  const selectedCount = Object.values(voteCounts).filter(v => v > 0).length;
+  
+  if (selectedCount === 0) {
+    alert('Please vote on at least one project!');
+    return;
+  }
+
+  const resultsSection = document.getElementById('results-section');
+  const resultsGrid = document.getElementById('results-grid');
+  
+  const sorted = projects
+    .filter(p => voteCounts[p.id] > 0)
+    .map(p => ({ ...p, voteCount: voteCounts[p.id] }))
+    .sort((a, b) => b.voteCount - a.voteCount);
+
+  resultsGrid.innerHTML = sorted.map(p => `
+    <div class="results-card">
+      <div class="results-title">${p.name}</div>
+      <div class="results-value">${p.voteCount} votes</div>
+      <div style="font-size: 0.9rem; color: #666; margin-top: 8px;">${p.cost}</div>
+    </div>
+  `).join('');
+
+  resultsSection.classList.add('show');
+  window.scrollTo({ top: resultsSection.offsetTop - 100, behavior: 'smooth' });
+
+  // Track in GA4
+  gtag && gtag('event', 'participatory_budget_submit', {
+    projects_voted: selectedCount,
+    total_votes: Object.values(votes).reduce((a, b) => a + b, 0)
+  });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initializeProjects);
+</script>
+
+</body>
+</html>
