@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Tax Incentives & Grants in El Dorado</title>
+  <meta name="description" content="Access El Dorado's tax incentive programs: PEAK, REAP, and local grants. Calculate your net incentive value.">
+  <meta name="keywords" content="tax incentive, PEAK, REAP, grant, tax credit">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/playbooks.css">
+  <style>
+    .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .timeline-step.expanded { background: #f9f9f9; }
+    .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+    .timeline-header:hover { opacity: 0.8; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+    .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+    .step-duration { font-size: 0.85rem; color: #999; }
+    .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .step-content.hidden { display: none; }
+
+    .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+    .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+    .faq-question:hover { background: #f0f2f5; }
+    .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+    .faq-item.expanded .faq-toggle { transform: rotate(180deg); }
+    .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.expanded .faq-answer { max-height: 1000px; }
+
+    .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+    .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+    .stakeholder-table tr:hover { background: #f9f9f9; }
+    .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+    .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+    .incentive-card { background: white; padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid #C8902A; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .incentive-name { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .incentive-value { color: #28A745; font-weight: 600; margin-bottom: 0.75rem; }
+
+    .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+    .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+    .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+  </style>
+</head>
+<body data-page="tax-incentives">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <section class="playbook-hero">
+    <div class="hero-content">
+      <h1>Access Tax Incentives & Grants</h1>
+      <p class="hero-subtitle">For CFOs and business development leaders</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">30-60 Days</div>
+          <div class="stat-label">Estimated Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Key Stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">5</div>
+          <div class="stat-label">Required Documents</div>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="overview-section">
+      <h2>Overview</h2>
+      <p>El Dorado offers multiple tax incentive programs that can save your business $100K to $5M+ depending on your investment size and job creation. Whether you're starting a new business, expanding operations, or relocating to our community, these programs are designed to offset capital costs and accelerate profitability.</p>
+      <p>This guide explains the PEAK program (property tax abatement), REAP program (rural economic incentives), local grants, and how to calculate your total net incentive value. Most applications take 2-3 months and can be filed retroactively once you're licensed.</p>
+    </section>
+
+    <section class="timeline-section">
+      <h2>Timeline & Application Process</h2>
+      <p>Here's the typical process for accessing tax incentive programs:</p>
+
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <h3>Research Eligible Programs</h3>
+              <div class="step-duration">Days 1-5</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Determine which programs you qualify for based on business type, location, investment size, and job creation commitments.</p>
+            <p><strong>Programs:</strong> PEAK (property tax abatement), REAP (rural economic), equipment exemption, WIOA grants (workforce)</p>
+            <p><strong>Cost:</strong> Free consultation</p>
+            <p><strong>Timeline:</strong> 5 days</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <h3>Verify Business Eligibility</h3>
+              <div class="step-duration">Days 5-10</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Confirm your business meets the program eligibility criteria. Most programs require: new to Kansas, new jobs created (3+), or facilities in designated economic areas.</p>
+            <p><strong>Documents needed:</strong> Business license, proof of new jobs (offer letters, payroll records), financial statements</p>
+            <p><strong>Cost:</strong> Free</p>
+            <p><strong>Timeline:</strong> 5-10 days</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <h3>Prepare Application Package</h3>
+              <div class="step-duration">Days 10-20</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Compile financial projections, job creation plans, equipment lists, and property valuations. Calculate expected incentive values.</p>
+            <p><strong>Documents needed:</strong> 3-year financial projections, equipment schedules, job descriptions with wages, property assessment estimates</p>
+            <p><strong>Cost:</strong> Internal labor only (free)</p>
+            <p><strong>Timeline:</strong> 10 days with full documentation</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <h3>Submit Application & Get Tax Assessor Approval</h3>
+              <div class="step-duration">Days 20-35</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Submit completed application to Tax Assessor and Economic Development. They'll conduct due diligence and prepare recommendation.</p>
+            <p><strong>Documents needed:</strong> Complete application package (see Step 3)</p>
+            <p><strong>Cost:</strong> Free to apply</p>
+            <p><strong>Timeline:</strong> 15 days for assessor review</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">5</div>
+            <div class="step-info">
+              <h3>City Council Approval & Incentive Award</h3>
+              <div class="step-duration">Days 35-60</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> City Council votes on incentive award. Once approved, incentive period begins (retroactive to application date for PEAK).</p>
+            <p><strong>Documents needed:</strong> Assessor's recommendation, application</p>
+            <p><strong>Cost:</strong> Free</p>
+            <p><strong>Timeline:</strong> 15-25 days (next available council meeting + processing)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="incentives-overview">
+      <h2>Tax Incentive Programs Explained</h2>
+
+      <div class="incentive-card">
+        <div class="incentive-name">PEAK Program (Property Evaluation & Community Kickstart)</div>
+        <div class="incentive-value">Typical Value: $500K - $5M+ over 10 years</div>
+        <p><strong>What it is:</strong> Property tax abatement for new or expanding businesses. Reduces your property tax bill by 50-75% for 5-10 years.</p>
+        <p><strong>Eligibility:</strong> New business to El Dorado, expanding operations, or relocating from out-of-state. Must create minimum 3 new jobs or invest $500K+.</p>
+        <p><strong>How to apply:</strong> Submit to City Hall within 60 days of business licensing. Retroactive to licensing date.</p>
+        <p><strong>Example:</strong> $2M facility, 10% property tax rate = $200K/year tax. 50% abatement over 10 years = $1M savings.</p>
+      </div>
+
+      <div class="incentive-card">
+        <div class="incentive-name">REAP Program (Rural Economic Area Program)</div>
+        <div class="incentive-value">Typical Value: $250K - $2M+ over 10 years</div>
+        <p><strong>What it is:</strong> State-level rural incentive providing sales tax exemption on equipment and reduced income tax for 5 years.</p>
+        <p><strong>Eligibility:</strong> Business must be in designated rural economic area (El Dorado qualifies), create jobs, and manufacturing or agriculture-related.</p>
+        <p><strong>How to apply:</strong> Apply through state with local city endorsement. Processing: 20-30 days.</p>
+        <p><strong>Example:</strong> $1M equipment purchase = $70K sales tax exemption (7% KS rate). Plus 5% income tax reduction on first $100K profit = $5K/year.</p>
+      </div>
+
+      <div class="incentive-card">
+        <div class="incentive-name">Equipment Sales Tax Exemption</div>
+        <div class="incentive-value">Typical Value: $50K - $500K (one-time)</div>
+        <p><strong>What it is:</strong> Manufacturing and ag equipment purchases exempt from 7% Kansas sales tax. Available to qualifying manufacturers.</p>
+        <p><strong>Eligibility:</strong> Licensed manufacturer in El Dorado with equipment purchases for business use.</p>
+        <p><strong>How to apply:</strong> Register with Tax Assessor and get exemption certificate. Present to vendors at time of purchase.</p>
+        <p><strong>Example:</strong> $500K equipment purchase x 7% = $35K in tax savings.</p>
+      </div>
+
+      <div class="incentive-card">
+        <div class="incentive-name">Local Discretionary Grants</div>
+        <div class="incentive-value">Typical Value: $25K - $250K (one-time)</div>
+        <p><strong>What it is:</strong> City of El Dorado discretionary grants for workforce training, infrastructure, or job creation in priority areas.</p>
+        <p><strong>Eligibility:</strong> Highest priority for strategic industries (manufacturing, logistics, technology). Requires job creation and matching investment.</p>
+        <p><strong>How to apply:</strong> Submit request to Economic Development Director. Reviewed quarterly.</p>
+        <p><strong>Example:</strong> $100K grant for CDL training program (50% of $200K training budget) for logistics company.</p>
+      </div>
+    </section>
+
+    <section class="documents-section">
+      <h2>Required Documents Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="doc1">
+          <label for="doc1">Business license & Secretary of State registration certificate</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc2">
+          <label for="doc2">3-year financial projections with job creation commitments</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc3">
+          <label for="doc3">Equipment list & property valuation estimates</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc4">
+          <label for="doc4">Proof of new jobs (offer letters, payroll records, W-2s)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc5">
+          <label for="doc5">Completed application forms for each program (PEAK, REAP, etc.)</label>
+        </div>
+      </div>
+      <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+    </section>
+
+    <section class="stakeholders-section">
+      <h2>Key Contacts & Stakeholders</h2>
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Name & Title</th>
+            <th>Organization</th>
+            <th>Contact</th>
+            <th>Helps with Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="stakeholder-name">Brandon Erickson</div><div class="stakeholder-contact">Economic Development Director</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:berickson@eldoradokansas.gov">berickson@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 1, 3, 4, 5</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Andrea Treadway</div><div class="stakeholder-contact">Tax Assessor</div></td>
+            <td>Butler County</td>
+            <td><a href="mailto:atreadway@butlercountykansas.org">atreadway@butlercountykansas.org</a><br>(620) 321-9100</td>
+            <td>Steps 2, 4, 5</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Paul Johnson</div><div class="stakeholder-contact">State Program Officer</div></td>
+            <td>Kansas Department of Commerce</td>
+            <td><a href="mailto:pjohnson@kansascommerce.gov">pjohnson@kansascommerce.gov</a><br>(785) 296-3000</td>
+            <td>Steps 1, 4 (REAP)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I stack multiple incentive programs together?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes! You can typically combine PEAK (local property tax) + REAP (state equipment) + equipment exemption. However, some restrictions apply — for example, you cannot receive PEAK abatement and a local discretionary grant for the same asset. Contact Tax Assessor for your specific situation. Typical strategy: PEAK for real estate, REAP + equipment exemption for equipment purchases.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does the incentive period last?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          PEAK: Typically 5-10 years depending on project size and job creation. REAP: 5 years for equipment, 5 years for income tax reduction. Equipment exemption: One-time, applied at purchase. Local grants: One-time cash awards. Most businesses see full payback of incentive applications within first 2-3 years.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What happens if I don't meet my job creation commitment?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          PEAK includes clawback provisions — if you don't meet job commitments within the agreed timeline, the incentive may be reduced or terminated. Typical grace period: 1-2 years. Work with Economic Development if you face headwinds — they have flexibility and can adjust timelines. Transparent communication is key.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I apply retroactively if I already started my business?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes! PEAK incentives can be applied retroactively to the date you filed your business license (within 60 days). REAP must be applied within 180 days of facility startup. If you're already operating, apply immediately — you can recapture past incentive value. Contact Brandon Erickson (Economic Development) to check if you qualify.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the approval rate for incentive applications?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          PEAK: ~85% approval rate for qualified applicants. Denials are rare and typically due to incorrect filings or ineligible business types. REAP: ~70% (more competitive, state-level). Equipment exemptions: 100% for registered manufacturers. Local discretionary grants: ~40% (most selective). Work with Economic Development to maximize approval odds — they'll help you strengthen your application.
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story">
+      <div class="success-company">Advanced Logistics Solutions</div>
+      <div class="success-story-text">
+        Regional logistics company relocated from Missouri to El Dorado in 2021 with 5,000 sqft warehouse and 20 employees. Leveraged PEAK, REAP, and equipment exemption together for cumulative incentive value.
+      </div>
+      <div class="success-quote">
+        "We projected 3 years to break even on our facility investment. With tax incentives, we hit profitability in year 1. PEAK saved $400K in property taxes, REAP exempted $200K in equipment purchases, and equipment exemption saved another $50K. Total: $650K in first 3 years. That margin let us expand to 35 employees ahead of schedule." — Chief Financial Officer
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">Today: 35 employees, $12M annual revenue, planning Phase 2 facility</p>
+    </section>
+
+    <section class="next-steps-section">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <div class="next-step-card">
+          <h3>Consult with Tax Assessor</h3>
+          <p>Schedule 30-minute consultation to determine which programs you qualify for and calculate potential incentive value.</p>
+          <a href="mailto:atreadway@butlercountykansas.org" class="primary-btn">Contact Tax Assessor</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Prepare Application</h3>
+          <p>Gather financial projections, job commitments, and property valuations. Download our checklist to stay organized.</p>
+          <button class="primary-btn" style="width: 100%;">Download Checklist</button>
+        </div>
+        <div class="next-step-card">
+          <h3>Get Economic Development Support</h3>
+          <p>Brandon Erickson will walk you through the application and represent your project to the City Council.</p>
+          <a href="mailto:berickson@eldoradokansas.gov" class="secondary-btn">Schedule Meeting →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-playbooks">
+      <h2>Related Playbooks</h2>
+      <div class="playbook-links">
+        <a href="/playbooks/start-business.html" class="playbook-link">Start a Business in El Dorado →</a>
+        <a href="/playbooks/expand-manufacturing.html" class="playbook-link">Expand Manufacturing Operations →</a>
+        <a href="/playbooks/real-estate.html" class="playbook-link">Purchase or Lease Commercial Real Estate →</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Calculate Your Potential Incentive Value</h2>
+      <p>Contact our Economic Development team for a free confidential analysis of your project's incentive eligibility and estimated value.</p>
+      <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Get Your Analysis →</a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.timeline-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const step = header.parentElement;
+        step.classList.toggle('expanded');
+        const content = step.querySelector('.step-content');
+        content.classList.toggle('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', (e) => {
+        const item = question.parentElement;
+        item.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>

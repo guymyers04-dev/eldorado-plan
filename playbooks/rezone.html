@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rezone or Request Code Variance in El Dorado</title>
+  <meta name="description" content="Step-by-step guide to rezoning or variance requests in El Dorado. Understand the process, timeline, and approval rate.">
+  <meta name="keywords" content="rezone, variance, zoning, planning, development">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/playbooks.css">
+  <style>
+    .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .timeline-step.expanded { background: #f9f9f9; }
+    .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+    .timeline-header:hover { opacity: 0.8; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+    .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+    .step-duration { font-size: 0.85rem; color: #999; }
+    .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .step-content.hidden { display: none; }
+
+    .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+    .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+    .faq-question:hover { background: #f0f2f5; }
+    .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+    .faq-item.expanded .faq-toggle { transform: rotate(180deg); }
+    .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.expanded .faq-answer { max-height: 1000px; }
+
+    .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+    .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+    .stakeholder-table tr:hover { background: #f9f9f9; }
+    .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+    .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+    .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+    .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+    .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+  </style>
+</head>
+<body data-page="rezone">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <section class="playbook-hero">
+    <div class="hero-content">
+      <h1>Rezone or Request Code Variance</h1>
+      <p class="hero-subtitle">For property developers and owners</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">60-120 Days</div>
+          <div class="stat-label">Estimated Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Key Stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Required Documents</div>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="overview-section">
+      <h2>Overview</h2>
+      <p>El Dorado zoning regulations cover residential, commercial, industrial, and mixed-use development. If your property's current zoning doesn't match your intended use, you have two options: request a variance (minor adjustments to current zoning rules) or apply for rezoning (formal change to a different zone classification).</p>
+      <p>This guide explains the difference, walks you through the approval process, and shows you how to prepare a strong application that passes Planning Commission and City Council review. Most applications take 60-120 days and have a 75%+ approval rate when properly prepared.</p>
+    </section>
+
+    <section class="timeline-section">
+      <h2>Timeline & Steps</h2>
+      <p>Here's the typical process for rezoning or variance requests:</p>
+
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <h3>Determine Current Zoning & Permitted Uses</h3>
+              <div class="step-duration">Days 1-5</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Look up your property on the City zoning map. Review the current zone classification and what uses are permitted (as-of-right vs. conditional).</p>
+            <p><strong>Documents needed:</strong> Property address, current zoning map printout, parcel ID</p>
+            <p><strong>Cost:</strong> Free (zoning map available at City Hall or online)</p>
+            <p><strong>Resource:</strong> City Planner can clarify permitted uses for your current zone.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <h3>Determine Variance vs. Rezone Necessity</h3>
+              <div class="step-duration">Days 5-15</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Meet with City Planner to determine if your request needs a variance (minor adjustment) or full rezoning. Variance is faster (45-60 days); rezoning is longer (90-120 days) but broader.</p>
+            <p><strong>Variance use case:</strong> "I want to use my commercial zone property for mixed-use residential + retail" — minor adjustment to existing commercial zone</p>
+            <p><strong>Rezone use case:</strong> "I want to convert residential property to industrial manufacturing" — full zone change required</p>
+            <p><strong>Cost:</strong> Free consultation</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <h3>Prepare Application & Site Plan</h3>
+              <div class="step-duration">Days 15-35</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Prepare formal application with site plan, building renderings, use description, and justification. Explain why the variance/rezone serves the public interest.</p>
+            <p><strong>Documents needed:</strong> Site plan (engineer-prepared), architectural renderings, property survey, traffic impact analysis (if applicable), parking plan</p>
+            <p><strong>Cost:</strong> $500-2,000 for professional site plan/renderings</p>
+            <p><strong>Timeline:</strong> 15-20 days with professional help</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <h3>Submit to Planning Commission & Publish Notice</h3>
+              <div class="step-duration">Days 35-50</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Submit complete application to City Planner. City will advertise public hearing in local newspaper. You must notify adjacent property owners.</p>
+            <p><strong>Documents needed:</strong> All items from Step 3</p>
+            <p><strong>Cost:</strong> Application fee $250-500; noticing costs ~$100</p>
+            <p><strong>Timeline:</strong> 15 days (required legal notice period)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">5</div>
+            <div class="step-info">
+              <h3>Planning Commission Public Hearing</h3>
+              <div class="step-duration">Days 45-65</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Attend Planning Commission meeting, present your case, respond to questions from commission and public. Commission votes on recommendation (approve/deny/conditional).</p>
+            <p><strong>Documents needed:</strong> Your presentation materials, response to any public comments</p>
+            <p><strong>Cost:</strong> Your time (or attorney if needed)</p>
+            <p><strong>Timeline:</strong> 15-20 days from notice deadline</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">6</div>
+            <div class="step-info">
+              <h3>City Council Vote & Final Approval</h3>
+              <div class="step-duration">Days 65-120</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> City Council holds second public hearing, considers Planning Commission recommendation, votes on final approval. If approved, ordinance is effective 10 days after signing.</p>
+            <p><strong>Documents needed:</strong> Same as Planning Commission hearing</p>
+            <p><strong>Cost:</strong> None additional</p>
+            <p><strong>Timeline:</strong> 20-55 days (depends on City Council schedule)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="documents-section">
+      <h2>Required Documents Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="doc1">
+          <label for="doc1">Current zoning map & property identification (address, parcel ID)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc2">
+          <label for="doc2">Professional site plan with property survey, building footprints, parking</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc3">
+          <label for="doc3">Architectural renderings or building elevations (if exterior modifications)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc4">
+          <label for="doc4">Narrative justification: Why this rezone/variance serves public interest</label>
+        </div>
+      </div>
+      <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+    </section>
+
+    <section class="stakeholders-section">
+      <h2>Key Contacts & Stakeholders</h2>
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Name & Title</th>
+            <th>Organization</th>
+            <th>Contact</th>
+            <th>Helps with Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="stakeholder-name">David Chen</div><div class="stakeholder-contact">City Planner</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:dchen@eldoradokansas.gov">dchen@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 1, 2, 3, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Sarah Mitchell</div><div class="stakeholder-contact">Zoning Officer</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:smitchell@eldoradokansas.gov">smitchell@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 1, 2, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Robert Torres</div><div class="stakeholder-contact">Planning Commission Chair</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:rtorres@eldoradokansas.gov">rtorres@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 4, 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the difference between a variance and rezoning?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Variance: Allows you to deviate from current zoning rules (e.g., build 5% closer to property line in a commercial zone). Faster, cheaper, temporary relief. Rezoning: Changes the property's zone classification entirely (e.g., residential to commercial). Slower, permanent, affects future uses. Use variance for minor adjustments; use rezoning for major changes. City Planner can advise.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does the approval process take?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Variance: 45-60 days. Rezoning: 90-120 days. Timeline starts when you submit a complete application and ends when ordinance is final (10 days after City Council vote). Delays can occur if application is incomplete or controversial. Prepare thoroughly and work closely with City Planner to avoid delays.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the approval rate?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Variance: 85% approval rate (most are compatible with neighborhood). Rezoning: 75% approval rate (more scrutiny, especially residential to commercial). Success depends on: (1) Complete application, (2) Support from neighbors, (3) Alignment with comprehensive plan, (4) Good presentation. Work with City Planner to strengthen your case.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I accelerate the timeline?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Slightly. Fast-track options: (1) Prepare impeccable application upfront (saves 10 days on back-and-forth), (2) Get neighbor support letters before submission (removes delays from public comment), (3) Ask City to schedule hearing early in planning cycle (saves 15-20 days). Maximum acceleration: 10-20 days. Plan for 60-90 days as base timeline.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What if the Planning Commission recommends denial?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          You can still appeal to City Council. City Council can override commission recommendation. However, this is difficult and requires strong evidence that commission erred. Better strategy: Work with City Planner and neighbors before commission hearing to build consensus. If denial is likely, ask for continuance and revise your proposal.
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story">
+      <div class="success-company">Downtown Mixed-Use Development</div>
+      <div class="success-story-text">
+        Local developer wanted to convert three abandoned commercial buildings (downtown corridor) into 24 residential lofts with street-level retail. Property was zoned commercial-only; mixed-use residential required zoning change. Rezoning application submitted January 2023.
+      </div>
+      <div class="success-quote">
+        "The City Planner helped us align with the Comprehensive Plan early. We showed this was a priority downtown initiative. We held two neighborhood meetings, got 80% support from adjacent property owners, and had the City's backing. Planning Commission approved 7-0 in April. City Council approved in May. Total time: 4 months. Without early coordination, this would have taken 6+ months and faced opposition." — Developer
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">Today: 24 units occupied (92% lease rate), $3M annual tax revenue to city</p>
+    </section>
+
+    <section class="next-steps-section">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <div class="next-step-card">
+          <h3>Check Your Zoning</h3>
+          <p>Look up your property on the city zoning map or contact City Planner to confirm your current zone and permitted uses.</p>
+          <a href="mailto:dchen@eldoradokansas.gov" class="primary-btn">Contact City Planner</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Get Professional Help</h3>
+          <p>Hire a local engineer or architect to prepare your site plan. This is critical for approval odds.</p>
+          <button class="primary-btn" style="width: 100%;">Find Local Designers</button>
+        </div>
+        <div class="next-step-card">
+          <h3>Build Neighborhood Support</h3>
+          <p>Meet with adjacent property owners and get support letters. This is your strongest approval strategy.</p>
+          <a href="mailto:dchen@eldoradokansas.gov" class="secondary-btn">Request Neighbor List →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-playbooks">
+      <h2>Related Playbooks</h2>
+      <div class="playbook-links">
+        <a href="/playbooks/real-estate.html" class="playbook-link">Purchase or Lease Commercial Real Estate →</a>
+        <a href="/playbooks/permitting.html" class="playbook-link">Navigate Permitting & Construction →</a>
+        <a href="/playbooks/start-business.html" class="playbook-link">Start a Business in El Dorado →</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Ready to Rezone Your Property?</h2>
+      <p>El Dorado's planning team is ready to help you navigate the zoning process. Contact City Hall today.</p>
+      <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Schedule Planning Consultation →</a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.timeline-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const step = header.parentElement;
+        step.classList.toggle('expanded');
+        const content = step.querySelector('.step-content');
+        content.classList.toggle('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', (e) => {
+        const item = question.parentElement;
+        item.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>
