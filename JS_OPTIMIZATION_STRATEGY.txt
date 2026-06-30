@@ -1,0 +1,28 @@
+JavaScript Code Splitting Strategy for El Dorado Vision 2040
+
+CORE (load on all pages):
+  - js/main.min.js (navigation, basic interactions)
+  - js/nav.min.js (navigation functionality)
+  - js/analytics.min.js (GA4 tracking)
+
+FEATURES (load only when needed):
+  - leaflet (maps) → on place-*, geography pages
+  - dashboards.min.js → on *dashboard*, financial pages
+  - chart.js → on pages with charts/analytics
+  - 3d-viewer.min.js → on 3d-preview.html, ar-preview.html
+  - ar-viewer.min.js → on ar-preview.html
+  - satellite-viewer.min.js → on satellite-timeline.html
+  - investor-matcher.min.js → on investor-match.html
+  - ai-support.min.js → on ai-support.html
+
+CURRENT STATUS:
+  All JS files are loaded on all pages (not optimal)
+  
+OPTIMIZATION:
+  Update index.html and template pages to load only needed scripts
+  This requires conditional loading based on page type
+  
+ESTIMATED SAVINGS:
+  Average JS per page: ~70 KB
+  After splitting: ~10-20 KB core + feature-specific
+  Expected improvement: +3-5 Lighthouse points

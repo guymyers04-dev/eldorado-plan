@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>El Dorado, KS — Vision 2040 | Home</title>
+ <meta name="description" content="A comprehensive 15-year blueprint for El Dorado, Kansas — covering industry, lake tourism, downtown revitalization, residential, infrastructure, education, and regional integration." />
+ <meta property="og:title" content="El Dorado, KS — Vision 2040 | 21st Century Blueprint" />
+ <meta property="og:description" content="A comprehensive 15-year development plan for El Dorado, Kansas — rooted in oil-boom heritage and positioned for regional leadership in the Wichita MSA." />
+ <meta property="og:type" content="website" />
+ <meta name="geo.region" content="US-KS" />
+ <meta name="geo.placename" content="El Dorado, Kansas" />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <!-- NEW MODERN CSS SYSTEM -->
+    <link rel="preload" href="css/styles-modern.min.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.min.css">
+    <link rel="stylesheet" href="css/components-advanced.min.css">
+    <link rel="stylesheet" href="css/utilities.min.css">
+    <!-- FALLBACK to old CSS if needed -->
+    <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="home">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="navbar">
+ <div class="nav-inner">
+  <a href="#hero" class="nav-brand">
+   <span class="city">El Dorado, KS</span>
+   <span class="tagline">Vision 2040 · Regional Development Plan</span>
+  </a>
+  <ul class="nav-links">
+   <li><a href="#vision">Overview</a></li>
+   <li><a href="playbooks/" style="color:var(--gold);font-weight:600">🚀 Getting Started</a></li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Economy</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">Growth &amp; Jobs</div>
+     <a href="economy.html#district-focus">Priority Districts</a>
+     <a href="economy.html#north-gateway">North Gateway District</a>
+     <a href="economy.html#industry">Industry &amp; Economic Dev.</a>
+     <a href="economy-industry.html">🏭 Priority Industries Analysis</a>
+     <a href="economy.html#pro-hyperscale">Pro Hyperscale</a>
+     <a href="economy.html#mega-site">1,131-Acre Mega-Site</a>
+     <a href="economy.html#health-economy">Health Economy</a>
+     <a href="housing.html#residential">Housing &amp; Residential</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Market Analysis</div>
+     <a href="competitive-analysis.html">🎯 Competitive Positioning Study</a>
+     <a href="economy.html#demographics">Demographics &amp; Evidence</a>
+     <a href="housing.html#housing-assessment">Housing Needs Assessment</a>
+     <a href="economy.html#partners">Anchor Partners</a>
+     <a href="economy.html#national-partners">National &amp; Nonprofit Partners</a>
+     <a href="economy.html#local-cooperation">Local Gov &amp; Small Business</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Place</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">Recreation &amp; Destination</div>
+     <a href="place.html#lake">El Dorado Lake &amp; Sailing</a>
+     <a href="place.html#downtown">Downtown &amp; Central Ave.</a>
+     <a href="place.html#arts-heritage">Arts, Culture &amp; Heritage</a>
+     <a href="place.html#tourism">Tourism Economy</a>
+     <a href="place.html#parks">Parks, Pool &amp; Stadiums</a>
+     <a href="place.html#golf">Golf Club</a>
+     <a href="place.html#beautification">Beautification, Fountains &amp; Benches</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Community</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">Education & Workforce</div>
+     <a href="people.html#k12-education">K–12 Excellence (USD 490)</a>
+     <a href="people.html#education">Higher Education &amp; Workforce Development</a>
+     <a href="bcc-retention-strategy.html">🎓 Butler Community College Retention</a>
+     <div class="nav-dropdown-sep"></div>
+     <a href="housing.html#workforce-childcare">Childcare &amp; Housing Stability</a>
+     <a href="people.html#public-safety">Public Safety</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Build</button>
+    <div class="nav-dropdown" role="menu">
+     <a href="build.html#infrastructure">City Infrastructure</a>
+     <a href="build.html#transportation">Transportation, Corridors &amp; Bridges</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Regional Corridors (Priority)</div>
+     <a href="i35-interchange-strategy.html">🛣️ I-35 Interchange Strategy</a>
+     <a href="hw77-corridor.html">🛣️ Highway 77 Corridor (Priority)</a>
+     <a href="hw54-corridor.html">🛣️ Highway 54 Corridor</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Industries</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">Tier 1: Key Industries</div>
+     <a href="precision-ag.html">🌾 Precision Agriculture</a>
+     <a href="batteries-ev.html">🔋 Advanced Batteries &amp; EV Supply</a>
+     <a href="biotech.html">🧬 Biotech &amp; Agrigenomics</a>
+     <a href="aerospace.html">✈️ Aerospace &amp; Defense</a>
+     <a href="logistics.html">📦 Cold Chain Logistics</a>
+     <a href="water-advantage.html">💧 Water Advantage Moat</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Analysis</div>
+     <a href="benchmarking.html">📊 Competitive Benchmarking</a>
+     <a href="risk-management.html">⚠️ Risk Management Strategy</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Finance</button>
+    <div class="nav-dropdown" role="menu">
+     <a href="finance.html#tax-impact">Tax Impact &amp; Fiscal Analysis</a>
+     <a href="finance.html#funding">Funding Sources</a>
+     <a href="finance.html#foreign-investment">Foreign Direct Investment</a>
+     <a href="finance.html#niche-industries">Niche Industries &amp; Emerging Opp.</a>
+     <a href="finance.html#timeline">Implementation Timeline</a>
+     <a href="benchmarking.html">📊 Competitive Benchmarking Analysis</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Strategic Initiatives</div>
+     <a href="tax-base-growth-strategy.html">💰 Tax Base Growth Strategy</a>
+     <a href="usd490-engine.html">🎓 USD 490 Economic Engine</a>
+     <a href="housing-strategy.html">🏠 Housing Strategy</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Growth</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">Downtown &amp; Neighborhoods</div>
+     <a href="south-downtown-revitalization.html">🏘️ South Downtown Revitalization</a>
+     <a href="east-connectivity.html">🔗 East El Dorado Connectivity</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Strategic Expansion</div>
+     <a href="se-prospect-viability.html">🗺️ SE El Dorado &amp; Prospect Viability</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Region</button>
+    <div class="nav-dropdown" role="menu">
+     <div class="nav-dropdown-label">County &amp; Beyond</div>
+     <a href="region.html#government-cooperation">Government &amp; Representatives</a>
+     <a href="region.html#butler-county">Butler County Integration</a>
+     <a href="region.html#surrounding-region">Surrounding Region</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">🗺️ Maps &amp; Districts</div>
+     <a href="fire-districts-map.html">🚒 Fire Districts &amp; Emergency Services</a>
+     <a href="county-commission-map.html">🏛️ County Commission Districts</a>
+     <a href="township-detail-map.html">📍 Township &amp; Parcel Opportunities</a>
+     <a href="region.html#zoning">Zoning &amp; Planning Map</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Spatial Development Zones</div>
+     <a href="zone-megasite.html">🏭 1,131-Acre Mega-Site</a>
+     <a href="zone-logistics-hub.html">📦 Logistics Hub</a>
+     <a href="zone-north-development.html">🏗️ North Development Zone</a>
+     <a href="ftz-explained.html">📜 Free Trade Zone (FTZ) Explained</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Residential &amp; Lakefront Development</div>
+     <a href="north-expansion-zone.html">🏘️ North Expansion Zone</a>
+     <a href="lakeside-development.html">💧 Lake-Side Development Zones</a>
+     <a href="lake-activity-zones.html">⛵ Lake Activity Zones</a>
+    </div>
+   </li>
+
+   <li class="nav-group">
+    <button class="nav-group-btn" aria-haspopup="true">Reference</button>
+    <div class="nav-dropdown" role="menu">
+     <a href="reference.html#data-charts">Data &amp; Visualizations</a>
+     <a href="investor-portal.html">💼 Investor Portal &amp; FAQ</a>
+     <a href="development-finder.html">🏗️ Development Finder (Phase 9.4)</a>
+     <div class="nav-dropdown-label">Advanced Visualization (Phase 9.5)</div>
+     <a href="3d-preview.html">🎮 3D Development Preview</a>
+     <a href="ar-preview.html">📱 AR Mobile Preview (Phase 9.5)</a>
+     <a href="satellite-timeline.html">🛰️ Satellite Timeline (Phase 9.5)</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Strategic Resources (Phase 10)</div>
+     <a href="competitive-analysis.html">🎯 Competitive Analysis</a>
+     <a href="benchmarking.html">📊 Benchmarking & Market Comparables</a>
+     <a href="build-transportation.html">🚛 Infrastructure & Transportation</a>
+     <a href="investor-pitch-deck.html">💎 Investor Pitch Deck (PDF)</a>
+     <a href="eldorado-inc-strategy.html">🏢 El Dorado Inc Strategy</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Intelligence Tools (Phase 11)</div>
+     <a href="scenario-simulator.html">📊 Economic Scenario Simulator</a>
+     <a href="labor-forecast.html">👷 Labor Market Forecast</a>
+     <a href="opportunities.html">🎯 Opportunity Scanner (Deal Flow)</a>
+     <div class="nav-dropdown-sep"></div>
+     <a href="financial-dashboard.html">💰 Financial Dashboard (Phase 8)</a>
+     <a href="reference.html#glossary">Glossary of Terms</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Engagement Tools</div>
+     <a href="stakeholders.html">👥 Stakeholder Directory</a>
+     <a href="comment-generator.html">💬 Comment Generator</a>
+     <a href="meeting-countdown.html">📅 Meeting Countdown</a>
+     <a href="commission-locator.html">🗺️ Commission Locator</a>
+     <a href="project-tracker.html">📊 Project Tracker</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Community Initiatives</div>
+     <a href="initiative-adu.html">🏘️ Accessory Dwelling Units</a>
+     <a href="initiative-student-housing.html">🏠 Student Housing Development</a>
+     <a href="initiative-community-solar.html">☀️ Community Solar Program</a>
+     <a href="initiative-cdl-expansion.html">👷 Commercial Driver License Training</a>
+     <a href="initiative-logistics-workforce.html">🚚 Logistics Workforce Training</a>
+     <a href="initiative-food-processing-hub.html">🌽 Food Processing Hub</a>
+     <a href="initiative-makers-guild.html">🎨 Makers Guild &amp; Artisan Hub</a>
+     <a href="initiative-golf-championship.html">⛳ Golf Championship Event</a>
+     <a href="initiative-golf-community.html">🏌️ Golf Community Courses</a>
+     <a href="initiative-east-marina.html">🚣 East Marina Development</a>
+     <a href="initiative-west-marina.html">⛵ West Marina Development</a>
+     <a href="initiative-participatory-budget.html">🎯 Participatory Budget Program</a>
+     <a href="initiative-remote-workers.html">🛜 Remote Worker Attraction</a>
+     <a href="initiative-youth-retention.html">👶 Youth Retention Program</a>
+     <div class="nav-dropdown-sep"></div>
+     <a href="reference.html#action">Take Action</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Strategy & Implementation</div>
+     <a href="implementation-roadmap.html">📅 Implementation Roadmap</a>
+     <a href="eldorado-inc-strategy.html">📋 El Dorado Inc Strategy</a>
+     <a href="community-engagement.html">🎯 Community Persuasion Strategy</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Resources &amp; Contacts</div>
+     <a href="resources.html">📚 Complete Resource Library</a>
+     <a href="presentation.html">🎯 Executive Presentation</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Project Briefs</div>
+     <a href="brief.html#brief-smartgrowth">Brief 23 · EPA Smart Growth &amp; Green Infra</a>
+     <a href="brief.html#brief-partners">Brief 24 · Strategic Partner Network</a>
+    </div>
+   </li>
+
+   <li><a href="brief.html" style="color:var(--gold);font-weight:700">📄 Full Briefs</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+ </div>
+</nav>
+
+<section id="hero">
+ <div class="container">
+  <div class="hero-content">
+   <span class="section-label">Butler County, Kansas · Population 12,694 (2024) · 29 mi East of Wichita</span>
+   <h1>El Dorado<br>Vision 2040</h1>
+   <p>A comprehensive 15-year blueprint for economic growth, neighborhood quality, lake-driven tourism, and 21st-century infrastructure — rooted in El Dorado's oil-boom heritage and positioned for a new era.</p>
+   <div class="hero-ctas">
+    <a href="playbooks/" class="btn btn--primary btn--primary-large">
+     <span class="btn-icon-arrow">→</span>
+     Find Your Path
+    </a>
+    <div class="cta-secondary">
+     <a href="#vision" class="cta-link">
+      <span class="cta-icon">📖</span>
+      <span class="cta-text">
+       <span class="cta-label">Explore</span>
+       The Plan
+      </span>
+     </a>
+     <a href="presentation.html" class="cta-link">
+      <span class="cta-icon">🎯</span>
+      <span class="cta-text">
+       <span class="cta-label">City</span>
+       Presentation
+      </span>
+     </a>
+     <a href="resources.html" class="cta-link">
+      <span class="cta-icon">📚</span>
+      <span class="cta-text">
+       <span class="cta-label">All</span>
+       Resources
+      </span>
+     </a>
+     <a href="brief.html" class="cta-link">
+      <span class="cta-icon">📊</span>
+      <span class="cta-text">
+       <span class="cta-label">Executive</span>
+       Brief
+      </span>
+     </a>
+    </div>
+   </div>
+   <div class="hero-stats">
+    <div class="hero-stat"><span class="num">#1</span><span class="lbl">Most-Visited KS State Park</span></div>
+    <div class="hero-stat"><span class="num">8,400</span><span class="lbl">Acre Lake — Zero Dining</span></div>
+    <div class="hero-stat"><span class="num">$900M+</span><span class="lbl">Est. Investment</span></div>
+    <div class="hero-stat"><span class="num">1,600+</span><span class="lbl">Net New Jobs</span></div>
+    <div class="hero-stat"><span class="num">9%</span><span class="lbl">of U.S. Oil (1918)</span></div>
+    <div class="hero-stat"><span class="num">+41%</span><span class="lbl">Population Target by 2040</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="hero-ticker" aria-hidden="true">
+  <div class="ticker-track">
+   <span>#1 Most-Visited Kansas State Park</span><span class="tsep">·</span>
+   <span>8,400-Acre Lake — Zero Lakeside Dining</span><span class="tsep">·</span>
+   <span>29 Miles to Wichita · I-35 Exits 71 &amp; 76</span><span class="tsep">·</span>
+   <span>$900M+ Planned Investment</span><span class="tsep">·</span>
+   <span>1,600+ Net New Jobs by 2040</span><span class="tsep">·</span>
+   <span>2nd-Largest Community College in Kansas</span><span class="tsep">·</span>
+   <span>Best Tasting Water in Kansas — 23M GPD</span><span class="tsep">·</span>
+   <span>Oil Capital 1918 — 9% of U.S. Production</span><span class="tsep">·</span>
+   <span>#1 Most-Visited Kansas State Park</span><span class="tsep">·</span>
+   <span>8,400-Acre Lake — Zero Lakeside Dining</span><span class="tsep">·</span>
+   <span>29 Miles to Wichita · I-35 Exits 71 &amp; 76</span><span class="tsep">·</span>
+   <span>$900M+ Planned Investment</span><span class="tsep">·</span>
+   <span>1,600+ Net New Jobs by 2040</span><span class="tsep">·</span>
+   <span>2nd-Largest Community College in Kansas</span><span class="tsep">·</span>
+   <span>Best Tasting Water in Kansas — 23M GPD</span><span class="tsep">·</span>
+   <span>Oil Capital 1918 — 9% of U.S. Production</span><span class="tsep">·</span>
+  </div>
+ </div>
+ <div class="hero-scroll">Scroll</div>
+</section>
+<div class="wave-divider" aria-hidden="true" style="background:#0D1B2A">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" style="height:72px"><path d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" fill="#F8F4EC"/></svg>
+</div>
+
+<!-- ════ PAGE NAV PILLS (HUB PAGE) ════ -->
+<nav class="page-nav">
+ <div class="page-nav-inner">
+  <a href="#vision" class="page-nav__pill">Our Foundation</a>
+  <a href="#pillars" class="page-nav__pill">Eight Pillars</a>
+  <a href="#quicklinks" class="page-nav__pill">Quick Links</a>
+  <a href="resources.html" class="page-nav__pill">All Resources</a>
+ </div>
+</nav>
+
+<!-- ════ VISION SUMMARY ════ -->
+<section id="vision" style="background:var(--navy);color:#fff;padding:3rem 0 2rem">
+ <div class="container">
+  <div class="reveal">
+   <span class="section-label" style="color:var(--gold)">Our Foundation</span>
+   <h2 style="color:#fff;margin-bottom:1rem">El Dorado — Ready to Lead Again</h2>
+   <p style="color:rgba(255,255,255,.85);font-size:1.05rem;margin-bottom:1.5rem;max-width:70ch">El Dorado has always punched above its weight. In 1915, the Stapleton No. 1 oil discovery — made using scientific geologic mapping — sparked the first oil boom in Kansas. Within 3 years, 9% of all U.S. oil came from El Dorado. That same entrepreneurial grit, combined with an 8,400-acre lake, the 2nd-largest community college in Kansas, and a location 29 miles from Wichita's city center, makes El Dorado uniquely positioned for a 21st-century resurgence.</p>
+   <p style="color:rgba(255,255,255,.85);font-size:1.05rem;max-width:70ch">This plan is not a wish list. It is a prioritized, phased, and financially grounded roadmap built on assets that already exist and advantages that no comparable Kansas city can match simultaneously.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ════ EIGHT PILLARS ════ -->
+<section id="pillars" style="padding:4rem 0 3rem" class="section section--bg-cream">
+ <div class="container">
+  <div class="text-center reveal">
+   <span class="section-label">Eight Thematic Pillars</span>
+   <h2>Click to Discover More</h2>
+  </div>
+  <div class="pillar-grid">
+ <div class="pillar-card pillar-navy">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">⚙️</div>
+   <h3>Economy & Growth</h3>
+   <p class="pillar-subtitle">Industry & Jobs</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>North Gateway District</li>
+  <li>Diversified Economy</li>
+  <li>Health Campus</li>
+    </ul>
+   </div>
+   <a href="economy.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-green">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">🏘️</div>
+   <h3>Housing & Community</h3>
+   <p class="pillar-subtitle">Residential Development</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>Housing Assessment</li>
+  <li>Childcare Infrastructure</li>
+  <li>Mixed-Income Growth</li>
+    </ul>
+   </div>
+   <a href="housing.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-sky">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">🌊</div>
+   <h3>Place & Recreation</h3>
+   <p class="pillar-subtitle">Tourism & Amenities</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>Lake Development</li>
+  <li>Downtown Revitalization</li>
+  <li>Arts & Heritage</li>
+    </ul>
+   </div>
+   <a href="place.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-purple">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">🎓</div>
+   <h3>People & Education</h3>
+   <p class="pillar-subtitle">Learning & Safety</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>K–12 Excellence</li>
+  <li>Workforce Pipeline</li>
+  <li>Public Safety</li>
+    </ul>
+   </div>
+   <a href="people.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-rust">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">🔧</div>
+   <h3>Infrastructure & Build</h3>
+   <p class="pillar-subtitle">Fiber & Transportation</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>Smart Infrastructure</li>
+  <li>Corridor Development</li>
+  <li>Bridge Investments</li>
+    </ul>
+   </div>
+   <a href="build.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-gold">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">💰</div>
+   <h3>Finance & Investment</h3>
+   <p class="pillar-subtitle">Funding & FDI</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>$900M+ Investment Plan</li>
+  <li>Foreign Direct Investment</li>
+  <li>Tax Analysis</li>
+    </ul>
+   </div>
+   <a href="finance.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-navy">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">🌍</div>
+   <h3>Region & Planning</h3>
+   <p class="pillar-subtitle">County Integration</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>Butler County Alignment</li>
+  <li>Regional Cooperation</li>
+  <li>Zoning & Planning</li>
+    </ul>
+   </div>
+   <a href="region.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+ <div class="pillar-card pillar-green">
+  <div class="pillar-card-inner">
+   <div class="pillar-card-badge" style="background:rgba(200,144,42,0.2)">📊</div>
+   <h3>Reference & Data</h3>
+   <p class="pillar-subtitle">Resources & Tools</p>
+   <div class="pillar-teaser">
+    <ul>
+  <li>Data Visualizations</li>
+  <li>Glossary</li>
+  <li>Action Guide</li>
+    </ul>
+   </div>
+   <a href="reference.html" class="pillar-btn">Explore →</a>
+  </div>
+ </div>
+</div>
+ </div>
+</section>
+
+<!-- ════ PHOTO GALLERY: EL DORADO SHOWCASE ════ -->
+<section style="padding: 80px 0" class="section section--bg-navy">
+ <div class="container">
+  <div class="section-header center reveal">
+   <span class="section-label" style="color: var(--gold)">Discover El Dorado</span>
+   <h2 style="color: #fff">Where Heritage Meets Innovation</h2>
+   <p class="lead" style="color: rgba(255,255,255,0.85)">El Dorado offers the lake recreation of a destination resort, the economic opportunity of a growth corridor, and the community quality of a place where people choose to raise families.</p>
+  </div>
+  <div class="photo-grid reveal">
+   <div class="photo-card">
+    <img src="https://images.unsplash.com/photo-1537314314051-7a8e80a1a577?w=800&h=600&fit=crop" alt="Modern manufacturing and industrial facility with equipment and workers" loading="lazy" alt="El Dorado development initiative">
+    <div class="photo-card-overlay">
+     <h4>Economic Growth</h4>
+     <p>Manufacturing, hyperscale recruitment, and diverse job creation</p>
+    </div>
+   </div>
+   <div class="photo-card">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=600&fit=crop" alt="El Dorado Lake with sailboat and water recreation activities" loading="lazy" alt="El Dorado development initiative">
+    <div class="photo-card-overlay">
+     <h4>Lake Recreation</h4>
+     <p>Sailing, water sports, and #1 most-visited KS state park</p>
+    </div>
+   </div>
+   <div class="photo-card">
+    <img src="https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop" alt="Historic downtown Main Street with vintage architecture and storefronts" loading="lazy" alt="El Dorado development initiative">
+    <div class="photo-card-overlay">
+     <h4>Historic Downtown</h4>
+     <p>Oil-boom architecture, cultural heritage, and revitalization</p>
+    </div>
+   </div>
+   <div class="photo-card">
+    <img src="https://images.unsplash.com/photo-1427504494785-cdBd5e9c0064?w=800&h=600&fit=crop" alt="Students and families in educational community setting" loading="lazy" alt="El Dorado development initiative">
+    <div class="photo-card-overlay">
+     <h4>Education & Community</h4>
+     <p>USD 490 excellence, Butler CC, and family-friendly neighborhoods</p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ HUB QUICK LINKS ════ -->
+<section id="quicklinks" style="padding:3rem 0">
+ <div class="container">
+  <div class="hub-links">
+   <a href="brief.html" class="hub-link">
+    <span class="hub-link-icon">📄</span>
+    <div>
+     <strong>All Briefs</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">24 deep-dive topics</div>
+    </div>
+   </a>
+   <a href="presentation.html" class="hub-link">
+    <span class="hub-link-icon">🎯</span>
+    <div>
+     <strong>Presentation</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">16 investor slides</div>
+    </div>
+   </a>
+   <a href="implementation-roadmap.html" class="hub-link">
+    <span class="hub-link-icon">📅</span>
+    <div>
+     <strong>Roadmap</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Month-by-month plan</div>
+    </div>
+   </a>
+   <a href="community.html" class="hub-link">
+    <span class="hub-link-icon">👥</span>
+    <div>
+     <strong>For Everyone</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Why move here?</div>
+    </div>
+   </a>
+   <a href="resources.html" class="hub-link">
+    <span class="hub-link-icon">📚</span>
+    <div>
+     <strong>Resources</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Links & documents</div>
+    </div>
+   </a>
+   <a href="stakeholders.html" class="hub-link">
+    <span class="hub-link-icon">👥</span>
+    <div>
+     <strong>Stakeholders</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">350+ contacts</div>
+    </div>
+   </a>
+   <a href="competitive-analysis.html" class="hub-link">
+    <span class="hub-link-icon">📊</span>
+    <div>
+     <strong>Competitive Analysis</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">vs regional peers</div>
+    </div>
+   </a>
+   <a href="community-engagement.html" class="hub-link">
+    <span class="hub-link-icon">🎯</span>
+    <div>
+     <strong>Engagement</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Public persuasion</div>
+    </div>
+   </a>
+  </div>
+ </div>
+</section>
+
+<!-- ════ ENGAGEMENT TOOLS ════ -->
+<section class="section" style="background:linear-gradient(135deg,#f0f4ff,#f8f9fa);border-top:2px solid #e0e0e0">
+ <div class="container" style="max-width:900px;margin:0 auto">
+  <h2 style="font-size:1.8rem;margin-bottom:0.5rem;text-align:center;color:#1a1a1a">Get Involved in Vision 2040</h2>
+  <p style="text-align:center;color:#555;margin-bottom:2rem;font-size:1.05rem">Use these interactive tools to stay informed, contact decision-makers, and influence outcomes.</p>
+  <div class="hub-links">
+   <a href="stakeholders.html" class="hub-link">
+    <span class="hub-link-icon">👥</span>
+    <div>
+     <strong>Stakeholder Directory</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">40+ decision-makers</div>
+    </div>
+   </a>
+   <a href="comment-generator.html" class="hub-link">
+    <span class="hub-link-icon">💬</span>
+    <div>
+     <strong>Comment Generator</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">3-step public comments</div>
+    </div>
+   </a>
+   <a href="meeting-countdown.html" class="hub-link">
+    <span class="hub-link-icon">📅</span>
+    <div>
+     <strong>Meeting Countdown</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Next commission meeting</div>
+    </div>
+   </a>
+   <a href="commission-locator.html" class="hub-link">
+    <span class="hub-link-icon">🗺️</span>
+    <div>
+     <strong>Commission Locator</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Find your commissioner</div>
+    </div>
+   </a>
+   <a href="project-tracker.html" class="hub-link">
+    <span class="hub-link-icon">📊</span>
+    <div>
+     <strong>Project Tracker</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">8 projects · Real-time status</div>
+    </div>
+   </a>
+   <a href="initiatives.html" class="hub-link">
+    <span class="hub-link-icon">💡</span>
+    <div>
+     <strong>Initiatives Catalog</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">80 niche expansion ideas</div>
+    </div>
+   </a>
+   <a href="metrics-dashboard.html" class="hub-link">
+    <span class="hub-link-icon">📈</span>
+    <div>
+     <strong>Metrics Dashboard</strong>
+     <div style="font-size:0.8rem;color:var(--muted)">Progress tracking & KPIs</div>
+    </div>
+   </a>
+  </div>
+ </div>
+</section>
+
+ <div class="container">
+  <div class="footer-inner">
+   <div class="footer-brand">
+    <span class="city">El Dorado, Kansas — Vision 2040</span>
+    <p>A comprehensive community improvement plan covering economic development, the North Gateway District, education, residential growth, infrastructure, El Dorado Lake, downtown revitalization, parks and recreation, transportation, public safety, tax implications, zoning, and data visualizations.</p>
+    <p style="margin-top:.65rem;font-size:.8rem">Butler County Seat · Founded 1857 · Pop. 12,694 (2024 Census est.) · 29 mi E of Wichita · Not an official city document</p>
+   </div>
+   <div class="footer-section">
+    <div class="footer-section-header" onclick="toggleFooterSection(this)">
+     <h4>Plan Sections</h4>
+     <span class="footer-section-toggle">▼</span>
+    </div>
+    <div class="footer-section-content">
+     <ul>
+      <li><a href="#vision">Vision &amp; Overview</a></li>
+      <li><a href="#partners">Anchor City Partners</a></li>
+      <li><a href="#north-gateway">North Gateway District</a></li>
+      <li><a href="#industry">Industry &amp; Economy</a></li>
+      <li><a href="#health-economy">Health Economy</a></li>
+      <li><a href="#k12-education">K–12 Education Excellence (USD 490)</a></li>
+      <li><a href="#education">Higher Education &amp; Workforce (Butler CC)</a></li>
+      <li><a href="#workforce-childcare">Childcare &amp; Housing Stability</a></li>
+      <li><a href="#residential">Residential Development</a></li>
+      <li><a href="#infrastructure">Infrastructure</a></li>
+      <li><a href="#lake">El Dorado Lake</a></li>
+      <li><a href="#downtown">Downtown</a></li>
+      <li><a href="#arts-heritage">Arts, Culture &amp; Heritage</a></li>
+      <li><a href="#tourism">Tourism Capital</a></li>
+      <li><a href="#parks">Parks &amp; Recreation</a></li>
+      <li><a href="#golf">Golf Club Renovation</a></li>
+      <li><a href="#beautification">Beautification &amp; Fountains</a></li>
+      <li><a href="#transportation">Transportation</a></li>
+      <li><a href="#public-safety">Public Safety</a></li>
+      <li><a href="#tax-impact">Tax Implications</a></li>
+      <li><a href="#data-charts">Data &amp; Charts</a></li>
+      <li><a href="#zoning">Zoning Map</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#funding">Funding Sources</a></li>
+      <li><a href="#foreign-investment">Foreign Direct Investment</a></li>
+      <li><a href="#niche-industries">Niche Industries &amp; Emerging Opp.</a></li>
+      <li><a href="#government-cooperation">Government &amp; Representatives</a></li>
+      <li><a href="#butler-county">Butler County — Regional Integration</a></li>
+      <li><a href="#surrounding-region">Surrounding Region — 100-Mile Context</a></li>
+      <li><a href="#glossary">Glossary of Terms</a></li>
+      <li><a href="#action">Take Action</a></li>
+     </ul>
+    </div>
+   </div>
+   <div class="footer-section">
+    <div class="footer-section-header" onclick="toggleFooterSection(this)">
+     <h4>Key Resources</h4>
+     <span class="footer-section-toggle">▼</span>
+    </div>
+    <div class="footer-section-content">
+     <ul style="grid-template-columns: 1fr">
+      <li><a href="https://www.eldoradoks.net" target="_blank">City of El Dorado</a></li>
+      <li><a href="https://www.butlercountychamber.com" target="_blank">Butler County Chamber</a></li>
+      <li><a href="https://www.butlercc.edu" target="_blank">Butler Community College</a></li>
+      <li><a href="https://kdwpt.state.ks.us" target="_blank">KS Dept of Wildlife &amp; Parks</a></li>
+      <li><a href="https://www.kansascommerce.gov" target="_blank">KS Department of Commerce</a></li>
+      <li><a href="https://www.eda.gov" target="_blank">EDA Grant Portal</a></li>
+      <li><a href="https://www.grants.gov" target="_blank">Grants.gov (Federal)</a></li>
+      <li><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" target="_blank">FEMA Flood Map Service</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>El Dorado, KS — Vision 2040 Planning Framework</span>
+   <span class="gold">Community planning resource · Not an official city document</span>
+  </div>
+ </div>
+</footer>
+
+<script>
+function toggleFooterSection(headerElement) {
+ const content = headerElement.nextElementSibling;
+ const toggle = headerElement.querySelector('.footer-section-toggle');
+
+ content.classList.toggle('collapsed');
+ toggle.classList.toggle('open');
+}
+
+// Initialize all footer sections as collapsed on mobile
+function initFooterSections() {
+ if (window.innerWidth < 900) {
+  document.querySelectorAll('.footer-section-content').forEach(content => {
+   content.classList.add('collapsed');
+  });
+  document.querySelectorAll('.footer-section-toggle').forEach(toggle => {
+   toggle.classList.remove('open');
+  });
+ }
+}
+
+document.addEventListener('DOMContentLoaded', initFooterSections);
+window.addEventListener('resize', initFooterSections);
+</script>
+
+
+<script src="js/nav.min.js"></script>
+<script src="js/analytics.min.js" defer></script>
+</body>
+</html>
