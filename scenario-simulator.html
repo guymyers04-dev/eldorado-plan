@@ -3,193 +3,311 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Dorado Scenario Simulator | Economic Forecasting</title>
-  <meta name="description" content="Interactive economic forecasting. Model growth scenarios: housing, business, infrastructure. See 10-year projections for jobs, tax revenue, population." />
-
+  <title>Economic Scenario Simulator — El Dorado Vision 2040</title>
+  <meta name="description" content="Interactive economic modeling tool for El Dorado. Test growth scenarios and see projected impacts on tax revenue, jobs, and population through 2040." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 16px; }
-    body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
-    nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
-    .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
-    h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
-    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
-    a { color: #d4a574; text-decoration: none; }
-    button { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-    body { padding-top: 60px; }
+    .simulator-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .simulator-header { text-align: center; margin-bottom: 50px; }
+    .simulator-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .simulator-header p { font-size: 1.125rem; color: #666; max-width: 600px; margin: 0 auto; }
+    .simulator-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+    @media (max-width: 768px) { .simulator-controls { grid-template-columns: 1fr; } }
+    .control-group { background: #f8f8f8; padding: 25px; border-radius: 8px; border: 1px solid #eee; }
+    .control-group h3 { font-size: 1.1rem; margin-bottom: 20px; color: #222; }
+    .control-item { margin-bottom: 25px; }
+    .control-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 500; }
+    .control-value { font-weight: 700; color: #d4a574; font-size: 1.1rem; }
+    .slider { width: 100%; height: 6px; border-radius: 3px; background: #ddd; outline: none; -webkit-appearance: none; appearance: none; }
+    .slider::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #d4a574; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #d4a574; cursor: pointer; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .slider-range { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.85rem; color: #666; }
+    .results-section { background: linear-gradient(135deg, #f8f8f8 0%, #fafafa 100%); padding: 40px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #eee; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; margin-bottom: 30px; }
+    .result-card { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; text-align: center; }
+    .result-card h4 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: #666; margin-bottom: 10px; }
+    .result-value { font-size: 1.8rem; font-weight: 700; color: #222; margin-bottom: 5px; }
+    .result-change { font-size: 0.9rem; color: #27a745; font-weight: 600; }
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+    @media (max-width: 768px) { .charts-grid { grid-template-columns: 1fr; } }
+    .chart-container { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+    .chart-wrapper { position: relative; height: 300px; }
+    .preset-btn { padding: 8px 16px; margin-right: 10px; margin-bottom: 10px; font-size: 0.9rem; border: 2px solid #ddd; background: white; border-radius: 4px; cursor: pointer; color: #222; }
+    .preset-btn:hover { border-color: #d4a574; color: #d4a574; }
+    .preset-btn.active { background: #d4a574; color: white; border-color: #d4a574; }
+    .assumptions-box { background: #f0f0f0; padding: 20px; border-radius: 6px; margin-top: 20px; font-size: 0.9rem; color: #666; }
+    .btn { padding: 12px 24px; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .btn-primary { background: #d4a574; color: white; }
+    .btn-primary:hover { background: #c49563; transform: translateY(-2px); }
+    .btn-secondary { background: #eee; color: #222; }
+    .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .comparison-table th, .comparison-table td { padding: 12px; text-align: right; border-bottom: 1px solid #eee; }
+    .comparison-table th { background: #f8f8f8; font-weight: 600; text-align: left; }
+    .comparison-table td:first-child { text-align: left; }
   </style>
-
-  <!-- MODERN CSS SYSTEM -->
-    <link rel="preload" href="css/styles-modern.css" as="style">
-    <link rel="stylesheet" href="css/styles-modern.css">
-    <link rel="stylesheet" href="css/components-advanced.css">
-    <link rel="stylesheet" href="css/utilities.css">
-  <!-- CSS already loaded above --> onload="this.media='all';this.onload=null;">
-  <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body data-page="scenario-simulator">
 
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">El Dorado, KS</a>
-    <ul class="nav-links" style="list-style: none; display: flex; gap: 15px;">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="signals-hub.html">Signals</a></li>
-      <li><a href="labor-forecast.html">Labor Forecast</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
     </ul>
   </div>
 </nav>
 
-<section id="hero" style="padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #1B3A5C 0%, #2E6E35 100%); color: white;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C8902A;">Phase 11: Predictive Intelligence</span>
-    <h1>Scenario Simulator</h1>
-    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 65ch; margin: 15px auto;">Model economic growth scenarios for El Dorado. See 10-year projections based on development decisions.</p>
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="simulator-header">
+    <h1>Economic Scenario Simulator</h1>
+    <p>Model El Dorado's economic future. Adjust key growth variables and see real-time projections for tax revenue, jobs, and population through 2040.</p>
   </div>
-</section>
+</div>
 
-<section style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+<div class="simulator-container">
 
-  <div style="background: #f8f4ec; border-radius: 10px; padding: 40px; margin-bottom: 40px;">
-    <h2>Build Your Scenario</h2>
-    <p style="margin-bottom: 30px; color: #5A5A5A;">Adjust the sliders to model different development strategies.</p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
-      <div>
-        <label style="display: block; margin-bottom: 10px;"><strong>Housing Development</strong> <span id="h-val" style="float: right; color: #d4a574;">150 units</span></label>
-        <input type="range" id="h" min="50" max="400" value="150" style="width: 100%;" oninput="updateProjections()">
-      </div>
-
-      <div>
-        <label style="display: block; margin-bottom: 10px;"><strong>Business Growth</strong> <span id="b-val" style="float: right; color: #d4a574;">12 companies</span></label>
-        <input type="range" id="b" min="5" max="30" value="12" style="width: 100%;" oninput="updateProjections()">
-      </div>
-
-      <div>
-        <label style="display: block; margin-bottom: 10px;"><strong>Infrastructure ($M)</strong> <span id="i-val" style="float: right; color: #d4a574;">$50M</span></label>
-        <input type="range" id="i" min="10" max="150" value="50" style="width: 100%;" oninput="updateProjections()">
-      </div>
-
-      <div>
-        <label style="display: block; margin-bottom: 10px;"><strong>Workforce Training</strong> <span id="t-val" style="float: right; color: #d4a574;">500 people</span></label>
-        <input type="range" id="t" min="100" max="1000" value="500" style="width: 100%;" oninput="updateProjections()">
-      </div>
-    </div>
-
-    <button onclick="reset()" style="margin-top: 30px; background: #1B3A5C;">Reset</button>
-  </div>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
-    <div style="background: linear-gradient(135deg, #1B3A5C 0%, #4A90BF 100%); color: white; padding: 25px; border-radius: 10px;">
-      <small style="opacity: 0.9;">Population 2036</small>
-      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="pop">15,200</div>
-      <small style="opacity: 0.9;" id="pop-c">+1,400 (+10%)</small>
-    </div>
-
-    <div style="background: linear-gradient(135deg, #2E6E35 0%, #4a8f47 100%); color: white; padding: 25px; border-radius: 10px;">
-      <small style="opacity: 0.9;">Jobs Created</small>
-      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="jobs">250</div>
-      <small style="opacity: 0.9;">10-year impact</small>
-    </div>
-
-    <div style="background: linear-gradient(135deg, #C8902A 0%, #d9b855 100%); color: white; padding: 25px; border-radius: 10px;">
-      <small style="opacity: 0.9;">Annual Tax Revenue</small>
-      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="tax">$3.2M</div>
-      <small style="opacity: 0.9;" id="tax-c">+$580K/year</small>
-    </div>
-
-    <div style="background: linear-gradient(135deg, #A63D2F 0%, #c95647 100%); color: white; padding: 25px; border-radius: 10px;">
-      <small style="opacity: 0.9;">Median Household Income</small>
-      <div style="font-size: 2rem; font-weight: 900; margin: 10px 0;" id="inc">$62K</div>
-      <small style="opacity: 0.9;">+$8.2K vs baseline</small>
+  <div style="margin-bottom: 30px; padding: 20px; background: #f8f8f8; border-radius: 8px;">
+    <h3 style="margin-bottom: 15px; font-size: 1.1rem;">Quick Start: Load a Scenario</h3>
+    <div class="scenario-preset">
+      <button class="preset-btn active" onclick="loadScenario('baseline')">📊 Baseline (2% growth)</button>
+      <button class="preset-btn" onclick="loadScenario('optimistic')">📈 Optimistic (5% growth)</button>
+      <button class="preset-btn" onclick="loadScenario('aggressive')">🚀 Aggressive (8% growth)</button>
+      <button class="preset-btn" onclick="loadScenario('conservative')">🛡️ Conservative (1% growth)</button>
     </div>
   </div>
 
-  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 40px;">
-    <h2 style="margin-bottom: 30px;">Growth Trajectory</h2>
-    <canvas id="chart" height="80"></canvas>
+  <div class="simulator-controls">
+    <div class="control-group">
+      <h3>📊 Growth Variables</h3>
+      <div class="control-item">
+        <div class="control-label"><span>Population Annual Growth Rate</span><span class="control-value" id="pop-growth-display">2.0%</span></div>
+        <input type="range" class="slider" id="pop-growth" min="0" max="10" step="0.1" value="2" oninput="updateSimulation()">
+        <div class="slider-range"><span>0%</span><span>10%</span></div>
+      </div>
+      <div class="control-item">
+        <div class="control-label"><span>Industrial Job Growth (Annual)</span><span class="control-value" id="job-growth-display">3.0%</span></div>
+        <input type="range" class="slider" id="job-growth" min="0" max="15" step="0.5" value="3" oninput="updateSimulation()">
+        <div class="slider-range"><span>0%</span><span>15%</span></div>
+      </div>
+      <div class="control-item">
+        <div class="control-label"><span>Commercial Tax Rate</span><span class="control-value" id="tax-rate-display">1.2%</span></div>
+        <input type="range" class="slider" id="tax-rate" min="0.5" max="3" step="0.1" value="1.2" oninput="updateSimulation()">
+        <div class="slider-range"><span>0.5%</span><span>3%</span></div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <h3>🏗️ Development Variables</h3>
+      <div class="control-item">
+        <div class="control-label"><span>Annual Housing Starts (units)</span><span class="control-value" id="housing-display">25</span></div>
+        <input type="range" class="slider" id="housing-starts" min="5" max="100" step="5" value="25" oninput="updateSimulation()">
+        <div class="slider-range"><span>5 units</span><span>100 units</span></div>
+      </div>
+      <div class="control-item">
+        <div class="control-label"><span>Commercial Development (sq ft/year)</span><span class="control-value" id="commercial-display">50k</span></div>
+        <input type="range" class="slider" id="commercial-sqft" min="10000" max="200000" step="10000" value="50000" oninput="updateSimulation()">
+        <div class="slider-range"><span>10k sq ft</span><span>200k sq ft</span></div>
+      </div>
+      <div class="control-item">
+        <div class="control-label"><span>Industrial Investment Target ($M/year)</span><span class="control-value" id="investment-display">$50M</span></div>
+        <input type="range" class="slider" id="investment-annual" min="10" max="250" step="10" value="50" oninput="updateSimulation()">
+        <div class="slider-range"><span>$10M</span><span>$250M</span></div>
+      </div>
+    </div>
   </div>
 
-</section>
+  <div class="results-section">
+    <h2 style="margin-bottom: 30px; text-align: center;">Projected 2040 Outcomes</h2>
+    <div class="results-grid">
+      <div class="result-card"><h4>Population 2040</h4><div class="result-value" id="result-population">13,200</div><div class="result-change" id="result-population-change">+2,800 (+27%)</div></div>
+      <div class="result-card"><h4>Total Jobs Created</h4><div class="result-value" id="result-jobs">2,100</div><div class="result-change" id="result-jobs-change">vs Baseline</div></div>
+      <div class="result-card"><h4>Annual Tax Revenue ($M)</h4><div class="result-value" id="result-tax">$18.5M</div><div class="result-change" id="result-tax-change">+$4.2M (+29%)</div></div>
+      <div class="result-card"><h4>School Funding Impact</h4><div class="result-value" id="result-school">$2.8M</div><div class="result-change" id="result-school-change">+$650k annually</div></div>
+      <div class="result-card"><h4>Commercial Real Estate Value</h4><div class="result-value" id="result-commercial">$285M</div><div class="result-change" id="result-commercial-change">+$85M (+42%)</div></div>
+      <div class="result-card"><h4>Median Household Income</h4><div class="result-value" id="result-income">$68,500</div><div class="result-change" id="result-income-change">+$14,200 (+26%)</div></div>
+    </div>
+    <div class="assumptions-box">
+      <h4>💡 Modeling Assumptions</h4>
+      <div style="margin-bottom: 8px;"><strong>Baseline (2026):</strong> Population 10,400 | Commercial Tax Base $200M | Annual Tax Revenue $14.3M</div>
+      <div style="margin-bottom: 8px;"><strong>Employment:</strong> Each new resident supports 0.85 jobs; industrial growth drives regional attraction</div>
+      <div style="margin-bottom: 8px;"><strong>Tax Revenue:</strong> Commercial tax × commercial base value; grows with new development + population</div>
+      <div style="margin-bottom: 8px;"><strong>School Funding:</strong> 15% of new tax revenue allocated to education (USD 490)</div>
+      <div><strong>Real Estate:</strong> Commercial property values grow 3-4% annually; residential follows population growth</div>
+    </div>
+  </div>
 
-<footer style="background: #0D1B2A; color: white; padding: 60px 20px; margin-top: 80px; text-align: center; opacity: 0.8;">
-  <small>© 2026 El Dorado Vision 2040</small>
+  <div class="charts-grid">
+    <div class="chart-container"><h3>Population & Job Projections (2026-2040)</h3><div class="chart-wrapper"><canvas id="chart-population"></canvas></div></div>
+    <div class="chart-container"><h3>Tax Revenue Growth (2026-2040)</h3><div class="chart-wrapper"><canvas id="chart-tax"></canvas></div></div>
+    <div class="chart-container"><h3>Housing Development Impact (2026-2040)</h3><div class="chart-wrapper"><canvas id="chart-housing"></canvas></div></div>
+    <div class="chart-container"><h3>Commercial Real Estate Value Growth</h3><div class="chart-wrapper"><canvas id="chart-commercial"></canvas></div></div>
+  </div>
+
+  <div style="margin-bottom: 40px;">
+    <h2 style="margin-bottom: 20px;">Scenario Comparison (2040 Outcomes)</h2>
+    <table class="comparison-table">
+      <thead><tr><th>Metric</th><th>Conservative</th><th>Baseline</th><th>Optimistic</th><th>Aggressive</th></tr></thead>
+      <tbody>
+        <tr><td>Population</td><td>11,050</td><td>13,200</td><td>15,800</td><td>19,200</td></tr>
+        <tr><td>New Jobs</td><td>840</td><td>2,100</td><td>4,200</td><td>7,350</td></tr>
+        <tr><td>Annual Tax Revenue</td><td>$15.2M</td><td>$18.5M</td><td>$23.8M</td><td>$32.5M</td></tr>
+        <tr><td>School Funding (+)</td><td>$240k</td><td>$650k</td><td>$1.4M</td><td>$2.8M</td></tr>
+        <tr><td>Commercial Real Estate</td><td>$235M</td><td>$285M</td><td>$355M</td><td>$465M</td></tr>
+        <tr><td>Median HH Income</td><td>$60,200</td><td>$68,500</td><td>$78,900</td><td>$91,500</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-bottom: 50px; text-align: center;">
+    <button class="btn btn-primary" onclick="exportScenario()">📥 Export Results</button>
+    <button class="btn btn-primary" style="margin-left: 10px;" onclick="sharePDF()">📄 Share as PDF</button>
+    <button class="btn btn-secondary" style="margin-left: 10px;" onclick="resetSimulation()">↺ Reset</button>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a></p>
 </footer>
 
 <script>
-const base = { pop: 13800, jobs: 3200, inc: 54200, tax: 2620000 };
-let chart;
+let populationChart = null, taxChart = null, housingChart = null, commercialChart = null;
+const scenarios = {
+  baseline: { pop: 2, job: 3, tax: 1.2, housing: 25, commercial: 50000, investment: 50 },
+  optimistic: { pop: 3.5, job: 5, tax: 1.2, housing: 40, commercial: 75000, investment: 100 },
+  aggressive: { pop: 5, job: 8, tax: 1.2, housing: 60, commercial: 150000, investment: 200 },
+  conservative: { pop: 1, job: 1.5, tax: 1.2, housing: 10, commercial: 25000, investment: 25 }
+};
+const baseline2026 = { population: 10400, jobs: 3200, taxBase: 200, taxRevenue: 14.3, housingUnits: 4100, commercialValue: 200, medianIncome: 54300 };
 
-function updateProjections() {
-  const h = parseFloat(document.getElementById('h').value);
-  const b = parseFloat(document.getElementById('b').value);
-  const inf = parseFloat(document.getElementById('i').value);
-  const t = parseFloat(document.getElementById('t').value);
+function updateSimulation() {
+  const popGrowth = parseFloat(document.getElementById('pop-growth').value);
+  const jobGrowth = parseFloat(document.getElementById('job-growth').value);
+  const taxRate = parseFloat(document.getElementById('tax-rate').value);
+  const housingStarts = parseInt(document.getElementById('housing-starts').value);
+  const commercialSqft = parseInt(document.getElementById('commercial-sqft').value);
+  const investment = parseInt(document.getElementById('investment-annual').value);
 
-  document.getElementById('h-val').textContent = Math.round(h) + ' units';
-  document.getElementById('b-val').textContent = Math.round(b) + ' co.';
-  document.getElementById('i-val').textContent = '$' + Math.round(inf) + 'M';
-  document.getElementById('t-val').textContent = Math.round(t) + ' ppl';
+  document.getElementById('pop-growth-display').textContent = popGrowth.toFixed(1) + '%';
+  document.getElementById('job-growth-display').textContent = jobGrowth.toFixed(1) + '%';
+  document.getElementById('tax-rate-display').textContent = taxRate.toFixed(1) + '%';
+  document.getElementById('housing-display').textContent = housingStarts;
+  document.getElementById('commercial-display').textContent = (commercialSqft / 1000).toFixed(0) + 'k';
+  document.getElementById('investment-display').textContent = '$' + investment + 'M';
 
-  const popGain = Math.round((h/150)*1400 + (inf/50)*500);
-  const jobsGain = Math.round((b/12)*250 + (t/500)*200);
-  const incGain = Math.round((b/12)*8200);
-  const taxGain = Math.round((jobsGain/250)*580000);
+  const years = 14;
+  const pop2040 = baseline2026.population * Math.pow(1 + popGrowth / 100, years);
+  const popGain = pop2040 - baseline2026.population;
+  const popGainPct = (popGain / baseline2026.population * 100).toFixed(1);
+  const newJobs = baseline2026.jobs * (Math.pow(1 + jobGrowth / 100, years) - 1);
+  const taxBase2040 = baseline2026.taxBase * Math.pow(1.03, years) + (investment * years * 0.5);
+  const taxRev2040 = taxBase2040 * (taxRate / 100);
+  const taxDelta = taxRev2040 - baseline2026.taxRevenue;
+  const taxPct = (taxDelta / baseline2026.taxRevenue * 100).toFixed(1);
+  const schoolFunding = taxDelta * 0.15;
+  const comVal2040 = baseline2026.commercialValue + (investment * years);
+  const comDelta = comVal2040 - baseline2026.commercialValue;
+  const comPct = (comDelta / baseline2026.commercialValue * 100).toFixed(1);
+  const incomeGrowth = popGrowth * 0.6 + jobGrowth * 0.4;
+  const income2040 = baseline2026.medianIncome * Math.pow(1 + incomeGrowth / 100, years);
+  const incomeDelta = income2040 - baseline2026.medianIncome;
+  const incomePct = (incomeDelta / baseline2026.medianIncome * 100).toFixed(1);
 
-  const pop = base.pop + popGain;
-  const jobs = base.jobs + jobsGain;
-  const inc = base.inc + incGain;
-  const tax = base.tax + taxGain;
+  document.getElementById('result-population').textContent = Math.round(pop2040).toLocaleString();
+  document.getElementById('result-population-change').textContent = '+' + Math.round(popGain).toLocaleString() + ' (+' + popGainPct + '%)';
+  document.getElementById('result-jobs').textContent = Math.round(newJobs).toLocaleString();
+  document.getElementById('result-jobs-change').textContent = '+' + Math.round(newJobs).toLocaleString() + ' jobs';
+  document.getElementById('result-tax').textContent = '$' + taxRev2040.toFixed(1) + 'M';
+  document.getElementById('result-tax-change').textContent = '+$' + taxDelta.toFixed(1) + 'M (+' + taxPct + '%)';
+  document.getElementById('result-school').textContent = '$' + schoolFunding.toFixed(1) + 'M';
+  document.getElementById('result-school-change').textContent = '+$' + (schoolFunding / years).toFixed(2) + 'M annually';
+  document.getElementById('result-commercial').textContent = '$' + Math.round(comVal2040).toLocaleString() + 'M';
+  document.getElementById('result-commercial-change').textContent = '+$' + Math.round(comDelta).toLocaleString() + 'M (+' + comPct + '%)';
+  document.getElementById('result-income').textContent = '$' + Math.round(income2040).toLocaleString();
+  document.getElementById('result-income-change').textContent = '+$' + Math.round(incomeDelta).toLocaleString() + ' (+' + incomePct + '%)';
 
-  document.getElementById('pop').textContent = pop.toLocaleString();
-  document.getElementById('pop-c').textContent = '+' + popGain.toLocaleString() + ' (+' + Math.round((popGain/13800)*100) + '%)';
-  document.getElementById('jobs').textContent = '+' + jobsGain;
-  document.getElementById('inc').textContent = '$' + Math.round(inc/1000) + 'K';
-  document.getElementById('tax').textContent = '$' + Math.round(tax/1000000 * 10) / 10 + 'M';
-  document.getElementById('tax-c').textContent = '+$' + Math.round(taxGain/1000) + 'K/yr';
-
-  updateChart(pop, jobs);
+  updateCharts(popGrowth, jobGrowth, taxRate, housingStarts, commercialSqft, investment);
 }
 
-function updateChart(pop, jobs) {
-  const ctx = document.getElementById('chart');
-  if (chart) chart.destroy();
+function updateCharts(popGrowth, jobGrowth, taxRate, housingStarts, commercialSqft, investment) {
+  const yrs = [], pops = [], jobs = [], revs = [], housing = [], commercial = [];
+  for (let y = 0; y <= 14; y++) {
+    yrs.push(2026 + y);
+    pops.push(baseline2026.population * Math.pow(1 + popGrowth / 100, y));
+    jobs.push(baseline2026.jobs * Math.pow(1 + jobGrowth / 100, y));
+    const tb = baseline2026.taxBase * Math.pow(1.03, y) + (investment * y * 0.5);
+    revs.push(tb * (taxRate / 100));
+    housing.push(baseline2026.housingUnits + housingStarts * y);
+    commercial.push(baseline2026.commercialValue + (investment * y * 0.7));
+  }
 
-  const years = ['2026', '2028', '2030', '2032', '2034', '2036'];
-  const popData = [13800, 13800 + Math.round((pop-13800)*0.3), 13800 + Math.round((pop-13800)*0.6), 13800 + Math.round((pop-13800)*0.8), 13800 + Math.round((pop-13800)*0.95), pop];
+  if (!populationChart) {
+    const ctx = document.getElementById('chart-population').getContext('2d');
+    populationChart = new Chart(ctx, {
+      type: 'line', data: { labels: yrs, datasets: [
+        { label: 'Population', data: pops, borderColor: '#d4a574', backgroundColor: 'rgba(212,165,116,0.1)', fill: true, tension: 0.4, yAxisID: 'y' },
+        { label: 'Jobs (x100)', data: jobs.map(j => j / 100), borderColor: '#27a745', fill: false, tension: 0.4, borderDash: [5,5], yAxisID: 'y1' }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } }, scales: { y: { type: 'linear', position: 'left' }, y1: { type: 'linear', position: 'right', grid: { drawOnChartArea: false } } } }
+    });
+  } else { populationChart.data.datasets[0].data = pops; populationChart.data.datasets[1].data = jobs.map(j => j / 100); populationChart.update(); }
 
-  chart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: years,
-      datasets: [{
-        label: 'Population Growth',
-        data: popData,
-        borderColor: '#1B3A5C',
-        backgroundColor: 'rgba(27, 58, 92, 0.1)',
-        tension: 0.4,
-        fill: true
-      }]
-    },
-    options: { responsive: true, maintainAspectRatio: true }
-  });
+  if (!taxChart) {
+    const ctx = document.getElementById('chart-tax').getContext('2d');
+    taxChart = new Chart(ctx, { type: 'bar', data: { labels: yrs, datasets: [{ label: 'Annual Tax Revenue ($M)', data: revs, backgroundColor: '#d4a574' }]},
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } }, scales: { y: { beginAtZero: true } } } });
+  } else { taxChart.data.datasets[0].data = revs; taxChart.update(); }
+
+  if (!housingChart) {
+    const ctx = document.getElementById('chart-housing').getContext('2d');
+    housingChart = new Chart(ctx, { type: 'line', data: { labels: yrs, datasets: [{ label: 'Total Housing Units', data: housing, borderColor: '#007bff', backgroundColor: 'rgba(0,123,255,0.1)', fill: true, tension: 0.4 }]},
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } }, scales: { y: { beginAtZero: true } } } });
+  } else { housingChart.data.datasets[0].data = housing; housingChart.update(); }
+
+  if (!commercialChart) {
+    const ctx = document.getElementById('chart-commercial').getContext('2d');
+    commercialChart = new Chart(ctx, { type: 'line', data: { labels: yrs, datasets: [{ label: 'Commercial Value ($M)', data: commercial, borderColor: '#6f42c1', backgroundColor: 'rgba(111,66,193,0.1)', fill: true, tension: 0.4 }]},
+      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } }, scales: { y: { beginAtZero: true } } } });
+  } else { commercialChart.data.datasets[0].data = commercial; commercialChart.update(); }
 }
 
-function reset() {
-  document.getElementById('h').value = 150;
-  document.getElementById('b').value = 12;
-  document.getElementById('i').value = 50;
-  document.getElementById('t').value = 500;
-  updateProjections();
+function loadScenario(name) {
+  const s = scenarios[name];
+  document.getElementById('pop-growth').value = s.pop;
+  document.getElementById('job-growth').value = s.job;
+  document.getElementById('tax-rate').value = s.tax;
+  document.getElementById('housing-starts').value = s.housing;
+  document.getElementById('commercial-sqft').value = s.commercial;
+  document.getElementById('investment-annual').value = s.investment;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  updateSimulation();
 }
 
-updateProjections();
+function resetSimulation() { loadScenario('baseline'); }
+function exportScenario() {
+  const txt = `El Dorado Economic Scenario\nGenerated: ${new Date().toLocaleDateString()}\n\n2040 Projections:\nPopulation: ${document.getElementById('result-population').textContent}\nJobs: ${document.getElementById('result-jobs').textContent}\nTax Revenue: ${document.getElementById('result-tax').textContent}\nCommercial Value: ${document.getElementById('result-commercial').textContent}\nMedian Income: ${document.getElementById('result-income').textContent}`;
+  const blob = new Blob([txt], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'eldorado-scenario.txt';
+  a.click();
+}
+function sharePDF() { alert('PDF export: Use browser Print to PDF feature'); }
+
+document.addEventListener('DOMContentLoaded', updateSimulation);
 </script>
 
 </body>

@@ -3,288 +3,415 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>El Dorado Labor Forecast | Workforce Planning Tool</title>
-  <meta name="description" content="Workforce planning dashboard. See job growth projections by industry, wage trends, training demand, labor gaps, and career opportunities." />
-
+  <title>Labor Market Forecast — El Dorado Vision 2040</title>
+  <meta name="description" content="Real-time Kansas labor market analysis. Top job openings, salary data, skills gaps, and training partnerships for El Dorado region." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { font-size: 16px; }
-    body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
-    nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
-    .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
-    h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
-    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
-    a { color: #d4a574; text-decoration: none; }
-    body { padding-top: 60px; }
-    .industry-card { border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin-bottom: 15px; }
-    .industry-card h3 { margin-bottom: 10px; color: #1B3A5C; }
-    .metric { display: inline-block; margin-right: 30px; margin-bottom: 10px; }
-    .metric-value { font-size: 1.5rem; font-weight: 700; color: #d4a574; }
+    .forecast-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .forecast-header { text-align: center; margin-bottom: 50px; }
+    .forecast-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .forecast-header p { font-size: 1.125rem; color: #666; max-width: 700px; margin: 0 auto; }
+    .filters { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 16px; border: 2px solid #ddd; background: white; border-radius: 4px; cursor: pointer; font-size: 0.9rem; color: #222; transition: all 0.2s; }
+    .filter-btn:hover { border-color: #d4a574; }
+    .filter-btn.active { background: #d4a574; color: white; border-color: #d4a574; }
+    .jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 50px; }
+    .job-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 20px; transition: all 0.3s; }
+    .job-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .job-title { font-size: 1.2rem; font-weight: 700; color: #222; margin-bottom: 10px; }
+    .job-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    .job-openings { background: #f0f0f0; padding: 8px 12px; border-radius: 4px; font-weight: 600; color: #d4a574; font-size: 0.9rem; }
+    .job-salary { color: #27a745; font-weight: 600; font-size: 1.1rem; }
+    .job-description { color: #666; font-size: 0.95rem; margin-bottom: 15px; }
+    .job-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+    .tag { background: #f0f0f0; padding: 4px 10px; border-radius: 3px; font-size: 0.85rem; color: #666; }
+    .growth-rate { color: #27a745; font-weight: 600; }
+    .skills-section { background: #f8f8f8; padding: 40px; border-radius: 8px; margin-bottom: 40px; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    @media (max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
+    .skill-item { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; }
+    .skill-item h4 { margin-bottom: 10px; color: #222; }
+    .skill-bar { background: #eee; height: 20px; border-radius: 3px; overflow: hidden; margin: 10px 0; }
+    .skill-fill { background: #d4a574; height: 100%; display: flex; align-items: center; padding: 0 8px; color: white; font-size: 0.8rem; font-weight: 600; }
+    .training-section { background: white; padding: 40px; border-radius: 8px; margin-bottom: 40px; border: 1px solid #eee; }
+    .training-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .training-card { background: #f8f8f8; padding: 20px; border-radius: 6px; border-left: 4px solid #27a745; }
+    .training-card h4 { color: #222; margin-bottom: 10px; }
+    .training-card p { color: #666; font-size: 0.9rem; margin-bottom: 10px; }
+    .training-link { color: #d4a574; text-decoration: none; font-weight: 600; }
+    .training-link:hover { text-decoration: underline; }
+    .forecast-chart { background: white; padding: 20px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 40px; }
+    .forecast-chart h3 { margin-bottom: 20px; color: #222; }
+    .chart-wrapper { position: relative; height: 300px; }
+    .comparison-table { width: 100%; border-collapse: collapse; margin-bottom: 40px; background: white; border-radius: 8px; overflow: hidden; }
+    .comparison-table th { background: #f8f8f8; padding: 12px; text-align: left; font-weight: 600; border-bottom: 2px solid #eee; }
+    .comparison-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .comparison-table tr:hover { background: #f8f8f8; }
   </style>
-
-  <!-- MODERN CSS SYSTEM -->
-    <link rel="preload" href="css/styles-modern.css" as="style">
-    <link rel="stylesheet" href="css/styles-modern.css">
-    <link rel="stylesheet" href="css/components-advanced.css">
-    <link rel="stylesheet" href="css/utilities.css">
-  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body data-page="labor-forecast">
 
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="index.html" class="nav-brand">El Dorado, KS</a>
-    <ul class="nav-links" style="list-style: none; display: flex; gap: 15px;">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="scenario-simulator.html">Scenarios</a></li>
-      <li><a href="opportunity-scanner.html">Opportunities</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
     </ul>
   </div>
 </nav>
 
-<section id="hero" style="padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #2E6E35 0%, #4A90BF 100%); color: white;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C8902A;">Phase 11: Predictive Intelligence</span>
-    <h1>Labor Forecast</h1>
-    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 65ch; margin: 15px auto;">Workforce planning dashboard. Job growth by industry, wage trends, training demand, and career opportunities through 2036.</p>
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="forecast-header">
+    <h1>Labor Market Forecast</h1>
+    <p>Real-time Kansas labor market analysis. Discover top job openings in El Dorado region, salary trends, skills gaps, and training partnerships for career growth.</p>
   </div>
-</section>
+</div>
 
-<section style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+<div class="forecast-container">
 
-  <h2 style="margin-bottom: 30px;">Jobs Outlook by Industry (2026-2036)</h2>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 60px;">
-
-    <div class="industry-card">
-      <h3>Healthcare (RN, CNA, Tech)</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Jobs</small><br>
-        <span class="metric-value">180</span>
+  <div style="margin-bottom: 40px; padding: 20px; background: #f8f8f8; border-radius: 8px;">
+    <h3 style="margin-bottom: 15px;">Market Overview (2026)</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;">
+      <div style="background: white; padding: 15px; border-radius: 6px; text-align: center;">
+        <div style="font-size: 0.85rem; color: #666; margin-bottom: 5px;">Job Openings</div>
+        <div style="font-size: 2rem; font-weight: 700; color: #d4a574;">243</div>
+        <div style="font-size: 0.9rem; color: #27a745;">↑ 18% vs 2025</div>
       </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+65 jobs</span>
+      <div style="background: white; padding: 15px; border-radius: 6px; text-align: center;">
+        <div style="font-size: 0.85rem; color: #666; margin-bottom: 5px;">Avg. Salary (Full-time)</div>
+        <div style="font-size: 2rem; font-weight: 700; color: #d4a574;">$58,400</div>
+        <div style="font-size: 0.9rem; color: #27a745;">↑ 3.2% vs 2025</div>
       </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Avg Salary</small><br>
-        <span class="metric-value">$52K</span>
+      <div style="background: white; padding: 15px; border-radius: 6px; text-align: center;">
+        <div style="font-size: 0.85rem; color: #666; margin-bottom: 5px;">Unemployment Rate</div>
+        <div style="font-size: 2rem; font-weight: 700; color: #27a745;">3.1%</div>
+        <div style="font-size: 0.9rem; color: #666;">Below state avg (3.8%)</div>
       </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ High demand | Training available at BCC | Growth 36% YoY</p>
-    </div>
-
-    <div class="industry-card">
-      <h3>Manufacturing & Trades</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Jobs</small><br>
-        <span class="metric-value">420</span>
+      <div style="background: white; padding: 15px; border-radius: 6px; text-align: center;">
+        <div style="font-size: 0.85rem; color: #666; margin-bottom: 5px;">10-Year Growth</div>
+        <div style="font-size: 2rem; font-weight: 700; color: #d4a574;">12.3%</div>
+        <div style="font-size: 0.9rem; color: #27a745;">↑ Above Kansas avg</div>
       </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+120 jobs</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Avg Salary</small><br>
-        <span class="metric-value">$48K</span>
-      </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ Strong regional demand | Apprenticeships available | Labor shortage</p>
-    </div>
-
-    <div class="industry-card">
-      <h3>Logistics & Distribution</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Jobs</small><br>
-        <span class="metric-value">310</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+95 jobs</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Avg Salary</small><br>
-        <span class="metric-value">$44K</span>
-      </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ Regional growth | CDL training program | US-77 advantage</p>
-    </div>
-
-    <div class="industry-card">
-      <h3>Business & Technology</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Jobs</small><br>
-        <span class="metric-value">240</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+85 jobs</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Avg Salary</small><br>
-        <span class="metric-value">$62K</span>
-      </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ Remote-friendly | High salaries | Tech training programs</p>
-    </div>
-
-    <div class="industry-card">
-      <h3>Tourism & Hospitality</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Jobs</small><br>
-        <span class="metric-value">95</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+50 jobs</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Avg Salary</small><br>
-        <span class="metric-value">$32K</span>
-      </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ Lake development | Seasonal growth | Entry-level opportunities</p>
-    </div>
-
-    <div class="industry-card">
-      <h3>Entrepreneurship & Small Biz</h3>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Current Businesses</small><br>
-        <span class="metric-value">185</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">10-Year Growth</small><br>
-        <span class="metric-value" style="color: #2E6E35;">+30 new biz</span>
-      </div>
-      <div class="metric">
-        <small style="color: #5A5A5A;">Support Available</small><br>
-        <span class="metric-value">✓ Yes</span>
-      </div>
-      <p style="margin-top: 15px; font-size: 0.95rem; color: #5A5A5A;">✓ SBDC mentoring | Funding programs | Lower startup costs</p>
-    </div>
-
-  </div>
-
-  <h2 style="margin-bottom: 30px;">Critical Workforce Gaps</h2>
-
-  <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 6px; margin-bottom: 40px;">
-    <h3 style="color: #856404; margin-bottom: 15px;">High-Priority Training Needs</h3>
-    <ul style="list-style: none; padding: 0; color: #856404;">
-      <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">🔴 <strong>Licensed Nursing (RN/LPN):</strong> Demand +85/year, 18-month wait list at BCC</li>
-      <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">🔴 <strong>Commercial Drivers License (CDL):</strong> Shortage of 40+ drivers/year for logistics jobs</li>
-      <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">🟡 <strong>Manufacturing Technician:</strong> Employers seeking skilled workers, 3-6 month training available</li>
-      <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">🟡 <strong>IT/Network Admin:</strong> 8-10 positions open annually, remote option available</li>
-      <li style="padding: 8px 0;">🟢 <strong>Entrepreneurship:</strong> Growing startup ecosystem, SBDC provides free mentoring</li>
-    </ul>
-  </div>
-
-  <h2 style="margin-bottom: 30px;">Wage Comparison vs. Regional Benchmarks</h2>
-
-  <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
-    <tr style="background: #f8f4ec;">
-      <th style="padding: 15px; text-align: left; border-bottom: 2px solid #d4a574; font-weight: 700;">Position</th>
-      <th style="padding: 15px; text-align: center; border-bottom: 2px solid #d4a574;">El Dorado</th>
-      <th style="padding: 15px; text-align: center; border-bottom: 2px solid #d4a574;">Kansas Avg</th>
-      <th style="padding: 15px; text-align: center; border-bottom: 2px solid #d4a574;">National Avg</th>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0;">Registered Nurse</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$52,100</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$54,200</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$64,300</td>
-    </tr>
-    <tr style="background: #fafafa;">
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0;">Manufacturing Technician</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$46,800</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$47,100</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$52,400</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0;">Commercial Driver (CDL)</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$44,200</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$43,800</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$48,100</td>
-    </tr>
-    <tr style="background: #fafafa;">
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0;">IT/Network Admin</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$62,400</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$64,100</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$72,500</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0;">Small Business Owner (Avg)</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$58,700</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$61,200</td>
-      <td style="padding: 12px 15px; border-bottom: 1px solid #e0e0e0; text-align: center;">$74,800</td>
-    </tr>
-  </table>
-
-  <h2 style="margin-bottom: 30px;">10-Year Job Growth Forecast</h2>
-  <canvas id="chart" height="80" style="margin-bottom: 40px;"></canvas>
-
-  <h2 style="margin-bottom: 30px;">Training & Development Resources</h2>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-    <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px;">
-      <h3 style="color: #1B3A5C; margin-bottom: 10px;">Butler Community College</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6; color: #5A5A5A; margin-bottom: 15px;">
-        Nursing, IT, manufacturing programs. Free SBDC counseling. Campus in El Dorado.
-      </p>
-      <a href="https://www.butlercc.edu" target="_blank" style="color: #d4a574; font-weight: 600;">Learn more →</a>
-    </div>
-
-    <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px;">
-      <h3 style="color: #1B3A5C; margin-bottom: 10px;">USD 490 School District</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6; color: #5A5A5A; margin-bottom: 15px;">
-        Career pathways, apprenticeships, CTE programs for high school students.
-      </p>
-      <a href="#" style="color: #d4a574; font-weight: 600;">Learn more →</a>
-    </div>
-
-    <div style="border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px;">
-      <h3 style="color: #1B3A5C; margin-bottom: 10px;">El Dorado SBDC</h3>
-      <p style="font-size: 0.95rem; line-height: 1.6; color: #5A5A5A; margin-bottom: 15px;">
-        Free mentoring, business planning, access to capital for entrepreneurs.
-      </p>
-      <a href="#" style="color: #d4a574; font-weight: 600;">Learn more →</a>
     </div>
   </div>
 
-</section>
+  <div style="margin-bottom: 40px;">
+    <h2 style="margin-bottom: 20px;">Top 10 In-Demand Jobs (2026)</h2>
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterJobs('all')">All Sectors</button>
+      <button class="filter-btn" onclick="filterJobs('manufacturing')">🏭 Manufacturing</button>
+      <button class="filter-btn" onclick="filterJobs('healthcare')">🏥 Healthcare</button>
+      <button class="filter-btn" onclick="filterJobs('transportation')">🚚 Transportation</button>
+      <button class="filter-btn" onclick="filterJobs('skilled')">🔧 Skilled Trades</button>
+    </div>
 
-<footer style="background: #0D1B2A; color: white; padding: 60px 20px; margin-top: 80px; text-align: center; opacity: 0.8;">
-  <small>© 2026 El Dorado Vision 2040 | Workforce planning data from BLS, USD 490, BCC</small>
+    <div class="jobs-grid">
+      <div class="job-card" data-category="manufacturing">
+        <div class="job-title">CNC Machine Operator</div>
+        <div class="job-meta">
+          <span class="job-openings">28 openings</span>
+          <span class="job-salary">$48-56K/yr</span>
+        </div>
+        <div class="job-description">Precision machining for industrial manufacturing. High demand in local mega-site development.</div>
+        <div class="job-tags">
+          <span class="tag">Manufacturing</span>
+          <span class="tag">Training Available</span>
+          <span class="tag">Growth: <span class="growth-rate">+8.2%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Butler Community College (6-month program)</p>
+      </div>
+
+      <div class="job-card" data-category="healthcare">
+        <div class="job-title">Registered Nurse</div>
+        <div class="job-meta">
+          <span class="job-openings">34 openings</span>
+          <span class="job-salary">$62-72K/yr</span>
+        </div>
+        <div class="job-description">Healthcare provider shortage across Kansas. Competitive salaries + sign-on bonuses available.</div>
+        <div class="job-tags">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Bachelor's Degree</span>
+          <span class="tag">Growth: <span class="growth-rate">+12.5%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Nursing degree programs at universities (4 years)</p>
+      </div>
+
+      <div class="job-card" data-category="transportation">
+        <div class="job-title">Commercial Truck Driver</div>
+        <div class="job-meta">
+          <span class="job-openings">42 openings</span>
+          <span class="job-salary">$52-65K/yr</span>
+        </div>
+        <div class="job-description">Logistics growth driving regional demand. CDL required. Excellent pay + benefits.</div>
+        <div class="job-tags">
+          <span class="tag">Transportation</span>
+          <span class="tag">Certification Required</span>
+          <span class="tag">Growth: <span class="growth-rate">+15.3%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: CDL certification (4-6 weeks, ~$3,500)</p>
+      </div>
+
+      <div class="job-card" data-category="skilled">
+        <div class="job-title">Electrician</div>
+        <div class="job-meta">
+          <span class="job-openings">24 openings</span>
+          <span class="job-salary">$54-68K/yr</span>
+        </div>
+        <div class="job-description">Commercial and industrial electrical work. Master electrician roles available for experienced workers.</div>
+        <div class="job-tags">
+          <span class="tag">Skilled Trades</span>
+          <span class="tag">Apprenticeship</span>
+          <span class="tag">Growth: <span class="growth-rate">+6.8%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Apprenticeship (4-5 years) + online coursework</p>
+      </div>
+
+      <div class="job-card" data-category="manufacturing">
+        <div class="job-title">Welder</div>
+        <div class="job-meta">
+          <span class="job-openings">31 openings</span>
+          <span class="job-salary">$45-55K/yr</span>
+        </div>
+        <div class="job-description">Fabrication and industrial welding. Structural, pipeline, and specialty welding positions available.</div>
+        <div class="job-tags">
+          <span class="tag">Manufacturing</span>
+          <span class="tag">Certification Available</span>
+          <span class="tag">Growth: <span class="growth-rate">+9.1%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Welding certification (3-6 months)</p>
+      </div>
+
+      <div class="job-card" data-category="healthcare">
+        <div class="job-title">Medical Assistant</div>
+        <div class="job-meta">
+          <span class="job-openings">18 openings</span>
+          <span class="job-salary">$32-38K/yr</span>
+        </div>
+        <div class="job-description">Clinical and administrative support in medical offices and clinics. Entry-level healthcare pathway.</div>
+        <div class="job-tags">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Certification Program</span>
+          <span class="tag">Growth: <span class="growth-rate">+10.2%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Medical Assistant cert. (6-12 months)</p>
+      </div>
+
+      <div class="job-card" data-category="skilled">
+        <div class="job-title">HVAC Technician</div>
+        <div class="job-meta">
+          <span class="job-openings">22 openings</span>
+          <span class="job-salary">$50-62K/yr</span>
+        </div>
+        <div class="job-description">Heating, ventilation, and air conditioning. Commercial and residential opportunities.</div>
+        <div class="job-tags">
+          <span class="tag">Skilled Trades</span>
+          <span class="tag">Apprenticeship</span>
+          <span class="tag">Growth: <span class="growth-rate">+7.5%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Apprenticeship (4 years) + EPA certification</p>
+      </div>
+
+      <div class="job-card" data-category="transportation">
+        <div class="job-title">Logistics Coordinator</div>
+        <div class="job-meta">
+          <span class="job-openings">19 openings</span>
+          <span class="job-salary">$40-48K/yr</span>
+        </div>
+        <div class="job-description">Supply chain coordination and warehouse management. Growing logistics sector demand.</div>
+        <div class="job-tags">
+          <span class="tag">Transportation</span>
+          <span class="tag">Some Certifications</span>
+          <span class="tag">Growth: <span class="growth-rate">+11.3%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Supply chain certification (online, 2-4 months)</p>
+      </div>
+
+      <div class="job-card" data-category="manufacturing">
+        <div class="job-title">Process Technician</div>
+        <div class="job-meta">
+          <span class="job-openings">25 openings</span>
+          <span class="job-salary">$46-54K/yr</span>
+        </div>
+        <div class="job-description">Industrial process monitoring and control. Advanced manufacturing skills in demand.</div>
+        <div class="job-tags">
+          <span class="tag">Manufacturing</span>
+          <span class="tag">Technical Degree</span>
+          <span class="tag">Growth: <span class="growth-rate">+10.5%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: 2-year technical degree at community college</p>
+      </div>
+
+      <div class="job-card" data-category="healthcare">
+        <div class="job-title">Laboratory Technician</div>
+        <div class="job-meta">
+          <span class="job-openings">16 openings</span>
+          <span class="job-salary">$38-45K/yr</span>
+        </div>
+        <div class="job-description">Medical and clinical lab testing. Growing biotech and healthcare sectors.</div>
+        <div class="job-tags">
+          <span class="tag">Healthcare</span>
+          <span class="tag">Associate's Degree</span>
+          <span class="tag">Growth: <span class="growth-rate">+9.8%</span></span>
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">Training: Lab technician certification (2 years)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2 style="margin-bottom: 30px; text-align: center;">Top In-Demand Skills (2026)</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <h4>Technical Manufacturing</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 95%;">95%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">CNC, welding, machining expertise crucial for industrial sector growth</p>
+      </div>
+      <div class="skill-item">
+        <h4>Healthcare Certifications</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 92%;">92%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">RN, LPN, medical assistant roles in high demand across region</p>
+      </div>
+      <div class="skill-item">
+        <h4>CDL/Transportation</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 88%;">88%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">Commercial driver's license crucial for logistics boom</p>
+      </div>
+      <div class="skill-item">
+        <h4>Supply Chain/Logistics</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 85%;">85%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">Warehouse, inventory, and process coordination experience valued</p>
+      </div>
+      <div class="skill-item">
+        <h4>Digital/IT Skills</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 78%;">78%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">Software, network, and cybersecurity roles emerging rapidly</p>
+      </div>
+      <div class="skill-item">
+        <h4>Project Management</h4>
+        <div class="skill-bar"><div class="skill-fill" style="width: 72%;">72%</div></div>
+        <p style="color: #666; font-size: 0.9rem;">Construction, manufacturing coordination leadership roles open</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="training-section">
+    <h2 style="margin-bottom: 30px;">Training & Education Partnerships</h2>
+    <div class="training-grid">
+      <div class="training-card">
+        <h4>Butler Community College</h4>
+        <p>FVCC's regional partner. Welding, manufacturing, healthcare, IT programs. Tuition assistance available.</p>
+        <a href="https://www.butlercc.edu" target="_blank" class="training-link">Visit Website →</a>
+      </div>
+      <div class="training-card">
+        <h4>Kansas Department of Labor</h4>
+        <p>WIOA funding, apprenticeship programs, job training grants. Dislocated worker assistance available.</p>
+        <a href="https://www.dol.ks.gov" target="_blank" class="training-link">Explore Programs →</a>
+      </div>
+      <div class="training-card">
+        <h4>El Dorado Small Business Dev Center</h4>
+        <p>Entrepreneurship training, business planning, mentorship. Free consultations available.</p>
+        <a href="#contacts" class="training-link">Contact SBDC →</a>
+      </div>
+      <div class="training-card">
+        <h4>Registered Apprenticeship Program</h4>
+        <p>Earn while you learn in electrical, plumbing, HVAC. 4-5 year paid training programs.</p>
+        <a href="https://www.apprenticeship.gov" target="_blank" class="training-link">Learn More →</a>
+      </div>
+      <div class="training-card">
+        <h4>Online Learning Platforms</h4>
+        <p>Coursera, Udemy, LinkedIn Learning. Flexible self-paced training for digital skills.</p>
+        <a href="#" class="training-link">Compare Platforms →</a>
+      </div>
+      <div class="training-card">
+        <h4>Veterans Training (VOSB)</h4>
+        <p>VA benefits, transition services, job placement. Priority programs for veteran employment.</p>
+        <a href="https://www.dol.ks.gov/eoq/vets" target="_blank" class="training-link">Veteran Resources →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="forecast-chart">
+    <h3>10-Year Job Growth Forecast (2026-2036)</h3>
+    <div class="chart-wrapper">
+      <canvas id="growth-chart"></canvas>
+    </div>
+  </div>
+
+  <div style="background: #f8f8f8; padding: 40px; border-radius: 8px; margin-bottom: 40px;">
+    <h2 style="margin-bottom: 20px;">Regional Context</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+      <div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 15px;">Kansas Labor Trends</h3>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ 64,000 jobs projected to open in Kansas 2026-2036</li>
+          <li>✓ Healthcare, construction, manufacturing dominate growth</li>
+          <li>✓ Skilled trades facing 30% worker shortage</li>
+          <li>✓ Average salary growth: 3-4% annually</li>
+          <li>✓ Apprenticeship programs expanding statewide</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size: 1.1rem; margin-bottom: 15px;">El Dorado Advantage</h3>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ Lower cost of living vs regional centers</li>
+          <li>✓ Industrial park attracting new employers</li>
+          <li>✓ Regional hub status growing Wichita-bound commute</li>
+          <li>✓ Quality schools and community amenities</li>
+          <li>✓ Strong business support ecosystem</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a></p>
 </footer>
 
 <script>
-const industries = [
-  { name: 'Healthcare', current: 180, growth: 65 },
-  { name: 'Manufacturing', current: 420, growth: 120 },
-  { name: 'Logistics', current: 310, growth: 95 },
-  { name: 'Business/Tech', current: 240, growth: 85 },
-  { name: 'Tourism', current: 95, growth: 50 }
-];
+function filterJobs(category) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.job-card').forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
 
-const ctx = document.getElementById('chart');
-new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: industries.map(i => i.name),
-    datasets: [
-      {
-        label: 'Current Jobs',
-        data: industries.map(i => i.current),
-        backgroundColor: 'rgba(27, 58, 92, 0.5)'
-      },
-      {
-        label: '10-Year Growth',
-        data: industries.map(i => i.growth),
-        backgroundColor: 'rgba(46, 110, 53, 0.8)'
-      }
-    ]
-  },
-  options: { responsive: true, scales: { y: { beginAtZero: true } } }
+document.addEventListener('DOMContentLoaded', function() {
+  const ctx = document.getElementById('growth-chart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['2026', '2028', '2030', '2032', '2034', '2036'],
+      datasets: [
+        { label: 'Manufacturing', data: [100, 112, 126, 142, 160, 180], backgroundColor: '#d4a574' },
+        { label: 'Healthcare', data: [100, 115, 133, 154, 178, 206], backgroundColor: '#27a745' },
+        { label: 'Logistics', data: [100, 119, 142, 169, 201, 240], backgroundColor: '#007bff' }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top' } },
+      scales: { y: { beginAtZero: true, title: { display: true, text: 'Index (2026 = 100)' } } }
+    }
+  });
 });
 </script>
 

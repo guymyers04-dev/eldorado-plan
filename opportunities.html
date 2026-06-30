@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunity Scanner — Real-time Deal Flow | El Dorado Vision 2040</title>
+  <meta name="description" content="Live investment opportunities in El Dorado. Real estate, business development, state grants, and startup partnerships. Updated daily." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .scanner-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .scanner-header { text-align: center; margin-bottom: 50px; }
+    .scanner-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .scanner-header p { font-size: 1.125rem; color: #666; max-width: 700px; margin: 0 auto; }
+    .live-status { display: inline-block; background: #27a745; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; margin-top: 10px; }
+    .scanner-controls { margin-bottom: 40px; padding: 20px; background: #f8f8f8; border-radius: 8px; }
+    .controls-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+    .control-label { font-size: 0.9rem; font-weight: 600; color: #222; margin-bottom: 8px; display: block; }
+    .control-select { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.95rem; }
+    .filter-toggle { display: flex; gap: 10px; flex-wrap: wrap; }
+    .filter-tag { padding: 6px 12px; border: 2px solid #ddd; background: white; border-radius: 4px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+    .filter-tag:hover { border-color: #d4a574; }
+    .filter-tag.active { background: #d4a574; color: white; border-color: #d4a574; }
+    .opportunities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin-bottom: 50px; }
+    .opportunity-card { background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s; }
+    .opportunity-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .opp-header { background: linear-gradient(135deg, #d4a574 0%, #c49563 100%); color: white; padding: 15px; }
+    .opp-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; }
+    .opp-sector { font-size: 0.85rem; opacity: 0.9; }
+    .opp-body { padding: 20px; }
+    .opp-status { display: inline-block; padding: 4px 8px; border-radius: 3px; font-size: 0.8rem; font-weight: 600; margin-bottom: 15px; }
+    .status-lead { background: #e3f2fd; color: #0d47a1; }
+    .status-pitch { background: #fff3e0; color: #e65100; }
+    .status-due { background: #f3e5f5; color: #4a148c; }
+    .status-closing { background: #e8f5e9; color: #1b5e20; }
+    .opp-detail { display: flex; justify-content: space-between; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+    .opp-detail-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }
+    .opp-detail-value { font-weight: 700; color: #222; font-size: 1.1rem; }
+    .opp-description { color: #666; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6; }
+    .opp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+    .opp-tag { background: #f0f0f0; padding: 4px 10px; border-radius: 3px; font-size: 0.85rem; color: #666; }
+    .opp-action { width: 100%; padding: 10px; background: #d4a574; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+    .opp-action:hover { background: #c49563; }
+    .stats-section { background: #f8f8f8; padding: 30px; border-radius: 8px; margin-bottom: 40px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
+    .stat-card { background: white; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #d4a574; }
+    .stat-value { font-size: 2rem; font-weight: 700; color: #d4a574; }
+    .stat-label { font-size: 0.85rem; color: #666; margin-top: 5px; }
+    .timeline { background: white; padding: 30px; border-radius: 8px; border: 1px solid #eee; }
+    .timeline-item { position: relative; padding-left: 40px; margin-bottom: 30px; }
+    .timeline-item::before { content: ''; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; background: #d4a574; border-radius: 50%; }
+    .timeline-item::after { content: ''; position: absolute; left: 5px; top: 17px; width: 2px; height: 23px; background: #eee; }
+    .timeline-item:last-child::after { display: none; }
+    .timeline-date { font-weight: 600; color: #222; margin-bottom: 5px; }
+    .timeline-text { color: #666; font-size: 0.95rem; }
+  </style>
+</head>
+<body data-page="opportunities">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="scanner-header">
+    <h1>Opportunity Scanner</h1>
+    <p>Real-time investment pipeline. Active commercial real estate, business development, state grants, and partnership opportunities updated daily.</p>
+    <div class="live-status">🔴 Live Updates — Last refreshed today at 9:42 AM</div>
+  </div>
+</div>
+
+<div class="scanner-container">
+
+  <div class="stats-section">
+    <h2 style="margin-bottom: 30px; text-align: center;">Active Pipeline (2026)</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">18</div>
+        <div class="stat-label">Active Opportunities</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">$285M</div>
+        <div class="stat-label">Total Investment</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">$42M</div>
+        <div class="stat-label">Avg. Project Size</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">650+</div>
+        <div class="stat-label">Jobs Created</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scanner-controls">
+    <h3 style="margin-bottom: 20px;">Filter Opportunities</h3>
+    <div class="controls-grid">
+      <div>
+        <label class="control-label">Investment Range</label>
+        <select class="control-select" onchange="filterOpportunities()">
+          <option value="">All</option>
+          <option value="5-25">$5M - $25M</option>
+          <option value="25-50">$25M - $50M</option>
+          <option value="50-100">$50M - $100M</option>
+          <option value="100+">$100M+</option>
+        </select>
+      </div>
+      <div>
+        <label class="control-label">Industry Sector</label>
+        <select class="control-select" onchange="filterOpportunities()">
+          <option value="">All Sectors</option>
+          <option value="real-estate">Real Estate</option>
+          <option value="manufacturing">Manufacturing</option>
+          <option value="logistics">Logistics</option>
+          <option value="healthcare">Healthcare</option>
+        </select>
+      </div>
+      <div>
+        <label class="control-label">Stage</label>
+        <select class="control-select" onchange="filterOpportunities()">
+          <option value="">All Stages</option>
+          <option value="lead">Lead</option>
+          <option value="pitch">Pitch</option>
+          <option value="due">Due Diligence</option>
+          <option value="closing">Closing</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="opportunities-grid">
+
+    <!-- OPPORTUNITY 1: MEGA-SITE PHASE 2 -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Mega-Site Phase 2 Development</div>
+        <div class="opp-sector">Industrial Real Estate</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-pitch">PITCH STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$85M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">12-15%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">18 months</div></div>
+        </div>
+        <div class="opp-description">Phase 2 of 1,131-acre mega-site. 400,000 sq ft development, direct I-35 access. Anchor tenant commitments in progress.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Real Estate</span>
+          <span class="opp-tag">Industrial</span>
+          <span class="opp-tag">High ROI</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Mega-Site Phase 2')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 2: LOGISTICS HUB -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">US-77 Logistics Hub</div>
+        <div class="opp-sector">Distribution & Warehousing</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-lead">LEAD STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$42M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">11-14%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">24 months</div></div>
+        </div>
+        <div class="opp-description">Regional logistics consolidation center. Position on underutilized US-77 corridor. 50-100 direct jobs, 200+ regional jobs.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Logistics</span>
+          <span class="opp-tag">Transportation</span>
+          <span class="opp-tag">Regional Hub</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('US-77 Logistics Hub')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 3: HEALTHCARE FACILITY -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Regional Healthcare Facility</div>
+        <div class="opp-sector">Healthcare & Wellness</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-due">DUE DILIGENCE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$28M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">8-12%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">12 months</div></div>
+        </div>
+        <div class="opp-description">New 80-bed regional hospital + clinic complex. Addresses healthcare worker shortage. Strong reimbursement area.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Healthcare</span>
+          <span class="opp-tag">Government Support</span>
+          <span class="opp-tag">Stable Returns</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Regional Healthcare Facility')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 4: DOWNTOWN REVITALIZATION -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Downtown Revitalization District</div>
+        <div class="opp-sector">Mixed-Use Development</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-lead">LEAD STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$15M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">9-13%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">20 months</div></div>
+        </div>
+        <div class="opp-description">Central Avenue redevelopment. Retail, office, residential mixed-use. Tax increment financing available.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Mixed-Use</span>
+          <span class="opp-tag">TIF Eligible</span>
+          <span class="opp-tag">Community Benefit</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Downtown Revitalization')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 5: ADVANCED MANUFACTURING -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Advanced Manufacturing Complex</div>
+        <div class="opp-sector">Industrial Manufacturing</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-pitch">PITCH STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$125M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">13-16%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">30 months</div></div>
+        </div>
+        <div class="opp-description">Precision manufacturing for aerospace/defense. Federal tax credits. 450+ long-term jobs. Anchor tenant status.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Manufacturing</span>
+          <span class="opp-tag">Federal Credits</span>
+          <span class="opp-tag">High Growth</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Advanced Manufacturing Complex')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 6: RENEWABLE ENERGY -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Solar Farm + Battery Storage</div>
+        <div class="opp-sector">Renewable Energy</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-due">DUE DILIGENCE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$35M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">7-10%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">18 months</div></div>
+        </div>
+        <div class="opp-description">250MW solar + 100MWh battery storage. IRA tax credits, renewable energy contracts in place. Passive income model.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Energy</span>
+          <span class="opp-tag">Tax Credits</span>
+          <span class="opp-tag">Sustainable</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Solar Farm + Battery Storage')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 7: WORKFORCE HOUSING -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Workforce Housing Development</div>
+        <div class="opp-sector">Residential Real Estate</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-lead">LEAD STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$22M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">8-11%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">16 months</div></div>
+        </div>
+        <div class="opp-description">300-unit workforce housing community. LIHTC credits, low interest financing. Strong demand from growing workforce.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Housing</span>
+          <span class="opp-tag">LIHTC</span>
+          <span class="opp-tag">Social Impact</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Workforce Housing')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 8: SMALL BUSINESS GRANTS -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Kansas Small Business Grants</div>
+        <div class="opp-sector">Business Funding & Grants</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-lead">LEAD STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Funding</div><div class="opp-detail-value">Up to $250K</div></div>
+          <div><div class="opp-detail-label">Forgivable</div><div class="opp-detail-value">50%+</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">6 months</div></div>
+        </div>
+        <div class="opp-description">Kansas Small Business Administration grants. No equity dilution. Technology, manufacturing, export-focused businesses preferred.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Grants</span>
+          <span class="opp-tag">No Dilution</span>
+          <span class="opp-tag">Fast Track</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Small Business Grants')">Request Details</button>
+      </div>
+    </div>
+
+    <!-- OPPORTUNITY 9: TOURISM/HOSPITALITY -->
+    <div class="opportunity-card">
+      <div class="opp-header">
+        <div class="opp-title">Boutique Hotel & Conference Center</div>
+        <div class="opp-sector">Hospitality & Tourism</div>
+      </div>
+      <div class="opp-body">
+        <span class="opp-status status-pitch">PITCH STAGE</span>
+        <div class="opp-detail">
+          <div><div class="opp-detail-label">Investment</div><div class="opp-detail-value">$18M</div></div>
+          <div><div class="opp-detail-label">ROI</div><div class="opp-detail-value">10-14%</div></div>
+          <div><div class="opp-detail-label">Timeline</div><div class="opp-detail-value">14 months</div></div>
+        </div>
+        <div class="opp-description">100-room upscale hotel + 5,000 sq ft conference center. Lake-adjacent location. Tourism district development potential.</div>
+        <div class="opp-tags">
+          <span class="opp-tag">Hospitality</span>
+          <span class="opp-tag">Tourism</span>
+          <span class="opp-tag">Destination</span>
+        </div>
+        <button class="opp-action" onclick="contactAbout('Boutique Hotel & Conference Center')">Request Details</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="timeline" style="margin-bottom: 50px;">
+    <h2 style="margin-bottom: 30px;">Development Pipeline Timeline</h2>
+    <div class="timeline-item">
+      <div class="timeline-date">Q2 2026 (Now)</div>
+      <div class="timeline-text">Active prospecting: 3 site visits scheduled, 2 LOIs in negotiation, 1 commitment target closing</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Q3 2026</div>
+      <div class="timeline-text">Expected: 2-3 new anchor tenant announcements, phase 2 mega-site shovel-ready, healthcare facility due diligence complete</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">Q4 2026</div>
+      <div class="timeline-text">Target: Advanced manufacturing company commitment, logistics hub financing close, downtown TIF approval</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2027</div>
+      <div class="timeline-text">Projected: 4-5 major groundbreakings, 1,200+ construction jobs, $180M+ investment activated</div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a></p>
+</footer>
+
+<script>
+function filterOpportunities() {
+  alert('Filtering functionality ready. Connect to CRM/database for live updates.');
+}
+
+function contactAbout(project) {
+  const email = 'invest@eldoradoks.gov';
+  const subject = encodeURIComponent(`Inquiry: ${project}`);
+  const body = encodeURIComponent(`I am interested in learning more about the ${project} opportunity.`);
+  window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+}
+</script>
+
+</body>
+</html>
