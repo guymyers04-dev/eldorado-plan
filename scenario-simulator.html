@@ -1,449 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Scenario Simulator — El Dorado, KS | Strategic Decision Tool</title>
- <meta name="description" content="AI-powered simulation tool. Model decisions and see 5, 10, and 15-year impacts on taxes, jobs, housing, and quality of life." />
- <link rel="preconnect" href="https://fonts.googleapis.com" />
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-     <!-- CRITICAL CSS -->
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html { font-size: 16px; }
-      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
-      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
-      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
-      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
-      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
-      h1, h2 { font-weight: 700; margin-bottom: 20px; }
-      a { color: #d4a574; text-decoration: none; }
-      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
-      body { padding-top: 60px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Dorado Scenario Simulator | Economic Forecasting</title>
+  <meta name="description" content="Interactive economic forecasting. Model growth scenarios: housing, business, infrastructure. See 10-year projections for jobs, tax revenue, population." />
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
- <style>
- .hero { text-align: center; margin-bottom: 48px; }
- .hero h1 { font-size: 40px; margin-bottom: 12px; }
- .hero p { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; }
- .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 48px 0; }
- .scenario-card {
-   background: white;
-   border: 2px solid #e0e0e0;
-   border-radius: 12px;
-   padding: 32px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-  }
- .scenario-card:hover {
-   border-color: #b8860b;
-   box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-   transform: translateY(-4px);
-  }
- .scenario-card.selected {
-   border-color: #b8860b;
-   background: linear-gradient(135deg, rgba(184, 134, 11, 0.05), rgba(184, 134, 11, 0.02));
-  }
- .scenario-icon { font-size: 48px; margin-bottom: 12px; }
- .scenario-title { font-size: 20px; font-weight: 700; color: #333; margin-bottom: 8px; }
- .scenario-desc { font-size: 14px; color: #666; line-height: 1.6; }
- .input-section { background: #fafafa; padding: 32px; border-radius: 12px; margin: 32px 0; }
- .input-group { margin-bottom: 24px; }
- .input-label { font-weight: 600; margin-bottom: 8px; display: block; }
- .input-field { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
- .run-btn {
-   background: #b8860b;
-   color: white;
-   border: none;
-   padding: 14px 32px;
-   border-radius: 6px;
-   font-weight: 600;
-   cursor: pointer;
-   font-size: 15px;
-   transition: all 0.3s ease;
-  }
- .run-btn:hover {
-   background: #8b6508;
-   transform: translateY(-2px);
-   box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
-  }
- .results-section { display: none; margin: 48px 0; }
- .results-section.active { display: block; }
- .impact-card {
-   background: white;
-   border: 1px solid #e0e0e0;
-   border-radius: 12px;
-   padding: 24px;
-   margin-bottom: 16px;
-  }
- .impact-title { font-weight: 600; margin-bottom: 12px; color: #333; }
- .impact-value { font-size: 24px; font-weight: 700; color: #b8860b; margin-bottom: 8px; }
- .impact-detail { font-size: 13px; color: #666; line-height: 1.6; }
- .chart-container { position: relative; height: 300px; margin: 24px 0; }
-  @media (max-width: 768px) {
-  .sim-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 28px; }
-  }
- </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 16px; }
+    body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+    nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+    .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+    h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 15px; }
+    a { color: #d4a574; text-decoration: none; }
+    button { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    body { padding-top: 60px; }
+  </style>
+
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body data-page="scenario-simulator">
+
 <nav id="navbar">
- <div class="nav-inner">
-  <a href="index.html" class="nav-brand">
-   <span class="city">El Dorado, KS</span>
-   <span class="tagline">Vision 2040 · Regional Development Plan</span>
-  </a>
-  <ul class="nav-links">
-   <li><a href="index.html">← Home</a></li>
-   <li><a href="index.html">Strategy</a></li>
-  </ul>
- </div>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">El Dorado, KS</a>
+    <ul class="nav-links" style="list-style: none; display: flex; gap: 15px;">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="signals-hub.html">Signals</a></li>
+      <li><a href="labor-forecast.html">Labor Forecast</a></li>
+    </ul>
+  </div>
 </nav>
 
-<main role="main">
- <section class="hero">
-  <h1>Scenario Simulator</h1>
-  <p>Model strategic decisions and see 5, 10, and 15-year impacts. What happens if we invest $10M in the industrial park? If we raise wages to $18/hr? Run the numbers, see the outcomes, plan with confidence.</p>
- </section>
+<section id="hero" style="padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #1B3A5C 0%, #2E6E35 100%); color: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <span style="font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C8902A;">Phase 11: Predictive Intelligence</span>
+    <h1>Scenario Simulator</h1>
+    <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 65ch; margin: 15px auto;">Model economic growth scenarios for El Dorado. See 10-year projections based on development decisions.</p>
+  </div>
+</section>
 
- <div class="container">
+<section style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
 
-  <h2 style="margin: 40px 0 24px 0; text-align: center;">Choose a Scenario</h2>
+  <div style="background: #f8f4ec; border-radius: 10px; padding: 40px; margin-bottom: 40px;">
+    <h2>Build Your Scenario</h2>
+    <p style="margin-bottom: 30px; color: #5A5A5A;">Adjust the sliders to model different development strategies.</p>
 
-  <div class="sim-grid">
-   <!-- Scenario 1: Industrial Investment -->
-   <div class="scenario-card" onclick="selectScenario('investment')">
-    <div class="scenario-icon">💰</div>
-    <div class="scenario-title">Industrial Park Investment</div>
-    <div class="scenario-desc">What if we invest $10M-$50M to expand the North Gateway industrial park? See impacts on jobs, tax revenue, housing demand, and infrastructure needs.</div>
-   </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+      <div>
+        <label style="display: block; margin-bottom: 10px;"><strong>Housing Development</strong> <span id="h-val" style="float: right; color: #d4a574;">150 units</span></label>
+        <input type="range" id="h" min="50" max="400" value="150" style="width: 100%;" oninput="updateProjections()">
+      </div>
 
-   <!-- Scenario 2: Wage Policy -->
-   <div class="scenario-card" onclick="selectScenario('wage')">
-    <div class="scenario-icon">💵</div>
-    <div class="scenario-title">Wage Policy Increase</div>
-    <div class="scenario-desc">Raise local minimum wage to $15, $16, or $18/hr. Model effects on competitiveness, cost of living, business retention, and talent attraction.</div>
-   </div>
+      <div>
+        <label style="display: block; margin-bottom: 10px;"><strong>Business Growth</strong> <span id="b-val" style="float: right; color: #d4a574;">12 companies</span></label>
+        <input type="range" id="b" min="5" max="30" value="12" style="width: 100%;" oninput="updateProjections()">
+      </div>
 
-   <!-- Scenario 3: Restriction -->
-   <div class="scenario-card" onclick="selectScenario('restriction')">
-    <div class="scenario-icon">🚫</div>
-    <div class="scenario-title">Manufacturing Restriction</div>
-    <div class="scenario-desc">What if we limit new manufacturing to specific zones? See impacts on economic diversity, jobs, housing, and pollution/quality of life.</div>
-   </div>
+      <div>
+        <label style="display: block; margin-bottom: 10px;"><strong>Infrastructure ($M)</strong> <span id="i-val" style="float: right; color: #d4a574;">$50M</span></label>
+        <input type="range" id="i" min="10" max="150" value="50" style="width: 100%;" oninput="updateProjections()">
+      </div>
 
-   <!-- Scenario 4: Tech Hub -->
-   <div class="scenario-card" onclick="selectScenario('tech')">
-    <div class="scenario-icon">🚀</div>
-    <div class="scenario-title">Tech Hub Investment</div>
-    <div class="scenario-desc">Invest $5M in broadband, tech training, and startup incentives. Model growth in software jobs, young population, housing demand, and school enrollment.</div>
-   </div>
+      <div>
+        <label style="display: block; margin-bottom: 10px;"><strong>Workforce Training</strong> <span id="t-val" style="float: right; color: #d4a574;">500 people</span></label>
+        <input type="range" id="t" min="100" max="1000" value="500" style="width: 100%;" oninput="updateProjections()">
+      </div>
+    </div>
+
+    <button onclick="reset()" style="margin-top: 30px; background: #1B3A5C;">Reset</button>
   </div>
 
-  <!-- Input Section -->
-  <div class="input-section" id="inputSection" style="display: none;">
-   <h3 style="margin-top: 0;">Set Your Parameters</h3>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px;">
+    <div style="background: linear-gradient(135deg, #1B3A5C 0%, #4A90BF 100%); color: white; padding: 25px; border-radius: 10px;">
+      <small style="opacity: 0.9;">Population 2036</small>
+      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="pop">15,200</div>
+      <small style="opacity: 0.9;" id="pop-c">+1,400 (+10%)</small>
+    </div>
 
-   <div id="investmentInputs">
-    <div class="input-group">
-     <label class="input-label">Industrial Park Investment Amount</label>
-     <select class="input-field" id="investAmount">
-      <option value="10">$10 Million</option>
-      <option value="25">$25 Million</option>
-      <option value="50">$50 Million</option>
-     </select>
+    <div style="background: linear-gradient(135deg, #2E6E35 0%, #4a8f47 100%); color: white; padding: 25px; border-radius: 10px;">
+      <small style="opacity: 0.9;">Jobs Created</small>
+      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="jobs">250</div>
+      <small style="opacity: 0.9;">10-year impact</small>
     </div>
-    <div class="input-group">
-     <label class="input-label">Timeline to Full Build-Out</label>
-     <select class="input-field" id="investTimeline">
-      <option value="3">3 years (aggressive)</option>
-      <option value="5" selected>5 years (moderate)</option>
-      <option value="7">7 years (measured)</option>
-     </select>
-    </div>
-   </div>
 
-   <div id="wageInputs" style="display: none;">
-    <div class="input-group">
-     <label class="input-label">Target Minimum Wage</label>
-     <select class="input-field" id="wageTarget">
-      <option value="15">$15/hour</option>
-      <option value="16" selected>$16/hour</option>
-      <option value="18">$18/hour</option>
-     </select>
+    <div style="background: linear-gradient(135deg, #C8902A 0%, #d9b855 100%); color: white; padding: 25px; border-radius: 10px;">
+      <small style="opacity: 0.9;">Annual Tax Revenue</small>
+      <div style="font-size: 2.2rem; font-weight: 900; margin: 10px 0;" id="tax">$3.2M</div>
+      <small style="opacity: 0.9;" id="tax-c">+$580K/year</small>
     </div>
-    <div class="input-group">
-     <label class="input-label">Phase-In Period</label>
-     <select class="input-field" id="wagePhase">
-      <option value="1">Immediate (1 year)</option>
-      <option value="2" selected>Gradual (2 years)</option>
-      <option value="3">Extended (3 years)</option>
-     </select>
-    </div>
-   </div>
 
-   <div id="restrictInputs" style="display: none;">
-    <div class="input-group">
-     <label class="input-label">Existing Manufacturing Impact</label>
-     <select class="input-field" id="restrictLevel">
-      <option value="light">Light (new projects only)</option>
-      <option value="moderate" selected>Moderate (require permits)</option>
-      <option value="strict">Strict (major restrictions)</option>
-     </select>
+    <div style="background: linear-gradient(135deg, #A63D2F 0%, #c95647 100%); color: white; padding: 25px; border-radius: 10px;">
+      <small style="opacity: 0.9;">Median Household Income</small>
+      <div style="font-size: 2rem; font-weight: 900; margin: 10px 0;" id="inc">$62K</div>
+      <small style="opacity: 0.9;">+$8.2K vs baseline</small>
     </div>
-   </div>
-
-   <div id="techInputs" style="display: none;">
-    <div class="input-group">
-     <label class="input-label">Tech Investment Focus</label>
-     <select class="input-field" id="techFocus">
-      <option value="software">Software/Development (50% investment)</option>
-      <option value="broadband" selected>Broadband & Infrastructure (40%)</option>
-      <option value="balanced">Balanced across programs</option>
-     </select>
-    </div>
-   </div>
-
-   <button class="run-btn" onclick="runSimulation()">Run Simulation →</button>
   </div>
 
-  <!-- Results Section -->
-  <div class="results-section" id="results">
-   <h2 style="margin-bottom: 24px;">Impact Analysis: <span id="scenarioName"></span></h2>
-
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 32px;">
-    <div class="impact-card">
-     <div class="impact-title">Jobs Created (5 years)</div>
-     <div class="impact-value" id="jobs5">+185</div>
-     <div class="impact-detail">Direct and indirect manufacturing, construction, services jobs</div>
-    </div>
-    <div class="impact-card">
-     <div class="impact-title">Tax Revenue Impact (annual, year 5)</div>
-     <div class="impact-value" id="tax5">+$2.3M</div>
-     <div class="impact-detail">City and school revenue boost from new businesses</div>
-    </div>
-    <div class="impact-card">
-     <div class="impact-title">Housing Demand</div>
-     <div class="impact-value" id="housing5">+75 units</div>
-     <div class="impact-detail">Estimated new residential construction demand</div>
-    </div>
-    <div class="impact-card">
-     <div class="impact-title">Population Growth (5 years)</div>
-     <div class="impact-value" id="pop5">+3.2%</div>
-     <div class="impact-detail">New residents attracted by jobs and opportunities</div>
-    </div>
-   </div>
-
-   <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0;">
-    <div class="impact-card">
-     <div class="impact-title">Year 10 Projections</div>
-     <div style="font-size: 14px; color: #666; line-height: 1.8;">
-      <div style="margin-bottom: 8px;"><strong>Jobs:</strong> <span id="jobs10">+325</span></div>
-      <div style="margin-bottom: 8px;"><strong>Annual Tax Revenue:</strong> <span id="tax10">+$4.1M</span></div>
-      <div style="margin-bottom: 8px;"><strong>Housing Units:</strong> <span id="housing10">+140</span></div>
-      <div><strong>Population:</strong> <span id="pop10">+6.8%</span></div>
-     </div>
-    </div>
-
-    <div class="impact-card">
-     <div class="impact-title">Year 15 Projections</div>
-     <div style="font-size: 14px; color: #666; line-height: 1.8;">
-      <div style="margin-bottom: 8px;"><strong>Jobs:</strong> <span id="jobs15">+480</span></div>
-      <div style="margin-bottom: 8px;"><strong>Annual Tax Revenue:</strong> <span id="tax15">+$5.8M</span></div>
-      <div style="margin-bottom: 8px;"><strong>Housing Units:</strong> <span id="housing15">+210</span></div>
-      <div><strong>Population:</strong> <span id="pop15">+9.5%</span></div>
-     </div>
-    </div>
-   </div>
-
-   <div class="chart-container">
-    <canvas id="impactChart"></canvas>
-   </div>
-
-   <div style="background: #fafafa; padding: 24px; border-radius: 12px; margin-top: 24px;">
-    <h3 style="margin-top: 0;">Executive Summary</h3>
-    <p id="summary" style="font-size: 14px; color: #666; line-height: 1.8; margin: 0;">
-     Industrial investment of $25M invested over 5 years creates sustained economic growth. Early job creation (year 1-3) attracts workers and families, driving housing demand. By year 10, the industrial park is fully operational and generating $4M+ in annual tax revenue. Housing costs remain stable due to ample supply. Population grows sustainably. Recommend phased investment approach.
-    </p>
-   </div>
-
-   <div style="text-align: center; margin-top: 32px;">
-    <button class="run-btn" onclick="printReport()" style="background: #333;">📄 Download PDF Report</button>
-    <button class="run-btn" onclick="resetSim()" style="background: #666; margin-left: 12px;">← Try Another Scenario</button>
-   </div>
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 40px;">
+    <h2 style="margin-bottom: 30px;">Growth Trajectory</h2>
+    <canvas id="chart" height="80"></canvas>
   </div>
 
- </div>
+</section>
 
- <!-- Info -->
- <section style="background: #fafafa; padding: 32px 24px; border-radius: 12px; margin: 60px 0;">
-  <h2 style="margin-top: 0;">How It Works</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px;">
-   <div>
-    <div style="font-size: 18px; margin-bottom: 8px;">1️⃣ Choose</div>
-    <p style="color: #666; font-size: 14px; margin: 0;">Select a strategic scenario that matters to your decisions.</p>
-   </div>
-   <div>
-    <div style="font-size: 18px; margin-bottom: 8px;">2️⃣ Model</div>
-    <p style="color: #666; font-size: 14px; margin: 0;">Set parameters. Our AI models 5, 10, 15-year impacts.</p>
-   </div>
-   <div>
-    <div style="font-size: 18px; margin-bottom: 8px;">3️⃣ Decide</div>
-    <p style="color: #666; font-size: 14px; margin: 0;">See projections, share with council, plan with confidence.</p>
-   </div>
-  </div>
-  <p style="color: #666; font-size: 13px; margin-top: 24px; padding-top: 24px; border-top: 1px solid #e0e0e0;">
-   <strong>Modeling Approach:</strong> Scenarios use historical data from similar Kansas cities, national trend models (Census, BLS), and local El Dorado parameters. Ranges reflect uncertainty in future conditions. All assumptions are transparent and adjustable.
-  </p>
- </section>
-
-</main>
-
-<footer style="background: #f5f5f5; padding: 40px 24px; margin-top: 80px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666;">
- <p style="margin: 0;">El Dorado Vision 2040 | Scenario Planning Tool | <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back</a></p>
+<footer style="background: #0D1B2A; color: white; padding: 60px 20px; margin-top: 80px; text-align: center; opacity: 0.8;">
+  <small>© 2026 El Dorado Vision 2040</small>
 </footer>
 
 <script>
- let selectedScenario = null;
- let chart = null;
+const base = { pop: 13800, jobs: 3200, inc: 54200, tax: 2620000 };
+let chart;
 
- function selectScenario(scenario) {
-  selectedScenario = scenario;
-  document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('selected'));
-  event.target.closest('.scenario-card').classList.add('selected');
-  document.getElementById('inputSection').style.display = 'block';
+function updateProjections() {
+  const h = parseFloat(document.getElementById('h').value);
+  const b = parseFloat(document.getElementById('b').value);
+  const inf = parseFloat(document.getElementById('i').value);
+  const t = parseFloat(document.getElementById('t').value);
 
-  document.getElementById('investmentInputs').style.display = scenario === 'investment'? 'block' : 'none';
-  document.getElementById('wageInputs').style.display = scenario === 'wage'? 'block' : 'none';
-  document.getElementById('restrictInputs').style.display = scenario === 'restriction'? 'block' : 'none';
-  document.getElementById('techInputs').style.display = scenario === 'tech'? 'block' : 'none';
- }
+  document.getElementById('h-val').textContent = Math.round(h) + ' units';
+  document.getElementById('b-val').textContent = Math.round(b) + ' co.';
+  document.getElementById('i-val').textContent = '$' + Math.round(inf) + 'M';
+  document.getElementById('t-val').textContent = Math.round(t) + ' ppl';
 
- function runSimulation() {
-  let jobs5, tax5, housing5, pop5, jobs10, tax10, housing10, pop10, jobs15, tax15, housing15, pop15, summary, scenarioName;
+  const popGain = Math.round((h/150)*1400 + (inf/50)*500);
+  const jobsGain = Math.round((b/12)*250 + (t/500)*200);
+  const incGain = Math.round((b/12)*8200);
+  const taxGain = Math.round((jobsGain/250)*580000);
 
-  if (selectedScenario === 'investment') {
-   scenarioName = 'Industrial Park Investment';
-   const amount = parseInt(document.getElementById('investAmount').value);
-   jobs5 = Math.round((amount / 10) * 18.5);
-   jobs10 = Math.round(jobs5 * 1.76);
-   jobs15 = Math.round(jobs5 * 2.59);
-   tax5 = (amount * 0.092).toFixed(1);
-   tax10 = (amount * 0.164).toFixed(1);
-   tax15 = (amount * 0.232).toFixed(1);
-   housing5 = Math.round((amount / 10) * 7.5);
-   housing10 = Math.round(housing5 * 1.87);
-   housing15 = Math.round(housing5 * 2.8);
-   pop5 = (amount / 10) * 0.32;
-   pop10 = pop5 * 2.125;
-   pop15 = pop5 * 2.97;
-   summary = `Industrial investment of $${amount}M creates sustained economic growth. Early job creation attracts workers, driving housing demand. By year 10, tax revenue reaches $${tax10}M+. Population grows sustainably.`;
-  } else if (selectedScenario === 'wage') {
-   scenarioName = 'Wage Policy Increase';
-   const wage = parseInt(document.getElementById('wageTarget').value);
-   const increase = wage - 13.5;
-   jobs5 = -45 + (increase * 25);
-   jobs10 = -120 + (increase * 60);
-   jobs15 = -180 + (increase * 85);
-   tax5 = (0.8 + increase * 0.2).toFixed(1);
-   tax10 = (1.2 + increase * 0.35).toFixed(1);
-   tax15 = (1.5 + increase * 0.5).toFixed(1);
-   housing5 = 25 + (increase * 8);
-   housing10 = 45 + (increase * 18);
-   housing15 = 65 + (increase * 28);
-   pop5 = 2.1;
-   pop10 = 3.5;
-   pop15 = 4.8;
-   summary = `Wage increase to $${wage}/hr impacts competitiveness but attracts talent. Short-term business adjustment, long-term gains in worker retention and consumer spending. Cost of living rises but employment spreads benefits. Recommend phased approach.`;
-  } else if (selectedScenario === 'tech') {
-   scenarioName = 'Tech Hub Investment';
-   jobs5 = 95;
-   jobs10 = 210;
-   jobs15 = 340;
-   tax5 = 1.2;
-   tax10 = 2.8;
-   tax15 = 4.2;
-   housing5 = 35;
-   housing10 = 78;
-   housing15 = 125;
-   pop5 = 2.8;
-   pop10 = 5.2;
-   pop15 = 7.9;
-   summary = `Tech hub investment attracts young talent and software companies. Faster ROI than manufacturing (3-4 years). Strong demographic shift toward younger population. Education spending increases but quality improves. Housing demand surges. Long-term competitive advantage in innovation economy.`;
-  } else if (selectedScenario === 'restriction') {
-   scenarioName = 'Manufacturing Restrictions';
-   jobs5 = -95;
-   jobs10 = -185;
-   jobs15 = -280;
-   tax5 = -0.8;
-   tax10 = -1.9;
-   tax15 = -3.1;
-   housing5 = -28;
-   housing10 = -65;
-   housing15 = -105;
-   pop5 = -2.1;
-   pop10 = -4.5;
-   pop15 = -6.8;
-   summary = `Manufacturing restrictions cause job losses and population decline. Existing businesses may relocate. Tax revenue decreases. Housing prices decline. Quality of life paradoxically worsens as fewer jobs support infrastructure. Not recommended without economic diversification first.`;
-  }
+  const pop = base.pop + popGain;
+  const jobs = base.jobs + jobsGain;
+  const inc = base.inc + incGain;
+  const tax = base.tax + taxGain;
 
-  // Update DOM
-  document.getElementById('scenarioName').textContent = scenarioName;
-  document.getElementById('jobs5').textContent = jobs5 > 0? '+' + jobs5 : jobs5;
-  document.getElementById('tax5').textContent = tax5 > 0? '+$' + tax5 + 'M' : '$' + tax5 + 'M';
-  document.getElementById('housing5').textContent = housing5 > 0? '+' + housing5 : housing5;
-  document.getElementById('pop5').textContent = pop5 > 0? '+' + pop5.toFixed(1) + '%' : pop5.toFixed(1) + '%';
-  document.getElementById('jobs10').textContent = jobs10 > 0? '+' + jobs10 : jobs10;
-  document.getElementById('tax10').textContent = tax10 > 0? '+$' + tax10 + 'M' : '$' + tax10 + 'M';
-  document.getElementById('housing10').textContent = housing10 > 0? '+' + housing10 : housing10;
-  document.getElementById('pop10').textContent = pop10 > 0? '+' + pop10.toFixed(1) + '%' : pop10.toFixed(1) + '%';
-  document.getElementById('jobs15').textContent = jobs15 > 0? '+' + jobs15 : jobs15;
-  document.getElementById('tax15').textContent = tax15 > 0? '+$' + tax15 + 'M' : '$' + tax15 + 'M';
-  document.getElementById('housing15').textContent = housing15 > 0? '+' + housing15 : housing15;
-  document.getElementById('pop15').textContent = pop15 > 0? '+' + pop15.toFixed(1) + '%' : pop15.toFixed(1) + '%';
-  document.getElementById('summary').textContent = summary;
+  document.getElementById('pop').textContent = pop.toLocaleString();
+  document.getElementById('pop-c').textContent = '+' + popGain.toLocaleString() + ' (+' + Math.round((popGain/13800)*100) + '%)';
+  document.getElementById('jobs').textContent = '+' + jobsGain;
+  document.getElementById('inc').textContent = '$' + Math.round(inc/1000) + 'K';
+  document.getElementById('tax').textContent = '$' + Math.round(tax/1000000 * 10) / 10 + 'M';
+  document.getElementById('tax-c').textContent = '+$' + Math.round(taxGain/1000) + 'K/yr';
 
-  // Chart
-  const ctx = document.getElementById('impactChart');
+  updateChart(pop, jobs);
+}
+
+function updateChart(pop, jobs) {
+  const ctx = document.getElementById('chart');
   if (chart) chart.destroy();
+
+  const years = ['2026', '2028', '2030', '2032', '2034', '2036'];
+  const popData = [13800, 13800 + Math.round((pop-13800)*0.3), 13800 + Math.round((pop-13800)*0.6), 13800 + Math.round((pop-13800)*0.8), 13800 + Math.round((pop-13800)*0.95), pop];
+
   chart = new Chart(ctx, {
-   type: 'line',
-   data: {
-    labels: ['Year 0', 'Year 5', 'Year 10', 'Year 15'],
-    datasets: [{
-     label: 'Jobs Created',
-     data: [0, jobs5, jobs10, jobs15],
-     borderColor: '#b8860b',
-     backgroundColor: 'rgba(184, 134, 11, 0.05)',
-     borderWidth: 2,
-     fill: true,
-     tension: 0.4
-    }]
-   },
-   options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: true } } }
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Population Growth',
+        data: popData,
+        borderColor: '#1B3A5C',
+        backgroundColor: 'rgba(27, 58, 92, 0.1)',
+        tension: 0.4,
+        fill: true
+      }]
+    },
+    options: { responsive: true, maintainAspectRatio: true }
   });
+}
 
-  document.getElementById('inputSection').style.display = 'none';
-  document.getElementById('results').classList.add('active');
-  window.scrollTo({ top: document.getElementById('results').offsetTop - 100, behavior: 'smooth' });
- }
+function reset() {
+  document.getElementById('h').value = 150;
+  document.getElementById('b').value = 12;
+  document.getElementById('i').value = 50;
+  document.getElementById('t').value = 500;
+  updateProjections();
+}
 
- function resetSim() {
-  document.getElementById('results').classList.remove('active');
-  document.getElementById('inputSection').style.display = 'none';
-  document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('selected'));
-  selectedScenario = null;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
- }
-
- function printReport() {
-  alert('PDF report generation:\nScenario Report for City Council\n\nThis would generate a professional PDF with full analysis, charts, assumptions, and risk analysis. Feature ready for implementation.');
- }
+updateProjections();
 </script>
+
 </body>
 </html>
