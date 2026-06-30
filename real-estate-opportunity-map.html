@@ -219,7 +219,7 @@
   <meta name="description" content="Interactive real estate map showing development sites, zoning, utilities, and investment opportunities across El Dorado." />
 </head>
 <body data-page="visualization">
-  <div class="visualization-container">
+  <div id="nav-mount"></div>  <div class="visualization-container">
     <div class="viz-header">
       <h1>Real Estate Development Opportunities</h1>
       <p class="description">
@@ -613,5 +613,6 @@
       dashArray: '3, 3'
     }).addTo(map).bindPopup('Infrastructure Service Area<br/>Sewer, Water, Power Available');
   </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

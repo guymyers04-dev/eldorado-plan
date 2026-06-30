@@ -204,7 +204,7 @@
   <meta name="description" content="Interactive map showing El Dorado's regional context within Butler County, Wichita MSA, and Kansas transportation corridors." />
 </head>
 <body data-page="visualization">
-  <div class="visualization-container">
+  <div id="nav-mount"></div>  <div class="visualization-container">
     <div class="viz-header">
       <h1>Regional Competitive Landscape</h1>
       <p class="description">
@@ -624,5 +624,6 @@
       })
     }).addTo(map).bindPopup('<strong>Manhattan, KS</strong><br/>Regional Market<br/>Distance: 145 miles');
   </script>
+<script src="js/nav.js"></script>
 </body>
 </html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Signals — El Dorado, KS | Real-Time Pulse</title>
+  <meta name="description" content="Real-time dashboard of what's happening in El Dorado — live job postings, housing market trends, community events, and infrastructure projects." />
+  <meta property="og:title" content="El Dorado Community Signals — Live Data" />
+  <meta property="og:description" content="Track real-time indicators of community activity and growth." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .signals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .signal-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .signal-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border-color: #b8860b;
+    }
+
+    .signal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .signal-icon {
+      font-size: 28px;
+    }
+
+    .signal-metric {
+      font-size: 32px;
+      font-weight: 700;
+      color: #b8860b;
+      margin: 12px 0;
+    }
+
+    .signal-trend {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 16px;
+    }
+
+    .signal-trend.up { color: #2ecc71; }
+    .signal-trend.down { color: #e74c3c; }
+    .signal-trend.neutral { color: #f39c12; }
+
+    .event-list {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .event-item {
+      padding: 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .event-item:last-child {
+      border-bottom: none;
+    }
+
+    .event-date {
+      font-weight: 600;
+      color: #b8860b;
+      font-size: 12px;
+    }
+
+    .event-title {
+      margin-top: 4px;
+      color: #333;
+    }
+
+    .job-card {
+      padding: 12px;
+      border-left: 4px solid #b8860b;
+      border-bottom: 1px solid #f0f0f0;
+      background: #fafafa;
+    }
+
+    .job-title {
+      font-weight: 600;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .job-company {
+      font-size: 12px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .housing-chart-container {
+      position: relative;
+      height: 300px;
+      margin: 16px 0;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .stat-label { color: #666; }
+    .stat-value { font-weight: 600; color: #333; }
+
+    .update-time {
+      font-size: 12px;
+      color: #999;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f0f0f0;
+      text-align: right;
+    }
+
+    .loading-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #2ecc71;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      margin-right: 6px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .signals-hero {
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05));
+      padding: 48px 24px;
+      border-radius: 12px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .signals-hero h1 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .signals-hero p {
+      font-size: 16px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .signals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .signal-metric {
+        font-size: 24px;
+      }
+
+      .signals-hero h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body data-page="community-signals">
+  <div id="nav-mount"></div>
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="city">El Dorado, KS</span>
+      <span class="tagline">Vision 2040 · Regional Development Plan</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#vision">Overview</a></li>
+      <li class="nav-group">
+        <button class="nav-group-btn" aria-haspopup="true">Community</button>
+        <div class="nav-dropdown" role="menu">
+          <a href="community-signals.html">📊 Live Signals Dashboard</a>
+          <a href="community-stories.html">🎬 Resident Stories</a>
+          <a href="community.html">Community Engagement Tools</a>
+        </div>
+      </li>
+      <li><a href="index.html">← Back to Hub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════ MAIN ════ -->
+<main role="main">
+
+  <section class="signals-hero">
+    <h1>Community Signals</h1>
+    <p>Real-time dashboard of what's happening in El Dorado right now. Watch jobs, housing, events, and growth indicators live.</p>
+    <div style="margin-top: 16px;">
+      <span class="loading-pulse"></span>
+      <span style="font-size: 14px; color: #666;">Live Data</span>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- ════ TOP ROW: Key Metrics ════ -->
+    <div class="signals-grid">
+
+      <!-- Jobs Pulse -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">💼</span>
+          <span>Active Jobs</span>
+        </div>
+        <div class="signal-metric" id="jobs-count">23</div>
+        <div class="signal-trend up">↑ 18% this month</div>
+        <p style="font-size: 14px; color: #666;">New positions posted in El Dorado area</p>
+        <div class="update-time">Updated: today at 2:34 PM</div>
+      </div>
+
+      <!-- Housing Market -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">🏠</span>
+          <span>Housing Market</span>
+        </div>
+        <div class="signal-metric">$145k</div>
+        <div class="signal-trend neutral">→ Avg Price</div>
+        <div class="stat-row">
+          <span class="stat-label">New Listings</span>
+          <span class="stat-value">12</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Under Contract</span>
+          <span class="stat-value">8</span>
+        </div>
+        <div class="update-time">Updated: Jun 29, 4:15 PM</div>
+      </div>
+
+      <!-- Events This Month -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">🎉</span>
+          <span>Upcoming Events</span>
+        </div>
+        <div class="signal-metric">14</div>
+        <div class="signal-trend up">Community activity</div>
+        <p style="font-size: 14px; color: #666;">Next 30 days in El Dorado</p>
+        <div class="update-time">Updated: today</div>
+      </div>
+
+      <!-- Infrastructure Progress -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">🏗️</span>
+          <span>Active Projects</span>
+        </div>
+        <div class="signal-metric">7</div>
+        <div class="signal-trend neutral">In progress</div>
+        <div class="stat-row">
+          <span class="stat-label">Completed (2026)</span>
+          <span class="stat-value">2</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Next Phase</span>
+          <span class="stat-value">Q3 2026</span>
+        </div>
+        <div class="update-time">Updated: Jun 28</div>
+      </div>
+
+    </div>
+
+    <!-- ════ MIDDLE: Detailed Feeds ════ -->
+    <div class="signals-grid" style="margin-top: 48px;">
+
+      <!-- Live Job Postings -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">💼</span>
+          <span>Live Job Postings</span>
+        </div>
+        <div class="event-list">
+          <div class="job-card">
+            <div class="job-title">Manufacturing Technician</div>
+            <div class="job-company">Quantum Plastics Inc. • $52k-$58k</div>
+          </div>
+          <div class="job-card">
+            <div class="job-title">Software Developer</div>
+            <div class="job-company">Butler Community College • $55k-$65k</div>
+          </div>
+          <div class="job-card">
+            <div class="job-title">Registered Nurse</div>
+            <div class="job-company">El Dorado Regional Medical • $68k-$75k</div>
+          </div>
+          <div class="job-card">
+            <div class="job-title">Logistics Coordinator</div>
+            <div class="job-company">US-77 Distribution Hub • $48k-$54k</div>
+          </div>
+          <div class="job-card">
+            <div class="job-title">Sales Representative</div>
+            <div class="job-company">Regional Manufacturing • $45k-$52k + comm</div>
+          </div>
+        </div>
+        <p style="font-size: 12px; color: #999; margin-top: 12px; text-align: center;">
+          <a href="/workforce/talent-match.html" style="color: #b8860b; text-decoration: none;">View all jobs →</a>
+        </p>
+      </div>
+
+      <!-- Community Events -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">📅</span>
+          <span>Community Events</span>
+        </div>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date">JUL 5</div>
+            <div class="event-title">Saturday Night Market</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">JUL 8</div>
+            <div class="event-title">City Commission Meeting</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">JUL 12</div>
+            <div class="event-title">El Dorado Lake Regatta</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">JUL 19</div>
+            <div class="event-title">Downtown Summer Concert</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">JUL 26</div>
+            <div class="event-title">Arts & Crafts Festival</div>
+          </div>
+          <div class="event-item">
+            <div class="event-date">AUG 2</div>
+            <div class="event-title">Business Networking Mixer</div>
+          </div>
+        </div>
+        <p style="font-size: 12px; color: #999; margin-top: 12px; text-align: center;">
+          <a href="#" style="color: #b8860b; text-decoration: none;">Add your event →</a>
+        </p>
+      </div>
+
+      <!-- Housing Market Trends -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">📈</span>
+          <span>Housing Trends (6 months)</span>
+        </div>
+        <div class="housing-chart-container">
+          <canvas id="housing-chart"></canvas>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Median Price</span>
+          <span class="stat-value">$145,200</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Avg Days on Market</span>
+          <span class="stat-value">28 days</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">YoY Change</span>
+          <span class="stat-value" style="color: #2ecc71;">+3.2%</span>
+        </div>
+      </div>
+
+      <!-- Infrastructure Timeline -->
+      <div class="signal-card">
+        <div class="signal-header">
+          <span class="signal-icon">🏗️</span>
+          <span>Active Projects</span>
+        </div>
+        <div class="event-list">
+          <div class="event-item">
+            <div class="event-date">PHASE 1 ACTIVE</div>
+            <div class="event-title">North Gateway Industrial Park</div>
+            <span style="font-size: 12px; color: #666; display: block; margin-top: 4px;">45% complete</span>
+          </div>
+          <div class="event-item">
+            <div class="event-date">Q3 2026</div>
+            <div class="event-title">Highway 77 Logistics Hub</div>
+            <span style="font-size: 12px; color: #666; display: block; margin-top: 4px;">Planning phase</span>
+          </div>
+          <div class="event-item">
+            <div class="event-date">Q2 2027</div>
+            <div class="event-title">Downtown Revitalization Block 3</div>
+            <span style="font-size: 12px; color: #666; display: block; margin-top: 4px;">Design phase</span>
+          </div>
+          <div class="event-item">
+            <div class="event-date">2027-2028</div>
+            <div class="event-title">Central Avenue Streetscape</div>
+            <span style="font-size: 12px; color: #666; display: block; margin-top: 4px;">Permitting</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ════ BOTTOM: Social Sentiment ════ -->
+    <div style="background: white; border: 1px solid #e0e0e0; border-radius: 12px; padding: 24px; margin: 48px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+      <h3 style="margin: 0 0 24px 0; font-size: 20px;">What People Are Saying</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="padding: 16px; background: #f0fdf4; border-left: 4px solid #2ecc71; border-radius: 6px;">
+          <div style="font-size: 12px; color: #666; margin-bottom: 8px;">Tweet • 2 hours ago</div>
+          <div style="color: #333; line-height: 1.5;">
+            "Just moved to El Dorado for the new tech program at BCC — loving the community so far! Great lake access and affordable housing."
+            <span style="color: #2ecc71;">👍 87 likes</span>
+          </div>
+        </div>
+
+        <div style="padding: 16px; background: #f0fdf4; border-left: 4px solid #2ecc71; border-radius: 6px;">
+          <div style="font-size: 12px; color: #666; margin-bottom: 8px;">Facebook • 4 hours ago</div>
+          <div style="color: #333; line-height: 1.5;">
+            "The new Saturday Night Market is amazing — local businesses, great atmosphere, families everywhere. This is what community growth looks like!"
+            <span style="color: #2ecc71;">❤️ 142 reactions</span>
+          </div>
+        </div>
+
+        <div style="padding: 16px; background: #fef3c7; border-left: 4px solid #f39c12; border-radius: 6px;">
+          <div style="font-size: 12px; color: #666; margin-bottom: 8px;">LinkedIn • 6 hours ago</div>
+          <div style="color: #333; line-height: 1.5;">
+            "Expanding our logistics operation to El Dorado — the US-77 corridor position is strategic, and the city is super responsive to business needs."
+            <span style="color: #f39c12;">🔄 23 shares</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e0e0e0; text-align: center;">
+        <p style="font-size: 14px; color: #666; margin: 0;">
+          Social sentiment tracking from Twitter, Facebook, LinkedIn • Updated every 2 hours
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════ CTA ════ -->
+  <section style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05)); padding: 48px 24px; border-radius: 12px; margin: 48px 0; text-align: center;">
+    <h2 style="margin: 0 0 16px 0;">Ready to be part of El Dorado's growth?</h2>
+    <p style="color: #666; margin: 0 0 24px 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+      Explore career paths, check out available housing, or learn how to start a business here.
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="/workforce/talent-match.html" class="btn" style="background: #b8860b; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600;">Career Pathways</a>
+      <a href="/business/startup-playbook.html" class="btn" style="background: #f5f5f5; color: #333; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; border: 1px solid #ddd;">Start a Business</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer style="background: #f5f5f5; padding: 40px 24px; margin-top: 80px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666;">
+  <div class="container">
+    <p style="margin: 0;">
+      El Dorado Vision 2040 | Community Signals Dashboard
+      <br/>
+      <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back to Main</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Housing market trend chart
+  const ctx = document.getElementById('housing-chart');
+  if (ctx) {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Median Price',
+          data: [140000, 141500, 142800, 143200, 144100, 145200],
+          borderColor: '#b8860b',
+          backgroundColor: 'rgba(184, 134, 11, 0.05)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4,
+          pointRadius: 4,
+          pointBackgroundColor: '#b8860b',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            min: 135000,
+            max: 150000,
+            ticks: {
+              callback: function(value) {
+                return '$' + (value/1000).toFixed(0) + 'k';
+              }
+            }
+          }
+        }
+      }
+    });
+  }
+</script>
+
+<script src="js/nav.js"></script>
+</body>
+</html>
