@@ -1,0 +1,106 @@
+{
+  "projects": [
+    {
+      "id": "interchange",
+      "name": "I-35 Interchange Expansion",
+      "color": "#FF6B6B",
+      "region": "central",
+      "startYear": 2018,
+      "completionYear": 2026,
+      "budget": 85000000,
+      "description": "Major I-35 interchange upgrade enabling enhanced regional connectivity and commercial traffic flow",
+      "timeline": [
+        {"year": 2015, "progress": 0, "status": "Planning"},
+        {"year": 2018, "progress": 15, "status": "Approved"},
+        {"year": 2021, "progress": 50, "status": "Construction"},
+        {"year": 2024, "progress": 85, "status": "Final Phase"},
+        {"year": 2026, "progress": 100, "status": "Complete"}
+      ]
+    },
+    {
+      "id": "north-expansion",
+      "name": "North Gateway Expansion",
+      "color": "#4ECDC4",
+      "region": "north",
+      "startYear": 2019,
+      "completionYear": 2028,
+      "budget": 120000000,
+      "description": "Residential and mixed-use development in growing northern corridor with schools and amenities",
+      "timeline": [
+        {"year": 2015, "progress": 0, "status": "Planning"},
+        {"year": 2018, "progress": 10, "status": "Concept"},
+        {"year": 2021, "progress": 35, "status": "Infrastructure"},
+        {"year": 2024, "progress": 70, "status": "Development"},
+        {"year": 2026, "progress": 90, "status": "Ongoing"}
+      ]
+    },
+    {
+      "id": "downtown-tif",
+      "name": "Downtown TIF District",
+      "color": "#FFE66D",
+      "region": "downtown",
+      "startYear": 2012,
+      "completionYear": 2032,
+      "budget": 45000000,
+      "description": "Downtown tax increment financing district driving retail, office, and residential revitalization",
+      "timeline": [
+        {"year": 2015, "progress": 5, "status": "Early"},
+        {"year": 2018, "progress": 20, "status": "Revitalization"},
+        {"year": 2021, "progress": 45, "status": "Active"},
+        {"year": 2024, "progress": 75, "status": "Bustling"},
+        {"year": 2026, "progress": 95, "status": "Thriving"}
+      ]
+    },
+    {
+      "id": "lakeside",
+      "name": "Lakeside Recreation Complex",
+      "color": "#95E1D3",
+      "region": "lakeside",
+      "startYear": 2022,
+      "completionYear": 2027,
+      "budget": 180000000,
+      "description": "Premier waterfront resort with hotels, restaurants, retail, and water recreation facilities",
+      "timeline": [
+        {"year": 2015, "progress": 0, "status": "Concept"},
+        {"year": 2018, "progress": 5, "status": "Planning"},
+        {"year": 2021, "progress": 30, "status": "Approved"},
+        {"year": 2024, "progress": 65, "status": "Under Construction"},
+        {"year": 2026, "progress": 98, "status": "Opening Soon"}
+      ]
+    },
+    {
+      "id": "datacenter",
+      "name": "Project Horizon Data Center",
+      "color": "#A8D8EA",
+      "region": "east",
+      "startYear": 2021,
+      "completionYear": 2027,
+      "budget": 250000000,
+      "description": "Hyperscale data center hub supporting cloud computing, AI, and advanced technology infrastructure",
+      "timeline": [
+        {"year": 2015, "progress": 0, "status": "Concept"},
+        {"year": 2018, "progress": 0, "status": "Exploration"},
+        {"year": 2021, "progress": 10, "status": "Site Preparation"},
+        {"year": 2024, "progress": 40, "status": "Construction"},
+        {"year": 2026, "progress": 75, "status": "Coming Online"}
+      ]
+    },
+    {
+      "id": "south-industrial",
+      "name": "South Industrial Corridor",
+      "color": "#AA96DA",
+      "region": "south",
+      "startYear": 2010,
+      "completionYear": 2040,
+      "budget": 320000000,
+      "description": "Comprehensive logistics, manufacturing, and distribution hub development along I-35 corridor",
+      "timeline": [
+        {"year": 2015, "progress": 20, "status": "Active"},
+        {"year": 2018, "progress": 40, "status": "Growing"},
+        {"year": 2021, "progress": 60, "status": "Expansion"},
+        {"year": 2024, "progress": 80, "status": "Major Hub"},
+        {"year": 2026, "progress": 100, "status": "Full Build-Out"}
+      ]
+    }
+  ]
+}
