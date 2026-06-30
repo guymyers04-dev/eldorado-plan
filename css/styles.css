@@ -92,27 +92,139 @@ ul, ol { max-width: 100%; }
 .badge--purple { background:rgba(123,94,167,.12);  color:var(--purple); }
 
 .btn {
-  display: inline-block; padding: .85rem 1.85rem; border-radius: 8px;
-  font-weight: 600; font-size: .92rem; cursor: pointer;
-  transition: all var(--transition) ease; border: 2px solid transparent;
+  display: inline-block;
+  padding: 1.1rem 2.25rem;
+  min-height: 44px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition) ease;
+  border: 2px solid transparent;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 .btn--primary { background: var(--gold); color: #fff; }
 .btn--primary:hover {
   background: #b07820;
-  box-shadow: 0 8px 20px rgba(200,144,42,0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(200,144,42,0.35);
+  transform: translateY(-3px);
 }
 .btn--outline { border-color: #fff; color: #fff; }
 .btn--outline:hover {
   background: #fff;
   color: var(--navy);
-  box-shadow: 0 8px 20px rgba(255,255,255,0.25);
+  box-shadow: 0 12px 28px rgba(255,255,255,0.35);
+  transform: translateY(-3px);
 }
 
 /* ── Reveal animation ── */
 .reveal { opacity:0; transform:translateY(28px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ══════════ FORM ELEMENTS ══════════ */
+input, textarea, select, button {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+input[type="number"],
+textarea,
+select {
+  font-size: 1rem;
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid #d0ccbe;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  transition: all var(--transition) ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="phone"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(200,144,42,0.1);
+  background: #fafaf8;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%231B3A5C' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  accent-color: var(--gold);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label + input,
+.form-group label + textarea,
+.form-group label + select {
+  margin-top: 0.35rem;
+}
+
+input.input--success,
+textarea.input--success,
+select.input--success {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(46,110,53,0.1);
+}
+
+input.input--error,
+textarea.input--error,
+select.input--error {
+  border-color: var(--rust);
+  box-shadow: 0 0 0 4px rgba(166,61,47,0.1);
+}
+
+.form-error {
+  color: var(--rust);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: block;
+}
+
+.form-help {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: block;
+}
 
 /* ══════════ NAVIGATION ══════════ */
 #navbar {
@@ -258,13 +370,13 @@ ul, ol { max-width: 100%; }
 .hero-content { padding: 100px 0 50px; max-width: 780px; }
 .hero-content h1 { color:#fff; margin: .35rem 0 1rem; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
 .hero-content > p { color:rgba(255,255,255,.85); font-size:1.15rem; margin-bottom:1.75rem; max-width:58ch; }
-.hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
+.hero-btns { display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:2rem; }
 .hero-stats { display:flex; gap:2rem; flex-wrap:wrap; margin-top:2.5rem; padding-top:2rem; border-top:1px solid rgba(255,255,255,.15); }
 .hero-stat .num { font-size:1.9rem; font-weight:700; color:var(--gold); font-family:'Playfair Display',serif; display:block; }
-.hero-stat .lbl { font-size:.75rem; color:rgba(255,255,255,.6); text-transform:uppercase; letter-spacing:.08em; }
+.hero-stat .lbl { font-size:.75rem; color:rgba(255,255,255,.75); text-transform:uppercase; letter-spacing:.08em; }
 .hero-scroll {
   position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
-  color:rgba(255,255,255,.45); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+  color:rgba(255,255,255,.75); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
   display:flex; flex-direction:column; align-items:center; gap:.4rem; animation: bounce 2s infinite;
 }
 .hero-scroll::after { content:''; width:1px; height:36px; background:rgba(255,255,255,.25); }
@@ -291,7 +403,7 @@ ul, ol { max-width: 100%; }
 .map-section-dark  { padding: var(--section-pad); background: var(--dark); color: #fff; }
 .map-section-light { padding: var(--section-pad); background: var(--cream); }
 .map-section-dark  h2 { color:#fff; }
-.map-section-dark  .lead { color:rgba(255,255,255,.6); }
+.map-section-dark  .lead { color:rgba(255,255,255,.75); }
 
 .district-map, #map-overview {
   border-radius: var(--radius); overflow:hidden;
@@ -309,7 +421,7 @@ ul, ol { max-width: 100%; }
 .map-container .map-legend { grid-column: 2; }
 
 .map-legend { display:flex; flex-wrap:wrap; gap:.85rem; margin-top: 0; }
-.legend-item { display:flex; align-items:center; gap:.45rem; font-size:.8rem; color:rgba(255,255,255,.7); }
+.legend-item { display:flex; align-items:center; gap:.45rem; font-size:.8rem; color:rgba(255,255,255,.80); }
 .legend-dot  { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
 
 /* ══════════ SHARED CARD STYLES ══════════ */
@@ -5494,5 +5606,27 @@ footer ul a:hover { color:var(--gold); }
 
   .project-metrics {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ══════════ MOBILE TYPOGRAPHY IMPROVEMENTS ══════════ */
+@media (max-width: 768px) {
+  h1 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+  h2 { font-size: clamp(1.3rem, 3vw, 2rem); margin-bottom: 1.5rem; }
+  h3 { font-size: clamp(1rem, 2vw, 1.3rem); }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 85vw;
+  }
+
+  .lead {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
   }
 }
