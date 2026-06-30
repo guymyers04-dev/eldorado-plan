@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-time Data Integrations — El Dorado Vision 2040</title>
+  <meta name="description" content="Live data feeds powering El Dorado Vision 2040. Labor statistics, real estate listings, business registrations, weather, and public events." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .data-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .data-header { text-align: center; margin-bottom: 50px; }
+    .data-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .data-header p { font-size: 1.125rem; color: #666; max-width: 700px; margin: 0 auto; }
+    .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 50px; background: #f8f8f8; padding: 30px; border-radius: 8px; }
+    .status-card { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; text-align: center; }
+    .status-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; }
+    .status-value { font-size: 1.8rem; font-weight: 700; color: #222; }
+    .status-update { font-size: 0.8rem; color: #999; margin-top: 5px; }
+    .integrations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-bottom: 50px; }
+    .integration-card { background: white; border: 1px solid #eee; border-radius: 8px; padding: 25px; transition: all 0.3s; }
+    .integration-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .integration-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+    .integration-icon { font-size: 2.5rem; }
+    .integration-title { font-size: 1.2rem; font-weight: 700; color: #222; }
+    .integration-source { font-size: 0.9rem; color: #d4a574; font-weight: 600; }
+    .integration-desc { color: #666; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6; }
+    .integration-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 15px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; margin-bottom: 15px; font-size: 0.9rem; }
+    .meta-item { display: flex; flex-direction: column; }
+    .meta-label { color: #999; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .meta-value { color: #222; font-weight: 600; margin-top: 3px; }
+    .data-fields { list-style: none; padding: 0; font-size: 0.9rem; color: #666; line-height: 1.8; }
+    .data-fields li::before { content: '✓ '; color: #d4a574; font-weight: 700; margin-right: 8px; }
+    .architecture-section { background: #f8f8f8; padding: 40px; border-radius: 8px; margin-bottom: 40px; }
+    .flow-diagram { background: white; padding: 30px; border-radius: 6px; border: 1px solid #eee; text-align: center; font-size: 0.95rem; line-height: 2; color: #666; font-family: monospace; }
+    .flow-step { margin: 10px 0; }
+    .arrow { color: #d4a574; font-weight: 700; }
+    .implementation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
+    @media (max-width: 768px) { .implementation-grid { grid-template-columns: 1fr; } }
+    .timeline { background: white; padding: 30px; border-radius: 8px; border: 1px solid #eee; }
+    .timeline-item { position: relative; padding-left: 40px; margin-bottom: 25px; }
+    .timeline-item::before { content: ''; position: absolute; left: 0; top: 5px; width: 12px; height: 12px; background: #d4a574; border-radius: 50%; }
+    .timeline-item::after { content: ''; position: absolute; left: 5px; top: 17px; width: 2px; height: 23px; background: #eee; }
+    .timeline-item:last-child::after { display: none; }
+    .timeline-date { font-weight: 700; color: #222; margin-bottom: 5px; }
+    .timeline-text { color: #666; font-size: 0.95rem; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .benefit-card { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #27a745; }
+    .benefit-title { font-weight: 700; color: #222; margin-bottom: 8px; }
+    .benefit-text { color: #666; font-size: 0.9rem; line-height: 1.6; }
+  </style>
+</head>
+<body data-page="data-integrations">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="data-header">
+    <h1>Real-time Data Integrations</h1>
+    <p>Live data feeds powering El Dorado Vision 2040. From labor statistics to real estate, our platform stays current with the data that matters.</p>
+  </div>
+</div>
+
+<div class="data-container">
+
+  <!-- SYSTEM STATUS -->
+  <div class="status-grid">
+    <div class="status-card">
+      <div class="status-label">Jobs API</div>
+      <div class="status-value">✓</div>
+      <div class="status-update">Updated hourly</div>
+    </div>
+    <div class="status-card">
+      <div class="status-label">Real Estate Feed</div>
+      <div class="status-value">✓</div>
+      <div class="status-update">Updated 6x daily</div>
+    </div>
+    <div class="status-card">
+      <div class="status-label">Business Registry</div>
+      <div class="status-value">✓</div>
+      <div class="status-update">Updated daily</div>
+    </div>
+    <div class="status-card">
+      <div class="status-label">Event Calendar</div>
+      <div class="status-value">✓</div>
+      <div class="status-update">Updated weekly</div>
+    </div>
+  </div>
+
+  <!-- INTEGRATIONS -->
+  <h2 style="margin-bottom: 30px;">Data Sources</h2>
+  <div class="integrations-grid">
+
+    <!-- JOBS API -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">👷</div>
+        <div>
+          <div class="integration-title">Labor Market Data</div>
+          <div class="integration-source">BLS API + Indeed Scraper</div>
+        </div>
+      </div>
+      <div class="integration-desc">Real-time job openings, salary data, unemployment rates, and employment trends.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">Hourly</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Data Points</span>
+          <span class="meta-value">243+ jobs tracked</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>Job titles & descriptions</li>
+        <li>Salary ranges by role</li>
+        <li>Employer information</li>
+        <li>Job categories & growth rates</li>
+        <li>Required skills & certifications</li>
+      </ul>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">🏢</div>
+        <div>
+          <div class="integration-title">Real Estate Listings</div>
+          <div class="integration-source">Zillow API + Local MLS</div>
+        </div>
+      </div>
+      <div class="integration-desc">Commercial and residential property availability, prices, and market trends.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">6x daily</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Coverage</span>
+          <span class="meta-value">Residential + Industrial</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>Property listings & prices</li>
+        <li>Available commercial space</li>
+        <li>Industrial lot details</li>
+        <li>Price trends & forecasts</li>
+        <li>Neighborhood comparables</li>
+      </ul>
+    </div>
+
+    <!-- BUSINESS REGISTRY -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">📋</div>
+        <div>
+          <div class="integration-title">Business Registrations</div>
+          <div class="integration-source">Kansas Secretary of State</div>
+        </div>
+      </div>
+      <div class="integration-desc">New business formations, business types, and economic activity indicators.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">Daily</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Data Type</span>
+          <span class="meta-value">Government</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>New business filings</li>
+        <li>Business type & industry</li>
+        <li>Owner information (public)</li>
+        <li>Registration status</li>
+        <li>Formation trends</li>
+      </ul>
+    </div>
+
+    <!-- PUBLIC EVENTS -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">📅</div>
+        <div>
+          <div class="integration-title">Public Calendar</div>
+          <div class="integration-source">City Manager + Google Calendar</div>
+        </div>
+      </div>
+      <div class="integration-desc">City council meetings, community events, public hearings, and important dates.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">Weekly</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Event Types</span>
+          <span class="meta-value">Public + Community</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>City council meeting dates</li>
+        <li>Community events calendar</li>
+        <li>Public hearing schedules</li>
+        <li>Deadline alerts</li>
+        <li>Event notifications</li>
+      </ul>
+    </div>
+
+    <!-- DEMOGRAPHICS -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">📊</div>
+        <div>
+          <div class="integration-title">Demographic Data</div>
+          <div class="integration-source">U.S. Census + DataUSA</div>
+        </div>
+      </div>
+      <div class="integration-desc">Population statistics, household income, education levels, and workforce composition.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">Quarterly</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Time Period</span>
+          <span class="meta-value">2024-2026</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>Population & growth</li>
+        <li>Household income</li>
+        <li>Education attainment</li>
+        <li>Age distribution</li>
+        <li>Labor force composition</li>
+      </ul>
+    </div>
+
+    <!-- WEATHER -->
+    <div class="integration-card">
+      <div class="integration-header">
+        <div class="integration-icon">🌤️</div>
+        <div>
+          <div class="integration-title">Weather & Environment</div>
+          <div class="integration-source">NOAA + OpenWeatherMap</div>
+        </div>
+      </div>
+      <div class="integration-desc">Real-time weather, forecasts, and environmental data for regional context.</div>
+      <div class="integration-meta">
+        <div class="meta-item">
+          <span class="meta-label">Update Frequency</span>
+          <span class="meta-value">Real-time</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Data Type</span>
+          <span class="meta-value">Environmental</span>
+        </div>
+      </div>
+      <ul class="data-fields">
+        <li>Current weather conditions</li>
+        <li>10-day forecast</li>
+        <li>Seasonal climate data</li>
+        <li>Air quality index</li>
+        <li>Lake water conditions</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="architecture-section">
+    <h2 style="margin-bottom: 30px;">How It Works</h2>
+    <div class="flow-diagram">
+      <div class="flow-step">External Data Sources (BLS, Zillow, Census, Weather)</div>
+      <div class="arrow">↓↓↓</div>
+      <div class="flow-step">API Integrations & Scheduled Scrapers</div>
+      <div class="arrow">↓↓↓</div>
+      <div class="flow-step">Data Processing & Normalization Layer</div>
+      <div class="arrow">↓↓↓</div>
+      <div class="flow-step">El Dorado Database (Real-time Cache)</div>
+      <div class="arrow">↓↓↓</div>
+      <div class="flow-step">Website Features (Labor Forecast, Opportunity Scanner, AI Agent)</div>
+      <div class="arrow">↓↓↓</div>
+      <div class="flow-step">User-Facing Real-time Data (Investor/Jobseeker/Resident)</div>
+    </div>
+  </div>
+
+  <!-- IMPLEMENTATION ROADMAP -->
+  <div class="implementation-grid">
+    <div>
+      <h3 style="margin-bottom: 20px;">Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Week 1-2</div>
+          <div class="timeline-text">Set up BLS & Indeed APIs, implement job data pipeline</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Week 3-4</div>
+          <div class="timeline-text">Integrate Zillow & local MLS for real estate data</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Week 5-6</div>
+          <div class="timeline-text">Add business registry & public calendar feeds</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Week 7-8</div>
+          <div class="timeline-text">Census & demographic data integration complete</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Week 9+</div>
+          <div class="timeline-text">Advanced analytics dashboard & alerting system</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style="margin-bottom: 20px;">Benefits</h3>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-title">🎯 Accuracy</div>
+          <div class="benefit-text">Real data, not estimates. Always current within hours.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-title">⚡ Speed</div>
+          <div class="benefit-text">Instant access to latest information. No manual updates.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-title">🔗 Interconnected</div>
+          <div class="benefit-text">AI Agent uses all data to power personalized recommendations.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-title">📊 Analytics</div>
+          <div class="benefit-text">Track trends over time. Identify emerging opportunities.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-title">🚨 Alerts</div>
+          <div class="benefit-text">Notify stakeholders of major changes or milestones.</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-title">🤝 Trust</div>
+          <div class="benefit-text">Government & public sources = authoritative & credible.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a></p>
+</footer>
+
+</body>
+</html>

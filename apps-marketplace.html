@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Apps Marketplace — El Dorado Vision 2040</title>
+  <meta name="description" content="App ecosystem for El Dorado. Local developers can submit tools that extend Vision 2040 capabilities. Residents discover apps built for their community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="css/styles.css" as="style">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .apps-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .apps-header { text-align: center; margin-bottom: 50px; }
+    .apps-header h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+    .apps-header p { font-size: 1.125rem; color: #666; max-width: 700px; margin: 0 auto; }
+    .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 50px; background: #f8f8f8; padding: 30px; border-radius: 8px; }
+    .overview-card { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; text-align: center; }
+    .overview-value { font-size: 2rem; font-weight: 700; color: #d4a574; }
+    .overview-label { font-size: 0.9rem; color: #666; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px; }
+    .app-card { background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: all 0.3s; }
+    .app-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .app-header { background: linear-gradient(135deg, #d4a574 0%, #c49563 100%); color: white; padding: 20px; }
+    .app-icon { font-size: 2rem; margin-bottom: 10px; }
+    .app-name { font-size: 1.2rem; font-weight: 700; }
+    .app-developer { font-size: 0.85rem; opacity: 0.9; }
+    .app-body { padding: 20px; }
+    .app-desc { color: #666; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.6; }
+    .app-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: #999; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+    .app-rating { color: #f39c12; font-weight: 600; }
+    .app-downloads { color: #666; }
+    .app-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+    .app-tag { background: #f0f0f0; padding: 4px 10px; border-radius: 3px; font-size: 0.85rem; color: #666; }
+    .app-cta { width: 100%; padding: 10px; background: #d4a574; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+    .app-cta:hover { background: #c49563; }
+    .developer-section { background: #f8f8f8; padding: 40px; border-radius: 8px; margin-bottom: 40px; }
+    .developer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; }
+    @media (max-width: 768px) { .developer-grid { grid-template-columns: 1fr; } }
+    .developer-info { background: white; padding: 20px; border-radius: 6px; border-left: 4px solid #d4a574; }
+    .developer-info h4 { margin-bottom: 12px; color: #222; font-weight: 700; }
+    .developer-info ul { list-style: none; padding: 0; color: #666; font-size: 0.9rem; line-height: 1.8; }
+    .developer-info li::before { content: '✓ '; color: #d4a574; font-weight: 700; margin-right: 8px; }
+    .categories-section { margin-bottom: 50px; }
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+    .category-btn { padding: 15px; border: 2px solid #ddd; background: white; border-radius: 6px; cursor: pointer; text-align: center; font-weight: 600; transition: all 0.2s; }
+    .category-btn:hover { border-color: #d4a574; color: #d4a574; }
+    .category-btn.active { background: #d4a574; color: white; border-color: #d4a574; }
+    .category-icon { font-size: 2rem; margin-bottom: 8px; }
+  </style>
+</head>
+<body data-page="apps-marketplace">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="economy.html">Economy</a></li>
+      <li><a href="community-signals.html">Signals Hub</a></li>
+      <li><a href="brief.html">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+  <div class="apps-header">
+    <h1>Community Apps Marketplace</h1>
+    <p>Local developers building tools for El Dorado. Curated apps that extend Vision 2040 capabilities. Revenue sharing. Open API. Unlimited potential.</p>
+  </div>
+</div>
+
+<div class="apps-container">
+
+  <!-- OVERVIEW STATS -->
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="overview-value">12+</div>
+      <div class="overview-label">Apps Available</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-value">8</div>
+      <div class="overview-label">Developer Partners</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-value">2,500+</div>
+      <div class="overview-label">Monthly Users</div>
+    </div>
+    <div class="overview-card">
+      <div class="overview-value">70/30</div>
+      <div class="overview-label">Revenue Split</div>
+    </div>
+  </div>
+
+  <!-- BROWSE BY CATEGORY -->
+  <div class="categories-section">
+    <h2 style="margin-bottom: 20px;">Browse By Category</h2>
+    <div class="category-grid">
+      <button class="category-btn active" onclick="filterApps('all')">
+        <div class="category-icon">📱</div>
+        <div>All Apps</div>
+      </button>
+      <button class="category-btn" onclick="filterApps('civic')">
+        <div class="category-icon">🏛️</div>
+        <div>Civic</div>
+      </button>
+      <button class="category-btn" onclick="filterApps('business')">
+        <div class="category-icon">💼</div>
+        <div>Business</div>
+      </button>
+      <button class="category-btn" onclick="filterApps('lifestyle')">
+        <div class="category-icon">🎯</div>
+        <div>Lifestyle</div>
+      </button>
+      <button class="category-btn" onclick="filterApps('education')">
+        <div class="category-icon">🎓</div>
+        <div>Education</div>
+      </button>
+      <button class="category-btn" onclick="filterApps('wellness')">
+        <div class="category-icon">💪</div>
+        <div>Wellness</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- FEATURED APPS -->
+  <h2 style="margin-bottom: 30px;">Featured Apps</h2>
+  <div class="apps-grid">
+    <div class="app-card" data-category="civic">
+      <div class="app-header">
+        <div class="app-icon">🚌</div>
+        <div class="app-name">TransitGo</div>
+        <div class="app-developer">by Morrison Tech</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">Real-time city transit optimization. Track buses, plan routes, get alerts. Reduces commute times 15%.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.7/5 (240 reviews)</span>
+          <span class="app-downloads">12K+ downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Free</span>
+          <span class="app-tag">iOS + Android</span>
+          <span class="app-tag">Real-time</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('TransitGo')">Download App</button>
+      </div>
+    </div>
+
+    <div class="app-card" data-category="business">
+      <div class="app-header">
+        <div class="app-icon">📊</div>
+        <div class="app-name">LocalConnect</div>
+        <div class="app-developer">by El Dorado Digital</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">Local B2B networking. Find suppliers, partners, contractors. Build your business network.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.5/5 (120 reviews)</span>
+          <span class="app-downloads">3.2K downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Freemium</span>
+          <span class="app-tag">Web + Mobile</span>
+          <span class="app-tag">Pro $9.99/mo</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('LocalConnect')">Download App</button>
+      </div>
+    </div>
+
+    <div class="app-card" data-category="lifestyle">
+      <div class="app-header">
+        <div class="app-icon">🏘️</div>
+        <div class="app-name">Neighborhood Guide</div>
+        <div class="app-developer">by Community Builders</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">Explore neighborhoods. Schools, crime stats, amenities, nearby businesses. Relocation planning made easy.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.8/5 (180 reviews)</span>
+          <span class="app-downloads">5.8K downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Free</span>
+          <span class="app-tag">iOS + Android</span>
+          <span class="app-tag">Maps</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('Neighborhood Guide')">Download App</button>
+      </div>
+    </div>
+
+    <div class="app-card" data-category="civic">
+      <div class="app-header">
+        <div class="app-icon">📢</div>
+        <div class="app-name">CivicPulse</div>
+        <div class="app-developer">by Engaged Governance</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">City news, alerts, meetings. Never miss an announcement. Engage with your local government.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.4/5 (95 reviews)</span>
+          <span class="app-downloads">2.1K downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Free</span>
+          <span class="app-tag">Push Notifications</span>
+          <span class="app-tag">Alerts</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('CivicPulse')">Download App</button>
+      </div>
+    </div>
+
+    <div class="app-card" data-category="education">
+      <div class="app-header">
+        <div class="app-icon">🎓</div>
+        <div class="app-name">SkillBoost</div>
+        <div class="app-developer">by Learning Labs</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">Career training courses. Learn skills in demand. Complete with certificates. Pay-what-you-want model.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.6/5 (210 reviews)</span>
+          <span class="app-downloads">4.3K downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Freemium</span>
+          <span class="app-tag">Certificate</span>
+          <span class="app-tag">Offline</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('SkillBoost')">Download App</button>
+      </div>
+    </div>
+
+    <div class="app-card" data-category="wellness">
+      <div class="app-header">
+        <div class="app-icon">💪</div>
+        <div class="app-name">LakeLife</div>
+        <div class="app-developer">by Outdoor Ventures</div>
+      </div>
+      <div class="app-body">
+        <div class="app-desc">Recreation activities tracker. Lake conditions, trail info, event calendar. Get active with friends.</div>
+        <div class="app-meta">
+          <span class="app-rating">⭐ 4.7/5 (165 reviews)</span>
+          <span class="app-downloads">6.5K downloads</span>
+        </div>
+        <div class="app-tags">
+          <span class="app-tag">Free</span>
+          <span class="app-tag">Social</span>
+          <span class="app-tag">GPS</span>
+        </div>
+        <button class="app-cta" onclick="downloadApp('LakeLife')">Download App</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEVELOPER SECTION -->
+  <div class="developer-section">
+    <h2 style="margin-bottom: 20px;">👨‍💻 Are You a Developer?</h2>
+    <div class="developer-grid">
+      <div class="developer-info">
+        <h4>Build Apps for El Dorado</h4>
+        <ul>
+          <li>Open API access (free tier)</li>
+          <li>Sandbox environment for testing</li>
+          <li>Complete documentation & examples</li>
+          <li>Community Slack channel</li>
+          <li>Developer revenue sharing (70/30 split)</li>
+        </ul>
+      </div>
+      <div class="developer-info">
+        <h4>What We Provide</h4>
+        <ul>
+          <li>Real-time data feeds (jobs, events, weather)</li>
+          <li>User authentication & single sign-on</li>
+          <li>Analytics dashboard for your app</li>
+          <li>Marketing & app promotion</li>
+          <li>Technical support & guidance</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 30px; text-align: center;">
+      <button style="padding: 14px 32px; background: #d4a574; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 1rem;" onclick="alert('Developer portal coming soon! Sign up at developers.eldoradoks.gov')">Join Developer Program</button>
+    </div>
+  </div>
+
+  <!-- SUBMISSION GUIDELINES -->
+  <div style="background: white; padding: 30px; border-radius: 8px; border: 1px solid #eee; margin-bottom: 40px;">
+    <h3 style="margin-bottom: 20px;">Submission Guidelines</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+      <div>
+        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #222; font-weight: 700;">Requirements</h4>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ Solves a real problem for residents/businesses</li>
+          <li>✓ Uses Vision 2040 data or APIs</li>
+          <li>✓ Mobile-first design (responsive)</li>
+          <li>✓ WCAG 2.1 AA accessibility</li>
+          <li>✓ User data privacy policy</li>
+          <li>✓ Supportive developer commitment (90 days)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 1rem; margin-bottom: 12px; color: #222; font-weight: 700;">Review Process</h4>
+        <ul style="list-style: none; padding: 0; color: #666; font-size: 0.95rem; line-height: 1.8;">
+          <li>✓ Submit app & documentation</li>
+          <li>✓ Technical review (7 days)</li>
+          <li>✓ UX/security audit (7 days)</li>
+          <li>✓ Community beta period (14 days)</li>
+          <li>✓ Launch & promotion</li>
+          <li>✓ Ongoing support & updates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background: #222; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
+  <p style="margin-bottom: 10px;">&copy; 2026 El Dorado, Kansas | Vision 2040 Regional Development Plan</p>
+  <p style="font-size: 0.9rem; opacity: 0.7;"><a href="index.html" style="color: #d4a574;">Home</a> • <a href="brief.html" style="color: #d4a574;">Resources</a> • <a href="developers@eldoradoks.gov" style="color: #d4a574;">Developers</a></p>
+</footer>
+
+<script>
+function filterApps(category) {
+  const buttons = document.querySelectorAll('.category-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.closest('.category-btn').classList.add('active');
+  
+  const apps = document.querySelectorAll('.app-card');
+  apps.forEach(app => {
+    if (category === 'all' || app.dataset.category === category) {
+      app.style.display = 'block';
+    } else {
+      app.style.display = 'none';
+    }
+  });
+}
+
+function downloadApp(appName) {
+  alert(`Redirecting to ${appName} in your app store...`);
+  // In production, would link to App Store/Google Play
+}
+</script>
+
+</body>
+</html>

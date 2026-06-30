@@ -3,7 +3,9 @@
 <head>
  <meta charset="UTF-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>El Dorado, KS — Vision 2040 | Home</title>
+ <meta name="theme-color" content="#d4a574">
+ <meta name="format-detection" content="telephone=no">
+ <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-family='system-ui' fill='%23d4a574'>E</text></svg>"> <title>El Dorado, KS — Vision 2040 | Home</title>
  <meta name="description" content="A comprehensive 15-year blueprint for El Dorado, Kansas — covering industry, lake tourism, downtown revitalization, residential, infrastructure, education, and regional integration." />
  <meta property="og:title" content="El Dorado, KS — Vision 2040 | 21st Century Blueprint" />
  <meta property="og:description" content="A comprehensive 15-year development plan for El Dorado, Kansas — rooted in oil-boom heritage and positioned for regional leadership in the Wichita MSA." />
@@ -39,7 +41,12 @@
     <!-- FALLBACK to old CSS if needed -->
     <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
  <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
-</head>
+ <!-- HTTP/2 Push Hints -->
+ <link rel="preload" href="css/styles-modern.min.css" as="style">
+ <link rel="preload" href="js/main.min.js" as="script">
+ <link rel="preload" href="js/nav.min.js" as="script">
+ <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" as="style">
+ </head>
 <body data-page="home">
 
 <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
@@ -217,6 +224,11 @@
      <div class="nav-dropdown-label">Activation Tools (Phase 12)</div>
      <a href="participatory-budget.html">🎯 Participatory Budget (Civic Voting)</a>
      <a href="virtual-tours.html">🎥 Virtual Facility Tours</a>
+     <div class="nav-dropdown-sep"></div>
+     <div class="nav-dropdown-label">Scaling Tools (Phase 13)</div>
+     <a href="ai-community-agent.html">🤖 AI Community Agent (24/7 Support)</a>
+     <a href="data-integrations.html">📊 Real-time Data Integrations</a>
+     <a href="apps-marketplace.html">📱 Community Apps Marketplace</a>
      <div class="nav-dropdown-sep"></div>
      <a href="financial-dashboard.html">💰 Financial Dashboard (Phase 8)</a>
      <a href="reference.html#glossary">Glossary of Terms</a>
@@ -765,5 +777,11 @@ window.addEventListener('resize', initFooterSections);
 
 <script src="js/nav.min.js"></script>
 <script src="js/analytics.min.js" defer></script>
+
+ <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed'));
+  }
+ </script>
 </body>
 </html>
