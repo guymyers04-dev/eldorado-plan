@@ -1,330 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Inquiry Response</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-        }
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .header {
-            background: linear-gradient(135deg, #1a5f7a 0%, #2d8a9d 100%);
-            color: white;
-            padding: 32px 24px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
-        .header p {
-            margin: 8px 0 0 0;
-            font-size: 0.95em;
-            opacity: 0.95;
-        }
-        .content {
-            padding: 32px 24px;
-        }
-        .section {
-            margin-bottom: 24px;
-        }
-        .section h2 {
-            font-size: 1.2em;
-            color: #1a3a52;
-            margin: 0 0 12px 0;
-            border-bottom: 2px solid #d4a574;
-            padding-bottom: 8px;
-        }
-        .property-summary {
-            background: #f8f4ec;
-            padding: 16px;
-            border-radius: 8px;
-            border-left: 4px solid #d4a574;
-            margin: 16px 0;
-        }
-        .property-detail {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0;
-            font-size: 0.95em;
-        }
-        .detail-label {
-            font-weight: 600;
-            color: #1a3a52;
-        }
-        .detail-value {
-            color: #555;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #1a3a52;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            margin: 12px 0;
-        }
-        .cta-button:hover {
-            background: #0f2331;
-        }
-        .timeline {
-            background: #f0f8ff;
-            padding: 16px;
-            border-radius: 8px;
-            border-left: 4px solid #0066cc;
-        }
-        .timeline-item {
-            margin: 12px 0;
-            font-size: 0.95em;
-        }
-        .timeline-title {
-            font-weight: 600;
-            color: #0066cc;
-        }
-        .timeline-desc {
-            color: #555;
-            margin-top: 4px;
-        }
-        .comparable {
-            background: #f9f9f9;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 4px;
-            border-left: 3px solid #999;
-        }
-        .next-steps {
-            background: #f0fff4;
-            padding: 16px;
-            border-radius: 8px;
-            border-left: 4px solid #2ecc71;
-        }
-        .next-steps h3 {
-            margin-top: 0;
-            color: #1a3a52;
-        }
-        .next-steps ol {
-            padding-left: 20px;
-            color: #555;
-        }
-        .next-steps li {
-            margin: 8px 0;
-            font-size: 0.95em;
-        }
-        .footer {
-            background: #f5f5f5;
-            padding: 24px;
-            border-top: 1px solid #ddd;
-            text-align: center;
-            font-size: 0.85em;
-            color: #999;
-        }
-        .contact-info {
-            background: white;
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            margin: 16px 0;
-        }
-        .contact-row {
-            margin: 8px 0;
-        }
-        .contact-row strong {
-            color: #1a3a52;
-        }
-        .social-links {
-            text-align: center;
-            margin-top: 16px;
-        }
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            text-align: center;
-            line-height: 40px;
-            background: #1a3a52;
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            margin: 0 4px;
-            font-size: 1.2em;
-        }
-        .divider {
-            border: 0;
-            border-top: 1px solid #ddd;
-            margin: 20px 0;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Inquiry Response</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+    }
+   .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+   .header {
+      background: linear-gradient(135deg, #1a5f7a 0%, #2d8a9d 100%);
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+   .header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+   .header p {
+      margin: 8px 0 0 0;
+      font-size: 0.95em;
+      opacity: 0.95;
+    }
+   .content {
+      padding: 32px 24px;
+    }
+   .section {
+      margin-bottom: 24px;
+    }
+   .section h2 {
+      font-size: 1.2em;
+      color: #1a3a52;
+      margin: 0 0 12px 0;
+      border-bottom: 2px solid #d4a574;
+      padding-bottom: 8px;
+    }
+   .property-summary {
+      background: #f8f4ec;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #d4a574;
+      margin: 16px 0;
+    }
+   .property-detail {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 0.95em;
+    }
+   .detail-label {
+      font-weight: 600;
+      color: #1a3a52;
+    }
+   .detail-value {
+      color: #555;
+    }
+   .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #1a3a52;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      margin: 12px 0;
+    }
+   .cta-button:hover {
+      background: #0f2331;
+    }
+   .timeline {
+      background: #f0f8ff;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #0066cc;
+    }
+   .timeline-item {
+      margin: 12px 0;
+      font-size: 0.95em;
+    }
+   .timeline-title {
+      font-weight: 600;
+      color: #0066cc;
+    }
+   .timeline-desc {
+      color: #555;
+      margin-top: 4px;
+    }
+   .comparable {
+      background: #f9f9f9;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+      border-left: 3px solid #999;
+    }
+   .next-steps {
+      background: #f0fff4;
+      padding: 16px;
+      border-radius: 8px;
+      border-left: 4px solid #2ecc71;
+    }
+   .next-steps h3 {
+      margin-top: 0;
+      color: #1a3a52;
+    }
+   .next-steps ol {
+      padding-left: 20px;
+      color: #555;
+    }
+   .next-steps li {
+      margin: 8px 0;
+      font-size: 0.95em;
+    }
+   .footer {
+      background: #f5f5f5;
+      padding: 24px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 0.85em;
+      color: #999;
+    }
+   .contact-info {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      margin: 16px 0;
+    }
+   .contact-row {
+      margin: 8px 0;
+    }
+   .contact-row strong {
+      color: #1a3a52;
+    }
+   .social-links {
+      text-align: center;
+      margin-top: 16px;
+    }
+   .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      background: #1a3a52;
+      color: white;
+      text-decoration: none;
+      border-radius: 50%;
+      margin: 0 4px;
+      font-size: 1.2em;
+    }
+   .divider {
+      border: 0;
+      border-top: 1px solid #ddd;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="email-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>{{property_name}}</h1>
-            <p>Investment Opportunity in El Dorado, Kansas</p>
-        </div>
-
-        <!-- Main Content -->
-        <div class="content">
-            <!-- Greeting -->
-            <p>Dear {{contact_first_name}},</p>
-            <p>Thank you for your interest in {{property_name}}! We're excited to explore this opportunity with you. Below, you'll find key details about the property and next steps to move forward.</p>
-
-            <!-- Property Summary -->
-            <div class="section">
-                <h2>📍 Property Overview</h2>
-                <div class="property-summary">
-                    <div class="property-detail">
-                        <span class="detail-label">Zone:</span>
-                        <span class="detail-value">{{zone}}</span>
-                    </div>
-                    <div class="property-detail">
-                        <span class="detail-label">Size:</span>
-                        <span class="detail-value">{{acres}} acres</span>
-                    </div>
-                    <div class="property-detail">
-                        <span class="detail-label">Price:</span>
-                        <span class="detail-value">${{price}}M</span>
-                    </div>
-                    <div class="property-detail">
-                        <span class="detail-label">District:</span>
-                        <span class="detail-value">{{district}}</span>
-                    </div>
-                    <div class="property-detail">
-                        <span class="detail-label">Status:</span>
-                        <span class="detail-value">{{status}}</span>
-                    </div>
-                </div>
-                <p><strong>Description:</strong> {{description}}</p>
-            </div>
-
-            <!-- Market Context -->
-            <div class="section">
-                <h2>📊 Market Context & Comparables</h2>
-                <p>El Dorado offers significant advantages over comparable regional markets:</p>
-                <div class="comparable">
-                    <strong>El Dorado ({{zone}} District):</strong><br>
-                    ${{price}}M for {{acres}} acres = ${{price_per_acre}}/acre
-                </div>
-                <div class="comparable">
-                    <strong>Wichita Suburbs (Comparable):</strong><br>
-                    $1.2M for comparable land = ~20–30% premium
-                </div>
-                <div class="comparable">
-                    <strong>Regional (OK/AR):</strong><br>
-                    $0.9M average = Similar to El Dorado, but less highway connectivity
-                </div>
-                <p style="margin-top: 12px;"><strong>El Dorado Advantage:</strong> Superior highway access (I-35 + US-54/77), established utilities, unique water supply contract with US Army Corps of Engineers, $55M county reserves, demonstrated execution on Phase 8 infrastructure.</p>
-            </div>
-
-            <!-- Permitting Timeline -->
-            <div class="section">
-                <h2>⏱️ Permitting & Development Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-title">Weeks 1–2: Initial Documentation</div>
-                        <div class="timeline-desc">We'll provide survey, title report, zoning letter, environmental summary, and tax incentive options.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">Weeks 3–4: Feasibility Review</div>
-                        <div class="timeline-desc">You complete preliminary due diligence. We facilitate site visit, introduce regional contractors, discuss financing options.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">Weeks 5–8: Non-Binding LOI</div>
-                        <div class="timeline-desc">Once aligned, we draft non-binding LOI outlining terms, tax abatement structure, permitting timeline, and next steps.</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-title">Months 3–6: Permitting</div>
-                        <div class="timeline-desc">Zoning (30–60 days) → Environmental (60–90 days) → Building Permits (15–30 days). City Manager office provides expedited review for Vision 2040 aligned projects.</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Available Resources -->
-            <div class="section">
-                <h2>📚 Resources to Support Your Decision</h2>
-                <ul style="color: #555;">
-                    <li><strong><a href="https://eldorado2040.com/development-finder" style="color: #0066cc; text-decoration: none;">Development Finder:</a></strong> Browse all {{total_properties}} available properties with ROI calculator.</li>
-                    <li><strong><a href="https://eldorado2040.com/project-tracker" style="color: #0066cc; text-decoration: none;">Project Tracker:</a></strong> Real-time status on Phase 8 infrastructure ($75M deployed, 14% YoY progress).</li>
-                    <li><strong><a href="https://eldorado2040.com/investor-portal" style="color: #0066cc; text-decoration: none;">Investor Portal:</a></strong> Executive summary, investor FAQ, risk assessment, comparable deals.</li>
-                    <li><strong><a href="https://eldorado2040.com/financial-dashboard" style="color: #0066cc; text-decoration: none;">Financial Dashboard:</a></strong> County fiscal health, funding sources, tax revenue projections.</li>
-                    <li><strong><a href="https://eldorado2040.com/investor-pitch-deck" style="color: #0066cc; text-decoration: none;">Investment Pitch Deck:</a></strong> One-page downloadable brief with KPIs, ROI models, comparable markets.</li>
-                </ul>
-            </div>
-
-            <!-- Next Steps -->
-            <div class="next-steps">
-                <h3>✅ Next Steps</h3>
-                <ol>
-                    <li><strong>Review Materials:</strong> Check the resources above. Reach out if you have questions.</li>
-                    <li><strong>Schedule Site Visit:</strong> We'll arrange a tour of {{property_name}} and introduce local stakeholders (City Manager, contractors, utility providers).</li>
-                    <li><strong>Discuss Financing:</strong> We can connect you with USDA Rural Development, state programs, and private lenders familiar with regional deals.</li>
-                    <li><strong>Move to Non-Binding LOI:</strong> Once aligned on vision and terms, we'll draft preliminary agreement and establish timeline.</li>
-                </ol>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <div class="contact-row">
-                    <strong>📧 Email:</strong> econ-dev@eldoradoks.net
-                </div>
-                <div class="contact-row">
-                    <strong>📞 Phone:</strong> (316) 321-9100
-                </div>
-                <div class="contact-row">
-                    <strong>🏛️ City Manager:</strong> David Dillner · david.dillner@eldoradoks.net
-                </div>
-                <div class="contact-row">
-                    <strong>⏱️ Response Time:</strong> Within 24 business hours for all inquiries
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div style="text-align: center; margin: 24px 0;">
-                <a href="mailto:econ-dev@eldoradoks.net?subject=RE:%20{{property_name}}%20-%20Schedule%20Site%20Visit" class="cta-button">Schedule Site Visit</a>
-                <br>
-                <a href="https://eldorado2040.com/development-finder" class="cta-button" style="background: #d4a574;">Explore More Properties</a>
-            </div>
-
-            <p style="color: #999; font-size: 0.9em; margin-top: 24px;">
-                We believe {{property_name}} represents a compelling investment opportunity in a market with demonstrated execution, strong fundamentals, and institutional-grade support. We're here to accelerate your deal flow and provide transparent due diligence guidance.
-            </p>
-
-            <p style="color: #999; font-size: 0.9em;">
-                <em>All information in this email is based on publicly available data, internal analysis, and Vision 2040 documentation. For formal investment decisions, consult with financial advisors and legal counsel.</em>
-            </p>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p style="margin: 0;">
-                <strong>El Dorado Vision 2040</strong><br>
-                Economic Development Division
-            </p>
-            <p style="margin: 12px 0 0 0;">
-                301 W Central Ave, El Dorado, KS 67042
-            </p>
-            <div class="social-links">
-                <a href="https://eldorado2040.com" title="Website">🌐</a>
-                <a href="https://facebook.com" title="Facebook">f</a>
-                <a href="https://linkedin.com" title="LinkedIn">in</a>
-            </div>
-            <p style="margin: 12px 0 0 0; font-size: 0.8em;">
-                © 2026 El Dorado Vision 2040. All rights reserved.
-            </p>
-        </div>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>{{property_name}}</h1>
+      <p>Investment Opportunity in El Dorado, Kansas</p>
     </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <!-- Greeting -->
+      <p>Dear {{contact_first_name}},</p>
+      <p>Thank you for your interest in {{property_name}}! We're excited to explore this opportunity with you. Below, you'll find key details about the property and next steps to move forward.</p>
+
+      <!-- Property Summary -->
+      <div class="section">
+        <h2>📍 Property Overview</h2>
+        <div class="property-summary">
+          <div class="property-detail">
+            <span class="detail-label">Zone:</span>
+            <span class="detail-value">{{zone}}</span>
+          </div>
+          <div class="property-detail">
+            <span class="detail-label">Size:</span>
+            <span class="detail-value">{{acres}} acres</span>
+          </div>
+          <div class="property-detail">
+            <span class="detail-label">Price:</span>
+            <span class="detail-value">${{price}}M</span>
+          </div>
+          <div class="property-detail">
+            <span class="detail-label">District:</span>
+            <span class="detail-value">{{district}}</span>
+          </div>
+          <div class="property-detail">
+            <span class="detail-label">Status:</span>
+            <span class="detail-value">{{status}}</span>
+          </div>
+        </div>
+        <p><strong>Description:</strong> {{description}}</p>
+      </div>
+
+      <!-- Market Context -->
+      <div class="section">
+        <h2>📊 Market Context & Comparables</h2>
+        <p>El Dorado offers significant advantages over comparable regional markets:</p>
+        <div class="comparable">
+          <strong>El Dorado ({{zone}} District):</strong><br>
+          ${{price}}M for {{acres}} acres = ${{price_per_acre}}/acre
+        </div>
+        <div class="comparable">
+          <strong>Wichita Suburbs (Comparable):</strong><br>
+          $1.2M for comparable land = ~20–30% premium
+        </div>
+        <div class="comparable">
+          <strong>Regional (OK/AR):</strong><br>
+          $0.9M average = Similar to El Dorado, but less highway connectivity
+        </div>
+        <p style="margin-top: 12px;"><strong>El Dorado Advantage:</strong> Superior highway access (I-35 + US-54/77), established utilities, unique water supply contract with US Army Corps of Engineers, $55M county reserves, demonstrated execution on Phase 8 infrastructure.</p>
+      </div>
+
+      <!-- Permitting Timeline -->
+      <div class="section">
+        <h2>⏱️ Permitting & Development Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-title">Weeks 1–2: Initial Documentation</div>
+            <div class="timeline-desc">We'll provide survey, title report, zoning letter, environmental summary, and tax incentive options.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Weeks 3–4: Feasibility Review</div>
+            <div class="timeline-desc">You complete preliminary due diligence. We facilitate site visit, introduce regional contractors, discuss financing options.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Weeks 5–8: Non-Binding LOI</div>
+            <div class="timeline-desc">Once aligned, we draft non-binding LOI outlining terms, tax abatement structure, permitting timeline, and next steps.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-title">Months 3–6: Permitting</div>
+            <div class="timeline-desc">Zoning (30–60 days) → Environmental (60–90 days) → Building Permits (15–30 days). City Manager office provides expedited review for Vision 2040 aligned projects.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Available Resources -->
+      <div class="section">
+        <h2>📚 Resources to Support Your Decision</h2>
+        <ul style="color: #555;">
+          <li><strong><a href="https://eldorado2040.com/development-finder" style="color: #0066cc; text-decoration: none;">Development Finder:</a></strong> Browse all {{total_properties}} available properties with ROI calculator.</li>
+          <li><strong><a href="https://eldorado2040.com/project-tracker" style="color: #0066cc; text-decoration: none;">Project Tracker:</a></strong> Real-time status on Phase 8 infrastructure ($75M deployed, 14% YoY progress).</li>
+          <li><strong><a href="https://eldorado2040.com/investor-portal" style="color: #0066cc; text-decoration: none;">Investor Portal:</a></strong> Executive summary, investor FAQ, risk assessment, comparable deals.</li>
+          <li><strong><a href="https://eldorado2040.com/financial-dashboard" style="color: #0066cc; text-decoration: none;">Financial Dashboard:</a></strong> County fiscal health, funding sources, tax revenue projections.</li>
+          <li><strong><a href="https://eldorado2040.com/investor-pitch-deck" style="color: #0066cc; text-decoration: none;">Investment Pitch Deck:</a></strong> One-page downloadable brief with KPIs, ROI models, comparable markets.</li>
+        </ul>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="next-steps">
+        <h3>✅ Next Steps</h3>
+        <ol>
+          <li><strong>Review Materials:</strong> Check the resources above. Reach out if you have questions.</li>
+          <li><strong>Schedule Site Visit:</strong> We'll arrange a tour of {{property_name}} and introduce local stakeholders (City Manager, contractors, utility providers).</li>
+          <li><strong>Discuss Financing:</strong> We can connect you with USDA Rural Development, state programs, and private lenders familiar with regional deals.</li>
+          <li><strong>Move to Non-Binding LOI:</strong> Once aligned on vision and terms, we'll draft preliminary agreement and establish timeline.</li>
+        </ol>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="contact-info">
+        <div class="contact-row">
+          <strong>📧 Email:</strong> econ-dev@eldoradoks.net
+        </div>
+        <div class="contact-row">
+          <strong>📞 Phone:</strong> (316) 321-9100
+        </div>
+        <div class="contact-row">
+          <strong>🏛️ City Manager:</strong> David Dillner · david.dillner@eldoradoks.net
+        </div>
+        <div class="contact-row">
+          <strong>⏱️ Response Time:</strong> Within 24 business hours for all inquiries
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align: center; margin: 24px 0;">
+        <a href="mailto:econ-dev@eldoradoks.net?subject=RE:%20{{property_name}}%20-%20Schedule%20Site%20Visit" class="cta-button">Schedule Site Visit</a>
+        <br>
+        <a href="https://eldorado2040.com/development-finder" class="cta-button" style="background: #d4a574;">Explore More Properties</a>
+      </div>
+
+      <p style="color: #999; font-size: 0.9em; margin-top: 24px;">
+        We believe {{property_name}} represents a compelling investment opportunity in a market with demonstrated execution, strong fundamentals, and institutional-grade support. We're here to accelerate your deal flow and provide transparent due diligence guidance.
+      </p>
+
+      <p style="color: #999; font-size: 0.9em;">
+        <em>All information in this email is based on publicly available data, internal analysis, and Vision 2040 documentation. For formal investment decisions, consult with financial advisors and legal counsel.</em>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p style="margin: 0;">
+        <strong>El Dorado Vision 2040</strong><br>
+        Economic Development Division
+      </p>
+      <p style="margin: 12px 0 0 0;">
+        301 W Central Ave, El Dorado, KS 67042
+      </p>
+      <div class="social-links">
+        <a href="https://eldorado2040.com" title="Website">🌐</a>
+        <a href="https://facebook.com" title="Facebook">f</a>
+        <a href="https://linkedin.com" title="LinkedIn">in</a>
+      </div>
+      <p style="margin: 12px 0 0 0; font-size: 0.8em;">
+        © 2026 El Dorado Vision 2040. All rights reserved.
+      </p>
+    </div>
+  </div>
 </body>
 </html>

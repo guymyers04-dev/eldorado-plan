@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadership Feedback Loop | Vision 2040</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <style>
-    body[data-page="feedback"] .page-nav { display: none; }
-    .feedback-hero { background: linear-gradient(135deg, #A64A7D 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
-    .feedback-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
-    .response-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 2rem; border-left: 4px solid #A64A7D; }
-    .response-header { display: flex; align-items: center; margin-bottom: 1.5rem; gap: 1rem; }
-    .leader-avatar { width: 50px; height: 50px; border-radius: 50%; background: #A64A7D; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
-    .leader-info { }
-    .leader-name { font-weight: 700; color: var(--navy); }
-    .leader-title { font-size: 0.9rem; color: #666; }
-    .response-title { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1rem 0; }
-    .response-body { color: #555; line-height: 1.7; }
-    .idea-ref { background: #f5f5f5; padding: 0.75rem; border-left: 3px solid #A64A7D; margin: 1rem 0; font-size: 0.9rem; color: #666; }
-    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Leadership Feedback Loop | Vision 2040</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/styles.css">
+ <style>
+  body[data-page="feedback"].page-nav { display: none; }
+ .feedback-hero { background: linear-gradient(135deg, #A64A7D 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
+ .feedback-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
+ .response-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 2rem; border-left: 4px solid #A64A7D; }
+ .response-header { display: flex; align-items: center; margin-bottom: 1.5rem; gap: 1rem; }
+ .leader-avatar { width: 50px; height: 50px; border-radius: 50%; background: #A64A7D; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.2rem; }
+ .leader-info { }
+ .leader-name { font-weight: 700; color: var(--navy); }
+ .leader-title { font-size: 0.9rem; color: #666; }
+ .response-title { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin: 1rem 0; }
+ .response-body { color: #555; line-height: 1.7; }
+ .idea-ref { background: #f5f5f5; padding: 0.75rem; border-left: 3px solid #A64A7D; margin: 1rem 0; font-size: 0.9rem; color: #666; }
+ .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+ </style>
 </head>
 <body data-page="feedback">
 
@@ -28,94 +28,94 @@
 <div id="nav-mount"></div>
 
 <div class="breadcrumb">
-  <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="ideas.html" style="color: var(--gold); text-decoration: none;">Community Ideas</a> › Leadership Response
+ <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="ideas.html" style="color: var(--gold); text-decoration: none;">Community Ideas</a> › Leadership Response
 </div>
 
 <div class="feedback-hero">
-  <div class="container">
-    <h1>Leadership Feedback Loop</h1>
-    <p style="font-size: 1.1rem; opacity: 0.95;">See how city leadership is responding to your ideas. Each month, our leaders address the top community ideas and share their thinking.</p>
-  </div>
+ <div class="container">
+  <h1>Leadership Feedback Loop</h1>
+  <p style="font-size: 1.1rem; opacity: 0.95;">See how city leadership is responding to your ideas. Each month, our leaders address the top community ideas and share their thinking.</p>
+ </div>
 </div>
 
 <div class="feedback-container">
-  <h3 style="color: var(--navy); margin-bottom: 1.5rem;">June 2026 Responses (Latest)</h3>
-  <div id="feedbackList"></div>
+ <h3 style="color: var(--navy); margin-bottom: 1.5rem;">June 2026 Responses (Latest)</h3>
+ <div id="feedbackList"></div>
 </div>
 
 <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="../index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+ <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="../index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
 </footer>
 
 <script src="../js/nav.js"></script>
 <script>
-  const leadershipResponses = [
-    {
-      leaderId: 'mayor',
-      leaderName: 'Mayor Benjamin Thompson',
-      leaderTitle: 'Mayor, City of El Dorado',
-      avatar: 'BT',
-      ideaTitle: 'Youth Entrepreneurship Hub on Campus',
-      ideaStatus: 'APPROVED - In Planning',
-      response: 'This is exactly the kind of initiative we need. A business incubator on the USD 490 campus will create an ecosystem where young entrepreneurs can thrive while studying. We\'re allocating funding in the FY2027 budget. Target launch: Fall 2027.',
-      date: 'June 15, 2026'
-    },
-    {
-      leaderId: 'manager',
-      leaderName: 'Robert Hayes',
-      leaderTitle: 'City Manager',
-      avatar: 'RH',
-      ideaTitle: 'Regional Food Processing Hub',
-      ideaStatus: 'UNDER STUDY',
-      response: 'Your idea aligns perfectly with our agricultural development strategy. We\'re currently conducting a feasibility study with Kansas State Extension and regional food processors. Preliminary findings suggest strong market demand. Next update: August 2026.',
-      date: 'June 8, 2026'
-    },
-    {
-      leaderId: 'council',
-      leaderName: 'City Council President Susan Park',
-      leaderTitle: 'City Council President',
-      avatar: 'SP',
-      ideaTitle: 'Affordable Student Housing Near Campus',
-      ideaStatus: 'APPROVED - RFP Issued',
-      response: 'Excellent suggestion. Housing is a recruitment barrier for regional students. We\'ve issued an RFP to developers and are targeting a 150-200 unit complex by 2028. This will support our goal of attracting 30% more students to USD 490 workforce programs.',
-      date: 'May 28, 2026'
-    }
-  ];
-
-  function displayFeedback() {
-    let html = '';
-
-    leadershipResponses.forEach(response => {
-      const statusColor = response.ideaStatus.includes('APPROVED') ? '#2E6E35' : '#1B3A5C';
-      html += `
-        <div class="response-card">
-          <div class="response-header">
-            <div class="leader-avatar">${response.avatar}</div>
-            <div class="leader-info">
-              <div class="leader-name">${response.leaderName}</div>
-              <div class="leader-title">${response.leaderTitle}</div>
-            </div>
-          </div>
-
-          <div class="idea-ref">
-            <strong>📌 RE:</strong> "${response.ideaTitle}"<br>
-            <strong style="color: ${statusColor};">${response.ideaStatus}</strong>
-          </div>
-
-          <div class="response-title">${response.leaderName}'s Response</div>
-          <div class="response-body">${response.response}</div>
-
-          <div style="font-size: 0.85rem; color: #999; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee;">
-            Posted: ${response.date}
-          </div>
-        </div>
-      `;
-    });
-
-    document.getElementById('feedbackList').innerHTML = html;
+ const leadershipResponses = [
+  {
+   leaderId: 'mayor',
+   leaderName: 'Mayor Benjamin Thompson',
+   leaderTitle: 'Mayor, City of El Dorado',
+   avatar: 'BT',
+   ideaTitle: 'Youth Entrepreneurship Hub on Campus',
+   ideaStatus: 'APPROVED - In Planning',
+   response: 'This is exactly the kind of initiative we need. A business incubator on the USD 490 campus will create an ecosystem where young entrepreneurs can thrive while studying. We\'re allocating funding in the FY2027 budget. Target launch: Fall 2027.',
+   date: 'June 15, 2026'
+  },
+  {
+   leaderId: 'manager',
+   leaderName: 'Robert Hayes',
+   leaderTitle: 'City Manager',
+   avatar: 'RH',
+   ideaTitle: 'Regional Food Processing Hub',
+   ideaStatus: 'UNDER STUDY',
+   response: 'Your idea aligns perfectly with our agricultural development strategy. We\'re currently conducting a feasibility study with Kansas State Extension and regional food processors. Preliminary findings suggest strong market demand. Next update: August 2026.',
+   date: 'June 8, 2026'
+  },
+  {
+   leaderId: 'council',
+   leaderName: 'City Council President Susan Park',
+   leaderTitle: 'City Council President',
+   avatar: 'SP',
+   ideaTitle: 'Affordable Student Housing Near Campus',
+   ideaStatus: 'APPROVED - RFP Issued',
+   response: 'Excellent suggestion. Housing is a recruitment barrier for regional students. We\'ve issued an RFP to developers and are targeting a 150-200 unit complex by 2028. This will support our goal of attracting 30% more students to USD 490 workforce programs.',
+   date: 'May 28, 2026'
   }
+ ];
 
-  window.addEventListener('load', displayFeedback);
+ function displayFeedback() {
+  let html = '';
+
+  leadershipResponses.forEach(response => {
+   const statusColor = response.ideaStatus.includes('APPROVED')? '#2E6E35' : '#1B3A5C';
+   html += `
+    <div class="response-card">
+     <div class="response-header">
+      <div class="leader-avatar">${response.avatar}</div>
+      <div class="leader-info">
+       <div class="leader-name">${response.leaderName}</div>
+       <div class="leader-title">${response.leaderTitle}</div>
+      </div>
+     </div>
+
+     <div class="idea-ref">
+      <strong>📌 RE:</strong> "${response.ideaTitle}"<br>
+      <strong style="color: ${statusColor};">${response.ideaStatus}</strong>
+     </div>
+
+     <div class="response-title">${response.leaderName}'s Response</div>
+     <div class="response-body">${response.response}</div>
+
+     <div style="font-size: 0.85rem; color: #999; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee;">
+      Posted: ${response.date}
+     </div>
+    </div>
+   `;
+  });
+
+  document.getElementById('feedbackList').innerHTML = html;
+ }
+
+ window.addEventListener('load', displayFeedback);
 </script>
 <script src="../js/analytics.js" defer></script>
 

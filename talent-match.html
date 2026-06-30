@@ -1,318 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talent Match — El Dorado, KS | Find Your Career</title>
-  <meta name="description" content="Interactive career matching tool. Answer 5 questions and discover which El Dorado career path fits you best." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    .quiz-container {
-      max-width: 600px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .quiz-question {
-      display: none;
-    }
-    .quiz-question.active {
-      display: block;
-    }
-    .question-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #333;
-    }
-    .answer-option {
-      display: block;
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 12px;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      background: white;
-      cursor: pointer;
-      text-align: left;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
-    .answer-option:hover {
-      border-color: #b8860b;
-      background: #fafafa;
-    }
-    .answer-option.selected {
-      border-color: #b8860b;
-      background: #b8860b;
-      color: white;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 6px;
-      background: #f0f0f0;
-      border-radius: 3px;
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: #b8860b;
-      transition: width 0.3s ease;
-    }
-    .button-group {
-      display: flex;
-      gap: 12px;
-      justify-content: space-between;
-      margin-top: 24px;
-    }
-    .btn {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-    .btn-secondary {
-      background: #f0f0f0;
-      color: #333;
-    }
-    .btn-secondary:hover {
-      background: #ddd;
-    }
-    .btn-primary {
-      background: #b8860b;
-      color: white;
-    }
-    .btn-primary:hover {
-      background: #8b6508;
-    }
-    .result-card {
-      display: none;
-      background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05));
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-    }
-    .result-card.active {
-      display: block;
-    }
-    .result-emoji {
-      font-size: 60px;
-      margin-bottom: 16px;
-    }
-    .result-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 12px;
-    }
-    .result-description {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .result-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 24px 0;
-    }
-    .result-stat {
-      background: white;
-      padding: 16px;
-      border-radius: 8px;
-    }
-    .stat-value {
-      font-size: 20px;
-      font-weight: 700;
-      color: #b8860b;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: #666;
-      margin-top: 4px;
-    }
-  </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Talent Match — El Dorado, KS | Find Your Career</title>
+ <meta name="description" content="Interactive career matching tool. Answer 5 questions and discover which El Dorado career path fits you best." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="css/styles.css" />
+ <style>
+ .quiz-container {
+   max-width: 600px;
+   margin: 40px auto;
+   background: white;
+   padding: 40px;
+   border-radius: 12px;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+ .quiz-question {
+   display: none;
+  }
+ .quiz-question.active {
+   display: block;
+  }
+ .question-title {
+   font-size: 22px;
+   font-weight: 700;
+   margin-bottom: 24px;
+   color: #333;
+  }
+ .answer-option {
+   display: block;
+   width: 100%;
+   padding: 16px;
+   margin-bottom: 12px;
+   border: 2px solid #ddd;
+   border-radius: 8px;
+   background: white;
+   cursor: pointer;
+   text-align: left;
+   font-size: 15px;
+   transition: all 0.3s ease;
+  }
+ .answer-option:hover {
+   border-color: #b8860b;
+   background: #fafafa;
+  }
+ .answer-option.selected {
+   border-color: #b8860b;
+   background: #b8860b;
+   color: white;
+  }
+ .progress-bar {
+   width: 100%;
+   height: 6px;
+   background: #f0f0f0;
+   border-radius: 3px;
+   margin-bottom: 24px;
+   overflow: hidden;
+  }
+ .progress-fill {
+   height: 100%;
+   background: #b8860b;
+   transition: width 0.3s ease;
+  }
+ .button-group {
+   display: flex;
+   gap: 12px;
+   justify-content: space-between;
+   margin-top: 24px;
+  }
+ .btn {
+   padding: 12px 24px;
+   border: none;
+   border-radius: 6px;
+   cursor: pointer;
+   font-weight: 600;
+   font-size: 14px;
+   transition: all 0.3s ease;
+  }
+ .btn-secondary {
+   background: #f0f0f0;
+   color: #333;
+  }
+ .btn-secondary:hover {
+   background: #ddd;
+  }
+ .btn-primary {
+   background: #b8860b;
+   color: white;
+  }
+ .btn-primary:hover {
+   background: #8b6508;
+  }
+ .result-card {
+   display: none;
+   background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05));
+   padding: 40px;
+   border-radius: 12px;
+   text-align: center;
+  }
+ .result-card.active {
+   display: block;
+  }
+ .result-emoji {
+   font-size: 60px;
+   margin-bottom: 16px;
+  }
+ .result-title {
+   font-size: 28px;
+   font-weight: 700;
+   color: #333;
+   margin-bottom: 12px;
+  }
+ .result-description {
+   font-size: 15px;
+   color: #666;
+   line-height: 1.6;
+   margin-bottom: 24px;
+  }
+ .result-stats {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 16px;
+   margin: 24px 0;
+  }
+ .result-stat {
+   background: white;
+   padding: 16px;
+   border-radius: 8px;
+  }
+ .stat-value {
+   font-size: 20px;
+   font-weight: 700;
+   color: #b8860b;
+  }
+ .stat-label {
+   font-size: 12px;
+   color: #666;
+   margin-top: 4px;
+  }
+ </style>
 </head>
 <body data-page="talent-match">
 <nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="city">El Dorado, KS</span>
-      <span class="tagline">Vision 2040 · Regional Development Plan</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">← Home</a></li>
-      <li class="nav-group">
-        <button class="nav-group-btn">Workforce</button>
-        <div class="nav-dropdown" role="menu">
-          <a href="career-pathways.html">🚀 Career Pathways</a>
-          <a href="skills-marketplace.html">📚 Skills & Training</a>
-          <a href="talent-match.html">🎯 Find Your Fit</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+ <div class="nav-inner">
+  <a href="index.html" class="nav-brand">
+   <span class="city">El Dorado, KS</span>
+   <span class="tagline">Vision 2040 · Regional Development Plan</span>
+  </a>
+  <ul class="nav-links">
+   <li><a href="index.html">← Home</a></li>
+   <li class="nav-group">
+    <button class="nav-group-btn">Workforce</button>
+    <div class="nav-dropdown" role="menu">
+     <a href="career-pathways.html">🚀 Career Pathways</a>
+     <a href="skills-marketplace.html">📚 Skills & Training</a>
+     <a href="talent-match.html">🎯 Find Your Fit</a>
+    </div>
+   </li>
+  </ul>
+ </div>
 </nav>
 
 <main role="main">
-  <section style="text-align: center; margin-bottom: 40px;">
-    <h1 style="font-size: 40px; margin-bottom: 12px;">Find Your Perfect Career Fit</h1>
-    <p style="font-size: 16px; color: #666; max-width: 600px; margin: 0 auto;">Answer 5 quick questions. We'll match you with El Dorado careers that fit your interests and skills.</p>
-  </section>
+ <section style="text-align: center; margin-bottom: 40px;">
+  <h1 style="font-size: 40px; margin-bottom: 12px;">Find Your Perfect Career Fit</h1>
+  <p style="font-size: 16px; color: #666; max-width: 600px; margin: 0 auto;">Answer 5 quick questions. We'll match you with El Dorado careers that fit your interests and skills.</p>
+ </section>
 
-  <div class="quiz-container">
-    <div class="progress-bar">
-      <div class="progress-fill" id="progress" style="width: 0%;"></div>
-    </div>
-
-    <!-- Question 1 -->
-    <div class="quiz-question active">
-      <div class="question-title">What energizes you most?</div>
-      <button class="answer-option" onclick="selectAnswer(0, 'hands-on')">🏭 Working with your hands / Building things</button>
-      <button class="answer-option" onclick="selectAnswer(0, 'helping')">⚕️ Helping people / Solving problems</button>
-      <button class="answer-option" onclick="selectAnswer(0, 'tech')">💻 Technology / Coding / Problem-solving</button>
-      <button class="answer-option" onclick="selectAnswer(0, 'business')">📊 Business / Planning / Strategy</button>
-    </div>
-
-    <!-- Question 2 -->
-    <div class="quiz-question">
-      <div class="question-title">What's your education background?</div>
-      <button class="answer-option" onclick="selectAnswer(1, 'hs')">🎓 High school diploma</button>
-      <button class="answer-option" onclick="selectAnswer(1, 'cert')">📜 Trade cert / Some college</button>
-      <button class="answer-option" onclick="selectAnswer(1, 'degree')">🎓 Associate degree</button>
-      <button class="answer-option" onclick="selectAnswer(1, 'bs')">🎓 Bachelor's degree or higher</button>
-    </div>
-
-    <!-- Question 3 -->
-    <div class="quiz-question">
-      <div class="question-title">What's your experience level?</div>
-      <button class="answer-option" onclick="selectAnswer(2, 'entry')">🌱 Just starting out</button>
-      <button class="answer-option" onclick="selectAnswer(2, 'some')">📈 2-5 years experience</button>
-      <button class="answer-option" onclick="selectAnswer(2, 'experienced')">⭐ 5+ years experience</button>
-      <button class="answer-option" onclick="selectAnswer(2, 'leader')">👔 Ready for leadership</button>
-    </div>
-
-    <!-- Question 4 -->
-    <div class="quiz-question">
-      <div class="question-title">What matters most in a job?</div>
-      <button class="answer-option" onclick="selectAnswer(3, 'salary')">💰 High income potential</button>
-      <button class="answer-option" onclick="selectAnswer(3, 'stability')">🔒 Job security & stability</button>
-      <button class="answer-option" onclick="selectAnswer(3, 'growth')">🚀 Growth & advancement</button>
-      <button class="answer-option" onclick="selectAnswer(3, 'impact')">🤝 Making a difference</button>
-    </div>
-
-    <!-- Question 5 -->
-    <div class="quiz-question">
-      <div class="question-title">Where do you see yourself in 10 years?</div>
-      <button class="answer-option" onclick="selectAnswer(4, 'own')">🏢 Owning a business</button>
-      <button class="answer-option" onclick="selectAnswer(4, 'specialist')">🎯 Expert in my field</button>
-      <button class="answer-option" onclick="selectAnswer(4, 'manager')">👨‍💼 Managing a team</button>
-      <button class="answer-option" onclick="selectAnswer(4, 'balance')">⚖️ Good work-life balance</button>
-    </div>
-
-    <!-- Results -->
-    <div class="result-card" id="result">
-      <div class="result-emoji" id="result-emoji">🎯</div>
-      <div class="result-title" id="result-title">Great Match!</div>
-      <div class="result-description" id="result-description">Based on your answers...</div>
-      <div class="result-stats">
-        <div class="result-stat">
-          <div class="stat-value" id="result-salary">$65k</div>
-          <div class="stat-label">Avg Salary</div>
-        </div>
-        <div class="result-stat">
-          <div class="stat-value" id="result-growth">10 yrs</div>
-          <div class="stat-label">Growth Timeline</div>
-        </div>
-      </div>
-      <a href="career-pathways.html" style="display: inline-block; background: #b8860b; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 16px;">View Career Path</a>
-    </div>
-
-    <div class="button-group">
-      <button class="btn btn-secondary" onclick="previousQuestion()">← Back</button>
-      <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next →</button>
-    </div>
+ <div class="quiz-container">
+  <div class="progress-bar">
+   <div class="progress-fill" id="progress" style="width: 0%;"></div>
   </div>
+
+  <!-- Question 1 -->
+  <div class="quiz-question active">
+   <div class="question-title">What energizes you most?</div>
+   <button class="answer-option" onclick="selectAnswer(0, 'hands-on')">🏭 Working with your hands / Building things</button>
+   <button class="answer-option" onclick="selectAnswer(0, 'helping')">⚕️ Helping people / Solving problems</button>
+   <button class="answer-option" onclick="selectAnswer(0, 'tech')">💻 Technology / Coding / Problem-solving</button>
+   <button class="answer-option" onclick="selectAnswer(0, 'business')">📊 Business / Planning / Strategy</button>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="quiz-question">
+   <div class="question-title">What's your education background?</div>
+   <button class="answer-option" onclick="selectAnswer(1, 'hs')">🎓 High school diploma</button>
+   <button class="answer-option" onclick="selectAnswer(1, 'cert')">📜 Trade cert / Some college</button>
+   <button class="answer-option" onclick="selectAnswer(1, 'degree')">🎓 Associate degree</button>
+   <button class="answer-option" onclick="selectAnswer(1, 'bs')">🎓 Bachelor's degree or higher</button>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="quiz-question">
+   <div class="question-title">What's your experience level?</div>
+   <button class="answer-option" onclick="selectAnswer(2, 'entry')">🌱 Just starting out</button>
+   <button class="answer-option" onclick="selectAnswer(2, 'some')">📈 2-5 years experience</button>
+   <button class="answer-option" onclick="selectAnswer(2, 'experienced')">⭐ 5+ years experience</button>
+   <button class="answer-option" onclick="selectAnswer(2, 'leader')">👔 Ready for leadership</button>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="quiz-question">
+   <div class="question-title">What matters most in a job?</div>
+   <button class="answer-option" onclick="selectAnswer(3, 'salary')">💰 High income potential</button>
+   <button class="answer-option" onclick="selectAnswer(3, 'stability')">🔒 Job security & stability</button>
+   <button class="answer-option" onclick="selectAnswer(3, 'growth')">🚀 Growth & advancement</button>
+   <button class="answer-option" onclick="selectAnswer(3, 'impact')">🤝 Making a difference</button>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="quiz-question">
+   <div class="question-title">Where do you see yourself in 10 years?</div>
+   <button class="answer-option" onclick="selectAnswer(4, 'own')">🏢 Owning a business</button>
+   <button class="answer-option" onclick="selectAnswer(4, 'specialist')">🎯 Expert in my field</button>
+   <button class="answer-option" onclick="selectAnswer(4, 'manager')">👨‍💼 Managing a team</button>
+   <button class="answer-option" onclick="selectAnswer(4, 'balance')">⚖️ Good work-life balance</button>
+  </div>
+
+  <!-- Results -->
+  <div class="result-card" id="result">
+   <div class="result-emoji" id="result-emoji">🎯</div>
+   <div class="result-title" id="result-title">Great Match!</div>
+   <div class="result-description" id="result-description">Based on your answers...</div>
+   <div class="result-stats">
+    <div class="result-stat">
+     <div class="stat-value" id="result-salary">$65k</div>
+     <div class="stat-label">Avg Salary</div>
+    </div>
+    <div class="result-stat">
+     <div class="stat-value" id="result-growth">10 yrs</div>
+     <div class="stat-label">Growth Timeline</div>
+    </div>
+   </div>
+   <a href="career-pathways.html" style="display: inline-block; background: #b8860b; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 16px;">View Career Path</a>
+  </div>
+
+  <div class="button-group">
+   <button class="btn btn-secondary" onclick="previousQuestion()">← Back</button>
+   <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Next →</button>
+  </div>
+ </div>
 </main>
 
 <footer style="background: #f5f5f5; padding: 40px 24px; margin-top: 80px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666;">
-  <p style="margin: 0;">El Dorado Vision 2040 | Career Matching Tool | <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back</a></p>
+ <p style="margin: 0;">El Dorado Vision 2040 | Career Matching Tool | <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back</a></p>
 </footer>
 
 <script>
-  const answers = ['', '', '', '', ''];
-  let currentQuestion = 0;
+ const answers = ['', '', '', '', ''];
+ let currentQuestion = 0;
 
-  const results = {
-    'hands-on:hs:entry:salary:own': { title: 'Skilled Trades Entrepreneur', emoji: '🔧', salary: '$65k-$200k+', desc: 'Start as apprentice, become master tradesperson, own your contracting business.' },
-    'hands-on:cert:some:stability:specialist': { title: 'Manufacturing Technician', emoji: '🏭', salary: '$52k-$75k', desc: 'CNC operations, quality control, specialized manufacturing roles.' },
-    'helping:cert:some:impact:balance': { title: 'Registered Nurse', emoji: '⚕️', salary: '$62k-$88k', desc: 'Stable healthcare career with direct community impact and good work-life balance.' },
-    'tech:bs:experienced:salary:manager': { title: 'Tech Leader', emoji: '💻', salary: '$110k-$160k+', desc: 'Senior software developer or tech director role. High growth potential.' },
-    'business:degree:experienced:growth:manager': { title: 'Business Manager', emoji: '📊', salary: '$72k-$125k', desc: 'Lead operations, build teams, manage P&L. Clear path to executive roles.' },
-  };
+ const results = {
+  'hands-on:hs:entry:salary:own': { title: 'Skilled Trades Entrepreneur', emoji: '🔧', salary: '$65k-$200k+', desc: 'Start as apprentice, become master tradesperson, own your contracting business.' },
+  'hands-on:cert:some:stability:specialist': { title: 'Manufacturing Technician', emoji: '🏭', salary: '$52k-$75k', desc: 'CNC operations, quality control, specialized manufacturing roles.' },
+  'helping:cert:some:impact:balance': { title: 'Registered Nurse', emoji: '⚕️', salary: '$62k-$88k', desc: 'Stable healthcare career with direct community impact and good work-life balance.' },
+  'tech:bs:experienced:salary:manager': { title: 'Tech Leader', emoji: '💻', salary: '$110k-$160k+', desc: 'Senior software developer or tech director role. High growth potential.' },
+  'business:degree:experienced:growth:manager': { title: 'Business Manager', emoji: '📊', salary: '$72k-$125k', desc: 'Lead operations, build teams, manage P&L. Clear path to executive roles.' },
+ };
 
-  function selectAnswer(questionIndex, answer) {
-    answers[questionIndex] = answer;
-    document.querySelectorAll('.quiz-question')[questionIndex].querySelectorAll('.answer-option').forEach(opt => opt.classList.remove('selected'));
-    event.target.classList.add('selected');
-    updateProgress();
-  }
-
-  function nextQuestion() {
-    if (currentQuestion < 4) {
-      currentQuestion++;
-      document.querySelectorAll('.quiz-question').forEach((q, i) => {
-        q.classList.toggle('active', i === currentQuestion);
-      });
-      updateProgress();
-    } else {
-      showResults();
-    }
-  }
-
-  function previousQuestion() {
-    if (currentQuestion > 0) {
-      currentQuestion--;
-      document.querySelectorAll('.quiz-question').forEach((q, i) => {
-        q.classList.toggle('active', i === currentQuestion);
-      });
-      updateProgress();
-    }
-  }
-
-  function updateProgress() {
-    const progress = ((currentQuestion + 1) / 5) * 100;
-    document.getElementById('progress').style.width = progress + '%';
-    document.getElementById('nextBtn').textContent = currentQuestion === 4 ? 'See Results' : 'Next →';
-  }
-
-  function showResults() {
-    document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
-    document.getElementById('result').classList.add('active');
-
-    const key = answers.join(':');
-    const defaultResult = { title: 'Perfect Match!', emoji: '🎯', salary: '$50k-$95k', desc: 'You\'re well-suited for multiple El Dorado careers. Explore career pathways above.' };
-    const result = results[key] || defaultResult;
-
-    document.getElementById('result-emoji').textContent = result.emoji;
-    document.getElementById('result-title').textContent = result.title;
-    document.getElementById('result-salary').textContent = result.salary;
-    document.getElementById('result-description').textContent = result.desc;
-
-    document.querySelector('.button-group').style.display = 'none';
-  }
-
+ function selectAnswer(questionIndex, answer) {
+  answers[questionIndex] = answer;
+  document.querySelectorAll('.quiz-question')[questionIndex].querySelectorAll('.answer-option').forEach(opt => opt.classList.remove('selected'));
+  event.target.classList.add('selected');
   updateProgress();
+ }
+
+ function nextQuestion() {
+  if (currentQuestion < 4) {
+   currentQuestion++;
+   document.querySelectorAll('.quiz-question').forEach((q, i) => {
+    q.classList.toggle('active', i === currentQuestion);
+   });
+   updateProgress();
+  } else {
+   showResults();
+  }
+ }
+
+ function previousQuestion() {
+  if (currentQuestion > 0) {
+   currentQuestion--;
+   document.querySelectorAll('.quiz-question').forEach((q, i) => {
+    q.classList.toggle('active', i === currentQuestion);
+   });
+   updateProgress();
+  }
+ }
+
+ function updateProgress() {
+  const progress = ((currentQuestion + 1) / 5) * 100;
+  document.getElementById('progress').style.width = progress + '%';
+  document.getElementById('nextBtn').textContent = currentQuestion === 4? 'See Results' : 'Next →';
+ }
+
+ function showResults() {
+  document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+  document.getElementById('result').classList.add('active');
+
+  const key = answers.join(':');
+  const defaultResult = { title: 'Perfect Match!', emoji: '🎯', salary: '$50k-$95k', desc: 'You\'re well-suited for multiple El Dorado careers. Explore career pathways above.' };
+  const result = results[key] || defaultResult;
+
+  document.getElementById('result-emoji').textContent = result.emoji;
+  document.getElementById('result-title').textContent = result.title;
+  document.getElementById('result-salary').textContent = result.salary;
+  document.getElementById('result-description').textContent = result.desc;
+
+  document.querySelector('.button-group').style.display = 'none';
+ }
+
+ updateProgress();
 </script>
 </body>
 </html>

@@ -1,481 +1,481 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Satellite Timeline | El Dorado Vision 2040</title>
-    <meta name="description" content="Watch El Dorado's growth over time with interactive satellite imagery from 2015-2026. Track development progress and project evolution.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satellite Timeline | El Dorado Vision 2040</title>
+  <meta name="description" content="Watch El Dorado's growth over time with interactive satellite imagery from 2015-2026. Track development progress and project evolution.">
 
-    <!-- Mapbox GL -->
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <!-- Mapbox GL -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #0a0e27;
-            color: #fff;
-            overflow: hidden;
-            height: 100vh;
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0a0e27;
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+    }
 
-        #map {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
+    #map {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
 
-        .timeline-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+   .timeline-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .timeline-header {
-            background: rgba(10, 14, 39, 0.95);
-            padding: 16px;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
-            z-index: 100;
-        }
+   .timeline-header {
+      background: rgba(10, 14, 39, 0.95);
+      padding: 16px;
+      border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+      z-index: 100;
+    }
 
-        .timeline-header h1 {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ffd700;
-            margin-bottom: 8px;
-        }
+   .timeline-header h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffd700;
+      margin-bottom: 8px;
+    }
 
-        .timeline-header p {
-            font-size: 12px;
-            color: #a0a0a0;
-        }
+   .timeline-header p {
+      font-size: 12px;
+      color: #a0a0a0;
+    }
 
-        .timeline-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
-            padding: 20px;
-            z-index: 50;
-        }
+   .timeline-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(10, 14, 39, 0.95), transparent);
+      padding: 20px;
+      z-index: 50;
+    }
 
-        .timeline-slider-container {
-            margin-bottom: 16px;
-        }
+   .timeline-slider-container {
+      margin-bottom: 16px;
+    }
 
-        .timeline-year-display {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffd700;
-            text-align: center;
-            margin-bottom: 8px;
-        }
+   .timeline-year-display {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffd700;
+      text-align: center;
+      margin-bottom: 8px;
+    }
 
-        .timeline-slider {
-            width: 100%;
-            height: 8px;
-            border-radius: 4px;
-            background: rgba(255, 215, 0, 0.2);
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-        }
+   .timeline-slider {
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 215, 0, 0.2);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
 
-        .timeline-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #ffd700;
-            cursor: pointer;
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-            transition: all 0.2s;
-        }
+   .timeline-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #ffd700;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+      transition: all 0.2s;
+    }
 
-        .timeline-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
-        }
+   .timeline-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+    }
 
-        .timeline-slider::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #ffd700;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-            transition: all 0.2s;
-        }
+   .timeline-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #ffd700;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+      transition: all 0.2s;
+    }
 
-        .timeline-slider::-moz-range-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
-        }
+   .timeline-slider::-moz-range-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+    }
 
-        .timeline-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+   .timeline-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-        button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-transform: uppercase;
-        }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
 
-        .btn-primary {
-            background: #ffd700;
-            color: #0a0e27;
-        }
+   .btn-primary {
+      background: #ffd700;
+      color: #0a0e27;
+    }
 
-        .btn-primary:hover {
-            background: #ffed4e;
-            box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
-        }
+   .btn-primary:hover {
+      background: #ffed4e;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+    }
 
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+   .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
-        .btn-secondary {
-            background: rgba(255, 215, 0, 0.2);
-            color: #ffd700;
-            border: 1px solid rgba(255, 215, 0, 0.4);
-        }
+   .btn-secondary {
+      background: rgba(255, 215, 0, 0.2);
+      color: #ffd700;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+    }
 
-        .btn-secondary:hover {
-            background: rgba(255, 215, 0, 0.3);
-        }
+   .btn-secondary:hover {
+      background: rgba(255, 215, 0, 0.3);
+    }
 
-        .btn-small {
-            padding: 6px 12px;
-            font-size: 11px;
-        }
+   .btn-small {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
 
-        .timeline-legend {
-            position: absolute;
-            top: 60px;
-            right: 16px;
-            background: rgba(10, 14, 39, 0.95);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            border-radius: 8px;
-            padding: 12px;
-            z-index: 40;
-            max-width: 250px;
-        }
+   .timeline-legend {
+      position: absolute;
+      top: 60px;
+      right: 16px;
+      background: rgba(10, 14, 39, 0.95);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: 8px;
+      padding: 12px;
+      z-index: 40;
+      max-width: 250px;
+    }
 
-        .legend-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: #ffd700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
+   .legend-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
 
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 11px;
-            color: #a0a0a0;
-        }
+   .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      color: #a0a0a0;
+    }
 
-        .legend-item:last-child {
-            margin-bottom: 0;
-        }
+   .legend-item:last-child {
+      margin-bottom: 0;
+    }
 
-        .legend-color {
-            width: 16px;
-            height: 16px;
-            border-radius: 2px;
-        }
+   .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+    }
 
-        .project-info {
-            position: absolute;
-            top: 60px;
-            left: 16px;
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 4px;
-            padding: 12px;
-            font-size: 12px;
-            color: #ffd700;
-            z-index: 30;
-            max-width: 300px;
-            display: none;
-        }
+   .project-info {
+      position: absolute;
+      top: 60px;
+      left: 16px;
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 12px;
+      color: #ffd700;
+      z-index: 30;
+      max-width: 300px;
+      display: none;
+    }
 
-        .project-info.active {
-            display: block;
-        }
+   .project-info.active {
+      display: block;
+    }
 
-        .project-info-title {
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: #ffd700;
-        }
+   .project-info-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #ffd700;
+    }
 
-        .project-info-details {
-            font-size: 11px;
-            color: #a0a0a0;
-            line-height: 1.4;
-        }
+   .project-info-details {
+      font-size: 11px;
+      color: #a0a0a0;
+      line-height: 1.4;
+    }
 
-        .progress-indicator {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 6px;
-        }
+   .progress-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
 
-        .progress-bar {
-            flex: 1;
-            height: 4px;
-            background: rgba(255, 215, 0, 0.2);
-            border-radius: 2px;
-            overflow: hidden;
-        }
+   .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 215, 0, 0.2);
+      border-radius: 2px;
+      overflow: hidden;
+    }
 
-        .progress-fill {
-            height: 100%;
-            background: #ffd700;
-            transition: width 0.3s;
-        }
+   .progress-fill {
+      height: 100%;
+      background: #ffd700;
+      transition: width 0.3s;
+    }
 
-        .progress-percent {
-            font-size: 10px;
-            color: #ffd700;
-            font-weight: 600;
-            min-width: 30px;
-        }
+   .progress-percent {
+      font-size: 10px;
+      color: #ffd700;
+      font-weight: 600;
+      min-width: 30px;
+    }
 
-        .status-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            z-index: 20;
-            display: none;
-            max-width: 300px;
-        }
+   .status-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      z-index: 20;
+      display: none;
+      max-width: 300px;
+    }
 
-        .status-message.active {
-            display: block;
-        }
+   .status-message.active {
+      display: block;
+    }
 
-        .status-message-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffd700;
-            margin-bottom: 8px;
-        }
+   .status-message-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 8px;
+    }
 
-        .status-message-text {
-            font-size: 12px;
-            color: #a0a0a0;
-            line-height: 1.5;
-        }
+   .status-message-text {
+      font-size: 12px;
+      color: #a0a0a0;
+      line-height: 1.5;
+    }
 
-        .before-after-toggle {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 215, 0, 0.1);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            border-radius: 4px;
-            padding: 4px;
-            z-index: 30;
-            display: flex;
-            gap: 0;
-        }
+   .before-after-toggle {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      border-radius: 4px;
+      padding: 4px;
+      z-index: 30;
+      display: flex;
+      gap: 0;
+    }
 
-        .before-after-toggle button {
-            padding: 6px 12px;
-            font-size: 11px;
-            background: transparent;
-            border: none;
-            color: #a0a0a0;
-            border-radius: 0;
-        }
+   .before-after-toggle button {
+      padding: 6px 12px;
+      font-size: 11px;
+      background: transparent;
+      border: none;
+      color: #a0a0a0;
+      border-radius: 0;
+    }
 
-        .before-after-toggle button.active {
-            background: rgba(255, 215, 0, 0.2);
-            color: #ffd700;
-        }
+   .before-after-toggle button.active {
+      background: rgba(255, 215, 0, 0.2);
+      color: #ffd700;
+    }
 
-        .year-markers {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 8px;
-            font-size: 10px;
-            color: #666;
-        }
+   .year-markers {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 10px;
+      color: #666;
+    }
 
-        .year-marker {
-            flex: 1;
-            text-align: center;
-        }
+   .year-marker {
+      flex: 1;
+      text-align: center;
+    }
 
-        @media (max-width: 768px) {
-            .timeline-legend {
-                width: 90vw;
-                right: 5vw;
-                max-width: none;
-            }
+    @media (max-width: 768px) {
+     .timeline-legend {
+        width: 90vw;
+        right: 5vw;
+        max-width: none;
+      }
 
-            .project-info {
-                width: 90vw;
-                left: 5vw;
-                max-width: none;
-            }
+     .project-info {
+        width: 90vw;
+        left: 5vw;
+        max-width: none;
+      }
 
-            .before-after-toggle {
-                top: 130px;
-            }
+     .before-after-toggle {
+        top: 130px;
+      }
 
-            .timeline-buttons {
-                flex-direction: column;
-            }
+     .timeline-buttons {
+        flex-direction: column;
+      }
 
-            button {
-                width: 100%;
-            }
-        }
+      button {
+        width: 100%;
+      }
+    }
 
-        @media (max-width: 480px) {
-            .timeline-header {
-                padding: 12px;
-            }
+    @media (max-width: 480px) {
+     .timeline-header {
+        padding: 12px;
+      }
 
-            .timeline-header h1 {
-                font-size: 16px;
-            }
+     .timeline-header h1 {
+        font-size: 16px;
+      }
 
-            .timeline-year-display {
-                font-size: 20px;
-            }
+     .timeline-year-display {
+        font-size: 20px;
+      }
 
-            .timeline-controls {
-                padding: 12px;
-            }
+     .timeline-controls {
+        padding: 12px;
+      }
 
-            .project-info {
-                display: none !important;
-            }
-        }
-    </style>
-  <!-- Google Analytics 4 -->n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n  <script>n    window.dataLayer = window.dataLayer || [];n    function gtag(){dataLayer.push(arguments);}n    gtag('js', new Date());n    gtag('config', 'G-PLACEHOLDER-ID');n  </script>
+     .project-info {
+        display: none!important;
+      }
+    }
+  </style>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
 </head>
 <body>
-  <div id="nav-mount"></div>    <div class="timeline-container">
-        <div class="timeline-header">
-            <h1>🛰️ Satellite Timeline 2015–2026</h1>
-            <p>Watch El Dorado's development progress over the past decade. Drag the slider to see how projects evolved.</p>
-        </div>
-
-        <div id="map"></div>
-
-        <div class="before-after-toggle">
-            <button class="active" data-mode="single">Single View</button>
-            <button data-mode="split">Before/After</button>
-        </div>
-
-        <div class="timeline-legend">
-            <div class="legend-title">Projects</div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #FF6B6B;"></div>
-                <span>I-35 Interchange</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #4ECDC4;"></div>
-                <span>North Expansion</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #FFE66D;"></div>
-                <span>Downtown TIF</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #95E1D3;"></div>
-                <span>Lakeside Recreation</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #A8D8EA;"></div>
-                <span>Data Center Hub</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color" style="background: #AA96DA;"></div>
-                <span>South Industrial</span>
-            </div>
-        </div>
-
-        <div class="project-info" id="projectInfo">
-            <div class="project-info-title" id="projectTitle">Select a project</div>
-            <div class="project-info-details" id="projectDetails">—</div>
-            <div class="progress-indicator" id="progressIndicator" style="display: none;">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-percent" id="progressPercent">0%</div>
-            </div>
-        </div>
-
-        <div class="status-message" id="statusMessage">
-            <div class="status-message-title">📍 Satellite View Initializing...</div>
-            <div class="status-message-text">Loading historical imagery for El Dorado. This may take a moment.</div>
-        </div>
-
-        <div class="timeline-controls">
-            <div class="timeline-slider-container">
-                <div class="timeline-year-display" id="yearDisplay">2020</div>
-                <input type="range" id="timelineSlider" class="timeline-slider" min="2015" max="2026" value="2020" step="1">
-                <div class="year-markers">
-                    <div class="year-marker">2015</div>
-                    <div class="year-marker">2018</div>
-                    <div class="year-marker">2021</div>
-                    <div class="year-marker">2024</div>
-                    <div class="year-marker">2026</div>
-                </div>
-            </div>
-
-            <div class="timeline-buttons">
-                <button id="playBtn" class="btn-primary btn-small">▶️ Play Timeline</button>
-                <button id="resetBtn" class="btn-secondary btn-small">🔄 Reset</button>
-                <button id="compareBtn" class="btn-secondary btn-small">↔️ 2015 vs 2026</button>
-                <button id="backBtn" class="btn-secondary btn-small">← Back</button>
-            </div>
-        </div>
+ <div id="nav-mount"></div>  <div class="timeline-container">
+    <div class="timeline-header">
+      <h1>🛰️ Satellite Timeline 2015–2026</h1>
+      <p>Watch El Dorado's development progress over the past decade. Drag the slider to see how projects evolved.</p>
     </div>
 
-    <script src="js/satellite-viewer.js"></script>
+    <div id="map"></div>
+
+    <div class="before-after-toggle">
+      <button class="active" data-mode="single">Single View</button>
+      <button data-mode="split">Before/After</button>
+    </div>
+
+    <div class="timeline-legend">
+      <div class="legend-title">Projects</div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #FF6B6B;"></div>
+        <span>I-35 Interchange</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #4ECDC4;"></div>
+        <span>North Expansion</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #FFE66D;"></div>
+        <span>Downtown TIF</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #95E1D3;"></div>
+        <span>Lakeside Recreation</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #A8D8EA;"></div>
+        <span>Data Center Hub</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background: #AA96DA;"></div>
+        <span>South Industrial</span>
+      </div>
+    </div>
+
+    <div class="project-info" id="projectInfo">
+      <div class="project-info-title" id="projectTitle">Select a project</div>
+      <div class="project-info-details" id="projectDetails">—</div>
+      <div class="progress-indicator" id="progressIndicator" style="display: none;">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+      </div>
+    </div>
+
+    <div class="status-message" id="statusMessage">
+      <div class="status-message-title">📍 Satellite View Initializing...</div>
+      <div class="status-message-text">Loading historical imagery for El Dorado. This may take a moment.</div>
+    </div>
+
+    <div class="timeline-controls">
+      <div class="timeline-slider-container">
+        <div class="timeline-year-display" id="yearDisplay">2020</div>
+        <input type="range" id="timelineSlider" class="timeline-slider" min="2015" max="2026" value="2020" step="1">
+        <div class="year-markers">
+          <div class="year-marker">2015</div>
+          <div class="year-marker">2018</div>
+          <div class="year-marker">2021</div>
+          <div class="year-marker">2024</div>
+          <div class="year-marker">2026</div>
+        </div>
+      </div>
+
+      <div class="timeline-buttons">
+        <button id="playBtn" class="btn-primary btn-small">▶️ Play Timeline</button>
+        <button id="resetBtn" class="btn-secondary btn-small">🔄 Reset</button>
+        <button id="compareBtn" class="btn-secondary btn-small">↔️ 2015 vs 2026</button>
+        <button id="backBtn" class="btn-secondary btn-small">← Back</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/satellite-viewer.js"></script>
 <script src="js/nav.js"></script>
 </body>
 </html>

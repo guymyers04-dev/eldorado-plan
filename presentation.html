@@ -1,619 +1,619 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Executive Presentation | El Dorado, KS — Vision 2040</title>
-  <meta name="description" content="Executive presentation for El Dorado, Kansas Vision 2040 — investment opportunities, strategic priorities, and 15-year development roadmap." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #000; color: #333; }
-    img { max-width: 100%; }
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Executive Presentation | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Executive presentation for El Dorado, Kansas Vision 2040 — investment opportunities, strategic priorities, and 15-year development roadmap." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #000; color: #333; }
+  img { max-width: 100%; }
 
-    :root {
-      --navy: #1B3A5C;
-      --gold: #C8902A;
-      --green: #2E6E35;
-      --sky: #4A90BF;
-      --cream: #F8F4EC;
-      --dark: #0D1B2A;
-      --white: #FFFFFF;
-    }
+  :root {
+   --navy: #1B3A5C;
+   --gold: #C8902A;
+   --green: #2E6E35;
+   --sky: #4A90BF;
+   --cream: #F8F4EC;
+   --dark: #0D1B2A;
+   --white: #FFFFFF;
+  }
 
-    .slide {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      scroll-snap-align: start; position: relative; overflow: hidden;
-      padding: 40px 20px;
-    }
-    .slide-content { max-width: 1200px; width: 100%; z-index: 2; }
+ .slide {
+   min-height: 100vh; display: flex; align-items: center; justify-content: center;
+   scroll-snap-align: start; position: relative; overflow: hidden;
+   padding: 40px 20px;
+  }
+ .slide-content { max-width: 1200px; width: 100%; z-index: 2; }
 
-    /* ── TITLE SLIDES ── */
-    .slide-title { background: linear-gradient(135deg, var(--navy) 0%, #0f2a47 100%); color: var(--white); }
-    .slide-title h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 1rem; line-height: 1.2; }
-    .slide-title .tagline { font-size: clamp(1rem, 2vw, 1.3rem); color: var(--gold); opacity: 0.95; margin-bottom: 2rem; }
-    .slide-title .desc { font-size: 1.1rem; max-width: 700px; line-height: 1.8; color: rgba(255,255,255,0.85); }
+  /* ── TITLE SLIDES ── */
+ .slide-title { background: linear-gradient(135deg, var(--navy) 0%, #0f2a47 100%); color: var(--white); }
+ .slide-title h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 1rem; line-height: 1.2; }
+ .slide-title.tagline { font-size: clamp(1rem, 2vw, 1.3rem); color: var(--gold); opacity: 0.95; margin-bottom: 2rem; }
+ .slide-title.desc { font-size: 1.1rem; max-width: 700px; line-height: 1.8; color: rgba(255,255,255,0.85); }
 
-    /* ── CONTENT SLIDES ── */
-    .slide-content-dark { background: #f8f4ec; }
-    .slide-section { background: linear-gradient(180deg, #f8f4ec 0%, #fff 100%); }
+  /* ── CONTENT SLIDES ── */
+ .slide-content-dark { background: #f8f4ec; }
+ .slide-section { background: linear-gradient(180deg, #f8f4ec 0%, #fff 100%); }
 
-    .slide-content-dark h2, .slide-section h2 {
-      font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem);
-      color: var(--navy); margin-bottom: 1.5rem;
-    }
+ .slide-content-dark h2,.slide-section h2 {
+   font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem);
+   color: var(--navy); margin-bottom: 1.5rem;
+  }
 
-    .slide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .card { background: var(--white); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    .card h3 { color: var(--navy); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .card p { color: #666; line-height: 1.7; font-size: 0.95rem; }
-    .card-number { font-size: 2.5rem; color: var(--gold); font-weight: 900; margin-bottom: 0.5rem; }
+ .slide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+ .card { background: var(--white); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+ .card h3 { color: var(--navy); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
+ .card p { color: #666; line-height: 1.7; font-size: 0.95rem; }
+ .card-number { font-size: 2.5rem; color: var(--gold); font-weight: 900; margin-bottom: 0.5rem; }
 
-    /* ── STAT SLIDES ── */
-    .slide-stats { background: linear-gradient(135deg, var(--navy) 0%, #0f2a47 100%); color: var(--white); }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .stat { text-align: center; padding: 2rem; border-radius: 10px; background: rgba(255,255,255,0.05); }
-    .stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; }
-    .stat-label { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+  /* ── STAT SLIDES ── */
+ .slide-stats { background: linear-gradient(135deg, var(--navy) 0%, #0f2a47 100%); color: var(--white); }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
+ .stat { text-align: center; padding: 2rem; border-radius: 10px; background: rgba(255,255,255,0.05); }
+ .stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; }
+ .stat-label { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
 
-    /* ── PROJECT CARDS ── */
-    .project-card {
-      background: var(--white); border-left: 4px solid var(--gold);
-      border-radius: 8px; padding: 1.8rem; margin-bottom: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-    .project-card h3 { color: var(--navy); margin-bottom: 0.5rem; }
-    .project-badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; }
-    .badge-invest { background: #dbeafe; color: #1d4ed8; }
-    .badge-jobs { background: #dcfce7; color: #15803d; }
-    .badge-infra { background: #fef3c3; color: #854d0e; }
+  /* ── PROJECT CARDS ── */
+ .project-card {
+   background: var(--white); border-left: 4px solid var(--gold);
+   border-radius: 8px; padding: 1.8rem; margin-bottom: 1.5rem;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+ .project-card h3 { color: var(--navy); margin-bottom: 0.5rem; }
+ .project-badge { display: inline-block; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; }
+ .badge-invest { background: #dbeafe; color: #1d4ed8; }
+ .badge-jobs { background: #dcfce7; color: #15803d; }
+ .badge-infra { background: #fef3c3; color: #854d0e; }
 
-    /* ── TWO COLUMN ── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    @media(max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+  /* ── TWO COLUMN ── */
+ .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  @media(max-width: 900px) {.two-col { grid-template-columns: 1fr; } }
 
-    /* ── NAVIGATION ── */
-    .slide-nav { position: fixed; bottom: 20px; right: 20px; z-index: 50; display: flex; gap: 10px; }
-    .nav-btn { background: var(--navy); color: var(--white); border: none; padding: 10px 16px; border-radius: 50%; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-    .nav-btn:hover { background: var(--gold); }
-    .slide-counter { position: fixed; bottom: 20px; left: 20px; color: var(--navy); font-size: 0.9rem; font-weight: 600; z-index: 50; }
+  /* ── NAVIGATION ── */
+ .slide-nav { position: fixed; bottom: 20px; right: 20px; z-index: 50; display: flex; gap: 10px; }
+ .nav-btn { background: var(--navy); color: var(--white); border: none; padding: 10px 16px; border-radius: 50%; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+ .nav-btn:hover { background: var(--gold); }
+ .slide-counter { position: fixed; bottom: 20px; left: 20px; color: var(--navy); font-size: 0.9rem; font-weight: 600; z-index: 50; }
 
-    /* ── FOOTER ── */
-    .slide-footer { font-size: 0.85rem; color: rgba(0,0,0,0.5); text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
+  /* ── FOOTER ── */
+ .slide-footer { font-size: 0.85rem; color: rgba(0,0,0,0.5); text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .slide-content { animation: fadeIn 0.6s ease; }
+  /* ── ANIMATIONS ── */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+ .slide-content { animation: fadeIn 0.6s ease; }
 
-    /* ── FULLSCREEN ── */
-    .fullscreen-toggle { position: fixed; top: 20px; right: 20px; background: var(--navy); color: var(--white); border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; z-index: 50; }
+  /* ── FULLSCREEN ── */
+ .fullscreen-toggle { position: fixed; top: 20px; right: 20px; background: var(--navy); color: var(--white); border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; z-index: 50; }
 
-    /* ── LISTS ── */
-    .fancy-list { list-style: none; margin-top: 1.5rem; }
-    .fancy-list li { padding: 0.8rem 0 0.8rem 1.5rem; position: relative; color: #555; line-height: 1.7; }
-    .fancy-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  </style>
-  <!-- Google Analytics 4 -->n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n  <script>n    window.dataLayer = window.dataLayer || [];n    function gtag(){dataLayer.push(arguments);}n    gtag('js', new Date());n    gtag('config', 'G-PLACEHOLDER-ID');n  </script>
+  /* ── LISTS ── */
+ .fancy-list { list-style: none; margin-top: 1.5rem; }
+ .fancy-list li { padding: 0.8rem 0 0.8rem 1.5rem; position: relative; color: #555; line-height: 1.7; }
+ .fancy-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+ </style>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
 </head>
 <body>
-  <div id="nav-mount"></div>
+ <div id="nav-mount"></div>
 <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶ Fullscreen</button>
 <div class="slide-counter"><span id="current-slide">1</span> / <span id="total-slides">40</span></div>
 <div class="slide-nav">
-  <button class="nav-btn" onclick="prevSlide()">←</button>
-  <button class="nav-btn" onclick="nextSlide()">→</button>
+ <button class="nav-btn" onclick="prevSlide()">←</button>
+ <button class="nav-btn" onclick="nextSlide()">→</button>
 </div>
 
 <!-- SLIDE 1: TITLE -->
 <div class="slide slide-title" id="slide-1">
-  <div class="slide-content">
-    <h1>El Dorado, Kansas</h1>
-    <div class="tagline">Vision 2040 — Executive Presentation</div>
-    <p class="desc">A comprehensive 15-year blueprint for regional leadership, economic growth, and 21st-century opportunity. Investment roadmap: $900M+ | Jobs: 1,600+ | Growth: +41%</p>
-    <div class="slide-footer">Presented June 2026 | Butler County, Kansas</div>
-  </div>
+ <div class="slide-content">
+  <h1>El Dorado, Kansas</h1>
+  <div class="tagline">Vision 2040 — Executive Presentation</div>
+  <p class="desc">A comprehensive 15-year blueprint for regional leadership, economic growth, and 21st-century opportunity. Investment roadmap: $900M+ | Jobs: 1,600+ | Growth: +41%</p>
+  <div class="slide-footer">Presented June 2026 | Butler County, Kansas</div>
+ </div>
 </div>
 
 <!-- SLIDE 2: WHY NOW -->
 <div class="slide slide-content-dark" id="slide-2">
-  <div class="slide-content">
-    <h2>Why Now? The Convergence of Opportunity</h2>
-    <ul class="fancy-list">
-      <li><strong>I-35 Interstate Node</strong> — Direct exits at 71/76. Only city in region with turnpike access. Undermarketed advantage.</li>
-      <li><strong>Water Abundance</strong> — Unique city-owned 23M gal/day water rights. 8.5B additional capacity for industry. Only Kansas city with USACE contract.</li>
-      <li><strong>Regional Hub</strong> — 29 mi from Wichita MSA (650K+). Gateway to Flint Hills, agricultural heartland. Multiple community colleges within 50 mi.</li>
-      <li><strong>Proven FDI Win</strong> — AMAZONE (German ag machinery) opened Dec. 2025. Validates mega-site and international recruitment strategy.</li>
-      <li><strong>Federal & State Support</strong> — SS4A safety grant, BEAD broadband, SB 98 data center exemption, KDOT transportation funding alignment.</li>
-      <li><strong>Anchor Assets</strong> — HF Sinclair (135K bbl/day refinery), Butler CC (#2 in state), SBA Hospital (74-bed). Foundation for health/education economies.</li>
-    </ul>
-    <div class="slide-footer">These conditions are rare. They won't persist forever. The window is now.</div>
-  </div>
+ <div class="slide-content">
+  <h2>Why Now? The Convergence of Opportunity</h2>
+  <ul class="fancy-list">
+   <li><strong>I-35 Interstate Node</strong> — Direct exits at 71/76. Only city in region with turnpike access. Undermarketed advantage.</li>
+   <li><strong>Water Abundance</strong> — Unique city-owned 23M gal/day water rights. 8.5B additional capacity for industry. Only Kansas city with USACE contract.</li>
+   <li><strong>Regional Hub</strong> — 29 mi from Wichita MSA (650K+). Gateway to Flint Hills, agricultural heartland. Multiple community colleges within 50 mi.</li>
+   <li><strong>Proven FDI Win</strong> — AMAZONE (German ag machinery) opened Dec. 2025. Validates mega-site and international recruitment strategy.</li>
+   <li><strong>Federal & State Support</strong> — SS4A safety grant, BEAD broadband, SB 98 data center exemption, KDOT transportation funding alignment.</li>
+   <li><strong>Anchor Assets</strong> — HF Sinclair (135K bbl/day refinery), Butler CC (#2 in state), SBA Hospital (74-bed). Foundation for health/education economies.</li>
+  </ul>
+  <div class="slide-footer">These conditions are rare. They won't persist forever. The window is now.</div>
+ </div>
 </div>
 
 <!-- SLIDE 3: BY THE NUMBERS -->
 <div class="slide slide-stats" id="slide-3">
-  <div class="slide-content">
-    <h2 style="color:#fff;margin-bottom:1.5rem">El Dorado by the Numbers</h2>
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-number">12,500</div>
-        <div class="stat-label">Population Today</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">17,600+</div>
-        <div class="stat-label">2040 Target (+41%)</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">1,131</div>
-        <div class="stat-label">Acres — Mega-Site</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">10</div>
-        <div class="stat-label">MGD — Available Water</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">$900M+</div>
-        <div class="stat-label">Est. Total Investment</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">1,600+</div>
-        <div class="stat-label">Net New Jobs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">#1</div>
-        <div class="stat-label">Most-Visited KS State Park</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">29 mi</div>
-        <div class="stat-label">To Wichita MSA</div>
-      </div>
-    </div>
+ <div class="slide-content">
+  <h2 style="color:#fff;margin-bottom:1.5rem">El Dorado by the Numbers</h2>
+  <div class="stats-grid">
+   <div class="stat">
+    <div class="stat-number">12,500</div>
+    <div class="stat-label">Population Today</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">17,600+</div>
+    <div class="stat-label">2040 Target (+41%)</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">1,131</div>
+    <div class="stat-label">Acres — Mega-Site</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">10</div>
+    <div class="stat-label">MGD — Available Water</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">$900M+</div>
+    <div class="stat-label">Est. Total Investment</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">1,600+</div>
+    <div class="stat-label">Net New Jobs</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">#1</div>
+    <div class="stat-label">Most-Visited KS State Park</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">29 mi</div>
+    <div class="stat-label">To Wichita MSA</div>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 4: STRATEGIC PILLARS -->
 <div class="slide slide-content-dark" id="slide-4">
-  <div class="slide-content">
-    <h2>Five Strategic Pillars</h2>
-    <div class="slide-grid">
-      <div class="card">
-        <div class="card-number">1</div>
-        <h3>Economic Diversification</h3>
-        <p>Industry, advanced manufacturing, ag-tech, energy efficiency, logistics, healthcare. Build on HF Sinclair + AMAZONE momentum.</p>
-      </div>
-      <div class="card">
-        <div class="card-number">2</div>
-        <h3>Workforce Development</h3>
-        <p>Butler CC expansion, childcare (desert→solution), K-12 investment, apprenticeships, remote worker attraction, housing stability.</p>
-      </div>
-      <div class="card">
-        <div class="card-number">3</div>
-        <h3>Infrastructure & Connectivity</h3>
-        <p>Transportation (SS4A, NK/SW trafficways), broadband (BEAD), water system upgrade, utilities modernization, pedestrian/bike networks.</p>
-      </div>
-      <div class="card">
-        <div class="card-number">4</div>
-        <h3>Place-Making & Tourism</h3>
-        <p>El Dorado Lake activation (zero dining→26 sites), downtown revitalization, arts/culture (oil-boom heritage), Flint Hills gateway, events.</p>
-      </div>
-      <div class="card">
-        <div class="card-number">5</div>
-        <h3>Regional Leadership</h3>
-        <p>County seat role, FTZ #28 activation, water authority leadership, transit (BCRTA), Butler-Wichita corridor positioning as innovation gateway.</p>
-      </div>
-    </div>
+ <div class="slide-content">
+  <h2>Five Strategic Pillars</h2>
+  <div class="slide-grid">
+   <div class="card">
+    <div class="card-number">1</div>
+    <h3>Economic Diversification</h3>
+    <p>Industry, advanced manufacturing, ag-tech, energy efficiency, logistics, healthcare. Build on HF Sinclair + AMAZONE momentum.</p>
+   </div>
+   <div class="card">
+    <div class="card-number">2</div>
+    <h3>Workforce Development</h3>
+    <p>Butler CC expansion, childcare (desert→solution), K-12 investment, apprenticeships, remote worker attraction, housing stability.</p>
+   </div>
+   <div class="card">
+    <div class="card-number">3</div>
+    <h3>Infrastructure & Connectivity</h3>
+    <p>Transportation (SS4A, NK/SW trafficways), broadband (BEAD), water system upgrade, utilities modernization, pedestrian/bike networks.</p>
+   </div>
+   <div class="card">
+    <div class="card-number">4</div>
+    <h3>Place-Making & Tourism</h3>
+    <p>El Dorado Lake activation (zero dining→26 sites), downtown revitalization, arts/culture (oil-boom heritage), Flint Hills gateway, events.</p>
+   </div>
+   <div class="card">
+    <div class="card-number">5</div>
+    <h3>Regional Leadership</h3>
+    <p>County seat role, FTZ #28 activation, water authority leadership, transit (BCRTA), Butler-Wichita corridor positioning as innovation gateway.</p>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 5: PHASED IMPLEMENTATION -->
 <div class="slide slide-content-dark" id="slide-5">
-  <div class="slide-content">
-    <h2>Phased Implementation: 2026–2040</h2>
-    <div class="slide-grid">
-      <div class="project-card">
-        <span class="project-badge badge-invest">PHASE 1 (2026–2028)</span>
-        <h3>Foundation & Quick Wins</h3>
-        <p><strong>Focus:</strong> Organizational setup, grant applications, visible infrastructure projects, business retention.</p>
-        <ul class="fancy-list" style="margin-top:0.8rem;">
-          <li>Form Regional Water Authority (El Dorado + Butler County)</li>
-          <li>Complete SS4A 8 safety projects (Central Ave, Main St, signal upgrades)</li>
-          <li>Launch Butler County Broadband Spine (BEAD program)</li>
-          <li>Open Early Learning Campus (120 slots, $5M)</li>
-          <li>Award NRHP Historic District designation (downtown)</li>
-          <li>Secure $50M+ federal/state grant pipeline (EDA, USDA, HUD)</li>
-        </ul>
-      </div>
-      <div class="project-card">
-        <span class="project-badge badge-jobs">PHASE 2 (2028–2034)</span>
-        <h3>Growth & Development</h3>
-        <p><strong>Focus:</strong> Major capital projects, second wave business attraction, residential growth.</p>
-        <ul class="fancy-list" style="margin-top:0.8rem;">
-          <li>Complete NK/SW trafficways (bypass corridors)</li>
-          <li>SBA Hospital health economy expansion ($80M+): surgical center, behavioral health wing, telehealth hub</li>
-          <li>Build Workforce Rental (80–100 units, $14M LIHTC)</li>
-          <li>Activate El Dorado Lake (26-venue strategy: dining, events, water sports)</li>
-          <li>Oil Museum expansion (50K sq ft, $12M), heritage trail ($800K)</li>
-          <li>Downtown performing arts center (400-seat, $15M)</li>
-          <li>Welcome 2–3 more FDI projects (target: Japan, Germany, South Korea)</li>
-        </ul>
-      </div>
-      <div class="project-card">
-        <span class="project-badge badge-infra">PHASE 3 (2034–2040)</span>
-        <h3>Consolidation & Legacy</h3>
-        <p><strong>Focus:</strong> Third-wave projects, sustainability, regional leadership formalization.</p>
-        <ul class="fancy-list" style="margin-top:0.8rem;">
-          <li>Mega-site 50%+ occupied (500–800 jobs created)</li>
-          <li>Population reached 17,600+ (+41% from 2026)</li>
-          <li>Arts district established (artist live/work, gallery corridor)</li>
-          <li>Regional water authority fully operational, exporting El Dorado water</li>
-          <li>El Dorado as "Innovation Gateway" — remote-worker hub for Wichita MSA</li>
-          <li>International partnerships deepened (JETRO, GTAI, KOTRA networks)</li>
-        </ul>
-      </div>
-    </div>
+ <div class="slide-content">
+  <h2>Phased Implementation: 2026–2040</h2>
+  <div class="slide-grid">
+   <div class="project-card">
+    <span class="project-badge badge-invest">PHASE 1 (2026–2028)</span>
+    <h3>Foundation & Quick Wins</h3>
+    <p><strong>Focus:</strong> Organizational setup, grant applications, visible infrastructure projects, business retention.</p>
+    <ul class="fancy-list" style="margin-top:0.8rem;">
+     <li>Form Regional Water Authority (El Dorado + Butler County)</li>
+     <li>Complete SS4A 8 safety projects (Central Ave, Main St, signal upgrades)</li>
+     <li>Launch Butler County Broadband Spine (BEAD program)</li>
+     <li>Open Early Learning Campus (120 slots, $5M)</li>
+     <li>Award NRHP Historic District designation (downtown)</li>
+     <li>Secure $50M+ federal/state grant pipeline (EDA, USDA, HUD)</li>
+    </ul>
+   </div>
+   <div class="project-card">
+    <span class="project-badge badge-jobs">PHASE 2 (2028–2034)</span>
+    <h3>Growth & Development</h3>
+    <p><strong>Focus:</strong> Major capital projects, second wave business attraction, residential growth.</p>
+    <ul class="fancy-list" style="margin-top:0.8rem;">
+     <li>Complete NK/SW trafficways (bypass corridors)</li>
+     <li>SBA Hospital health economy expansion ($80M+): surgical center, behavioral health wing, telehealth hub</li>
+     <li>Build Workforce Rental (80–100 units, $14M LIHTC)</li>
+     <li>Activate El Dorado Lake (26-venue strategy: dining, events, water sports)</li>
+     <li>Oil Museum expansion (50K sq ft, $12M), heritage trail ($800K)</li>
+     <li>Downtown performing arts center (400-seat, $15M)</li>
+     <li>Welcome 2–3 more FDI projects (target: Japan, Germany, South Korea)</li>
+    </ul>
+   </div>
+   <div class="project-card">
+    <span class="project-badge badge-infra">PHASE 3 (2034–2040)</span>
+    <h3>Consolidation & Legacy</h3>
+    <p><strong>Focus:</strong> Third-wave projects, sustainability, regional leadership formalization.</p>
+    <ul class="fancy-list" style="margin-top:0.8rem;">
+     <li>Mega-site 50%+ occupied (500–800 jobs created)</li>
+     <li>Population reached 17,600+ (+41% from 2026)</li>
+     <li>Arts district established (artist live/work, gallery corridor)</li>
+     <li>Regional water authority fully operational, exporting El Dorado water</li>
+     <li>El Dorado as "Innovation Gateway" — remote-worker hub for Wichita MSA</li>
+     <li>International partnerships deepened (JETRO, GTAI, KOTRA networks)</li>
+    </ul>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 6: MEGA-SITE OPPORTUNITY -->
 <div class="slide slide-section" id="slide-6">
-  <div class="slide-content">
-    <h2>The 1,131-Acre Mega-Site</h2>
-    <div class="two-col">
-      <div>
-        <h3 style="color:var(--navy);margin-bottom:1.2rem">Certified Site — Ready for Enterprise</h3>
-        <ul class="fancy-list">
-          <li><strong>Rail:</strong> BNSF main line (46 trains/day), UP industrial lead, Savage transload terminal (built 2011)</li>
-          <li><strong>Highway:</strong> I-35 Exits 71/76, K-254 (K-State designated ag corridor)</li>
-          <li><strong>Water:</strong> 10 MGD dedicated industrial supply, 8.5B gal/yr additional capacity</li>
-          <li><strong>Power:</strong> Evergy, three-phase power, 13.80¢/kWh (below national avg)</li>
-          <li><strong>Labor:</strong> Butler CC workforce pipeline, rural workforce (low cost)</li>
-          <li><strong>FTZ:</strong> FTZ #28 active — customs duty savings on imports</li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="color:var(--navy);margin-bottom:1.2rem">2026 Win: AMAZONE (Germany)</h3>
-        <p><strong>Opened December 2, 2025</strong><br/>
-        German agricultural machinery company. 6.5 acres, 30,000 sq ft, 30+ North American employees. Site cited: "Heart of most important agricultural region in US" + I-35 access.</p>
-        <p style="margin-top:1rem;"><strong>Proof of Concept:</strong> Mega-site positioning works. FDI recruitment strategy validated. Replicate model for Japan, Germany, South Korea targets.</p>
-        <p style="margin-top:1rem;"><strong>Est. By 2040:</strong> 500–800 jobs created on mega-site. $50M+ in private investment.</p>
-      </div>
-    </div>
+ <div class="slide-content">
+  <h2>The 1,131-Acre Mega-Site</h2>
+  <div class="two-col">
+   <div>
+    <h3 style="color:var(--navy);margin-bottom:1.2rem">Certified Site — Ready for Enterprise</h3>
+    <ul class="fancy-list">
+     <li><strong>Rail:</strong> BNSF main line (46 trains/day), UP industrial lead, Savage transload terminal (built 2011)</li>
+     <li><strong>Highway:</strong> I-35 Exits 71/76, K-254 (K-State designated ag corridor)</li>
+     <li><strong>Water:</strong> 10 MGD dedicated industrial supply, 8.5B gal/yr additional capacity</li>
+     <li><strong>Power:</strong> Evergy, three-phase power, 13.80¢/kWh (below national avg)</li>
+     <li><strong>Labor:</strong> Butler CC workforce pipeline, rural workforce (low cost)</li>
+     <li><strong>FTZ:</strong> FTZ #28 active — customs duty savings on imports</li>
+    </ul>
+   </div>
+   <div>
+    <h3 style="color:var(--navy);margin-bottom:1.2rem">2026 Win: AMAZONE (Germany)</h3>
+    <p><strong>Opened December 2, 2025</strong><br/>
+    German agricultural machinery company. 6.5 acres, 30,000 sq ft, 30+ North American employees. Site cited: "Heart of most important agricultural region in US" + I-35 access.</p>
+    <p style="margin-top:1rem;"><strong>Proof of Concept:</strong> Mega-site positioning works. FDI recruitment strategy validated. Replicate model for Japan, Germany, South Korea targets.</p>
+    <p style="margin-top:1rem;"><strong>Est. By 2040:</strong> 500–800 jobs created on mega-site. $50M+ in private investment.</p>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 7: TRANSPORTATION & SAFETY -->
 <div class="slide slide-section" id="slide-7">
-  <div class="slide-content">
-    <h2>Transportation Safety & Connectivity</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">Two federal studies guide $80M+ in transportation improvements through 2040.</p>
+ <div class="slide-content">
+  <h2>Transportation Safety & Connectivity</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">Two federal studies guide $80M+ in transportation improvements through 2040.</p>
 
-    <div class="project-card">
-      <span class="project-badge badge-invest">SS4A PROGRAM (USDOT)</span>
-      <h3>Safe Streets for All — 8 Priority Projects</h3>
-      <p><strong>Funded Grant:</strong> $10M+ for safety improvements in high-crash corridors. Near-term (2026–2028).</p>
-      <ul class="fancy-list" style="margin-top:0.8rem;font-size:0.95rem;">
-        <li><strong>Central Avenue (K-254):</strong> Boyer Rd to Haverhill Rd. Lane narrowing, pedestrian crossings, signal upgrades. $851K–$1.7M per segment.</li>
-        <li><strong>Main Street (US-77):</strong> Locust Ave to McCollum Rd. Downtown gateway corridor, nighttime impaired driving crashes, VRU safety.</li>
-        <li><strong>Intersections:</strong> N Main &amp; 6th (signal), Main &amp; McCollum (roundabout, $1.7M), 6th &amp; Haverhill, Haverhill &amp; Towanda.</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <span class="project-badge badge-infra">TRANSPORTATION STUDY (KDOT)</span>
-      <h3>Long-Term Corridors & Capacity (2026–2045)</h3>
-      <p><strong>Vision:</strong> Support development in north/west, relieve downtown congestion, multimodal connectivity.</p>
-      <ul class="fancy-list" style="margin-top:0.8rem;font-size:0.95rem;">
-        <li><strong>Northwest Trafficway (New):</strong> Bypass northern growth areas, mega-site access. Costs TBD, KDOT study underway.</li>
-        <li><strong>Southwest Extension:</strong> Industrial corridor bypass, HF Sinclair operations, I-35 connectivity.</li>
-        <li><strong>Bicycle Network:</strong> 30 miles planned (lake-to-downtown trail, protected intersections, school routes).</li>
-        <li><strong>Sidewalk Closure:</strong> ADA-compliant network, school routes, transit stops.</li>
-      </ul>
-    </div>
+  <div class="project-card">
+   <span class="project-badge badge-invest">SS4A PROGRAM (USDOT)</span>
+   <h3>Safe Streets for All — 8 Priority Projects</h3>
+   <p><strong>Funded Grant:</strong> $10M+ for safety improvements in high-crash corridors. Near-term (2026–2028).</p>
+   <ul class="fancy-list" style="margin-top:0.8rem;font-size:0.95rem;">
+    <li><strong>Central Avenue (K-254):</strong> Boyer Rd to Haverhill Rd. Lane narrowing, pedestrian crossings, signal upgrades. $851K–$1.7M per segment.</li>
+    <li><strong>Main Street (US-77):</strong> Locust Ave to McCollum Rd. Downtown gateway corridor, nighttime impaired driving crashes, VRU safety.</li>
+    <li><strong>Intersections:</strong> N Main &amp; 6th (signal), Main &amp; McCollum (roundabout, $1.7M), 6th &amp; Haverhill, Haverhill &amp; Towanda.</li>
+   </ul>
   </div>
+
+  <div class="project-card">
+   <span class="project-badge badge-infra">TRANSPORTATION STUDY (KDOT)</span>
+   <h3>Long-Term Corridors & Capacity (2026–2045)</h3>
+   <p><strong>Vision:</strong> Support development in north/west, relieve downtown congestion, multimodal connectivity.</p>
+   <ul class="fancy-list" style="margin-top:0.8rem;font-size:0.95rem;">
+    <li><strong>Northwest Trafficway (New):</strong> Bypass northern growth areas, mega-site access. Costs TBD, KDOT study underway.</li>
+    <li><strong>Southwest Extension:</strong> Industrial corridor bypass, HF Sinclair operations, I-35 connectivity.</li>
+    <li><strong>Bicycle Network:</strong> 30 miles planned (lake-to-downtown trail, protected intersections, school routes).</li>
+    <li><strong>Sidewalk Closure:</strong> ADA-compliant network, school routes, transit stops.</li>
+   </ul>
+  </div>
+ </div>
 </div>
 
 <!-- SLIDE 8: HEALTH ECONOMY -->
 <div class="slide slide-section" id="slide-8">
-  <div class="slide-content">
-    <h2>Health Economy Expansion: $80M+ Investment</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">SBA Hospital (74-bed) anchors regional health services. Major gap: 1 hospital per 70,000+ county residents.</p>
+ <div class="slide-content">
+  <h2>Health Economy Expansion: $80M+ Investment</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">SBA Hospital (74-bed) anchors regional health services. Major gap: 1 hospital per 70,000+ county residents.</p>
 
-    <div class="slide-grid">
-      <div class="card">
-        <h3>Surgical Center</h3>
-        <div class="card-number" style="font-size:2rem;">$25M</div>
-        <p>Orthopedic, cardiac, GI specialties. 4,000 sq ft. 50+ jobs. Partnership model with regional health networks.</p>
-      </div>
-      <div class="card">
-        <h3>Behavioral Health Wing</h3>
-        <div class="card-number" style="font-size:2rem;">$10M</div>
-        <p>Inpatient psychiatric, substance abuse treatment. 20–30 beds. SAMHSA CCBHC expansion grant eligible.</p>
-      </div>
-      <div class="card">
-        <h3>Telehealth Hub</h3>
-        <div class="card-number" style="font-size:2rem;">$3M</div>
-        <p>Virtual visit center, remote diagnosis, rural outreach. Staffing: 10–15 FTE. Tech infrastructure investment.</p>
-      </div>
-      <div class="card">
-        <h3>Senior Care Campus</h3>
-        <div class="card-number" style="font-size:2rem;">$28M</div>
-        <p>Assisted living (80 units), memory care (40 units), independent (60 units). EB-5 visa eligible ($800K min.). Senior population +25% by 2040.</p>
-      </div>
-    </div>
-
-    <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#e8f5e9;border-radius:8px;border-left:4px solid var(--gold);">
-      <strong>Outcome:</strong> 425+ new healthcare jobs. $46M annual economic impact. Positions El Dorado as rural health innovation leader. Attracts NHSC physicians (loan forgiveness program for rural providers).
-    </p>
+  <div class="slide-grid">
+   <div class="card">
+    <h3>Surgical Center</h3>
+    <div class="card-number" style="font-size:2rem;">$25M</div>
+    <p>Orthopedic, cardiac, GI specialties. 4,000 sq ft. 50+ jobs. Partnership model with regional health networks.</p>
+   </div>
+   <div class="card">
+    <h3>Behavioral Health Wing</h3>
+    <div class="card-number" style="font-size:2rem;">$10M</div>
+    <p>Inpatient psychiatric, substance abuse treatment. 20–30 beds. SAMHSA CCBHC expansion grant eligible.</p>
+   </div>
+   <div class="card">
+    <h3>Telehealth Hub</h3>
+    <div class="card-number" style="font-size:2rem;">$3M</div>
+    <p>Virtual visit center, remote diagnosis, rural outreach. Staffing: 10–15 FTE. Tech infrastructure investment.</p>
+   </div>
+   <div class="card">
+    <h3>Senior Care Campus</h3>
+    <div class="card-number" style="font-size:2rem;">$28M</div>
+    <p>Assisted living (80 units), memory care (40 units), independent (60 units). EB-5 visa eligible ($800K min.). Senior population +25% by 2040.</p>
+   </div>
   </div>
+
+  <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#e8f5e9;border-radius:8px;border-left:4px solid var(--gold);">
+   <strong>Outcome:</strong> 425+ new healthcare jobs. $46M annual economic impact. Positions El Dorado as rural health innovation leader. Attracts NHSC physicians (loan forgiveness program for rural providers).
+  </p>
+ </div>
 </div>
 
 <!-- SLIDE 9: HOUSING & RESIDENTIAL -->
 <div class="slide slide-content-dark" id="slide-9">
-  <div class="slide-content">
-    <h2>Housing Strategy: From Desert to Destination</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>Challenge:</strong> 6,080 units, 12% vacancy, $97,800 median value (gap: $130K–$180K demanded). 29% of renters severely cost-burdened (&gt;50% income).</p>
+ <div class="slide-content">
+  <h2>Housing Strategy: From Desert to Destination</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>Challenge:</strong> 6,080 units, 12% vacancy, $97,800 median value (gap: $130K–$180K demanded). 29% of renters severely cost-burdened (&gt;50% income).</p>
 
-    <div class="slide-grid">
-      <div class="card">
-        <h3>Workforce Rental</h3>
-        <p><strong>80–100 units | $14M</strong><br/>LIHTC 9% rural, USDA 538 financing. 60–80 AMI. Targets newly employed manufacturing, healthcare workers.</p>
-      </div>
-      <div class="card">
-        <h3>Senior Living Mix</h3>
-        <p><strong>180 units | $28M</strong><br/>Assisted + independent. Regional draw. EB-5 investor visa eligible. Senior population +25% by 2040.</p>
-      </div>
-      <div class="card">
-        <h3>Manufactured Home Communities</h3>
-        <p><strong>240–280 units | $12M</strong><br/>Rehab existing parks (CDBG), ROC conversions (resident ownership), new zones (SE corridor, lake north shore).</p>
-      </div>
-      <div class="card">
-        <h3>Owner-Occupied &amp; Rehab</h3>
-        <p><strong>Mixed | $8–16M</strong><br/>Homeownership ladder ($8–16K/buyer), rehab revolving loan ($5M HUD CDBG), NRP tax abatement, Land Bank.</p>
-      </div>
-    </div>
-
-    <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#e3f2fd;border-radius:8px;border-left:4px solid var(--gold);">
-      <strong>North El Dorado = Primary Growth Zone</strong> — 80% of new residential development east of current city limits. Supports mega-site workforce, keeps housing affordable, enables natural topography preservation.
-    </p>
+  <div class="slide-grid">
+   <div class="card">
+    <h3>Workforce Rental</h3>
+    <p><strong>80–100 units | $14M</strong><br/>LIHTC 9% rural, USDA 538 financing. 60–80 AMI. Targets newly employed manufacturing, healthcare workers.</p>
+   </div>
+   <div class="card">
+    <h3>Senior Living Mix</h3>
+    <p><strong>180 units | $28M</strong><br/>Assisted + independent. Regional draw. EB-5 investor visa eligible. Senior population +25% by 2040.</p>
+   </div>
+   <div class="card">
+    <h3>Manufactured Home Communities</h3>
+    <p><strong>240–280 units | $12M</strong><br/>Rehab existing parks (CDBG), ROC conversions (resident ownership), new zones (SE corridor, lake north shore).</p>
+   </div>
+   <div class="card">
+    <h3>Owner-Occupied &amp; Rehab</h3>
+    <p><strong>Mixed | $8–16M</strong><br/>Homeownership ladder ($8–16K/buyer), rehab revolving loan ($5M HUD CDBG), NRP tax abatement, Land Bank.</p>
+   </div>
   </div>
+
+  <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#e3f2fd;border-radius:8px;border-left:4px solid var(--gold);">
+   <strong>North El Dorado = Primary Growth Zone</strong> — 80% of new residential development east of current city limits. Supports mega-site workforce, keeps housing affordable, enables natural topography preservation.
+  </p>
+ </div>
 </div>
 
 <!-- SLIDE 10: FUNDING SOURCES -->
 <div class="slide slide-section" id="slide-10">
-  <div class="slide-content">
-    <h2>$900M+ Funding Roadmap</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">Mix of federal grants, state incentives, municipal bonds, private investment, and philanthropic capital.</p>
+ <div class="slide-content">
+  <h2>$900M+ Funding Roadmap</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem">Mix of federal grants, state incentives, municipal bonds, private investment, and philanthropic capital.</p>
 
-    <div class="project-card">
-      <h3 style="margin-bottom:1rem;">Federal Programs (Target: $200M+)</h3>
-      <ul class="fancy-list" style="font-size:0.95rem;">
-        <li><strong>USDA:</strong> REAP, VAPG, Water loans, RBDG, community facilities</li>
-        <li><strong>EDA:</strong> Good Jobs Challenge, public works, spec building</li>
-        <li><strong>HUD:</strong> CDBG, Section 108 (5× leverage), HOME, 202 senior housing</li>
-        <li><strong>DOT:</strong> BUILD ($5–25M), RAISE, bridge investment, NEVI charging</li>
-        <li><strong>EPA:</strong> Brownfields ($800K), green infrastructure, smart growth TA</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <h3 style="margin-bottom:1rem;">State Programs (Target: $100M+)</h3>
-      <ul class="fancy-list" style="font-size:0.95rem;">
-        <li><strong>KDC:</strong> HEAL grants, STAR Bonds, Business Development Fund, Framework for Growth</li>
-        <li><strong>KDOT:</strong> IKE Legacy ($1–3M/yr), HSIP, TA, Local Bridge grants</li>
-        <li><strong>KDHE:</strong> Brownfields matching, water infrastructure</li>
-        <li><strong>KHRC:</strong> LIHTC administration, homeownership programs</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <h3 style="margin-bottom:1rem;">Municipal & Private (Target: $600M+)</h3>
-      <ul class="fancy-list" style="font-size:0.95rem;">
-        <li><strong>Bonds:</strong> GO bonds ($50–100M), revenue bonds (utilities), special assessment bonds</li>
-        <li><strong>FDI:</strong> Foreign direct investment (AMAZONE model), international recruitment, EB-5 visa capital</li>
-        <li><strong>Private:</strong> Real estate development, business expansion, philanthropic capital (downtown, park improvements)</li>
-        <li><strong>LIHTC/HTC:</strong> Private investment through tax credits (housing, historic preservation)</li>
-      </ul>
-    </div>
+  <div class="project-card">
+   <h3 style="margin-bottom:1rem;">Federal Programs (Target: $200M+)</h3>
+   <ul class="fancy-list" style="font-size:0.95rem;">
+    <li><strong>USDA:</strong> REAP, VAPG, Water loans, RBDG, community facilities</li>
+    <li><strong>EDA:</strong> Good Jobs Challenge, public works, spec building</li>
+    <li><strong>HUD:</strong> CDBG, Section 108 (5× leverage), HOME, 202 senior housing</li>
+    <li><strong>DOT:</strong> BUILD ($5–25M), RAISE, bridge investment, NEVI charging</li>
+    <li><strong>EPA:</strong> Brownfields ($800K), green infrastructure, smart growth TA</li>
+   </ul>
   </div>
+
+  <div class="project-card">
+   <h3 style="margin-bottom:1rem;">State Programs (Target: $100M+)</h3>
+   <ul class="fancy-list" style="font-size:0.95rem;">
+    <li><strong>KDC:</strong> HEAL grants, STAR Bonds, Business Development Fund, Framework for Growth</li>
+    <li><strong>KDOT:</strong> IKE Legacy ($1–3M/yr), HSIP, TA, Local Bridge grants</li>
+    <li><strong>KDHE:</strong> Brownfields matching, water infrastructure</li>
+    <li><strong>KHRC:</strong> LIHTC administration, homeownership programs</li>
+   </ul>
+  </div>
+
+  <div class="project-card">
+   <h3 style="margin-bottom:1rem;">Municipal & Private (Target: $600M+)</h3>
+   <ul class="fancy-list" style="font-size:0.95rem;">
+    <li><strong>Bonds:</strong> GO bonds ($50–100M), revenue bonds (utilities), special assessment bonds</li>
+    <li><strong>FDI:</strong> Foreign direct investment (AMAZONE model), international recruitment, EB-5 visa capital</li>
+    <li><strong>Private:</strong> Real estate development, business expansion, philanthropic capital (downtown, park improvements)</li>
+    <li><strong>LIHTC/HTC:</strong> Private investment through tax credits (housing, historic preservation)</li>
+   </ul>
+  </div>
+ </div>
 </div>
 
 <!-- SLIDE 11: LAKE ACTIVATION -->
 <div class="slide slide-content-dark" id="slide-11">
-  <div class="slide-content">
-    <h2>El Dorado Lake: From Recreation to Destination</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>#1 Most-Visited Kansas State Park</strong> (1M+ visitors/yr). Current reality: Zero lakeside dining, limited water sports infrastructure, underdeveloped tourism amenities.</p>
+ <div class="slide-content">
+  <h2>El Dorado Lake: From Recreation to Destination</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>#1 Most-Visited Kansas State Park</strong> (1M+ visitors/yr). Current reality: Zero lakeside dining, limited water sports infrastructure, underdeveloped tourism amenities.</p>
 
-    <h3 style="color:var(--navy);margin-top:2rem;margin-bottom:1rem">26-Venue Development Strategy (Est. $45M+ private investment)</h3>
-    <div class="slide-grid">
-      <div class="card">
-        <h3>Dining &amp; Retail</h3>
-        <ul class="fancy-list" style="font-size:0.9rem;">
-          <li>Fine dining (lake view, $2M)</li>
-          <li>Casual waterfront café (breakfast/lunch)</li>
-          <li>Brewpub / distillery (local craft)</li>
-          <li>Retail shops (art, gifts, gear)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Water Sports</h3>
-        <ul class="fancy-list" style="font-size:0.9rem;">
-          <li>Sailing school expansion (Walnut Valley SC)</li>
-          <li>Paddle sports center (kayak, SUP rentals)</li>
-          <li>Wake sports park (electric boats)</li>
-          <li>Fishing tournament hub</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Lodging &amp; Events</h3>
-        <ul class="fancy-list" style="font-size:0.9rem;">
-          <li>Boutique waterfront hotel ($15M)</li>
-          <li>Glamping village (tents/RVs)</li>
-          <li>Conference pavilion (500-seat)</li>
-          <li>Wedding/event venues</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Recreation</h3>
-        <ul class="fancy-list" style="font-size:0.9rem;">
-          <li>Splash pad expansion</li>
-          <li>Beach club / swim lesson center</li>
-          <li>Scenic overlooks &amp; trails</li>
-          <li>Dog park on shoreline</li>
-        </ul>
-      </div>
-    </div>
+  <h3 style="color:var(--navy);margin-top:2rem;margin-bottom:1rem">26-Venue Development Strategy (Est. $45M+ private investment)</h3>
+  <div class="slide-grid">
+   <div class="card">
+    <h3>Dining &amp; Retail</h3>
+    <ul class="fancy-list" style="font-size:0.9rem;">
+     <li>Fine dining (lake view, $2M)</li>
+     <li>Casual waterfront café (breakfast/lunch)</li>
+     <li>Brewpub / distillery (local craft)</li>
+     <li>Retail shops (art, gifts, gear)</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>Water Sports</h3>
+    <ul class="fancy-list" style="font-size:0.9rem;">
+     <li>Sailing school expansion (Walnut Valley SC)</li>
+     <li>Paddle sports center (kayak, SUP rentals)</li>
+     <li>Wake sports park (electric boats)</li>
+     <li>Fishing tournament hub</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>Lodging &amp; Events</h3>
+    <ul class="fancy-list" style="font-size:0.9rem;">
+     <li>Boutique waterfront hotel ($15M)</li>
+     <li>Glamping village (tents/RVs)</li>
+     <li>Conference pavilion (500-seat)</li>
+     <li>Wedding/event venues</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>Recreation</h3>
+    <ul class="fancy-list" style="font-size:0.9rem;">
+     <li>Splash pad expansion</li>
+     <li>Beach club / swim lesson center</li>
+     <li>Scenic overlooks &amp; trails</li>
+     <li>Dog park on shoreline</li>
+    </ul>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 12: DOWNTOWN REVITALIZATION -->
 <div class="slide slide-section" id="slide-12">
-  <div class="slide-content">
-    <h2>Downtown Revitalization: Main Street to Innovation District</h2>
-    <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>Challenge:</strong> Aging building stock, retail gaps, limited nightlife. <strong>Opportunity:</strong> NRHP Historic District designation, 45% HTC stack, $15M+ private rehab.</p>
+ <div class="slide-content">
+  <h2>Downtown Revitalization: Main Street to Innovation District</h2>
+  <p style="font-size:1.05rem;color:#666;margin-bottom:2rem"><strong>Challenge:</strong> Aging building stock, retail gaps, limited nightlife. <strong>Opportunity:</strong> NRHP Historic District designation, 45% HTC stack, $15M+ private rehab.</p>
 
-    <div class="slide-grid">
-      <div class="card">
-        <h3>Historic District Rehab</h3>
-        <p><strong>$18M | 45% HTC stack</strong><br/>NRHP designation enables federal + Kansas tax credits. 8–10 buildings targeted. Adaptive reuse: offices, apartments, galleries.</p>
-      </div>
-      <div class="card">
-        <h3>Performing Arts Center</h3>
-        <p><strong>$15M | 400-seat theater</strong><br/>Downtown anchor. NEA + CDBG funding. Regional draw for touring shows, education partnerships.</p>
-      </div>
-      <div class="card">
-        <h3>Artist Live/Work District</h3>
-        <p><strong>$5M | 20–30 studio spaces</strong><br/>Oil-boom heritage theme. KCAIC partnership. Annual Mural Arts Festival. Attracts remote creatives.</p>
-      </div>
-      <div class="card">
-        <h3>Street Activation</h3>
-        <p><strong>$2–3M | Phase 1</strong><br/>8 fountains ($1.78M), streetscape (trees, benches, planters), gateway monuments, bike amenities.</p>
-      </div>
-    </div>
-
-    <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#fce4ec;border-radius:8px;border-left:4px solid var(--gold);">
-      <strong>Main Street America Accreditation recommended.</strong> Proven $18.03 ROI per $1 invested. Unlocks national network, grants, and partnership opportunities.
-    </p>
+  <div class="slide-grid">
+   <div class="card">
+    <h3>Historic District Rehab</h3>
+    <p><strong>$18M | 45% HTC stack</strong><br/>NRHP designation enables federal + Kansas tax credits. 8–10 buildings targeted. Adaptive reuse: offices, apartments, galleries.</p>
+   </div>
+   <div class="card">
+    <h3>Performing Arts Center</h3>
+    <p><strong>$15M | 400-seat theater</strong><br/>Downtown anchor. NEA + CDBG funding. Regional draw for touring shows, education partnerships.</p>
+   </div>
+   <div class="card">
+    <h3>Artist Live/Work District</h3>
+    <p><strong>$5M | 20–30 studio spaces</strong><br/>Oil-boom heritage theme. KCAIC partnership. Annual Mural Arts Festival. Attracts remote creatives.</p>
+   </div>
+   <div class="card">
+    <h3>Street Activation</h3>
+    <p><strong>$2–3M | Phase 1</strong><br/>8 fountains ($1.78M), streetscape (trees, benches, planters), gateway monuments, bike amenities.</p>
+   </div>
   </div>
+
+  <p style="margin-top:2rem;font-size:0.95rem;color:#666;padding:1.5rem;background:#fce4ec;border-radius:8px;border-left:4px solid var(--gold);">
+   <strong>Main Street America Accreditation recommended.</strong> Proven $18.03 ROI per $1 invested. Unlocks national network, grants, and partnership opportunities.
+  </p>
+ </div>
 </div>
 
 <!-- SLIDE 13: JOBS & WORKFORCE -->
 <div class="slide slide-stats" id="slide-13">
-  <div class="slide-content">
-    <h2 style="color:#fff;margin-bottom:2rem">Job Creation by Sector (1,600+ Target by 2040)</h2>
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-number">500–800</div>
-        <div class="stat-label">Industrial / Mega-Site</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">425+</div>
-        <div class="stat-label">Healthcare / Wellness</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">200+</div>
-        <div class="stat-label">Education / Childcare</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">150+</div>
-        <div class="stat-label">Tourism / Hospitality</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">100+</div>
-        <div class="stat-label">Arts / Culture</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">50+</div>
-        <div class="stat-label">Technology / Broadband</div>
-      </div>
-    </div>
-    <p style="color:rgba(255,255,255,0.85);text-align:center;margin-top:2rem;font-size:1rem;">
-      <strong>Median Household Income Gap: $22,430</strong> (El Dorado $59,180 vs. Butler County $81,610). High-wage job creation addresses regional income inequality.
-    </p>
+ <div class="slide-content">
+  <h2 style="color:#fff;margin-bottom:2rem">Job Creation by Sector (1,600+ Target by 2040)</h2>
+  <div class="stats-grid">
+   <div class="stat">
+    <div class="stat-number">500–800</div>
+    <div class="stat-label">Industrial / Mega-Site</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">425+</div>
+    <div class="stat-label">Healthcare / Wellness</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">200+</div>
+    <div class="stat-label">Education / Childcare</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">150+</div>
+    <div class="stat-label">Tourism / Hospitality</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">100+</div>
+    <div class="stat-label">Arts / Culture</div>
+   </div>
+   <div class="stat">
+    <div class="stat-number">50+</div>
+    <div class="stat-label">Technology / Broadband</div>
+   </div>
   </div>
+  <p style="color:rgba(255,255,255,0.85);text-align:center;margin-top:2rem;font-size:1rem;">
+   <strong>Median Household Income Gap: $22,430</strong> (El Dorado $59,180 vs. Butler County $81,610). High-wage job creation addresses regional income inequality.
+  </p>
+ </div>
 </div>
 
 <!-- SLIDE 14: IMPLEMENTATION ROADMAP -->
 <div class="slide slide-content-dark" id="slide-14">
-  <div class="slide-content">
-    <h2>Year 1 Priorities (2026–2027)</h2>
-    <ul class="fancy-list">
-      <li><strong>Organizational:</strong> Regional Water Authority board, El Dorado 2040 implementation office, advisory committees (industry, education, community).</li>
-      <li><strong>Grant Strategy:</strong> Apply for EDA Good Jobs, USDA REAP, HUD CDBG, EPA Brownfields, DOT BUILD, SAMHSA CCBHC, state HEAL matching funds.</li>
-      <li><strong>Infrastructure Quick Wins:</strong> Complete SS4A Phases 1–2, start BEAD broadband, award NRP Historic District.</li>
-      <li><strong>Business Development:</strong> Announce target industries (ag-tech, advanced manufacturing, ag-logistics), launch FDI recruitment (Japan, Germany, South Korea).</li>
-      <li><strong>Partnerships:</strong> Formalize with Butler CC, SBA Hospital, El Dorado Inc., regional economic development agencies.</li>
-      <li><strong>Community Engagement:</strong> Annual "Vision 2040" town hall, quarterly stakeholder briefings, progress scorecards, media outreach.</li>
-    </ul>
-  </div>
+ <div class="slide-content">
+  <h2>Year 1 Priorities (2026–2027)</h2>
+  <ul class="fancy-list">
+   <li><strong>Organizational:</strong> Regional Water Authority board, El Dorado 2040 implementation office, advisory committees (industry, education, community).</li>
+   <li><strong>Grant Strategy:</strong> Apply for EDA Good Jobs, USDA REAP, HUD CDBG, EPA Brownfields, DOT BUILD, SAMHSA CCBHC, state HEAL matching funds.</li>
+   <li><strong>Infrastructure Quick Wins:</strong> Complete SS4A Phases 1–2, start BEAD broadband, award NRP Historic District.</li>
+   <li><strong>Business Development:</strong> Announce target industries (ag-tech, advanced manufacturing, ag-logistics), launch FDI recruitment (Japan, Germany, South Korea).</li>
+   <li><strong>Partnerships:</strong> Formalize with Butler CC, SBA Hospital, El Dorado Inc., regional economic development agencies.</li>
+   <li><strong>Community Engagement:</strong> Annual "Vision 2040" town hall, quarterly stakeholder briefings, progress scorecards, media outreach.</li>
+  </ul>
+ </div>
 </div>
 
 <!-- SLIDE 15: RISK MITIGATION -->
 <div class="slide slide-section" id="slide-15">
-  <div class="slide-content">
-    <h2>Risk Mitigation &amp; Adaptive Strategy</h2>
-    <div class="slide-grid">
-      <div class="card">
-        <h3>Economic Recession</h3>
-        <p><strong>Mitigation:</strong> Diversify employment (healthcare/education recession-proof), maintain 20–25% municipal reserves, prioritize CDBG/HUD funding (countercyclical).</p>
-      </div>
-      <div class="card">
-        <h3>Grant Funding Uncertainty</h3>
-        <p><strong>Mitigation:</strong> Municipal bond authorization for backup, federal funding diversification (EDA, USDA, DOT, HUD, EPA), state incentive layering (STAR Bonds, tax credits).</p>
-      </div>
-      <div class="card">
-        <h3>Business Relocation Risk</h3>
-        <p><strong>Mitigation:</strong> HF Sinclair incentive packages, mega-site competitive positioning (AMAZONE success), business retention program (small business focus).</p>
-      </div>
-      <div class="card">
-        <h3>Population Stagnation</h3>
-        <p><strong>Mitigation:</strong> Housing affordability (LIHTC, owner-occupied rehab), remote worker attraction (broadband, co-working), workforce training pipeline (Butler CC).</p>
-      </div>
-    </div>
+ <div class="slide-content">
+  <h2>Risk Mitigation &amp; Adaptive Strategy</h2>
+  <div class="slide-grid">
+   <div class="card">
+    <h3>Economic Recession</h3>
+    <p><strong>Mitigation:</strong> Diversify employment (healthcare/education recession-proof), maintain 20–25% municipal reserves, prioritize CDBG/HUD funding (countercyclical).</p>
+   </div>
+   <div class="card">
+    <h3>Grant Funding Uncertainty</h3>
+    <p><strong>Mitigation:</strong> Municipal bond authorization for backup, federal funding diversification (EDA, USDA, DOT, HUD, EPA), state incentive layering (STAR Bonds, tax credits).</p>
+   </div>
+   <div class="card">
+    <h3>Business Relocation Risk</h3>
+    <p><strong>Mitigation:</strong> HF Sinclair incentive packages, mega-site competitive positioning (AMAZONE success), business retention program (small business focus).</p>
+   </div>
+   <div class="card">
+    <h3>Population Stagnation</h3>
+    <p><strong>Mitigation:</strong> Housing affordability (LIHTC, owner-occupied rehab), remote worker attraction (broadband, co-working), workforce training pipeline (Butler CC).</p>
+   </div>
   </div>
+ </div>
 </div>
 
 <!-- SLIDE 16: CALL TO ACTION -->
 <div class="slide slide-title" id="slide-16">
-  <div class="slide-content">
-    <h2>The Time Is Now</h2>
-    <p class="desc" style="margin-top:2rem;">El Dorado possesses rare convergence of assets: I-35 access, abundant water, regional positioning, anchor institutions, federal/state support, and proven FDI success (AMAZONE).</p>
-    <p class="desc" style="margin-top:1.5rem;">Our ask: <strong>Community alignment, municipal investment, stakeholder engagement, and decisive action.</strong></p>
-    <p class="desc" style="margin-top:1.5rem;">Reward: A thriving regional center. 5,100+ new residents. 1,600+ high-wage jobs. $900M+ in investment. Position El Dorado as innovation gateway for the Wichita MSA and Great Plains.</p>
-    <div class="slide-footer" style="margin-top:3rem;font-size:1.05rem;color:#fff;">
-      <strong>Visit: <a href="index.html" style="color:var(--gold)">eldorado-vision2040.com</a></strong><br/>
-      Resources · Stakeholders · Project Briefs · Full Plan
-    </div>
+ <div class="slide-content">
+  <h2>The Time Is Now</h2>
+  <p class="desc" style="margin-top:2rem;">El Dorado possesses rare convergence of assets: I-35 access, abundant water, regional positioning, anchor institutions, federal/state support, and proven FDI success (AMAZONE).</p>
+  <p class="desc" style="margin-top:1.5rem;">Our ask: <strong>Community alignment, municipal investment, stakeholder engagement, and decisive action.</strong></p>
+  <p class="desc" style="margin-top:1.5rem;">Reward: A thriving regional center. 5,100+ new residents. 1,600+ high-wage jobs. $900M+ in investment. Position El Dorado as innovation gateway for the Wichita MSA and Great Plains.</p>
+  <div class="slide-footer" style="margin-top:3rem;font-size:1.05rem;color:#fff;">
+   <strong>Visit: <a href="index.html" style="color:var(--gold)">eldorado-vision2040.com</a></strong><br/>
+   Resources · Stakeholders · Project Briefs · Full Plan
   </div>
+ </div>
 </div>
 
 <!-- NAVIGATION SCRIPT -->
 <script>
-  let currentSlide = 1;
-  const totalSlides = 16;
+ let currentSlide = 1;
+ const totalSlides = 16;
 
-  function showSlide(n) {
-    const slides = document.querySelectorAll('.slide');
-    if (n > totalSlides) currentSlide = 1;
-    if (n < 1) currentSlide = totalSlides;
-    slides.forEach(slide => slide.style.display = 'none');
-    document.getElementById(`slide-${currentSlide}`)?.style.display = 'flex';
-    document.getElementById('current-slide').textContent = currentSlide;
-  }
+ function showSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  if (n > totalSlides) currentSlide = 1;
+  if (n < 1) currentSlide = totalSlides;
+  slides.forEach(slide => slide.style.display = 'none');
+  document.getElementById(`slide-${currentSlide}`)?.style.display = 'flex';
+  document.getElementById('current-slide').textContent = currentSlide;
+ }
 
-  function nextSlide() { currentSlide++; showSlide(currentSlide); }
-  function prevSlide() { currentSlide--; showSlide(currentSlide); }
-  function toggleFullscreen() { document.documentElement.requestFullscreen?.(); }
+ function nextSlide() { currentSlide++; showSlide(currentSlide); }
+ function prevSlide() { currentSlide--; showSlide(currentSlide); }
+ function toggleFullscreen() { document.documentElement.requestFullscreen?.(); }
 
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextSlide();
-    if (e.key === 'ArrowLeft') prevSlide();
-  });
+ // Keyboard navigation
+ document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+ });
 
-  showSlide(currentSlide);
+ showSlide(currentSlide);
 </script>
 <script src="js/analytics.js" defer></script>
 <script src="js/nav.js"></script>

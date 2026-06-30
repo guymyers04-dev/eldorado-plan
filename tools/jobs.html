@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vision 2040 Job Board | El Dorado Careers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <style>
-    body[data-page="jobs"] .page-nav { display: none; }
-    .jobs-hero { background: linear-gradient(135deg, #1B3A5C 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
-    .jobs-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
-    .job-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem; border-left: 4px solid #1B3A5C; }
-    .job-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
-    .job-title { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
-    .job-company { font-size: 0.95rem; color: #666; margin-bottom: 0.5rem; }
-    .job-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .job-badge { background: #f5f5f5; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; color: #666; }
-    .job-description { color: #555; line-height: 1.6; margin-bottom: 1rem; }
-    .job-apply { background: #1B3A5C; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
-    .job-apply:hover { background: #0f2538; }
-    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Vision 2040 Job Board | El Dorado Careers</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/styles.css">
+ <style>
+  body[data-page="jobs"].page-nav { display: none; }
+ .jobs-hero { background: linear-gradient(135deg, #1B3A5C 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
+ .jobs-container { max-width: 900px; margin: 2rem auto; padding: 0 2rem; }
+ .job-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin-bottom: 1.5rem; border-left: 4px solid #1B3A5C; }
+ .job-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; }
+ .job-title { font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+ .job-company { font-size: 0.95rem; color: #666; margin-bottom: 0.5rem; }
+ .job-meta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+ .job-badge { background: #f5f5f5; padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.85rem; color: #666; }
+ .job-description { color: #555; line-height: 1.6; margin-bottom: 1rem; }
+ .job-apply { background: #1B3A5C; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+ .job-apply:hover { background: #0f2538; }
+ .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+ </style>
 </head>
 <body data-page="jobs">
 
@@ -28,119 +28,119 @@
 <div id="nav-mount"></div>
 
 <div class="breadcrumb">
-  <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="../people.html" style="color: var(--gold); text-decoration: none;">People & Workforce</a> › Job Opportunities
+ <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="../people.html" style="color: var(--gold); text-decoration: none;">People & Workforce</a> › Job Opportunities
 </div>
 
 <div class="jobs-hero">
-  <div class="container">
-    <h1>Vision 2040 Career Opportunities</h1>
-    <p style="font-size: 1.1rem; opacity: 0.95;">Build your career in a thriving community. Jobs created by Vision 2040 initiatives — from logistics to education to tourism.</p>
-  </div>
+ <div class="container">
+  <h1>Vision 2040 Career Opportunities</h1>
+  <p style="font-size: 1.1rem; opacity: 0.95;">Build your career in a thriving community. Jobs created by Vision 2040 initiatives — from logistics to education to tourism.</p>
+ </div>
 </div>
 
 <div class="jobs-container">
-  <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Active Job Postings</h3>
-  <div id="jobsList"></div>
+ <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Active Job Postings</h3>
+ <div id="jobsList"></div>
 </div>
 
 <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas</p>
+ <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas</p>
 </footer>
 
 <script src="../js/nav.js"></script>
 <script>
-  const sampleJobs = [
-    {
-      id: 1,
-      title: 'Commercial Driver License (CDL) Instructor',
-      company: 'USD 490 Workforce Development',
-      salary: '$55K-65K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'Lead CDL training program for logistics workforce pipeline. Requires CDL, teaching experience, passion for workforce development.'
-    },
-    {
-      id: 2,
-      title: 'Logistics Operations Manager',
-      company: 'Regional Distribution Center (Coming 2027)',
-      salary: '$70K-90K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'Manage 200-person warehouse operation. 5+ years logistics experience. Growth opportunity as facility expands.'
-    },
-    {
-      id: 3,
-      title: 'Tourism & Hospitality Coordinator',
-      company: 'City of El Dorado',
-      salary: '$45K-55K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'Coordinate lake tourism initiatives, event marketing, visitor services. Tourism or hospitality background preferred.'
-    },
-    {
-      id: 4,
-      title: 'Youth Program Coordinator',
-      company: 'USD 490 Education Foundation',
-      salary: '$40K-50K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'Manage youth retention and entrepreneurship programs. Support 100+ students in career pathways and startups.'
-    },
-    {
-      id: 5,
-      title: 'Facility Maintenance Technician',
-      company: 'Multi-Employer Facility (Coming 2027)',
-      salary: '$50K-60K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'HVAC, electrical, plumbing maintenance for distribution center. Skilled trades certification required.'
-    },
-    {
-      id: 6,
-      title: 'Golf Course Superintendent',
-      company: 'El Dorado Golf Resort (Coming 2028)',
-      salary: '$65K-80K',
-      location: 'El Dorado',
-      type: 'Full-Time',
-      description: 'Lead 27-hole championship course management. PGA experience required. Growth opportunity as course develops.'
-    }
-  ];
-
-  function displayJobs() {
-    let html = '';
-    sampleJobs.forEach(job => {
-      html += `
-        <div class="job-card">
-          <div class="job-header">
-            <div>
-              <div class="job-title">${job.title}</div>
-              <div class="job-company">${job.company}</div>
-            </div>
-          </div>
-          <div class="job-meta">
-            <div class="job-badge">💼 ${job.type}</div>
-            <div class="job-badge">📍 ${job.location}</div>
-            <div class="job-badge">💰 ${job.salary}</div>
-          </div>
-          <div class="job-description">${job.description}</div>
-          <button onclick="applyJob(${job.id})" class="job-apply">Apply Now</button>
-        </div>
-      `;
-    });
-
-    document.getElementById('jobsList').innerHTML = html;
+ const sampleJobs = [
+  {
+   id: 1,
+   title: 'Commercial Driver License (CDL) Instructor',
+   company: 'USD 490 Workforce Development',
+   salary: '$55K-65K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'Lead CDL training program for logistics workforce pipeline. Requires CDL, teaching experience, passion for workforce development.'
+  },
+  {
+   id: 2,
+   title: 'Logistics Operations Manager',
+   company: 'Regional Distribution Center (Coming 2027)',
+   salary: '$70K-90K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'Manage 200-person warehouse operation. 5+ years logistics experience. Growth opportunity as facility expands.'
+  },
+  {
+   id: 3,
+   title: 'Tourism & Hospitality Coordinator',
+   company: 'City of El Dorado',
+   salary: '$45K-55K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'Coordinate lake tourism initiatives, event marketing, visitor services. Tourism or hospitality background preferred.'
+  },
+  {
+   id: 4,
+   title: 'Youth Program Coordinator',
+   company: 'USD 490 Education Foundation',
+   salary: '$40K-50K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'Manage youth retention and entrepreneurship programs. Support 100+ students in career pathways and startups.'
+  },
+  {
+   id: 5,
+   title: 'Facility Maintenance Technician',
+   company: 'Multi-Employer Facility (Coming 2027)',
+   salary: '$50K-60K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'HVAC, electrical, plumbing maintenance for distribution center. Skilled trades certification required.'
+  },
+  {
+   id: 6,
+   title: 'Golf Course Superintendent',
+   company: 'El Dorado Golf Resort (Coming 2028)',
+   salary: '$65K-80K',
+   location: 'El Dorado',
+   type: 'Full-Time',
+   description: 'Lead 27-hole championship course management. PGA experience required. Growth opportunity as course develops.'
   }
+ ];
 
-  function applyJob(jobId) {
-    const job = sampleJobs.find(j => j.id === jobId);
-    alert(`Thank you for your interest in "${job.title}" at ${job.company}!\n\nPlease reply to el-dorado-jobs@eldorado-ks.gov with your resume and cover letter.`);
+ function displayJobs() {
+  let html = '';
+  sampleJobs.forEach(job => {
+   html += `
+    <div class="job-card">
+     <div class="job-header">
+      <div>
+       <div class="job-title">${job.title}</div>
+       <div class="job-company">${job.company}</div>
+      </div>
+     </div>
+     <div class="job-meta">
+      <div class="job-badge">💼 ${job.type}</div>
+      <div class="job-badge">📍 ${job.location}</div>
+      <div class="job-badge">💰 ${job.salary}</div>
+     </div>
+     <div class="job-description">${job.description}</div>
+     <button onclick="applyJob(${job.id})" class="job-apply">Apply Now</button>
+    </div>
+   `;
+  });
 
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'job_apply', { job_id: jobId, job_title: job.title });
-    }
+  document.getElementById('jobsList').innerHTML = html;
+ }
+
+ function applyJob(jobId) {
+  const job = sampleJobs.find(j => j.id === jobId);
+  alert(`Thank you for your interest in "${job.title}" at ${job.company}!\n\nPlease reply to el-dorado-jobs@eldorado-ks.gov with your resume and cover letter.`);
+
+  if (typeof gtag!== 'undefined') {
+   gtag('event', 'job_apply', { job_id: jobId, job_title: job.title });
   }
+ }
 
-  window.addEventListener('load', displayJobs);
+ window.addEventListener('load', displayJobs);
 </script>
 <script src="../js/analytics.js" defer></script>
 

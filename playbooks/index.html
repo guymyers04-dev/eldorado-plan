@@ -1,656 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Started in El Dorado — Find Your Path</title>
-  <meta name="description" content="Answer 3 quick questions to find the playbook that's right for you. Discover how to start, expand, or invest in El Dorado.">
-  <meta name="og:title" content="Get Started in El Dorado — Find Your Path">
-  <meta name="og:description" content="Answer 3 quick questions to find the playbook that's right for you. Discover how to start, expand, or invest in El Dorado.">
-  <meta name="og:type" content="website">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="css/playbooks.css">
-  <style>
-    /* Quiz-specific styling */
-    .quiz-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Get Started in El Dorado — Find Your Path</title>
+ <meta name="description" content="Answer 3 quick questions to find the playbook that's right for you. Discover how to start, expand, or invest in El Dorado.">
+ <meta name="og:title" content="Get Started in El Dorado — Find Your Path">
+ <meta name="og:description" content="Answer 3 quick questions to find the playbook that's right for you. Discover how to start, expand, or invest in El Dorado.">
+ <meta name="og:type" content="website">
+ <link rel="stylesheet" href="../css/styles.css">
+ <link rel="stylesheet" href="css/playbooks.css">
+ <style>
+  /* Quiz-specific styling */
+ .quiz-container {
+   max-width: 900px;
+   margin: 0 auto;
+   padding: 0 24px;
+  }
 
-    .quiz-hero {
-      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
-      color: white;
-      padding: 80px 24px;
-      text-align: center;
-      margin-bottom: 60px;
-      border-radius: 8px;
-    }
+ .quiz-hero {
+   background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+   color: white;
+   padding: 80px 24px;
+   text-align: center;
+   margin-bottom: 60px;
+   border-radius: 8px;
+  }
 
-    .quiz-hero h1 {
-      color: white;
-      margin-bottom: 1rem;
-      font-size: 2.8rem;
-    }
+ .quiz-hero h1 {
+   color: white;
+   margin-bottom: 1rem;
+   font-size: 2.8rem;
+  }
 
-    .quiz-hero .subtitle {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      margin: 0 auto;
-      max-width: 700px;
-    }
+ .quiz-hero.subtitle {
+   font-size: 1.2rem;
+   opacity: 0.95;
+   margin: 0 auto;
+   max-width: 700px;
+  }
 
-    .quiz-section {
-      margin-bottom: 60px;
-    }
+ .quiz-section {
+   margin-bottom: 60px;
+  }
 
-    .quiz-question {
-      animation: fadeIn 0.3s ease;
-    }
+ .quiz-question {
+   animation: fadeIn 0.3s ease;
+  }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+  @keyframes fadeIn {
+   from {
+    opacity: 0;
+    transform: translateY(10px);
+   }
+   to {
+    opacity: 1;
+    transform: translateY(0);
+   }
+  }
 
-    .quiz-question h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: #1a252f;
-    }
+ .quiz-question h2 {
+   font-size: 2rem;
+   margin-bottom: 1.5rem;
+   color: #1a252f;
+  }
 
-    .quiz-question .subtitle {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 2rem;
-    }
+ .quiz-question.subtitle {
+   font-size: 1rem;
+   color: #666;
+   margin-bottom: 2rem;
+  }
 
-    .answer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
+ .answer-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 1.5rem;
+   margin: 2rem 0;
+  }
 
-    .answer-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      padding: 1.5rem;
-      background: white;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #2c3e50;
-      min-height: 150px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
+ .answer-btn {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 0.75rem;
+   padding: 1.5rem;
+   background: white;
+   border: 2px solid #ddd;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   font-size: 0.95rem;
+   font-weight: 500;
+   color: #2c3e50;
+   min-height: 150px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
 
-    .answer-btn:hover {
-      border-color: #d4af37;
-      background: #f8f9fa;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-      transform: translateY(-2px);
-    }
+ .answer-btn:hover {
+   border-color: #d4af37;
+   background: #f8f9fa;
+   box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+   transform: translateY(-2px);
+  }
 
-    .answer-btn.selected {
-      background: #d4af37;
-      color: #1a252f;
-      border-color: #d4af37;
-      box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
-    }
+ .answer-btn.selected {
+   background: #d4af37;
+   color: #1a252f;
+   border-color: #d4af37;
+   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+  }
 
-    .answer-icon {
-      font-size: 2.5rem;
-      line-height: 1;
-    }
+ .answer-icon {
+   font-size: 2.5rem;
+   line-height: 1;
+  }
 
-    .answer-text {
-      text-align: center;
-      line-height: 1.4;
-    }
+ .answer-text {
+   text-align: center;
+   line-height: 1.4;
+  }
 
-    .quiz-progress {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 3rem;
-    }
+ .quiz-progress {
+   display: flex;
+   justify-content: center;
+   gap: 0.5rem;
+   margin-bottom: 3rem;
+  }
 
-    .progress-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #ddd;
-      transition: all 0.3s ease;
-    }
+ .progress-dot {
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background: #ddd;
+   transition: all 0.3s ease;
+  }
 
-    .progress-dot.active {
-      background: #d4af37;
-      transform: scale(1.3);
-    }
+ .progress-dot.active {
+   background: #d4af37;
+   transform: scale(1.3);
+  }
 
-    .progress-dot.completed {
-      background: #d4af37;
-    }
+ .progress-dot.completed {
+   background: #d4af37;
+  }
 
-    /* Results Section */
-    #results-section {
-      animation: fadeIn 0.3s ease;
-    }
+  /* Results Section */
+  #results-section {
+   animation: fadeIn 0.3s ease;
+  }
 
-    .results-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+ .results-header {
+   text-align: center;
+   margin-bottom: 3rem;
+  }
 
-    .results-header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
+ .results-header h1 {
+   font-size: 2.8rem;
+   margin-bottom: 0.5rem;
+  }
 
-    .results-header .subtitle {
-      font-size: 1.1rem;
-      color: #666;
-    }
+ .results-header.subtitle {
+   font-size: 1.1rem;
+   color: #666;
+  }
 
-    .playbook-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
+ .playbook-cards {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 2rem;
+   margin-bottom: 3rem;
+  }
 
-    .playbook-card-quiz {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
+ .playbook-card-quiz {
+   background: white;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   overflow: hidden;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   transition: all 0.3s ease;
+   display: flex;
+   flex-direction: column;
+  }
 
-    .playbook-card-quiz:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-      border-color: #d4af37;
-    }
+ .playbook-card-quiz:hover {
+   transform: translateY(-8px);
+   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+   border-color: #d4af37;
+  }
 
-    .playbook-card-header-quiz {
-      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
-      color: white;
-      padding: 24px;
-    }
+ .playbook-card-header-quiz {
+   background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+   color: white;
+   padding: 24px;
+  }
 
-    .playbook-card-header-quiz h3 {
-      margin: 0;
-      font-size: 1.3rem;
-      color: white;
-    }
+ .playbook-card-header-quiz h3 {
+   margin: 0;
+   font-size: 1.3rem;
+   color: white;
+  }
 
-    .playbook-card-body-quiz {
-      padding: 24px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
+ .playbook-card-body-quiz {
+   padding: 24px;
+   flex-grow: 1;
+   display: flex;
+   flex-direction: column;
+  }
 
-    .playbook-card-body-quiz p {
-      margin-bottom: 1rem;
-      color: #666;
-      flex-grow: 1;
-    }
+ .playbook-card-body-quiz p {
+   margin-bottom: 1rem;
+   color: #666;
+   flex-grow: 1;
+  }
 
-    .playbook-card-meta {
-      font-size: 0.9rem;
-      color: #999;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #eee;
-    }
+ .playbook-card-meta {
+   font-size: 0.9rem;
+   color: #999;
+   margin-top: 1rem;
+   padding-top: 1rem;
+   border-top: 1px solid #eee;
+  }
 
-    .card-button-group {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
+ .card-button-group {
+   display: flex;
+   gap: 0.5rem;
+   margin-top: 1.5rem;
+   flex-wrap: wrap;
+  }
 
-    .card-button-group a,
-    .card-button-group button {
-      flex: 1;
-      min-width: 120px;
-    }
+ .card-button-group a,
+ .card-button-group button {
+   flex: 1;
+   min-width: 120px;
+  }
 
-    .results-actions {
-      text-align: center;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid #ddd;
-    }
+ .results-actions {
+   text-align: center;
+   margin-top: 3rem;
+   padding-top: 2rem;
+   border-top: 1px solid #ddd;
+  }
 
-    .results-actions button {
-      margin-right: 1rem;
-    }
+ .results-actions button {
+   margin-right: 1rem;
+  }
 
-    .results-actions a {
-      display: inline-block;
-      margin-left: 1rem;
-    }
+ .results-actions a {
+   display: inline-block;
+   margin-left: 1rem;
+  }
 
-    .explore-link {
-      color: #d4af37;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
+ .explore-link {
+   color: #d4af37;
+   font-weight: 600;
+   text-decoration: none;
+   transition: color 0.3s ease;
+  }
 
-    .explore-link:hover {
-      color: #e5c158;
-    }
+ .explore-link:hover {
+   color: #e5c158;
+  }
 
-    .score-badge {
-      display: inline-block;
-      background: #f8f9fa;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      color: #666;
-      margin-bottom: 0.5rem;
-    }
+ .score-badge {
+   display: inline-block;
+   background: #f8f9fa;
+   padding: 4px 12px;
+   border-radius: 20px;
+   font-size: 0.8rem;
+   color: #666;
+   margin-bottom: 0.5rem;
+  }
 
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .quiz-hero {
-        padding: 50px 20px;
-      }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+  .quiz-hero {
+    padding: 50px 20px;
+   }
 
-      .quiz-hero h1 {
-        font-size: 2rem;
-      }
+  .quiz-hero h1 {
+    font-size: 2rem;
+   }
 
-      .quiz-hero .subtitle {
-        font-size: 1rem;
-      }
+  .quiz-hero.subtitle {
+    font-size: 1rem;
+   }
 
-      .answer-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+  .answer-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+   }
 
-      .answer-btn {
-        padding: 1.25rem;
-        min-height: 120px;
-      }
+  .answer-btn {
+    padding: 1.25rem;
+    min-height: 120px;
+   }
 
-      .answer-icon {
-        font-size: 2rem;
-      }
+  .answer-icon {
+    font-size: 2rem;
+   }
 
-      .playbook-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
+  .playbook-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+   }
 
-      .card-button-group {
-        flex-direction: column;
-      }
+  .card-button-group {
+    flex-direction: column;
+   }
 
-      .card-button-group a,
-      .card-button-group button {
-        width: 100%;
-      }
+  .card-button-group a,
+  .card-button-group button {
+    width: 100%;
+   }
 
-      .results-header h1 {
-        font-size: 2rem;
-      }
+  .results-header h1 {
+    font-size: 2rem;
+   }
 
-      .results-header .subtitle {
-        font-size: 1rem;
-      }
-    }
+  .results-header.subtitle {
+    font-size: 1rem;
+   }
+  }
 
-    @media (max-width: 480px) {
-      .quiz-hero {
-        padding: 40px 16px;
-        margin-bottom: 40px;
-      }
+  @media (max-width: 480px) {
+  .quiz-hero {
+    padding: 40px 16px;
+    margin-bottom: 40px;
+   }
 
-      .quiz-hero h1 {
-        font-size: 1.5rem;
-      }
+  .quiz-hero h1 {
+    font-size: 1.5rem;
+   }
 
-      .quiz-question h2 {
-        font-size: 1.25rem;
-      }
+  .quiz-question h2 {
+    font-size: 1.25rem;
+   }
 
-      .answer-btn {
-        padding: 1rem;
-        min-height: 100px;
-        font-size: 0.9rem;
-      }
+  .answer-btn {
+    padding: 1rem;
+    min-height: 100px;
+    font-size: 0.9rem;
+   }
 
-      .answer-icon {
-        font-size: 1.75rem;
-      }
+  .answer-icon {
+    font-size: 1.75rem;
+   }
 
-      .quiz-container {
-        padding: 0 16px;
-      }
+  .quiz-container {
+    padding: 0 16px;
+   }
 
-      .playbook-card-header-quiz {
-        padding: 16px;
-      }
+  .playbook-card-header-quiz {
+    padding: 16px;
+   }
 
-      .playbook-card-body-quiz {
-        padding: 16px;
-      }
-    }
-  </style>
+  .playbook-card-body-quiz {
+    padding: 16px;
+   }
+  }
+ </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <!-- Quiz Section -->
-    <div id="quiz-section">
-      <div class="quiz-hero">
-        <h1>Get Started in El Dorado</h1>
-        <p class="subtitle">Answer 3 quick questions to find your path</p>
-      </div>
+ <div class="quiz-container">
+  <!-- Quiz Section -->
+  <div id="quiz-section">
+   <div class="quiz-hero">
+    <h1>Get Started in El Dorado</h1>
+    <p class="subtitle">Answer 3 quick questions to find your path</p>
+   </div>
 
-      <!-- Progress Indicator -->
-      <div class="quiz-progress">
-        <div class="progress-dot active" id="progress-1"></div>
-        <div class="progress-dot" id="progress-2"></div>
-        <div class="progress-dot" id="progress-3"></div>
-      </div>
+   <!-- Progress Indicator -->
+   <div class="quiz-progress">
+    <div class="progress-dot active" id="progress-1"></div>
+    <div class="progress-dot" id="progress-2"></div>
+    <div class="progress-dot" id="progress-3"></div>
+   </div>
 
-      <!-- Question 1: Purpose -->
-      <div id="question-1" class="quiz-question">
-        <h2>What brings you to El Dorado?</h2>
-        <p class="subtitle">Help us understand your primary business objective</p>
-        <div class="answer-grid" id="answers-1"></div>
-      </div>
+   <!-- Question 1: Purpose -->
+   <div id="question-1" class="quiz-question">
+    <h2>What brings you to El Dorado?</h2>
+    <p class="subtitle">Help us understand your primary business objective</p>
+    <div class="answer-grid" id="answers-1"></div>
+   </div>
 
-      <!-- Question 2: Industry -->
-      <div id="question-2" class="quiz-question" style="display:none;">
-        <h2>Which industry or sector are you in?</h2>
-        <p class="subtitle">This helps us recommend the most relevant playbooks</p>
-        <div class="answer-grid" id="answers-2"></div>
-      </div>
+   <!-- Question 2: Industry -->
+   <div id="question-2" class="quiz-question" style="display:none;">
+    <h2>Which industry or sector are you in?</h2>
+    <p class="subtitle">This helps us recommend the most relevant playbooks</p>
+    <div class="answer-grid" id="answers-2"></div>
+   </div>
 
-      <!-- Question 3: Stage -->
-      <div id="question-3" class="quiz-question" style="display:none;">
-        <h2>What's your stage?</h2>
-        <p class="subtitle">Understanding your timeline helps us prioritize playbooks</p>
-        <div class="answer-grid" id="answers-3"></div>
-      </div>
-    </div>
-
-    <!-- Results Section -->
-    <div id="results-section" style="display:none;">
-      <div class="results-header">
-        <h1>Your Playbooks</h1>
-        <p class="subtitle">Based on your answers, here's your recommended path</p>
-      </div>
-      <div id="results-content"></div>
-      <div class="results-actions">
-        <button class="cta-button" onclick="resetQuiz()">Start Over</button>
-        <a href="/playbooks/" class="explore-link">Explore All Playbooks →</a>
-      </div>
-    </div>
+   <!-- Question 3: Stage -->
+   <div id="question-3" class="quiz-question" style="display:none;">
+    <h2>What's your stage?</h2>
+    <p class="subtitle">Understanding your timeline helps us prioritize playbooks</p>
+    <div class="answer-grid" id="answers-3"></div>
+   </div>
   </div>
 
-  <script>
-    // State management
-    let quizData = null;
-    let answers = { purpose: null, industry: null, stage: null };
-    let currentQuestion = 1;
+  <!-- Results Section -->
+  <div id="results-section" style="display:none;">
+   <div class="results-header">
+    <h1>Your Playbooks</h1>
+    <p class="subtitle">Based on your answers, here's your recommended path</p>
+   </div>
+   <div id="results-content"></div>
+   <div class="results-actions">
+    <button class="cta-button" onclick="resetQuiz()">Start Over</button>
+    <a href="/playbooks/" class="explore-link">Explore All Playbooks →</a>
+   </div>
+  </div>
+ </div>
 
-    // Load playbooks data and initialize quiz on page load
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        const response = await fetch('/playbooks/data/playbooks.json');
-        quizData = await response.json();
-        setupQuiz();
-      } catch (error) {
-        console.error('Error loading playbooks:', error);
-        // Fallback: show error message
-        document.getElementById('quiz-section').innerHTML = '<p style="color: red; padding: 2rem;">Error loading quiz. Please refresh the page.</p>';
-      }
+ <script>
+  // State management
+  let quizData = null;
+  let answers = { purpose: null, industry: null, stage: null };
+  let currentQuestion = 1;
+
+  // Load playbooks data and initialize quiz on page load
+  document.addEventListener('DOMContentLoaded', async () => {
+   try {
+    const response = await fetch('/playbooks/data/playbooks.json');
+    quizData = await response.json();
+    setupQuiz();
+   } catch (error) {
+    console.error('Error loading playbooks:', error);
+    // Fallback: show error message
+    document.getElementById('quiz-section').innerHTML = '<p style="color: red; padding: 2rem;">Error loading quiz. Please refresh the page.</p>';
+   }
+  });
+
+  // Setup quiz with answer options
+  function setupQuiz() {
+   if (!quizData) return;
+
+   // Populate each question with answers from JSON
+   quizData.quizQuestions.forEach(q => {
+    const grid = document.getElementById(`answers-${q.id}`);
+    if (grid) {
+     q.answers.forEach(answer => {
+      const btn = document.createElement('button');
+      btn.className = 'answer-btn';
+      btn.dataset.question = getQuestionField(q.id);
+      btn.dataset.value = answer.value;
+      btn.innerHTML = `
+       <span class="answer-icon">${getIcon(q.id, answer.value)}</span>
+       <span class="answer-text">${answer.text}</span>
+      `;
+      btn.addEventListener('click', handleAnswer);
+      grid.appendChild(btn);
+     });
+    }
+   });
+  }
+
+  // Map question ID to field name
+  function getQuestionField(questionId) {
+   const map = { 1: 'purpose', 2: 'industry', 3: 'stage' };
+   return map[questionId];
+  }
+
+  // Get emoji icon for each answer
+  function getIcon(questionId, value) {
+   const icons = {
+    // Purpose
+    start: '🚀',
+    expand: '📈',
+    relocate: '🏢',
+    invest: '💰',
+    hire: '👥',
+    exploring: '🔍',
+    // Industry
+    manufacturing: '🏭',
+    agriculture: '🌾',
+    technology: '💻',
+    healthcare: '🏥',
+    services: '🛍️',
+    realestate: '🏗️',
+    general: '❓',
+    // Stage
+    exploring: '🔍',
+    deciding: '⚖️',
+    executing: '⚙️'
+   };
+   return icons[value] || '✓';
+  }
+
+  // Handle answer button click
+  function handleAnswer(e) {
+   const btn = e.currentTarget;
+   const question = btn.dataset.question;
+   const value = btn.dataset.value;
+
+   // Update answers object
+   answers[question] = value;
+
+   // Get question ID from field name
+   const questionIdMap = { purpose: 1, industry: 2, stage: 3 };
+   const questionId = questionIdMap[question];
+
+   // Update UI: highlight selected button
+   document.querySelectorAll(`[data-question="${question}"]`).forEach(b => {
+    b.classList.remove('selected');
+   });
+   btn.classList.add('selected');
+
+   // Update progress indicator
+   document.getElementById(`progress-${questionId}`).classList.add('completed');
+   if (questionId < 3) {
+    document.getElementById(`progress-${questionId + 1}`).classList.add('active');
+   }
+
+   // Move to next question or show results
+   if (question === 'purpose') {
+    document.getElementById('question-1').style.display = 'none';
+    document.getElementById('question-2').style.display = 'block';
+    currentQuestion = 2;
+   } else if (question === 'industry') {
+    document.getElementById('question-2').style.display = 'none';
+    document.getElementById('question-3').style.display = 'block';
+    currentQuestion = 3;
+   } else if (question === 'stage') {
+    showResults();
+   }
+
+   // GA4 tracking
+   if (window.gtag) {
+    gtag('event', 'quiz_answered', {
+     question_id: questionId,
+     answer_value: value,
+     question_field: question
     });
+   }
+  }
 
-    // Setup quiz with answer options
-    function setupQuiz() {
-      if (!quizData) return;
+  // Score playbooks based on answers
+  function scorePlaybooks() {
+   return quizData.playbooks
+   .map(pb => {
+     let score = pb.relevanceScore;
 
-      // Populate each question with answers from JSON
-      quizData.quizQuestions.forEach(q => {
-        const grid = document.getElementById(`answers-${q.id}`);
-        if (grid) {
-          q.answers.forEach(answer => {
-            const btn = document.createElement('button');
-            btn.className = 'answer-btn';
-            btn.dataset.question = getQuestionField(q.id);
-            btn.dataset.value = answer.value;
-            btn.innerHTML = `
-              <span class="answer-icon">${getIcon(q.id, answer.value)}</span>
-              <span class="answer-text">${answer.text}</span>
-            `;
-            btn.addEventListener('click', handleAnswer);
-            grid.appendChild(btn);
-          });
-        }
-      });
-    }
+     // Purpose match: +15 points
+     if (pb.purposeMatch && pb.purposeMatch.includes(answers.purpose)) {
+      score += 15;
+     }
 
-    // Map question ID to field name
-    function getQuestionField(questionId) {
-      const map = { 1: 'purpose', 2: 'industry', 3: 'stage' };
-      return map[questionId];
-    }
+     // Industry match: +10 points
+     if (pb.industryMatch && (pb.industryMatch.includes(answers.industry) || pb.industryMatch.includes('all'))) {
+      score += 10;
+     }
 
-    // Get emoji icon for each answer
-    function getIcon(questionId, value) {
-      const icons = {
-        // Purpose
-        start: '🚀',
-        expand: '📈',
-        relocate: '🏢',
-        invest: '💰',
-        hire: '👥',
-        exploring: '🔍',
-        // Industry
-        manufacturing: '🏭',
-        agriculture: '🌾',
-        technology: '💻',
-        healthcare: '🏥',
-        services: '🛍️',
-        realestate: '🏗️',
-        general: '❓',
-        // Stage
-        exploring: '🔍',
-        deciding: '⚖️',
-        executing: '⚙️'
-      };
-      return icons[value] || '✓';
-    }
+     // Stage match: +10 points
+     if (pb.stageMatch && pb.stageMatch.includes(answers.stage)) {
+      score += 10;
+     }
 
-    // Handle answer button click
-    function handleAnswer(e) {
-      const btn = e.currentTarget;
-      const question = btn.dataset.question;
-      const value = btn.dataset.value;
+     return {...pb, score };
+    })
+   .sort((a, b) => b.score - a.score);
+  }
 
-      // Update answers object
-      answers[question] = value;
+  // Show results with top 3 playbooks
+  function showResults() {
+   // Hide quiz, show results
+   document.getElementById('quiz-section').style.display = 'none';
+   document.getElementById('results-section').style.display = 'block';
 
-      // Get question ID from field name
-      const questionIdMap = { purpose: 1, industry: 2, stage: 3 };
-      const questionId = questionIdMap[question];
+   // Score playbooks and get top 3
+   const scored = scorePlaybooks();
+   const top3 = scored.slice(0, 3);
 
-      // Update UI: highlight selected button
-      document.querySelectorAll(`[data-question="${question}"]`).forEach(b => {
-        b.classList.remove('selected');
-      });
-      btn.classList.add('selected');
+   // Render results
+   let html = '<div class="playbook-cards">';
+   top3.forEach((pb, index) => {
+    html += `
+     <div class="playbook-card-quiz">
+      <div class="playbook-card-header-quiz">
+       <span class="score-badge">Match: ${pb.score}</span>
+       <h3>${pb.title}</h3>
+      </div>
+      <div class="playbook-card-body-quiz">
+       <p>${pb.description}</p>
+       <div class="playbook-card-meta">
+        <strong>Timeline:</strong> ${pb.estimatedTime}<br>
+        <strong>Key Stakeholders:</strong> ${pb.keyStakeholders}<br>
+        <strong>Required Documents:</strong> ${pb.requiredDocs}
+       </div>
+       <div class="card-button-group">
+        <a href="${pb.url}" class="cta-button" style="text-align: center; padding: 10px 16px; font-size: 0.9rem;">Read Guide</a>
+        <button class="cta-button secondary" style="padding: 10px 16px; font-size: 0.9rem;" onclick="scrollToPlaybook('${pb.id}')">More Info</button>
+       </div>
+      </div>
+     </div>
+    `;
+   });
+   html += '</div>';
 
-      // Update progress indicator
-      document.getElementById(`progress-${questionId}`).classList.add('completed');
-      if (questionId < 3) {
-        document.getElementById(`progress-${questionId + 1}`).classList.add('active');
-      }
+   document.getElementById('results-content').innerHTML = html;
 
-      // Move to next question or show results
-      if (question === 'purpose') {
-        document.getElementById('question-1').style.display = 'none';
-        document.getElementById('question-2').style.display = 'block';
-        currentQuestion = 2;
-      } else if (question === 'industry') {
-        document.getElementById('question-2').style.display = 'none';
-        document.getElementById('question-3').style.display = 'block';
-        currentQuestion = 3;
-      } else if (question === 'stage') {
-        showResults();
-      }
+   // GA4 tracking
+   if (window.gtag) {
+    gtag('event', 'quiz_completed', {
+     purpose: answers.purpose,
+     industry: answers.industry,
+     stage: answers.stage,
+     top_playbook: top3[0]?.id || 'unknown',
+     playbook_scores: top3.map(p => p.id).join(',')
+    });
+   }
+  }
 
-      // GA4 tracking
-      if (window.gtag) {
-        gtag('event', 'quiz_answered', {
-          question_id: questionId,
-          answer_value: value,
-          question_field: question
-        });
-      }
-    }
+  // Scroll to playbook (placeholder for future integration)
+  function scrollToPlaybook(playbookId) {
+   // In future, this could scroll to a playbook section on the page
+   // or navigate to the playbook page
+   const playbookUrl = quizData.playbooks.find(p => p.id === playbookId)?.url;
+   if (playbookUrl) {
+    window.location.href = playbookUrl;
+   }
+  }
 
-    // Score playbooks based on answers
-    function scorePlaybooks() {
-      return quizData.playbooks
-        .map(pb => {
-          let score = pb.relevanceScore;
+  // Reset quiz to initial state
+  function resetQuiz() {
+   // Clear answers
+   answers = { purpose: null, industry: null, stage: null };
+   currentQuestion = 1;
 
-          // Purpose match: +15 points
-          if (pb.purposeMatch && pb.purposeMatch.includes(answers.purpose)) {
-            score += 15;
-          }
+   // Hide results, show quiz
+   document.getElementById('quiz-section').style.display = 'block';
+   document.getElementById('results-section').style.display = 'none';
 
-          // Industry match: +10 points
-          if (pb.industryMatch && (pb.industryMatch.includes(answers.industry) || pb.industryMatch.includes('all'))) {
-            score += 10;
-          }
+   // Show first question, hide others
+   document.getElementById('question-1').style.display = 'block';
+   document.getElementById('question-2').style.display = 'none';
+   document.getElementById('question-3').style.display = 'none';
 
-          // Stage match: +10 points
-          if (pb.stageMatch && pb.stageMatch.includes(answers.stage)) {
-            score += 10;
-          }
+   // Remove selected state from all buttons
+   document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
 
-          return { ...pb, score };
-        })
-        .sort((a, b) => b.score - a.score);
-    }
+   // Reset progress indicators
+   document.querySelectorAll('.progress-dot').forEach((dot, index) => {
+    dot.classList.remove('completed', 'active');
+   });
+   document.getElementById('progress-1').classList.add('active');
 
-    // Show results with top 3 playbooks
-    function showResults() {
-      // Hide quiz, show results
-      document.getElementById('quiz-section').style.display = 'none';
-      document.getElementById('results-section').style.display = 'block';
-
-      // Score playbooks and get top 3
-      const scored = scorePlaybooks();
-      const top3 = scored.slice(0, 3);
-
-      // Render results
-      let html = '<div class="playbook-cards">';
-      top3.forEach((pb, index) => {
-        html += `
-          <div class="playbook-card-quiz">
-            <div class="playbook-card-header-quiz">
-              <span class="score-badge">Match: ${pb.score}</span>
-              <h3>${pb.title}</h3>
-            </div>
-            <div class="playbook-card-body-quiz">
-              <p>${pb.description}</p>
-              <div class="playbook-card-meta">
-                <strong>Timeline:</strong> ${pb.estimatedTime}<br>
-                <strong>Key Stakeholders:</strong> ${pb.keyStakeholders}<br>
-                <strong>Required Documents:</strong> ${pb.requiredDocs}
-              </div>
-              <div class="card-button-group">
-                <a href="${pb.url}" class="cta-button" style="text-align: center; padding: 10px 16px; font-size: 0.9rem;">Read Guide</a>
-                <button class="cta-button secondary" style="padding: 10px 16px; font-size: 0.9rem;" onclick="scrollToPlaybook('${pb.id}')">More Info</button>
-              </div>
-            </div>
-          </div>
-        `;
-      });
-      html += '</div>';
-
-      document.getElementById('results-content').innerHTML = html;
-
-      // GA4 tracking
-      if (window.gtag) {
-        gtag('event', 'quiz_completed', {
-          purpose: answers.purpose,
-          industry: answers.industry,
-          stage: answers.stage,
-          top_playbook: top3[0]?.id || 'unknown',
-          playbook_scores: top3.map(p => p.id).join(',')
-        });
-      }
-    }
-
-    // Scroll to playbook (placeholder for future integration)
-    function scrollToPlaybook(playbookId) {
-      // In future, this could scroll to a playbook section on the page
-      // or navigate to the playbook page
-      const playbookUrl = quizData.playbooks.find(p => p.id === playbookId)?.url;
-      if (playbookUrl) {
-        window.location.href = playbookUrl;
-      }
-    }
-
-    // Reset quiz to initial state
-    function resetQuiz() {
-      // Clear answers
-      answers = { purpose: null, industry: null, stage: null };
-      currentQuestion = 1;
-
-      // Hide results, show quiz
-      document.getElementById('quiz-section').style.display = 'block';
-      document.getElementById('results-section').style.display = 'none';
-
-      // Show first question, hide others
-      document.getElementById('question-1').style.display = 'block';
-      document.getElementById('question-2').style.display = 'none';
-      document.getElementById('question-3').style.display = 'none';
-
-      // Remove selected state from all buttons
-      document.querySelectorAll('.answer-btn').forEach(b => b.classList.remove('selected'));
-
-      // Reset progress indicators
-      document.querySelectorAll('.progress-dot').forEach((dot, index) => {
-        dot.classList.remove('completed', 'active');
-      });
-      document.getElementById('progress-1').classList.add('active');
-
-      // GA4 tracking
-      if (window.gtag) {
-        gtag('event', 'quiz_reset');
-      }
-    }
-  </script>
+   // GA4 tracking
+   if (window.gtag) {
+    gtag('event', 'quiz_reset');
+   }
+  }
+ </script>
 </body>
 </html>

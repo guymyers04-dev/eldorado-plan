@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Recruitment Form | Vision 2040</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <style>
-    body[data-page="recruitment"] .page-nav { display: none; }
-    .form-hero { background: linear-gradient(135deg, #A63D2F 0%, #7B2A1F 100%); color: white; padding: 3rem 2rem; text-align: center; }
-    .form-hero h1 { font-size: 2.5rem; margin: 0 0 1rem; }
-    .form-container { max-width: 600px; margin: 3rem auto; padding: 0 2rem; }
-    .form-group { margin-bottom: 2rem; }
-    .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem; }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #A63D2F; box-shadow: 0 0 0 3px rgba(166, 61, 47, 0.1); }
-    .form-submit { background: #A63D2F; color: white; padding: 1rem 2rem; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; }
-    .form-submit:hover { background: #7B2A1F; }
-    .success-message { background: #2E6E35; color: white; padding: 1.5rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
-    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
-    .breadcrumb a { color: var(--gold); text-decoration: none; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Business Recruitment Form | Vision 2040</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/styles.css">
+ <style>
+  body[data-page="recruitment"].page-nav { display: none; }
+ .form-hero { background: linear-gradient(135deg, #A63D2F 0%, #7B2A1F 100%); color: white; padding: 3rem 2rem; text-align: center; }
+ .form-hero h1 { font-size: 2.5rem; margin: 0 0 1rem; }
+ .form-container { max-width: 600px; margin: 3rem auto; padding: 0 2rem; }
+ .form-group { margin-bottom: 2rem; }
+ .form-group label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--navy); }
+ .form-group input,.form-group textarea,.form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+ .form-group textarea { resize: vertical; min-height: 100px; }
+ .form-group input:focus,.form-group textarea:focus,.form-group select:focus { outline: none; border-color: #A63D2F; box-shadow: 0 0 0 3px rgba(166, 61, 47, 0.1); }
+ .form-submit { background: #A63D2F; color: white; padding: 1rem 2rem; border: none; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; width: 100%; }
+ .form-submit:hover { background: #7B2A1F; }
+ .success-message { background: #2E6E35; color: white; padding: 1.5rem; border-radius: 4px; text-align: center; margin-top: 2rem; display: none; }
+ .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+ .breadcrumb a { color: var(--gold); text-decoration: none; }
+ </style>
 </head>
 <body data-page="recruitment">
 
@@ -30,181 +30,181 @@
 
 <!-- Breadcrumb -->
 <div class="breadcrumb">
-  <a href="../index.html">Home</a> › <a href="../logistics-hub.html">Logistics Hub</a> › Business Recruitment
+ <a href="../index.html">Home</a> › <a href="../logistics-hub.html">Logistics Hub</a> › Business Recruitment
 </div>
 
 <!-- Hero -->
 <div class="form-hero">
-  <div class="container">
-    <h1>Is Your Business Ready for El Dorado?</h1>
-    <p style="font-size: 1.1rem; opacity: 0.95; margin: 1rem 0;">Tell us about your facility needs. Our team will evaluate El Dorado as a location and connect you with incentives, infrastructure, and workforce support.</p>
-  </div>
+ <div class="container">
+  <h1>Is Your Business Ready for El Dorado?</h1>
+  <p style="font-size: 1.1rem; opacity: 0.95; margin: 1rem 0;">Tell us about your facility needs. Our team will evaluate El Dorado as a location and connect you with incentives, infrastructure, and workforce support.</p>
+ </div>
 </div>
 
 <div class="form-container">
-  <form id="recruitmentForm">
-    <!-- Company Info -->
-    <div class="form-group">
-      <label for="companyName">Company Name *</label>
-      <input type="text" id="companyName" name="companyName" required>
-    </div>
+ <form id="recruitmentForm">
+  <!-- Company Info -->
+  <div class="form-group">
+   <label for="companyName">Company Name *</label>
+   <input type="text" id="companyName" name="companyName" required>
+  </div>
 
-    <div class="form-group">
-      <label for="contactName">Your Name *</label>
-      <input type="text" id="contactName" name="contactName" required>
-    </div>
+  <div class="form-group">
+   <label for="contactName">Your Name *</label>
+   <input type="text" id="contactName" name="contactName" required>
+  </div>
 
-    <div class="form-group">
-      <label for="contactEmail">Email Address *</label>
-      <input type="email" id="contactEmail" name="contactEmail" required>
-    </div>
+  <div class="form-group">
+   <label for="contactEmail">Email Address *</label>
+   <input type="email" id="contactEmail" name="contactEmail" required>
+  </div>
 
-    <div class="form-group">
-      <label for="contactPhone">Phone Number *</label>
-      <input type="tel" id="contactPhone" name="contactPhone" required>
-    </div>
+  <div class="form-group">
+   <label for="contactPhone">Phone Number *</label>
+   <input type="tel" id="contactPhone" name="contactPhone" required>
+  </div>
 
-    <!-- Business Info -->
-    <div class="form-group">
-      <label for="industry">Industry Sector *</label>
-      <select id="industry" name="industry" required>
-        <option value="">-- Select Industry --</option>
-        <option value="logistics">Logistics & Distribution</option>
-        <option value="manufacturing">Manufacturing</option>
-        <option value="food-processing">Food Processing</option>
-        <option value="healthcare">Healthcare</option>
-        <option value="tech">Technology</option>
-        <option value="agriculture">Agriculture & Agribusiness</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
+  <!-- Business Info -->
+  <div class="form-group">
+   <label for="industry">Industry Sector *</label>
+   <select id="industry" name="industry" required>
+    <option value="">-- Select Industry --</option>
+    <option value="logistics">Logistics & Distribution</option>
+    <option value="manufacturing">Manufacturing</option>
+    <option value="food-processing">Food Processing</option>
+    <option value="healthcare">Healthcare</option>
+    <option value="tech">Technology</option>
+    <option value="agriculture">Agriculture & Agribusiness</option>
+    <option value="other">Other</option>
+   </select>
+  </div>
 
-    <div class="form-group">
-      <label for="facilityType">Facility Type *</label>
-      <select id="facilityType" name="facilityType" required>
-        <option value="">-- Select Type --</option>
-        <option value="distribution">Distribution Center</option>
-        <option value="manufacturing">Manufacturing Plant</option>
-        <option value="warehouse">Warehouse</option>
-        <option value="headquarters">Headquarters</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
+  <div class="form-group">
+   <label for="facilityType">Facility Type *</label>
+   <select id="facilityType" name="facilityType" required>
+    <option value="">-- Select Type --</option>
+    <option value="distribution">Distribution Center</option>
+    <option value="manufacturing">Manufacturing Plant</option>
+    <option value="warehouse">Warehouse</option>
+    <option value="headquarters">Headquarters</option>
+    <option value="other">Other</option>
+   </select>
+  </div>
 
-    <div class="form-group">
-      <label for="facilitySize">Estimated Facility Size (sq ft) *</label>
-      <input type="number" id="facilitySize" name="facilitySize" placeholder="e.g., 500000" required>
-    </div>
+  <div class="form-group">
+   <label for="facilitySize">Estimated Facility Size (sq ft) *</label>
+   <input type="number" id="facilitySize" name="facilitySize" placeholder="e.g., 500000" required>
+  </div>
 
-    <div class="form-group">
-      <label for="employees">Expected Employees *</label>
-      <input type="number" id="employees" name="employees" placeholder="e.g., 200" required>
-    </div>
+  <div class="form-group">
+   <label for="employees">Expected Employees *</label>
+   <input type="number" id="employees" name="employees" placeholder="e.g., 200" required>
+  </div>
 
-    <!-- Timeline & Investment -->
-    <div class="form-group">
-      <label for="timeline">Project Timeline *</label>
-      <select id="timeline" name="timeline" required>
-        <option value="">-- Select Timeline --</option>
-        <option value="0-6">0-6 months</option>
-        <option value="6-12">6-12 months</option>
-        <option value="12-24">12-24 months</option>
-        <option value="24+">24+ months</option>
-      </select>
-    </div>
+  <!-- Timeline & Investment -->
+  <div class="form-group">
+   <label for="timeline">Project Timeline *</label>
+   <select id="timeline" name="timeline" required>
+    <option value="">-- Select Timeline --</option>
+    <option value="0-6">0-6 months</option>
+    <option value="6-12">6-12 months</option>
+    <option value="12-24">12-24 months</option>
+    <option value="24+">24+ months</option>
+   </select>
+  </div>
 
-    <div class="form-group">
-      <label for="investmentSize">Capital Investment Range *</label>
-      <select id="investmentSize" name="investmentSize" required>
-        <option value="">-- Select Range --</option>
-        <option value="1-5">$1-5M</option>
-        <option value="5-20">$5-20M</option>
-        <option value="20-50">$20-50M</option>
-        <option value="50+">$50M+</option>
-      </select>
-    </div>
+  <div class="form-group">
+   <label for="investmentSize">Capital Investment Range *</label>
+   <select id="investmentSize" name="investmentSize" required>
+    <option value="">-- Select Range --</option>
+    <option value="1-5">$1-5M</option>
+    <option value="5-20">$5-20M</option>
+    <option value="20-50">$20-50M</option>
+    <option value="50+">$50M+</option>
+   </select>
+  </div>
 
-    <!-- Needs Assessment -->
-    <div class="form-group">
-      <label for="infraNeeds">Infrastructure Needs (check all that apply)</label>
-      <div style="display: grid; gap: 0.5rem;">
-        <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
-          <input type="checkbox" name="infraNeeds" value="highway"> Highway Access
-        </label>
-        <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
-          <input type="checkbox" name="infraNeeds" value="rail"> Rail Access
-        </label>
-        <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
-          <input type="checkbox" name="infraNeeds" value="water"> Water/Sewer Capacity
-        </label>
-        <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
-          <input type="checkbox" name="infraNeeds" value="power"> Power Capacity
-        </label>
-        <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
-          <input type="checkbox" name="infraNeeds" value="broadband"> Broadband/Fiber
-        </label>
-      </div>
-    </div>
+  <!-- Needs Assessment -->
+  <div class="form-group">
+   <label for="infraNeeds">Infrastructure Needs (check all that apply)</label>
+   <div style="display: grid; gap: 0.5rem;">
+    <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
+     <input type="checkbox" name="infraNeeds" value="highway"> Highway Access
+    </label>
+    <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
+     <input type="checkbox" name="infraNeeds" value="rail"> Rail Access
+    </label>
+    <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
+     <input type="checkbox" name="infraNeeds" value="water"> Water/Sewer Capacity
+    </label>
+    <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
+     <input type="checkbox" name="infraNeeds" value="power"> Power Capacity
+    </label>
+    <label style="display: flex; align-items: center; font-weight: normal; margin-bottom: 0;">
+     <input type="checkbox" name="infraNeeds" value="broadband"> Broadband/Fiber
+    </label>
+   </div>
+  </div>
 
-    <!-- Message -->
-    <div class="form-group">
-      <label for="message">Additional Information or Questions</label>
-      <textarea id="message" name="message"></textarea>
-    </div>
+  <!-- Message -->
+  <div class="form-group">
+   <label for="message">Additional Information or Questions</label>
+   <textarea id="message" name="message"></textarea>
+  </div>
 
-    <!-- Submit -->
-    <button type="submit" class="form-submit">Submit Your Inquiry</button>
+  <!-- Submit -->
+  <button type="submit" class="form-submit">Submit Your Inquiry</button>
 
-    <div class="success-message" id="successMessage">
-      ✓ Thank you! Your inquiry has been received. Our team will contact you within 2 business days.
-    </div>
-  </form>
+  <div class="success-message" id="successMessage">
+   ✓ Thank you! Your inquiry has been received. Our team will contact you within 2 business days.
+  </div>
+ </form>
 </div>
 
 <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="../index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+ <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="../index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
 </footer>
 
 <script src="../js/nav.js"></script>
 <script>
-  document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+ document.getElementById('recruitmentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-    // Collect form data
-    const formData = {
-      timestamp: new Date().toISOString(),
-      companyName: document.getElementById('companyName').value,
-      contactName: document.getElementById('contactName').value,
-      contactEmail: document.getElementById('contactEmail').value,
-      contactPhone: document.getElementById('contactPhone').value,
-      industry: document.getElementById('industry').value,
-      facilityType: document.getElementById('facilityType').value,
-      facilitySize: document.getElementById('facilitySize').value,
-      employees: document.getElementById('employees').value,
-      timeline: document.getElementById('timeline').value,
-      investmentSize: document.getElementById('investmentSize').value,
-      infraNeeds: Array.from(document.querySelectorAll('input[name="infraNeeds"]:checked')).map(cb => cb.value),
-      message: document.getElementById('message').value
-    };
+  // Collect form data
+  const formData = {
+   timestamp: new Date().toISOString(),
+   companyName: document.getElementById('companyName').value,
+   contactName: document.getElementById('contactName').value,
+   contactEmail: document.getElementById('contactEmail').value,
+   contactPhone: document.getElementById('contactPhone').value,
+   industry: document.getElementById('industry').value,
+   facilityType: document.getElementById('facilityType').value,
+   facilitySize: document.getElementById('facilitySize').value,
+   employees: document.getElementById('employees').value,
+   timeline: document.getElementById('timeline').value,
+   investmentSize: document.getElementById('investmentSize').value,
+   infraNeeds: Array.from(document.querySelectorAll('input[name="infraNeeds"]:checked')).map(cb => cb.value),
+   message: document.getElementById('message').value
+  };
 
-    // Store in localStorage (for demo; production would send to server)
-    let recruitmentLeads = JSON.parse(localStorage.getItem('recruitmentLeads') || '[]');
-    recruitmentLeads.push(formData);
-    localStorage.setItem('recruitmentLeads', JSON.stringify(recruitmentLeads));
+  // Store in localStorage (for demo; production would send to server)
+  let recruitmentLeads = JSON.parse(localStorage.getItem('recruitmentLeads') || '[]');
+  recruitmentLeads.push(formData);
+  localStorage.setItem('recruitmentLeads', JSON.stringify(recruitmentLeads));
 
-    // Show success message
-    document.getElementById('successMessage').style.display = 'block';
-    document.getElementById('recruitmentForm').style.display = 'none';
+  // Show success message
+  document.getElementById('successMessage').style.display = 'block';
+  document.getElementById('recruitmentForm').style.display = 'none';
 
-    // Log to analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'recruitment_form_submit', {
-        company: formData.companyName,
-        industry: formData.industry,
-        investment: formData.investmentSize
-      });
-    }
-  });
+  // Log to analytics
+  if (typeof gtag!== 'undefined') {
+   gtag('event', 'recruitment_form_submit', {
+    company: formData.companyName,
+    industry: formData.industry,
+    investment: formData.investmentSize
+   });
+  }
+ });
 </script>
 <script src="../js/analytics.js" defer></script>
 

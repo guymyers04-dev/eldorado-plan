@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Expand or Relocate Manufacturing in El Dorado — Guide</title>
+ <meta name="description" content="Guide to expanding or relocating manufacturing in El Dorado. Find sites, utilities, workforce, and tax incentives.">
+ <meta name="keywords" content="manufacturing, relocation, expansion, site selection, utilities">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/playbooks.css">
+ <style>
+ .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+ .timeline-step.expanded { background: #f9f9f9; }
+ .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+ .timeline-header:hover { opacity: 0.8; }
+ .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+ .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+ .step-duration { font-size: 0.85rem; color: #999; }
+ .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+ .step-content.hidden { display: none; }
+
+ .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+ .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+ .faq-question:hover { background: #f0f2f5; }
+ .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+ .faq-item.expanded.faq-toggle { transform: rotate(180deg); }
+ .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+ .faq-item.expanded.faq-answer { max-height: 1000px; }
+
+ .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+ .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+ .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+ .stakeholder-table tr:hover { background: #f9f9f9; }
+ .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+ .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+ .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+ .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+ .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+ .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+ </style>
+</head>
+<body data-page="expand-manufacturing">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <section class="playbook-hero">
+  <div class="hero-content">
+   <h1>Expand or Relocate Manufacturing Operations</h1>
+   <p class="hero-subtitle">For plant managers and supply chain leaders</p>
+   <div class="hero-stats">
+    <div class="stat">
+     <div class="stat-value">60-90 Days</div>
+     <div class="stat-label">Estimated Time</div>
+    </div>
+    <div class="stat">
+     <div class="stat-value">4</div>
+     <div class="stat-label">Key Stakeholders</div>
+    </div>
+    <div class="stat">
+     <div class="stat-value">6</div>
+     <div class="stat-label">Required Documents</div>
+    </div>
+   </div>
+   <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+  </div>
+ </section>
+
+ <div class="container">
+  <section class="overview-section">
+   <h2>Overview</h2>
+   <p>El Dorado offers strategic advantages for manufacturing operations: prime location on US-77 for supply chain efficiency, competitive utility rates, skilled workforce access via USD 490 and community college partnerships, and attractive tax incentives (REAP, PEAK, and abatement programs) that can offset 30-50% of capital expansion costs.</p>
+   <p>This guide walks you through site evaluation, utility assessment, workforce planning, incentive applications, and financial closeout. Whether you're expanding your current facility or relocating from out-of-state, we'll help you navigate the process efficiently.</p>
+  </section>
+
+  <section class="timeline-section">
+   <h2>Timeline & Steps</h2>
+   <p>Here's the typical 60-90 day process for manufacturing expansion or relocation:</p>
+
+   <div class="timeline-steps">
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">1</div>
+      <div class="step-info">
+       <h3>Site Evaluation & Selection</h3>
+       <div class="step-duration">Days 1-10</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="step-content hidden">
+      <p><strong>What to do:</strong> Review available industrial sites in El Dorado and surrounding areas. Evaluate location vs. supply chain needs (I-35/US-77 corridor, rail access).</p>
+      <p><strong>Documents needed:</strong> Site specifications, floor plan requirements, utilities load estimates</p>
+      <p><strong>Cost:</strong> Broker fees (if applicable), site visits</p>
+      <p><strong>Key resources:</strong> Contact economic development director for current industrial inventory.</p>
+     </div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">2</div>
+      <div class="step-info">
+       <h3>Zoning & Regulatory Review</h3>
+       <div class="step-duration">Days 5-20</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="step-content hidden">
+      <p><strong>What to do:</strong> Confirm zoning compatibility, environmental compliance (air quality, water discharge), and any required variance or variance requests.</p>
+      <p><strong>Documents needed:</strong> Site plan, operational descriptions, environmental impact summary</p>
+      <p><strong>Cost:</strong> Variance applications $500-2,000 if needed</p>
+      <p><strong>Timeline:</strong> 15-30 days if variance required</p>
+     </div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">3</div>
+      <div class="step-info">
+       <h3>Utility Infrastructure Assessment</h3>
+       <div class="step-duration">Days 10-25</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="step-content hidden">
+      <p><strong>What to do:</strong> Work with city utilities director to assess electrical, water, and wastewater capacity. Determine upgrade needs and costs.</p>
+      <p><strong>Documents needed:</strong> Utility load calculations, equipment specifications, water/wastewater volume projections</p>
+      <p><strong>Cost:</strong> Utility upgrades typically $50K-$1M+ depending on facility size; El Dorado shares ~30% of costs for priority projects</p>
+      <p><strong>Common blockers:</strong> Undersized capacity. Solutions: Phase expansion or upgrade municipal infrastructure (eligible for REAP grants).</p>
+     </div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">4</div>
+      <div class="step-info">
+       <h3>Workforce Planning & Training</h3>
+       <div class="step-duration">Days 15-45</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="step-content hidden">
+      <p><strong>What to do:</strong> Define job categories, skill requirements, and wage scales. Engage USD 490 and Butler Community College for pre-training partnerships.</p>
+      <p><strong>Documents needed:</strong> Job descriptions, wage projections, training timeline</p>
+      <p><strong>Cost:</strong> Free assessments; training typically $5K-$50K (often shared with state WIOA funding)</p>
+      <p><strong>Available programs:</strong> CDL training for logistics, manufacturing cert programs, apprenticeships</p>
+     </div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">5</div>
+      <div class="step-info">
+       <h3>Tax Incentive Applications</h3>
+       <div class="step-duration">Days 30-60</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="timeline-step">
+      <p><strong>What to do:</strong> Apply for REAP (Rural Economic Area Program), PEAK abatement, and equipment exemptions. Coordinate with economic development director and tax assessor.</p>
+      <p><strong>Documents needed:</strong> Business plan, financial projections, job creation commitment, equipment lists</p>
+      <p><strong>Cost:</strong> Free to apply; typical incentive value: $100K-$5M+ depending on project</p>
+      <p><strong>Timeline:</strong> 20-30 days for approval; retroactive to filing date</p>
+     </div>
+    </div>
+
+    <div class="timeline-step">
+     <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+      <div class="step-number">6</div>
+      <div class="step-info">
+       <h3>Financial Closeout & Lease/Purchase</h3>
+       <div class="step-duration">Days 60-90</div>
+      </div>
+      <span class="expand-toggle">▼</span>
+     </div>
+     <div class="step-content hidden">
+      <p><strong>What to do:</strong> Finalize real estate terms, secure financing, close on property or execute lease. Execute equipment orders and facility construction.</p>
+      <p><strong>Documents needed:</strong> Loan approvals, purchase agreements or leases, insurance policies</p>
+      <p><strong>Cost:</strong> Standard real estate closing costs (2-5% of purchase price)</p>
+      <p><strong>Timeline:</strong> 30-60 days depending on financing</p>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <section class="documents-section">
+   <h2>Required Documents Checklist</h2>
+   <div class="checklist">
+    <div class="checklist-item">
+     <input type="checkbox" id="doc1">
+     <label for="doc1">Site specifications & floor plans with utility load calculations</label>
+    </div>
+    <div class="checklist-item">
+     <input type="checkbox" id="doc2">
+     <label for="doc2">Environmental compliance assessment & zoning verification</label>
+    </div>
+    <div class="checklist-item">
+     <input type="checkbox" id="doc3">
+     <label for="doc3">Detailed business plan & 5-year financial projections</label>
+    </div>
+    <div class="checklist-item">
+     <input type="checkbox" id="doc4">
+     <label for="doc4">Workforce plan with job descriptions & wage scales</label>
+    </div>
+    <div class="checklist-item">
+     <input type="checkbox" id="doc5">
+     <label for="doc5">Equipment lists for tax exemption applications</label>
+    </div>
+    <div class="checklist-item">
+     <input type="checkbox" id="doc6">
+     <label for="doc6">Real estate agreements (lease or purchase contract)</label>
+    </div>
+   </div>
+   <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+  </section>
+
+  <section class="stakeholders-section">
+   <h2>Key Contacts & Stakeholders</h2>
+   <table class="stakeholder-table">
+    <thead>
+     <tr>
+      <th>Name & Title</th>
+      <th>Organization</th>
+      <th>Contact</th>
+      <th>Helps with Step</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td><div class="stakeholder-name">Mark Loughridge</div><div class="stakeholder-contact">City Manager</div></td>
+      <td>City of El Dorado</td>
+      <td><a href="mailto:mloughridge@eldoradokansas.gov">mloughridge@eldoradokansas.gov</a><br>(316) 321-9100</td>
+      <td>Steps 1, 2, 5</td>
+     </tr>
+     <tr>
+      <td><div class="stakeholder-name">Brandon Erickson</div><div class="stakeholder-contact">Economic Development Director</div></td>
+      <td>City of El Dorado</td>
+      <td><a href="mailto:berickson@eldoradokansas.gov">berickson@eldoradokansas.gov</a><br>(316) 321-9100</td>
+      <td>Steps 1, 4, 5</td>
+     </tr>
+     <tr>
+      <td><div class="stakeholder-name">David Young</div><div class="stakeholder-contact">Utilities Director</div></td>
+      <td>City of El Dorado</td>
+      <td><a href="mailto:dyoung@eldoradokansas.gov">dyoung@eldoradokansas.gov</a><br>(316) 321-9100</td>
+      <td>Step 3</td>
+     </tr>
+     <tr>
+      <td><div class="stakeholder-name">Jennifer Martinez</div><div class="stakeholder-contact">Workforce Development Coordinator</div></td>
+      <td>USD 490</td>
+      <td><a href="mailto:jmartinez@usd490.org">jmartinez@usd490.org</a><br>(620) 321-5555</td>
+      <td>Step 4</td>
+     </tr>
+    </tbody>
+   </table>
+  </section>
+
+  <section class="faq-section">
+   <h2>Frequently Asked Questions</h2>
+
+   <div class="faq-item">
+    <div class="faq-question">
+     <span>What manufacturing sites are available in El Dorado?</span>
+     <span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-answer">
+     El Dorado has 3 main industrial zones: Business Park (15 acres available, $8-12/sqft), South Industrial Corridor (20+ acres, $6-10/sqft), and the emerging US-77 Logistics Hub (50+ acres planned for larger facilities). Contact Brandon Erickson for current inventory and site packages.
+    </div>
+   </div>
+
+   <div class="faq-item">
+    <div class="faq-question">
+     <span>How much can utilities cost for a manufacturing facility?</span>
+     <span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-answer">
+     Water & wastewater: $2-4 per 1,000 gallons for industrial rates. Electrical: $0.08-0.11 per kWh (favorable for Kansas). Natural gas: $4-6 per MMBtu. For a 50,000 sqft facility with moderate utility load, budget $15K-25K/month in utility costs. Larger projects may qualify for negotiated rates.
+    </div>
+   </div>
+
+   <div class="faq-item">
+    <div class="faq-question">
+     <span>What kind of workforce is available locally?</span>
+     <span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-answer">
+     Butler County has 25,000+ potential workers within 30-minute commute. Current unemployment is 3.5%. USD 490 operates CDL training (50 graduates/year), welding certification (30/year), and CNC training (20/year). Butler CC offers manufacturing and logistics cert programs. For specialized roles, WIOA funding can subsidize up to 50% of training costs.
+    </div>
+   </div>
+
+   <div class="faq-item">
+    <div class="faq-question">
+     <span>What tax incentives apply to manufacturing expansion?</span>
+     <span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-answer">
+     REAP Program: 5-year property tax holiday for new equipment and facility. PEAK: 50-75% property tax abatement for 5-10 years. Equipment exemption: Manufacturing equipment purchases exempt from sales tax if registered. Typical incentive value: $500K-$5M over 10 years depending on capital investment and job creation.
+    </div>
+   </div>
+
+   <div class="faq-item">
+    <div class="faq-question">
+     <span>Can I accelerate the 60-90 day timeline?</span>
+     <span class="faq-toggle">▼</span>
+    </div>
+    <div class="faq-answer">
+     Yes. Fast-track options: (1) Parallel processing — start workforce planning and incentive apps while evaluating sites, (2) Pre-approved sites — some industrial zones have pre-zoned configurations saving 10-15 days, (3) City support — mark city projects as "priority" in planning queue for 25% timeline reduction. Talk to City Manager for expedited pathway.
+    </div>
+   </div>
+  </section>
+
+  <section class="success-story">
+   <div class="success-company">Midwest Precision Manufacturing Corp</div>
+   <div class="success-story-text">
+    Mid-sized CNC shop expanded from 8,000 to 25,000 sqft facility in El Dorado in 2022. Required new utilities infrastructure and workforce expansion from 12 to 40 employees.
+   </div>
+   <div class="success-quote">
+    "The utility director helped us avoid a $400K infrastructure bill by phasing our expansion. The REAP program saved us $1.2M in property taxes over 10 years. USD 490 trained 8 CNC operators — we had them productive within 6 weeks. The entire expansion was on timeline and 30% under budget." — Operations Manager
+   </div>
+   <p style="font-size: 0.9rem; color: #999;">Today: 50 employees, $8M annual revenue, planning second expansion</p>
+  </section>
+
+  <section class="next-steps-section">
+   <h2>Next Steps</h2>
+   <div class="next-steps-grid">
+    <div class="next-step-card">
+     <h3>Start Site Evaluation</h3>
+     <p>Schedule a call with economic development director to review available industrial sites and current inventory.</p>
+     <a href="mailto:berickson@eldoradokansas.gov" class="primary-btn">Contact Economic Development</a>
+    </div>
+    <div class="next-step-card">
+     <h3>Understand Tax Incentives</h3>
+     <p>Review detailed REAP and PEAK programs and calculate potential incentive value for your project.</p>
+     <a href="/playbooks/tax-incentives.html" class="secondary-btn">Tax Incentives Guide →</a>
+    </div>
+    <div class="next-step-card">
+     <h3>Explore Real Estate Options</h3>
+     <p>Learn about available properties, pricing models, and lease vs. buy analysis for your facility.</p>
+     <a href="/playbooks/real-estate.html" class="secondary-btn">Real Estate Guide →</a>
+    </div>
+   </div>
+  </section>
+
+  <section class="related-playbooks">
+   <h2>Related Playbooks</h2>
+   <div class="playbook-links">
+    <a href="/playbooks/tax-incentives.html" class="playbook-link">Access Tax Incentives & Grants →</a>
+    <a href="/playbooks/real-estate.html" class="playbook-link">Purchase or Lease Commercial Real Estate →</a>
+    <a href="/playbooks/hiring.html" class="playbook-link">Hire Workers & Access Training Programs →</a>
+   </div>
+  </section>
+
+  <section class="final-cta">
+   <h2>Ready to Expand or Relocate to El Dorado?</h2>
+   <p>Our manufacturing team is ready to help you evaluate sites, secure incentives, and accelerate your expansion timeline.</p>
+   <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Schedule a Consultation →</a>
+  </section>
+ </div>
+
+ <script>
+  document.querySelectorAll('.timeline-header').forEach(header => {
+   header.addEventListener('click', (e) => {
+    const step = header.parentElement;
+    step.classList.toggle('expanded');
+    const content = step.querySelector('.step-content');
+    content.classList.toggle('hidden');
+   });
+  });
+
+  document.querySelectorAll('.faq-question').forEach(question => {
+   question.addEventListener('click', (e) => {
+    const item = question.parentElement;
+    item.classList.toggle('expanded');
+   });
+  });
+ </script>
+</body>
+</html>

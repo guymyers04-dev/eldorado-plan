@@ -1,379 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waterfront Commercial Zones | El Dorado Vision 2040</title>
-  <meta name="description" content="Waterfront commercial development strategy for El Dorado Lake including marinas, dining, retail, and water sports infrastructure.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- Google Analytics 4 -->n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n  <script>n    window.dataLayer = window.dataLayer || [];n    function gtag(){dataLayer.push(arguments);}n    gtag('js', new Date());n    gtag('config', 'G-PLACEHOLDER-ID');n  </script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Waterfront Commercial Zones | El Dorado Vision 2040</title>
+ <meta name="description" content="Waterfront commercial development strategy for El Dorado Lake including marinas, dining, retail, and water sports infrastructure.">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+ <link rel="stylesheet" href="css/styles.css">
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
 </head>
 <body data-page="place-lake-commerce">
-  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-  <div id="nav-mount"></div>
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
 
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="breadcrumb"><a href="index.html">Home</a> › <a href="place.html">Place</a> › Waterfront Commercial</div>
-      <h1>Waterfront Commercial Zones</h1>
-      <p class="page-subtitle">Strategic development of El Dorado Lake's commercial waterfront</p>
-    </div>
+ <div class="page-hero">
+  <div class="page-hero-inner">
+   <div class="breadcrumb"><a href="index.html">Home</a> › <a href="place.html">Place</a> › Waterfront Commercial</div>
+   <h1>Waterfront Commercial Zones</h1>
+   <p class="page-subtitle">Strategic development of El Dorado Lake's commercial waterfront</p>
   </div>
+ </div>
 
-  <nav class="page-nav">
-    <div class="page-nav-inner">
-      <a href="#overview" class="page-nav__pill">Overview</a>
-      <a href="#west-marina-zone" class="page-nav__pill">West Marina Zone</a>
-      <a href="#dining-district" class="page-nav__pill">Dining District</a>
-      <a href="#retail-entertainment" class="page-nav__pill">Retail & Entertainment</a>
-      <a href="#water-sports" class="page-nav__pill">Water Sports Hub</a>
+ <nav class="page-nav">
+  <div class="page-nav-inner">
+   <a href="#overview" class="page-nav__pill">Overview</a>
+   <a href="#west-marina-zone" class="page-nav__pill">West Marina Zone</a>
+   <a href="#dining-district" class="page-nav__pill">Dining District</a>
+   <a href="#retail-entertainment" class="page-nav__pill">Retail & Entertainment</a>
+   <a href="#water-sports" class="page-nav__pill">Water Sports Hub</a>
+  </div>
+ </nav>
+
+ <section id="overview" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-category">Place & Recreation</span>
+    <span class="section-label">Lakefront Activation</span>
+    <h2>Waterfront Commercial Development Strategy</h2>
+    <p class="lead">El Dorado Lake's 22-mile shoreline currently captures zero commercial activity within park boundaries. Vision 2040 activates waterfront commercial zones through coordinated development of marina infrastructure, dining, retail, and water sports — all clustered in strategic nodes to maximize economic impact and visitor experience.</p>
+   </div>
+
+   <div class="stats-grid reveal" style="margin: 2.5rem 0;">
+    <div class="stat-card">
+     <div class="stat-value">22</div>
+     <div class="stat-label">Miles of Shoreline</div>
     </div>
-  </nav>
-
-  <section id="overview" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-category">Place & Recreation</span>
-        <span class="section-label">Lakefront Activation</span>
-        <h2>Waterfront Commercial Development Strategy</h2>
-        <p class="lead">El Dorado Lake's 22-mile shoreline currently captures zero commercial activity within park boundaries. Vision 2040 activates waterfront commercial zones through coordinated development of marina infrastructure, dining, retail, and water sports — all clustered in strategic nodes to maximize economic impact and visitor experience.</p>
-      </div>
-
-      <div class="stats-grid reveal" style="margin: 2.5rem 0;">
-        <div class="stat-card">
-          <div class="stat-value">22</div>
-          <div class="stat-label">Miles of Shoreline</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">$45-55M</div>
-          <div class="stat-label">Commercial Development Value</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">250+</div>
-          <div class="stat-label">Jobs Created</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">$6.8M+</div>
-          <div class="stat-label">Annual Revenue Potential</div>
-        </div>
-      </div>
-
-      <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
-        <h3 style="margin-top: 0; color: var(--navy);">Waterfront Commercial Zones Framework</h3>
-        <p style="color: #555; margin-bottom: 1.5rem;">Three interconnected commercial zones, each serving different visitor segments and market needs:</p>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-          <div style="border-left: 4px solid #C8902A; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">West Marina Zone</h4>
-            <p style="color: #555; margin: 0; font-size: 0.95rem;">North Gateway waterfront. Full-service marina + boat rentals + nautical retail. Primary boater destination.</p>
-          </div>
-          <div style="border-left: 4px solid #4A90BF; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Dining District</h4>
-            <p style="color: #555; margin: 0; font-size: 0.95rem;">Three-restaurant cluster (fine dining, casual cafe, marina bar). Anchors visitor spending + secondary retail.</p>
-          </div>
-          <div style="border-left: 4px solid #28A745; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Water Sports Hub</h4>
-            <p style="color: #555; margin: 0; font-size: 0.95rem;">Kayak rentals, paddleboard school, sailing concession. Day-trip recreation infrastructure.</p>
-          </div>
-        </div>
-      </div>
+    <div class="stat-card">
+     <div class="stat-value">$45-55M</div>
+     <div class="stat-label">Commercial Development Value</div>
     </div>
-  </section>
-
-  <section id="west-marina-zone" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Primary Commercial Node</span>
-        <h2>West Marina Commercial Zone</h2>
-        <p class="lead">The West Marina Zone is the anchor of waterfront development, positioned on North Gateway waterfront within easy walking distance of the new neighborhood. This 40-50 acre node includes marina operations, boat rentals, waterfront retail, and hospitality support facilities.</p>
-      </div>
-
-      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
-        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
-          <h3 style="margin-top: 0; color: var(--navy);">Facility Components</h3>
-          <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
-            <li><strong>Marina:</strong> 150 slips, fuel dock, pump-out, electric charging</li>
-            <li><strong>Dry Storage:</strong> 80 boats seasonal</li>
-            <li><strong>Ship's Store:</strong> 2,500 sf retail (navigation, safety, apparel)</li>
-            <li><strong>Boat Rentals:</strong> Powerboats, sailboats, day-use slips</li>
-            <li><strong>Water Sports:</strong> Kayak/SUP rental and instruction</li>
-            <li><strong>Office/Admin:</strong> 1,500 sf marina operations</li>
-            <li><strong>Restrooms/Showers:</strong> Public facilities</li>
-            <li><strong>Waterfront Plaza:</strong> Event + gathering space</li>
-          </ul>
-        </div>
-
-        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
-          <h3 style="margin-top: 0; color: var(--navy);">Economic Model</h3>
-          <div style="background: #f5f5f5; padding: 1.25rem; border-radius: 4px; margin-bottom: 1.5rem;">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div>
-                <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">$2.4M</div>
-              </div>
-              <div>
-                <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Full-Time Staff</div>
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">25-30</div>
-              </div>
-              <div>
-                <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Seasonal Staff</div>
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">15-20</div>
-              </div>
-              <div>
-                <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Annual Tax Revenue</div>
-                <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">$240K</div>
-              </div>
-            </div>
-          </div>
-          <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
-            <li><strong>Slip Revenue:</strong> $1.2M (150 × $8K avg.)</li>
-            <li><strong>Fuel/Services:</strong> $600K</li>
-            <li><strong>Rentals/Retail:</strong> $400K</li>
-            <li><strong>Events/Other:</strong> $200K</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="reveal" style="background: rgba(74,144,191,.08); border: 1px solid rgba(74,144,191,.3); padding: 2rem; border-radius: var(--radius);">
-        <h3 style="margin-top: 0; color: var(--navy);">Development Parameters</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-          <div>
-            <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Site Area</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">40-50 acres</div>
-            <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">North Gateway waterfront</p>
-          </div>
-          <div>
-            <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Capital Cost</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">$9M</div>
-            <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">Private development</p>
-          </div>
-          <div>
-            <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Construction Timeline</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">24 months</div>
-            <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">Phase 1 (2027-2029)</p>
-          </div>
-          <div>
-            <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Operating Model</div>
-            <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">Private Lease</div>
-            <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">25-year city lease</p>
-          </div>
-        </div>
-      </div>
+    <div class="stat-card">
+     <div class="stat-value">250+</div>
+     <div class="stat-label">Jobs Created</div>
     </div>
-  </section>
-
-  <section id="dining-district" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Food & Beverage Anchor</span>
-        <h2>Waterfront Dining District</h2>
-        <p class="lead">Three strategically positioned restaurants create a complete dining experience for visitors. Clustered development maximizes foot traffic, supports ancillary retail, and makes waterfront dining the destination that currently doesn't exist.</p>
-      </div>
-
-      <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
-        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #C8902A;">
-          <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Flagship Fine Dining</h3>
-          <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
-            <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$1.8M</div>
-          </div>
-          <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
-            <li>120 seats (indoor + patio)</li>
-            <li>Fine dining (farm-to-table)</li>
-            <li>Full bar + wine selection</li>
-            <li>Private event space</li>
-            <li>120+ FTE year-round</li>
-            <li>Avg. check: $45-65/person</li>
-          </ul>
-        </div>
-
-        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #4A90BF;">
-          <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Casual Lakeside Cafe</h3>
-          <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
-            <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$800K</div>
-          </div>
-          <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
-            <li>60-80 seats (mostly outdoor)</li>
-            <li>Quick service + coffee</li>
-            <li>Breakfast, lunch, beverages</li>
-            <li>Local pastries + grab-go items</li>
-            <li>15 FTE + 8 seasonal</li>
-            <li>Avg. transaction: $10-15</li>
-          </ul>
-        </div>
-
-        <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #28A745;">
-          <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Marina Bar & Grill</h3>
-          <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
-            <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$600K</div>
-          </div>
-          <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
-            <li>40-50 seats (marina view)</li>
-            <li>Casual (burgers, fish, seafood)</li>
-            <li>Sports bar atmosphere</li>
-            <li>Boat-in access + deck dining</li>
-            <li>10 FTE + 6 seasonal</li>
-            <li>Avg. check: $15-22</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
-        <h3 style="margin-top: 0; color: var(--navy);">Dining District Combined Impact</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Total F&B Revenue</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$3.2M</div>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Total Employment</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">45-60 jobs</div>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Annual Payroll</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$1.8M+</div>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Tax Contribution</div>
-            <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$320K+</div>
-          </div>
-        </div>
-      </div>
+    <div class="stat-card">
+     <div class="stat-value">$6.8M+</div>
+     <div class="stat-label">Annual Revenue Potential</div>
     </div>
-  </section>
+   </div>
 
-  <section id="retail-entertainment" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Secondary Commercial</span>
-        <h2>Retail & Entertainment District</h2>
-        <p class="lead">Waterfront retail creates secondary economic activity and captures additional visitor spending. Gift shops, outfitters, galleries, and entertainment venues cluster around dining and marina areas.</p>
-      </div>
-
-      <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
-        <h3 style="margin-top: 0; color: var(--navy);">Proposed Waterfront Retail Components</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-          <div style="border-left: 4px solid #C8902A; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Gift & Novelty Shops</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Local art, lake-themed gifts, regional products. 2-3 shops, 2,000 sf total.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$400K annual revenue</p>
-          </div>
-          <div style="border-left: 4px solid #4A90BF; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Water Sports Retail</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Boat parts, safety gear, paddle/kayak accessories, apparel.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$250K annual revenue</p>
-          </div>
-          <div style="border-left: 4px solid #28A745; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Entertainment Venues</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Live music venue (small, 200-300 cap), arcade/bowling alley.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$300K annual revenue</p>
-          </div>
-          <div style="border-left: 4px solid #FFB81C; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Galleries & Arts</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Local artist galleries, craft studios, seasonal pop-ups.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$150K annual revenue</p>
-          </div>
-          <div style="border-left: 4px solid #E74C3C; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Wellness & Spa</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Massage therapies, boutique fitness classes, wellness consultations.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$200K annual revenue</p>
-          </div>
-          <div style="border-left: 4px solid #9B59B6; padding-left: 1rem;">
-            <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Visitor Services</h4>
-            <p style="color: #555; font-size: 0.9rem; margin: 0;">Information center, tour booking, boat charters, guided experiences.</p>
-            <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$100K annual revenue</p>
-          </div>
-        </div>
-        <div style="border-top: 1px solid #eee; margin-top: 1.5rem; padding-top: 1rem;">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600;">
-            <span style="color: var(--navy);">Total Retail/Entertainment Revenue</span>
-            <span style="color: #C8902A; font-size: 1.1rem;">$1.4M annually</span>
-          </div>
-        </div>
-      </div>
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Waterfront Commercial Zones Framework</h3>
+    <p style="color: #555; margin-bottom: 1.5rem;">Three interconnected commercial zones, each serving different visitor segments and market needs:</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+     <div style="border-left: 4px solid #C8902A; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">West Marina Zone</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">North Gateway waterfront. Full-service marina + boat rentals + nautical retail. Primary boater destination.</p>
+     </div>
+     <div style="border-left: 4px solid #4A90BF; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Dining District</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Three-restaurant cluster (fine dining, casual cafe, marina bar). Anchors visitor spending + secondary retail.</p>
+     </div>
+     <div style="border-left: 4px solid #28A745; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Water Sports Hub</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Kayak rentals, paddleboard school, sailing concession. Day-trip recreation infrastructure.</p>
+     </div>
     </div>
-  </section>
+   </div>
+  </div>
+ </section>
 
-  <section id="water-sports" class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Recreation Infrastructure</span>
-        <h2>Water Sports Hub</h2>
-        <p class="lead">A dedicated water sports hub serves day-trippers and new learners. Kayak rentals, paddleboard instruction, sailing concession, and beach access infrastructure create low-barrier entry points to lake recreation.</p>
-      </div>
+ <section id="west-marina-zone" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Primary Commercial Node</span>
+    <h2>West Marina Commercial Zone</h2>
+    <p class="lead">The West Marina Zone is the anchor of waterfront development, positioned on North Gateway waterfront within easy walking distance of the new neighborhood. This 40-50 acre node includes marina operations, boat rentals, waterfront retail, and hospitality support facilities.</p>
+   </div>
 
-      <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
-        <h3 style="margin-top: 0; color: var(--navy);">Water Sports Program Components</h3>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-          <div>
-            <h4 style="color: #C8902A; margin-bottom: 1rem;">Rental Fleet</h4>
-            <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
-              <li><strong>Kayaks:</strong> 30 single + tandem</li>
-              <li><strong>Paddleboards:</strong> 20 SUP boards</li>
-              <li><strong>Sailboats:</strong> 5 small sailing craft (beginner-friendly)</li>
-              <li><strong>Specialty Craft:</strong> 10 day-use power rentals</li>
-              <li><strong>Seasonal Hours:</strong> May-September daily; weekends only Oct-April</li>
-            </ul>
-          </div>
-          <div>
-            <h4 style="color: #C8902A; margin-bottom: 1rem;">Instruction Programs</h4>
-            <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
-              <li><strong>Youth Swimming:</strong> Spring/summer clinics</li>
-              <li><strong>Kayak Safety:</strong> Beginner + intermediate courses</li>
-              <li><strong>Stand-Up Paddleboarding:</strong> Lessons (2-3 per week)</li>
-              <li><strong>Sailing Clinics:</strong> Weekend seminars</li>
-              <li><strong>Guided Tours:</strong> Naturalist-led paddling tours</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
-        <h3 style="margin-top: 0; color: var(--navy);">Water Sports Economic Model</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Annual Revenue (Rentals)</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">$280K</div>
-            <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Kayak/SUP/boat rentals</p>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Annual Revenue (Instruction)</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">$120K</div>
-            <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Classes + guided tours</p>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Full-Time Staff</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">8-12</div>
-            <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Managers + instructors</p>
-          </div>
-          <div>
-            <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Seasonal Staff</div>
-            <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">12-15</div>
-            <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Summer operations</p>
-          </div>
-        </div>
-      </div>
+   <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Facility Components</h3>
+     <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+      <li><strong>Marina:</strong> 150 slips, fuel dock, pump-out, electric charging</li>
+      <li><strong>Dry Storage:</strong> 80 boats seasonal</li>
+      <li><strong>Ship's Store:</strong> 2,500 sf retail (navigation, safety, apparel)</li>
+      <li><strong>Boat Rentals:</strong> Powerboats, sailboats, day-use slips</li>
+      <li><strong>Water Sports:</strong> Kayak/SUP rental and instruction</li>
+      <li><strong>Office/Admin:</strong> 1,500 sf marina operations</li>
+      <li><strong>Restrooms/Showers:</strong> Public facilities</li>
+      <li><strong>Waterfront Plaza:</strong> Event + gathering space</li>
+     </ul>
     </div>
-  </section>
 
-  <!-- FOOTER NAVIGATION -->
-  <section class="section" style="text-align: center;">
-    <div class="container">
-      <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Integrated Waterfront Experience</h3>
-      <p style="color: #555; margin-bottom: 2rem;">Waterfront commercial zones create a complete lakeside destination. Visitors can stay (resort), eat (three restaurants), play (water sports), shop (retail), and dock (marina) — all within walking distance.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="tourism-visitor-economy.html" class="btn btn--primary">← Back to Tourism Hub</a>
-        <a href="place.html" class="btn btn--outline">Back to Place →</a>
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Economic Model</h3>
+     <div style="background: #f5f5f5; padding: 1.25rem; border-radius: 4px; margin-bottom: 1.5rem;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+       <div>
+        <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">$2.4M</div>
+       </div>
+       <div>
+        <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Full-Time Staff</div>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">25-30</div>
+       </div>
+       <div>
+        <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Seasonal Staff</div>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">15-20</div>
+       </div>
+       <div>
+        <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Annual Tax Revenue</div>
+        <div style="font-size: 1.4rem; font-weight: 700; color: var(--navy);">$240K</div>
+       </div>
       </div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li><strong>Slip Revenue:</strong> $1.2M (150 × $8K avg.)</li>
+      <li><strong>Fuel/Services:</strong> $600K</li>
+      <li><strong>Rentals/Retail:</strong> $400K</li>
+      <li><strong>Events/Other:</strong> $200K</li>
+     </ul>
     </div>
-  </section>
+   </div>
 
-  <script src="js/nav.js" defer></script>
-  <script src="js/analytics.js" defer></script>
+   <div class="reveal" style="background: rgba(74,144,191,.08); border: 1px solid rgba(74,144,191,.3); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Development Parameters</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+     <div>
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Site Area</div>
+      <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">40-50 acres</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">North Gateway waterfront</p>
+     </div>
+     <div>
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Capital Cost</div>
+      <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">$9M</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">Private development</p>
+     </div>
+     <div>
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Construction Timeline</div>
+      <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">24 months</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">Phase 1 (2027-2029)</p>
+     </div>
+     <div>
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Operating Model</div>
+      <div style="font-size: 1.4rem; font-weight: 700; color: #4A90BF;">Private Lease</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0.5rem 0 0 0;">25-year city lease</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="dining-district" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Food & Beverage Anchor</span>
+    <h2>Waterfront Dining District</h2>
+    <p class="lead">Three strategically positioned restaurants create a complete dining experience for visitors. Clustered development maximizes foot traffic, supports ancillary retail, and makes waterfront dining the destination that currently doesn't exist.</p>
+   </div>
+
+   <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #C8902A;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Flagship Fine Dining</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$1.8M</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li>120 seats (indoor + patio)</li>
+      <li>Fine dining (farm-to-table)</li>
+      <li>Full bar + wine selection</li>
+      <li>Private event space</li>
+      <li>120+ FTE year-round</li>
+      <li>Avg. check: $45-65/person</li>
+     </ul>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #4A90BF;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Casual Lakeside Cafe</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$800K</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li>60-80 seats (mostly outdoor)</li>
+      <li>Quick service + coffee</li>
+      <li>Breakfast, lunch, beverages</li>
+      <li>Local pastries + grab-go items</li>
+      <li>15 FTE + 8 seasonal</li>
+      <li>Avg. transaction: $10-15</li>
+     </ul>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #28A745;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.15rem;">Marina Bar & Grill</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$600K</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li>40-50 seats (marina view)</li>
+      <li>Casual (burgers, fish, seafood)</li>
+      <li>Sports bar atmosphere</li>
+      <li>Boat-in access + deck dining</li>
+      <li>10 FTE + 6 seasonal</li>
+      <li>Avg. check: $15-22</li>
+     </ul>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Dining District Combined Impact</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Total F&B Revenue</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$3.2M</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Total Employment</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">45-60 jobs</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Annual Payroll</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$1.8M+</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase;">Tax Contribution</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$320K+</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="retail-entertainment" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Secondary Commercial</span>
+    <h2>Retail & Entertainment District</h2>
+    <p class="lead">Waterfront retail creates secondary economic activity and captures additional visitor spending. Gift shops, outfitters, galleries, and entertainment venues cluster around dining and marina areas.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Proposed Waterfront Retail Components</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="border-left: 4px solid #C8902A; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Gift & Novelty Shops</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Local art, lake-themed gifts, regional products. 2-3 shops, 2,000 sf total.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$400K annual revenue</p>
+     </div>
+     <div style="border-left: 4px solid #4A90BF; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Water Sports Retail</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Boat parts, safety gear, paddle/kayak accessories, apparel.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$250K annual revenue</p>
+     </div>
+     <div style="border-left: 4px solid #28A745; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Entertainment Venues</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Live music venue (small, 200-300 cap), arcade/bowling alley.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$300K annual revenue</p>
+     </div>
+     <div style="border-left: 4px solid #FFB81C; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Galleries & Arts</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Local artist galleries, craft studios, seasonal pop-ups.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$150K annual revenue</p>
+     </div>
+     <div style="border-left: 4px solid #E74C3C; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Wellness & Spa</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Massage therapies, boutique fitness classes, wellness consultations.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$200K annual revenue</p>
+     </div>
+     <div style="border-left: 4px solid #9B59B6; padding-left: 1rem;">
+      <h4 style="margin: 0 0 0.5rem 0; color: var(--navy);">Visitor Services</h4>
+      <p style="color: #555; font-size: 0.9rem; margin: 0;">Information center, tour booking, boat charters, guided experiences.</p>
+      <p style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">$100K annual revenue</p>
+     </div>
+    </div>
+    <div style="border-top: 1px solid #eee; margin-top: 1.5rem; padding-top: 1rem;">
+     <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 600;">
+      <span style="color: var(--navy);">Total Retail/Entertainment Revenue</span>
+      <span style="color: #C8902A; font-size: 1.1rem;">$1.4M annually</span>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="water-sports" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Recreation Infrastructure</span>
+    <h2>Water Sports Hub</h2>
+    <p class="lead">A dedicated water sports hub serves day-trippers and new learners. Kayak rentals, paddleboard instruction, sailing concession, and beach access infrastructure create low-barrier entry points to lake recreation.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Water Sports Program Components</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Rental Fleet</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Kayaks:</strong> 30 single + tandem</li>
+       <li><strong>Paddleboards:</strong> 20 SUP boards</li>
+       <li><strong>Sailboats:</strong> 5 small sailing craft (beginner-friendly)</li>
+       <li><strong>Specialty Craft:</strong> 10 day-use power rentals</li>
+       <li><strong>Seasonal Hours:</strong> May-September daily; weekends only Oct-April</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Instruction Programs</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Youth Swimming:</strong> Spring/summer clinics</li>
+       <li><strong>Kayak Safety:</strong> Beginner + intermediate courses</li>
+       <li><strong>Stand-Up Paddleboarding:</strong> Lessons (2-3 per week)</li>
+       <li><strong>Sailing Clinics:</strong> Weekend seminars</li>
+       <li><strong>Guided Tours:</strong> Naturalist-led paddling tours</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Water Sports Economic Model</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Annual Revenue (Rentals)</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">$280K</div>
+      <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Kayak/SUP/boat rentals</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Annual Revenue (Instruction)</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">$120K</div>
+      <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Classes + guided tours</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Full-Time Staff</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">8-12</div>
+      <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Managers + instructors</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; margin-bottom: 0.5rem;">Seasonal Staff</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">12-15</div>
+      <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">Summer operations</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- FOOTER NAVIGATION -->
+ <section class="section" style="text-align: center;">
+  <div class="container">
+   <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Integrated Waterfront Experience</h3>
+   <p style="color: #555; margin-bottom: 2rem;">Waterfront commercial zones create a complete lakeside destination. Visitors can stay (resort), eat (three restaurants), play (water sports), shop (retail), and dock (marina) — all within walking distance.</p>
+   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="tourism-visitor-economy.html" class="btn btn--primary">← Back to Tourism Hub</a>
+    <a href="place.html" class="btn btn--outline">Back to Place →</a>
+   </div>
+  </div>
+ </section>
+
+ <script src="js/nav.js" defer></script>
+ <script src="js/analytics.js" defer></script>
 </body>
 </html>

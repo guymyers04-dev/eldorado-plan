@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Economic Impact Simulator | Vision 2040</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body[data-page="simulator"] .page-nav { display: none; }
-    .sim-hero { background: linear-gradient(135deg, #A64A7D 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
-    .sim-container { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; }
-    .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-    .sim-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-    .slider-group { margin-bottom: 1.5rem; }
-    .slider-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.5rem; }
-    .slider { width: 100%; }
-    .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .result-box { background: #f5f5f5; padding: 1rem; border-radius: 4px; border-left: 4px solid #A64A7D; }
-    .result-value { font-size: 1.5rem; font-weight: 700; color: #A64A7D; }
-    .result-label { font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
-    .chart-container { position: relative; height: 300px; }
-    .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Economic Impact Simulator | Vision 2040</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/styles.css">
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <style>
+  body[data-page="simulator"].page-nav { display: none; }
+ .sim-hero { background: linear-gradient(135deg, #A64A7D 0%, #4A90BF 100%); color: white; padding: 3rem 2rem; text-align: center; }
+ .sim-container { max-width: 1000px; margin: 2rem auto; padding: 0 2rem; }
+ .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+ .sim-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+ .slider-group { margin-bottom: 1.5rem; }
+ .slider-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.5rem; }
+ .slider { width: 100%; }
+ .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+ .result-box { background: #f5f5f5; padding: 1rem; border-radius: 4px; border-left: 4px solid #A64A7D; }
+ .result-value { font-size: 1.5rem; font-weight: 700; color: #A64A7D; }
+ .result-label { font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
+ .chart-container { position: relative; height: 300px; }
+ .breadcrumb { background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px; }
+ </style>
 </head>
 <body data-page="simulator">
 
@@ -30,201 +30,201 @@
 <div id="nav-mount"></div>
 
 <div class="breadcrumb">
-  <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="../metrics-dashboard.html" style="color: var(--gold); text-decoration: none;">Metrics</a> › Impact Simulator
+ <a href="../index.html" style="color: var(--gold); text-decoration: none;">Home</a> › <a href="../metrics-dashboard.html" style="color: var(--gold); text-decoration: none;">Metrics</a> › Impact Simulator
 </div>
 
 <div class="sim-hero">
-  <div class="container">
-    <h1>Economic Impact Simulator</h1>
-    <p style="font-size: 1.1rem; opacity: 0.95;">Explore "what-if" scenarios for El Dorado's economic growth through Vision 2040</p>
-  </div>
+ <div class="container">
+  <h1>Economic Impact Simulator</h1>
+  <p style="font-size: 1.1rem; opacity: 0.95;">Explore "what-if" scenarios for El Dorado's economic growth through Vision 2040</p>
+ </div>
 </div>
 
 <div class="sim-container">
-  <div class="sim-grid">
-    <!-- Controls -->
-    <div class="sim-card">
-      <h3 style="color: var(--navy); margin-top: 0;">Adjust Scenarios</h3>
-
-      <div class="slider-group">
-        <div class="slider-label">
-          <span>Logistics Facilities</span>
-          <span id="facilitiesValue">10</span>
-        </div>
-        <input type="range" id="facilities" class="slider" min="0" max="50" value="10" step="1" oninput="updateSimulation()">
-        <small style="color: #999;">Target: 50+ by 2040</small>
-      </div>
-
-      <div class="slider-group">
-        <div class="slider-label">
-          <span>Lake Visitors (% increase)</span>
-          <span id="visitorsValue">20%</span>
-        </div>
-        <input type="range" id="visitors" class="slider" min="0" max="100" value="20" step="5" oninput="updateSimulation()">
-        <small style="color: #999;">Current: 1.1M/year</small>
-      </div>
-
-      <div class="slider-group">
-        <div class="slider-label">
-          <span>Golf Tournaments/Year</span>
-          <span id="tournamentsValue">3</span>
-        </div>
-        <input type="range" id="tournaments" class="slider" min="0" max="12" value="3" step="1" oninput="updateSimulation()">
-        <small style="color: #999;">Each brings 300+ visitors</small>
-      </div>
-
-      <div class="slider-group">
-        <div class="slider-label">
-          <span>Years from Now</span>
-          <span id="yearsValue">10</span>
-        </div>
-        <input type="range" id="years" class="slider" min="1" max="20" value="10" step="1" oninput="updateSimulation()">
-        <small style="color: #999;">Projection horizon</small>
-      </div>
-    </div>
-
-    <!-- Results -->
-    <div class="sim-card">
-      <h3 style="color: var(--navy); margin-top: 0;">Projected Impact (Year <span id="yearLabel">2036</span>)</h3>
-
-      <div class="result-grid">
-        <div class="result-box">
-          <div class="result-value" id="jobsResult">2,000</div>
-          <div class="result-label">Jobs Created</div>
-        </div>
-        <div class="result-box">
-          <div class="result-value" id="taxResult">$5M</div>
-          <div class="result-label">Annual Tax Impact</div>
-        </div>
-        <div class="result-box">
-          <div class="result-value" id="investmentResult">$250M</div>
-          <div class="result-label">Private Investment</div>
-        </div>
-        <div class="result-box">
-          <div class="result-value" id="populationResult">+500</div>
-          <div class="result-label">Population Growth</div>
-        </div>
-      </div>
-
-      <p style="margin-top: 1.5rem; color: #666; font-size: 0.9rem;">💡 <strong>Multiplier Effect:</strong> Every $1 in direct investment generates $2-3 in community economic activity</p>
-    </div>
-  </div>
-
-  <!-- Chart -->
+ <div class="sim-grid">
+  <!-- Controls -->
   <div class="sim-card">
-    <h3 style="color: var(--navy);">Tax Revenue Projection (Annual)</h3>
-    <div class="chart-container">
-      <canvas id="projectionChart"></canvas>
+   <h3 style="color: var(--navy); margin-top: 0;">Adjust Scenarios</h3>
+
+   <div class="slider-group">
+    <div class="slider-label">
+     <span>Logistics Facilities</span>
+     <span id="facilitiesValue">10</span>
     </div>
+    <input type="range" id="facilities" class="slider" min="0" max="50" value="10" step="1" oninput="updateSimulation()">
+    <small style="color: #999;">Target: 50+ by 2040</small>
+   </div>
+
+   <div class="slider-group">
+    <div class="slider-label">
+     <span>Lake Visitors (% increase)</span>
+     <span id="visitorsValue">20%</span>
+    </div>
+    <input type="range" id="visitors" class="slider" min="0" max="100" value="20" step="5" oninput="updateSimulation()">
+    <small style="color: #999;">Current: 1.1M/year</small>
+   </div>
+
+   <div class="slider-group">
+    <div class="slider-label">
+     <span>Golf Tournaments/Year</span>
+     <span id="tournamentsValue">3</span>
+    </div>
+    <input type="range" id="tournaments" class="slider" min="0" max="12" value="3" step="1" oninput="updateSimulation()">
+    <small style="color: #999;">Each brings 300+ visitors</small>
+   </div>
+
+   <div class="slider-group">
+    <div class="slider-label">
+     <span>Years from Now</span>
+     <span id="yearsValue">10</span>
+    </div>
+    <input type="range" id="years" class="slider" min="1" max="20" value="10" step="1" oninput="updateSimulation()">
+    <small style="color: #999;">Projection horizon</small>
+   </div>
   </div>
+
+  <!-- Results -->
+  <div class="sim-card">
+   <h3 style="color: var(--navy); margin-top: 0;">Projected Impact (Year <span id="yearLabel">2036</span>)</h3>
+
+   <div class="result-grid">
+    <div class="result-box">
+     <div class="result-value" id="jobsResult">2,000</div>
+     <div class="result-label">Jobs Created</div>
+    </div>
+    <div class="result-box">
+     <div class="result-value" id="taxResult">$5M</div>
+     <div class="result-label">Annual Tax Impact</div>
+    </div>
+    <div class="result-box">
+     <div class="result-value" id="investmentResult">$250M</div>
+     <div class="result-label">Private Investment</div>
+    </div>
+    <div class="result-box">
+     <div class="result-value" id="populationResult">+500</div>
+     <div class="result-label">Population Growth</div>
+    </div>
+   </div>
+
+   <p style="margin-top: 1.5rem; color: #666; font-size: 0.9rem;">💡 <strong>Multiplier Effect:</strong> Every $1 in direct investment generates $2-3 in community economic activity</p>
+  </div>
+ </div>
+
+ <!-- Chart -->
+ <div class="sim-card">
+  <h3 style="color: var(--navy);">Tax Revenue Projection (Annual)</h3>
+  <div class="chart-container">
+   <canvas id="projectionChart"></canvas>
+  </div>
+ </div>
 </div>
 
 <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
-  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas</p>
+ <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas</p>
 </footer>
 
 <script src="../js/nav.js"></script>
 <script>
-  let chart = null;
+ let chart = null;
 
-  function updateSimulation() {
-    const facilities = parseInt(document.getElementById('facilities').value);
-    const visitors = parseInt(document.getElementById('visitors').value);
-    const tournaments = parseInt(document.getElementById('tournaments').value);
-    const years = parseInt(document.getElementById('years').value);
+ function updateSimulation() {
+  const facilities = parseInt(document.getElementById('facilities').value);
+  const visitors = parseInt(document.getElementById('visitors').value);
+  const tournaments = parseInt(document.getElementById('tournaments').value);
+  const years = parseInt(document.getElementById('years').value);
 
-    // Update display values
-    document.getElementById('facilitiesValue').textContent = facilities;
-    document.getElementById('visitorsValue').textContent = visitors + '%';
-    document.getElementById('tournamentsValue').textContent = tournaments;
-    document.getElementById('yearsValue').textContent = years;
-    document.getElementById('yearLabel').textContent = (2026 + years);
+  // Update display values
+  document.getElementById('facilitiesValue').textContent = facilities;
+  document.getElementById('visitorsValue').textContent = visitors + '%';
+  document.getElementById('tournamentsValue').textContent = tournaments;
+  document.getElementById('yearsValue').textContent = years;
+  document.getElementById('yearLabel').textContent = (2026 + years);
 
-    // Calculate impacts
-    const logisticsJobs = facilities * 200; // 200 jobs per facility
-    const logisticsTax = facilities * 350000; // $350K tax per facility annually
-    const logisticsInvestment = facilities * 15000000; // $15M investment per facility
+  // Calculate impacts
+  const logisticsJobs = facilities * 200; // 200 jobs per facility
+  const logisticsTax = facilities * 350000; // $350K tax per facility annually
+  const logisticsInvestment = facilities * 15000000; // $15M investment per facility
 
-    const lakeVisitorsAdded = 1100000 * (visitors / 100);
-    const lakeSpendPerVisitor = 75; // $75/visitor
-    const lakeTax = lakeVisitorsAdded * lakeSpendPerVisitor * 0.08; // 8% tax capture
+  const lakeVisitorsAdded = 1100000 * (visitors / 100);
+  const lakeSpendPerVisitor = 75; // $75/visitor
+  const lakeTax = lakeVisitorsAdded * lakeSpendPerVisitor * 0.08; // 8% tax capture
 
-    const tournamentJobs = tournaments * 25;
-    const tournamentVisitors = tournaments * 300;
-    const tournamentTax = tournamentVisitors * lakeSpendPerVisitor * 0.08;
+  const tournamentJobs = tournaments * 25;
+  const tournamentVisitors = tournaments * 300;
+  const tournamentTax = tournamentVisitors * lakeSpendPerVisitor * 0.08;
 
-    const totalJobs = logisticsJobs + tournamentJobs;
-    const totalTax = logisticsTax + lakeTax + tournamentTax;
-    const totalInvestment = logisticsInvestment;
-    const populationGrowth = totalJobs * 1.5; // 1.5 people per job
+  const totalJobs = logisticsJobs + tournamentJobs;
+  const totalTax = logisticsTax + lakeTax + tournamentTax;
+  const totalInvestment = logisticsInvestment;
+  const populationGrowth = totalJobs * 1.5; // 1.5 people per job
 
-    // Update result boxes
-    document.getElementById('jobsResult').textContent = (totalJobs / 1000).toFixed(1) + 'K';
-    document.getElementById('taxResult').textContent = '$' + (totalTax / 1000000).toFixed(1) + 'M';
-    document.getElementById('investmentResult').textContent = '$' + (totalInvestment / 1000000).toFixed(0) + 'M';
-    document.getElementById('populationResult').textContent = '+' + Math.round(populationGrowth);
+  // Update result boxes
+  document.getElementById('jobsResult').textContent = (totalJobs / 1000).toFixed(1) + 'K';
+  document.getElementById('taxResult').textContent = '$' + (totalTax / 1000000).toFixed(1) + 'M';
+  document.getElementById('investmentResult').textContent = '$' + (totalInvestment / 1000000).toFixed(0) + 'M';
+  document.getElementById('populationResult').textContent = '+' + Math.round(populationGrowth);
 
-    // Update chart
-    updateChart(totalTax, facilities, years);
+  // Update chart
+  updateChart(totalTax, facilities, years);
 
-    // Analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'simulator_update', {
-        facilities: facilities,
-        visitors_increase: visitors,
-        tournaments: tournaments,
-        years: years
-      });
-    }
+  // Analytics
+  if (typeof gtag!== 'undefined') {
+   gtag('event', 'simulator_update', {
+    facilities: facilities,
+    visitors_increase: visitors,
+    tournaments: tournaments,
+    years: years
+   });
+  }
+ }
+
+ function updateChart(annualTax, facilities, years) {
+  const ctx = document.getElementById('projectionChart').getContext('2d');
+  const data = [];
+  const labels = [];
+
+  for (let i = 0; i <= years; i++) {
+   const taxAtYear = (annualTax * i) / years;
+   data.push(taxAtYear / 1000000);
+   labels.push('Year ' + (2026 + i));
   }
 
-  function updateChart(annualTax, facilities, years) {
-    const ctx = document.getElementById('projectionChart').getContext('2d');
-    const data = [];
-    const labels = [];
+  if (chart) chart.destroy();
 
-    for (let i = 0; i <= years; i++) {
-      const taxAtYear = (annualTax * i) / years;
-      data.push(taxAtYear / 1000000);
-      labels.push('Year ' + (2026 + i));
+  chart = new Chart(ctx, {
+   type: 'line',
+   data: {
+    labels: labels,
+    datasets: [{
+     label: 'Annual Tax Revenue',
+     data: data,
+     borderColor: '#A64A7D',
+     backgroundColor: 'rgba(166, 74, 125, 0.1)',
+     borderWidth: 3,
+     fill: true,
+     tension: 0.4,
+     pointRadius: 4,
+     pointBackgroundColor: '#A64A7D'
+    }]
+   },
+   options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+     legend: { display: true, position: 'top' }
+    },
+    scales: {
+     y: {
+      beginAtZero: true,
+      ticks: { callback: function(val) { return '$' + val.toFixed(1) + 'M'; } }
+     }
     }
+   }
+  });
+ }
 
-    if (chart) chart.destroy();
-
-    chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Annual Tax Revenue',
-          data: data,
-          borderColor: '#A64A7D',
-          backgroundColor: 'rgba(166, 74, 125, 0.1)',
-          borderWidth: 3,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: '#A64A7D'
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: true, position: 'top' }
-        },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { callback: function(val) { return '$' + val.toFixed(1) + 'M'; } }
-          }
-        }
-      }
-    });
-  }
-
-  // Initialize on load
-  window.addEventListener('load', updateSimulation);
+ // Initialize on load
+ window.addEventListener('load', updateSimulation);
 </script>
 <script src="../js/analytics.js" defer></script>
 

@@ -1,1114 +1,1114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resources & Sources | El Dorado, KS — Vision 2040</title>
-  <meta name="description" content="Complete resource library for El Dorado, Kansas Vision 2040 — official plans, government links, data dashboards, economic development contacts, and research sources." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    /* ── Resources-specific ── */
-    .res-hero{background:var(--navy);color:#fff;padding:72px 0 56px;text-align:center}
-    .res-hero h1{color:#fff;margin-bottom:.5rem}
-    .res-hero p{color:rgba(255,255,255,.78);margin:0 auto;font-size:1.05rem}
-    .res-search-wrap{margin:1.8rem auto 0;max-width:540px;position:relative}
-    .res-search{width:100%;padding:.9rem 1.2rem .9rem 3rem;border-radius:50px;border:none;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,.25)}
-    .res-search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.15rem}
-    .res-tabs{background:var(--cream);border-bottom:2px solid #ddd;position:sticky;top:64px;z-index:90}
-    .res-tabs-inner{display:flex;gap:0;overflow-x:auto;max-width:1200px;margin:0 auto;padding:0 24px}
-    .res-tab{padding:.85rem 1.3rem;font-size:.85rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;transition:.2s}
-    .res-tab:hover,.res-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
-    .res-body{padding:64px 0 80px}
-    .res-cat{margin-bottom:64px}
-    .res-cat-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--gold)}
-    .res-cat-icon{font-size:1.6rem}
-    .res-cat h2{font-size:1.6rem;color:var(--navy);margin:0}
-    .res-cat-desc{color:var(--muted);font-size:.95rem;margin-bottom:1.75rem;max-width:80ch}
-    .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
-    .res-card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;transition:box-shadow .2s,transform .2s}
-    .res-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.12);transform:translateY(-2px)}
-    .res-card-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.2rem}
-    .res-badge{font-size:.65rem;font-weight:700;padding:.2rem .55rem;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
-    .badge-pdf{background:#fee2e2;color:#b91c1c}
-    .badge-web{background:#dbeafe;color:#1d4ed8}
-    .badge-data{background:#dcfce7;color:#15803d}
-    .badge-map{background:#fef9c3;color:#854d0e}
-    .badge-org{background:#f3e8ff;color:#7c3aed}
-    .badge-fed{background:#ffedd5;color:#c2410c}
-    .res-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin:0;line-height:1.3}
-    .res-card p{font-size:.87rem;color:var(--muted);margin:0;flex:1}
-    .res-card-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
-    .res-link{font-size:.82rem;color:var(--navy);font-weight:600;padding:.3rem .7rem;border:1px solid var(--navy);border-radius:20px;transition:.2s}
-    .res-link:hover{background:var(--navy);color:#fff}
-    .res-link.primary{background:var(--gold);border-color:var(--gold);color:#fff}
-    .res-link.primary:hover{background:#a87422}
-    .res-note{background:#fffbeb;border-left:4px solid var(--gold);padding:1rem 1.2rem;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:1.5rem;font-size:.9rem;color:var(--text)}
-    .res-toc{background:var(--navy);color:#fff;padding:48px 0;margin-bottom:0}
-    .res-toc h2{color:#fff;text-align:center;margin-bottom:1.5rem}
-    .res-toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;max-width:1000px;margin:0 auto}
-    .res-toc-link{background:rgba(255,255,255,.1);border-radius:8px;padding:.7rem 1rem;font-size:.9rem;color:#fff;font-weight:500;display:flex;align-items:center;gap:.5rem;transition:.2s}
-    .res-toc-link:hover{background:rgba(255,255,255,.22);color:var(--gold)}
-    .res-section-anchor{display:block;position:relative;top:-80px;visibility:hidden}
-    .res-subtitle{font-size:1.1rem;color:var(--navy);font-weight:600;margin:2rem 0 .75rem;padding-left:.75rem;border-left:3px solid var(--gold)}
-    @media(max-width:640px){.res-grid{grid-template-columns:1fr}.res-tabs-inner{gap:0}}
-  </style>
-  <!-- Google Analytics 4 -->n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n  <script>n    window.dataLayer = window.dataLayer || [];n    function gtag(){dataLayer.push(arguments);}n    gtag('js', new Date());n    gtag('config', 'G-PLACEHOLDER-ID');n  </script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Resources & Sources | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Complete resource library for El Dorado, Kansas Vision 2040 — official plans, government links, data dashboards, economic development contacts, and research sources." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="css/styles.css" />
+ <style>
+  /* ── Resources-specific ── */
+ .res-hero{background:var(--navy);color:#fff;padding:72px 0 56px;text-align:center}
+ .res-hero h1{color:#fff;margin-bottom:.5rem}
+ .res-hero p{color:rgba(255,255,255,.78);margin:0 auto;font-size:1.05rem}
+ .res-search-wrap{margin:1.8rem auto 0;max-width:540px;position:relative}
+ .res-search{width:100%;padding:.9rem 1.2rem.9rem 3rem;border-radius:50px;border:none;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,.25)}
+ .res-search-icon{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.15rem}
+ .res-tabs{background:var(--cream);border-bottom:2px solid #ddd;position:sticky;top:64px;z-index:90}
+ .res-tabs-inner{display:flex;gap:0;overflow-x:auto;max-width:1200px;margin:0 auto;padding:0 24px}
+ .res-tab{padding:.85rem 1.3rem;font-size:.85rem;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;cursor:pointer;background:none;border-left:none;border-right:none;border-top:none;transition:.2s}
+ .res-tab:hover,.res-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+ .res-body{padding:64px 0 80px}
+ .res-cat{margin-bottom:64px}
+ .res-cat-hdr{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:2px solid var(--gold)}
+ .res-cat-icon{font-size:1.6rem}
+ .res-cat h2{font-size:1.6rem;color:var(--navy);margin:0}
+ .res-cat-desc{color:var(--muted);font-size:.95rem;margin-bottom:1.75rem;max-width:80ch}
+ .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem}
+ .res-card{background:#fff;border:1px solid #e5e7eb;border-radius:var(--radius);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;transition:box-shadow.2s,transform.2s}
+ .res-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.12);transform:translateY(-2px)}
+ .res-card-top{display:flex;align-items:center;gap:.6rem;margin-bottom:.2rem}
+ .res-badge{font-size:.65rem;font-weight:700;padding:.2rem.55rem;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
+ .badge-pdf{background:#fee2e2;color:#b91c1c}
+ .badge-web{background:#dbeafe;color:#1d4ed8}
+ .badge-data{background:#dcfce7;color:#15803d}
+ .badge-map{background:#fef9c3;color:#854d0e}
+ .badge-org{background:#f3e8ff;color:#7c3aed}
+ .badge-fed{background:#ffedd5;color:#c2410c}
+ .res-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--navy);margin:0;line-height:1.3}
+ .res-card p{font-size:.87rem;color:var(--muted);margin:0;flex:1}
+ .res-card-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+ .res-link{font-size:.82rem;color:var(--navy);font-weight:600;padding:.3rem.7rem;border:1px solid var(--navy);border-radius:20px;transition:.2s}
+ .res-link:hover{background:var(--navy);color:#fff}
+ .res-link.primary{background:var(--gold);border-color:var(--gold);color:#fff}
+ .res-link.primary:hover{background:#a87422}
+ .res-note{background:#fffbeb;border-left:4px solid var(--gold);padding:1rem 1.2rem;border-radius:0 var(--radius) var(--radius) 0;margin-bottom:1.5rem;font-size:.9rem;color:var(--text)}
+ .res-toc{background:var(--navy);color:#fff;padding:48px 0;margin-bottom:0}
+ .res-toc h2{color:#fff;text-align:center;margin-bottom:1.5rem}
+ .res-toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;max-width:1000px;margin:0 auto}
+ .res-toc-link{background:rgba(255,255,255,.1);border-radius:8px;padding:.7rem 1rem;font-size:.9rem;color:#fff;font-weight:500;display:flex;align-items:center;gap:.5rem;transition:.2s}
+ .res-toc-link:hover{background:rgba(255,255,255,.22);color:var(--gold)}
+ .res-section-anchor{display:block;position:relative;top:-80px;visibility:hidden}
+ .res-subtitle{font-size:1.1rem;color:var(--navy);font-weight:600;margin:2rem 0.75rem;padding-left:.75rem;border-left:3px solid var(--gold)}
+  @media(max-width:640px){.res-grid{grid-template-columns:1fr}.res-tabs-inner{gap:0}}
+ </style>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
 </head>
 <body>
-  <div id="nav-mount"></div>
+ <div id="nav-mount"></div>
 <nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="city">El Dorado, KS</span>
-      <span class="tagline">Vision 2040 · Resources</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">← Full Plan</a></li>
-      <li><a href="stakeholders.html">Stakeholders</a></li>
-      <li><a href="presentation.html">Presentation</a></li>
-      <li><a href="brief.html">Project Briefs</a></li>
-    </ul>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
-  </div>
+ <div class="nav-inner">
+  <a href="index.html" class="nav-brand">
+   <span class="city">El Dorado, KS</span>
+   <span class="tagline">Vision 2040 · Resources</span>
+  </a>
+  <ul class="nav-links">
+   <li><a href="index.html">← Full Plan</a></li>
+   <li><a href="stakeholders.html">Stakeholders</a></li>
+   <li><a href="presentation.html">Presentation</a></li>
+   <li><a href="brief.html">Project Briefs</a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+ </div>
 </nav>
 
 <!-- HERO -->
 <section class="res-hero">
-  <div class="container">
-    <span class="section-label">Complete Source Library</span>
-    <h1>Resources & References</h1>
-    <p>Every document, dataset, map, agency, and external link used in or relevant to the El Dorado Vision 2040 plan — organized and described for easy access.</p>
-    <div class="res-search-wrap">
-      <span class="res-search-icon">🔍</span>
-      <input type="text" class="res-search" id="resSearch" placeholder="Search resources by name, topic, or type…" aria-label="Search resources" />
-    </div>
+ <div class="container">
+  <span class="section-label">Complete Source Library</span>
+  <h1>Resources & References</h1>
+  <p>Every document, dataset, map, agency, and external link used in or relevant to the El Dorado Vision 2040 plan — organized and described for easy access.</p>
+  <div class="res-search-wrap">
+   <span class="res-search-icon">🔍</span>
+   <input type="text" class="res-search" id="resSearch" placeholder="Search resources by name, topic, or type…" aria-label="Search resources" />
   </div>
+ </div>
 </section>
 
 <!-- TOC -->
 <section class="res-toc">
-  <div class="container">
-    <h2>Jump to Category</h2>
-    <div class="res-toc-grid">
-      <a href="#official-plans" class="res-toc-link">📋 Official City Plans</a>
-      <a href="#transportation" class="res-toc-link">🚗 Transportation Studies</a>
-      <a href="#economic-dev" class="res-toc-link">💼 Economic Development</a>
-      <a href="#government" class="res-toc-link">🏛️ Government Agencies</a>
-      <a href="#education" class="res-toc-link">🎓 Education &amp; Workforce</a>
-      <a href="#environment" class="res-toc-link">🌊 Environment &amp; Water</a>
-      <a href="#regional" class="res-toc-link">🗺️ Regional Partners</a>
-      <a href="#federal" class="res-toc-link">🦅 Federal Programs</a>
-      <a href="#business" class="res-toc-link">🏭 Business &amp; Industry</a>
-      <a href="#data-dashboards" class="res-toc-link">📊 Data &amp; Dashboards</a>
-      <a href="#housing" class="res-toc-link">🏠 Housing &amp; Demographics</a>
-      <a href="#tourism" class="res-toc-link">🏕️ Tourism &amp; Recreation</a>
-      <a href="#international" class="res-toc-link">🌐 International &amp; FDI</a>
-      <a href="#media" class="res-toc-link">📰 News &amp; Community</a>
-    </div>
+ <div class="container">
+  <h2>Jump to Category</h2>
+  <div class="res-toc-grid">
+   <a href="#official-plans" class="res-toc-link">📋 Official City Plans</a>
+   <a href="#transportation" class="res-toc-link">🚗 Transportation Studies</a>
+   <a href="#economic-dev" class="res-toc-link">💼 Economic Development</a>
+   <a href="#government" class="res-toc-link">🏛️ Government Agencies</a>
+   <a href="#education" class="res-toc-link">🎓 Education &amp; Workforce</a>
+   <a href="#environment" class="res-toc-link">🌊 Environment &amp; Water</a>
+   <a href="#regional" class="res-toc-link">🗺️ Regional Partners</a>
+   <a href="#federal" class="res-toc-link">🦅 Federal Programs</a>
+   <a href="#business" class="res-toc-link">🏭 Business &amp; Industry</a>
+   <a href="#data-dashboards" class="res-toc-link">📊 Data &amp; Dashboards</a>
+   <a href="#housing" class="res-toc-link">🏠 Housing &amp; Demographics</a>
+   <a href="#tourism" class="res-toc-link">🏕️ Tourism &amp; Recreation</a>
+   <a href="#international" class="res-toc-link">🌐 International &amp; FDI</a>
+   <a href="#media" class="res-toc-link">📰 News &amp; Community</a>
   </div>
+ </div>
 </section>
 
 <!-- BODY -->
 <div class="res-body">
 <div class="container">
 
-  <!-- OFFICIAL PLANS -->
-  <span class="res-section-anchor" id="official-plans"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">📋</span><h2>Official City Plans &amp; Studies</h2></div>
-    <p class="res-cat-desc">Adopted plans, studies, and policy documents produced by or for the City of El Dorado or Butler County. These are the authoritative planning documents that govern development decisions.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="comprehensive plan 2030 zoning land use">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>2030 El Dorado Comprehensive Plan</h4>
-        <p>Master land use and policy framework for El Dorado through 2030. Covers zoning, economic development, transportation, housing, parks, and infrastructure. Adopted 2014.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter/View/628" class="res-link primary" target="_blank" rel="noopener">Open</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="pavement management roads infrastructure">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>2030 El Dorado Pavement Management Plan</h4>
-        <p>Systematic inventory and condition rating of all city streets. Includes treatment schedules, cost projections, and long-range maintenance strategy.</p>
-        <div class="res-card-links">
-          <a href="#" class="res-link">City File</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="transportation study 2024 roads traffic">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Transportation Study (Sept. 2024)</h4>
-        <p>Comprehensive assessment of current transportation system with strategic plan through 2045. Covers safety, capacity, bikeways, sidewalks, transit, and future corridors. 264 community survey responses.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="SS4A safe streets safety action plan federal 2026">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Safe Streets &amp; Roads for All (SS4A) — April 2026</h4>
-        <p>USDOT-funded Safety Action Plan. 8 priority road safety projects, crash data analysis 2015–2024, community engagement, and $10M+ in eligible improvements. Top corridors: Central Ave, Main St, 6th Ave.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
-          <a href="https://www.transportation.gov/SS4A" class="res-link" target="_blank" rel="noopener">SS4A Program</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="financial policies budget debt fiscal">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>City of El Dorado Financial Policies (Resolution 2849)</h4>
-        <p>Adopted financial and budgetary policies covering revenue, expenditures, cash reserves (15–25% General Fund), debt limits (10% of net operating revenues), enterprise funds, and post-issuance compliance.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="industrial park mega-site El Dorado Inc">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Industrial Park Overview (ELDO.IndustrialParkOverview v3)</h4>
-        <p>Marketing brochure for the El Dorado industrial corridor. Site specs, available parcels, rail access, utility data, and contact information.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldorado-inc.com" class="res-link primary" target="_blank" rel="noopener">El Dorado Inc.</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="mega-site 1131 acres brochure 2024">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Mega-Site Brochure (2024)</h4>
-        <p>Official site selector brochure for the 1,131-acre certified mega-site. Details rail access (BNSF + UP), water (10 MGD), FTZ #28, KTA exits 71/76, Savage transload, and AMAZONE 2025 win.</p>
-        <div class="res-card-links">
-          <a href="https://developeldorado.com" class="res-link primary" target="_blank" rel="noopener">DevelopElDorado</a>
-          <a href="https://eldoradodatacenter.com" class="res-link" target="_blank" rel="noopener">Data Center Site</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="housing assessment WSU 2023">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Housing Needs Assessment (WSU PPMC, Aug. 2023)</h4>
-        <p>37-page comprehensive housing analysis by Wichita State PPMC. 6,080 units, 12% vacancy, $97,800 median value, 75% pre-1980 stock, 29% renters severely cost-burdened. North El Dorado = primary growth zone.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="relocation guide 2021 community services">
-        <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
-        <h4>El Dorado Online Relocation Guide (2021)</h4>
-        <p>Community guide for new residents. Schools (USD 490, USD 375, Butler CC), utilities (Evergy, Butler Electric, Cox, AT&amp;T), healthcare, parks, and community services.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoradochamber.com" class="res-link primary" target="_blank" rel="noopener">Chamber</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="strategic plan 2021 city commission">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>El Dorado Strategic Plan 2021</h4>
-        <p>City Commission adopted strategic priorities for 2021. Referenced in transportation study as guiding framework for infrastructure investment decisions.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/252/City-Manager" class="res-link primary" target="_blank" rel="noopener">City Manager</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="CIP capital improvement 2026 2030">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>2026–2030 Capital Improvement Plan (CIP)</h4>
-        <p>Five-year capital spending plan. Public hearing held March 3, 2025. Covers streets, utilities, parks, public buildings, and equipment.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/529/City-Commission" class="res-link primary" target="_blank" rel="noopener">City Commission</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="utility rates water sewer electric 2024">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>2024 &amp; Proposed Future Utility Rate Increases</h4>
-        <p>City utility rate schedule and proposed adjustments for water, sewer, and electric services. Important for project feasibility and cost-of-living analysis.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/602/2024-and-Proposed-Future-Utility-Rate-In" class="res-link primary" target="_blank" rel="noopener">View</a>
-        </div>
-      </div>
+ <!-- OFFICIAL PLANS -->
+ <span class="res-section-anchor" id="official-plans"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">📋</span><h2>Official City Plans &amp; Studies</h2></div>
+  <p class="res-cat-desc">Adopted plans, studies, and policy documents produced by or for the City of El Dorado or Butler County. These are the authoritative planning documents that govern development decisions.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="comprehensive plan 2030 zoning land use">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>2030 El Dorado Comprehensive Plan</h4>
+    <p>Master land use and policy framework for El Dorado through 2030. Covers zoning, economic development, transportation, housing, parks, and infrastructure. Adopted 2014.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter/View/628" class="res-link primary" target="_blank" rel="noopener">Open</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="pavement management roads infrastructure">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>2030 El Dorado Pavement Management Plan</h4>
+    <p>Systematic inventory and condition rating of all city streets. Includes treatment schedules, cost projections, and long-range maintenance strategy.</p>
+    <div class="res-card-links">
+     <a href="#" class="res-link">City File</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="transportation study 2024 roads traffic">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Transportation Study (Sept. 2024)</h4>
+    <p>Comprehensive assessment of current transportation system with strategic plan through 2045. Covers safety, capacity, bikeways, sidewalks, transit, and future corridors. 264 community survey responses.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="SS4A safe streets safety action plan federal 2026">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Safe Streets &amp; Roads for All (SS4A) — April 2026</h4>
+    <p>USDOT-funded Safety Action Plan. 8 priority road safety projects, crash data analysis 2015–2024, community engagement, and $10M+ in eligible improvements. Top corridors: Central Ave, Main St, 6th Ave.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
+     <a href="https://www.transportation.gov/SS4A" class="res-link" target="_blank" rel="noopener">SS4A Program</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="financial policies budget debt fiscal">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>City of El Dorado Financial Policies (Resolution 2849)</h4>
+    <p>Adopted financial and budgetary policies covering revenue, expenditures, cash reserves (15–25% General Fund), debt limits (10% of net operating revenues), enterprise funds, and post-issuance compliance.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="industrial park mega-site El Dorado Inc">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Industrial Park Overview (ELDO.IndustrialParkOverview v3)</h4>
+    <p>Marketing brochure for the El Dorado industrial corridor. Site specs, available parcels, rail access, utility data, and contact information.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldorado-inc.com" class="res-link primary" target="_blank" rel="noopener">El Dorado Inc.</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="mega-site 1131 acres brochure 2024">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Mega-Site Brochure (2024)</h4>
+    <p>Official site selector brochure for the 1,131-acre certified mega-site. Details rail access (BNSF + UP), water (10 MGD), FTZ #28, KTA exits 71/76, Savage transload, and AMAZONE 2025 win.</p>
+    <div class="res-card-links">
+     <a href="https://developeldorado.com" class="res-link primary" target="_blank" rel="noopener">DevelopElDorado</a>
+     <a href="https://eldoradodatacenter.com" class="res-link" target="_blank" rel="noopener">Data Center Site</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="housing assessment WSU 2023">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Housing Needs Assessment (WSU PPMC, Aug. 2023)</h4>
+    <p>37-page comprehensive housing analysis by Wichita State PPMC. 6,080 units, 12% vacancy, $97,800 median value, 75% pre-1980 stock, 29% renters severely cost-burdened. North El Dorado = primary growth zone.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter" class="res-link primary" target="_blank" rel="noopener">City Docs</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="relocation guide 2021 community services">
+    <div class="res-card-top"><span class="res-badge badge-pdf">PDF</span></div>
+    <h4>El Dorado Online Relocation Guide (2021)</h4>
+    <p>Community guide for new residents. Schools (USD 490, USD 375, Butler CC), utilities (Evergy, Butler Electric, Cox, AT&amp;T), healthcare, parks, and community services.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoradochamber.com" class="res-link primary" target="_blank" rel="noopener">Chamber</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="strategic plan 2021 city commission">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>El Dorado Strategic Plan 2021</h4>
+    <p>City Commission adopted strategic priorities for 2021. Referenced in transportation study as guiding framework for infrastructure investment decisions.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/252/City-Manager" class="res-link primary" target="_blank" rel="noopener">City Manager</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="CIP capital improvement 2026 2030">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>2026–2030 Capital Improvement Plan (CIP)</h4>
+    <p>Five-year capital spending plan. Public hearing held March 3, 2025. Covers streets, utilities, parks, public buildings, and equipment.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/529/City-Commission" class="res-link primary" target="_blank" rel="noopener">City Commission</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="utility rates water sewer electric 2024">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>2024 &amp; Proposed Future Utility Rate Increases</h4>
+    <p>City utility rate schedule and proposed adjustments for water, sewer, and electric services. Important for project feasibility and cost-of-living analysis.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/602/2024-and-Proposed-Future-Utility-Rate-In" class="res-link primary" target="_blank" rel="noopener">View</a>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- TRANSPORTATION -->
+ <span class="res-section-anchor" id="transportation"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🚗</span><h2>Transportation Resources</h2></div>
+  <p class="res-cat-desc">State and federal transportation agencies, planning bodies, and specific project resources relevant to El Dorado's transportation network.</p>
+
+  <p class="res-subtitle">Transportation Study — Key Projects (2024)</p>
+  <div class="res-note">The El Dorado Transportation Study (Sept. 2024) identified 20 near-, mid-, and long-term projects. All cost estimates are 2024 dollars.</div>
+  <div class="res-grid">
+   <div class="res-card" data-tags="intersection signal N Main 6th near-term">
+    <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
+    <h4>N Main St &amp; 6th Ave — Signal Upgrade</h4>
+    <p>Intersection improvement and traffic signal modernization. Est. cost: $851,000. Right-of-way: $56K. Priority intersection in city's top-20 crash locations.</p>
+   </div>
+   <div class="res-card" data-tags="roundabout N Main McCollum near-term">
+    <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
+    <h4>N Main St &amp; McCollum Rd — Roundabout</h4>
+    <p>New roundabout at N Main Street and McCollum Road. Est. cost: $1,683,000 (incl. $389K contingency). Supports northern growth corridor development.</p>
+   </div>
+   <div class="res-card" data-tags="Country Club Road new 3-lane near-term">
+    <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
+    <h4>Country Club Rd, E 29th–E 30th — New 3-Lane Roadway</h4>
+    <p>New 3-lane roadway section to support residential development. Est. cost: $3,493,000+. Opens access to eastern growth zones.</p>
+   </div>
+   <div class="res-card" data-tags="Central Avenue reconstruction K-254 medium-term">
+    <div class="res-card-top"><span class="res-badge badge-data">MID-TERM</span></div>
+    <h4>Central Avenue (K-254) — Reconstruction</h4>
+    <p>Major east-west corridor improvement from Boyer Rd to Haverhill Rd. Two concepts studied: lane consolidation with bike lanes, or complete streets retrofit. Study reviewed by KDOT.</p>
+   </div>
+   <div class="res-card" data-tags="NW trafficway bypass north long-term">
+    <div class="res-card-top"><span class="res-badge badge-data">LONG-TERM</span></div>
+    <h4>Future Northwest Trafficway</h4>
+    <p>New bypass corridor to serve northern development areas and relieve congestion on existing streets. Critical for mega-site and North Gateway District access. Costs TBD by KDOT separate study.</p>
+   </div>
+   <div class="res-card" data-tags="SW trafficway bypass south long-term">
+    <div class="res-card-top"><span class="res-badge badge-data">LONG-TERM</span></div>
+    <h4>Southwest Trafficway Extension</h4>
+    <p>Southern bypass extension to support industrial corridor growth. Connects HF Sinclair operations area with I-35 access. Reduces industrial truck traffic through downtown.</p>
+   </div>
+   <div class="res-card" data-tags="bicycle trails active transportation network">
+    <div class="res-card-top"><span class="res-badge badge-data">ACTIVE TRANSPORT</span></div>
+    <h4>Bicycle Network Expansion</h4>
+    <p>Converts recreational bike facilities to true transportation network. Protected intersections, bike lanes on Central Ave and Main St, connection to El Dorado Lake trail system. Strava heatmap data used in planning.</p>
+   </div>
+   <div class="res-card" data-tags="sidewalk pedestrian network complete streets">
+    <div class="res-card-top"><span class="res-badge badge-data">ACTIVE TRANSPORT</span></div>
+    <h4>Sidewalk Gap Closure Program</h4>
+    <p>Systematic closure of sidewalk gaps citywide. Priority on school routes (Safe Routes to School), transit stops, and downtown connections. ADA compliance throughout.</p>
+   </div>
   </div>
 
-  <!-- TRANSPORTATION -->
-  <span class="res-section-anchor" id="transportation"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🚗</span><h2>Transportation Resources</h2></div>
-    <p class="res-cat-desc">State and federal transportation agencies, planning bodies, and specific project resources relevant to El Dorado's transportation network.</p>
-
-    <p class="res-subtitle">Transportation Study — Key Projects (2024)</p>
-    <div class="res-note">The El Dorado Transportation Study (Sept. 2024) identified 20 near-, mid-, and long-term projects. All cost estimates are 2024 dollars.</div>
-    <div class="res-grid">
-      <div class="res-card" data-tags="intersection signal N Main 6th near-term">
-        <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
-        <h4>N Main St &amp; 6th Ave — Signal Upgrade</h4>
-        <p>Intersection improvement and traffic signal modernization. Est. cost: $851,000. Right-of-way: $56K. Priority intersection in city's top-20 crash locations.</p>
-      </div>
-      <div class="res-card" data-tags="roundabout N Main McCollum near-term">
-        <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
-        <h4>N Main St &amp; McCollum Rd — Roundabout</h4>
-        <p>New roundabout at N Main Street and McCollum Road. Est. cost: $1,683,000 (incl. $389K contingency). Supports northern growth corridor development.</p>
-      </div>
-      <div class="res-card" data-tags="Country Club Road new 3-lane near-term">
-        <div class="res-card-top"><span class="res-badge badge-data">NEAR-TERM</span></div>
-        <h4>Country Club Rd, E 29th–E 30th — New 3-Lane Roadway</h4>
-        <p>New 3-lane roadway section to support residential development. Est. cost: $3,493,000+. Opens access to eastern growth zones.</p>
-      </div>
-      <div class="res-card" data-tags="Central Avenue reconstruction K-254 medium-term">
-        <div class="res-card-top"><span class="res-badge badge-data">MID-TERM</span></div>
-        <h4>Central Avenue (K-254) — Reconstruction</h4>
-        <p>Major east-west corridor improvement from Boyer Rd to Haverhill Rd. Two concepts studied: lane consolidation with bike lanes, or complete streets retrofit. Study reviewed by KDOT.</p>
-      </div>
-      <div class="res-card" data-tags="NW trafficway bypass north long-term">
-        <div class="res-card-top"><span class="res-badge badge-data">LONG-TERM</span></div>
-        <h4>Future Northwest Trafficway</h4>
-        <p>New bypass corridor to serve northern development areas and relieve congestion on existing streets. Critical for mega-site and North Gateway District access. Costs TBD by KDOT separate study.</p>
-      </div>
-      <div class="res-card" data-tags="SW trafficway bypass south long-term">
-        <div class="res-card-top"><span class="res-badge badge-data">LONG-TERM</span></div>
-        <h4>Southwest Trafficway Extension</h4>
-        <p>Southern bypass extension to support industrial corridor growth. Connects HF Sinclair operations area with I-35 access. Reduces industrial truck traffic through downtown.</p>
-      </div>
-      <div class="res-card" data-tags="bicycle trails active transportation network">
-        <div class="res-card-top"><span class="res-badge badge-data">ACTIVE TRANSPORT</span></div>
-        <h4>Bicycle Network Expansion</h4>
-        <p>Converts recreational bike facilities to true transportation network. Protected intersections, bike lanes on Central Ave and Main St, connection to El Dorado Lake trail system. Strava heatmap data used in planning.</p>
-      </div>
-      <div class="res-card" data-tags="sidewalk pedestrian network complete streets">
-        <div class="res-card-top"><span class="res-badge badge-data">ACTIVE TRANSPORT</span></div>
-        <h4>Sidewalk Gap Closure Program</h4>
-        <p>Systematic closure of sidewalk gaps citywide. Priority on school routes (Safe Routes to School), transit stops, and downtown connections. ADA compliance throughout.</p>
-      </div>
-    </div>
-
-    <p class="res-subtitle">SS4A Priority Projects (April 2026)</p>
-    <div class="res-note">8 prioritized safety improvement projects funded through USDOT Safe Streets and Roads for All grant program.</div>
-    <div class="res-grid">
-      <div class="res-card" data-tags="SS4A Central Avenue Boyer Haverhill safety">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P1</span></div>
-        <h4>Project 1: Central Ave — Boyer Rd to Haverhill Rd</h4>
-        <p>Top-priority east-west safety corridor. Signal upgrades, retroreflective backplates, lane narrowing, enhanced pedestrian crossings. Addresses cluster of angle and rear-end crashes.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Central Avenue Oil Hill Main safety">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P2</span></div>
-        <h4>Project 2: Central Ave — Oil Hill Rd to Main St</h4>
-        <p>Continuation of Central Ave safety improvements into downtown core. Signal timing, pavement markings, pedestrian hybrid beacons at key mid-block crossings.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Main Street Locust 3rd downtown">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P3</span></div>
-        <h4>Project 3: Main St — Locust Ave to 3rd Ave</h4>
-        <p>Priority north-south gateway corridor into downtown. Addresses nighttime impaired driving and VRU crash patterns. Speed reduction measures, lighting upgrades.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Main 6th intersection signal">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P4</span></div>
-        <h4>Project 4: Main St at 6th Ave — Intersection</h4>
-        <p>Targeted signal and geometric improvements at key downtown intersection. Signal upgrades, retroreflective backplates, refreshed pavement markings.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Main 12th McCollum north">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P5</span></div>
-        <h4>Project 5: Main St — 12th Ave to McCollum Rd</h4>
-        <p>Safety improvements north of downtown including signal and lighting upgrades at 12th Ave and McCollum Rd intersections.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A 6th Ave Haverhill Main corridor">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P6</span></div>
-        <h4>Project 6: 6th Ave — Haverhill Rd to Main St</h4>
-        <p>Safety and operations improvements on 6th Ave. Signal upgrades at Haverhill and Summit intersections. Addresses rear-end and parking-related crash cluster.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Haverhill Towanda intersection">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P7</span></div>
-        <h4>Project 7: Haverhill Rd &amp; Towanda Ave — Intersection</h4>
-        <p>Signal upgrades, retroreflective backplates, refreshed pavement markings at Haverhill/Towanda intersection. Also includes policy recommendations and further study areas.</p>
-      </div>
-      <div class="res-card" data-tags="SS4A Country Club 12th McCollum corridor">
-        <div class="res-card-top"><span class="res-badge badge-fed">SS4A P8</span></div>
-        <h4>Project 8: Country Club Rd — 12th to McCollum</h4>
-        <p>Safety improvements along Country Club Road corridor serving residential and recreational areas. Speeds, sight lines, and pedestrian crossings.</p>
-      </div>
-    </div>
-
-    <p class="res-subtitle">Transportation Agencies &amp; Programs</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="KDOT Kansas DOT state transportation">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Kansas DOT (KDOT)</h4>
-        <p>State transportation agency. Administers IKE Legacy Transportation Program, Transportation Alternatives (TA), HSIP, Local Bridge Improvement Program, and pavement grants. K-254 (Central Ave) is a state highway.</p>
-        <div class="res-card-links">
-          <a href="https://www.ksdot.gov/projects" class="res-link primary" target="_blank" rel="noopener">Active Projects</a>
-          <a href="https://www.ksdot.gov/about/our-organization/divisions/planning-and-development/kansas-maps-and-gis-resources/historic-state-maps" class="res-link" target="_blank" rel="noopener">GIS Maps</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="KTA Kansas Turnpike Authority I-35">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Kansas Turnpike Authority (KTA)</h4>
-        <p>Operates I-35 through El Dorado (Exits 71 and 76). El Dorado is a direct I-35 node — not a bypass. K-254/Central Ave interchange. Major undermarketed economic asset.</p>
-        <div class="res-card-links">
-          <a href="https://members.lawrencechamber.com/list/member/kansas-turnpike-authority-14571" class="res-link primary" target="_blank" rel="noopener">KTA Info</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="WAMPO Wichita Area Metropolitan Planning Organization MPO">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>WAMPO — Wichita Area MPO</h4>
-        <p>Metropolitan planning organization covering the greater Wichita area including parts of Butler County. Federal transportation funding coordination. Relevant for US-54/US-400 corridor projects.</p>
-        <div class="res-card-links">
-          <a href="https://www.wampo.org" class="res-link primary" target="_blank" rel="noopener">WAMPO</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="BCRTA Butler County Regional Transit paratransit">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>Butler County Regional Transit Authority (BCRTA)</h4>
-        <p>Existing paratransit service serving El Dorado, Augusta, Andover, and Wichita. Under-promoted asset identified in transportation study. Candidate for expansion with KDOT Transit Development grants.</p>
-        <div class="res-card-links">
-          <a href="https://www.bucoks.gov/8/Departments" class="res-link primary" target="_blank" rel="noopener">Butler County</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="FHWA federal highway administration SS4A BUILD">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>FHWA / USDOT — Safe Streets &amp; Roads for All</h4>
-        <p>Federal program funding El Dorado's Safety Action Plan. Also administers BUILD grants ($5–25M), RAISE, Bridge Investment Program, and HSIP safety funding.</p>
-        <div class="res-card-links">
-          <a href="https://www.transportation.gov/SS4A" class="res-link primary" target="_blank" rel="noopener">SS4A Program</a>
-          <a href="https://www.fhwa.dot.gov" class="res-link" target="_blank" rel="noopener">FHWA</a>
-        </div>
-      </div>
-    </div>
+  <p class="res-subtitle">SS4A Priority Projects (April 2026)</p>
+  <div class="res-note">8 prioritized safety improvement projects funded through USDOT Safe Streets and Roads for All grant program.</div>
+  <div class="res-grid">
+   <div class="res-card" data-tags="SS4A Central Avenue Boyer Haverhill safety">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P1</span></div>
+    <h4>Project 1: Central Ave — Boyer Rd to Haverhill Rd</h4>
+    <p>Top-priority east-west safety corridor. Signal upgrades, retroreflective backplates, lane narrowing, enhanced pedestrian crossings. Addresses cluster of angle and rear-end crashes.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Central Avenue Oil Hill Main safety">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P2</span></div>
+    <h4>Project 2: Central Ave — Oil Hill Rd to Main St</h4>
+    <p>Continuation of Central Ave safety improvements into downtown core. Signal timing, pavement markings, pedestrian hybrid beacons at key mid-block crossings.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Main Street Locust 3rd downtown">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P3</span></div>
+    <h4>Project 3: Main St — Locust Ave to 3rd Ave</h4>
+    <p>Priority north-south gateway corridor into downtown. Addresses nighttime impaired driving and VRU crash patterns. Speed reduction measures, lighting upgrades.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Main 6th intersection signal">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P4</span></div>
+    <h4>Project 4: Main St at 6th Ave — Intersection</h4>
+    <p>Targeted signal and geometric improvements at key downtown intersection. Signal upgrades, retroreflective backplates, refreshed pavement markings.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Main 12th McCollum north">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P5</span></div>
+    <h4>Project 5: Main St — 12th Ave to McCollum Rd</h4>
+    <p>Safety improvements north of downtown including signal and lighting upgrades at 12th Ave and McCollum Rd intersections.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A 6th Ave Haverhill Main corridor">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P6</span></div>
+    <h4>Project 6: 6th Ave — Haverhill Rd to Main St</h4>
+    <p>Safety and operations improvements on 6th Ave. Signal upgrades at Haverhill and Summit intersections. Addresses rear-end and parking-related crash cluster.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Haverhill Towanda intersection">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P7</span></div>
+    <h4>Project 7: Haverhill Rd &amp; Towanda Ave — Intersection</h4>
+    <p>Signal upgrades, retroreflective backplates, refreshed pavement markings at Haverhill/Towanda intersection. Also includes policy recommendations and further study areas.</p>
+   </div>
+   <div class="res-card" data-tags="SS4A Country Club 12th McCollum corridor">
+    <div class="res-card-top"><span class="res-badge badge-fed">SS4A P8</span></div>
+    <h4>Project 8: Country Club Rd — 12th to McCollum</h4>
+    <p>Safety improvements along Country Club Road corridor serving residential and recreational areas. Speeds, sight lines, and pedestrian crossings.</p>
+   </div>
   </div>
 
-  <!-- ECONOMIC DEVELOPMENT -->
-  <span class="res-section-anchor" id="economic-dev"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">💼</span><h2>Economic Development Organizations</h2></div>
-    <p class="res-cat-desc">Agencies and organizations that support business attraction, retention, expansion, and workforce development in El Dorado, Butler County, and the region.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="El Dorado Inc economic development site selector">
-        <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
-        <h4>El Dorado Inc. — City Economic Development</h4>
-        <p>Primary economic development organization for El Dorado. Manages mega-site marketing, AMAZONE deal (2025), business incentives, and Site Selector Resources. 201 E. Central Ave.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldorado-inc.com" class="res-link primary" target="_blank" rel="noopener">eldorado-inc.com</a>
-          <a href="https://developeldorado.com" class="res-link" target="_blank" rel="noopener">DevelopElDorado</a>
-          <a href="https://eldoradodatacenter.com" class="res-link" target="_blank" rel="noopener">DataCenter Site</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="El Dorado chamber commerce business directory">
-        <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
-        <h4>El Dorado Area Chamber of Commerce</h4>
-        <p>Business directory, visitors center, community events, and advocacy. Active member directory online. Important liaison for small business recruitment and retention.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoradochamber.com" class="res-link primary" target="_blank" rel="noopener">Chamber</a>
-          <a href="https://www.eldoradochamber.com/directory" class="res-link" target="_blank" rel="noopener">Directory</a>
-          <a href="https://www.eldoradochamber.com/visitors-center" class="res-link" target="_blank" rel="noopener">Visitors</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler County EDO economic development county">
-        <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
-        <h4>Butler County Economic Development Office (EDO)</h4>
-        <p>County-level economic development. 121 S. Gordy, Suite 202, El Dorado, KS. Phone: (316) 322-4325. Coordinates with city ED on county-wide business development.</p>
-        <div class="res-card-links">
-          <a href="https://www.bucoks.gov/8/Departments" class="res-link primary" target="_blank" rel="noopener">Butler County</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="SCKEDD South Central Kansas EDD SBA 504 loans">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>SCKEDD — South Central KS Economic Dev. District</h4>
-        <p>14-county EDA district. Certified Development Company (CDC) for Butler County. SBA 504, 7(a), Microloan, EDA, and USDA loan programs. Bel Aire, KS. Phone: (316) 771-0768.</p>
-        <div class="res-card-links">
-          <a href="https://sckedd.org" class="res-link primary" target="_blank" rel="noopener">sckedd.org</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Greater Wichita Partnership regional MSA">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>Greater Wichita Partnership</h4>
-        <p>Regional economic development for the Wichita MSA (includes Butler County). Data resources, regional snapshot, business attraction, and FDI programs. Butler County data available.</p>
-        <div class="res-card-links">
-          <a href="https://greaterwichitapartnership.org/home" class="res-link primary" target="_blank" rel="noopener">GWP Home</a>
-          <a href="https://greaterwichitapartnership.org/data-resources/region-snapshot/butler" class="res-link" target="_blank" rel="noopener">Butler Data</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Kansas EDA KEDA legislative advocacy statewide">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>KEDA — Kansas Economic Dev. Alliance</h4>
-        <p>~100-member statewide organization. Legislative advocacy, industry research, and ED best practices. Key advocate for business-friendly Kansas tax policy including SB 98 data center exemption.</p>
-        <div class="res-card-links">
-          <a href="https://kansaseda.com" class="res-link primary" target="_blank" rel="noopener">kansaseda.com</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="KDC Kansas Department Commerce grants incentives">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Kansas Dept. of Commerce (KDC)</h4>
-        <p>State commerce department. Manages HEAL grants, Angel Investor Tax Credit, STAR Bonds, Kansas Business Development Fund, Framework for Growth (5 target sectors). El Dorado hits all 5 KDC target sectors.</p>
-        <div class="res-card-links">
-          <a href="https://kansascommerce.gov" class="res-link primary" target="_blank" rel="noopener">kansascommerce.gov</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Network Kansas E-Community entrepreneurship loans">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Network Kansas — E-Community Program</h4>
-        <p>State entrepreneur support network. E-Community loans for small businesses. K-State Entrepreneurial Blueprint Initiative (105 communities). El Dorado should apply by 2026.</p>
-        <div class="res-card-links">
-          <a href="https://www.networkkansas.com" class="res-link primary" target="_blank" rel="noopener">networkkansas.com</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Flint Hills Economic Development district region">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>Flint Hills Regional Economic Development District</h4>
-        <p>Regional planning organization covering Flint Hills area. El Dorado is western gateway to Flint Hills. Coordinates with Chase, Lyon, Morris, Greenwood, and Butler counties.</p>
-        <div class="res-card-links">
-          <a href="https://flinthillsregion.org/the-flint-hills-economic-development-district/" class="res-link primary" target="_blank" rel="noopener">FHEDD</a>
-          <a href="https://flinthillsregion.org/" class="res-link" target="_blank" rel="noopener">Flint Hills Region</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Main Street America downtown revitalization program">
-        <div class="res-card-top"><span class="res-badge badge-org">NATIONAL</span></div>
-        <h4>Main Street America — National Accreditation</h4>
-        <p>National downtown revitalization program. Proven $18.03 ROI per $1 invested. Accreditation qualifies El Dorado for additional grants and national network. 40+ years of data.</p>
-        <div class="res-card-links">
-          <a href="https://www.mainstreet.org" class="res-link primary" target="_blank" rel="noopener">mainstreet.org</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="SelectUSA FDI foreign direct investment">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>SelectUSA — Federal FDI Program</h4>
-        <p>USDOC program for international business attraction. Free support for El Dorado/Kansas in recruiting Japanese, German, Korean, Canadian, and British investors. SelectUSA Investment Summit annual.</p>
-        <div class="res-card-links">
-          <a href="https://www.selectusa.gov" class="res-link primary" target="_blank" rel="noopener">selectusa.gov</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Wichita economic development city">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>City of Wichita Economic Development</h4>
-        <p>Wichita city economic development office. Wichita MSA (29 mi from El Dorado) = 650,000+, aerospace capital, 30,000+ aerospace jobs. El Dorado can serve as overflow / satellite community.</p>
-        <div class="res-card-links">
-          <a href="https://www.wichita.gov/208/Economic-Development" class="res-link primary" target="_blank" rel="noopener">Wichita ED</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Andover economic development adjacent community">
-        <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
-        <h4>City of Andover — Economic Development</h4>
-        <p>Fast-growing Butler County community 15 miles west of El Dorado. Long-range planning and economic development. US-54/US-400 corridor connects both cities.</p>
-        <div class="res-card-links">
-          <a href="https://www.andoverks.gov/801/Economic-Development" class="res-link primary" target="_blank" rel="noopener">Andover ED</a>
-          <a href="https://www.andoverks.gov/761/Long-Range-Planning" class="res-link" target="_blank" rel="noopener">Long-Range Plan</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Augusta city adjacent neighbor">
-        <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
-        <h4>City of Augusta, KS</h4>
-        <p>Butler County city 10 miles SW of El Dorado. Economic development and planning partner. Joint transit opportunities through BCRTA.</p>
-        <div class="res-card-links">
-          <a href="https://www.augustagov.org/businesses/economic_development.php" class="res-link primary" target="_blank" rel="noopener">Augusta ED</a>
-          <a href="https://www.augustagov.org/index.php" class="res-link" target="_blank" rel="noopener">City of Augusta</a>
-        </div>
-      </div>
+  <p class="res-subtitle">Transportation Agencies &amp; Programs</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="KDOT Kansas DOT state transportation">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Kansas DOT (KDOT)</h4>
+    <p>State transportation agency. Administers IKE Legacy Transportation Program, Transportation Alternatives (TA), HSIP, Local Bridge Improvement Program, and pavement grants. K-254 (Central Ave) is a state highway.</p>
+    <div class="res-card-links">
+     <a href="https://www.ksdot.gov/projects" class="res-link primary" target="_blank" rel="noopener">Active Projects</a>
+     <a href="https://www.ksdot.gov/about/our-organization/divisions/planning-and-development/kansas-maps-and-gis-resources/historic-state-maps" class="res-link" target="_blank" rel="noopener">GIS Maps</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="KTA Kansas Turnpike Authority I-35">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Kansas Turnpike Authority (KTA)</h4>
+    <p>Operates I-35 through El Dorado (Exits 71 and 76). El Dorado is a direct I-35 node — not a bypass. K-254/Central Ave interchange. Major undermarketed economic asset.</p>
+    <div class="res-card-links">
+     <a href="https://members.lawrencechamber.com/list/member/kansas-turnpike-authority-14571" class="res-link primary" target="_blank" rel="noopener">KTA Info</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="WAMPO Wichita Area Metropolitan Planning Organization MPO">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>WAMPO — Wichita Area MPO</h4>
+    <p>Metropolitan planning organization covering the greater Wichita area including parts of Butler County. Federal transportation funding coordination. Relevant for US-54/US-400 corridor projects.</p>
+    <div class="res-card-links">
+     <a href="https://www.wampo.org" class="res-link primary" target="_blank" rel="noopener">WAMPO</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="BCRTA Butler County Regional Transit paratransit">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>Butler County Regional Transit Authority (BCRTA)</h4>
+    <p>Existing paratransit service serving El Dorado, Augusta, Andover, and Wichita. Under-promoted asset identified in transportation study. Candidate for expansion with KDOT Transit Development grants.</p>
+    <div class="res-card-links">
+     <a href="https://www.bucoks.gov/8/Departments" class="res-link primary" target="_blank" rel="noopener">Butler County</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="FHWA federal highway administration SS4A BUILD">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>FHWA / USDOT — Safe Streets &amp; Roads for All</h4>
+    <p>Federal program funding El Dorado's Safety Action Plan. Also administers BUILD grants ($5–25M), RAISE, Bridge Investment Program, and HSIP safety funding.</p>
+    <div class="res-card-links">
+     <a href="https://www.transportation.gov/SS4A" class="res-link primary" target="_blank" rel="noopener">SS4A Program</a>
+     <a href="https://www.fhwa.dot.gov" class="res-link" target="_blank" rel="noopener">FHWA</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- GOVERNMENT -->
-  <span class="res-section-anchor" id="government"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🏛️</span><h2>Government Agencies &amp; Bodies</h2></div>
-    <p class="res-cat-desc">City, county, state, and federal government agencies relevant to El Dorado's planning and development.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="City El Dorado city hall government">
-        <div class="res-card-top"><span class="res-badge badge-org">CITY</span></div>
-        <h4>City of El Dorado — Official Website</h4>
-        <p>Central hub for city government. Departments, permits, planning/zoning, business directory, city commission, city manager (David Dillner), and public notices.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov" class="res-link primary" target="_blank" rel="noopener">eldoks.gov</a>
-          <a href="https://www.eldoks.gov/164/Planning-Zoning" class="res-link" target="_blank" rel="noopener">Planning &amp; Zoning</a>
-          <a href="https://www.eldoks.gov/529/City-Commission" class="res-link" target="_blank" rel="noopener">City Commission</a>
-          <a href="https://www.eldoks.gov/252/City-Manager" class="res-link" target="_blank" rel="noopener">City Manager</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler County government departments">
-        <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
-        <h4>Butler County, KS — Official Website</h4>
-        <p>Largest county in Kansas (1,428 sq mi). County seat: El Dorado. 70,000+ population. Planning, elected officials, boards/commissions, landfill/recycling, rural water districts.</p>
-        <div class="res-card-links">
-          <a href="https://www.bucoks.gov/" class="res-link primary" target="_blank" rel="noopener">bucoks.gov</a>
-          <a href="https://www.bucoks.gov/8/Departments" class="res-link" target="_blank" rel="noopener">Departments</a>
-          <a href="https://www.bucoks.gov/122/Boards-Commissions" class="res-link" target="_blank" rel="noopener">Boards</a>
-          <a href="https://www.bucoks.gov/126/Elected-Officials" class="res-link" target="_blank" rel="noopener">Officials</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler County comprehensive plan 2025 2028">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>Butler County Comprehensive Plan 2025–2028</h4>
-        <p>Active county planning document. Lead contact: Toby Stewart — tstewart@bucoks.com. El Dorado plans should align with this county framework for coordinated growth.</p>
-        <div class="res-card-links">
-          <a href="https://butlercompplan.com" class="res-link primary" target="_blank" rel="noopener">butlercompplan.com</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler GIS mapping ArcGIS spatial data">
-        <div class="res-card-top"><span class="res-badge badge-map">GIS</span></div>
-        <h4>Butler County GIS — Web Map Viewer</h4>
-        <p>Interactive GIS for Butler County. Parcel data, zoning, roads, utilities, and development overlays. Essential for site analysis and planning visualization.</p>
-        <div class="res-card-links">
-          <a href="https://bucogis.maps.arcgis.com/apps/webappviewer/index.html?id=33027461c8e44653a70f167583ea04d1" class="res-link primary" target="_blank" rel="noopener">Map Viewer</a>
-          <a href="https://butler-county-community-development-bucogis.hub.arcgis.com/" class="res-link" target="_blank" rel="noopener">Hub</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Kansas legislature state legislature districts">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Kansas Legislature — District Maps</h4>
-        <p>State house and senate district boundaries. El Dorado's legislative districts for lobbying, grant advocacy, and political engagement. Butler County spans multiple districts.</p>
-        <div class="res-card-links">
-          <a href="https://www.kslegislature.gov/li_2024s/districts_curr_h.html" class="res-link primary" target="_blank" rel="noopener">House Districts</a>
-          <a href="https://sos.ks.gov/elections/district-maps.html" class="res-link" target="_blank" rel="noopener">SOS Maps</a>
-          <a href="https://www.bucoks.gov/181/Elections" class="res-link" target="_blank" rel="noopener">Butler Elections</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="HF Sinclair refinery energy largest Kansas">
-        <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
-        <h4>HF Sinclair — El Dorado Refinery</h4>
-        <p>Largest refinery in Kansas. 135,000 bbl/day capacity, ~400 employees, $177.6M revenues. Cushing OK pipeline feed. Employees raised $449,522 for United Way (2024). Candidate for DOE Industrial Demos ($35M grant).</p>
-        <div class="res-card-links">
-          <a href="https://www.hfsinclair.com/operations/facilities/us/el-dorado-ks/default.aspx" class="res-link primary" target="_blank" rel="noopener">HF Sinclair El Dorado</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Susan B Allen Memorial Hospital healthcare">
-        <div class="res-card-top"><span class="res-badge badge-org">HEALTHCARE</span></div>
-        <h4>Susan B. Allen Memorial Hospital (SBA)</h4>
-        <p>74-bed not-for-profit hospital. CEO: Melissa Hall (2024). Cancer Center of Kansas affiliate. HHCAHPS Honors Award 2023. $15.7M annual revenue. 1 hospital per 70,000+ county residents.</p>
-        <div class="res-card-links">
-          <a href="https://www.sbamh.com/" class="res-link primary" target="_blank" rel="noopener">sbamh.com</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="USACE Army Corps Engineers El Dorado Lake">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>U.S. Army Corps of Engineers — El Dorado Lake</h4>
-        <p>USACE Tulsa District manages El Dorado Lake (8,400 acres). El Dorado holds unique city-owned water rights — only Kansas city to contract directly with USACE for raw water. 23M gal/day capacity.</p>
-        <div class="res-card-links">
-          <a href="https://www.swt.usace.army.mil/Locations/Tulsa-District-Lakes/Kansas/El-Dorado-Lake/" class="res-link primary" target="_blank" rel="noopener">USACE El Dorado Lake</a>
-          <a href="https://www.eldoks.gov/DocumentCenter/View/628/El-Dorado-Lake---Important-Regional-Water-Supply-PDF" class="res-link" target="_blank" rel="noopener">Water Rights PDF</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Midwestern Governors economic development Great Plains">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>Midwestern Governors Association — Economic Dev.</h4>
-        <p>Regional policy coordination for midwestern states. Economic development initiatives, workforce programs, and infrastructure priorities relevant to El Dorado's position in the Kansas economy.</p>
-        <div class="res-card-links">
-          <a href="https://midwesterngovernors.org/economic-development/" class="res-link primary" target="_blank" rel="noopener">MGA Economic Dev.</a>
-        </div>
-      </div>
+ <!-- ECONOMIC DEVELOPMENT -->
+ <span class="res-section-anchor" id="economic-dev"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">💼</span><h2>Economic Development Organizations</h2></div>
+  <p class="res-cat-desc">Agencies and organizations that support business attraction, retention, expansion, and workforce development in El Dorado, Butler County, and the region.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="El Dorado Inc economic development site selector">
+    <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
+    <h4>El Dorado Inc. — City Economic Development</h4>
+    <p>Primary economic development organization for El Dorado. Manages mega-site marketing, AMAZONE deal (2025), business incentives, and Site Selector Resources. 201 E. Central Ave.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldorado-inc.com" class="res-link primary" target="_blank" rel="noopener">eldorado-inc.com</a>
+     <a href="https://developeldorado.com" class="res-link" target="_blank" rel="noopener">DevelopElDorado</a>
+     <a href="https://eldoradodatacenter.com" class="res-link" target="_blank" rel="noopener">DataCenter Site</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="El Dorado chamber commerce business directory">
+    <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
+    <h4>El Dorado Area Chamber of Commerce</h4>
+    <p>Business directory, visitors center, community events, and advocacy. Active member directory online. Important liaison for small business recruitment and retention.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoradochamber.com" class="res-link primary" target="_blank" rel="noopener">Chamber</a>
+     <a href="https://www.eldoradochamber.com/directory" class="res-link" target="_blank" rel="noopener">Directory</a>
+     <a href="https://www.eldoradochamber.com/visitors-center" class="res-link" target="_blank" rel="noopener">Visitors</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Butler County EDO economic development county">
+    <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
+    <h4>Butler County Economic Development Office (EDO)</h4>
+    <p>County-level economic development. 121 S. Gordy, Suite 202, El Dorado, KS. Phone: (316) 322-4325. Coordinates with city ED on county-wide business development.</p>
+    <div class="res-card-links">
+     <a href="https://www.bucoks.gov/8/Departments" class="res-link primary" target="_blank" rel="noopener">Butler County</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="SCKEDD South Central Kansas EDD SBA 504 loans">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>SCKEDD — South Central KS Economic Dev. District</h4>
+    <p>14-county EDA district. Certified Development Company (CDC) for Butler County. SBA 504, 7(a), Microloan, EDA, and USDA loan programs. Bel Aire, KS. Phone: (316) 771-0768.</p>
+    <div class="res-card-links">
+     <a href="https://sckedd.org" class="res-link primary" target="_blank" rel="noopener">sckedd.org</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Greater Wichita Partnership regional MSA">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>Greater Wichita Partnership</h4>
+    <p>Regional economic development for the Wichita MSA (includes Butler County). Data resources, regional snapshot, business attraction, and FDI programs. Butler County data available.</p>
+    <div class="res-card-links">
+     <a href="https://greaterwichitapartnership.org/home" class="res-link primary" target="_blank" rel="noopener">GWP Home</a>
+     <a href="https://greaterwichitapartnership.org/data-resources/region-snapshot/butler" class="res-link" target="_blank" rel="noopener">Butler Data</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Kansas EDA KEDA legislative advocacy statewide">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>KEDA — Kansas Economic Dev. Alliance</h4>
+    <p>~100-member statewide organization. Legislative advocacy, industry research, and ED best practices. Key advocate for business-friendly Kansas tax policy including SB 98 data center exemption.</p>
+    <div class="res-card-links">
+     <a href="https://kansaseda.com" class="res-link primary" target="_blank" rel="noopener">kansaseda.com</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="KDC Kansas Department Commerce grants incentives">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Kansas Dept. of Commerce (KDC)</h4>
+    <p>State commerce department. Manages HEAL grants, Angel Investor Tax Credit, STAR Bonds, Kansas Business Development Fund, Framework for Growth (5 target sectors). El Dorado hits all 5 KDC target sectors.</p>
+    <div class="res-card-links">
+     <a href="https://kansascommerce.gov" class="res-link primary" target="_blank" rel="noopener">kansascommerce.gov</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Network Kansas E-Community entrepreneurship loans">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Network Kansas — E-Community Program</h4>
+    <p>State entrepreneur support network. E-Community loans for small businesses. K-State Entrepreneurial Blueprint Initiative (105 communities). El Dorado should apply by 2026.</p>
+    <div class="res-card-links">
+     <a href="https://www.networkkansas.com" class="res-link primary" target="_blank" rel="noopener">networkkansas.com</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Flint Hills Economic Development district region">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>Flint Hills Regional Economic Development District</h4>
+    <p>Regional planning organization covering Flint Hills area. El Dorado is western gateway to Flint Hills. Coordinates with Chase, Lyon, Morris, Greenwood, and Butler counties.</p>
+    <div class="res-card-links">
+     <a href="https://flinthillsregion.org/the-flint-hills-economic-development-district/" class="res-link primary" target="_blank" rel="noopener">FHEDD</a>
+     <a href="https://flinthillsregion.org/" class="res-link" target="_blank" rel="noopener">Flint Hills Region</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Main Street America downtown revitalization program">
+    <div class="res-card-top"><span class="res-badge badge-org">NATIONAL</span></div>
+    <h4>Main Street America — National Accreditation</h4>
+    <p>National downtown revitalization program. Proven $18.03 ROI per $1 invested. Accreditation qualifies El Dorado for additional grants and national network. 40+ years of data.</p>
+    <div class="res-card-links">
+     <a href="https://www.mainstreet.org" class="res-link primary" target="_blank" rel="noopener">mainstreet.org</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="SelectUSA FDI foreign direct investment">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>SelectUSA — Federal FDI Program</h4>
+    <p>USDOC program for international business attraction. Free support for El Dorado/Kansas in recruiting Japanese, German, Korean, Canadian, and British investors. SelectUSA Investment Summit annual.</p>
+    <div class="res-card-links">
+     <a href="https://www.selectusa.gov" class="res-link primary" target="_blank" rel="noopener">selectusa.gov</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Wichita economic development city">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>City of Wichita Economic Development</h4>
+    <p>Wichita city economic development office. Wichita MSA (29 mi from El Dorado) = 650,000+, aerospace capital, 30,000+ aerospace jobs. El Dorado can serve as overflow / satellite community.</p>
+    <div class="res-card-links">
+     <a href="https://www.wichita.gov/208/Economic-Development" class="res-link primary" target="_blank" rel="noopener">Wichita ED</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Andover economic development adjacent community">
+    <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
+    <h4>City of Andover — Economic Development</h4>
+    <p>Fast-growing Butler County community 15 miles west of El Dorado. Long-range planning and economic development. US-54/US-400 corridor connects both cities.</p>
+    <div class="res-card-links">
+     <a href="https://www.andoverks.gov/801/Economic-Development" class="res-link primary" target="_blank" rel="noopener">Andover ED</a>
+     <a href="https://www.andoverks.gov/761/Long-Range-Planning" class="res-link" target="_blank" rel="noopener">Long-Range Plan</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Augusta city adjacent neighbor">
+    <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
+    <h4>City of Augusta, KS</h4>
+    <p>Butler County city 10 miles SW of El Dorado. Economic development and planning partner. Joint transit opportunities through BCRTA.</p>
+    <div class="res-card-links">
+     <a href="https://www.augustagov.org/businesses/economic_development.php" class="res-link primary" target="_blank" rel="noopener">Augusta ED</a>
+     <a href="https://www.augustagov.org/index.php" class="res-link" target="_blank" rel="noopener">City of Augusta</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- EDUCATION -->
-  <span class="res-section-anchor" id="education"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🎓</span><h2>Education &amp; Workforce</h2></div>
-    <p class="res-cat-desc">Schools, community college, workforce training programs, and childcare resources in the El Dorado area.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="Butler Community College CC Kansas second largest">
-        <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
-        <h4>Butler Community College</h4>
-        <p>2nd-largest community college in Kansas. 6,841 students (2024), main campus El Dorado. 7 satellite locations. $46M annual county economic impact. Associate degrees, technical programs, workforce training.</p>
-        <div class="res-card-links">
-          <a href="https://butlercc.edu/" class="res-link primary" target="_blank" rel="noopener">butlercc.edu</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="USD 490 El Dorado school district K-12">
-        <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
-        <h4>USD 490 — El Dorado School District</h4>
-        <p>Primary K-12 district. 2,133 students in 6 schools (4 elementary, 1 middle, 1 high school). Math proficiency 24%, reading 32%. 1-to-1 laptop program. Located east of El Dorado.</p>
-        <div class="res-card-links">
-          <a href="https://www.usd490.org/" class="res-link primary" target="_blank" rel="noopener">usd490.org</a>
-          <a href="https://www.ksde.gov/policy-and-funding/school-transportation/school-district-maps" class="res-link" target="_blank" rel="noopener">District Maps</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="USD 375 Circle school district USD west El Dorado">
-        <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
-        <h4>USD 375 — Circle School District</h4>
-        <p>Serves western El Dorado and K-254 corridor toward Wichita. Circle High School in Towanda. Oil Hill Elementary in El Dorado. USD 375 voters approved construction projects completed 2016.</p>
-        <div class="res-card-links">
-          <a href="https://www.usd375.org/" class="res-link primary" target="_blank" rel="noopener">usd375.org</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="USD 389 Eureka school district southeast">
-        <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
-        <h4>USD 389 — Eureka &amp; Surrounding Districts</h4>
-        <p>Southeast Butler County and Greenwood County school district. Relevant for regional workforce pipelines and Butler County educational coordination.</p>
-        <div class="res-card-links">
-          <a href="https://www.usd389.net/" class="res-link primary" target="_blank" rel="noopener">usd389.net</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="KDHE childcare childcare aware Kansas">
-        <div class="res-card-top"><span class="res-badge badge-org">CHILDCARE</span></div>
-        <h4>Kansas Childcare Aware / KDHE Childcare</h4>
-        <p>Kansas childcare licensing and support programs. CCDF funding, Quality Rating &amp; Improvement System, childcare desert assessment tools. El Dorado identified as childcare desert affecting workforce.</p>
-        <div class="res-card-links">
-          <a href="https://ks.childcareaware.org/fcceprelease/" class="res-link primary" target="_blank" rel="noopener">KS Childcare Aware</a>
-          <a href="https://www.kdhe.ks.gov/" class="res-link" target="_blank" rel="noopener">KDHE</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Powhattan Potwin school district rural">
-        <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
-        <h4>Potwin &amp; Rural District Schools</h4>
-        <p>Smaller rural school districts in Butler County. Part of county-wide educational coordination effort. Relevant for regional childcare and pre-K expansion planning.</p>
-        <div class="res-card-links">
-          <a href="https://potwinks.com/education/" class="res-link primary" target="_blank" rel="noopener">Potwin Schools</a>
-        </div>
-      </div>
+ <!-- GOVERNMENT -->
+ <span class="res-section-anchor" id="government"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🏛️</span><h2>Government Agencies &amp; Bodies</h2></div>
+  <p class="res-cat-desc">City, county, state, and federal government agencies relevant to El Dorado's planning and development.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="City El Dorado city hall government">
+    <div class="res-card-top"><span class="res-badge badge-org">CITY</span></div>
+    <h4>City of El Dorado — Official Website</h4>
+    <p>Central hub for city government. Departments, permits, planning/zoning, business directory, city commission, city manager (David Dillner), and public notices.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov" class="res-link primary" target="_blank" rel="noopener">eldoks.gov</a>
+     <a href="https://www.eldoks.gov/164/Planning-Zoning" class="res-link" target="_blank" rel="noopener">Planning &amp; Zoning</a>
+     <a href="https://www.eldoks.gov/529/City-Commission" class="res-link" target="_blank" rel="noopener">City Commission</a>
+     <a href="https://www.eldoks.gov/252/City-Manager" class="res-link" target="_blank" rel="noopener">City Manager</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="Butler County government departments">
+    <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
+    <h4>Butler County, KS — Official Website</h4>
+    <p>Largest county in Kansas (1,428 sq mi). County seat: El Dorado. 70,000+ population. Planning, elected officials, boards/commissions, landfill/recycling, rural water districts.</p>
+    <div class="res-card-links">
+     <a href="https://www.bucoks.gov/" class="res-link primary" target="_blank" rel="noopener">bucoks.gov</a>
+     <a href="https://www.bucoks.gov/8/Departments" class="res-link" target="_blank" rel="noopener">Departments</a>
+     <a href="https://www.bucoks.gov/122/Boards-Commissions" class="res-link" target="_blank" rel="noopener">Boards</a>
+     <a href="https://www.bucoks.gov/126/Elected-Officials" class="res-link" target="_blank" rel="noopener">Officials</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Butler County comprehensive plan 2025 2028">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>Butler County Comprehensive Plan 2025–2028</h4>
+    <p>Active county planning document. Lead contact: Toby Stewart — tstewart@bucoks.com. El Dorado plans should align with this county framework for coordinated growth.</p>
+    <div class="res-card-links">
+     <a href="https://butlercompplan.com" class="res-link primary" target="_blank" rel="noopener">butlercompplan.com</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Butler GIS mapping ArcGIS spatial data">
+    <div class="res-card-top"><span class="res-badge badge-map">GIS</span></div>
+    <h4>Butler County GIS — Web Map Viewer</h4>
+    <p>Interactive GIS for Butler County. Parcel data, zoning, roads, utilities, and development overlays. Essential for site analysis and planning visualization.</p>
+    <div class="res-card-links">
+     <a href="https://bucogis.maps.arcgis.com/apps/webappviewer/index.html?id=33027461c8e44653a70f167583ea04d1" class="res-link primary" target="_blank" rel="noopener">Map Viewer</a>
+     <a href="https://butler-county-community-development-bucogis.hub.arcgis.com/" class="res-link" target="_blank" rel="noopener">Hub</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Kansas legislature state legislature districts">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Kansas Legislature — District Maps</h4>
+    <p>State house and senate district boundaries. El Dorado's legislative districts for lobbying, grant advocacy, and political engagement. Butler County spans multiple districts.</p>
+    <div class="res-card-links">
+     <a href="https://www.kslegislature.gov/li_2024s/districts_curr_h.html" class="res-link primary" target="_blank" rel="noopener">House Districts</a>
+     <a href="https://sos.ks.gov/elections/district-maps.html" class="res-link" target="_blank" rel="noopener">SOS Maps</a>
+     <a href="https://www.bucoks.gov/181/Elections" class="res-link" target="_blank" rel="noopener">Butler Elections</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="HF Sinclair refinery energy largest Kansas">
+    <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
+    <h4>HF Sinclair — El Dorado Refinery</h4>
+    <p>Largest refinery in Kansas. 135,000 bbl/day capacity, ~400 employees, $177.6M revenues. Cushing OK pipeline feed. Employees raised $449,522 for United Way (2024). Candidate for DOE Industrial Demos ($35M grant).</p>
+    <div class="res-card-links">
+     <a href="https://www.hfsinclair.com/operations/facilities/us/el-dorado-ks/default.aspx" class="res-link primary" target="_blank" rel="noopener">HF Sinclair El Dorado</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Susan B Allen Memorial Hospital healthcare">
+    <div class="res-card-top"><span class="res-badge badge-org">HEALTHCARE</span></div>
+    <h4>Susan B. Allen Memorial Hospital (SBA)</h4>
+    <p>74-bed not-for-profit hospital. CEO: Melissa Hall (2024). Cancer Center of Kansas affiliate. HHCAHPS Honors Award 2023. $15.7M annual revenue. 1 hospital per 70,000+ county residents.</p>
+    <div class="res-card-links">
+     <a href="https://www.sbamh.com/" class="res-link primary" target="_blank" rel="noopener">sbamh.com</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="USACE Army Corps Engineers El Dorado Lake">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>U.S. Army Corps of Engineers — El Dorado Lake</h4>
+    <p>USACE Tulsa District manages El Dorado Lake (8,400 acres). El Dorado holds unique city-owned water rights — only Kansas city to contract directly with USACE for raw water. 23M gal/day capacity.</p>
+    <div class="res-card-links">
+     <a href="https://www.swt.usace.army.mil/Locations/Tulsa-District-Lakes/Kansas/El-Dorado-Lake/" class="res-link primary" target="_blank" rel="noopener">USACE El Dorado Lake</a>
+     <a href="https://www.eldoks.gov/DocumentCenter/View/628/El-Dorado-Lake---Important-Regional-Water-Supply-PDF" class="res-link" target="_blank" rel="noopener">Water Rights PDF</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Midwestern Governors economic development Great Plains">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>Midwestern Governors Association — Economic Dev.</h4>
+    <p>Regional policy coordination for midwestern states. Economic development initiatives, workforce programs, and infrastructure priorities relevant to El Dorado's position in the Kansas economy.</p>
+    <div class="res-card-links">
+     <a href="https://midwesterngovernors.org/economic-development/" class="res-link primary" target="_blank" rel="noopener">MGA Economic Dev.</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- ENVIRONMENT -->
-  <span class="res-section-anchor" id="environment"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🌊</span><h2>Environment, Water &amp; Natural Resources</h2></div>
-    <p class="res-cat-desc">Environmental agencies, water management, and natural resource bodies relevant to El Dorado Lake, Walnut River, and regional ecology.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="KDHE Kansas Department Health Environment">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>KDHE — Kansas Dept. of Health &amp; Environment</h4>
-        <p>Regulates water quality, air quality, solid waste, and brownfields in Kansas. Relevant for HF Sinclair environmental compliance, Walnut River watershed, and brownfields grants ($800K EPA + KDHE programs).</p>
-        <div class="res-card-links">
-          <a href="https://www.kdhe.ks.gov/" class="res-link primary" target="_blank" rel="noopener">kdhe.ks.gov</a>
-          <a href="https://www.kdhe.ks.gov/1566/Walnut-River-Basin" class="res-link" target="_blank" rel="noopener">Walnut River Basin</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Walnut River watershed water quality plan">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>Walnut River Watershed Plan</h4>
-        <p>City of El Dorado watershed document for the Walnut River. Relevant for floodplain management, water quality protection, and greenway corridor planning along the river.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/DocumentCenter/View/5492/Walnut-River-PDFpdf" class="res-link primary" target="_blank" rel="noopener">Watershed PDF</a>
-          <a href="https://water.noaa.gov/gauges/arkk1" class="res-link" target="_blank" rel="noopener">NOAA Gauge ARKK1</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="El Dorado Lake State Park KDWP recreation">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>El Dorado State Park / KDWP</h4>
-        <p>#1 most-visited Kansas state park "by a landslide" — nearly 1M more visitors than #2. 2,000 park-land acres + 4,000 wildlife acres. 8,400-acre lake. Zero lakeside dining currently.</p>
-        <div class="res-card-links">
-          <a href="https://ksoutdoors.com/State-Parks/Locations/El-Dorado" class="res-link primary" target="_blank" rel="noopener">State Park</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler rural water districts RWD">
-        <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
-        <h4>Butler County Rural Water Districts</h4>
-        <p>Rural water districts serving areas outside city limits. Relevant for industrial water supply planning and north El Dorado development areas. El Dorado has 8.5 billion gal/yr additional capacity available for industrial buyers.</p>
-        <div class="res-card-links">
-          <a href="https://www.bucoks.gov/595/Rural-Water-Districts" class="res-link primary" target="_blank" rel="noopener">Rural Water</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="EPA smart growth green infrastructure brownfields">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>EPA Smart Growth — Technical Assistance Programs</h4>
-        <p>7 free EPA technical assistance programs available to El Dorado: Building Blocks for Sustainable Communities, Local Foods/Local Places, Recreation Economy for Rural Communities, Water TA, Greening America's Communities, Equitable Resilience, Smart Growth for Small Towns.</p>
-        <div class="res-card-links">
-          <a href="https://www.epa.gov/smartgrowth" class="res-link primary" target="_blank" rel="noopener">EPA Smart Growth</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler County landfill recycling solid waste">
-        <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
-        <h4>Butler County Landfill &amp; Recycling</h4>
-        <p>County waste management and recycling services. Important for sustainability planning and circular economy initiatives. Landfill expansion planning relevant to long-term industrial growth.</p>
-        <div class="res-card-links">
-          <a href="https://www.bucoks.gov/274/Landfill-Recycling" class="res-link primary" target="_blank" rel="noopener">Landfill &amp; Recycling</a>
-        </div>
-      </div>
+ <!-- EDUCATION -->
+ <span class="res-section-anchor" id="education"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🎓</span><h2>Education &amp; Workforce</h2></div>
+  <p class="res-cat-desc">Schools, community college, workforce training programs, and childcare resources in the El Dorado area.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="Butler Community College CC Kansas second largest">
+    <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
+    <h4>Butler Community College</h4>
+    <p>2nd-largest community college in Kansas. 6,841 students (2024), main campus El Dorado. 7 satellite locations. $46M annual county economic impact. Associate degrees, technical programs, workforce training.</p>
+    <div class="res-card-links">
+     <a href="https://butlercc.edu/" class="res-link primary" target="_blank" rel="noopener">butlercc.edu</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="USD 490 El Dorado school district K-12">
+    <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
+    <h4>USD 490 — El Dorado School District</h4>
+    <p>Primary K-12 district. 2,133 students in 6 schools (4 elementary, 1 middle, 1 high school). Math proficiency 24%, reading 32%. 1-to-1 laptop program. Located east of El Dorado.</p>
+    <div class="res-card-links">
+     <a href="https://www.usd490.org/" class="res-link primary" target="_blank" rel="noopener">usd490.org</a>
+     <a href="https://www.ksde.gov/policy-and-funding/school-transportation/school-district-maps" class="res-link" target="_blank" rel="noopener">District Maps</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="USD 375 Circle school district USD west El Dorado">
+    <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
+    <h4>USD 375 — Circle School District</h4>
+    <p>Serves western El Dorado and K-254 corridor toward Wichita. Circle High School in Towanda. Oil Hill Elementary in El Dorado. USD 375 voters approved construction projects completed 2016.</p>
+    <div class="res-card-links">
+     <a href="https://www.usd375.org/" class="res-link primary" target="_blank" rel="noopener">usd375.org</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="USD 389 Eureka school district southeast">
+    <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
+    <h4>USD 389 — Eureka &amp; Surrounding Districts</h4>
+    <p>Southeast Butler County and Greenwood County school district. Relevant for regional workforce pipelines and Butler County educational coordination.</p>
+    <div class="res-card-links">
+     <a href="https://www.usd389.net/" class="res-link primary" target="_blank" rel="noopener">usd389.net</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="KDHE childcare childcare aware Kansas">
+    <div class="res-card-top"><span class="res-badge badge-org">CHILDCARE</span></div>
+    <h4>Kansas Childcare Aware / KDHE Childcare</h4>
+    <p>Kansas childcare licensing and support programs. CCDF funding, Quality Rating &amp; Improvement System, childcare desert assessment tools. El Dorado identified as childcare desert affecting workforce.</p>
+    <div class="res-card-links">
+     <a href="https://ks.childcareaware.org/fcceprelease/" class="res-link primary" target="_blank" rel="noopener">KS Childcare Aware</a>
+     <a href="https://www.kdhe.ks.gov/" class="res-link" target="_blank" rel="noopener">KDHE</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Powhattan Potwin school district rural">
+    <div class="res-card-top"><span class="res-badge badge-org">EDUCATION</span></div>
+    <h4>Potwin &amp; Rural District Schools</h4>
+    <p>Smaller rural school districts in Butler County. Part of county-wide educational coordination effort. Relevant for regional childcare and pre-K expansion planning.</p>
+    <div class="res-card-links">
+     <a href="https://potwinks.com/education/" class="res-link primary" target="_blank" rel="noopener">Potwin Schools</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- REGIONAL -->
-  <span class="res-section-anchor" id="regional"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🗺️</span><h2>Regional Communities &amp; Partners</h2></div>
-    <p class="res-cat-desc">Adjacent cities and regional partners within the El Dorado 100-mile market area.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="Benton city Butler County">
-        <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
-        <h4>Benton, KS</h4>
-        <div class="res-card-links"><a href="https://bentonks.org/" class="res-link primary" target="_blank" rel="noopener">bentonks.org</a></div>
-      </div>
-      <div class="res-card" data-tags="Towanda city Butler County USD 375">
-        <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
-        <h4>Towanda, KS</h4>
-        <div class="res-card-links"><a href="https://www.cityoftowanda.com/" class="res-link primary" target="_blank" rel="noopener">cityoftowanda.com</a></div>
-      </div>
-      <div class="res-card" data-tags="Eureka city Greenwood County southeast">
-        <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
-        <h4>Eureka, KS</h4>
-        <div class="res-card-links"><a href="https://www.eurekaks.org/" class="res-link primary" target="_blank" rel="noopener">eurekaks.org</a></div>
-      </div>
-      <div class="res-card" data-tags="Leon city southeast Butler County rural">
-        <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
-        <h4>Leon, KS</h4>
-        <div class="res-card-links"><a href="https://cityofleon.org/" class="res-link primary" target="_blank" rel="noopener">cityofleon.org</a></div>
-      </div>
-      <div class="res-card" data-tags="Butler County townships rural government">
-        <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
-        <h4>Butler County Townships</h4>
-        <p>Rural township governments. Relevant for annexation planning and rural development coordination.</p>
-        <div class="res-card-links"><a href="https://www.bucoks.gov/179/Townships" class="res-link primary" target="_blank" rel="noopener">Townships</a></div>
-      </div>
+ <!-- ENVIRONMENT -->
+ <span class="res-section-anchor" id="environment"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🌊</span><h2>Environment, Water &amp; Natural Resources</h2></div>
+  <p class="res-cat-desc">Environmental agencies, water management, and natural resource bodies relevant to El Dorado Lake, Walnut River, and regional ecology.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="KDHE Kansas Department Health Environment">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>KDHE — Kansas Dept. of Health &amp; Environment</h4>
+    <p>Regulates water quality, air quality, solid waste, and brownfields in Kansas. Relevant for HF Sinclair environmental compliance, Walnut River watershed, and brownfields grants ($800K EPA + KDHE programs).</p>
+    <div class="res-card-links">
+     <a href="https://www.kdhe.ks.gov/" class="res-link primary" target="_blank" rel="noopener">kdhe.ks.gov</a>
+     <a href="https://www.kdhe.ks.gov/1566/Walnut-River-Basin" class="res-link" target="_blank" rel="noopener">Walnut River Basin</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="Walnut River watershed water quality plan">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>Walnut River Watershed Plan</h4>
+    <p>City of El Dorado watershed document for the Walnut River. Relevant for floodplain management, water quality protection, and greenway corridor planning along the river.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/DocumentCenter/View/5492/Walnut-River-PDFpdf" class="res-link primary" target="_blank" rel="noopener">Watershed PDF</a>
+     <a href="https://water.noaa.gov/gauges/arkk1" class="res-link" target="_blank" rel="noopener">NOAA Gauge ARKK1</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="El Dorado Lake State Park KDWP recreation">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>El Dorado State Park / KDWP</h4>
+    <p>#1 most-visited Kansas state park "by a landslide" — nearly 1M more visitors than #2. 2,000 park-land acres + 4,000 wildlife acres. 8,400-acre lake. Zero lakeside dining currently.</p>
+    <div class="res-card-links">
+     <a href="https://ksoutdoors.com/State-Parks/Locations/El-Dorado" class="res-link primary" target="_blank" rel="noopener">State Park</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Butler rural water districts RWD">
+    <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
+    <h4>Butler County Rural Water Districts</h4>
+    <p>Rural water districts serving areas outside city limits. Relevant for industrial water supply planning and north El Dorado development areas. El Dorado has 8.5 billion gal/yr additional capacity available for industrial buyers.</p>
+    <div class="res-card-links">
+     <a href="https://www.bucoks.gov/595/Rural-Water-Districts" class="res-link primary" target="_blank" rel="noopener">Rural Water</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="EPA smart growth green infrastructure brownfields">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>EPA Smart Growth — Technical Assistance Programs</h4>
+    <p>7 free EPA technical assistance programs available to El Dorado: Building Blocks for Sustainable Communities, Local Foods/Local Places, Recreation Economy for Rural Communities, Water TA, Greening America's Communities, Equitable Resilience, Smart Growth for Small Towns.</p>
+    <div class="res-card-links">
+     <a href="https://www.epa.gov/smartgrowth" class="res-link primary" target="_blank" rel="noopener">EPA Smart Growth</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Butler County landfill recycling solid waste">
+    <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
+    <h4>Butler County Landfill &amp; Recycling</h4>
+    <p>County waste management and recycling services. Important for sustainability planning and circular economy initiatives. Landfill expansion planning relevant to long-term industrial growth.</p>
+    <div class="res-card-links">
+     <a href="https://www.bucoks.gov/274/Landfill-Recycling" class="res-link primary" target="_blank" rel="noopener">Landfill &amp; Recycling</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- FEDERAL PROGRAMS -->
-  <span class="res-section-anchor" id="federal"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🦅</span><h2>Federal Programs &amp; Grant Sources</h2></div>
-    <p class="res-cat-desc">Federal agencies and grant programs directly applicable to El Dorado's development priorities.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="USDA rural development grants loans agricultural">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>USDA Rural Development</h4>
-        <p>Key programs: REAP (25% grant + 75% loan, renewable energy), VAPG ($250K food hub/AgriTech), Water &amp; Waste Disposal (1.375% loans), RBDG ($500K), Community Facilities, USDA 538 (housing).</p>
-        <div class="res-card-links">
-          <a href="https://www.rd.usda.gov" class="res-link primary" target="_blank" rel="noopener">USDA RD</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="EDA Economic Development Administration grants">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>EDA — Dept. of Commerce Economic Dev. Admin.</h4>
-        <p>Key programs: Good Jobs Challenge ($25M workforce), Public Works ($3M infrastructure), Spec Building (80% EDA), SCKEDD is EDA-certified CDC for Butler County. EDA Planning grants available.</p>
-        <div class="res-card-links">
-          <a href="https://www.eda.gov" class="res-link primary" target="_blank" rel="noopener">eda.gov</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="HUD CDBG community development block grant housing">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>HUD — Community Development Block Grants</h4>
-        <p>CDBG for housing rehab, public facilities, economic development. Section 108 allows 5× leverage on CDBG balances. HUD 202 for senior housing. Important for affordable housing and downtown projects.</p>
-        <div class="res-card-links">
-          <a href="https://www.hud.gov/program_offices/comm_planning/cdbg" class="res-link primary" target="_blank" rel="noopener">CDBG Program</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="DOT BUILD RAISE transportation infrastructure grants">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>DOT BUILD / RAISE Grants</h4>
-        <p>$5–25M competitive transportation grants. Eligible for NW Trafficway, SW Trafficway Extension, Central Ave reconstruction. RAISE targets rural communities and underserved areas.</p>
-        <div class="res-card-links">
-          <a href="https://www.transportation.gov/buildgrants" class="res-link primary" target="_blank" rel="noopener">BUILD Grants</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="EPA brownfields multipurpose cleanup">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>EPA Brownfields — Multipurpose Grants</h4>
-        <p>Up to $800K for brownfields assessment, cleanup, and redevelopment. Relevant for downtown building rehabilitation, former industrial sites, and North El Dorado infill development.</p>
-        <div class="res-card-links">
-          <a href="https://www.epa.gov/brownfields" class="res-link primary" target="_blank" rel="noopener">EPA Brownfields</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="DOE industrial demonstration decarbonization HF Sinclair">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>DOE Industrial Demonstrations Program</h4>
-        <p>Up to $35M for hard-to-decarbonize industries. HF Sinclair (135K bbl/day) is a strong candidate. Supports energy efficiency retrofits, carbon capture, and hydrogen co-processing.</p>
-        <div class="res-card-links">
-          <a href="https://www.energy.gov/industrial-technologies" class="res-link primary" target="_blank" rel="noopener">DOE Industrial</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="SAMHSA behavioral health substance abuse CCBHC">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>SAMHSA / HHS — CCBHC Expansion Grants</h4>
-        <p>$1–2M behavioral health grants for Certified Community Behavioral Health Clinic (CCBHC) expansion. SBA Hospital Behavioral Health Wing ($10M proposal) is eligible. Kansas has active CCBHC program.</p>
-        <div class="res-card-links">
-          <a href="https://www.samhsa.gov" class="res-link primary" target="_blank" rel="noopener">SAMHSA</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="NEVI EV charging electric vehicle federal">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>NEVI — EV Charging Infrastructure</h4>
-        <p>Kansas NEVI allocation: $39.5M over 5 years. I-35 corridor (directly through El Dorado) is a NEVI priority corridor. I-35 Exit 71/76 are candidate EV charging hub locations.</p>
-        <div class="res-card-links">
-          <a href="https://www.fhwa.dot.gov/environment/alternative_fuel_corridors" class="res-link primary" target="_blank" rel="noopener">FHWA NEVI</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="BEAD broadband internet rural Kansas NTIA">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>BEAD — Broadband Equity, Access, and Deployment</h4>
-        <p>Kansas approved final BEAD proposal: $166.6M (NTIA, Dec. 2025). Butler County broadband spine is a priority project. Last-mile fiber critical for remote work attraction and data center viability.</p>
-        <div class="res-card-links">
-          <a href="https://broadbandusa.ntia.doc.gov/programs/bead" class="res-link primary" target="_blank" rel="noopener">NTIA BEAD</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Opportunity Zone OZ federal tax census tract">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>Federal Opportunity Zone (OZ)</h4>
-        <p>El Dorado has downtown census tract OZ designation (2017 TCJA). Past OZ investments: YMCA, Intrust Bank, Emprise Bank, Community National Bank, SBA Hospital buildings. Capital gains deferral for investors.</p>
-        <div class="res-card-links">
-          <a href="https://www.cdfifund.gov/programs-training/programs/new-markets-tax-credit" class="res-link primary" target="_blank" rel="noopener">CDFI Fund</a>
-        </div>
-      </div>
-    </div>
+ <!-- REGIONAL -->
+ <span class="res-section-anchor" id="regional"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🗺️</span><h2>Regional Communities &amp; Partners</h2></div>
+  <p class="res-cat-desc">Adjacent cities and regional partners within the El Dorado 100-mile market area.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="Benton city Butler County">
+    <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
+    <h4>Benton, KS</h4>
+    <div class="res-card-links"><a href="https://bentonks.org/" class="res-link primary" target="_blank" rel="noopener">bentonks.org</a></div>
+   </div>
+   <div class="res-card" data-tags="Towanda city Butler County USD 375">
+    <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
+    <h4>Towanda, KS</h4>
+    <div class="res-card-links"><a href="https://www.cityoftowanda.com/" class="res-link primary" target="_blank" rel="noopener">cityoftowanda.com</a></div>
+   </div>
+   <div class="res-card" data-tags="Eureka city Greenwood County southeast">
+    <div class="res-card-top"><span class="res-badge badge-org">REGIONAL</span></div>
+    <h4>Eureka, KS</h4>
+    <div class="res-card-links"><a href="https://www.eurekaks.org/" class="res-link primary" target="_blank" rel="noopener">eurekaks.org</a></div>
+   </div>
+   <div class="res-card" data-tags="Leon city southeast Butler County rural">
+    <div class="res-card-top"><span class="res-badge badge-org">ADJACENT</span></div>
+    <h4>Leon, KS</h4>
+    <div class="res-card-links"><a href="https://cityofleon.org/" class="res-link primary" target="_blank" rel="noopener">cityofleon.org</a></div>
+   </div>
+   <div class="res-card" data-tags="Butler County townships rural government">
+    <div class="res-card-top"><span class="res-badge badge-org">COUNTY</span></div>
+    <h4>Butler County Townships</h4>
+    <p>Rural township governments. Relevant for annexation planning and rural development coordination.</p>
+    <div class="res-card-links"><a href="https://www.bucoks.gov/179/Townships" class="res-link primary" target="_blank" rel="noopener">Townships</a></div>
+   </div>
   </div>
+ </div>
 
-  <!-- BUSINESS & INDUSTRY -->
-  <span class="res-section-anchor" id="business"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🏭</span><h2>Business &amp; Industry Resources</h2></div>
-    <p class="res-cat-desc">Major employers, industry associations, and business resources relevant to El Dorado's economy.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="AMAZONE German agriculture FDI 2025 El Dorado">
-        <div class="res-card-top"><span class="res-badge badge-org">ANCHOR</span></div>
-        <h4>AMAZONE — North American Distribution Center</h4>
-        <p>German agricultural machinery company. Opened December 2, 2025 at 1220 N Haverhill Rd. 6.5 acres (2.63 hectares), 30,000 sq ft, 30+ North American employees. Cited "heart of most important agricultural region in US" and I-35 access. First confirmed FDI win.</p>
-      </div>
-      <div class="res-card" data-tags="BNSF railroad freight logistics transload">
-        <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
-        <h4>BNSF Railway — El Dorado Main Line</h4>
-        <p>46 trains/day on BNSF main line through El Dorado. Savage Services multi-commodity transload terminal (built 2011) on BNSF. BNSF Logistics Park KC 134 miles. UTLX 40 acres on BNSF line.</p>
-      </div>
-      <div class="res-card" data-tags="Savage Services transload rail logistics">
-        <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
-        <h4>Savage Services — Transload Terminal</h4>
-        <p>Multi-commodity transload terminal at El Dorado mega-site. Built 2011. Operates 5 days/week. Connects truck and rail freight for industrial park tenants. Critical logistics infrastructure.</p>
-      </div>
-      <div class="res-card" data-tags="Evergy electric utility rate commercial industrial">
-        <div class="res-card-top"><span class="res-badge badge-org">UTILITY</span></div>
-        <h4>Evergy — Electric Utility</h4>
-        <p>Primary electric supplier in El Dorado. Rate: 13.80¢/kWh residential (3.6% below KS avg, 17.5% below national avg). Largest MWh supplier in El Dorado. Critical for data center and industrial recruitment.</p>
-      </div>
-      <div class="res-card" data-tags="El Dorado Correctional Facility KDOC major employer">
-        <div class="res-card-top"><span class="res-badge badge-org">EMPLOYER</span></div>
-        <h4>El Dorado Correctional Facility</h4>
-        <p>Kansas DOC maximum-security facility. Major employer in El Dorado not previously highlighted in most plans. Significant public-sector employment anchor for the community.</p>
-      </div>
-      <div class="res-card" data-tags="BG Products Veterans Sports Complex stadium facility">
-        <div class="res-card-top"><span class="res-badge badge-org">FACILITY</span></div>
-        <h4>NG Products Veterans' Sports Complex</h4>
-        <p>Home of El Dorado Broncos. Seats 4,000. Joint project: City + USD 490 + Butler CC. Football, track, soccer. Naming rights with NG Products Inc. Renovation targets: synthetic turf, LED upgrade, scoreboard.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/facilities/facility/details/bgproductsveteranssportscomplex-35" class="res-link primary" target="_blank" rel="noopener">Facility Info</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="city business directory local businesses El Dorado">
-        <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
-        <h4>City of El Dorado Business Directory</h4>
-        <p>Official city business directory. Comprehensive listing of local businesses for business retention outreach, partnership identification, and economic impact analysis.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/businessdirectoryii.aspx" class="res-link primary" target="_blank" rel="noopener">Business Directory</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="124 Lofts historic masonic lodge downtown housing">
-        <div class="res-card-top"><span class="res-badge badge-org">DEVELOPMENT</span></div>
-        <h4>124 Lofts — Historic Masonic Lodge Redevelopment</h4>
-        <p>Downtown El Dorado historic redevelopment. 13 apartments in historic Masonic Lodge building. Ground-floor restaurant/retail planned. February 2026 announcement. Model for NRHP Historic Tax Credit projects.</p>
-      </div>
+ <!-- FEDERAL PROGRAMS -->
+ <span class="res-section-anchor" id="federal"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🦅</span><h2>Federal Programs &amp; Grant Sources</h2></div>
+  <p class="res-cat-desc">Federal agencies and grant programs directly applicable to El Dorado's development priorities.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="USDA rural development grants loans agricultural">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>USDA Rural Development</h4>
+    <p>Key programs: REAP (25% grant + 75% loan, renewable energy), VAPG ($250K food hub/AgriTech), Water &amp; Waste Disposal (1.375% loans), RBDG ($500K), Community Facilities, USDA 538 (housing).</p>
+    <div class="res-card-links">
+     <a href="https://www.rd.usda.gov" class="res-link primary" target="_blank" rel="noopener">USDA RD</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="EDA Economic Development Administration grants">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>EDA — Dept. of Commerce Economic Dev. Admin.</h4>
+    <p>Key programs: Good Jobs Challenge ($25M workforce), Public Works ($3M infrastructure), Spec Building (80% EDA), SCKEDD is EDA-certified CDC for Butler County. EDA Planning grants available.</p>
+    <div class="res-card-links">
+     <a href="https://www.eda.gov" class="res-link primary" target="_blank" rel="noopener">eda.gov</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="HUD CDBG community development block grant housing">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>HUD — Community Development Block Grants</h4>
+    <p>CDBG for housing rehab, public facilities, economic development. Section 108 allows 5× leverage on CDBG balances. HUD 202 for senior housing. Important for affordable housing and downtown projects.</p>
+    <div class="res-card-links">
+     <a href="https://www.hud.gov/program_offices/comm_planning/cdbg" class="res-link primary" target="_blank" rel="noopener">CDBG Program</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="DOT BUILD RAISE transportation infrastructure grants">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>DOT BUILD / RAISE Grants</h4>
+    <p>$5–25M competitive transportation grants. Eligible for NW Trafficway, SW Trafficway Extension, Central Ave reconstruction. RAISE targets rural communities and underserved areas.</p>
+    <div class="res-card-links">
+     <a href="https://www.transportation.gov/buildgrants" class="res-link primary" target="_blank" rel="noopener">BUILD Grants</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="EPA brownfields multipurpose cleanup">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>EPA Brownfields — Multipurpose Grants</h4>
+    <p>Up to $800K for brownfields assessment, cleanup, and redevelopment. Relevant for downtown building rehabilitation, former industrial sites, and North El Dorado infill development.</p>
+    <div class="res-card-links">
+     <a href="https://www.epa.gov/brownfields" class="res-link primary" target="_blank" rel="noopener">EPA Brownfields</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="DOE industrial demonstration decarbonization HF Sinclair">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>DOE Industrial Demonstrations Program</h4>
+    <p>Up to $35M for hard-to-decarbonize industries. HF Sinclair (135K bbl/day) is a strong candidate. Supports energy efficiency retrofits, carbon capture, and hydrogen co-processing.</p>
+    <div class="res-card-links">
+     <a href="https://www.energy.gov/industrial-technologies" class="res-link primary" target="_blank" rel="noopener">DOE Industrial</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="SAMHSA behavioral health substance abuse CCBHC">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>SAMHSA / HHS — CCBHC Expansion Grants</h4>
+    <p>$1–2M behavioral health grants for Certified Community Behavioral Health Clinic (CCBHC) expansion. SBA Hospital Behavioral Health Wing ($10M proposal) is eligible. Kansas has active CCBHC program.</p>
+    <div class="res-card-links">
+     <a href="https://www.samhsa.gov" class="res-link primary" target="_blank" rel="noopener">SAMHSA</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="NEVI EV charging electric vehicle federal">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>NEVI — EV Charging Infrastructure</h4>
+    <p>Kansas NEVI allocation: $39.5M over 5 years. I-35 corridor (directly through El Dorado) is a NEVI priority corridor. I-35 Exit 71/76 are candidate EV charging hub locations.</p>
+    <div class="res-card-links">
+     <a href="https://www.fhwa.dot.gov/environment/alternative_fuel_corridors" class="res-link primary" target="_blank" rel="noopener">FHWA NEVI</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="BEAD broadband internet rural Kansas NTIA">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>BEAD — Broadband Equity, Access, and Deployment</h4>
+    <p>Kansas approved final BEAD proposal: $166.6M (NTIA, Dec. 2025). Butler County broadband spine is a priority project. Last-mile fiber critical for remote work attraction and data center viability.</p>
+    <div class="res-card-links">
+     <a href="https://broadbandusa.ntia.doc.gov/programs/bead" class="res-link primary" target="_blank" rel="noopener">NTIA BEAD</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Opportunity Zone OZ federal tax census tract">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>Federal Opportunity Zone (OZ)</h4>
+    <p>El Dorado has downtown census tract OZ designation (2017 TCJA). Past OZ investments: YMCA, Intrust Bank, Emprise Bank, Community National Bank, SBA Hospital buildings. Capital gains deferral for investors.</p>
+    <div class="res-card-links">
+     <a href="https://www.cdfifund.gov/programs-training/programs/new-markets-tax-credit" class="res-link primary" target="_blank" rel="noopener">CDFI Fund</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- DATA DASHBOARDS -->
-  <span class="res-section-anchor" id="data-dashboards"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">📊</span><h2>Data Dashboards &amp; Maps</h2></div>
-    <p class="res-cat-desc">Interactive data tools, GIS dashboards, and real-time data resources for El Dorado and the region.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="ArcGIS dashboard El Dorado data online">
-        <div class="res-card-top"><span class="res-badge badge-map">GIS DASHBOARD</span></div>
-        <h4>El Dorado ArcGIS Dashboard</h4>
-        <p>Official interactive ArcGIS data dashboard for El Dorado. Community indicators, infrastructure data, and planning metrics.</p>
-        <div class="res-card-links">
-          <a href="https://www.arcgis.com/apps/dashboards/75d5da1284ae41a8879570d12f828462" class="res-link primary" target="_blank" rel="noopener">Open Dashboard</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Butler County GIS hub community development maps">
-        <div class="res-card-top"><span class="res-badge badge-map">GIS HUB</span></div>
-        <h4>Butler County Community Development GIS Hub</h4>
-        <p>Comprehensive GIS portal for Butler County community development. Parcels, zoning, infrastructure layers, and development tracking.</p>
-        <div class="res-card-links">
-          <a href="https://butler-county-community-development-bucogis.hub.arcgis.com/" class="res-link primary" target="_blank" rel="noopener">GIS Hub</a>
-          <a href="https://bucogis.maps.arcgis.com/apps/webappviewer/index.html?id=33027461c8e44653a70f167583ea04d1" class="res-link" target="_blank" rel="noopener">Map Viewer</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="NOAA water gauge Walnut River Arkansas River flood">
-        <div class="res-card-top"><span class="res-badge badge-data">REAL-TIME</span></div>
-        <h4>NOAA Water Gauge — ARKK1 (El Dorado)</h4>
-        <p>Real-time water level gauge at El Dorado on the Walnut River/Arkansas tributary. Critical for floodplain management and emergency preparedness planning.</p>
-        <div class="res-card-links">
-          <a href="https://water.noaa.gov/gauges/arkk1" class="res-link primary" target="_blank" rel="noopener">NOAA Gauge</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="MapQuest location geography distance maps">
-        <div class="res-card-top"><span class="res-badge badge-map">MAP</span></div>
-        <h4>El Dorado, KS — MapQuest</h4>
-        <p>Geographic location data, distances to regional destinations, and driving times for El Dorado. Useful for site selector presentations and regional access analysis.</p>
-        <div class="res-card-links">
-          <a href="https://www.mapquest.com/us/kansas/el-dorado-ks-282030119" class="res-link primary" target="_blank" rel="noopener">MapQuest</a>
-        </div>
-      </div>
+ <!-- BUSINESS & INDUSTRY -->
+ <span class="res-section-anchor" id="business"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🏭</span><h2>Business &amp; Industry Resources</h2></div>
+  <p class="res-cat-desc">Major employers, industry associations, and business resources relevant to El Dorado's economy.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="AMAZONE German agriculture FDI 2025 El Dorado">
+    <div class="res-card-top"><span class="res-badge badge-org">ANCHOR</span></div>
+    <h4>AMAZONE — North American Distribution Center</h4>
+    <p>German agricultural machinery company. Opened December 2, 2025 at 1220 N Haverhill Rd. 6.5 acres (2.63 hectares), 30,000 sq ft, 30+ North American employees. Cited "heart of most important agricultural region in US" and I-35 access. First confirmed FDI win.</p>
+   </div>
+   <div class="res-card" data-tags="BNSF railroad freight logistics transload">
+    <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
+    <h4>BNSF Railway — El Dorado Main Line</h4>
+    <p>46 trains/day on BNSF main line through El Dorado. Savage Services multi-commodity transload terminal (built 2011) on BNSF. BNSF Logistics Park KC 134 miles. UTLX 40 acres on BNSF line.</p>
+   </div>
+   <div class="res-card" data-tags="Savage Services transload rail logistics">
+    <div class="res-card-top"><span class="res-badge badge-org">INDUSTRY</span></div>
+    <h4>Savage Services — Transload Terminal</h4>
+    <p>Multi-commodity transload terminal at El Dorado mega-site. Built 2011. Operates 5 days/week. Connects truck and rail freight for industrial park tenants. Critical logistics infrastructure.</p>
+   </div>
+   <div class="res-card" data-tags="Evergy electric utility rate commercial industrial">
+    <div class="res-card-top"><span class="res-badge badge-org">UTILITY</span></div>
+    <h4>Evergy — Electric Utility</h4>
+    <p>Primary electric supplier in El Dorado. Rate: 13.80¢/kWh residential (3.6% below KS avg, 17.5% below national avg). Largest MWh supplier in El Dorado. Critical for data center and industrial recruitment.</p>
+   </div>
+   <div class="res-card" data-tags="El Dorado Correctional Facility KDOC major employer">
+    <div class="res-card-top"><span class="res-badge badge-org">EMPLOYER</span></div>
+    <h4>El Dorado Correctional Facility</h4>
+    <p>Kansas DOC maximum-security facility. Major employer in El Dorado not previously highlighted in most plans. Significant public-sector employment anchor for the community.</p>
+   </div>
+   <div class="res-card" data-tags="BG Products Veterans Sports Complex stadium facility">
+    <div class="res-card-top"><span class="res-badge badge-org">FACILITY</span></div>
+    <h4>NG Products Veterans' Sports Complex</h4>
+    <p>Home of El Dorado Broncos. Seats 4,000. Joint project: City + USD 490 + Butler CC. Football, track, soccer. Naming rights with NG Products Inc. Renovation targets: synthetic turf, LED upgrade, scoreboard.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/facilities/facility/details/bgproductsveteranssportscomplex-35" class="res-link primary" target="_blank" rel="noopener">Facility Info</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="city business directory local businesses El Dorado">
+    <div class="res-card-top"><span class="res-badge badge-web">WEB</span></div>
+    <h4>City of El Dorado Business Directory</h4>
+    <p>Official city business directory. Comprehensive listing of local businesses for business retention outreach, partnership identification, and economic impact analysis.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/businessdirectoryii.aspx" class="res-link primary" target="_blank" rel="noopener">Business Directory</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="124 Lofts historic masonic lodge downtown housing">
+    <div class="res-card-top"><span class="res-badge badge-org">DEVELOPMENT</span></div>
+    <h4>124 Lofts — Historic Masonic Lodge Redevelopment</h4>
+    <p>Downtown El Dorado historic redevelopment. 13 apartments in historic Masonic Lodge building. Ground-floor restaurant/retail planned. February 2026 announcement. Model for NRHP Historic Tax Credit projects.</p>
+   </div>
   </div>
+ </div>
 
-  <!-- HOUSING -->
-  <span class="res-section-anchor" id="housing"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🏠</span><h2>Housing &amp; Demographics</h2></div>
-    <p class="res-cat-desc">Housing market data, demographic research, and funding programs for residential development in El Dorado.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="RHID residential housing incentive district Kansas">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE TOOL</span></div>
-        <h4>Kansas RHID — Residential Housing Incentive District</h4>
-        <p>#1 recommended tool from WSU Housing Needs Assessment. Captures incremental sales tax generated by new housing construction. Self-financing mechanism for residential infrastructure.</p>
-      </div>
-      <div class="res-card" data-tags="LIHTC low income housing tax credit 9% rural">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>LIHTC 9% Rural — Low Income Housing Tax Credit</h4>
-        <p>Most competitive affordable housing financing. 9% credit available for rural areas. Targets 60-80 AMI rental housing. Workforce Rental proposal: 80-100 units ($14M total). Kansas Housing Resources Corp. (KHRC) administers.</p>
-      </div>
-      <div class="res-card" data-tags="KHRC Kansas Housing Resources Corp homeownership">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>KHRC — Kansas Housing Resources Corp.</h4>
-        <p>State housing finance agency. Homeownership Ladder ($8–16K per buyer), down payment assistance, first-generation homebuyer programs. Key partner for addressing El Dorado's $97,800 median home value gap.</p>
-      </div>
-      <div class="res-card" data-tags="Historic Tax Credit HTC NRHP 45% stack">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL + STATE</span></div>
-        <h4>Historic Tax Credit (HTC) — 45% Stack</h4>
-        <p>Federal 20% HTC + Kansas 25% credit = 45% total. NRHP Historic District designation unlocks this stack. 124 Lofts is a recent El Dorado example. Downtown core could qualify for district designation.</p>
-      </div>
-      <div class="res-card" data-tags="ROC USA manufactured housing cooperative">
-        <div class="res-card-top"><span class="res-badge badge-org">NATIONAL</span></div>
-        <h4>ROC USA — Resident-Owned Communities</h4>
-        <p>National nonprofit supporting manufactured/mobile home community conversion to resident ownership cooperatives. USDA Rural Development 515 financing. Protects 180+ El Dorado households in existing parks.</p>
-      </div>
-      <div class="res-card" data-tags="Land Bank Kansas statute 12-5901 vacant lots">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE TOOL</span></div>
-        <h4>Kansas Land Bank Authority (K.S.A. 12-5901, 2021)</h4>
-        <p>State statute enabling cities to create land banks for vacant, tax-delinquent properties. El Dorado can acquire, clear title, and redevelop problem properties. Critical for Vacant Lot Activation Program.</p>
-      </div>
+ <!-- DATA DASHBOARDS -->
+ <span class="res-section-anchor" id="data-dashboards"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">📊</span><h2>Data Dashboards &amp; Maps</h2></div>
+  <p class="res-cat-desc">Interactive data tools, GIS dashboards, and real-time data resources for El Dorado and the region.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="ArcGIS dashboard El Dorado data online">
+    <div class="res-card-top"><span class="res-badge badge-map">GIS DASHBOARD</span></div>
+    <h4>El Dorado ArcGIS Dashboard</h4>
+    <p>Official interactive ArcGIS data dashboard for El Dorado. Community indicators, infrastructure data, and planning metrics.</p>
+    <div class="res-card-links">
+     <a href="https://www.arcgis.com/apps/dashboards/75d5da1284ae41a8879570d12f828462" class="res-link primary" target="_blank" rel="noopener">Open Dashboard</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="Butler County GIS hub community development maps">
+    <div class="res-card-top"><span class="res-badge badge-map">GIS HUB</span></div>
+    <h4>Butler County Community Development GIS Hub</h4>
+    <p>Comprehensive GIS portal for Butler County community development. Parcels, zoning, infrastructure layers, and development tracking.</p>
+    <div class="res-card-links">
+     <a href="https://butler-county-community-development-bucogis.hub.arcgis.com/" class="res-link primary" target="_blank" rel="noopener">GIS Hub</a>
+     <a href="https://bucogis.maps.arcgis.com/apps/webappviewer/index.html?id=33027461c8e44653a70f167583ea04d1" class="res-link" target="_blank" rel="noopener">Map Viewer</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="NOAA water gauge Walnut River Arkansas River flood">
+    <div class="res-card-top"><span class="res-badge badge-data">REAL-TIME</span></div>
+    <h4>NOAA Water Gauge — ARKK1 (El Dorado)</h4>
+    <p>Real-time water level gauge at El Dorado on the Walnut River/Arkansas tributary. Critical for floodplain management and emergency preparedness planning.</p>
+    <div class="res-card-links">
+     <a href="https://water.noaa.gov/gauges/arkk1" class="res-link primary" target="_blank" rel="noopener">NOAA Gauge</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="MapQuest location geography distance maps">
+    <div class="res-card-top"><span class="res-badge badge-map">MAP</span></div>
+    <h4>El Dorado, KS — MapQuest</h4>
+    <p>Geographic location data, distances to regional destinations, and driving times for El Dorado. Useful for site selector presentations and regional access analysis.</p>
+    <div class="res-card-links">
+     <a href="https://www.mapquest.com/us/kansas/el-dorado-ks-282030119" class="res-link primary" target="_blank" rel="noopener">MapQuest</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- TOURISM -->
-  <span class="res-section-anchor" id="tourism"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🏕️</span><h2>Tourism &amp; Recreation</h2></div>
-    <p class="res-cat-desc">Tourism agencies, attraction databases, and recreation resources for El Dorado and the Flint Hills region.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="TravelKS Kansas Tourism state agency">
-        <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
-        <h4>Kansas Tourism — TravelKS</h4>
-        <p>Official state tourism agency. El Dorado listing on travelks.com. America 250 program (2026, US 250th anniversary). Submit events at travelks.com/submit-event. Pioneer Prairie Days opportunity for June 2026.</p>
-        <div class="res-card-links">
-          <a href="https://www.travelks.com/places-to-visit/cities/el-dorado/" class="res-link primary" target="_blank" rel="noopener">El Dorado Page</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="El Dorado Chamber visitors center tourism">
-        <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
-        <h4>El Dorado Chamber Visitors Center</h4>
-        <p>Local tourism hub. Visitor information, event promotion, and attraction listings. Key marketing partner for lake, state park, and downtown tourism development.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoradochamber.com/visitors-center" class="res-link primary" target="_blank" rel="noopener">Visitors Center</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Walnut Valley Sailing Club regatta sailing lake">
-        <div class="res-card-top"><span class="res-badge badge-org">RECREATION</span></div>
-        <h4>Walnut Valley Sailing Club</h4>
-        <p>Sailing club on El Dorado Lake. Junior sailing program, regatta calendar. "Walnut Valley Basecamp" concept for overflow from Winfield Walnut Valley Music Festival (10K–15K attendees, hotels exhaust). 68 miles south of El Dorado.</p>
-      </div>
-      <div class="res-card" data-tags="Kansas SBAM behavioral health services mental">
-        <div class="res-card-top"><span class="res-badge badge-org">HEALTHCARE</span></div>
-        <h4>SBAM Health — Mental Health Services</h4>
-        <p>Behavioral and mental health services provider in El Dorado region. Critical partner for proposed Behavioral Health Wing expansion at SBA Hospital.</p>
-        <div class="res-card-links">
-          <a href="https://www.sbamh.com/" class="res-link primary" target="_blank" rel="noopener">sbamh.com</a>
-        </div>
-      </div>
-    </div>
+ <!-- HOUSING -->
+ <span class="res-section-anchor" id="housing"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🏠</span><h2>Housing &amp; Demographics</h2></div>
+  <p class="res-cat-desc">Housing market data, demographic research, and funding programs for residential development in El Dorado.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="RHID residential housing incentive district Kansas">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE TOOL</span></div>
+    <h4>Kansas RHID — Residential Housing Incentive District</h4>
+    <p>#1 recommended tool from WSU Housing Needs Assessment. Captures incremental sales tax generated by new housing construction. Self-financing mechanism for residential infrastructure.</p>
+   </div>
+   <div class="res-card" data-tags="LIHTC low income housing tax credit 9% rural">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>LIHTC 9% Rural — Low Income Housing Tax Credit</h4>
+    <p>Most competitive affordable housing financing. 9% credit available for rural areas. Targets 60-80 AMI rental housing. Workforce Rental proposal: 80-100 units ($14M total). Kansas Housing Resources Corp. (KHRC) administers.</p>
+   </div>
+   <div class="res-card" data-tags="KHRC Kansas Housing Resources Corp homeownership">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>KHRC — Kansas Housing Resources Corp.</h4>
+    <p>State housing finance agency. Homeownership Ladder ($8–16K per buyer), down payment assistance, first-generation homebuyer programs. Key partner for addressing El Dorado's $97,800 median home value gap.</p>
+   </div>
+   <div class="res-card" data-tags="Historic Tax Credit HTC NRHP 45% stack">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL + STATE</span></div>
+    <h4>Historic Tax Credit (HTC) — 45% Stack</h4>
+    <p>Federal 20% HTC + Kansas 25% credit = 45% total. NRHP Historic District designation unlocks this stack. 124 Lofts is a recent El Dorado example. Downtown core could qualify for district designation.</p>
+   </div>
+   <div class="res-card" data-tags="ROC USA manufactured housing cooperative">
+    <div class="res-card-top"><span class="res-badge badge-org">NATIONAL</span></div>
+    <h4>ROC USA — Resident-Owned Communities</h4>
+    <p>National nonprofit supporting manufactured/mobile home community conversion to resident ownership cooperatives. USDA Rural Development 515 financing. Protects 180+ El Dorado households in existing parks.</p>
+   </div>
+   <div class="res-card" data-tags="Land Bank Kansas statute 12-5901 vacant lots">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE TOOL</span></div>
+    <h4>Kansas Land Bank Authority (K.S.A. 12-5901, 2021)</h4>
+    <p>State statute enabling cities to create land banks for vacant, tax-delinquent properties. El Dorado can acquire, clear title, and redevelop problem properties. Critical for Vacant Lot Activation Program.</p>
+   </div>
   </div>
+ </div>
 
-  <!-- INTERNATIONAL -->
-  <span class="res-section-anchor" id="international"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">🌐</span><h2>International &amp; Foreign Direct Investment</h2></div>
-    <p class="res-cat-desc">International trade agencies, FDI promotion organizations, and foreign government trade bodies relevant to El Dorado's international business attraction strategy.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="JETRO Japan trade investment FDI automotive">
-        <div class="res-card-top"><span class="res-badge badge-org">JAPAN</span></div>
-        <h4>JETRO — Japan External Trade Organization</h4>
-        <p>Japanese government trade body. Supports Japanese companies expanding to US. Kansas is home to Kawasaki, Sumitomo, and other Japanese manufacturers. Ag machinery, precision manufacturing, and electronics sectors.</p>
-        <div class="res-card-links">
-          <a href="https://www.jetro.go.jp/en/" class="res-link primary" target="_blank" rel="noopener">JETRO</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="GTAI Germany Trade Invest German FDI AMAZONE">
-        <div class="res-card-top"><span class="res-badge badge-org">GERMANY</span></div>
-        <h4>GTAI — Germany Trade &amp; Invest</h4>
-        <p>German government agency for international investment. AMAZONE (2025 El Dorado FDI win) is a German company. Ag machinery, specialty chemicals, advanced manufacturing. CFIUS-safe: no restriction on German investment.</p>
-        <div class="res-card-links">
-          <a href="https://www.gtai.de/en" class="res-link primary" target="_blank" rel="noopener">GTAI</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="KOTRA Korea FDI investment Korean companies">
-        <div class="res-card-top"><span class="res-badge badge-org">S. KOREA</span></div>
-        <h4>KOTRA — Korea Trade-Investment Promotion Agency</h4>
-        <p>Korean government trade and investment agency. Samsung SDI, LG Energy Solution, and Hyundai supplier network expanding to US Midwest. Battery manufacturing and EV components high-potential sectors.</p>
-        <div class="res-card-links">
-          <a href="https://www.kotra.or.kr/eng/" class="res-link primary" target="_blank" rel="noopener">KOTRA</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="FTZ Foreign Trade Zone #28 Butler County Kansas">
-        <div class="res-card-top"><span class="res-badge badge-org">ADVANTAGE</span></div>
-        <h4>Foreign Trade Zone #28 — Butler County</h4>
-        <p>Butler County is already enrolled in FTZ #28. Most undermarketed El Dorado advantage. Deferred customs duties on imported components. Activated subzone for mega-site or industrial park tenants can save millions annually.</p>
-      </div>
-      <div class="res-card" data-tags="EB-5 investor visa TEA rural immigration investment">
-        <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
-        <h4>EB-5 Investor Visa Program</h4>
-        <p>$800K minimum investment in Targeted Employment Areas (rural). El Dorado qualifies as TEA. Strong candidates: data center, senior care campus, hotel. 10 jobs required per investor. Regional Center structure available.</p>
-      </div>
-      <div class="res-card" data-tags="AGCO Hesston Netherlands Netherlands agriculture">
-        <div class="res-card-top"><span class="res-badge badge-org">NETHERLANDS</span></div>
-        <h4>AGCO Corporation / Hesston, KS</h4>
-        <p>Dutch-American agricultural equipment manufacturer with major Kansas presence in Hesston (30 mi NW). Supply chain partner opportunity for El Dorado ag equipment components. AGCO brands: Challenger, Fendt, Massey Ferguson.</p>
-      </div>
+ <!-- TOURISM -->
+ <span class="res-section-anchor" id="tourism"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🏕️</span><h2>Tourism &amp; Recreation</h2></div>
+  <p class="res-cat-desc">Tourism agencies, attraction databases, and recreation resources for El Dorado and the Flint Hills region.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="TravelKS Kansas Tourism state agency">
+    <div class="res-card-top"><span class="res-badge badge-org">STATE</span></div>
+    <h4>Kansas Tourism — TravelKS</h4>
+    <p>Official state tourism agency. El Dorado listing on travelks.com. America 250 program (2026, US 250th anniversary). Submit events at travelks.com/submit-event. Pioneer Prairie Days opportunity for June 2026.</p>
+    <div class="res-card-links">
+     <a href="https://www.travelks.com/places-to-visit/cities/el-dorado/" class="res-link primary" target="_blank" rel="noopener">El Dorado Page</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="El Dorado Chamber visitors center tourism">
+    <div class="res-card-top"><span class="res-badge badge-org">LOCAL</span></div>
+    <h4>El Dorado Chamber Visitors Center</h4>
+    <p>Local tourism hub. Visitor information, event promotion, and attraction listings. Key marketing partner for lake, state park, and downtown tourism development.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoradochamber.com/visitors-center" class="res-link primary" target="_blank" rel="noopener">Visitors Center</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Walnut Valley Sailing Club regatta sailing lake">
+    <div class="res-card-top"><span class="res-badge badge-org">RECREATION</span></div>
+    <h4>Walnut Valley Sailing Club</h4>
+    <p>Sailing club on El Dorado Lake. Junior sailing program, regatta calendar. "Walnut Valley Basecamp" concept for overflow from Winfield Walnut Valley Music Festival (10K–15K attendees, hotels exhaust). 68 miles south of El Dorado.</p>
+   </div>
+   <div class="res-card" data-tags="Kansas SBAM behavioral health services mental">
+    <div class="res-card-top"><span class="res-badge badge-org">HEALTHCARE</span></div>
+    <h4>SBAM Health — Mental Health Services</h4>
+    <p>Behavioral and mental health services provider in El Dorado region. Critical partner for proposed Behavioral Health Wing expansion at SBA Hospital.</p>
+    <div class="res-card-links">
+     <a href="https://www.sbamh.com/" class="res-link primary" target="_blank" rel="noopener">sbamh.com</a>
+    </div>
+   </div>
   </div>
+ </div>
 
-  <!-- MEDIA -->
-  <span class="res-section-anchor" id="media"></span>
-  <div class="res-cat">
-    <div class="res-cat-hdr"><span class="res-cat-icon">📰</span><h2>News, Community &amp; Social Resources</h2></div>
-    <p class="res-cat-desc">Local news, community discussion, and social context resources for understanding El Dorado's community pulse.</p>
-    <div class="res-grid">
-      <div class="res-card" data-tags="El Dorado news flash city announcements">
-        <div class="res-card-top"><span class="res-badge badge-web">OFFICIAL</span></div>
-        <h4>City of El Dorado — News &amp; Announcements</h4>
-        <p>Official city news releases, commission decisions, and public notices. Key source for tracking data center zoning ordinance (June 2026), CIP updates, and franchise fee decisions.</p>
-        <div class="res-card-links">
-          <a href="https://www.eldoks.gov/m/newsflash/home/detail/61" class="res-link primary" target="_blank" rel="noopener">News Flash</a>
-        </div>
-      </div>
-      <div class="res-card" data-tags="Reddit community discussion El Dorado Kansas opinion">
-        <div class="res-card-top"><span class="res-badge badge-web">COMMUNITY</span></div>
-        <h4>Reddit — El Dorado KS Community Discussion</h4>
-        <p>Community perspective, resident concerns, data center debate ("Protect the Heartland" group, Apr. 2026), and neighborhood sentiment. Valuable for community engagement planning and issue awareness.</p>
-        <div class="res-card-links">
-          <a href="https://www.reddit.com/search/?q=eldorado+ks" class="res-link primary" target="_blank" rel="noopener">Reddit Search</a>
-        </div>
-      </div>
+ <!-- INTERNATIONAL -->
+ <span class="res-section-anchor" id="international"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">🌐</span><h2>International &amp; Foreign Direct Investment</h2></div>
+  <p class="res-cat-desc">International trade agencies, FDI promotion organizations, and foreign government trade bodies relevant to El Dorado's international business attraction strategy.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="JETRO Japan trade investment FDI automotive">
+    <div class="res-card-top"><span class="res-badge badge-org">JAPAN</span></div>
+    <h4>JETRO — Japan External Trade Organization</h4>
+    <p>Japanese government trade body. Supports Japanese companies expanding to US. Kansas is home to Kawasaki, Sumitomo, and other Japanese manufacturers. Ag machinery, precision manufacturing, and electronics sectors.</p>
+    <div class="res-card-links">
+     <a href="https://www.jetro.go.jp/en/" class="res-link primary" target="_blank" rel="noopener">JETRO</a>
     </div>
+   </div>
+   <div class="res-card" data-tags="GTAI Germany Trade Invest German FDI AMAZONE">
+    <div class="res-card-top"><span class="res-badge badge-org">GERMANY</span></div>
+    <h4>GTAI — Germany Trade &amp; Invest</h4>
+    <p>German government agency for international investment. AMAZONE (2025 El Dorado FDI win) is a German company. Ag machinery, specialty chemicals, advanced manufacturing. CFIUS-safe: no restriction on German investment.</p>
+    <div class="res-card-links">
+     <a href="https://www.gtai.de/en" class="res-link primary" target="_blank" rel="noopener">GTAI</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="KOTRA Korea FDI investment Korean companies">
+    <div class="res-card-top"><span class="res-badge badge-org">S. KOREA</span></div>
+    <h4>KOTRA — Korea Trade-Investment Promotion Agency</h4>
+    <p>Korean government trade and investment agency. Samsung SDI, LG Energy Solution, and Hyundai supplier network expanding to US Midwest. Battery manufacturing and EV components high-potential sectors.</p>
+    <div class="res-card-links">
+     <a href="https://www.kotra.or.kr/eng/" class="res-link primary" target="_blank" rel="noopener">KOTRA</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="FTZ Foreign Trade Zone #28 Butler County Kansas">
+    <div class="res-card-top"><span class="res-badge badge-org">ADVANTAGE</span></div>
+    <h4>Foreign Trade Zone #28 — Butler County</h4>
+    <p>Butler County is already enrolled in FTZ #28. Most undermarketed El Dorado advantage. Deferred customs duties on imported components. Activated subzone for mega-site or industrial park tenants can save millions annually.</p>
+   </div>
+   <div class="res-card" data-tags="EB-5 investor visa TEA rural immigration investment">
+    <div class="res-card-top"><span class="res-badge badge-fed">FEDERAL</span></div>
+    <h4>EB-5 Investor Visa Program</h4>
+    <p>$800K minimum investment in Targeted Employment Areas (rural). El Dorado qualifies as TEA. Strong candidates: data center, senior care campus, hotel. 10 jobs required per investor. Regional Center structure available.</p>
+   </div>
+   <div class="res-card" data-tags="AGCO Hesston Netherlands Netherlands agriculture">
+    <div class="res-card-top"><span class="res-badge badge-org">NETHERLANDS</span></div>
+    <h4>AGCO Corporation / Hesston, KS</h4>
+    <p>Dutch-American agricultural equipment manufacturer with major Kansas presence in Hesston (30 mi NW). Supply chain partner opportunity for El Dorado ag equipment components. AGCO brands: Challenger, Fendt, Massey Ferguson.</p>
+   </div>
   </div>
+ </div>
+
+ <!-- MEDIA -->
+ <span class="res-section-anchor" id="media"></span>
+ <div class="res-cat">
+  <div class="res-cat-hdr"><span class="res-cat-icon">📰</span><h2>News, Community &amp; Social Resources</h2></div>
+  <p class="res-cat-desc">Local news, community discussion, and social context resources for understanding El Dorado's community pulse.</p>
+  <div class="res-grid">
+   <div class="res-card" data-tags="El Dorado news flash city announcements">
+    <div class="res-card-top"><span class="res-badge badge-web">OFFICIAL</span></div>
+    <h4>City of El Dorado — News &amp; Announcements</h4>
+    <p>Official city news releases, commission decisions, and public notices. Key source for tracking data center zoning ordinance (June 2026), CIP updates, and franchise fee decisions.</p>
+    <div class="res-card-links">
+     <a href="https://www.eldoks.gov/m/newsflash/home/detail/61" class="res-link primary" target="_blank" rel="noopener">News Flash</a>
+    </div>
+   </div>
+   <div class="res-card" data-tags="Reddit community discussion El Dorado Kansas opinion">
+    <div class="res-card-top"><span class="res-badge badge-web">COMMUNITY</span></div>
+    <h4>Reddit — El Dorado KS Community Discussion</h4>
+    <p>Community perspective, resident concerns, data center debate ("Protect the Heartland" group, Apr. 2026), and neighborhood sentiment. Valuable for community engagement planning and issue awareness.</p>
+    <div class="res-card-links">
+     <a href="https://www.reddit.com/search/?q=eldorado+ks" class="res-link primary" target="_blank" rel="noopener">Reddit Search</a>
+    </div>
+   </div>
+  </div>
+ </div>
 
 </div><!-- /container -->
 </div><!-- /res-body -->
 
 <!-- FOOTER -->
 <footer style="background:var(--navy);color:#fff;padding:40px 0;text-align:center">
-  <div class="container">
-    <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin:0 auto">El Dorado, KS Vision 2040 · Resources &amp; References · Last updated June 2026</p>
-    <div style="margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap">
-      <a href="index.html" style="color:var(--gold);font-weight:600">← Full Plan</a>
-      <a href="stakeholders.html" style="color:var(--gold);font-weight:600">Stakeholders</a>
-      <a href="presentation.html" style="color:var(--gold);font-weight:600">Presentation</a>
-      <a href="brief.html" style="color:var(--gold);font-weight:600">Project Briefs</a>
-    </div>
+ <div class="container">
+  <p style="color:rgba(255,255,255,.7);font-size:.9rem;margin:0 auto">El Dorado, KS Vision 2040 · Resources &amp; References · Last updated June 2026</p>
+  <div style="margin-top:1rem;display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap">
+   <a href="index.html" style="color:var(--gold);font-weight:600">← Full Plan</a>
+   <a href="stakeholders.html" style="color:var(--gold);font-weight:600">Stakeholders</a>
+   <a href="presentation.html" style="color:var(--gold);font-weight:600">Presentation</a>
+   <a href="brief.html" style="color:var(--gold);font-weight:600">Project Briefs</a>
   </div>
+ </div>
 </footer>
 
 <script>
-  // Search filter
-  const searchInput = document.getElementById('resSearch');
-  searchInput.addEventListener('input', function() {
-    const q = this.value.toLowerCase().trim();
-    document.querySelectorAll('.res-card').forEach(card => {
-      const text = (card.textContent + ' ' + (card.dataset.tags || '')).toLowerCase();
-      card.style.display = q === '' || text.includes(q) ? '' : 'none';
-    });
+ // Search filter
+ const searchInput = document.getElementById('resSearch');
+ searchInput.addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  document.querySelectorAll('.res-card').forEach(card => {
+   const text = (card.textContent + ' ' + (card.dataset.tags || '')).toLowerCase();
+   card.style.display = q === '' || text.includes(q)? '' : 'none';
   });
+ });
 
-  // Nav toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (navToggle) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+ // Nav toggle
+ const navToggle = document.querySelector('.nav-toggle');
+ const navLinks = document.querySelector('.nav-links');
+ if (navToggle) navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
 
-  // Tab highlighting on scroll
-  const sections = document.querySelectorAll('.res-section-anchor');
-  const tabs = document.querySelectorAll('.res-tab');
+ // Tab highlighting on scroll
+ const sections = document.querySelectorAll('.res-section-anchor');
+ const tabs = document.querySelectorAll('.res-tab');
 </script>
 <script src="js/analytics.js" defer></script>
 <script src="js/nav.js"></script>
