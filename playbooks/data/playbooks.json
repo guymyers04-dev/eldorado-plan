@@ -1,0 +1,203 @@
+{
+  "playbooks": [
+    {
+      "id": "start-business",
+      "title": "Start a Business in El Dorado",
+      "subtitle": "For entrepreneurs and business owners",
+      "description": "Form a business, get licensed, and access startup incentives in El Dorado, Kansas.",
+      "url": "/playbooks/start-business.html",
+      "estimatedTime": "5-7 business days",
+      "keyStakeholders": 3,
+      "requiredDocs": 4,
+      "industryMatch": ["all"],
+      "purposeMatch": ["start"],
+      "stageMatch": ["exploring", "deciding", "executing"],
+      "keywords": ["business formation", "license", "startup", "incorporation"],
+      "metaDescription": "Step-by-step guide to starting a business in El Dorado, KS. Learn how to form, license, and access startup incentives.",
+      "relevanceScore": 100
+    },
+    {
+      "id": "expand-manufacturing",
+      "title": "Expand or Relocate Manufacturing Operations",
+      "subtitle": "For plant managers and supply chain leaders",
+      "description": "Explore sites, secure utilities, access workforce training, and apply for manufacturing incentives in El Dorado.",
+      "url": "/playbooks/expand-manufacturing.html",
+      "estimatedTime": "60-90 days",
+      "keyStakeholders": 4,
+      "requiredDocs": 6,
+      "industryMatch": ["manufacturing", "logistics"],
+      "purposeMatch": ["expand", "relocate"],
+      "stageMatch": ["deciding", "executing"],
+      "keywords": ["manufacturing", "relocation", "expansion", "site selection", "utilities"],
+      "metaDescription": "Guide to expanding or relocating manufacturing in El Dorado. Find sites, utilities, workforce, and tax incentives.",
+      "relevanceScore": 90
+    },
+    {
+      "id": "tax-incentives",
+      "title": "Access Tax Incentives & Grants",
+      "subtitle": "For CFOs and business development leaders",
+      "description": "Learn about PEAK, REAP, and local grant programs. Calculate your net incentive value and apply for tax credits.",
+      "url": "/playbooks/tax-incentives.html",
+      "estimatedTime": "30-60 days",
+      "keyStakeholders": 3,
+      "requiredDocs": 5,
+      "industryMatch": ["all"],
+      "purposeMatch": ["start", "expand", "relocate", "invest"],
+      "stageMatch": ["deciding", "executing"],
+      "keywords": ["tax incentive", "PEAK", "REAP", "grant", "tax credit"],
+      "metaDescription": "Access El Dorado's tax incentive programs: PEAK, REAP, and local grants. Calculate your net incentive value.",
+      "relevanceScore": 85
+    },
+    {
+      "id": "rezone",
+      "title": "Rezone or Request Code Variance",
+      "subtitle": "For property developers and owners",
+      "description": "Navigate the rezoning process, understand approval timelines, and submit variance requests to El Dorado Planning & Zoning.",
+      "url": "/playbooks/rezone.html",
+      "estimatedTime": "60-120 days",
+      "keyStakeholders": 3,
+      "requiredDocs": 4,
+      "industryMatch": ["all"],
+      "purposeMatch": ["expand", "relocate", "invest"],
+      "stageMatch": ["deciding", "executing"],
+      "keywords": ["rezone", "variance", "zoning", "planning", "development"],
+      "metaDescription": "Step-by-step guide to rezoning or variance requests in El Dorado. Understand the process, timeline, and approval rate.",
+      "relevanceScore": 70
+    },
+    {
+      "id": "real-estate",
+      "title": "Purchase or Lease Commercial Real Estate",
+      "subtitle": "For investors and corporate real estate teams",
+      "description": "Discover available commercial properties, pricing models, financing options, and lease terms in El Dorado.",
+      "url": "/playbooks/real-estate.html",
+      "estimatedTime": "60-180 days",
+      "keyStakeholders": 4,
+      "requiredDocs": 5,
+      "industryMatch": ["all"],
+      "purposeMatch": ["expand", "relocate", "invest"],
+      "stageMatch": ["deciding", "executing"],
+      "keywords": ["commercial real estate", "lease", "property", "investment", "site selection"],
+      "metaDescription": "Guide to buying or leasing commercial property in El Dorado. View available sites, pricing, and financing options.",
+      "relevanceScore": 70
+    },
+    {
+      "id": "permitting",
+      "title": "Navigate Permitting & Construction",
+      "subtitle": "For contractors and project managers",
+      "description": "Understand building permit requirements, inspection checkpoints, timelines, and construction compliance in El Dorado.",
+      "url": "/playbooks/permitting.html",
+      "estimatedTime": "30-90 days",
+      "keyStakeholders": 3,
+      "requiredDocs": 4,
+      "industryMatch": ["all"],
+      "purposeMatch": ["expand", "relocate"],
+      "stageMatch": ["executing"],
+      "keywords": ["permitting", "building permit", "construction", "inspection", "compliance"],
+      "metaDescription": "El Dorado permitting guide: building permits, inspections, timelines, and construction checkpoints.",
+      "relevanceScore": 60
+    },
+    {
+      "id": "hiring",
+      "title": "Hire Workers & Access Training Programs",
+      "subtitle": "For HR managers and workforce leaders",
+      "description": "Access workforce data, CDL training programs, WIOA resources, and labor market information for El Dorado.",
+      "url": "/playbooks/hiring.html",
+      "estimatedTime": "30-60 days",
+      "keyStakeholders": 3,
+      "requiredDocs": 3,
+      "industryMatch": ["all"],
+      "purposeMatch": ["expand", "start"],
+      "stageMatch": ["executing"],
+      "keywords": ["hiring", "workforce", "training", "CDL", "labor"],
+      "metaDescription": "Guide to hiring in El Dorado: workforce data, CDL training, WIOA programs, and labor resources.",
+      "relevanceScore": 30
+    }
+  ],
+  "quizQuestions": [
+    {
+      "id": 1,
+      "question": "What brings you to El Dorado?",
+      "description": "Help us understand your primary business objective",
+      "answers": [
+        {
+          "text": "Start a new business",
+          "value": "start"
+        },
+        {
+          "text": "Expand existing operations",
+          "value": "expand"
+        },
+        {
+          "text": "Relocate from another location",
+          "value": "relocate"
+        },
+        {
+          "text": "Invest in real estate",
+          "value": "invest"
+        },
+        {
+          "text": "Hire workers or find talent",
+          "value": "hire"
+        },
+        {
+          "text": "Just exploring / learning",
+          "value": "exploring"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Which industry or sector are you in?",
+      "description": "This helps us recommend the most relevant playbooks",
+      "answers": [
+        {
+          "text": "Manufacturing & logistics",
+          "value": "manufacturing"
+        },
+        {
+          "text": "Agriculture & food systems",
+          "value": "agriculture"
+        },
+        {
+          "text": "Technology & remote work",
+          "value": "technology"
+        },
+        {
+          "text": "Healthcare & life sciences",
+          "value": "healthcare"
+        },
+        {
+          "text": "Retail & services",
+          "value": "services"
+        },
+        {
+          "text": "Real estate & development",
+          "value": "realestate"
+        },
+        {
+          "text": "Not sure / general inquiry",
+          "value": "general"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What's your stage?",
+      "description": "Understanding your timeline helps us prioritize playbooks",
+      "answers": [
+        {
+          "text": "Just exploring / early research",
+          "value": "exploring"
+        },
+        {
+          "text": "Ready to move forward",
+          "value": "deciding"
+        },
+        {
+          "text": "Committed / in execution mode",
+          "value": "executing"
+        }
+      ]
+    }
+  ]
+}
