@@ -1762,3 +1762,53 @@ if (document.readyState === 'loading') {
 } else {
   BackToTopManager.init();
 }
+
+/* ── Scroll Animation Manager ── */
+class ScrollAnimationManager {
+  static init() {
+    if (!('IntersectionObserver' in window)) return; // Fallback for older browsers
+
+    // Observe all reveal elements
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add visible class with slight delay for stagger effect
+          entry.target.classList.add('visible');
+          // Unobserve after animation
+          setTimeout(() => observer.unobserve(entry.target), 600);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all reveal elements
+    document.querySelectorAll('.reveal, .card-reveal').forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  static observeCardGrids() {
+    // Apply stagger animation to card grids
+    document.querySelectorAll('.grid-2, .grid-3, .grid-4').forEach(grid => {
+      grid.querySelectorAll('.top-card, .stripe-card, .glass-card').forEach((card, index) => {
+        card.style.setProperty('--delay', `${index * 0.1}s`);
+        card.classList.add('card-reveal');
+      });
+    });
+  }
+}
+
+// Initialize scroll animations
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    ScrollAnimationManager.init();
+    ScrollAnimationManager.observeCardGrids();
+  });
+} else {
+  ScrollAnimationManager.init();
+  ScrollAnimationManager.observeCardGrids();
+}
