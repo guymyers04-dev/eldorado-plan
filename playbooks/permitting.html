@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigate Permitting & Construction in El Dorado</title>
+  <meta name="description" content="El Dorado permitting guide: building permits, inspections, timelines, and construction checkpoints.">
+  <meta name="keywords" content="permitting, building permit, construction, inspection, compliance">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/playbooks.css">
+  <style>
+    .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .timeline-step.expanded { background: #f9f9f9; }
+    .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+    .timeline-header:hover { opacity: 0.8; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+    .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+    .step-duration { font-size: 0.85rem; color: #999; }
+    .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .step-content.hidden { display: none; }
+
+    .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+    .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+    .faq-question:hover { background: #f0f2f5; }
+    .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+    .faq-item.expanded .faq-toggle { transform: rotate(180deg); }
+    .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.expanded .faq-answer { max-height: 1000px; }
+
+    .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+    .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+    .stakeholder-table tr:hover { background: #f9f9f9; }
+    .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+    .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+    .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+    .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+    .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+  </style>
+</head>
+<body data-page="permitting">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <section class="playbook-hero">
+    <div class="hero-content">
+      <h1>Navigate Permitting & Construction</h1>
+      <p class="hero-subtitle">For contractors and project managers</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">30-90 Days</div>
+          <div class="stat-label">Estimated Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Key Stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Required Documents</div>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="overview-section">
+      <h2>Overview</h2>
+      <p>El Dorado uses Kansas adopted building codes (IECC 2015 residential, IBC 2015 commercial) and has streamlined permit processes to support construction. Whether you're building a new facility, expanding existing space, or renovating, you'll need building permits and will pass through multiple inspection checkpoints.</p>
+      <p>This guide walks you through permit applications, the inspection process, code compliance, expedited permitting options, and appeals procedures. Most construction permits are issued within 5-10 business days, and projects can proceed immediately after permit issuance.</p>
+    </section>
+
+    <section class="timeline-section">
+      <h2>Timeline & Steps</h2>
+      <p>Here's the typical permitting and construction timeline:</p>
+
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <h3>Permit Application & Document Submission</h3>
+              <div class="step-duration">Days 1-5</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Submit completed building permit application to City Building Official with all required plans, specs, and drawings.</p>
+            <p><strong>Documents needed:</strong> Completed permit form, site plans (2 sets), architectural/engineering drawings (3 sets), electrical plans, MEP (mechanical/electrical/plumbing) plans</p>
+            <p><strong>Cost:</strong> Permit fee $300-2,000 depending on project value (typically $0.50-1.00 per square foot)</p>
+            <p><strong>Timeline:</strong> Submit in morning, informal review same day (identify missing items)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <h3>Plan Review & Code Compliance</h3>
+              <div class="step-duration">Days 5-15</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Building Official and inspector review plans against Kansas codes. Identify any deviations or missing information. Work with your engineer to address comments.</p>
+            <p><strong>Documents needed:</strong> Responses to Building Official's comments, revised plans if applicable</p>
+            <p><strong>Cost:</strong> Free (included in permit fee)</p>
+            <p><strong>Timeline:</strong> 7-10 days typically; expedited plan review available (add $500-1K, 3-5 days)</p>
+            <p><strong>Common issues:</strong> Egress windows, fire separation, accessibility (ADA), mechanical adequacy</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <h3>Permit Issuance & Foundation Inspection</h3>
+              <div class="step-duration">Days 15-25</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Permit is issued. Contractor receives permit documents and schedule. Foundation/excavation work begins. Call for foundation inspection before pouring concrete or backfilling.</p>
+            <p><strong>Documents needed:</strong> Permit issuance letter, construction schedule</p>
+            <p><strong>Cost:</strong> Included in permit fee</p>
+            <p><strong>Inspection requirements:</strong> Inspector verifies footer depth, rebar placement, forms, soil conditions. Must pass before concrete pour.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <h3>Framing & Rough-In Inspections</h3>
+              <div class="step-duration">Days 25-50</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Frame construction proceeds. Call for framing inspection before drywall. Inspector verifies structural integrity, stud spacing, lintels, blocking.</p>
+            <p><strong>Rough-in inspections:</strong> Electrical (wiring before drywall), plumbing (pipes before walls close), HVAC (ductwork before sealing)</p>
+            <p><strong>Cost:</strong> Included in permit fee (typically 4-5 inspections total)</p>
+            <p><strong>Inspection timeline:</strong> Inspector typically available within 2-3 business days of request. Call early to schedule.</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">5</div>
+            <div class="step-info">
+              <h3>Final Inspections & Certificate of Occupancy</h3>
+              <div class="step-duration">Days 50-75</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Final inspection verifies all work complete and code compliant. Inspector walks through with contractor, notes any punch-list items. Once passed, Certificate of Occupancy (CO) issued.</p>
+            <p><strong>Inspection checklist:</strong> Electrical final, plumbing final, HVAC final, fire safety (extinguishers, alarms), accessibility (handrails, ramps), code compliance</p>
+            <p><strong>Punch list:</strong> Minor items (paint, trim, touch-ups) can proceed even if CO is conditional. Must be completed within 30 days.</p>
+            <p><strong>Certificate of Occupancy:</strong> Allows building to be occupied. Required before business can open.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="documents-section">
+      <h2>Required Documents Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="doc1">
+          <label for="doc1">Completed building permit application form (City of El Dorado)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc2">
+          <label for="doc2">Site plan with property lines, building footprint, parking, utilities location</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc3">
+          <label for="doc3">Architectural/structural drawings (engineer-certified for commercial projects)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc4">
+          <label for="doc4">Mechanical, electrical, plumbing (MEP) plans signed by licensed professionals</label>
+        </div>
+      </div>
+      <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+    </section>
+
+    <section class="stakeholders-section">
+      <h2>Key Contacts & Stakeholders</h2>
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Name & Title</th>
+            <th>Organization</th>
+            <th>Contact</th>
+            <th>Helps with Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="stakeholder-name">Robert Jackson</div><div class="stakeholder-contact">Building Official</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:rjackson@eldoradokansas.gov">rjackson@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 1, 2, 5</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Licensed Contractors</div><div class="stakeholder-contact">Local Inspection Partners</div></td>
+            <td>El Dorado Contractors Assoc.</td>
+            <td><a href="mailto:info@eldoradocontractors.org">info@eldoradocontractors.org</a><br>(620) 321-7777</td>
+            <td>Steps 1, 3, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">City Inspectors</div><div class="stakeholder-contact">Building Inspection Staff</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:inspections@eldoradokansas.gov">inspections@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 3, 4, 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does it take to get a building permit?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Standard timeline: 10-15 business days from complete submission to permit issuance. Expedited option: 3-5 business days for additional $500-1K fee. Small projects (under 5,000 sqft): Often approved within 5 days. Large projects (over 50,000 sqft): May take 20 days if plan review reveals issues. Submit on Monday morning for fastest turnaround; avoid Friday submissions.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Which Kansas building codes apply in El Dorado?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          El Dorado adopts: International Building Code (IBC 2015) for commercial, International Residential Code (IRC 2015) for residential. Kansas wind loads and environmental requirements apply. Energy Code: IECC 2015 with Kansas amendments. ADA accessibility standards mandatory. Building Official can clarify specific code questions. Get code summary before design phase to avoid costly redesigns.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What happens if my project fails inspection?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Inspector issues written report with specific deficiencies. Most failures are minor (framing spacing, improper blocking, electrical labeling). Contractor makes corrections and requests re-inspection (usually within 2-3 days). Re-inspection is free. Major failures (structural issues, egress problems) require engineer review. Process typically adds 5-10 days. Prepare contractors for inspections with review meetings.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I expedite the permitting process?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes. Options: (1) Expedited plan review ($500-1K, 3-5 days), (2) Pre-submission meeting with Building Official (clarify code questions before formal submission, saves 10 days), (3) Parallel inspections (multiple inspections on same day), (4) Priority scheduling (if project is city-priority). Maximum acceleration: 15-20 days saved. Talk to Building Official about your timeline early.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What if I disagree with an inspection decision?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Appeals process: (1) Request clarification from inspector in writing, (2) If unsatisfied, request appeal meeting with Building Official, (3) If still disagreed, appeal to City's Board of Appeals. Include engineer's opinion with your appeal. Most appeals are resolved within 5-10 days. Building Official is willing to discuss — don't ignore. Document all conversations.
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story">
+      <div class="success-company">Manufacturing Facility Expansion</div>
+      <div class="success-story-text">
+        Regional manufacturing company expanded 12,000 sqft facility. Submitted permit application with complete professional plans (architect and engineer signed). Received permit within 8 days. Construction took 4 months with 5 inspections (foundation, framing, electrical, plumbing, final). All inspections passed on first try.
+      </div>
+      <div class="success-quote">
+        "The Building Official was responsive and fair. Inspector was thorough but reasonable. We scheduled inspections early, and staff was always on-site within 2-3 days of our request. One issue: minor electrical labeling on day 50 inspection — re-inspect same week and passed. Total permitting + construction time: 4.5 months. No delays, no major issues. El Dorado's process is efficient." — Project Manager
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">Today: Expansion operational, 45 new employees hired</p>
+    </section>
+
+    <section class="next-steps-section">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <div class="next-step-card">
+          <h3>Pre-Submission Meeting</h3>
+          <p>Schedule a meeting with Building Official to clarify code requirements and review preliminary design before formal submission.</p>
+          <a href="mailto:rjackson@eldoradokansas.gov" class="primary-btn">Contact Building Official</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Prepare Permit Package</h3>
+          <p>Work with engineer/architect to prepare complete site plans, structural drawings, and MEP plans per Kansas code requirements.</p>
+          <button class="primary-btn" style="width: 100%;">Download Plan Template</button>
+        </div>
+        <div class="next-step-card">
+          <h3>Submit Permit Application</h3>
+          <p>Submit completed application and all plans to City Hall. Plan review begins immediately. Expedited option available.</p>
+          <a href="mailto:rjackson@eldoradokansas.gov" class="secondary-btn">Submit Application →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-playbooks">
+      <h2>Related Playbooks</h2>
+      <div class="playbook-links">
+        <a href="/playbooks/real-estate.html" class="playbook-link">Purchase or Lease Commercial Real Estate →</a>
+        <a href="/playbooks/rezone.html" class="playbook-link">Rezone or Request Code Variance →</a>
+        <a href="/playbooks/start-business.html" class="playbook-link">Start a Business in El Dorado →</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Get Your Project Permitted & Built</h2>
+      <p>El Dorado's streamlined permitting process gets projects approved quickly. Contact the Building Official to start your permit application.</p>
+      <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Start Your Permit Application →</a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.timeline-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const step = header.parentElement;
+        step.classList.toggle('expanded');
+        const content = step.querySelector('.step-content');
+        content.classList.toggle('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', (e) => {
+        const item = question.parentElement;
+        item.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>

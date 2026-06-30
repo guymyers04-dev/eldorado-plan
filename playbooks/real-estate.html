@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purchase or Lease Commercial Real Estate in El Dorado</title>
+  <meta name="description" content="Guide to buying or leasing commercial property in El Dorado. View available sites, pricing, and financing options.">
+  <meta name="keywords" content="commercial real estate, lease, property, investment, site selection">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/playbooks.css">
+  <style>
+    .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .timeline-step.expanded { background: #f9f9f9; }
+    .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+    .timeline-header:hover { opacity: 0.8; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+    .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+    .step-duration { font-size: 0.85rem; color: #999; }
+    .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .step-content.hidden { display: none; }
+
+    .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+    .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+    .faq-question:hover { background: #f0f2f5; }
+    .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+    .faq-item.expanded .faq-toggle { transform: rotate(180deg); }
+    .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.expanded .faq-answer { max-height: 1000px; }
+
+    .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+    .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+    .stakeholder-table tr:hover { background: #f9f9f9; }
+    .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+    .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+    .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+    .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+    .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+  </style>
+</head>
+<body data-page="real-estate">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <section class="playbook-hero">
+    <div class="hero-content">
+      <h1>Purchase or Lease Commercial Real Estate</h1>
+      <p class="hero-subtitle">For investors and corporate real estate teams</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">60-180 Days</div>
+          <div class="stat-label">Estimated Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Key Stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">5</div>
+          <div class="stat-label">Required Documents</div>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="overview-section">
+      <h2>Overview</h2>
+      <p>El Dorado offers competitive commercial real estate pricing, available industrial sites, and flexible lease/purchase options. Whether you're looking for downtown retail, industrial warehouse space, or office facilities, this guide walks you through the entire process: property search, site evaluation, due diligence, financing, negotiations, and closing.</p>
+      <p>Properties range from $6-12/sqft for industrial to $10-18/sqft for commercial. With tax incentives like PEAK, your net real estate cost can be 30-50% lower than comparable markets. Timeline from first showing to occupancy typically runs 60-180 days depending on transaction complexity.</p>
+    </section>
+
+    <section class="timeline-section">
+      <h2>Timeline & Steps</h2>
+      <p>Here's the typical process for acquiring commercial real estate in El Dorado:</p>
+
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <h3>Property Search & Site Selection</h3>
+              <div class="step-duration">Days 1-20</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Work with local real estate brokers to identify available properties. Review size, location, price, and condition. Request property specs (square footage, utilities, parking, zoning).</p>
+            <p><strong>Available inventory:</strong> 3 industrial zones (15-50 acres each), downtown commercial (2-5K sqft), office parks. Contact Economic Development for mega-site options.</p>
+            <p><strong>Pricing:</strong> Industrial: $6-12/sqft/year lease or $60-120/sqft purchase. Commercial: $12-18/sqft/year lease or $120-200/sqft purchase.</p>
+            <p><strong>Timeline:</strong> 2-3 weeks (or 1 week if mega-sites pre-identified)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <h3>Site Evaluation & Due Diligence</h3>
+              <div class="step-duration">Days 15-45</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Conduct environmental assessment, utility study, zoning verification, phase 1 ESA (environmental site assessment). Verify property access, parking, loading, and utilities adequacy.</p>
+            <p><strong>Documents needed:</strong> Phase 1 ESA report, utility study, zoning letter, property survey</p>
+            <p><strong>Cost:</strong> $2K-5K (ESA, utilities, survey)</p>
+            <p><strong>Timeline:</strong> 15-30 days (can occur in parallel with financing)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <h3>Secure Pre-Approval or Financing Commitment</h3>
+              <div class="step-duration">Days 10-40</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Meet with commercial lenders to determine financing capacity and get pre-approval letter. Explore SBA loans, conventional mortgages, USDA rural development loans.</p>
+            <p><strong>Documents needed:</strong> Business plan, 3-year financials, personal credit report, capital commitment letter</p>
+            <p><strong>Cost:</strong> Free pre-approval; closing costs 2-5% of loan amount</p>
+            <p><strong>Available programs:</strong> SBA 504 loans (70% LTV), USDA B&I loans (rural projects), conventional (80% LTV)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <h3>Prepare Offer & Begin Negotiations</h3>
+              <div class="step-duration">Days 30-60</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Make written offer (LOI or purchase agreement). Negotiate price, terms, closing timeline, seller concessions. For leases, negotiate rent, lease term, renewal options.</p>
+            <p><strong>Key negotiation points:</strong> Price (request 5-10% below asking), closing timeline (30-60 days), inspection contingency (30 days), tenant improvement allowance</p>
+            <p><strong>Cost:</strong> Attorney review ($500-1K)</p>
+            <p><strong>Timeline:</strong> 15-30 days (back-and-forth negotiations)</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">5</div>
+            <div class="step-info">
+              <h3>Formal Appraisal & Final Financing Approval</h3>
+              <div class="step-duration">Days 60-90</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Lender orders property appraisal. Get appraisal completed and finalize loan underwriting. Obtain title insurance commitment.</p>
+            <p><strong>Documents needed:</strong> Appraisal report, updated financials, flood zone determination, title report</p>
+            <p><strong>Cost:</strong> Appraisal fee ($300-600), title insurance (0.5-1% of purchase price)</p>
+            <p><strong>Timeline:</strong> 15-30 days</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">6</div>
+            <div class="step-info">
+              <h3>Final Walkthrough, Document Signing & Closing</h3>
+              <div class="step-duration">Days 90-180</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Final walkthrough to verify property condition. Review closing disclosure and loan documents. Sign at title company. Funds transfer and take occupancy.</p>
+            <p><strong>Documents needed:</strong> Closing disclosure, loan docs, deed, title insurance, final survey</p>
+            <p><strong>Cost:</strong> Closing costs (2-5% of purchase price); attorney $1-2K</p>
+            <p><strong>Timeline:</strong> 3-7 days from clear to close</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="documents-section">
+      <h2>Required Documents Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="doc1">
+          <label for="doc1">Property specifications: square footage, utilities, zoning, parking</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc2">
+          <label for="doc2">Phase 1 Environmental Site Assessment (ESA)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc3">
+          <label for="doc3">Utility assessment: water, electrical, wastewater capacity</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc4">
+          <label for="doc4">Financing pre-approval letter & 3-year financial projections</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc5">
+          <label for="doc5">Purchase agreement or lease agreement with all terms defined</label>
+        </div>
+      </div>
+      <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+    </section>
+
+    <section class="stakeholders-section">
+      <h2>Key Contacts & Stakeholders</h2>
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Name & Title</th>
+            <th>Organization</th>
+            <th>Contact</th>
+            <th>Helps with Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="stakeholder-name">Brandon Erickson</div><div class="stakeholder-contact">Economic Development Director</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:berickson@eldoradokansas.gov">berickson@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 1, 2, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Karen Wilson</div><div class="stakeholder-contact">Commercial Real Estate Broker</div></td>
+            <td>El Dorado Properties LLC</td>
+            <td><a href="mailto:kwilson@eldoradoproperties.com">kwilson@eldoradoproperties.com</a><br>(620) 555-1234</td>
+            <td>Steps 1, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">James Patterson</div><div class="stakeholder-contact">Commercial Lender</div></td>
+            <td>First National Bank of El Dorado</td>
+            <td><a href="mailto:jpatterson@fnbeldorado.com">jpatterson@fnbeldorado.com</a><br>(620) 321-8000</td>
+            <td>Steps 3, 5, 6</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Michael Torres</div><div class="stakeholder-contact">Real Estate Attorney</div></td>
+            <td>Torres Law Group</td>
+            <td><a href="mailto:mtorres@torreslaw.com">mtorres@torreslaw.com</a><br>(620) 321-9999</td>
+            <td>Steps 4, 5, 6</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Should I lease or buy commercial real estate?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Lease if: you're uncertain about location, want low upfront capital, or need flexibility. Buy if: you plan to stay 5+ years, want to build equity, or expect appreciation. Break-even point: typically 5-7 years. El Dorado tax incentives (PEAK) shift the math toward buying — calculate net cost with incentives. Typical scenario: Industrial lease $8/sqft/yr, industrial purchase $80/sqft with PEAK reducing by 50% = $40/sqft net. Break-even in 5 years.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What's the typical price range in El Dorado?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Industrial space: $6-12/sqft annually (lease) or $60-120/sqft (purchase). Commercial/office: $12-18/sqft annually or $120-200/sqft purchase. Downtown retail: $15-25/sqft annually. Mega-sites (50+ acres): $5-8/sqft depending on improvements. El Dorado is 20-30% cheaper than Kansas City metro. Get custom pricing from brokers based on specific property.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What financing options are available?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          SBA 504 Loans: Up to 70% LTV, 10-20 year terms, favorable rates. USDA B&I Loans: For rural projects (El Dorado qualifies), up to 80% LTV, good for manufacturing. Conventional: 80% LTV, requires strong credit/financials. SBA typically best for startups/expansions. First National Bank and regional lenders actively fund El Dorado projects. Get pre-approved before making offers.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How do I factor tax incentives into my purchase decision?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          PEAK program reduces property tax 50-75% for 5-10 years. Calculate: Purchase price $500K → Tax at $25/sqft = $25K/year. PEAK at 50% = $12.5K/year savings × 10 years = $125K total. This effectively reduces your net real estate cost 20-30%. Apply for PEAK within 60 days of business licensing. Work with Tax Assessor to model scenarios.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What should I include in lease negotiations?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Key terms: (1) Rent per sqft + annual escalation, (2) Lease term (3-5 years typical, ask for renewal options), (3) Tenant improvement allowance (landlord covers some renovation costs), (4) Operating expense pass-through (watch for hidden costs), (5) Termination clause (30-60 day notice). For industrial: negotiate landlord responsibility for roof/major utilities. For retail: negotiate signage rights and neighboring tenants.
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story">
+      <div class="success-company">Regional Logistics Company Relocation</div>
+      <div class="success-story-text">
+        Missouri-based logistics company seeking to expand footprint moved 15,000 sqft distribution center to El Dorado. Evaluated multiple properties over 6 weeks, selected mega-site in south industrial corridor. Financed 80% through SBA 504 loan, 20% equity.
+      </div>
+      <div class="success-quote">
+        "Process was clean and fast. Brandon Erickson helped us understand PEAK incentives upfront — saved us $400K over 10 years. First National Bank pre-approved us in 2 weeks. Total transaction time: 90 days from first showing to occupancy. In Kansas City, same project would have taken 4-5 months. The cost advantage plus speed made El Dorado the obvious choice." — Real Estate Director
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">Today: 50 employees, planning Phase 2 expansion to 30,000 sqft</p>
+    </section>
+
+    <section class="next-steps-section">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <div class="next-step-card">
+          <h3>Get Property Inventory</h3>
+          <p>Contact Economic Development Director for current available industrial sites, pricing, and mega-site options.</p>
+          <a href="mailto:berickson@eldoradokansas.gov" class="primary-btn">Request Property List</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Get Financing Pre-Approval</h3>
+          <p>Meet with commercial lender to understand your borrowing capacity and get pre-approval letter for negotiations.</p>
+          <a href="mailto:jpatterson@fnbeldorado.com" class="secondary-btn">Contact Lender →</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Connect with Real Estate Broker</h3>
+          <p>Work with local broker to tour properties, understand market, and negotiate terms on your behalf.</p>
+          <a href="mailto:kwilson@eldoradoproperties.com" class="secondary-btn">Contact Broker →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-playbooks">
+      <h2>Related Playbooks</h2>
+      <div class="playbook-links">
+        <a href="/playbooks/tax-incentives.html" class="playbook-link">Access Tax Incentives & Grants →</a>
+        <a href="/playbooks/rezone.html" class="playbook-link">Rezone or Request Code Variance →</a>
+        <a href="/playbooks/permitting.html" class="playbook-link">Navigate Permitting & Construction →</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Find Your Ideal Commercial Space in El Dorado</h2>
+      <p>El Dorado offers competitive pricing, flexible terms, and strong incentives. Let us help you find the right property for your business.</p>
+      <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Start Your Property Search →</a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.timeline-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const step = header.parentElement;
+        step.classList.toggle('expanded');
+        const content = step.querySelector('.step-content');
+        content.classList.toggle('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', (e) => {
+        const item = question.parentElement;
+        item.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>

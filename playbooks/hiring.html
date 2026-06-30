@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hire Workers & Access Training Programs in El Dorado</title>
+  <meta name="description" content="Guide to hiring in El Dorado: workforce data, CDL training, WIOA programs, and labor resources.">
+  <meta name="keywords" content="hiring, workforce, training, CDL, labor">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/playbooks.css">
+  <style>
+    .timeline-step { background: white; margin: 1.5rem 0; padding: 1.5rem; border-left: 4px solid #C8902A; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .timeline-step.expanded { background: #f9f9f9; }
+    .timeline-header { display: flex; align-items: center; cursor: pointer; user-select: none; }
+    .timeline-header:hover { opacity: 0.8; }
+    .step-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #C8902A; color: white; border-radius: 50%; font-weight: 700; margin-right: 1rem; flex-shrink: 0; }
+    .step-info h3 { margin: 0 0 0.3rem 0; color: #1B3A5C; font-size: 1.1rem; }
+    .step-duration { font-size: 0.85rem; color: #999; }
+    .step-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; }
+    .step-content.hidden { display: none; }
+
+    .faq-item { background: white; margin: 1rem 0; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
+    .faq-question { padding: 1.25rem; background: #f8f9fa; cursor: pointer; user-select: none; font-weight: 600; color: #1B3A5C; display: flex; align-items: center; justify-content: space-between; }
+    .faq-question:hover { background: #f0f2f5; }
+    .faq-toggle { font-size: 1.2rem; color: #C8902A; transition: transform 0.3s; }
+    .faq-item.expanded .faq-toggle { transform: rotate(180deg); }
+    .faq-answer { padding: 1.25rem; color: #555; line-height: 1.7; background: white; max-height: 0; overflow: hidden; transition: max-height 0.3s; }
+    .faq-item.expanded .faq-answer { max-height: 1000px; }
+
+    .stakeholder-table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .stakeholder-table th { background: #1B3A5C; color: white; padding: 1rem; text-align: left; font-weight: 600; }
+    .stakeholder-table td { padding: 1rem; border-bottom: 1px solid #eee; }
+    .stakeholder-table tr:hover { background: #f9f9f9; }
+    .stakeholder-name { font-weight: 600; color: #1B3A5C; }
+    .stakeholder-contact { font-size: 0.9rem; color: #666; }
+
+    .program-card { background: white; padding: 1.5rem; margin: 1.5rem 0; border-left: 4px solid #C8902A; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    .program-name { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .program-highlight { color: #28A745; font-weight: 600; margin-bottom: 0.75rem; }
+
+    .success-story { background: linear-gradient(135deg, rgba(200,144,42,0.1) 0%, rgba(27,58,92,0.05) 100%); padding: 2rem; border-left: 4px solid #C8902A; border-radius: 6px; margin: 2rem 0; }
+    .success-company { font-weight: 700; color: #1B3A5C; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .success-story-text { color: #555; line-height: 1.7; margin: 1rem 0; }
+    .success-quote { font-style: italic; color: #C8902A; margin: 1rem 0; }
+  </style>
+</head>
+<body data-page="hiring">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <section class="playbook-hero">
+    <div class="hero-content">
+      <h1>Hire Workers & Access Training Programs</h1>
+      <p class="hero-subtitle">For HR managers and workforce leaders</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">30-60 Days</div>
+          <div class="stat-label">Estimated Time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Key Stakeholders</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Required Resources</div>
+        </div>
+      </div>
+      <button class="hero-cta" onclick="document.querySelector('.timeline-section').scrollIntoView({behavior:'smooth'})">Get Started</button>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="overview-section">
+      <h2>Overview</h2>
+      <p>El Dorado has a strong labor force with 25,000+ workers within 30-minute commute. Unemployment in Butler County is 3.5%, and local training programs (USD 490, Butler Community College) actively prepare workers for manufacturing, logistics, healthcare, and skilled trades positions.</p>
+      <p>This guide helps you post jobs, access pre-trained candidates, leverage workforce development funding (WIOA), and execute relocation assistance programs. Most employers fill positions within 30-45 days through local channels. Training subsidies can reduce hiring costs by 30-50%.</p>
+    </section>
+
+    <section class="timeline-section">
+      <h2>Timeline & Steps</h2>
+      <p>Here's the typical process for recruiting and hiring workers in El Dorado:</p>
+
+      <div class="timeline-steps">
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">1</div>
+            <div class="step-info">
+              <h3>Define Roles & Partner with Training Programs</h3>
+              <div class="step-duration">Days 1-10</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Identify positions you need to fill. Define job titles, skills, wages, start dates. Contact USD 490 and Butler CC to discuss pre-training partnerships (CDL, welding, CNC, general manufacturing).</p>
+            <p><strong>Available programs:</strong> CDL (Commercial Driver License) training, welding certification, CNC operator, manufacturing basics, healthcare certifications</p>
+            <p><strong>Cost:</strong> Free consultation; training subsidies 30-50% available through WIOA</p>
+            <p><strong>Timeline:</strong> 5-10 days to define roles and initiate partnerships</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">2</div>
+            <div class="step-info">
+              <h3>Post Job Openings & Screen Candidates</h3>
+              <div class="step-duration">Days 10-30</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Post jobs on your website, local job boards, and Kansas Department of Labor site (free). Work with Workforce Development to identify pre-screened candidates from training programs.</p>
+            <p><strong>Channels:</strong> Kansas DOL (free), Indeed, LinkedIn, local chamber, direct referrals from training programs</p>
+            <p><strong>Pre-training candidates:</strong> Graduates from USD 490 CDL/welding/CNC programs often available (50+ trained annually)</p>
+            <p><strong>Timeline:</strong> 15-20 days from posting to candidate interviews</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">3</div>
+            <div class="step-info">
+              <h3>Interview, Assess, & Offer Employment</h3>
+              <div class="step-duration">Days 25-40</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Conduct interviews with candidates. Assess technical skills, cultural fit, background check. Make employment offers. If sourced from training programs, eligible candidates may trigger WIOA incentive payments ($1K-5K per hire).</p>
+            <p><strong>WIOA incentives:</strong> Employers who hire WIOA-eligible candidates receive $1K-5K per hire from state funding (no cost to you)</p>
+            <p><strong>Cost:</strong> None (incentives paid by state)</p>
+            <p><strong>Timeline:</strong> 15 days from interviews to offer acceptance</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">4</div>
+            <div class="step-info">
+              <h3>On-Board & Execute Training</h3>
+              <div class="step-duration">Days 40-60</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Employee starts on agreed date. Begin on-boarding and on-the-job training. If hired from training program, you may be eligible for employer training incentives (wage subsidies for first 90 days).</p>
+            <p><strong>Training support:</strong> On-the-job training grants (OJT) can subsidize 50% of wages for first 90 days for eligible candidates</p>
+            <p><strong>Cost:</strong> Your standard wages; training subsidies cover portion (no additional cost)</p>
+            <p><strong>Timeline:</strong> 20 days</p>
+          </div>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-header" onclick="this.parentElement.classList.toggle('expanded')">
+            <div class="step-number">5</div>
+            <div class="step-info">
+              <h3>Retain & Support Long-Term Employment</h3>
+              <div class="step-duration">Ongoing (Days 60+)</div>
+            </div>
+            <span class="expand-toggle">▼</span>
+          </div>
+          <div class="step-content hidden">
+            <p><strong>What to do:</strong> Provide mentorship, advancement opportunities, and career development. Access continuing education programs through Butler CC and USD 490. Address housing/relocation needs (if hiring from out-of-area).</p>
+            <p><strong>Retention support:</strong> Continuing education grants, apprenticeship programs, career advancement planning</p>
+            <p><strong>Relocation assistance:</strong> Housing down-payment assistance available through city (up to $25K for new residents)</p>
+            <p><strong>Timeline:</strong> Ongoing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs-overview">
+      <h2>Workforce Training & Funding Programs</h2>
+
+      <div class="program-card">
+        <div class="program-name">CDL (Commercial Driver License) Training</div>
+        <div class="program-highlight">30-40 graduates per year | 50% of wages subsidized (first 90 days)</div>
+        <p><strong>What it is:</strong> 4-6 week intensive training for commercial driver licenses. Pre-trained graduates available for logistics, transportation, and delivery roles.</p>
+        <p><strong>Cost to employer:</strong> Free (training funded by state). WIOA incentive: $2K-3K per hire. Training subsidy: 50% wage reimbursement for 90-day OJT.</p>
+        <p><strong>How to access:</strong> Contact USD 490 Workforce Coordinator to identify graduates and pre-hire candidates. Coordinate start dates.</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-name">WIOA (Workforce Innovation & Opportunity Act)</div>
+        <div class="program-highlight">Up to $5K per hire | 50-100% wage subsidy for 90 days | Free training</div>
+        <p><strong>What it is:</strong> Federal workforce program provides hiring incentives, training subsidies, and case management for eligible workers.</p>
+        <p><strong>Eligibility:</strong> Hire workers ages 18-24 (youth), 25+ (adults), or dislocated workers. Preference for low-income, welfare recipients, veterans.</p>
+        <p><strong>Employer benefits:</strong> $1K-5K per hire + wage subsidy (50-100% of wages for first 90 days) + free case management.</p>
+        <p><strong>How to access:</strong> Submit job requisitions to Workforce Development. They pre-screen and refer eligible candidates. No cost to you.</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-name">Manufacturing & Skilled Trades Training</div>
+        <div class="program-highlight">15-25 graduates per year | Welding, CNC, industrial maintenance</div>
+        <p><strong>What it is:</strong> Butler Community College offers welding, CNC, and industrial maintenance certificates (6-12 months). USD 490 offers manufacturing basics (4 weeks).</p>
+        <p><strong>Cost to employer:</strong> Free training (funded by state grants). Graduates typically available for hire within 2-4 weeks of course completion.</p>
+        <p><strong>Custom training:</strong> If you need specialized skills, Butler CC can develop customized training (subsidized).</p>
+        <p><strong>How to access:</strong> Contact Butler CC workforce liaison. Provide job descriptions. Program coordinator matches graduates to your needs.</p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-name">Employer Training Incentive (On-the-Job Training)</div>
+        <div class="program-highlight">50-100% wage subsidy for first 90 days | Up to $5K per employee</div>
+        <p><strong>What it is:</strong> Reimburses employers for wage costs of newly hired workers during training period.</p>
+        <p><strong>Eligibility:</strong> Hire WIOA-eligible workers (low-income, dislocated, youth, or veterans). Standard wage training acceptable.</p>
+        <p><strong>How it works:</strong> You pay normal wages. State reimburses 50-100% based on wage level and worker category. No out-of-pocket training cost.</p>
+        <p><strong>How to access:</strong> Contact Workforce Development. They process reimbursement directly once worker is hired and tracking begins.</p>
+      </div>
+    </section>
+
+    <section class="documents-section">
+      <h2>Required Resources Checklist</h2>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox" id="doc1">
+          <label for="doc1">Job descriptions with required skills, experience, and wages</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc2">
+          <label for="doc2">Onboarding plan & 90-day training schedule for new hires</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox" id="doc3">
+          <label for="doc3">Completed WIOA employer registration form (for training incentives)</label>
+        </div>
+      </div>
+      <button class="primary-btn" style="margin-top: 1.5rem;">Download PDF Checklist</button>
+    </section>
+
+    <section class="stakeholders-section">
+      <h2>Key Contacts & Stakeholders</h2>
+      <table class="stakeholder-table">
+        <thead>
+          <tr>
+            <th>Name & Title</th>
+            <th>Organization</th>
+            <th>Contact</th>
+            <th>Helps with Step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="stakeholder-name">Jennifer Martinez</div><div class="stakeholder-contact">Workforce Development Director</div></td>
+            <td>USD 490</td>
+            <td><a href="mailto:jmartinez@usd490.org">jmartinez@usd490.org</a><br>(620) 321-5555</td>
+            <td>Steps 1, 2, 3, 4</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Thomas Blackwell</div><div class="stakeholder-contact">Workforce Training Director</div></td>
+            <td>Butler Community College</td>
+            <td><a href="mailto:tblackwell@butlercc.edu">tblackwell@butlercc.edu</a><br>(620) 331-5000</td>
+            <td>Steps 1, 3</td>
+          </tr>
+          <tr>
+            <td><div class="stakeholder-name">Amanda Foster</div><div class="stakeholder-contact">Business Recruitment Coordinator</div></td>
+            <td>City of El Dorado</td>
+            <td><a href="mailto:afoster@eldoradokansas.gov">afoster@eldoradokansas.gov</a><br>(316) 321-9100</td>
+            <td>Steps 2, 4, 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How much will hiring local workers cost me?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Your standard wage (market rate for the position). No training surcharge. WIOA-eligible workers may trigger $1K-5K hiring incentives (paid to you by state). On-the-job training subsidy can reimburse 50-100% of wages for first 90 days. Net cost for first 90 days can be 0-50% of standard wages depending on worker eligibility and training level.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>How long does it take to fill a position?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Typical timeline: 30-45 days from posting to hire. Fast-track (pre-trained CDL/welding candidates): 2-3 weeks. Slow (specialized skills not available locally): 60-90 days. Work with Workforce Development to post jobs — they actively recruit and screen candidates, accelerating timeline. Get job descriptions to them early and update as candidates apply.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Are there housing assistance programs for relocated workers?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes. El Dorado offers down-payment assistance (up to $25K) for new residents relocating for employment. Low-interest mortgages (3-4%) available through city partnerships. Rental assistance also available. Contact City Hall (Amanda Foster or Brandon Erickson) for application and eligibility. This is a powerful recruitment tool when hiring from out-of-area.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>Can I get custom training if I need specialized skills?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Yes. Butler Community College develops customized training programs (2-12 weeks depending on skill). Contact Thomas Blackwell with your job descriptions and skill requirements. College works with you to design curriculum, source instructors, and deliver training. Typically partially subsidized by state grants. Timeline: 4-8 weeks to launch custom program.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>What happens if I need to hire quickly — can I get people trained faster?</span>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          Fast options: (1) Hire pre-trained CDL/welding graduates immediately available (2-3 weeks), (2) WIOA on-the-job training model (hire and train internally, state subsidizes wages), (3) Accelerated custom training (intensive 2-4 week programs), (4) Interim staffing through temp agencies while training. Talk to Workforce Development about your timeline — they can recommend fastest path.
+        </div>
+      </div>
+    </section>
+
+    <section class="success-story">
+      <div class="success-company">Manufacturing Company Workforce Expansion</div>
+      <div class="success-story-text">
+        Manufacturing company needed to hire 15 production workers for facility expansion. Worked with USD 490 to identify 8 pre-trained CDL and manufacturing-certified workers available immediately. Applied for WIOA funding for remaining 7 positions.
+      </div>
+      <div class="success-quote">
+        "We posted positions in January. By March, we had all 15 hires on board. 8 came from pre-training programs (ready in 2 weeks). 7 came through WIOA (initial hire + 90-day training). Total subsidy value: $25K (5 x $5K WIOA incentive + wage subsidies). Without these programs, hiring would have taken 4-5 months and cost $200K+ in recruiting fees. El Dorado's workforce ecosystem is world-class." — HR Director
+      </div>
+      <p style="font-size: 0.9rem; color: #999;">Today: 70 employees, retention rate 92% (first year), planning Phase 2 with 20 more hires</p>
+    </section>
+
+    <section class="next-steps-section">
+      <h2>Next Steps</h2>
+      <div class="next-steps-grid">
+        <div class="next-step-card">
+          <h3>Define Your Positions</h3>
+          <p>Write job descriptions with required skills, experience, wages, and timeline. Contact Workforce Development with your needs.</p>
+          <a href="mailto:jmartinez@usd490.org" class="primary-btn">Contact Workforce Development</a>
+        </div>
+        <div class="next-step-card">
+          <h3>Register for WIOA Programs</h3>
+          <p>Complete employer registration to access hiring incentives, training subsidies, and wage reimbursements.</p>
+          <button class="primary-btn" style="width: 100%;">Download WIOA Form</button>
+        </div>
+        <div class="next-step-card">
+          <h3>Explore Training Partnerships</h3>
+          <p>Meet with Butler CC and USD 490 to discuss pre-trained candidates and custom training options.</p>
+          <a href="mailto:tblackwell@butlercc.edu" class="secondary-btn">Contact Butler CC →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="related-playbooks">
+      <h2>Related Playbooks</h2>
+      <div class="playbook-links">
+        <a href="/playbooks/start-business.html" class="playbook-link">Start a Business in El Dorado →</a>
+        <a href="/playbooks/expand-manufacturing.html" class="playbook-link">Expand Manufacturing Operations →</a>
+        <a href="/playbooks/real-estate.html" class="playbook-link">Purchase or Lease Commercial Real Estate →</a>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Build Your Workforce in El Dorado</h2>
+      <p>Access pre-trained workers, training subsidies, and hiring incentives. El Dorado makes workforce development simple and affordable.</p>
+      <a href="mailto:business@eldoradokansas.gov" class="primary-btn large">Start Recruiting Today →</a>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.timeline-header').forEach(header => {
+      header.addEventListener('click', (e) => {
+        const step = header.parentElement;
+        step.classList.toggle('expanded');
+        const content = step.querySelector('.step-content');
+        content.classList.toggle('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', (e) => {
+        const item = question.parentElement;
+        item.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>
