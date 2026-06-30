@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Lead Capture Form Components</title>
+ <style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 40px; background: #f9f9f9; }
+ .form-demo { background: white; padding: 32px; margin-bottom: 40px; border-radius: 8px; max-width: 500px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+ .form-demo h2 { margin: 0 0 24px; color: #1B3A5C; font-size: 1.5rem; }
+ .form-group { margin-bottom: 20px; }
+  label { display: block; margin-bottom: 8px; color: #333; font-weight: 600; font-size: 0.9rem; }
+  input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; font-family: inherit; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #C8902A; box-shadow: 0 0 0 3px rgba(200, 144, 42, 0.1); }
+  textarea { resize: vertical; min-height: 100px; }
+  button { width: 100%; padding: 14px; background: #1B3A5C; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+  button:hover { background: #0f2640; }
+ .form-note { font-size: 0.85rem; color: #666; margin-bottom: 20px; }
+  code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+ </style>
+ <meta name="description" content="Lead capture forms for investor prospects, property inquiries, and partnership opportunities in El Dorado Vision 2040." />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body>
+ <div id="nav-mount"></div>
+<h1>Lead Capture Forms — Ready to Deploy</h1>
+<p style="color: #666; margin-bottom: 40px;">Copy the HTML form components below and add to the bottom of each industry page.</p>
+
+<!-- FORM 1: Precision Agriculture -->
+<div class="form-demo">
+ <h2>🌾 Precision Agriculture Inquiry</h2>
+ <p class="form-note">Add this form to: <code>/precision-ag.html</code></p>
+
+ <form id="inquiry-form-precision-ag" onsubmit="handleFormSubmit(event, 'precision-ag')">
+  <div class="form-group">
+   <label for="company-pa">Company Name *</label>
+   <input type="text" id="company-pa" name="company" required>
+  </div>
+
+  <div class="form-group">
+   <label for="name-pa">Your Name *</label>
+   <input type="text" id="name-pa" name="name" required>
+  </div>
+
+  <div class="form-group">
+   <label for="email-pa">Email Address *</label>
+   <input type="email" id="email-pa" name="email" required>
+  </div>
+
+  <div class="form-group">
+   <label for="phone-pa">Phone (Optional)</label>
+   <input type="tel" id="phone-pa" name="phone">
+  </div>
+
+  <div class="form-group">
+   <label for="interest-pa">Interest Level *</label>
+   <select id="interest-pa" name="interest" required>
+    <option value="">Select one...</option>
+    <option value="exploring">Exploring opportunities</option>
+    <option value="actively">Actively evaluating sites</option>
+    <option value="ready">Ready to move forward</option>
+    <option value="other">Other</option>
+   </select>
+  </div>
+
+  <div class="form-group">
+   <label for="message-pa">Message / Questions (Optional)</label>
+   <textarea id="message-pa" name="message" placeholder="Tell us about your expansion plans..."></textarea>
+  </div>
+
+  <button type="submit">Send Inquiry →</button>
+ </form>
+</div>
+
+<!-- FORM 2: Aerospace & Defense -->
+<div class="form-demo">
+ <h2>✈️ Aerospace & Defense Inquiry</h2>
+ <p class="form-note">Add this form to: <code>/aerospace.html</code></p>
+
+ <form id="inquiry-form-aerospace" onsubmit="handleFormSubmit(event, 'aerospace')">
+  <div class="form-group">
+   <label for="company-aero">Company Name *</label>
+   <input type="text" id="company-aero" name="company" required>
+  </div>
+
+  <div class="form-group">
+   <label for="name-aero">Your Name *</label>
+   <input type="text" id="name-aero" name="name" required>
+  </div>
+
+  <div class="form-group">
+   <label for="email-aero">Email Address *</label>
+   <input type="email" id="email-aero" name="email" required>
+  </div>
+
+  <div class="form-group">
+   <label for="phone-aero">Phone (Optional)</label>
+   <input type="tel" id="phone-aero" name="phone">
+  </div>
+
+  <div class="form-group">
+   <label for="role-aero">Your Role *</label>
+   <select id="role-aero" name="role" required>
+    <option value="">Select one...</option>
+    <option value="exec">C-Suite Executive</option>
+    <option value="business-dev">Business Development</option>
+    <option value="operations">Operations / Facilities</option>
+    <option value="supply-chain">Supply Chain</option>
+    <option value="other">Other</option>
+   </select>
+  </div>
+
+  <div class="form-group">
+   <label for="message-aero">Message / Questions (Optional)</label>
+   <textarea id="message-aero" name="message" placeholder="Tell us about your expansion plans..."></textarea>
+  </div>
+
+  <button type="submit">Send Inquiry →</button>
+ </form>
+</div>
+
+<!-- FORM 3: Generic Multi-Industry Form -->
+<div class="form-demo">
+ <h2>📧 Generic Industry Inquiry Form</h2>
+ <p class="form-note">Use for all other industry pages (batteries, biotech, logistics, water)</p>
+
+ <form id="inquiry-form-generic" onsubmit="handleFormSubmit(event, 'generic')">
+  <div class="form-group">
+   <label for="company-gen">Company Name *</label>
+   <input type="text" id="company-gen" name="company" required>
+  </div>
+
+  <div class="form-group">
+   <label for="name-gen">Your Name *</label>
+   <input type="text" id="name-gen" name="name" required>
+  </div>
+
+  <div class="form-group">
+   <label for="email-gen">Email Address *</label>
+   <input type="email" id="email-gen" name="email" required>
+  </div>
+
+  <div class="form-group">
+   <label for="phone-gen">Phone (Optional)</label>
+   <input type="tel" id="phone-gen" name="phone">
+  </div>
+
+  <div class="form-group">
+   <label for="industry-gen">Industry Focus *</label>
+   <select id="industry-gen" name="industry" required>
+    <option value="">Select one...</option>
+    <option value="precision-ag">Precision Agriculture</option>
+    <option value="batteries-ev">Batteries & EV Supply Chain</option>
+    <option value="biotech">Biotech & Agrigenomics</option>
+    <option value="aerospace">Aerospace & Defense</option>
+    <option value="logistics">Cold Chain Logistics</option>
+    <option value="water">Water Infrastructure</option>
+   </select>
+  </div>
+
+  <div class="form-group">
+   <label for="message-gen">Message / Questions (Optional)</label>
+   <textarea id="message-gen" name="message" placeholder="Tell us about your expansion plans..."></textarea>
+  </div>
+
+  <button type="submit">Send Inquiry →</button>
+ </form>
+</div>
+
+<hr style="margin: 60px 0; border: none; border-top: 1px solid #ddd;">
+
+<h2 style="margin-top: 60px;">Integration Instructions</h2>
+
+<h3>Option 1: Google Forms (Easiest)</h3>
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;">
+1. Create a Google Form: https://forms.google.com
+2. Add fields:
+  - Company Name (Text)
+  - Your Name (Text)
+  - Email Address (Email)
+  - Phone (Text)
+  - Interest Level / Role (Multiple Choice)
+  - Message (Paragraph)
+3. Get embed code: Click Share → &lt;/&gt; (Embed)
+4. Paste into each industry page HTML
+5. Response sheet auto-populates: Google Sheets integration
+</pre>
+
+<h3>Option 2: Formspree (Free Email Submissions)</h3>
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;">
+1. Go to: https://formspree.io
+2. Create project
+3. Add email: yourname@eldorado.gov
+4. Get form action URL: https://formspree.io/f/[ID]
+5. Replace form action in HTML below with your URL
+6. Submissions go to your email
+</pre>
+
+<h3>Option 3: Custom Backend (Most Control)</h3>
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;">
+1. Set up form handler (Node.js, Python Flask, PHP, etc.)
+2. Connect to CRM or database
+3. Advanced tracking + automation
+4. More complex but most powerful
+</pre>
+
+<h2>Quick HTML Template (Formspree)</h2>
+
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;"><code>&lt;form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"&gt;
+ &lt;div class="form-group"&gt;
+  &lt;label for="company"&gt;Company Name *&lt;/label&gt;
+  &lt;input type="text" id="company" name="company" required&gt;
+ &lt;/div&gt;
+
+ &lt;div class="form-group"&gt;
+  &lt;label for="email"&gt;Email Address *&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+ &lt;/div&gt;
+
+ &lt;button type="submit"&gt;Send Inquiry →&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+<h2>Tracking Form Submissions in Analytics</h2>
+
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;"><code>&lt;script&gt;
+document.getElementById('inquiry-form-precision-ag').addEventListener('submit', function(e) {
+ // Track in GA4
+ gtag('event', 'form_submission', {
+  'form_name': 'precision_ag_inquiry',
+  'form_location': window.location.pathname
+ });
+
+ // Optional: send data to Formspree / email
+ // Form will submit normally
+});
+&lt;/script&gt;</code></pre>
+
+<h2>Next Steps</h2>
+
+<ol style="line-height: 2; color: #333;">
+ <li><strong>Choose platform:</strong> Google Forms (easiest), Formspree (free), or custom backend</li>
+ <li><strong>Set up form:</strong> Create and test submission</li>
+ <li><strong>Add to pages:</strong> Paste form HTML at bottom of each industry page</li>
+ <li><strong>Test submissions:</strong> Send test inquiry from each form</li>
+ <li><strong>Set up auto-responses:</strong> Email/form confirmation to submitter</li>
+ <li><strong>Track in analytics:</strong> Monitor form submission conversion (see ANALYTICS_SETUP_GUIDE.md)</li>
+ <li><strong>Assign follow-up:</strong> Create workflow (auto-email response + manual follow-up within 24 hrs)</li>
+</ol>
+
+<h2>Response Email Template (Auto-Reply)</h2>
+
+<pre style="background: #f5f5f5; padding: 16px; border-radius: 6px; overflow-x: auto;"><code>Subject: Thanks for Your Interest in El Dorado!
+
+Hi [Name],
+
+Thanks for reaching out about El Dorado's [Industry] initiative. We're excited
+about your potential interest!
+
+Next Steps:
+ 1. Our team will review your inquiry within 24 hours
+ 2. We'll reach out to discuss your specific needs
+ 3. If interested, we can schedule a site visit or call
+
+Quick Facts:
+ • [Key incentive]
+ • [Key advantage]
+ • [Timeline]
+
+Questions in the meantime? Email us at [contact-email]
+
+Best,
+El Dorado Economic Development Team
+[Phone] | [Website]</code></pre>
+
+---
+
+<h2>Estimated Implementation Time</h2>
+
+<ul style="line-height: 2;">
+ <li><strong>Google Forms:</strong> 20 minutes (fastest)</li>
+ <li><strong>Formspree:</strong> 30 minutes (easy + email)</li>
+ <li><strong>Custom backend:</strong> 2-4 hours (most control)</li>
+</ul>
+
+<p style="margin-top: 40px; color: #666; font-size: 0.9rem;"><strong>Recommendation:</strong> Start with Google Forms for speed, move to Formspree when you're ready for email integration. Upgrade to custom backend once you need CRM integration / advanced automation.</p>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

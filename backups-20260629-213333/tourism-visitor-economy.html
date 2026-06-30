@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tourism & Visitor Economy Hub | El Dorado Vision 2040</title>
+ <meta name="description" content="El Dorado Lake draws 1M+ visitors annually. Vision 2040 captures that spending through new waterfront dining, lodging, and marina infrastructure.">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+ <link rel="stylesheet" href="css/styles.css">
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="tourism">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <!-- HERO -->
+ <div class="page-hero">
+  <div class="page-hero-inner">
+   <div class="breadcrumb"><a href="index.html">Home</a> › <a href="place.html">Place</a> › Tourism & Visitor Economy</div>
+   <h1>Tourism & Visitor Economy Hub</h1>
+   <p class="page-subtitle">Capturing economic value from 1M+ annual El Dorado Lake visitors</p>
+  </div>
+ </div>
+
+ <!-- NAV PILLS -->
+ <nav class="page-nav">
+  <div class="page-nav-inner">
+   <a href="#overview" class="page-nav__pill">Market Opportunity</a>
+   <a href="#visitor-profile" class="page-nav__pill">Visitor Profile</a>
+   <a href="#waterfront-dining" class="page-nav__pill">Dining Strategy</a>
+   <a href="#lodging" class="page-nav__pill">Boutique Lodging</a>
+   <a href="#marinas" class="page-nav__pill">Marina Infrastructure</a>
+   <a href="#initiatives" class="page-nav__pill">Key Initiatives</a>
+  </div>
+ </nav>
+
+ <!-- SECTIONS -->
+ <section id="overview" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-category">Place & Recreation</span>
+    <span class="section-label">The Untapped Opportunity</span>
+    <h2>1 Million Visitors, Zero Economic Capture</h2>
+    <p class="lead">El Dorado Lake is Kansas's most-visited state park, drawing 1M+ annual visitors. Yet the city captures effectively zero lakefront dining, boutique lodging, or commercial amenity spending. Every visitor dollar exits Butler County before reaching a single El Dorado register. Vision 2040's visitor economy strategy transforms this missed opportunity into a $25M+ annual revenue stream.</p>
+   </div>
+
+   <!-- Quick Stats -->
+   <div class="stats-grid reveal" style="margin: 2.5rem 0;">
+    <div class="stat-card">
+     <div class="stat-value">1,000,000+</div>
+     <div class="stat-label">Annual Visitors (KDWPT 2022+)</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">$0</div>
+     <div class="stat-label">Current Lakefront Dining</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">$25M+</div>
+     <div class="stat-label">Potential Annual Revenue (5 years)</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">45 min</div>
+     <div class="stat-label">Drive to Nearest Lake Town Dining</div>
+    </div>
+   </div>
+
+   <!-- The Gap Analysis -->
+   <div class="callout-box reveal" style="background: rgba(255,212,0,.08); border: 1px solid rgba(255,212,0,.3); padding: 2rem; border-radius: var(--radius); margin: 2.5rem 0;">
+    <h3 style="margin-top: 0; color: var(--navy);">The Market Gap</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">What Exists Today</h4>
+      <ul style="color: #555; line-height: 1.8;">
+       <li>1,100 campsites (KDWPT)</li>
+       <li>6 boat ramps</li>
+       <li>2 swimming beaches</li>
+       <li>Walnut Valley Sailing Club</li>
+       <li>Shady Creek Marina (100 slips)</li>
+       <li>No restaurants within park</li>
+       <li>No hotel/resort lodging</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">What Vision 2040 Adds</h4>
+      <ul style="color: #555; line-height: 1.8;">
+       <li>West Marina (150 slips + amenities)</li>
+       <li>Full-service dining (2-3 restaurants)</li>
+       <li>30-50 room boutique resort</li>
+       <li>Waterfront retail + gift shops</li>
+       <li>Event venue (weddings, conferences)</li>
+       <li>Water sports rentals (kayak, SUP)</li>
+       <li>Multi-modal transportation hub</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="visitor-profile" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Demographics & Spending Patterns</span>
+    <h2>Who Are the 1M Annual Visitors?</h2>
+   </div>
+
+   <div class="visitor-segments reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+    <div class="segment-card" style="background: white; padding: 1.75rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <div style="font-size: 2rem; margin-bottom: 0.5rem;">⛺</div>
+     <h4 style="margin-top: 0; color: var(--navy);">Camping Families</h4>
+     <p style="color: #555; font-size: 0.95rem;">45% of visitors; 2-4 day stays; $60-100/day spending per family.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy); font-weight: 500;">200,000 visitors/year</div>
+    </div>
+
+    <div class="segment-card" style="background: white; padding: 1.75rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <div style="font-size: 2rem; margin-bottom: 0.5rem;">⛵</div>
+     <h4 style="margin-top: 0; color: var(--navy);">Boating Enthusiasts</h4>
+     <p style="color: #555; font-size: 0.95rem;">30% of visitors; weekend sailors/fishermen; $100-200/day on fuel, food, retail.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy); font-weight: 500;">300,000 visitors/year</div>
+    </div>
+
+    <div class="segment-card" style="background: white; padding: 1.75rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <div style="font-size: 2rem; margin-bottom: 0.5rem;">🚴</div>
+     <h4 style="margin-top: 0; color: var(--navy);">Day-Trip Recreationists</h4>
+     <p style="color: #555; font-size: 0.95rem;">20% of visitors; hiking, biking, swimming; $30-60/day per person.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy); font-weight: 500;">200,000 visitors/year</div>
+    </div>
+
+    <div class="segment-card" style="background: white; padding: 1.75rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <div style="font-size: 2rem; margin-bottom: 0.5rem;">👨‍👩‍👧</div>
+     <h4 style="margin-top: 0; color: var(--navy);">Regional Events</h4>
+     <p style="color: #555; font-size: 0.95rem;">5% of visitors; regattas, tournaments, special events; high-value multi-day stays.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy); font-weight: 500;">50,000 visitors/year</div>
+    </div>
+   </div>
+
+   <!-- Spending Potential -->
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0;">Annual Visitor Spending Potential</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="border-left: 4px solid #C8902A; padding-left: 1rem;">
+      <div style="font-size: 1.5rem; font-weight: 700; color: #C8902A;">$120M</div>
+      <div style="font-size: 0.9rem; color: #555;">Total regional visitor spending (all destinations)</div>
+     </div>
+     <div style="border-left: 4px solid #4A90BF; padding-left: 1rem;">
+      <div style="font-size: 1.5rem; font-weight: 700; color: #4A90BF;">$8-12M</div>
+      <div style="font-size: 0.9rem; color: #555;">Current El Dorado capture (partial)</div>
+     </div>
+     <div style="border-left: 4px solid #28A745; padding-left: 1rem;">
+      <div style="font-size: 1.5rem; font-weight: 700; color: #28A745;">$25M+</div>
+      <div style="font-size: 0.9rem; color: #555;">Vision 2040 target (by Year 5)</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="waterfront-dining" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Food & Beverage Strategy</span>
+    <h2>Waterfront Dining: The Anchor Experience</h2>
+    <p class="lead">Zero lakefront dining is the single biggest competitive disadvantage. Visitors currently spend $20-50/meal at distant restaurants in Wichita or El Dorado proper. Waterfront dining captures that spending and anchors a full ecosystem of secondary spending (lodging, retail, boat rentals).</p>
+   </div>
+
+   <div class="dining-strategy reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Flagship Restaurant</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em;">Waterfront Prime Dining</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-top: 0.25rem;">$8-15/plate</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+      <li>100-120 seats</li>
+      <li>Indoor + outdoor waterfront patio</li>
+      <li>Regional farm-to-table cuisine</li>
+      <li>Full bar + wine selection</li>
+      <li>Private event space (weddings)</li>
+      <li>~$1.8M annual revenue</li>
+     </ul>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Casual Lakeside Cafe</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em;">Quick Service + Beverages</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-top: 0.25rem;">$8-12/person</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+      <li>60-80 seats (mostly outdoor)</li>
+      <li>Breakfast + lunch + coffee</li>
+      <li>Grab-and-go sandwiches, pastries</li>
+      <li>Local craft coffee, smoothies</li>
+      <li>Beach-side casual vibe</li>
+      <li>~$800K annual revenue</li>
+     </ul>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Marina Bar & Grill</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em;">Boat-In Casual</div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-top: 0.25rem;">$12-18/plate</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+      <li>40-50 seats</li>
+      <li>Marina-integrated (deck access)</li>
+      <li>Burgers, seafood, comfort food</li>
+      <li>Sports bar atmosphere</li>
+      <li>Live music (seasonal)</li>
+      <li>~$600K annual revenue</li>
+     </ul>
+    </div>
+   </div>
+
+   <!-- Economic Impact -->
+   <div class="reveal" style="background: rgba(40,167,69,.08); border: 1px solid rgba(40,167,69,.3); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">3-Restaurant Waterfront Dining Economic Impact</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #28A745;">$3.2M</div>
+      <div style="font-size: 0.9rem; color: #555;">Combined annual revenue</div>
+     </div>
+     <div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #28A745;">45-60</div>
+      <div style="font-size: 0.9rem; color: #555;">Full-time jobs created</div>
+     </div>
+     <div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #28A745;">$320K+</div>
+      <div style="font-size: 0.9rem; color: #555;">Annual local tax revenue</div>
+     </div>
+     <div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #28A745;">$12M+</div>
+      <div style="font-size: 0.9rem; color: #555;">Secondary spending multiplier (5 years)</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="lodging" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Accommodation Strategy</span>
+    <h2>Boutique Lodging: Longer Stays, Higher Revenue</h2>
+    <p class="lead">Dining anchors a day visit. Lodging anchors multi-day stays and visitor groups. A 30-50 room lakefront boutique resort attracts regional events (weddings, conferences, family reunions) that generate $8M+ in secondary spending annually.</p>
+   </div>
+
+   <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem; reveal">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h3 style="margin-top: 0; color: var(--navy);">Proposed Resort Profile</h3>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Scale:</strong> 40-50 rooms</li>
+       <li><strong>Style:</strong> Contemporary waterfront (Aman-inspired)</li>
+       <li><strong>Average Rate:</strong> $180-250/night</li>
+       <li><strong>Amenities:</strong></li>
+       <ul style="font-size: 0.9rem; margin-top: 0.5rem; margin-left: 1rem;">
+        <li>Full-service restaurant + bar</li>
+        <li>Waterfront spa (10-12 treatment rooms)</li>
+        <li>Meeting/event space (500 pax capacity)</li>
+        <li>Private beach access</li>
+        <li>Boat dock + rental concession</li>
+        <li>Fitness center + yoga studio</li>
+        <li>Firepit lounge area</li>
+       </ul>
+      </ul>
+     </div>
+     <div>
+      <h3 style="margin-top: 0; color: var(--navy);">Financial Projections (Year 5)</h3>
+      <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+         <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Occupancy Rate</div>
+         <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">72%</div>
+        </div>
+        <div>
+         <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">ADR (Avg Daily Rate)</div>
+         <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$215</div>
+        </div>
+        <div>
+         <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Annual Revenue</div>
+         <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">$5.6M</div>
+        </div>
+        <div>
+         <div style="font-size: 0.75rem; color: #777; text-transform: uppercase;">Operating Margin</div>
+         <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy);">38%</div>
+        </div>
+       </div>
+      </div>
+      <div style="font-size: 0.9rem; color: #555; line-height: 1.7;">
+       <p><strong>Employment:</strong> 60-75 FTE staff</p>
+       <p><strong>Event Revenue:</strong> $1.2M+ (weddings, conferences)</p>
+       <p><strong>F&B Revenue:</strong> $1.8M (restaurant + room service)</p>
+       <p><strong>Spa Revenue:</strong> $900K</p>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <!-- Development Pathway -->
+   <div class="reveal" style="margin-bottom: 2.5rem;">
+    <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Development Pathway</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+     <div style="background: var(--cream); padding: 1.5rem; border-radius: var(--radius); border-left: 4px solid #C8902A;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Phase 1 (Year 1-2)</div>
+      <h4 style="margin: 0.5rem 0; color: var(--navy);">Land Acquisition</h4>
+      <p style="margin: 0; font-size: 0.9rem; color: #555;">Secure 15-20 acre waterfront parcel; environmental baseline; permitting.</p>
+     </div>
+     <div style="background: var(--cream); padding: 1.5rem; border-radius: var(--radius); border-left: 4px solid #4A90BF;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Phase 2 (Year 2-3)</div>
+      <h4 style="margin: 0.5rem 0; color: var(--navy);">Design & Financing</h4>
+      <p style="margin: 0; font-size: 0.9rem; color: #555;">Master plan + architect; secure $25-35M development financing; local tax incentives.</p>
+     </div>
+     <div style="background: var(--cream); padding: 1.5rem; border-radius: var(--radius); border-left: 4px solid #28A745;">
+      <div style="font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Phase 3 (Year 3-5)</div>
+      <h4 style="margin: 0.5rem 0; color: var(--navy);">Construction & Opening</h4>
+      <p style="margin: 0; font-size: 0.9rem; color: #555;">22-28 month build; grand opening Year 5; full ramp by Year 7.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="marinas" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Water-Based Infrastructure</span>
+    <h2>Marina Strategy: Two-Facility Model</h2>
+    <p class="lead">El Dorado Lake currently has only one marina (Shady Creek, 100 slips) serving 1M annual visitors. Vision 2040 adds a modern West Marina (150 slips) on the North Gateway District waterfront, creating seamless access to lodging, dining, retail, and services.</p>
+   </div>
+
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; reveal">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Existing: Shady Creek Marina</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.8rem; color: #777;">Current Capacity</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: var(--navy);">100 slips</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li>State park concession (KDWPT)</li>
+      <li>Basic fuel dock</li>
+      <li>Launch ramp</li>
+      <li>Limited retail</li>
+      <li>2.5 miles from downtown</li>
+      <li>Capacity-constrained</li>
+     </ul>
+     <p style="color: #999; font-size: 0.85rem; margin-top: 1.5rem;">Remains operational under state management.</p>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">New: West Marina Complex</h3>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-bottom: 1rem;">
+      <div style="font-size: 0.8rem; color: #777;">Proposed Capacity</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: var(--navy);">150 slips</div>
+     </div>
+     <ul style="color: #555; line-height: 1.8; font-size: 0.9rem;">
+      <li>Private operator lease (25-year)</li>
+      <li>Full-service amenities</li>
+      <li>Fuel, pumpout, electric charging</li>
+      <li>Ship's store + water sports rentals</li>
+      <li>50m from dining/lodging</li>
+      <li>Waterfront plaza + events space</li>
+     </ul>
+     <p style="color: #999; font-size: 0.85rem; margin-top: 1.5rem;"><strong>Cost:</strong> $9M capital; zero ongoing subsidy.</p>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: rgba(196,144,42,.1); border: 1px solid rgba(196,144,42,.3); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Marina Economic Model</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Annual Slip Revenue</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$1.2M</div>
+      <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: #555;">$8K/slip/year avg.</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Fuel + Services</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$600K</div>
+      <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: #555;">Fuel dock + pumpout + storage.</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Retail + Concessions</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$400K</div>
+      <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: #555;">Ship's store, boat rentals.</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Event Venue Rental</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #C8902A;">$200K</div>
+      <p style="margin: 0.5rem 0 0 0; font-size: 0.85rem; color: #555;">Waterfront plaza + covered pavilion.</p>
+     </div>
+    </div>
+    <div style="border-top: 2px solid #C8902A; margin-top: 1.5rem; padding-top: 1rem;">
+     <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <div style="font-size: 1rem; font-weight: 700; color: var(--navy);">Total Annual Marina Revenue</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #C8902A;">$2.4M</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="initiatives" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Implementation</span>
+    <h2>Key Tourism Initiatives</h2>
+    <p class="lead">Vision 2040's visitor economy strategy centers on three anchor projects that unlock everything else. These are the highest-ROI investments for capturing El Dorado Lake's existing visitor demand.</p>
+   </div>
+
+   <div class="initiatives-grid reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #C8902A;">
+     <h3 style="margin-top: 0; color: var(--navy);">West Marina Complex</h3>
+     <p style="color: #555; font-size: 0.95rem;">150-slip full-service marina on North Gateway waterfront. Seamless connection between new neighborhood and water. First electric boat charging in western Kansas.</p>
+     <div style="background: var(--cream); padding: 1rem; border-radius: 4px; margin: 1.25rem 0; font-size: 0.9rem; color: #555;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+       <div><strong>Cost:</strong> $9M</div>
+       <div><strong>Revenue:</strong> $2.4M/yr</div>
+       <div><strong>Jobs:</strong> 25-30</div>
+       <div><strong>Timeline:</strong> Phase 1</div>
+      </div>
+     </div>
+     <a href="initiative-west-marina.html" style="color: #C8902A; text-decoration: none; font-weight: 500;">View Initiative →</a>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #4A90BF;">
+     <h3 style="margin-top: 0; color: var(--navy);">Waterfront Dining District</h3>
+     <p style="color: #555; font-size: 0.95rem;">Three anchoring restaurants: flagship fine dining (120 seats), casual cafe (80 seats), marina bar/grill (50 seats). Captures $3.2M annual revenue.</p>
+     <div style="background: var(--cream); padding: 1rem; border-radius: 4px; margin: 1.25rem 0; font-size: 0.9rem; color: #555;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+       <div><strong>Cost:</strong> $6M</div>
+       <div><strong>Revenue:</strong> $3.2M/yr</div>
+       <div><strong>Jobs:</strong> 45-60</div>
+       <div><strong>Timeline:</strong> Phase 1-2</div>
+      </div>
+     </div>
+     <a href="#waterfront-dining" style="color: #4A90BF; text-decoration: none; font-weight: 500;">Learn More →</a>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #28A745;">
+     <h3 style="margin-top: 0; color: var(--navy);">Boutique Lakefront Resort</h3>
+     <p style="color: #555; font-size: 0.95rem;">40-50 room contemporary resort with spa, restaurant, events. Anchors multi-day stays and destination conferences.</p>
+     <div style="background: var(--cream); padding: 1rem; border-radius: 4px; margin: 1.25rem 0; font-size: 0.9rem; color: #555;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+       <div><strong>Cost:</strong> $28M</div>
+       <div><strong>Revenue:</strong> $5.6M/yr</div>
+       <div><strong>Jobs:</strong> 60-75</div>
+       <div><strong>Timeline:</strong> Phase 2-3</div>
+      </div>
+     </div>
+     <a href="#lodging" style="color: #28A745; text-decoration: none; font-weight: 500;">Learn More →</a>
+    </div>
+   </div>
+
+   <!-- Total Impact -->
+   <div class="reveal" style="background: var(--navy); color: white; padding: 2.5rem; border-radius: var(--radius); margin-top: 2.5rem; text-align: center;">
+    <h3 style="margin-top: 0;">Complete Visitor Economy Impact (Year 5)</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-top: 2rem;">
+     <div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">$11.2M</div>
+      <div style="font-size: 0.95rem;">Annual Tourism Revenue</div>
+     </div>
+     <div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">130-165</div>
+      <div style="font-size: 0.95rem;">Direct & Indirect Jobs</div>
+     </div>
+     <div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">$1.1M+</div>
+      <div style="font-size: 0.95rem;">Annual Tax Revenue</div>
+     </div>
+     <div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">30%</div>
+      <div style="font-size: 0.95rem;">of Visitor Lake Spending</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- FOOTER NAVIGATION -->
+ <section class="section" style="text-align: center;">
+  <div class="container">
+   <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Next Steps</h3>
+   <p style="color: #555; margin-bottom: 2rem;">Explore Opportunities about specific initiatives or explore how tourism integrates with El Dorado's broader economic strategy.</p>
+   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="place.html" class="btn btn--primary">← Back to Place Hub</a>
+    <a href="initiative-west-marina.html" class="btn btn--outline">West Marina Details →</a>
+    <a href="index.html" class="btn btn--outline">Back to Home →</a>
+   </div>
+  </div>
+ </section>
+
+ <script src="js/nav.js" defer></script>
+ <script src="js/analytics.js" defer></script>
+</body>
+</html>

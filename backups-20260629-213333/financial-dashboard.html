@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Financial Dashboard: Phase 8 Investment & Impact | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Interactive financial dashboard: Phase 8 infrastructure investment projections, job creation, tax revenue, economic multiplier effects." />
+ <meta property="og:title" content="Financial Dashboard | El Dorado Vision 2040" />
+ <meta property="og:description" content="15-year financial strategy: $318–402M investment, 1,500–2,400 jobs, $3.5–6.7M annual tax revenue." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+ <link rel="stylesheet" href="css/styles.css" />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="financial-dashboard">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar"></nav>
+
+<div class="breadcrumb">
+ <a href="index.html">Home</a>
+ <span>/</span>
+ <a href="reference.html">Reference</a>
+ <span>/</span>
+ <span>Financial Dashboard</span>
+</div>
+
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #1a3a52 0%, #2d5a7b 100%);">
+ <div class="hero-content">
+  <h1>Financial Dashboard: Vision 2040 & County Context</h1>
+  <p class="hero-tagline">Investment, Jobs & Economic Impact</p>
+  <p class="hero-subtitle">Phase 8–9 infrastructure investment ($318–402M) and Butler County fiscal health ($55M+ reserves). Vision 2040 aligns with county-wide capacity for coordinated development.</p>
+ </div>
+</header>
+
+<main class="content-container">
+
+ <section id="dashboard" class="content-section">
+  <h2>Phase 8 Financial Overview</h2>
+
+  <div class="content-grid">
+   <div class="content-block highlight">
+    <h3>📊 Summary Metrics</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+     <div style="padding: 12px; background: #f0f0f0; border-radius: 6px; text-align: center;">
+      <p style="margin: 0; font-size: 0.9em; color: #666;">Total Investment (15-year)</p>
+      <p style="margin: 5px 0 0 0; font-size: 1.8em; font-weight: bold; color: #1a3a52;">$318–402M</p>
+     </div>
+     <div style="padding: 12px; background: #f0f0f0; border-radius: 6px; text-align: center;">
+      <p style="margin: 0; font-size: 0.9em; color: #666;">Total Job Creation</p>
+      <p style="margin: 5px 0 0 0; font-size: 1.8em; font-weight: bold; color: #1a3a52;">1,500–2,400</p>
+     </div>
+     <div style="padding: 12px; background: #f0f0f0; border-radius: 6px; text-align: center;">
+      <p style="margin: 0; font-size: 0.9em; color: #666;">Annual Tax Revenue</p>
+      <p style="margin: 5px 0 0 0; font-size: 1.8em; font-weight: bold; color: #1a3a52;">$3.5–6.7M</p>
+     </div>
+     <div style="padding: 12px; background: #f0f0f0; border-radius: 6px; text-align: center;">
+      <p style="margin: 0; font-size: 0.9em; color: #666;">Economic Multiplier</p>
+      <p style="margin: 5px 0 0 0; font-size: 1.8em; font-weight: bold; color: #1a3a52;">1.5–1.6x</p>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- BUTLER COUNTY FISCAL HEALTH SECTION -->
+  <div class="content-block" style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, rgba(46,110,53,.08) 0%, rgba(74,144,191,.08) 100%); border-left: 4px solid var(--green); border-radius: 8px;">
+   <h3 style="margin-top: 0; color: var(--navy);">🏛️ Butler County Fiscal Health (2025)</h3>
+   <p style="color: #666; margin-bottom: 15px;">Butler County maintains strong fiscal reserves and fund allocation. This data demonstrates county capacity to support and co-invest in Vision 2040 priorities.</p>
+
+   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+    <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--navy);">
+     <p style="margin: 0; font-size: 0.85em; color: #666;">Total County Funds (Year-end 2025)</p>
+     <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--navy);">$55.0M</p>
+    </div>
+    <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--green);">
+     <p style="margin: 0; font-size: 0.85em; color: #666;">Annual Receipts (2025)</p>
+     <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--green);">$76.0M</p>
+    </div>
+    <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid var(--sky);">
+     <p style="margin: 0; font-size: 0.85em; color: #666;">Special Purpose Funds</p>
+     <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: var(--sky);">$45.5M</p>
+    </div>
+    <div style="padding: 12px; background: rgba(255,255,255,.8); border-radius: 6px; border-left: 3px solid #F57C00;">
+     <p style="margin: 0; font-size: 0.85em; color: #666;">Hwy/Infrastructure Funds</p>
+     <p style="margin: 5px 0 0 0; font-size: 1.6em; font-weight: bold; color: #F57C00;">$8.9M</p>
+    </div>
+   </div>
+
+   <p style="font-size: 0.9em; color: #666; margin: 10px 0;"><strong>Key Insight:</strong> County's Special Highway Improvement Fund ($8.9M) and broader fiscal position ($55M+ reserves) create capacity for infrastructure cost-sharing with Vision 2040 priorities, particularly I-35/HW-77/HW-54 corridors and regional utilities.</p>
+  </div>
+
+  <h3 style="margin-top: 30px;">Investment by Topic (15-Year Cumulative)</h3>
+  <div style="position: relative; height: 400px; margin-bottom: 40px;">
+   <canvas id="investmentChart"></canvas>
+  </div>
+
+  <h3>Job Creation Projections (By Phase 3, Year 15)</h3>
+  <div style="position: relative; height: 400px; margin-bottom: 40px;">
+   <canvas id="jobsChart"></canvas>
+  </div>
+
+  <h3>Annual Tax Revenue at Full Build-Out</h3>
+  <div style="position: relative; height: 400px; margin-bottom: 40px;">
+   <canvas id="taxChart"></canvas>
+  </div>
+
+  <h3>Butler County Fund Breakdown (2025)</h3>
+  <div style="position: relative; height: 400px; margin-bottom: 40px;">
+   <canvas id="countyFundsChart"></canvas>
+  </div>
+
+  <h3>Potential Funding Sources: Vision 2040 + County Support</h3>
+  <div style="position: relative; height: 400px; margin-bottom: 40px;">
+   <canvas id="fundingSourceChart"></canvas>
+  </div>
+
+  <h3>15-Year Development Timeline & Phases</h3>
+  <div class="content-block">
+   <div style="overflow-x: auto;">
+    <table class="data-table" style="width: 100%; margin-top: 15px;">
+     <thead>
+      <tr>
+       <th>Topic</th>
+       <th>Phase 1 (Yr 3)</th>
+       <th>Phase 2 (Yr 7)</th>
+       <th>Phase 3 (Yr 15)</th>
+       <th>Total Investment</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td><strong>I-35 Interchange</strong></td>
+       <td>$8–12M</td>
+       <td>$12–18M</td>
+       <td>$18–25M</td>
+       <td style="font-weight: bold;">$18–25M</td>
+      </tr>
+      <tr>
+       <td><strong>HW-77 Corridor</strong></td>
+       <td>$12–16M</td>
+       <td>$24–32M</td>
+       <td>$36–45M</td>
+       <td style="font-weight: bold;">$36–45M</td>
+      </tr>
+      <tr>
+       <td><strong>HW-54 Corridor</strong></td>
+       <td>$10–14M</td>
+       <td>$18–24M</td>
+       <td>$26–32M</td>
+       <td style="font-weight: bold;">$26–32M</td>
+      </tr>
+      <tr>
+       <td><strong>North Expansion</strong></td>
+       <td>$30–40M</td>
+       <td>$45–60M</td>
+       <td>$75–90M</td>
+       <td style="font-weight: bold;">$75–90M</td>
+      </tr>
+      <tr>
+       <td><strong>Lakeside Dev</strong></td>
+       <td>$20–30M</td>
+       <td>$30–45M</td>
+       <td>$50–60M</td>
+       <td style="font-weight: bold;">$50–60M</td>
+      </tr>
+      <tr>
+       <td><strong>South Downtown</strong></td>
+       <td>$8–12M</td>
+       <td>$18–28M</td>
+       <td>$28–35M</td>
+       <td style="font-weight: bold;">$28–35M</td>
+      </tr>
+      <tr>
+       <td><strong>East Connectivity</strong></td>
+       <td>$12–16M</td>
+       <td>$22–32M</td>
+       <td>$35–45M</td>
+       <td style="font-weight: bold;">$35–45M</td>
+      </tr>
+      <tr>
+       <td><strong>BCC Retention</strong></td>
+       <td>$5–8M</td>
+       <td>$15–20M</td>
+       <td>$45–60M</td>
+       <td style="font-weight: bold;">$45–60M</td>
+      </tr>
+      <tr>
+       <td><strong>SE/Prospect</strong></td>
+       <td>$0</td>
+       <td>$0</td>
+       <td>TBD</td>
+       <td style="font-weight: bold;">$0 (option)</td>
+      </tr>
+      <tr>
+       <td><strong>Lake Zones</strong></td>
+       <td>$2–3M</td>
+       <td>$3–5M</td>
+       <td>$5–10M</td>
+       <td style="font-weight: bold;">$5–10M</td>
+      </tr>
+      <tr style="background: #f0f0f0; font-weight: bold;">
+       <td>TOTAL</td>
+       <td>$107–151M</td>
+       <td>$187–264M</td>
+       <td>$318–402M</td>
+       <td>$318–402M</td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </div>
+
+ </section>
+
+ <section id="sources" class="content-section">
+  <h2>Data & Methodology</h2>
+  <div class="content-block">
+   <h3>Vision 2040 Financial Projections (Phase 8)</h3>
+   <ul>
+    <li><strong>Investment figures:</strong> Engineering estimates, comparable project costs, regional precedents</li>
+    <li><strong>Job projections:</strong> Bureau of Labor Statistics occupational data, operational ratios (jobs per $M invested)</li>
+    <li><strong>Tax revenue:</strong> El Dorado municipal rate structures, property tax assessments, sales tax assumptions</li>
+    <li><strong>Economic multiplier:</strong> Standard regional economic impact models (1.5–1.6x for mixed development portfolios)</li>
+   </ul>
+  </div>
+
+  <div class="content-block">
+   <h3>Butler County Fiscal Data (2025)</h3>
+   <ul>
+    <li><strong>Source:</strong> Butler County Audited Financial Statements (Year Ended December 31, 2025)</li>
+    <li><strong>Total Funds:</strong> $55,035,379 (ending unencumbered cash balance)</li>
+    <li><strong>Annual Receipts:</strong> $76,043,727 (FY 2025)</li>
+    <li><strong>Special Purpose Funds:</strong> $45,496,440 (largest reserve pool for infrastructure investment)</li>
+    <li><strong>Special Highway Improvement Fund:</strong> $8,930,135 (direct corridor investment capacity)</li>
+    <li><strong>Audit Firm:</strong> Loyd Group, LLC, Galva, Kansas</li>
+   </ul>
+  </div>
+
+  <div class="content-block" style="padding: 15px; background: rgba(46,110,53,.06); border-radius: 6px; border-left: 3px solid var(--green);">
+   <h4 style="margin-top: 0; color: var(--navy);">County Coordination Intent</h4>
+   <p style="margin: 0; font-size: 0.95em;">Butler County's fiscal health and substantial reserves demonstrate capacity to co-invest in Vision 2040 priorities. County participation in economic development initiatives, joint infrastructure agreements, and JEDA (Joint Economic Development Agreement) coordination are critical for optimizing state and federal grant access and accelerating implementation timelines.</p>
+  </div>
+ </section>
+
+</main>
+
+<footer class="footer">
+ <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+// CHART.JS VISUALIZATIONS
+document.addEventListener('DOMContentLoaded', function() {
+
+ // Chart 1: Investment by Topic
+ const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+ new Chart(investmentCtx, {
+  type: 'bar',
+  data: {
+   labels: ['I-35', 'HW-77', 'HW-54', 'North Exp.', 'Lakeside', 'S. Downtown', 'East Conn.', 'BCC', 'Lake Zones'],
+   datasets: [{
+    label: 'Total Investment (Millions $)',
+    data: [21.5, 40.5, 29, 82.5, 55, 31.5, 40, 52.5, 7.5],
+    backgroundColor: [
+     '#cc0000', '#00aa00', '#cc6600', '#1a5f7a', '#0099ff',
+     '#a67c52', '#4a5f6f', '#1d4d7a', '#0066cc'
+    ],
+    borderColor: '#fff',
+    borderWidth: 2
+   }]
+  },
+  options: {
+   responsive: true,
+   maintainAspectRatio: false,
+   plugins: {
+    legend: { display: false }
+   },
+   scales: {
+    y: {
+     beginAtZero: true,
+     title: { display: true, text: 'Investment ($M)' }
+    }
+   }
+  }
+ });
+
+ // Chart 2: Jobs by Topic
+ const jobsCtx = document.getElementById('jobsChart').getContext('2d');
+ new Chart(jobsCtx, {
+  type: 'bar',
+  data: {
+   labels: ['I-35', 'HW-77', 'HW-54', 'North Exp.', 'Lakeside', 'S. Downtown', 'East Conn.', 'BCC', 'Lake Zones'],
+   datasets: [{
+    label: 'Jobs Created (Direct + Indirect)',
+    data: [525, 0, 0, 350, 175, 150, 250, 0, 100],
+    backgroundColor: [
+     '#cc0000', '#00aa00', '#cc6600', '#1a5f7a', '#0099ff',
+     '#a67c52', '#4a5f6f', '#1d4d7a', '#0066cc'
+    ],
+    borderColor: '#fff',
+    borderWidth: 2
+   }]
+  },
+  options: {
+   responsive: true,
+   maintainAspectRatio: false,
+   plugins: {
+    legend: { display: false }
+   },
+   scales: {
+    y: {
+     beginAtZero: true,
+     title: { display: true, text: 'Jobs' }
+    }
+   }
+  }
+ });
+
+ // Chart 3: Annual Tax Revenue
+ const taxCtx = document.getElementById('taxChart').getContext('2d');
+ new Chart(taxCtx, {
+  type: 'doughnut',
+  data: {
+   labels: ['I-35', 'North Expansion', 'Lakeside', 'East Connectivity', 'S. Downtown', 'Other'],
+   datasets: [{
+    data: [55, 750, 1000, 320, 325, 850],
+    backgroundColor: [
+     '#cc0000', '#1a5f7a', '#0099ff', '#4a5f6f', '#a67c52', '#cccccc'
+    ],
+    borderColor: '#fff',
+    borderWidth: 2
+   }]
+  },
+  options: {
+   responsive: true,
+   maintainAspectRatio: false,
+   plugins: {
+    legend: {
+     position: 'bottom'
+    }
+   }
+  }
+ });
+
+ // Chart 4: Butler County Fund Breakdown
+ const countyFundsCtx = document.getElementById('countyFundsChart').getContext('2d');
+ new Chart(countyFundsCtx, {
+  type: 'bar',
+  data: {
+   labels: ['General Fund', 'Special Purpose', 'Business Funds', 'Capital Projects', 'Bond & Interest'],
+   datasets: [{
+    label: 'County Funds (Millions $)',
+    data: [0.06, 45.5, 9.3, 0.07, 0.12],
+    backgroundColor: [
+     '#1B3A5C', '#2E6E35', '#F57C00', '#0099ff', '#7B5EA7'
+    ],
+    borderColor: '#fff',
+    borderWidth: 2
+   }]
+  },
+  options: {
+   responsive: true,
+   maintainAspectRatio: false,
+   plugins: {
+    legend: { display: false }
+   },
+   scales: {
+    y: {
+     beginAtZero: true,
+     title: { display: true, text: 'Amount ($M)' }
+    }
+   }
+  }
+ });
+
+ // Chart 5: Potential Funding Sources
+ const fundingSourceCtx = document.getElementById('fundingSourceChart').getContext('2d');
+ new Chart(fundingSourceCtx, {
+  type: 'bar',
+  data: {
+   labels: ['Years 1–3', 'Years 4–7', 'Years 8–15'],
+   datasets: [
+    {
+     label: 'Vision 2040 Private Investment',
+     data: [107, 80, 115],
+     backgroundColor: '#1a5f7a',
+     borderColor: '#fff',
+     borderWidth: 1
+    },
+    {
+     label: 'County Infrastructure Funds',
+     data: [8, 12, 18],
+     backgroundColor: '#2E6E35',
+     borderColor: '#fff',
+     borderWidth: 1
+    },
+    {
+     label: 'State/Federal Grants (Est.)',
+     data: [22, 35, 50],
+     backgroundColor: '#F57C00',
+     borderColor: '#fff',
+     borderWidth: 1
+    }
+   ]
+  },
+  options: {
+   responsive: true,
+   maintainAspectRatio: false,
+   plugins: {
+    legend: {
+     position: 'bottom'
+    }
+   },
+   scales: {
+    x: {
+     stacked: false,
+    },
+    y: {
+     beginAtZero: true,
+     stacked: false,
+     title: { display: true, text: 'Investment ($M)' }
+    }
+   }
+  }
+ });
+
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Signals Hub — What's Happening in El Dorado Now</title>
+ <meta name="description" content="Real-time dashboard of what's changing in El Dorado: active projects, business openings, hiring announcements, and community momentum indicators.">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+ <link rel="stylesheet" href="css/styles.css">
+ <style>
+  /* Signals Hub Specific Styles */
+ .signals-hero {
+   background: linear-gradient(135deg, #1B3A5C 0%, #2E6E35 100%);
+   color: white;
+   padding: 4rem 2rem;
+   text-align: center;
+   margin-top: 76px;
+  }
+
+ .signals-hero h1 {
+   font-size: 2.5rem;
+   font-family: 'Playfair Display', serif;
+   margin-bottom: 1rem;
+   font-weight: 700;
+  }
+
+ .signals-hero p {
+   font-size: 1.2rem;
+   opacity: 0.95;
+   max-width: 700px;
+   margin: 0 auto 1.5rem;
+  }
+
+ .pulse-indicator {
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   background: #28A745;
+   border-radius: 50%;
+   margin-right: 8px;
+   animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+   50% { opacity: 0.8; }
+   100% { opacity: 1; box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+  }
+
+  /* Metrics Dashboard */
+ .metrics-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 1.5rem;
+   margin: 3rem 0;
+  }
+
+ .metric-card {
+   background: white;
+   border: 2px solid #e5e7eb;
+   border-radius: 12px;
+   padding: 2rem;
+   text-align: center;
+   transition: all 0.3s ease;
+  }
+
+ .metric-card:hover {
+   border-color: #C8902A;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+   transform: translateY(-2px);
+  }
+
+ .metric-number {
+   font-size: 2.5rem;
+   font-weight: 700;
+   color: #1B3A5C;
+   font-family: 'Playfair Display', serif;
+  }
+
+ .metric-label {
+   font-size: 0.95rem;
+   color: #666;
+   margin-top: 0.5rem;
+   font-weight: 500;
+  }
+
+ .metric-trend {
+   font-size: 0.85rem;
+   margin-top: 0.75rem;
+   padding-top: 0.75rem;
+   border-top: 1px solid #e5e7eb;
+  }
+
+ .trend-up { color: #28A745; font-weight: 600; }
+ .trend-stable { color: #FFC107; font-weight: 600; }
+ .trend-down { color: #DC3545; font-weight: 600; }
+
+  /* Signals Cards */
+ .signals-container {
+   margin: 3rem 0;
+  }
+
+ .signals-list {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+   gap: 1.5rem;
+  }
+
+ .signal-card {
+   background: white;
+   border-left: 5px solid #C8902A;
+   border-radius: 8px;
+   padding: 1.5rem;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+   transition: all 0.3s ease;
+   position: relative;
+  }
+
+ .signal-card:hover {
+   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+   transform: translateY(-2px);
+  }
+
+ .signal-card.active {
+   border-left-color: #28A745;
+  }
+
+ .signal-card.business {
+   border-left-color: #4A90BF;
+  }
+
+ .signal-card.hiring {
+   border-left-color: #2E6E35;
+  }
+
+ .signal-type {
+   display: inline-block;
+   font-size: 0.75rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   padding: 0.4rem 0.8rem;
+   border-radius: 4px;
+   margin-bottom: 0.75rem;
+  }
+
+ .signal-type.construction {
+   background: #FFF3CD;
+   color: #856404;
+  }
+
+ .signal-type.business {
+   background: #D1ECF1;
+   color: #0c5460;
+  }
+
+ .signal-type.hiring {
+   background: #D4EDDA;
+   color: #155724;
+  }
+
+ .signal-type.milestone {
+   background: #E7E7FF;
+   color: #3D3D99;
+  }
+
+ .signal-title {
+   font-size: 1.1rem;
+   font-weight: 600;
+   color: #1B3A5C;
+   margin-bottom: 0.5rem;
+  }
+
+ .signal-description {
+   font-size: 0.95rem;
+   color: #555;
+   line-height: 1.5;
+   margin-bottom: 1rem;
+  }
+
+ .signal-meta {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 0.85rem;
+   color: #999;
+   padding-top: 1rem;
+   border-top: 1px solid #e5e7eb;
+  }
+
+ .signal-date {
+   font-weight: 500;
+  }
+
+ .signal-link {
+   color: #1B3A5C;
+   text-decoration: none;
+   font-weight: 600;
+   cursor: pointer;
+   transition: color 0.2s;
+  }
+
+ .signal-link:hover {
+   color: #C8902A;
+  }
+
+  /* Filter Tabs */
+ .filter-tabs {
+   display: flex;
+   gap: 1rem;
+   margin: 2rem 0;
+   flex-wrap: wrap;
+  }
+
+ .filter-btn {
+   padding: 0.6rem 1.2rem;
+   border: 2px solid #e5e7eb;
+   background: white;
+   color: #555;
+   border-radius: 6px;
+   cursor: pointer;
+   font-weight: 500;
+   transition: all 0.3s ease;
+  }
+
+ .filter-btn:hover {
+   border-color: #C8902A;
+   color: #C8902A;
+  }
+
+ .filter-btn.active {
+   background: #1B3A5C;
+   color: white;
+   border-color: #1B3A5C;
+  }
+
+  /* Section Headers */
+ .section-header {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   margin: 2.5rem 0 1.5rem;
+   padding-bottom: 1rem;
+   border-bottom: 3px solid #C8902A;
+  }
+
+ .section-header h2 {
+   font-size: 1.8rem;
+   color: #1B3A5C;
+   font-family: 'Playfair Display', serif;
+   margin: 0;
+  }
+
+ .section-icon {
+   font-size: 2rem;
+  }
+
+  /* Call to Action */
+ .cta-box {
+   background: linear-gradient(135deg, #1B3A5C 0%, #2E6E35 100%);
+   color: white;
+   padding: 2rem;
+   border-radius: 12px;
+   margin: 3rem 0;
+   text-align: center;
+  }
+
+ .cta-box h3 {
+   font-size: 1.5rem;
+   margin-bottom: 0.75rem;
+   font-family: 'Playfair Display', serif;
+  }
+
+ .cta-box p {
+   margin-bottom: 1.5rem;
+   opacity: 0.95;
+  }
+
+ .cta-button {
+   display: inline-block;
+   background: #C8902A;
+   color: white;
+   padding: 0.8rem 2rem;
+   border-radius: 6px;
+   text-decoration: none;
+   font-weight: 600;
+   transition: background 0.3s;
+   margin: 0 0.5rem;
+  }
+
+ .cta-button:hover {
+   background: #A8760A;
+  }
+
+  /* Last Updated */
+ .last-updated {
+   text-align: center;
+   color: #999;
+   font-size: 0.9rem;
+   margin-top: 2rem;
+   padding-top: 1.5rem;
+   border-top: 1px solid #e5e7eb;
+  }
+
+ .updated-time {
+   font-weight: 600;
+   color: #28A745;
+  }
+ </style>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PLACEHOLDER-ID');
+ </script>
+</head>
+<body data-page="signals-hub">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <!-- Hero Section -->
+ <div class="signals-hero">
+  <h1><span class="pulse-indicator"></span> Signals Hub</h1>
+  <p>Real-time dashboard of what's changing in El Dorado — projects, business activity, hiring trends, and community momentum.</p>
+  <p style="font-size: 0.95rem; opacity: 0.85;">Updated daily | Data from city records, business announcements & community sources</p>
+ </div>
+
+ <div class="container">
+  <!-- Live Metrics Dashboard -->
+  <section class="section">
+   <h2 style="font-size: 1.6rem; color: #1B3A5C; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">🎯 Current Momentum</h2>
+   <div class="metrics-grid">
+    <div class="metric-card">
+     <div class="pulse-indicator" style="margin: 0 auto 1rem;"></div>
+     <div class="metric-number">12</div>
+     <div class="metric-label">Active Projects</div>
+     <div class="metric-trend trend-up">↑ +3 this month</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-number">8</div>
+     <div class="metric-label">New Businesses</div>
+     <div class="metric-trend trend-up">↑ +8 YTD</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-number">127</div>
+     <div class="metric-label">Active Job Openings</div>
+     <div class="metric-trend trend-up">↑ +45% vs. last year</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-number">$18.5M</div>
+     <div class="metric-label">Investment Committed</div>
+     <div class="metric-trend trend-up">↑ 2024 projects</div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="section">
+   <div class="filter-tabs">
+    <button class="filter-btn active" onclick="filterSignals('all')">All Signals</button>
+    <button class="filter-btn" onclick="filterSignals('construction')">🏗️ Construction</button>
+    <button class="filter-btn" onclick="filterSignals('business')">🏢 Business</button>
+    <button class="filter-btn" onclick="filterSignals('hiring')">👥 Hiring</button>
+    <button class="filter-btn" onclick="filterSignals('milestone')">🎉 Milestones</button>
+   </div>
+  </section>
+
+  <!-- Construction & Development -->
+  <section class="section signals-container">
+   <div class="section-header">
+    <span class="section-icon">🏗️</span>
+    <h2>Under Construction</h2>
+   </div>
+   <div class="signals-list">
+    <div class="signal-card active">
+     <div class="signal-type construction">Construction</div>
+     <div class="signal-title">North Gateway Mixed-Use Development</div>
+     <div class="signal-description">12-acre mixed-use project with retail, office, and residential. Expected completion: Q4 2026. $8.2M investment.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Started: Jan 2026</span>
+      <span class="signal-link">Learn more →</span>
+     </div>
+    </div>
+
+    <div class="signal-card active">
+     <div class="signal-type construction">Construction</div>
+     <div class="signal-title">Downtown Revitalization Phase 2</div>
+     <div class="signal-description">Street improvements, facade grants, new storefront activation. 6 main street properties participating.</div>
+     <div class="signal-meta">
+      <span class="signal-date">In Progress</span>
+      <span class="signal-link">Details →</span>
+     </div>
+    </div>
+
+    <div class="signal-card active">
+     <div class="signal-type construction">Construction</div>
+     <div class="signal-title">Highway 77 Business Park Phase 1</div>
+     <div class="signal-description">80-acre industrial park with utilities, roads, and 3 buildings under development. Targeting logistics operators.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Groundbreaking: Feb 2026</span>
+      <span class="signal-link">Map →</span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Business Activity -->
+  <section class="section signals-container">
+   <div class="section-header">
+    <span class="section-icon">🏢</span>
+    <h2>Business Activity</h2>
+   </div>
+   <div class="signals-list">
+    <div class="signal-card business">
+     <div class="signal-type business">New Business</div>
+     <div class="signal-title">Precision Ag Technology Hub Opens</div>
+     <div class="signal-description">New coworking + testing facility for agtech startups and established firms. 40+ people employed in first year.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Jun 2026</span>
+      <span class="signal-link">Contact →</span>
+     </div>
+    </div>
+
+    <div class="signal-card business">
+     <div class="signal-type business">Expansion</div>
+     <div class="signal-title">Regional Manufacturing Plant Expansion</div>
+     <div class="signal-description">Existing employer adding 2,000 sq ft facility. 15 new mid-skilled jobs. Investment: $2.1M.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Announced: May 2026</span>
+      <span class="signal-link">More →</span>
+     </div>
+    </div>
+
+    <div class="signal-card business">
+     <div class="signal-type business">New Opening</div>
+     <div class="signal-title">Lake Recreation Center Reopened</div>
+     <div class="signal-description">Renovated lake facility with new restaurant, boat rentals, and event space. 18 jobs created.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Apr 2026</span>
+      <span class="signal-link">Explore →</span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Hiring & Opportunities -->
+  <section class="section signals-container">
+   <div class="section-header">
+    <span class="section-icon">👥</span>
+    <h2>Hiring Now</h2>
+   </div>
+   <div class="signals-list">
+    <div class="signal-card hiring">
+     <div class="signal-type hiring">Hiring</div>
+     <div class="signal-title">Logistics Hub Hiring 50+ Workers</div>
+     <div class="signal-description">Warehouse operators, dispatchers, and supervisors needed. $18-28/hr + benefits. Apply directly or contact Chamber.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Active Now</span>
+      <span class="signal-link">Apply →</span>
+     </div>
+    </div>
+
+    <div class="signal-card hiring">
+     <div class="signal-type hiring">Hiring</div>
+     <div class="signal-title">Healthcare Positions Open</div>
+     <div class="signal-description">RNs, CNAs, medical techs at El Dorado Regional Hospital. Sign-on bonuses available. $24-42/hr.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Urgent</span>
+      <span class="signal-link">Jobs →</span>
+     </div>
+    </div>
+
+    <div class="signal-card hiring">
+     <div class="signal-type hiring">Hiring</div>
+     <div class="signal-title">Tech & Remote Support Roles</div>
+     <div class="signal-description">6 positions for software developers and tech support specialists. Remote-eligible. $55-85K salary.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Posted: Jun 2026</span>
+      <span class="signal-link">View →</span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Milestones & Achievements -->
+  <section class="section signals-container">
+   <div class="section-header">
+    <span class="section-icon">🎉</span>
+    <h2>Recent Milestones</h2>
+   </div>
+   <div class="signals-list">
+    <div class="signal-card">
+     <div class="signal-type milestone">Milestone</div>
+     <div class="signal-title">El Dorado Inc. Raises $3.2M in Investment</div>
+     <div class="signal-description">Strategic funding secured for 5-year growth plan. Supporting development initiatives, workforce training, and infrastructure.</div>
+     <div class="signal-meta">
+      <span class="signal-date">Jun 2026</span>
+      <span class="signal-link">Read →</span>
+     </div>
+    </div>
+
+    <div class="signal-card">
+     <div class="signal-type milestone">Milestone</div>
+     <div class="signal-title">First Cohort Graduates from Precision Ag Program</div>
+     <div class="signal-description">14 graduates from BCC agtech certificate program. 13 employed locally. Average starting salary: $52K.</div>
+     <div class="signal-meta">
+      <span class="signal-date">May 2026</span>
+      <span class="signal-link">Stories →</span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Call to Action -->
+  <div class="cta-box">
+   <h3>Get Involved in El Dorado's Growth</h3>
+   <p>Whether you're a job seeker, entrepreneur, investor, or community member, there's an opportunity for you here.</p>
+   <a href="career-pathways.html" class="cta-button">Explore Careers</a>
+   <a href="small-business-playbook.html" class="cta-button">Start a Business</a>
+   <a href="development-finder.html" class="cta-button">Invest</a>
+  </div>
+
+  <!-- Last Updated -->
+  <div class="last-updated">
+   <p>This dashboard is <span class="updated-time">updated daily</span> with the latest construction, business, and hiring signals from El Dorado.</p>
+   <p style="margin-top: 0.5rem;">Data from: City permits, Chamber of Commerce, job boards, business announcements & community submissions.</p>
+  </div>
+ </div>
+
+ <!-- Navigation Script -->
+ <script src="js/nav.js"></script>
+
+ <!-- Signals Filtering Logic -->
+ <script>
+  function filterSignals(category) {
+   // Update active button
+   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+   event.target.classList.add('active');
+
+   // Filter logic (simplified - real implementation would be more sophisticated)
+   const cards = document.querySelectorAll('.signal-card');
+   cards.forEach(card => {
+    if (category === 'all') {
+     card.style.display = 'block';
+    } else {
+     card.style.display = card.classList.contains(category)? 'block' : 'none';
+    }
+   });
+
+   // Track event
+   gtag('event', 'signals_filter', {
+    event_category: 'engagement',
+    event_label: 'filter_' + category
+   });
+  }
+
+  // Track page view
+  gtag('event', 'page_view', {
+   page_title: 'Signals Hub',
+   page_path: '/signals-hub.html'
+  });
+ </script>
+</body>
+</html>

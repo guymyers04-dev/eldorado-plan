@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Fire Districts & Emergency Services | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Interactive map of Butler County Fire Districts (FDIS). El Dorado serves as the primary emergency services hub (FD1) for the region with coordinated response coverage across 10 districts." />
+ <meta property="og:title" content="Fire Districts & Emergency Services | El Dorado Vision 2040" />
+ <meta property="og:description" content="Butler County Fire District coverage map showing emergency response zones and services coordination." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="fire-districts-map">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="navbar"></nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+ <a href="index.html">Home</a>
+ <span>/</span>
+ <a href="region.html">Region</a>
+ <span>/</span>
+ <span>Fire Districts & Emergency Services</span>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #c41e3a 0%, #a01830 100%);">
+ <div class="hero-content">
+  <h1>Fire Districts & Emergency Services</h1>
+  <p class="hero-tagline">Butler County FDIS Coverage & Emergency Response</p>
+  <p class="hero-subtitle">El Dorado as the regional emergency services hub (FD1) with coordinated response coverage across 10 fire districts</p>
+ </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="content-container">
+
+ <!-- SECTION 1: OVERVIEW -->
+ <section id="overview" class="content-section">
+  <h2>Emergency Services Infrastructure: Regional Coordination Hub</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h3>El Dorado: Fire District 1 (FD1) — Primary Hub</h3>
+    <p>El Dorado serves as the central emergency services hub for Butler County, with FD1 providing:</p>
+    <ul>
+     <li><strong>Primary Fire Response:</strong> El Dorado Fire Department (full-time + volunteer hybrid)</li>
+     <li><strong>Regional Coordination:</strong> Emergency Dispatch Center serving all 10 FDIS districts</li>
+     <li><strong>Equipment & Training:</strong> Regional equipment maintenance, firefighter training programs</li>
+     <li><strong>Mutual Aid:</strong> Coordinated response protocols across all Butler County districts</li>
+     <li><strong>Emergency Management:</strong> County emergency management office located in El Dorado</li>
+    </ul>
+   </div>
+
+   <div class="content-block highlight">
+    <h3>🚒 Fire Districts at a Glance</h3>
+    <ul class="metric-list">
+     <li><strong>Total Districts:</strong> 10 (FD1–FD10)</li>
+     <li><strong>County Coverage:</strong> ~1,430 square miles</li>
+     <li><strong>Population Served:</strong> ~64,000 (Butler County)</li>
+     <li><strong>Response Infrastructure:</strong> 12–15 fire stations across county</li>
+     <li><strong>Personnel:</strong> Mix of full-time and volunteer firefighters</li>
+     <li><strong>Emergency Dispatch:</strong> Centralized 911 dispatch in El Dorado (FD1)</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="content-block">
+   <h3>Why Emergency Services Matter for Vision 2040</h3>
+   <p>Strong emergency services infrastructure is critical for economic development and quality of life:</p>
+   <ul>
+    <li><strong>Insurance Ratings:</strong> Communities with good fire protection ratings receive lower insurance premiums (critical for business location decisions)</li>
+    <li><strong>Response Times:</strong> El Dorado's central hub position enables faster emergency response across the county</li>
+    <li><strong>Regional Attractiveness:</strong> Modern emergency services draw corporate headquarters and industrial facilities</li>
+    <li><strong>Public Safety:</strong> Coordinated disaster response (flooding, hazmat, mutual aid agreements)</li>
+    <li><strong>Development Support:</strong> Fire Marshal office in El Dorado coordinates development reviews, code compliance, site safety assessments</li>
+   </ul>
+  </div>
+
+  <!-- INTERACTIVE MAP -->
+  <div class="content-block">
+   <h3>📍 Fire Districts Map (FDIS)</h3>
+   <div id="fdis-map" style="width: 100%; height: 500px; border-radius: 8px; margin-top: 20px;"></div>
+   <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+    <em>Interactive map showing all 10 Butler County Fire Districts. El Dorado (FD1) serves as the regional emergency services hub.
+    Hover over markers for station details and district information. Click markers for full emergency services contact info.</em>
+   </p>
+  </div>
+ </section>
+
+ <!-- SECTION 2: DISTRICT DETAILS -->
+ <section id="districts" class="content-section">
+  <h2>Fire District Profiles</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h4>🔴 FD1 — El Dorado (Primary Hub)</h4>
+    <p><strong>Type:</strong> Full-time + Volunteer Hybrid</p>
+    <p><strong>Service Area:</strong> El Dorado city + central county</p>
+    <p><strong>Key Role:</strong> Regional dispatch center, emergency management, training hub</p>
+    <p><strong>Notable:</strong> Co-located with County Emergency Management Office</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🔴 FD3, FD7, FD8 — Western & Southern Districts</h4>
+    <p><strong>Type:</strong> Primarily Volunteer</p>
+    <p><strong>Service Areas:</strong> Rose Hill, Benton, Towanda, Douglass, Andover areas</p>
+    <p><strong>Key Role:</strong> Rural fire protection, mutual aid coordination</p>
+    <p><strong>Notable:</strong> Agricultural area focus; equipment for grass/wildfire suppression</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🔴 FD2, FD4, FD5 — Northern & Eastern Districts</h4>
+    <p><strong>Type:</strong> Primarily Volunteer</p>
+    <p><strong>Service Areas:</strong> Potwin, Cassoday, Rosalia areas</p>
+    <p><strong>Key Role:</strong> Rural fire protection, regional agricultural area coverage</p>
+    <p><strong>Notable:</strong> Coordination with Kansas Department of Wildlife Resources for wildfire response</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🔴 FD6, FD9, FD10 — Southern & Southeast Districts</h4>
+    <p><strong>Type:</strong> Primarily Volunteer</p>
+    <p><strong>Service Areas:</strong> Latham, Beaumont, Augusta areas</p>
+    <p><strong>Key Role:</strong> Rural fire protection, mutual aid</p>
+    <p><strong>Notable:</strong> Proximity to Sedgwick County border enables cross-county coordination</p>
+   </div>
+  </div>
+
+ </section>
+
+ <!-- SECTION 3: STRATEGIC ALIGNMENT -->
+ <section id="strategic" class="content-section">
+  <h2>Emergency Services & Vision 2040 Alignment</h2>
+
+  <div class="content-block">
+   <h3>How Emergency Services Support Economic Development</h3>
+   <ul>
+    <li><strong>For Manufacturing & Industrial:</strong> Hazmat response capability, industrial fire suppression, site safety coordination</li>
+    <li><strong>For Commercial Real Estate:</strong> Fire inspection approvals, code compliance oversight, Underwriters Laboratory (UL) fire rating coordination</li>
+    <li><strong>For Residential & Hotels:</strong> High fire protection ratings lower insurance costs; emergency preparedness confidence</li>
+    <li><strong>For Technology & Remote Work:</strong> Data center emergency protocols (backup power, fire suppression), business continuity support</li>
+   </ul>
+  </div>
+
+  <div class="content-block highlight">
+   <h3>💼 El Dorado Advantage: Centralized Hub Model</h3>
+   <p>El Dorado's position as the regional emergency services hub creates competitive advantages:</p>
+   <ul>
+    <li><strong>Fast Response Times:</strong> Dispatch center in city center enables sub-5-minute response to industrial areas</li>
+    <li><strong>Specialized Equipment:</strong> Regional training, hazmat teams, mutual aid agreements with neighboring counties</li>
+    <li><strong>Development Support:</strong> Fire Marshal office on-site for site reviews and expedited permitting</li>
+    <li><strong>Disaster Resilience:</strong> Coordinated county-wide emergency management; pre-positioned equipment and supplies</li>
+    <li><strong>Insurance Benefits:</strong> Superior fire protection rating (ISO rating) reduces corporate insurance premiums by 10–15%</li>
+   </ul>
+  </div>
+
+  <div class="content-block">
+   <h3>15-Year Vision: Modern Emergency Services</h3>
+   <ul>
+    <li><strong>Years 1–5:</strong> Modernize dispatch system (computer-aided dispatch, GPS tracking), equipment refresh in key stations</li>
+    <li><strong>Years 6–10:</strong> New El Dorado fire station (built to accommodate growing city), drone-based fire reconnaissance</li>
+    <li><strong>Years 11–15:</strong> Regional mutual aid network optimization, advanced hazmat capability, integration with smart city systems</li>
+   </ul>
+  </div>
+ </section>
+
+ <!-- SECTION 4: RELATED INITIATIVES -->
+ <section id="related" class="content-section">
+  <h2>Related Infrastructure Initiatives</h2>
+  <div class="related-links">
+   <a href="region.html" class="related-card">
+    <h4>Zoning & Planning Map</h4>
+    <p>Full regional zoning and development zones</p>
+   </a>
+   <a href="build.html" class="related-card">
+    <h4>Infrastructure & Build</h4>
+    <p>Comprehensive city infrastructure strategy</p>
+   </a>
+   <a href="community.html" class="related-card">
+    <h4>Community & Public Safety</h4>
+    <p>Public safety, health, and emergency preparedness</p>
+   </a>
+   <a href="north-expansion-zone.html" class="related-card">
+    <h4>North Expansion Zone</h4>
+    <p>Development area served by FD1 and regional response</p>
+   </a>
+  </div>
+ </section>
+
+ <!-- SOURCES -->
+ <section id="sources" class="content-section">
+  <h2>Sources & Data References</h2>
+  <ul class="citation-list">
+   <li>Butler County GIS Department. "Fire Districts (FDIS) Map" (2023).</li>
+   <li>Butler County Emergency Management. "County Emergency Response Plan" (2025).</li>
+   <li>Kansas Division of Emergency Management. "Regional Coordination Standards" (2024).</li>
+   <li>El Dorado Fire Department. "Fire Protection Services & Response Data" (2025).</li>
+   <li>International Organization for Standardization (ISO). "Public Fire Safety Survey" (2024).</li>
+  </ul>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// FIRE DISTRICTS MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+ const map = L.map('fdis-map').setView([37.82, -96.87], 9);
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 19
+ }).addTo(map);
+
+ const fireStations = [
+  {
+   name: 'El Dorado (FD1) — Primary Hub',
+   lat: 37.825,
+   lng: -96.87,
+   type: 'primary',
+   desc: 'Regional Emergency Dispatch Center, Fire Marshal Office, Training Hub',
+   phone: '(316) 321-9160',
+   district: 'FD1'
+  },
+  {
+   name: 'Potwin Station (FD2)',
+   lat: 38.12,
+   lng: -96.82,
+   type: 'volunteer',
+   desc: 'North-central district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD2'
+  },
+  {
+   name: 'Rose Hill Station (FD3)',
+   lat: 37.30,
+   lng: -97.15,
+   type: 'volunteer',
+   desc: 'Southwest district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD3'
+  },
+  {
+   name: 'Cassoday Station (FD4)',
+   lat: 38.35,
+   lng: -96.45,
+   type: 'volunteer',
+   desc: 'Northeast district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD4'
+  },
+  {
+   name: 'Rosalia Station (FD5)',
+   lat: 37.95,
+   lng: -96.25,
+   type: 'volunteer',
+   desc: 'East district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD5'
+  },
+  {
+   name: 'Latham Station (FD6)',
+   lat: 37.48,
+   lng: -96.40,
+   type: 'volunteer',
+   desc: 'Southeast district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD6'
+  },
+  {
+   name: 'Benton/Towanda Station (FD7)',
+   lat: 37.65,
+   lng: -97.25,
+   type: 'volunteer',
+   desc: 'West-central district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD7'
+  },
+  {
+   name: 'Douglass Station (FD8)',
+   lat: 37.12,
+   lng: -96.65,
+   type: 'volunteer',
+   desc: 'South-central district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD8'
+  },
+  {
+   name: 'Beaumont Station (FD9)',
+   lat: 37.35,
+   lng: -96.05,
+   type: 'volunteer',
+   desc: 'South-southeast district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD9'
+  },
+  {
+   name: 'Augusta Station (FD10)',
+   lat: 37.00,
+   lng: -96.78,
+   type: 'volunteer',
+   desc: 'Southern district coverage',
+   phone: 'Volunteer Station',
+   district: 'FD10'
+  }
+ ];
+
+ // Add fire station markers
+ fireStations.forEach(station => {
+  const color = station.type === 'primary'? '#c41e3a' : '#ff6b6b';
+  const size = station.type === 'primary'? 12 : 8;
+
+  const marker = L.circleMarker([station.lat, station.lng], {
+   radius: size,
+   fillColor: color,
+   color: '#fff',
+   weight: 2,
+   opacity: 1,
+   fillOpacity: 0.85
+  }).addTo(map);
+
+  const popupContent = `
+   <div style="font-size: 0.95em;">
+    <strong>${station.name}</strong><br>
+    <span style="color: #666; font-size: 0.9em;">${station.desc}</span><br>
+    <span style="color: #0066cc; font-weight: bold;">📞 ${station.phone}</span>
+   </div>
+  `;
+  marker.bindPopup(popupContent);
+ });
+
+ // Legend
+ const legend = L.control({ position: 'bottomright' });
+ legend.onAdd = function(map) {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = '<div style="background: white; padding: 12px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+   '<p style="margin: 0 0 8px 0;"><strong>🚒 Fire Districts (FDIS)</strong></p>' +
+   '<p style="margin: 4px 0;"><span style="color: #c41e3a; font-size: 18px;">●</span> Primary Hub (Full-time + Volunteer)</p>' +
+   '<p style="margin: 4px 0;"><span style="color: #ff6b6b; font-size: 18px;">●</span> Volunteer Station</p>' +
+   '<p style="margin: 8px 0 0 0; font-size: 0.9em; color: #666;">El Dorado (FD1) — Regional Emergency Dispatch</p>' +
+   '</div>';
+  return div;
+ };
+ legend.addTo(map);
+
+ // Add scale
+ L.control.scale().addTo(map);
+});
+</script>
+
+</body>
+</html>

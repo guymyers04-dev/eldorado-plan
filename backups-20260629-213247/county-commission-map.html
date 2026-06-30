@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>County Commission Districts | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Interactive map of Butler County Commission Districts (1–5). El Dorado serves as the county seat in District 4, led by Commission Chairman Darren Jackson." />
+ <meta property="og:title" content="County Commission Districts | El Dorado Vision 2040" />
+ <meta property="og:description" content="Butler County government structure map with commissioner contacts and district information." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="county-commission-map">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav id="navbar"></nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+ <a href="index.html">Home</a>
+ <span>/</span>
+ <a href="region.html">Region</a>
+ <span>/</span>
+ <span>County Commission Districts</span>
+</div>
+
+<!-- HERO -->
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #1b3a5c 0%, #2d5a7d 100%);">
+ <div class="hero-content">
+  <h1>County Commission Districts</h1>
+  <p class="hero-tagline">Butler County Government Structure & Leadership</p>
+  <p class="hero-subtitle">Five county commission districts covering Butler County. El Dorado serves as the county seat (District 4) under Commission Chairman Darren Jackson.</p>
+ </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="content-container">
+
+ <!-- SECTION 1: OVERVIEW -->
+ <section id="overview" class="content-section">
+  <h2>Butler County Government: Commission Structure & Coordination</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h3>Commission Board Overview</h3>
+    <p>The Butler County Commission consists of 3 elected commissioners representing 5 geographic districts across the county. Commissioners meet on the 1st and 2nd Tuesdays of each month to oversee county operations, budget, and regional development priorities.</p>
+    <ul>
+     <li><strong>Commission Structure:</strong> 3 elected commissioners (not 5)</li>
+     <li><strong>Meeting Schedule:</strong> 1st &amp; 2nd Tuesday, County Building in El Dorado</li>
+     <li><strong>Public Comment:</strong> Open comment period at each meeting</li>
+     <li><strong>County Seat:</strong> El Dorado (District 4)</li>
+     <li><strong>Chair Position:</strong> Rotates annually among commissioners</li>
+    </ul>
+   </div>
+
+   <div class="content-block highlight">
+    <h3>💼 Current Commission Leadership (2023–2026)</h3>
+    <ul class="metric-list">
+     <li><strong>Chairman:</strong> Darren Jackson (District 4, El Dorado)</li>
+     <li><strong>Vice Chair:</strong> Jeff Masterson (District 1, Andover)</li>
+     <li><strong>Member:</strong> Additional commissioners from Districts 2, 3, 5</li>
+     <li><strong>Audit Date:</strong> April 1, 2026 (FY 2025 Complete)</li>
+     <li><strong>County Funds Managed:</strong> $55M+ (Year-end 2025)</li>
+     <li><strong>Key Priorities:</strong> Infrastructure, economic development, regional coordination</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="content-block">
+   <h3>Why County Commission Matters for Vision 2040</h3>
+   <p>El Dorado's success depends on county-level cooperation and coordination:</p>
+   <ul>
+    <li><strong>Joint Economic Development Agreements:</strong> City-county partnerships on growth and infrastructure</li>
+    <li><strong>Regional Water Authority:</strong> El Dorado Lake water rights are jointly managed with county</li>
+    <li><strong>Permit &amp; Zoning:</strong> County planning director coordinates with city planning on regional projects</li>
+    <li><strong>Infrastructure Cost-Sharing:</strong> County roads, bridges, and rural water systems interconnect with city infrastructure</li>
+    <li><strong>Federal Grant Access:</strong> EDA Economic Development District designation requires county participation</li>
+   </ul>
+  </div>
+
+  <!-- INTERACTIVE MAP -->
+  <div class="content-block">
+   <h3>📍 County Commission Districts Map</h3>
+   <div id="commission-map" style="width: 100%; height: 500px; border-radius: 8px; margin-top: 20px;"></div>
+   <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+    <em>Interactive map showing Butler County's 5 commissioner districts. El Dorado (District 4) serves as the county seat and Commission Chairman residence.
+    Click district markers for commissioner contact information and district details.</em>
+   </p>
+  </div>
+ </section>
+
+ <!-- SECTION 2: COMMISSIONER PROFILES -->
+ <section id="commissioners" class="content-section">
+  <h2>County Commissioners — Direct Contact Information</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h4>🏛️ Darren Jackson — District 4 (Chairman)</h4>
+    <p><strong>Position:</strong> Commission Chairman (2023–2026)</p>
+    <p><strong>District:</strong> District 4 — El Dorado Area (County Seat)</p>
+    <p><strong>Contact:</strong><br>
+     📞 (316) 253-0043 (cell)<br>
+     📧 darren.jackson@bucoks.gov<br>
+     Address: El Dorado, KS
+    </p>
+    <p><strong>Role in Vision 2040:</strong> Primary government partner for city-county coordination, regional infrastructure, and federal grant applications.</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🏛️ Jeff Masterson — District 1</h4>
+    <p><strong>Position:</strong> Vice Chair</p>
+    <p><strong>District:</strong> District 1 — Andover Area (Western Butler County)</p>
+    <p><strong>Contact:</strong><br>
+     📞 (316) 733-0178 (office)<br>
+     Address: Andover, KS
+    </p>
+    <p><strong>Role in Vision 2040:</strong> Represents western county interests; advocates for US-54 corridor improvements and regional economic development spillover.</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🏛️ Marc Murphy — District 2</h4>
+    <p><strong>Position:</strong> Commissioner</p>
+    <p><strong>District:</strong> District 2 — Augusta Area</p>
+    <p><strong>Contact:</strong><br>
+     📞 (316) 648-9629 (cell)<br>
+     📧 marc.murphy@bucoks.gov<br>
+     Address: Augusta, KS
+    </p>
+    <p><strong>Role in Vision 2040:</strong> Represents Augusta and western county; coordinates US-54 Commerce Corridor initiatives and regional partnership alignment.</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🏛️ Kelly Herzel — District 3</h4>
+    <p><strong>Position:</strong> Commissioner</p>
+    <p><strong>District:</strong> District 3 — Potwin Area (Northern Butler County)</p>
+    <p><strong>Contact:</strong><br>
+     📞 (316) 322-5582 (cell)<br>
+     📧 kelly.herzel@bucoks.gov<br>
+     Address: Potwin, KS
+    </p>
+    <p><strong>Role in Vision 2040:</strong> Represents northern county rural interests; advocates for broadband infrastructure and regional agricultural initiatives.</p>
+   </div>
+
+   <div class="content-block">
+    <h4>🏛️ Dan Woydziak — District 5</h4>
+    <p><strong>Position:</strong> Commissioner</p>
+    <p><strong>District:</strong> District 5 — Rose Hill Area (Southern Butler County)</p>
+    <p><strong>Contact:</strong><br>
+     📞 (316) 706-5203 (cell)<br>
+     📧 dan.woydziak@bucoks.gov<br>
+     Address: Rose Hill, KS
+    </p>
+    <p><strong>Role in Vision 2040:</strong> Represents southern county interests; coordinates with Sedgwick County on cross-county economic development and emergency services.</p>
+   </div>
+  </div>
+
+ </section>
+
+ <!-- SECTION 3: COUNTY COORDINATION MECHANISMS -->
+ <section id="coordination" class="content-section">
+  <h2>City-County Coordination for Vision 2040</h2>
+
+  <div class="content-block">
+   <h3>Required Approvals & Agreements</h3>
+   <ul>
+    <li><strong>Joint Economic Development Agreement (JEDA):</strong> City-county partnership on tax incentives, infrastructure cost-sharing, and coordinated marketing</li>
+    <li><strong>Regional Water Authority Coordination:</strong> County seat role in managing El Dorado Lake water supply for industrial development</li>
+    <li><strong>Comprehensive Plan Alignment:</strong> Vision 2040 phases aligned with Butler County 2025–2028 Comprehensive Plan</li>
+    <li><strong>EDA District Designation:</strong> County participation required for federal Economic Development District grants</li>
+    <li><strong>Regional Infrastructure Funding:</strong> Joint applications for USDA Rural Development, EDA Public Works, and state transportation grants</li>
+   </ul>
+  </div>
+
+  <div class="content-block highlight">
+   <h3>🤝 Key MOUs and Coordination Points</h3>
+   <ul>
+    <li><strong>Monthly Briefings:</strong> City Manager + Commission Chair coordination on Vision 2040 progress</li>
+    <li><strong>Quarterly Planning Updates:</strong> Joint city-county planning committee to review phase progress and identify resource gaps</li>
+    <li><strong>Annual State-of-the-Partnership:</strong> Formal review of coordination mechanisms and shared service opportunities</li>
+    <li><strong>Regional Economic Summit (Annual):</strong> County-wide stakeholder meeting with all communities, employers, and government partners</li>
+   </ul>
+  </div>
+
+  <div class="content-block">
+   <h3>Contact: County Administration</h3>
+   <p><strong>Butler County Commission Office:</strong><br>
+    County Building, El Dorado, KS<br>
+    📞 (316) 322-4325<br>
+    📧 county.clerk@bucoks.gov<br>
+    <strong>County Clerk:</strong> Janice Kipp
+   </p>
+   <p><strong>County Planning Director:</strong><br>
+    Toby Stewart<br>
+    📧 tstewart@bucoks.com<br>
+    Focus: County Comprehensive Plan 2025–2028, regional zoning coordination
+   </p>
+  </div>
+ </section>
+
+ <!-- SECTION 4: RELATED INITIATIVES -->
+ <section id="related" class="content-section">
+  <h2>Related Governance & Coordination</h2>
+  <div class="related-links">
+   <a href="region.html" class="related-card">
+    <h4>Region & Planning</h4>
+    <p>Full regional coordination framework and county integration</p>
+   </a>
+   <a href="fire-districts-map.html" class="related-card">
+    <h4>Fire Districts & Emergency Services</h4>
+    <p>County-wide emergency services coordination (FDIS)</p>
+   </a>
+   <a href="stakeholders.html" class="related-card">
+    <h4>Stakeholder Directory</h4>
+    <p>Complete list of county officials and civic leaders</p>
+   </a>
+   <a href="build.html" class="related-card">
+    <h4>Infrastructure & Build</h4>
+    <p>City-county infrastructure coordination and funding</p>
+   </a>
+  </div>
+ </section>
+
+ <!-- SOURCES -->
+ <section id="sources" class="content-section">
+  <h2>Sources & Data References</h2>
+  <ul class="citation-list">
+   <li>Butler County Commission. "County Commission Meeting Minutes & Agendas" (2025–2026).</li>
+   <li>Butler County Clerk. "County Commission Districts Map" (2023).</li>
+   <li>Audit Report — Loyd Group, LLC. "Butler County Financial Statements" (Year Ended Dec 31, 2025).</li>
+   <li>Butler County Community Development. "Comprehensive Plan 2025–2028" (2025).</li>
+   <li>Butler County GIS. "Administrative Boundaries and Commission Districts" (2023).</li>
+  </ul>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// COUNTY COMMISSION DISTRICTS MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+ const map = L.map('commission-map').setView([37.65, -96.87], 9);
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 19
+ }).addTo(map);
+
+ // Commission district centers with contact information
+ const districts = [
+  {
+   name: 'District 1 — Andover Area',
+   lat: 37.30,
+   lng: -97.15,
+   chair: 'Jeff Masterson (Vice Chair)',
+   phone: '(316) 733-0178',
+   email: 'office',
+   color: '#2E6E35'
+  },
+  {
+   name: 'District 2 — Augusta Area',
+   lat: 37.05,
+   lng: -96.87,
+   chair: 'Marc Murphy',
+   phone: '(316) 648-9629',
+   email: 'marc.murphy@bucoks.gov',
+   color: '#1565C0'
+  },
+  {
+   name: 'District 3 — Potwin Area (North)',
+   lat: 38.12,
+   lng: -96.82,
+   chair: 'Kelly Herzel',
+   phone: '(316) 322-5582',
+   email: 'kelly.herzel@bucoks.gov',
+   color: '#F57C00'
+  },
+  {
+   name: 'District 4 — El Dorado (County Seat) ⭐',
+   lat: 37.825,
+   lng: -96.87,
+   chair: 'Darren Jackson (CHAIRMAN)',
+   phone: '(316) 253-0043',
+   email: 'darren.jackson@bucoks.gov',
+   color: '#C41E3A',
+   isChairman: true
+  },
+  {
+   name: 'District 5 — Rose Hill Area (South)',
+   lat: 37.48,
+   lng: -97.05,
+   chair: 'Dan Woydziak',
+   phone: '(316) 706-5203',
+   email: 'dan.woydziak@bucoks.gov',
+   color: '#7B5EA7'
+  }
+ ];
+
+ // Add district markers
+ districts.forEach(district => {
+  const size = district.isChairman? 14 : 10;
+
+  const marker = L.circleMarker([district.lat, district.lng], {
+   radius: size,
+   fillColor: district.color,
+   color: '#fff',
+   weight: district.isChairman? 3 : 2,
+   opacity: 1,
+   fillOpacity: 0.85
+  }).addTo(map);
+
+  const popupContent = `
+   <div style="font-size: 0.95em; width: 220px;">
+    <strong>${district.name}</strong><br>
+    <span style="color: #666; font-size: 0.9em; display: block; margin: 0.5rem 0;">
+     ${district.chair}
+    </span>
+    <span style="color: #0066cc; font-weight: bold; display: block;">
+     📞 ${district.phone}
+    </span>
+    <span style="color: #666; font-size: 0.85em; display: block;">
+     📧 ${district.email}
+    </span>
+   </div>
+  `;
+  marker.bindPopup(popupContent);
+ });
+
+ // Legend
+ const legend = L.control({ position: 'bottomright' });
+ legend.onAdd = function(map) {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = '<div style="background: white; padding: 12px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+   '<p style="margin: 0 0 8px 0;"><strong>🏛️ County Commission Districts</strong></p>' +
+   '<p style="margin: 4px 0;"><span style="color: #C41E3A; font-size: 18px;">●</span> County Seat (District 4)</p>' +
+   '<p style="margin: 4px 0;"><span style="color: #2E6E35; font-size: 18px;">●</span> Commission Districts 1–5</p>' +
+   '<p style="margin: 8px 0 0 0; font-size: 0.85em; color: #666;"><strong>Chairman:</strong> Darren Jackson (D4)</p>' +
+   '</div>';
+  return div;
+ };
+ legend.addTo(map);
+
+ // Add scale
+ L.control.scale().addTo(map);
+});
+</script>
+
+</body>
+</html>
