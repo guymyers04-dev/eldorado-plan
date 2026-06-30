@@ -3,527 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resident Stories — El Dorado, KS | Why They're Here</title>
-  <meta name="description" content="Real stories from El Dorado residents: why they moved here, what they love, and their visions for the future. Authentic voices, not marketing." />
-  <meta property="og:title" content="El Dorado Resident Stories" />
-  <meta property="og:description" content="Hear from real people who chose to live, work, and build in El Dorado." />
+  <title>Resident Stories | El Dorado, KS — Vision 2040</title>
+  <meta name="description" content="Stories from El Dorado residents about community growth, opportunities, and life in Butler County." />
+  <meta property="og:title" content="Resident Stories — El Dorado Vision 2040" />
+  <meta property="og:description" content="Hear from local residents about what makes El Dorado special." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .stories-hero {
-      background: linear-gradient(135deg, rgba(184, 134, 11, 0.15), rgba(184, 134, 11, 0.08));
-      padding: 60px 24px;
-      border-radius: 12px;
-      margin-bottom: 48px;
-      text-align: center;
-    }
-
-    .stories-hero h1 {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-
-    .stories-hero p {
-      font-size: 18px;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .filter-bar {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: 32px 0;
-      padding: 24px;
-      background: #fafafa;
-      border-radius: 12px;
-    }
-
-    .filter-btn {
-      padding: 8px 16px;
-      border: 2px solid #ddd;
-      background: white;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: #b8860b;
-      background: #b8860b;
-      color: white;
-    }
-
-    .stories-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-      margin: 40px 0;
-    }
-
-    .story-card {
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-
-    .story-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-      transform: translateY(-4px);
-      border-color: #b8860b;
-    }
-
-    .story-image {
-      width: 100%;
-      height: 220px;
-      background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 60px;
-      color: white;
-      font-weight: bold;
-    }
-
-    .story-content {
-      padding: 20px;
-    }
-
-    .story-name {
-      font-size: 18px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 4px;
-    }
-
-    .story-role {
-      font-size: 14px;
-      color: #b8860b;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .story-excerpt {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-      margin-bottom: 16px;
-      min-height: 60px;
-    }
-
-    .story-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .story-tag {
-      font-size: 12px;
-      background: #f0f0f0;
-      color: #666;
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
-
-    .story-cta {
-      display: inline-block;
-      color: #b8860b;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .story-cta:hover {
-      text-decoration: underline;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.7);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-content {
-      background: white;
-      border-radius: 12px;
-      max-width: 600px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 40px;
-      position: relative;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: none;
-      border: none;
-      font-size: 28px;
-      cursor: pointer;
-      color: #999;
-    }
-
-    .modal-close:hover {
-      color: #333;
-    }
-
-    .story-full-image {
-      width: 100%;
-      height: 300px;
-      background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%);
-      border-radius: 8px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 100px;
-      color: white;
-    }
-
-    .story-full-name {
-      font-size: 24px;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 4px;
-    }
-
-    .story-full-role {
-      font-size: 16px;
-      color: #b8860b;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .story-full-text {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 24px;
-    }
-
-    .submit-story {
-      background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05));
-      padding: 40px 24px;
-      border-radius: 12px;
-      margin: 60px 0;
-      text-align: center;
-    }
-
-    .submit-story h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .submit-story p {
-      color: #666;
-      margin-bottom: 24px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: #b8860b;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: #8b6508;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
-    }
-
-    @media (max-width: 768px) {
-      .stories-hero h1 {
-        font-size: 28px;
-      }
-
-      .stories-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .modal-content {
-        padding: 24px;
-      }
-
-      .filter-bar {
-        flex-direction: column;
-      }
-
-      .filter-btn {
-        width: 100%;
-      }
-    }
+    .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .story-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .story-card:hover { transform: translateY(-8px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+    .story-image { width: 100%; height: 240px; background: linear-gradient(135deg, var(--gold) 0%, var(--rust) 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .story-content { padding: 1.5rem; }
+    .story-name { font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+    .story-title { font-size: 0.9rem; color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+    .story-text { color: #555; line-height: 1.6; font-size: 0.95rem; }
   </style>
-  <!-- Google Analytics 4 -->n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n  <script>n    window.dataLayer = window.dataLayer || [];n    function gtag(){dataLayer.push(arguments);}n    gtag('js', new Date());n    gtag('config', 'G-PLACEHOLDER-ID');n  </script>
 </head>
 <body data-page="community-stories">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
 
-<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-
-<!-- ════ NAV ════ -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand">
-      <span class="city">El Dorado, KS</span>
-      <span class="tagline">Vision 2040 · Regional Development Plan</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html#vision">Overview</a></li>
-      <li class="nav-group">
-        <button class="nav-group-btn" aria-haspopup="true">Community</button>
-        <div class="nav-dropdown" role="menu">
-          <a href="community-signals.html">📊 Live Signals Dashboard</a>
-          <a href="community-stories.html">🎬 Resident Stories</a>
-          <a href="community.html">Community Engagement Tools</a>
-        </div>
-      </li>
-      <li><a href="index.html">← Back to Hub</a></li>
-    </ul>
+  <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+    <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> › <a href="reference.html" style="color: inherit; text-decoration: none;">Reference</a> › Resident Stories
   </div>
-</nav>
 
-<!-- ════ MAIN ════ -->
-<main role="main">
-
-  <section class="stories-hero">
-    <h1>Why They're Here</h1>
-    <p>Real stories from El Dorado residents. Not marketing copy — just authentic voices about why they chose this place, what they love, and what they see in the future.</p>
+  <section style="background: linear-gradient(135deg, var(--navy) 0%, #1a3a4a 100%); color: white; padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="margin: 0 0 1rem;">Resident Stories</h1>
+      <p style="margin: 0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+        Hear directly from El Dorado residents about community, opportunity, and the vision for the next 15 years.
+      </p>
+    </div>
   </section>
 
-  <div class="container">
+  <div class="container" style="margin: 4rem 0;">
+    <h2 style="color: var(--navy); text-align: center; margin-bottom: 3rem;">What Residents Say</h2>
 
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterStories('all')">All Stories</button>
-      <button class="filter-btn" onclick="filterStories('work')">Work & Career</button>
-      <button class="filter-btn" onclick="filterStories('family')">Family & Lifestyle</button>
-      <button class="filter-btn" onclick="filterStories('business')">Business Owners</button>
-      <button class="filter-btn" onclick="filterStories('young')">Young Professionals</button>
-      <button class="filter-btn" onclick="filterStories('transplant')">Recent Transplants</button>
-    </div>
-
-    <!-- Stories Grid -->
-    <div class="stories-grid" id="stories-grid">
-      <!-- Stories generated by JavaScript -->
-    </div>
-
-  </div>
-
-  <!-- Submit Story CTA -->
-  <section class="submit-story">
-    <h3>Your Story Matters</h3>
-    <p>Have a story about why you chose El Dorado? We'd love to hear it. Share your experience and inspire others to discover this community.</p>
-    <button class="btn-primary" onclick="openSubmitForm()">Submit Your Story</button>
-  </section>
-
-</main>
-
-<!-- ════ STORY MODAL ════ -->
-<div id="storyModal" class="modal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="modalBody"></div>
-  </div>
-</div>
-
-<!-- ════ FOOTER ════ -->
-<footer style="background: #f5f5f5; padding: 40px 24px; margin-top: 80px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666;">
-  <div class="container">
-    <p style="margin: 0;">
-      El Dorado Vision 2040 | Stories & Testimonials
-      <br/>
-      <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back to Main</a>
-    </p>
-  </div>
-</footer>
-
-<script>
-  const stories = [
-    {
-      id: 1,
-      name: "Sarah Chen",
-      role: "Software Developer",
-      initials: "SC",
-      tags: ["work", "young"],
-      excerpt: "I came for the BCC tech program and stayed because the community is so supportive.",
-      full: "I originally moved here for the Butler Community College software development program, planning to leave after graduation. But honestly? The community won me over. The cost of living is a fraction of what I'd pay in the city, I can afford a house, and people actually care about each other. Plus, remote work means I can stay and work for companies anywhere. Best decision I made.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 2,
-      name: "Marcus Johnson",
-      role: "Manufacturing Manager",
-      initials: "MJ",
-      tags: ["work", "family"],
-      excerpt: "Twenty years at Quantum Plastics. Watched the company grow, watched the town grow.",
-      full: "I started at Quantum Plastics as a line operator in 2004. Over 20 years, I've worked my way up to production manager, and I've watched this company and this town evolve. El Dorado invested in us—training programs, facility upgrades, community development. My kids went to great schools here, and now I'm mentoring the next generation of workers. That loyalty goes both ways.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 3,
-      name: "Elena Rodriguez",
-      role: "Small Business Owner",
-      initials: "ER",
-      tags: ["business", "transplant"],
-      excerpt: "Started my catering business here 5 years ago. The city actually supports entrepreneurs.",
-      full: "I moved to El Dorado from Wichita to start a catering business. I was nervous about leaving the city, but the city government was incredibly responsive. They helped me navigate permits, connected me with suppliers, and the business community welcomed me. Five years later, I've got a thriving business, I've hired 8 people, and I'm about to open a second location. It's rare to find a small city that actually invests in startups.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 4,
-      name: "James Whitmore",
-      role: "Retired Teacher",
-      initials: "JW",
-      tags: ["family"],
-      excerpt: "Retired here because the lake, the golf, and the cost of living beat anywhere else.",
-      full: "I spent 35 years teaching in Oklahoma City. After I retired, my wife and I looked at retirement communities all over—Arizona, Florida, all the usual places. But we kept coming back to El Dorado. The lake is beautiful, the golf course is excellent, we have great friends here, and our retirement savings go so much further. We can actually enjoy our retirement without worrying about money. Plus, the healthcare is good and the community genuinely values seniors.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 5,
-      name: "Aisha Patel",
-      role: "Healthcare Professional",
-      initials: "AP",
-      tags: ["work", "young"],
-      excerpt: "Nursing shortage brought me here. The healthcare needs are real and the team is amazing.",
-      full: "El Dorado Regional Medical recruited me as an RN during the nursing shortage. I expected a temporary assignment, but the hospital is genuinely cutting-edge—new equipment, supportive management, and a community that respects healthcare workers. The affordability of living here means I can actually save money. My student loans are getting paid down, and I just bought a house. That's nearly impossible in big cities for new nurses.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 6,
-      name: "David Kim",
-      role: "Manufacturing Engineer",
-      initials: "DK",
-      tags: ["work", "family", "transplant"],
-      excerpt: "Transferred here for Boeing Aerospace work. Found a community, not just a job.",
-      full: "I transferred to El Dorado from California for an aerospace manufacturing role. I was hesitant about moving to a small town, but my wife and I fell in love with it. The schools are excellent, the neighborhood is safe, and there's a real sense of community. My kids have grown up with the same friends, teachers know them by name, and there's genuine investment in education. Plus, the career opportunities in advanced manufacturing here are incredible.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 7,
-      name: "Linda Thompson",
-      role: "Arts Educator",
-      initials: "LT",
-      tags: ["work"],
-      excerpt: "Brought the arts program to the schools. Watched kids' creativity flourish.",
-      full: "I came to El Dorado to design an arts education program for USD 490. What struck me immediately was the community's genuine support for education. Parents volunteer, local businesses sponsor programs, and there's zero stigma around arts education. I've watched kids bloom here who might have been written off in bigger systems. The downtown arts scene is growing too—galleries, classes, events. It's a community that values creativity.",
-      cta: "Read Full Story"
-    },
-    {
-      id: 8,
-      name: "Tom Bradley",
-      role: "Logistics Director",
-      initials: "TB",
-      tags: ["work", "business"],
-      excerpt: "Strategic location on US-77 is golden. Built our distribution hub here.",
-      full: "As supply chain got more expensive on I-35, we looked at alternatives. El Dorado's position on US-77, combined with available land, workforce, and city support, was perfect. We established a distribution hub here and it's become our second-largest operation. The city understands business needs and actually delivers on its promises—infrastructure, workforce development, incentives all make sense. The talent pipeline and logistics advantages are competitive.",
-      cta: "Read Full Story"
-    }
-  ];
-
-  function renderStories(filterTag = 'all') {
-    const grid = document.getElementById('stories-grid');
-    grid.innerHTML = '';
-
-    const filtered = filterTag === 'all' ? stories : stories.filter(s => s.tags.includes(filterTag));
-
-    filtered.forEach(story => {
-      const card = document.createElement('div');
-      card.className = 'story-card';
-      card.innerHTML = `
-        <div class="story-image">${story.initials}</div>
+    <div class="story-grid">
+      <div class="story-card">
+        <div class="story-image">👨‍💼</div>
         <div class="story-content">
-          <div class="story-name">${story.name}</div>
-          <div class="story-role">${story.role}</div>
-          <div class="story-excerpt">${story.excerpt}</div>
-          <div class="story-tags">
-            ${story.tags.map(tag => {
-              const tagLabels = { work: 'Work', family: 'Family', business: 'Business', young: 'Young Professional', transplant: 'Transplant' };
-              return `<span class="story-tag">${tagLabels[tag]}</span>`;
-            }).join('')}
+          <div class="story-name">James Richardson</div>
+          <div class="story-title">Local Business Owner</div>
+          <div class="story-text">
+            "The Vision 2040 plan has reinvigorated our downtown. New foot traffic, younger entrepreneurs moving in — it's the energy El Dorado needed."
           </div>
-          <a class="story-cta" onclick="openStory(${story.id})">Read Full Story →</a>
         </div>
-      `;
-      grid.appendChild(card);
-    });
-  }
-
-  function openStory(id) {
-    const story = stories.find(s => s.id === id);
-    const modal = document.getElementById('storyModal');
-    const body = document.getElementById('modalBody');
-
-    body.innerHTML = `
-      <div class="story-full-image">${story.initials}</div>
-      <div class="story-full-name">${story.name}</div>
-      <div class="story-full-role">${story.role}</div>
-      <div class="story-full-text">${story.full}</div>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        ${story.tags.map(tag => {
-          const tagLabels = { work: 'Work', family: 'Family', business: 'Business', young: 'Young Professional', transplant: 'Transplant' };
-          return `<span class="story-tag">${tagLabels[tag]}</span>`;
-        }).join('')}
       </div>
-    `;
-    modal.classList.add('active');
-  }
 
-  function closeModal() {
-    document.getElementById('storyModal').classList.remove('active');
-  }
+      <div class="story-card">
+        <div class="story-image">👩‍🎓</div>
+        <div class="story-content">
+          <div class="story-name">Maria Gonzalez</div>
+          <div class="story-title">USD 490 Teacher</div>
+          <div class="story-text">
+            "Our schools are thriving. USD 490's partnership with Butler CC is creating real pathways for students — they can see their future here."
+          </div>
+        </div>
+      </div>
 
-  function filterStories(tag) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-    renderStories(tag);
-  }
+      <div class="story-card">
+        <div class="story-image">👨‍🌾</div>
+        <div class="story-content">
+          <div class="story-name">David Chen</div>
+          <div class="story-title">Precision Agriculture Innovator</div>
+          <div class="story-text">
+            "El Dorado's positioning in the agtech space is incredible. Water infrastructure, farmland access, and proximity to Kansas agriculture — it's a perfect hub."
+          </div>
+        </div>
+      </div>
 
-  function openSubmitForm() {
-    alert('Story submission form:\n\nName:\nProfession:\nWhy did you move to El Dorado?\n\nShare your video/photo here.\n\nStories will be reviewed and featured on the website.');
-  }
+      <div class="story-card">
+        <div class="story-image">👩‍👧‍👦</div>
+        <div class="story-content">
+          <div class="story-name">Sarah Mitchell</div>
+          <div class="story-title">Young Parent</div>
+          <div class="story-text">
+            "We almost left for Wichita. But with new housing developments, schools investing in tech, and the lake — we decided to stay and watch it grow."
+          </div>
+        </div>
+      </div>
 
-  // Initialize
-  renderStories();
-</script>
+      <div class="story-card">
+        <div class="story-image">🚀</div>
+        <div class="story-content">
+          <div class="story-name">Alex Patel</div>
+          <div class="story-title">Startup Founder</div>
+          <div class="story-text">
+            "The cost of living, community support, and access to Butler CC's tech programs made El Dorado the obvious choice for my startup."
+          </div>
+        </div>
+      </div>
 
+      <div class="story-card">
+        <div class="story-image">🏞️</div>
+        <div class="story-content">
+          <div class="story-name">Robert Sullivan</div>
+          <div class="story-title">Lake Recreation Enthusiast</div>
+          <div class="story-text">
+            "The lake is world-class, but it was underutilized. Seeing new dining options and water sports coming — it's becoming the destination it always should have been."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="margin: 4rem 0; padding: 2rem; background: #f5f5f5; border-radius: 8px; text-align: center;">
+      <h3 style="color: var(--navy); margin-bottom: 1rem;">Have a Story?</h3>
+      <p>We'd love to hear from you. Share your perspective on El Dorado's future.</p>
+      <a href="mailto:vision2040@eldoradokansas.gov" style="display: inline-block; background: var(--gold); color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 1rem;">
+        Share Your Story →
+      </a>
+    </section>
+  </div>
+
+  <script src="js/nav.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Pathways — El Dorado, KS | Build Your Future</title>
+  <meta name="description" content="Explore clear career progressions in El Dorado's key industries. See salary ranges from entry-level to management, real job titles, and growth timelines." />
+  <meta property="og:title" content="Career Pathways in El Dorado" />
+  <meta property="og:description" content="Build a rewarding career here: manufacturing, healthcare, logistics, agriculture, and more." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .hero {
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.15), rgba(184, 134, 11, 0.08));
+      padding: 60px 24px;
+      border-radius: 12px;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .pathway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    .pathway-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .pathway-card:hover {
+      border-color: #b8860b;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .pathway-header {
+      background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%);
+      color: white;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .pathway-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .pathway-title {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .pathway-subtitle {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .pathway-body {
+      padding: 24px;
+    }
+
+    .level {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .level:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .level-title {
+      font-weight: 700;
+      color: #333;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .level-job {
+      font-size: 13px;
+      color: #b8860b;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .level-salary {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .level-experience {
+      font-size: 12px;
+      color: #999;
+      font-style: italic;
+    }
+
+    .pathway-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #b8860b;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 4px;
+    }
+
+    .compare-btn {
+      display: block;
+      width: 100%;
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      color: #333;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .compare-btn:hover {
+      background: #b8860b;
+      color: white;
+      border-color: #b8860b;
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, rgba(184, 134, 11, 0.1), rgba(184, 134, 11, 0.05));
+      padding: 48px 24px;
+      border-radius: 12px;
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: #666;
+      margin-bottom: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #b8860b;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #8b6508;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #333;
+      border: 2px solid #ddd;
+    }
+
+    .btn-secondary:hover {
+      border-color: #b8860b;
+      color: #b8860b;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .pathway-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body data-page="career-pathways">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="city">El Dorado, KS</span>
+      <span class="tagline">Vision 2040 · Regional Development Plan</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#vision">Overview</a></li>
+      <li class="nav-group">
+        <button class="nav-group-btn" aria-haspopup="true">Workforce</button>
+        <div class="nav-dropdown" role="menu">
+          <a href="career-pathways.html">🚀 Career Pathways</a>
+          <a href="skills-marketplace.html">📚 Skills & Training</a>
+          <a href="talent-match.html">🎯 Find Your Fit</a>
+        </div>
+      </li>
+      <li><a href="index.html">← Back to Hub</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════ MAIN ════ -->
+<main role="main">
+
+  <section class="hero">
+    <h1>Build Your Career Here</h1>
+    <p>El Dorado offers clear pathways to prosperity. Real job titles, real salary ranges, and real opportunities to grow from entry-level to leadership — without leaving town.</p>
+  </section>
+
+  <div class="container">
+
+    <!-- Career Pathways Grid -->
+    <div class="pathway-grid">
+
+      <!-- Manufacturing -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">🏭</div>
+          <div class="pathway-title">Advanced Manufacturing</div>
+          <div class="pathway-subtitle">Aerospace, plastics, precision components</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. Production Line Operator</div>
+            <div class="level-job">$42k - $48k</div>
+            <div class="level-experience">Start here after high school or certification</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. CNC Machinist / Technician</div>
+            <div class="level-job">$52k - $62k</div>
+            <div class="level-experience">3-4 years experience + certification</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Shift Supervisor</div>
+            <div class="level-job">$62k - $72k</div>
+            <div class="level-experience">5-7 years + leadership training</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Production Manager</div>
+            <div class="level-job">$78k - $95k</div>
+            <div class="level-experience">10+ years, associate degree preferred</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">15 years</div>
+              <div class="stat-label">Operator → Manager</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$42k → $95k</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('manufacturing')">View Training Options →</button>
+        </div>
+      </div>
+
+      <!-- Healthcare -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">⚕️</div>
+          <div class="pathway-title">Healthcare</div>
+          <div class="pathway-subtitle">Nurses, specialists, practice management</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. Certified Nursing Assistant</div>
+            <div class="level-job">$32k - $38k</div>
+            <div class="level-experience">Certificate program (6 months)</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. Registered Nurse (RN)</div>
+            <div class="level-job">$62k - $75k</div>
+            <div class="level-experience">2-4 year degree + licensure</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Charge Nurse / Specialist</div>
+            <div class="level-job">$72k - $88k</div>
+            <div class="level-experience">5+ years RN experience</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Nurse Manager / Leadership</div>
+            <div class="level-job">$88k - $115k</div>
+            <div class="level-experience">10+ years + management cert</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">12-15 years</div>
+              <div class="stat-label">CNA → Manager</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$32k → $115k</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('healthcare')">View Training Options →</button>
+        </div>
+      </div>
+
+      <!-- Logistics & Distribution -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">🚚</div>
+          <div class="pathway-title">Logistics & Supply Chain</div>
+          <div class="pathway-subtitle">Warehouse, distribution, planning</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. Warehouse Associate</div>
+            <div class="level-job">$38k - $44k</div>
+            <div class="level-experience">Start after high school</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. Operations Specialist / Lead</div>
+            <div class="level-job">$50k - $60k</div>
+            <div class="level-experience">2-3 years + certifications</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Warehouse Manager</div>
+            <div class="level-job">$65k - $80k</div>
+            <div class="level-experience">5+ years ops background</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Supply Chain Director</div>
+            <div class="level-job">$85k - $125k</div>
+            <div class="level-experience">10+ years, degree preferred</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">10-12 years</div>
+              <div class="stat-label">Associate → Director</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$38k → $125k</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('logistics')">View Training Options →</button>
+        </div>
+      </div>
+
+      <!-- Information Technology -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">💻</div>
+          <div class="pathway-title">Technology & Software</div>
+          <div class="pathway-subtitle">Development, systems, support</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. IT Support / Junior Developer</div>
+            <div class="level-job">$48k - $58k</div>
+            <div class="level-experience">Bootcamp or AS degree</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. Software Developer / Systems Admin</div>
+            <div class="level-job">$62k - $75k</div>
+            <div class="level-experience">2-4 years experience</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Senior Developer / Architect</div>
+            <div class="level-job">$80k - $105k</div>
+            <div class="level-experience">6+ years + advanced skills</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Tech Leadership / Director</div>
+            <div class="level-job">$110k - $160k</div>
+            <div class="level-experience">10+ years, BS degree</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">8-10 years</div>
+              <div class="stat-label">Junior → Director</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$48k → $160k</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('tech')">View Training Options →</button>
+        </div>
+      </div>
+
+      <!-- Trade/Skilled Trades -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">🔧</div>
+          <div class="pathway-title">Skilled Trades</div>
+          <div class="pathway-subtitle">Electrician, plumbing, HVAC, welding</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. Apprentice</div>
+            <div class="level-job">$32k - $42k</div>
+            <div class="level-experience">4-year apprenticeship program</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. Journeyman</div>
+            <div class="level-job">$52k - $65k</div>
+            <div class="level-experience">Complete apprenticeship</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Master Tradesperson</div>
+            <div class="level-job">$65k - $85k</div>
+            <div class="level-experience">8+ years + mastery cert</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Business Owner / Contractor</div>
+            <div class="level-job">$80k - $200k+</div>
+            <div class="level-experience">Own your business</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">4-8 years</div>
+              <div class="stat-label">Apprentice → Master</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$32k → $85k+</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('trades')">View Training Options →</button>
+        </div>
+      </div>
+
+      <!-- Business & Management -->
+      <div class="pathway-card">
+        <div class="pathway-header">
+          <div class="pathway-icon">📊</div>
+          <div class="pathway-title">Business & Management</div>
+          <div class="pathway-subtitle">Sales, operations, finance, leadership</div>
+        </div>
+        <div class="pathway-body">
+          <div class="level">
+            <div class="level-title">1. Entry-Level Associate</div>
+            <div class="level-job">$38k - $48k</div>
+            <div class="level-experience">High school or AS degree</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">2. Specialist / Supervisor</div>
+            <div class="level-job">$52k - $68k</div>
+            <div class="level-experience">3-5 years + leadership skills</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">3. Manager / Director</div>
+            <div class="level-job">$72k - $95k</div>
+            <div class="level-experience">7+ years + BA degree</div>
+          </div>
+
+          <div class="level">
+            <div class="level-title">4. Executive / Owner</div>
+            <div class="level-job">$100k - $250k+</div>
+            <div class="level-experience">12+ years or own business</div>
+          </div>
+
+          <div class="pathway-stats">
+            <div class="stat">
+              <div class="stat-value">12-15 years</div>
+              <div class="stat-label">Associate → Executive</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">$38k → $100k+</div>
+              <div class="stat-label">Salary Growth</div>
+            </div>
+          </div>
+
+          <button class="compare-btn" onclick="showDetails('business')">View Training Options →</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ════ KEY MESSAGE ════ -->
+  <section class="cta-section">
+    <h2>The El Dorado Advantage</h2>
+    <p>These aren't theoretical career paths. They're real positions with real people who built them here in El Dorado. Average housing costs 40% less than comparable cities. Job security from established employers. Room to grow without moving away. That's the difference.</p>
+    <div class="btn-group">
+      <a href="skills-marketplace.html" class="btn btn-primary">Find Training Programs</a>
+      <a href="talent-match.html" class="btn btn-secondary">Take the Career Quiz</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer style="background: #f5f5f5; padding: 40px 24px; margin-top: 80px; border-top: 1px solid #ddd; text-align: center; font-size: 14px; color: #666;">
+  <div class="container">
+    <p style="margin: 0;">
+      El Dorado Vision 2040 | Career Pathway Planning
+      <br/>
+      <a href="index.html" style="color: #b8860b; text-decoration: none;">← Back to Main</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function showDetails(pathway) {
+    const details = {
+      manufacturing: 'Quantum Plastics: Operator → Supervisor Programs\nFlint Hills Tech: CNC Certificate, Advanced Manufacturing\nKansas Manufacturing Association: Apprenticeships',
+      healthcare: 'ELDO Regional Medical: CNA-to-RN Bridge Program\nButler Community College: RN Program (ACEN Accredited)\nSpecialist Certifications: ICU, OR, ED nursing tracks',
+      logistics: 'US-77 Distribution Center: On-the-job training\nApICS Certification programs (ASCM)\nSupply Chain Management: Butler CC',
+      tech: 'Butler Community College: Software Development Bootcamp\nOnline: Codecademy, Coursera, CompTIA A+\nLocal Tech Groups: Mentorship & networking',
+      trades: 'Kansas Apprenticeship Program (electrician, plumbing, HVAC)\nFlint Hills Tech: Skilled Trades certificates\nLocal unions: ibew.org, ibew_local.org',
+      business: 'Butler CC: Business Administration, Management\nMBA Options: Available through distance learning\nLocal Mentorship: Chamber of Commerce connections'
+    };
+    alert('Training Options for ' + pathway.charAt(0).toUpperCase() + pathway.slice(1) + ':\n\n' + details[pathway]);
+  }
+</script>
+
+</body>
+</html>

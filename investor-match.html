@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Investor Matching | El Dorado Vision 2040</title>
+    <meta name="description" content="Match your investment profile to El Dorado development opportunities. AI-powered property recommendations based on your criteria.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a2847 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ffd700;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .matcher-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .form-panel {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            padding: 28px;
+        }
+
+        .form-panel h2 {
+            font-size: 18px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 4px;
+            color: #e0e0e0;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        textarea::placeholder {
+            color: #666;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.08);
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="checkbox"] {
+            accent-color: #ffd700;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: none;
+            color: #e0e0e0;
+            cursor: pointer;
+        }
+
+        .slider-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 215, 0, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #ffd700;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        }
+
+        .slider-value {
+            min-width: 40px;
+            text-align: right;
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background: #ffd700;
+            color: #0a0e27;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .results-panel {
+            display: none;
+        }
+
+        .results-panel.active {
+            display: block;
+        }
+
+        .match-card {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.3s;
+        }
+
+        .match-card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            background: rgba(255, 215, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
+        }
+
+        .match-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .match-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffd700;
+        }
+
+        .match-score {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.4);
+            border-radius: 4px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #28a745;
+        }
+
+        .match-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+
+        .detail-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px;
+            border-radius: 4px;
+            border-left: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .detail-label {
+            font-size: 11px;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .detail-value {
+            color: #e0e0e0;
+            font-weight: 600;
+        }
+
+        .match-description {
+            font-size: 13px;
+            color: #a0a0a0;
+            line-height: 1.5;
+            margin: 12px 0;
+        }
+
+        .match-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .match-btn {
+            flex: 1;
+            padding: 8px 12px;
+            font-size: 11px;
+            border-radius: 4px;
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .match-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #a0a0a0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #ffd700;
+        }
+
+        @media (max-width: 768px) {
+            .matcher-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .match-details {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            header {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Investor Matching</h1>
+            <p class="subtitle">Discover El Dorado development opportunities tailored to your investment profile. Our AI analyzes your criteria and recommends the best matches.</p>
+        </header>
+
+        <div class="matcher-grid">
+            <!-- Investor Profile Form -->
+            <div class="form-panel">
+                <h2>💼 Your Investment Profile</h2>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="investorName" placeholder="Your name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="investorEmail" placeholder="your@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Investment Size</label>
+                    <div class="slider-group">
+                        <input type="range" id="investmentSize" min="1" max="50" value="10">
+                        <span class="slider-value">$<span id="investmentValue">10</span>M</span>
+                    </div>
+                    <small style="color: #666; font-size: 11px;">Range: $1M - $50M</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Investment Horizon</label>
+                    <select id="horizon">
+                        <option value="1-3">1-3 years</option>
+                        <option value="3-7" selected>3-7 years</option>
+                        <option value="7-15">7-15 years</option>
+                        <option value="15+">15+ years</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred ROI</label>
+                    <div class="slider-group">
+                        <input type="range" id="roiTarget" min="5" max="50" value="20">
+                        <span class="slider-value"><span id="roiValue">20</span>%</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience Level</label>
+                    <select id="experience">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate" selected>Intermediate</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Investment Preferences -->
+            <div class="form-panel">
+                <h2>🎯 Investment Preferences</h2>
+
+                <div class="form-group">
+                    <label>Property Types</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="commercial" checked>
+                            <label for="commercial">Commercial / Office</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="industrial" checked>
+                            <label for="industrial">Industrial / Logistics</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="residential" checked>
+                            <label for="residential">Residential / Multi-Family</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hospitality">
+                            <label for="hospitality">Hospitality / Recreation</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="infrastructure">
+                            <label for="infrastructure">Infrastructure / Data Center</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Industries of Interest</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ag" checked>
+                            <label for="ag">Agriculture & Precision Ag</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="logistics" checked>
+                            <label for="logistics">Logistics & Supply Chain</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="energy">
+                            <label for="energy">Energy & Manufacturing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="biotech">
+                            <label for="biotech">Biotech & Life Sciences</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="aerospace">
+                            <label for="aerospace">Aerospace & Defense</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Risk Tolerance</label>
+                    <select id="riskTolerance">
+                        <option value="conservative">Conservative (Stable, Lower Risk)</option>
+                        <option value="moderate" selected>Moderate (Balanced)</option>
+                        <option value="aggressive">Aggressive (Growth-Focused)</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="findMatches()">🔍 Find Matches</button>
+                    <button class="btn-secondary" onclick="resetForm()">🔄 Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="resultsPanel">
+            <div style="margin-bottom: 20px;">
+                <h2 style="font-size: 20px; color: #ffd700; margin-bottom: 12px;">
+                    ✨ Your Personalized Matches
+                </h2>
+                <p style="color: #a0a0a0; font-size: 13px;">
+                    Based on your investment profile, here are the El Dorado properties best aligned with your goals:
+                </p>
+            </div>
+
+            <div id="matchesContainer">
+                <!-- Results will be populated here -->
+            </div>
+
+            <div style="text-align: center; margin-top: 32px;">
+                <button class="btn-secondary" onclick="hideResults()" style="max-width: 200px; margin: 0 auto;">← Back to Matcher</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/investor-matcher.js"></script>
+</body>
+</html>
