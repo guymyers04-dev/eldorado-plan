@@ -4,156 +4,107 @@
     {
       "type": "Feature",
       "properties": {
-        "id": "north-gateway-1",
+        "id": "DT-001",
         "zone": "C-1",
-        "district": "North Gateway",
-        "height": 35,
-        "use": "Commercial",
-        "color": "#0066cc",
-        "name": "North Gateway Commercial Pad A"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.382, 37.651],
-          [-97.378, 37.651],
-          [-97.378, 37.649],
-          [-97.382, 37.649],
-          [-97.382, 37.651]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "north-gateway-2",
-        "zone": "Mixed-Use",
-        "district": "North Gateway",
-        "height": 55,
-        "use": "Mixed-Use",
-        "color": "#9966cc",
-        "name": "North Gateway Mixed-Use Village"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.386, 37.654],
-          [-97.380, 37.654],
-          [-97.380, 37.650],
-          [-97.386, 37.650],
-          [-97.386, 37.654]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "north-gateway-3",
-        "zone": "R-2",
-        "district": "North Gateway",
+        "district": "downtown",
         "height": 45,
-        "use": "Residential",
-        "color": "#00cc66",
-        "name": "North Gateway Residential Park"
+        "width": 120,
+        "depth": 100,
+        "description": "Downtown mixed-use development — ideal for retail/office",
+        "status": "Available",
+        "roi": "22-28%"
       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.390, 37.657],
-          [-97.381, 37.657],
-          [-97.381, 37.650],
-          [-97.390, 37.650],
-          [-97.390, 37.657]
-        ]]
-      }
+      "geometry": {"type": "Point", "coordinates": [-97.3936, 37.6444]}
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "downtown-1",
-        "zone": "C-2",
-        "district": "Downtown TIF",
-        "height": 50,
-        "use": "Downtown Commercial",
-        "color": "#ff8800",
-        "name": "Downtown Central Ave Revitalization"
-      },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.376, 37.647],
-          [-97.374, 37.647],
-          [-97.374, 37.644],
-          [-97.376, 37.644],
-          [-97.376, 37.647]
-        ]]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "id": "south-industrial-1",
+        "id": "SI-001",
         "zone": "I-1",
-        "district": "South Industrial",
+        "district": "south",
         "height": 65,
-        "use": "Industrial",
-        "color": "#cc0000",
-        "name": "South Industrial Light Manufacturing"
+        "width": 250,
+        "depth": 180,
+        "description": "South industrial corridor — logistics & manufacturing hub",
+        "status": "Available",
+        "roi": "18-24%"
       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.375, 37.640],
-          [-97.368, 37.640],
-          [-97.368, 37.635],
-          [-97.375, 37.635],
-          [-97.375, 37.640]
-        ]]
-      }
+      "geometry": {"type": "Point", "coordinates": [-97.3820, 37.6250]}
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "south-industrial-2",
-        "zone": "I-2",
-        "district": "South Industrial",
-        "height": 80,
-        "use": "Heavy Industrial",
-        "color": "#990000",
-        "name": "Project Horizon Data Center"
+        "id": "NG-001",
+        "zone": "R-1",
+        "district": "north",
+        "height": 35,
+        "width": 150,
+        "depth": 120,
+        "description": "North gateway residential — multi-family opportunity",
+        "status": "Available",
+        "roi": "16-20%"
       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.360, 37.632],
-          [-97.348, 37.632],
-          [-97.348, 37.620],
-          [-97.360, 37.620],
-          [-97.360, 37.632]
-        ]]
-      }
+      "geometry": {"type": "Point", "coordinates": [-97.3980, 37.6600]}
     },
     {
       "type": "Feature",
       "properties": {
-        "id": "lakeside-1",
-        "zone": "Mixed-Use",
-        "district": "Lakeside",
+        "id": "LS-001",
+        "zone": "PUD",
+        "district": "lakeside",
         "height": 55,
-        "use": "Hospitality",
-        "color": "#9966cc",
-        "name": "Lakeside Hotel + Resort"
+        "width": 180,
+        "depth": 140,
+        "description": "Lakeside recreation & mixed-use — high-value amenity zone",
+        "status": "Available",
+        "roi": "24-30%"
       },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [[
-          [-97.395, 37.660],
-          [-97.388, 37.660],
-          [-97.388, 37.653],
-          [-97.395, 37.653],
-          [-97.395, 37.660]
-        ]]
-      }
+      "geometry": {"type": "Point", "coordinates": [-97.4050, 37.6350]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DT-002",
+        "zone": "C-1",
+        "district": "downtown",
+        "height": 50,
+        "width": 100,
+        "depth": 90,
+        "description": "Downtown office/retail secondary site",
+        "status": "Available",
+        "roi": "20-25%"
+      },
+      "geometry": {"type": "Point", "coordinates": [-97.3920, 37.6460]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "SI-002",
+        "zone": "I-1",
+        "district": "south",
+        "height": 70,
+        "width": 300,
+        "depth": 200,
+        "description": "South industrial expansion — major distribution facility",
+        "status": "Available",
+        "roi": "19-25%"
+      },
+      "geometry": {"type": "Point", "coordinates": [-97.3750, 37.6200]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NG-002",
+        "zone": "R-1",
+        "district": "north",
+        "height": 40,
+        "width": 160,
+        "depth": 130,
+        "description": "North gateway secondary residential",
+        "status": "Available",
+        "roi": "17-21%"
+      },
+      "geometry": {"type": "Point", "coordinates": [-97.3990, 37.6620]}
     }
   ]
 }
