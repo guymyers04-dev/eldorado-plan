@@ -1720,3 +1720,45 @@ class ChartManager {
 document.addEventListener('DOMContentLoaded', () => {
   ChartManager.init();
 });
+
+/* ── Back-to-Top Button Manager ── */
+class BackToTopManager {
+  static init() {
+    // Create button if it doesn't exist
+    if (!document.getElementById('back-to-top')) {
+      const button = document.createElement('button');
+      button.id = 'back-to-top';
+      button.setAttribute('aria-label', 'Back to top');
+      button.textContent = '↑';
+      document.body.appendChild(button);
+    }
+
+    const button = document.getElementById('back-to-top');
+
+    // Show/hide button on scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        button.classList.add('visible');
+      } else {
+        button.classList.remove('visible');
+      }
+    });
+
+    // Smooth scroll to top on click
+    button.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+// Initialize back-to-top button
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    BackToTopManager.init();
+  });
+} else {
+  BackToTopManager.init();
+}
