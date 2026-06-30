@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality of Life Tracker — Why Choose El Dorado</title>
+  <meta name="description" content="Interactive quality of life dashboard comparing El Dorado across cost of living, schools, safety, recreation, healthcare, and community engagement with data-driven metrics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .qol-hero { background: linear-gradient(135deg, #2E6E35 0%, #4A90BF 100%); color: white; padding: 4rem 2rem; text-align: center; margin-top: 76px; }
+    .qol-hero h1 { font-size: 2.5rem; font-family: 'Playfair Display', serif; margin-bottom: 1rem; font-weight: 700; }
+    .qol-hero p { font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin: 0 auto 1.5rem; }
+    
+    .qol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+    .qol-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.1); border-bottom: 5px solid #C8902A; transition: all 0.3s ease; }
+    .qol-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    
+    .qol-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .qol-title { font-size: 1.2rem; font-weight: 700; color: #1B3A5C; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; }
+    .qol-metric { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+    .metric-item { padding: 0.75rem; background: #f8f9fa; border-radius: 6px; }
+    .metric-label { font-size: 0.85rem; color: #666; margin-bottom: 0.3rem; }
+    .metric-value { font-size: 1.1rem; font-weight: 700; color: #1B3A5C; }
+    .metric-compare { font-size: 0.8rem; color: #28A745; font-weight: 600; }
+    
+    .comparison-section { background: #f8f9fa; padding: 2rem; border-radius: 12px; margin: 2rem 0; }
+    .comparison-section h3 { color: #1B3A5C; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1.5rem; }
+    .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+    .comparison-item { background: white; padding: 1rem; border-radius: 8px; text-align: center; }
+    .comp-label { font-size: 0.9rem; color: #666; margin-bottom: 0.5rem; }
+    .comp-value { font-size: 1.3rem; font-weight: 700; color: #1B3A5C; }
+    .comp-note { font-size: 0.8rem; color: #999; margin-top: 0.3rem; }
+    
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .testimonial-card { background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #7B5EA7; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .testimonial-name { font-weight: 700; color: #1B3A5C; margin-bottom: 0.3rem; }
+    .testimonial-role { font-size: 0.9rem; color: #999; margin-bottom: 0.75rem; }
+    .testimonial-quote { font-size: 0.95rem; color: #555; font-style: italic; line-height: 1.6; }
+    
+    .gauge-section { margin: 3rem 0; }
+    .gauge-title { font-size: 1.4rem; color: #1B3A5C; font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; }
+    .gauge-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .gauge-item { text-align: center; }
+    .gauge-label { font-weight: 700; color: #1B3A5C; margin-bottom: 1rem; }
+    .gauge-bar { height: 30px; background: #e5e7eb; border-radius: 15px; overflow: hidden; margin-bottom: 0.5rem; }
+    .gauge-fill { height: 100%; background: linear-gradient(90deg, #C8902A, #28A745); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.9rem; }
+    
+    .cta-section { background: linear-gradient(135deg, #2E6E35 0%, #1B3A5C 100%); color: white; padding: 3rem 2rem; border-radius: 12px; text-align: center; margin: 3rem 0; }
+    .cta-button { display: inline-block; background: #C8902A; color: white; padding: 0.8rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 0 0.5rem; transition: background 0.3s; }
+    .cta-button:hover { background: #A8760A; }
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER-ID');
+  </script>
+</head>
+<body data-page="quality-of-life">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <div class="qol-hero">
+    <h1>🏡 Quality of Life Tracker</h1>
+    <p>Why El Dorado is a great place to live, work, and raise a family — by the numbers.</p>
+    <p style="font-size: 0.95rem; opacity: 0.85;">Data-driven • Transparent • Community-focused</p>
+  </div>
+
+  <div class="container">
+    <section class="section">
+      <h2 style="font-size: 1.6rem; color: #1B3A5C; margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Life Quality Dimensions</h2>
+      <div class="qol-grid">
+        <div class="qol-card">
+          <div class="qol-icon">💰</div>
+          <div class="qol-title">Cost of Living</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Median Home Price</div>
+              <div class="metric-value">$165K</div>
+              <div class="metric-compare">vs. Wichita: $280K</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">Housing Cost Index</div>
+              <div class="metric-value">88</div>
+              <div class="metric-compare">vs. National: 100</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            40% lower than national average. Renters average $850/mo for 2BR.
+          </div>
+        </div>
+
+        <div class="qol-card">
+          <div class="qol-icon">🏫</div>
+          <div class="qol-title">Schools (USD 490)</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Graduation Rate</div>
+              <div class="metric-value">96%</div>
+              <div class="metric-compare">vs. Kansas: 88%</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">College Placement</div>
+              <div class="metric-value">82%</div>
+              <div class="metric-compare">Attend 4-yr college</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            Award-winning district with modern facilities and diverse programs.
+          </div>
+        </div>
+
+        <div class="qol-card">
+          <div class="qol-icon">🛡️</div>
+          <div class="qol-title">Safety</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Crime Rate (per 1000)</div>
+              <div class="metric-value">2.4</div>
+              <div class="metric-compare">vs. National: 4.7</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">Police Response Time</div>
+              <div class="metric-value">3.2 min</div>
+              <div class="metric-compare">Average</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            Well-funded police and fire departments. Strong community policing.
+          </div>
+        </div>
+
+        <div class="qol-card">
+          <div class="qol-icon">🏥</div>
+          <div class="qol-title">Healthcare</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Hospital (ER) Drive Time</div>
+              <div class="metric-value">&lt;10 min</div>
+              <div class="metric-compare">Regional facility</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">Primary Care Doctors</div>
+              <div class="metric-value">18</div>
+              <div class="metric-compare">Accepting new patients</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            Modern regional hospital with specialists. Competitive healthcare costs.
+          </div>
+        </div>
+
+        <div class="qol-card">
+          <div class="qol-icon">🎯</div>
+          <div class="qol-title">Recreation</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Parks & Trails</div>
+              <div class="metric-value">12</div>
+              <div class="metric-compare">800+ acres</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">Lake Recreation</div>
+              <div class="metric-value">✓</div>
+              <div class="metric-compare">Sailing, fishing, boating</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            El Dorado Lake is centerpiece of recreation. Golf, pool, stadiums.
+          </div>
+        </div>
+
+        <div class="qol-card">
+          <div class="qol-icon">👥</div>
+          <div class="qol-title">Community</div>
+          <div class="qol-metric">
+            <div class="metric-item">
+              <div class="metric-label">Population</div>
+              <div class="metric-value">13,000</div>
+              <div class="metric-compare">Growing steadily</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-label">Organizations</div>
+              <div class="metric-value">50+</div>
+              <div class="metric-compare">Clubs & civic groups</div>
+            </div>
+          </div>
+          <div style="font-size: 0.9rem; color: #666; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb;">
+            Strong sense of community. Easy to get involved and make friends.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison-section">
+      <h3>How El Dorado Compares</h3>
+      <div class="comparison-grid">
+        <div class="comparison-item">
+          <div class="comp-label">Median Household Income</div>
+          <div class="comp-value">$48K</div>
+          <div class="comp-note">Kansas: $52K | US: $63K</div>
+        </div>
+        <div class="comparison-item">
+          <div class="comp-label">Unemployment Rate</div>
+          <div class="comp-value">3.2%</div>
+          <div class="comp-note">Kansas: 3.5% | US: 3.9%</div>
+        </div>
+        <div class="comparison-item">
+          <div class="comp-label">Population Growth</div>
+          <div class="comp-value">+2.1%/yr</div>
+          <div class="comp-note">Kansas: +0.3% | US: +0.5%</div>
+        </div>
+        <div class="comparison-item">
+          <div class="comp-label">Average Commute</div>
+          <div class="comp-value">12 min</div>
+          <div class="comp-note">Kansas: 18 min | US: 27 min</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section">
+      <h2 style="font-size: 1.6rem; color: #1B3A5C; margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Why Families Choose El Dorado</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-name">Sarah & Michael Thompson</div>
+          <div class="testimonial-role">Relocated from Wichita (2022)</div>
+          <div class="testimonial-quote">"We wanted a safer, slower-paced community for our kids. El Dorado gave us that plus excellent schools and a strong sense of community. Our home cost 40% less than what we sold in Wichita."</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-name">James Lee</div>
+          <div class="testimonial-role">Remote worker from California (2023)</div>
+          <div class="testimonial-quote">"I work for a San Francisco tech company but live here. My cost of living is 60% lower, the quality of life is amazing, and the community is welcoming. Best decision ever."</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-name">Maria Garcia</div>
+          <div class="testimonial-role">Retired teacher (2020)</div>
+          <div class="testimonial-quote">"El Dorado is perfect for retirement. Affordable, safe, great healthcare, and I'm very involved in the community. I made more friends here in 2 years than I expected."</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h2>Ready to Make the Move?</h2>
+      <p>Explore career opportunities, housing, and community resources for your family.</p>
+      <a href="career-pathways.html" class="cta-button">Career Opportunities</a>
+      <a href="small-business-playbook.html" class="cta-button">Start a Business</a>
+      <a href="signals-hub.html" class="cta-button">See What's Happening</a>
+    </div>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script>
+    gtag('event', 'page_view', { page_title: 'Quality of Life', page_path: '/quality-of-life.html' });
+  </script>
+</body>
+</html>
