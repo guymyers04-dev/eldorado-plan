@@ -11,16 +11,16 @@
 **Test Environment:** localhost:8000 (no network latency)  
 **Browser:** Chromium headless, throttled to 3G + 4x CPU slowdown
 
-### Score Summary
+### Score Summary (Fresh Audit - June 29, 2026)
 
 | Page | Performance | Accessibility | Best Practices | SEO | Overall |
 |------|-------------|---------------|----------------|-----|---------|
-| index.html | 66% | 92% | 96% | 100% | 89% |
-| economy.html | 65% | 92% | 96% | 100% | 88% |
-| signals-hub.html | 73% | 92% | 96% | 100% | 90% |
-| investor-portal.html | 73% | 89% | 96% | 100% | 90% |
-| community-signals.html | 76% | 93% | 96% | 100% | 91% |
-| **Average** | **71%** | **92%** | **96%** | **100%** | **92%** |
+| index.html | 66 | 92 | 96 | 100 | 89 |
+| economy.html | 64 | 92 | 96 | 100 | 88 |
+| career-pathways.html | 73 | 92 | 96 | 100 | 90 |
+| housing.html | 64 | 92 | 96 | 100 | 88 |
+| signals-hub.html | 70 | 92 | 96 | 100 | 90 |
+| **Average** | **67.4** | **92** | **96** | **100** | **91** |
 
 ---
 

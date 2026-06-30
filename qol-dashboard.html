@@ -24,9 +24,13 @@
       body { padding-top: 60px; }
     </style>
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <!-- MODERN CSS SYSTEM -->
+    <link rel="preload" href="css/styles-modern.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.css">
+    <link rel="stylesheet" href="css/components-advanced.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- CSS already loaded above --> onload="this.media='all';this.onload=null;">
+    <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
  <style>
  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 32px 0; }
  .metric-card { background: white; border: 1px solid #e0e0e0; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>El Dorado, KS — Vision 2040 | People & Education</title>
+ <meta name="description" content="K–12 excellence, higher education, workforce development, and public safety" />
+ <meta property="og:title" content="El Dorado, KS — Vision 2040 | People & Education" />
+ <meta property="og:description" content="K–12 excellence, higher education, workforce development, and public safety" />
+ <meta property="og:type" content="website" />
+ <meta name="geo.region" content="US-KS" />
+ <meta name="geo.placename" content="El Dorado, Kansas" />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="people">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV MOUNT ════ -->
+<div id="nav-mount"></div>
+
+<!-- ════ PAGE HERO ════ -->
+<div class="page-hero">
+ <div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Home</a> › People</div>
+  <h1>People & Education</h1>
+  <p class="page-subtitle">K–12 excellence, higher education, workforce development, and public safety</p>
+ </div>
+</div>
+
+<!-- ════ PAGE NAV PILLS ════ -->
+<nav class="page-nav">
+ <div class="page-nav-inner">
+  <a href="#k12-education" class="page-nav__pill">K–12 Excellence (USD 490)</a>
+  <a href="#education" class="page-nav__pill">Higher Education & Workforce Development</a>
+  <a href="#public-safety" class="page-nav__pill">Public Safety</a>
+  <a href="#youth-retention" class="page-nav__pill">Youth Retention & Futures</a>
+  <a href="#wellness-hub" class="page-nav__pill">Mental Health & Wellness Hub</a>
+  <a href="#intergenerational" class="page-nav__pill">Intergenerational El Dorado</a>
+ </div>
+</nav>
+
+<!-- ════ SECTIONS ════ -->
+<section id="k12-education" style="background:#F8F4EC">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label">Foundational Excellence</span>
+   <h2>K–12 Education Excellence — USD 490 El Dorado Schools</h2>
+   <p class="lead">El Dorado's future workforce begins in K-12 classrooms. USD 490 serves 2,133 students across 6 schools. This plan provides $25M+ in targeted investments to close achievement gaps, expand career pathways, and position USD 490 graduates for success in college, careers, and civic life.</p>
+  </div>
+
+  <!-- USD 490 CHALLENGE STATEMENT -->
+  <div class="reveal" style="transition-delay:.1s;margin-bottom:2.5rem">
+   <div style="background:#fff;border-left:4px solid var(--gold);padding:1.5rem;border-radius:0 8px 8px 0">
+    <h3 style="margin-bottom:.75rem;color:var(--navy)">The Opportunity & Challenge</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:1rem">
+     <div>
+      <p style="margin-bottom:1rem"><strong style="color:var(--rust)">Current Reality:</strong></p>
+      <ul style="list-style:none;padding:0">
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--rust);font-weight:700">79%</span> Graduation rate (vs 89% statewide)</li>
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--rust);font-weight:700">24%</span> Math proficiency (vs 31% statewide)</li>
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--rust);font-weight:700">22.8%</span> Child poverty rate</li>
+       <li style="padding:.5rem 0"><span style="color:var(--rust);font-weight:700">2,133</span> Students (6 schools)</li>
+      </ul>
+     </div>
+     <div>
+      <p style="margin-bottom:1rem"><strong style="color:var(--green)">Vision 2040 Goal:</strong></p>
+      <ul style="list-style:none;padding:0">
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--green);font-weight:700">95%</span> Graduation rate</li>
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--green);font-weight:700">50%+</span> Math proficiency</li>
+       <li style="padding:.5rem 0;border-bottom:1px solid #eee"><span style="color:var(--green);font-weight:700">All USD 490 grads</span> College/career ready</li>
+       <li style="padding:.5rem 0"><span style="color:var(--green);font-weight:700">100%</span> Pathway clarity by 8th grade</li>
+      </ul>
+     </div>
+    </div>
+    <p style="color:var(--muted);font-size:.95rem"><strong>Root Causes:</strong> Child poverty, housing instability, limited parental work-flexibility, and a K-12 system stretched thin on resources. Vision 2040's residential development, childcare expansion, and workforce stability initiatives directly address these structural constraints. K-12 excellence is not separate from economic development — it is central to it.</p>
+   </div>
+  </div>
+
+  <!-- K-12 STRATEGIC INITIATIVES -->
+  <div style="margin-bottom:2.5rem">
+   <h3 style="margin-bottom:1.5rem">Six Strategic USD 490 Improvement Initiatives</h3>
+   <div class="grid-3 reveal" style="grid-template-columns:repeat(auto-fit,minmax(320px,1fr))">
+    <!-- Initiative 1: Pre-K -->
+    <div class="glass-card" style="background:rgba(46,110,53,.12);border-color:rgba(46,110,53,.25)">
+     <div style="font-size:2rem;margin-bottom:.5rem">🎓</div>
+     <h4>Pre-K Expansion Program</h4>
+     <p><strong>Target:</strong> Universal Pre-K for all 4-year-olds in El Dorado</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Current:</strong> Limited availability, ~200 slots</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Goal:</strong> 500+ slots by 2028</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $1.5M–$2M (facility + staff)</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">ROI: $7–8 return for every $1 invested (research)</p>
+     </div>
+    </div>
+
+    <!-- Initiative 2: Math & Science -->
+    <div class="glass-card" style="background:rgba(74,144,191,.12);border-color:rgba(74,144,191,.25)">
+     <div style="font-size:2rem;margin-bottom:.5rem">🔬</div>
+     <h4>Math & Science Pipeline</h4>
+     <p><strong>Target:</strong> Raise math proficiency from 24% to 50%+</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Strategy:</strong> Dual enrollment with Butler CC in STEM courses</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Focus:</strong> Algebra, geometry, physics foundations</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $500K (curriculum + equipment)</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">Timeline: 2026–2028</p>
+     </div>
+    </div>
+
+    <!-- Initiative 3: Literacy -->
+    <div class="glass-card" style="background:rgba(166,61,47,.12);border-color:rgba(166,61,47,.25)">
+     <div style="font-size:2rem;margin-bottom:.5rem">📚</div>
+     <h4>Literacy Intensive Program</h4>
+     <p><strong>Target:</strong> Reading proficiency 32% → 75%+</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Strategy:</strong> Summer reading camps, family literacy nights, 1-on-1 tutoring</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Focus:</strong> K–3 foundational reading skills</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $400K annually</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">Staffing: 6–8 reading specialists</p>
+     </div>
+    </div>
+
+    <!-- Initiative 4: CTE Expansion -->
+    <div class="glass-card" style="background:rgba(123,94,167,.12);border-color:rgba(123,94,167,.25)">
+     <div style="font-size:2rem;margin-bottom:.5rem">🔧</div>
+     <h4>Career & Technical Education (CTE)</h4>
+     <p><strong>Target:</strong> 300+ CTE enrollment by 2030</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Programs:</strong> Building trades, welding, HVAC, automotive, medical assisting</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Pathway:</strong> High school → apprenticeship → $50K+ wage</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $1.5M (labs + equipment)</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">Employer partners: 10+ active sponsors</p>
+     </div>
+    </div>
+
+    <!-- Initiative 5: Student Stability -->
+    <div class="glass-card" style="background:rgba(200,144,42,.12);border-color:rgba(200,144,42,.25)">
+     <div style="font-size:2rem;margin-bottom:.5rem">🏠</div>
+     <h4>Student Stability & Support</h4>
+     <p><strong>Target:</strong> Reduce chronic absenteeism to 10%</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Strategy:</strong> Emergency housing fund, food support, wraparound services</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Focus:</strong> Address poverty barriers to attendance</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $2M over 5 years</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">Impact: Every day matters for graduation</p>
+     </div>
+    </div>
+
+    <!-- Initiative 6: Parental Engagement -->
+    <div class="glass-card" style="background:rgba(27,58,92,.2);border-color:rgba(27,58,92,.35)">
+     <div style="font-size:2rem;margin-bottom:.5rem">👨‍👩‍👧‍👦</div>
+     <h4>Parental Engagement & Community</h4>
+     <p><strong>Target:</strong> Parent participation 40% → 75%</p>
+     <p style="font-size:.9rem;color:var(--muted);margin-top:.75rem"><strong>Strategy:</strong> Translation services, evening events, childcare at meetings</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Focus:</strong> Immigrant family integration</p>
+     <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
+      <p style="font-size:.85rem"><strong>Investment:</strong> $300K annually</p>
+      <p style="font-size:.85rem;color:var(--green);font-weight:600">Outcome: Higher family advocacy</p>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- K-12 SUCCESS PATHWAYS -->
+  <div class="reveal" style="transition-delay:.15s;margin-bottom:2rem">
+   <h3 style="margin-bottom:1.5rem;color:var(--navy)">K-12 to Careers: Five Clear Pathways</h3>
+   <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem">
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--green)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 1: Skilled Trades</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school CTE → 2-yr apprenticeship → Employment</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Entry wage:</strong> $45K–$55K | Mid-career: $70K–$95K</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Employers:</strong> NG Products, HF Sinclair, Construction consortium</p>
+    </div>
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--sky)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 2: Healthcare</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school → Butler CC nursing/medical → SBA Hospital</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Entry wage:</strong> $40K–$48K | Career max: $90K+</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Employers:</strong> SBA Hospital, Regional Medical Campus</p>
+    </div>
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--purple)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 3: Technology</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school IT → Butler CC cybersecurity → Data center</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Entry wage:</strong> $50K–$65K | Mid-career: $85K–$125K</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Employers:</strong> Project Horizon, IT contractors</p>
+    </div>
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--green)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 4: Agriculture/AgriTech</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school → Butler CC precision ag → AgriTech Hub</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Entry wage:</strong> $42K–$52K | Management: $75K–$110K</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Employers:</strong> Butler AgriTech Hub, AMAZONE</p>
+    </div>
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--rust)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 5: Bachelor's Degree</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school → 2 yrs Butler CC → KSU/Wichita State transfer</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Entry wage:</strong> $50K–$65K | Career: $85K–$150K+</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Support:</strong> Transfer scholarships, employer tuition assistance</p>
+    </div>
+    <div style="padding:1.5rem;background:#fff;border-radius:8px;border-left:4px solid var(--gold)">
+     <h4 style="font-size:1.1rem;margin-bottom:.5rem">Pathway 6: Self-Employment</h4>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Timeline:</strong> High school entrepreneurship → Downtown incubator → Business owner</p>
+     <p style="font-size:.9rem;color:var(--muted)"><strong>Support:</strong> $5K seed grant, SBDC mentoring, $15K microloan</p>
+     <p style="font-size:.85rem;margin-top:.75rem"><strong>Success target:</strong> 10+ grad entrepreneurs by 2030</p>
+    </div>
+   </div>
+  </div>
+
+  <!-- K-12 EMPLOYER PARTNERSHIPS -->
+  <div style="margin-top:2.5rem;padding:2rem;background:#0D1B2A;border-radius:8px;color:#fff">
+   <h3 style="color:#fff;margin-bottom:1.5rem">Employer Partnerships & Commitment</h3>
+   <p style="color:rgba(255,255,255,.85);margin-bottom:1.5rem">Every major Vision 2040 employer commits to hiring USD 490 graduates, offering paid internships, and co-developing CTE curricula:</p>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">NG Products</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">Welding, electrical, manufacturing technician</p>
+    </div>
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">HF Sinclair</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">Refinery operations, safety, process technician</p>
+    </div>
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">SBA Hospital</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">Nursing, clinical, medical assistant</p>
+    </div>
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">Project Horizon Data Center</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">IT operations, cybersecurity, network technician</p>
+    </div>
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">AgriTech Hub</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">Precision agriculture, drone operations, data analyst</p>
+    </div>
+    <div style="padding:1rem;background:rgba(255,255,255,.05);border-radius:6px;border-left:3px solid var(--gold)">
+     <p style="font-weight:600;margin-bottom:.5rem">Construction Consortium</p>
+     <p style="font-size:.9rem;color:rgba(255,255,255,.75)">Carpentry, plumbing, HVAC, electrical apprentices</p>
+    </div>
+   </div>
+   <p style="font-size:.9rem;color:rgba(255,255,255,.6);margin-top:1.5rem"><strong>Goal:</strong> 100% of USD 490 CTE graduates have employer commitment letter before graduation</p>
+  </div>
+
+  <!-- K-12 INVESTMENT SUMMARY -->
+  <div class="reveal" style="transition-delay:.2s;margin-top:2.5rem">
+   <div style="background:linear-gradient(135deg,#C8902A 0%,rgba(200,144,42,.8) 100%);padding:2rem;border-radius:8px;color:#fff">
+    <h3 style="color:#fff;margin-bottom:1.5rem">K-12 Education Investment Summary</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-bottom:1.5rem">
+     <div>
+      <p style="font-size:2rem;font-weight:700;margin-bottom:.25rem">$25M+</p>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.95)"><strong>Total Investment (2026–2040)</strong></p>
+     </div>
+     <div>
+      <p style="font-size:2rem;font-weight:700;margin-bottom:.25rem">1,000+</p>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.95)"><strong>USD 490 Graduates Impacted</strong></p>
+     </div>
+    </div>
+    <div style="background:rgba(255,255,255,.15);padding:1rem;border-radius:6px;margin-bottom:1rem">
+     <p style="margin-bottom:.5rem"><strong>Annual Investment Breakdown:</strong></p>
+     <ul style="list-style:none;padding:0;font-size:.9rem">
+      <li style="padding:.4rem 0">• Pre-K Expansion: $300K/year</li>
+      <li style="padding:.4rem 0">• Math & Science: $250K (one-time curriculum)</li>
+      <li style="padding:.4rem 0">• Literacy Programs: $400K/year</li>
+      <li style="padding:.4rem 0">• CTE Equipment/Labs: $200K/year</li>
+      <li style="padding:.4rem 0">• Student Support Services: $300K/year</li>
+      <li style="padding:.4rem 0">• Parent Engagement: $150K/year</li>
+     </ul>
+    </div>
+    <p style="font-size:.9rem;color:rgba(255,255,255,.9)"><strong>ROI:</strong> Every $1 invested in K-12 excellence returns $10–15 in lifetime earnings growth, reduced incarceration costs, improved health outcomes, and tax base expansion for the community.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ EDUCATION ════ -->
+
+<section id="education">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label">Butler Community College &amp; Workforce Development</span>
+   <h2>Education as Economic Engine</h2>
+   <p class="lead">Butler Community College is El Dorado's most powerful planning partner and most underutilized economic development asset. This plan places Butler CC at the center of every major sector — not as an afterthought, but as the primary workforce engine.</p>
+  </div>
+  <div class="edu-intro">
+   <div class="butler-overview reveal">
+    <h3>Butler Community College</h3>
+    <p>Founded in 1927 as El Dorado Junior College, Butler CC is now Kansas's 2nd-largest community college and 6th-largest educational institution statewide — serving <strong>~6,800 students</strong> (2024) across 7 campuses with 90+ programs. The main campus is right here in El Dorado. With a 31:1 student-teacher ratio and programs spanning liberal arts, nursing, IT, agriculture, fine arts, and business — Butler CC sits at the center of every sector in this plan.</p>
+    <p>The question is not whether Butler CC can support El Dorado's growth — it absolutely can. The question is whether El Dorado is bold enough to make it central to every recruitment conversation.</p>
+    <div class="butler-stats">
+     <div class="butler-stat"><span class="bval">~6,800</span><span class="blbl">Annual Students (2024)</span></div>
+     <div class="butler-stat"><span class="bval">90+</span><span class="blbl">Programs at 24 Learning Sites</span></div>
+     <div class="butler-stat"><span class="bval">1927</span><span class="blbl">Founded (El Dorado)</span></div>
+     <div class="butler-stat"><span class="bval">#2</span><span class="blbl">Largest CC in Kansas</span></div>
+    </div>
+   </div>
+   <div class="reveal" style="transition-delay:.15s">
+    <div class="edu-vision">
+     <h3>The Vision: Employer-Aligned Programs</h3>
+     <p>For each major employer or sector recruited to El Dorado, Butler CC commits to designing or expanding a credential program that produces qualified graduates within 18–24 months of the employer's arrival. This is the model that has worked in manufacturing corridors across the Midwest — and it's how a community college becomes the most important line item in an economic development pitch deck.</p>
+     <p>Butler CC's Small Business Development Center (SBDC), already on campus, also provides free consulting, market research, and loan packaging to El Dorado entrepreneurs — directly supporting the downtown incubator, lake-based tourism businesses, and agri-startups.</p>
+    </div>
+    <div class="butler-highlight" style="margin-top:1rem">
+     <div class="bh-icon">🏗️</div>
+     <div>
+      <h4>North Gateway Satellite Campus</h4>
+      <p>A proposed 15,000-sq-ft Butler CC facility in the North Gateway district — bringing marine mechanics, building trades, outdoor recreation management, and landscape certificate programs directly to the district it serves. Opens Phase 2.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- Collapsible Education Programs Section -->
+  <div class="collapsible-section reveal" style="transition-delay:.1s">
+   <button class="collapsible-header" aria-expanded="false">
+    <span style="font-size:1.2rem;margin-right:0.5rem">🎓</span>
+    <span>Employer-Aligned Programs (16 Programs)</span>
+   </button>
+   <div class="collapsible-content">
+    <div class="grid-4" style="margin-top:1.5rem">
+     <div class="edu-program-card">
+    <div class="prog-icon">⚡</div>
+    <h4>Energy Workforce Academy</h4>
+    <p>Wind turbine technician, solar installation, battery storage operations, and electrical grid modernization certificates — aligned with the Flint Hills Energy Corridor employers.</p>
+    <div class="prog-link">→ Supports: Industry (Renewable Energy)</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">✈️</div>
+    <h4>Aviation Maintenance Technology</h4>
+    <p>FAA-certified AMT program expansion — airframe and powerplant mechanics, avionics, and composite materials training for the aerospace supply-chain campus and EQA operators.</p>
+    <div class="prog-link">→ Supports: Aerospace Campus</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🏥</div>
+    <h4>Healthcare Professional Pipeline</h4>
+    <p>Expand nursing, radiology, EMT/paramedic, and surgical tech programs to fill the Regional Medical Campus. Butler CC's existing healthcare programs are the fastest path to local hires.</p>
+    <div class="prog-link">→ Supports: Regional Medical Campus</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🖥️</div>
+    <h4>IT &amp; Cybersecurity Center</h4>
+    <p>Associate degrees and industry certifications (CompTIA, Cisco, AWS) in network operations, cloud infrastructure, and security operations aligned with the Project Horizon data center.</p>
+    <div class="prog-link">→ Supports: Data Center Campus</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🍽️</div>
+    <h4>Culinary &amp; Hospitality Institute</h4>
+    <p>Professional culinary arts, hotel/resort management, and event coordination certificates — building the workforce for the lake economy's restaurants, amphitheater, glamping, and boutique hotel.</p>
+    <div class="prog-link">→ Supports: Lake &amp; Downtown Tourism</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🌾</div>
+    <h4>Precision Agriculture Program</h4>
+    <p>Drone operation, soil science, GPS/GIS mapping, and agri-data analytics — training technicians for the Butler AgriTech Hub and the region's expanding precision farming operations.</p>
+    <div class="prog-link">→ Supports: AgriTech Hub</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🔨</div>
+    <h4>Building Trades Academy</h4>
+    <p>Carpentry, plumbing, electrical, HVAC, and welding apprenticeship pipelines producing the construction workforce for 1,000+ new housing units and commercial development city-wide.</p>
+    <div class="prog-link">→ Supports: All Residential Projects</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🚒</div>
+    <h4>Criminal Justice &amp; Fire Science</h4>
+    <p>EMT, paramedic, fire science, and criminal justice AAS degrees feeding directly into El Dorado PD and EDFD hiring — especially critical as the North Gateway district demands a second fire station.</p>
+    <div class="prog-link">→ Supports: Public Safety Expansion</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🚛</div>
+    <h4>Supply Chain &amp; Logistics Management</h4>
+    <p>Associate degrees and certificates in warehouse operations, freight brokerage, inventory management, transportation logistics, and supply chain analytics — directly aligned with the speculative warehouse, regional distribution hub, and Wichita's existing freight economy. CDL licensing integrated into the program for commercial driver pipeline.</p>
+    <div class="prog-link">→ Supports: Logistics Hub, Advanced Manufacturing</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">💰</div>
+    <h4>Financial Services &amp; Small Business Finance</h4>
+    <p>Business administration, accounting, entrepreneurship, small business banking, and grant writing certificates giving downtown incubator graduates and independent business owners the financial literacy to manage growth, access capital, and build sustainable enterprises. SBDC-aligned curriculum with real client case studies.</p>
+    <div class="prog-link">→ Supports: Downtown Incubator, Small Business Ecosystem</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🌊</div>
+    <h4>Environmental Science &amp; Water Resources</h4>
+    <p>Water quality testing, wetland ecology, prairie restoration, environmental compliance, and GIS mapping certificates aligned with Walnut River watershed management, El Dorado Lake stewardship, flood mitigation monitoring, and the AgriTech Hub's soil and water science needs. NRCS and KDHE internship placements.</p>
+    <div class="prog-link">→ Supports: AgriTech Hub, Lake Stewardship, Cleantech</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🎬</div>
+    <h4>Digital Media &amp; Marketing</h4>
+    <p>Graphic design, video production, social media strategy, content marketing, podcast production, and brand management certificates producing the creative workforce that downtown businesses, tourism operators, the film hub, and regional employers need to compete in a digital-first economy. Capstone projects serve real El Dorado businesses.</p>
+    <div class="prog-link">→ Supports: Tourism Brand, Downtown Creative Economy, Film Hub</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🤝</div>
+    <h4>Human Services &amp; Early Childhood Education</h4>
+    <p>Early childhood development, social work assistant, community health worker, and family services programs addressing Butler County's underserved social services sector — and filling the childcare gap that prevents workforce participation among young families relocating to El Dorado. Childcare worker pipeline directly supports the residential recruitment strategy.</p>
+    <div class="prog-link">→ Supports: Population Retention, Workforce Participation, Senior Campus</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">⚙️</div>
+    <h4>Industrial Automation &amp; Robotics</h4>
+    <p>PLC programming, robotic systems operation, CNC machining, industrial automation, and quality control certificates aligned with the advanced manufacturing park's demand for technicians who can operate automated production lines — a skill set commanding a 15–20% wage premium over traditional manufacturing roles. Industry-4.0 lab with actual collaborative robots.</p>
+    <div class="prog-link">→ Supports: Advanced Manufacturing, Renewable Energy Corridor</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🍳</div>
+    <h4>Brewery, Distillery &amp; Fermentation Science</h4>
+    <p>A specialized certificate program in craft beverage production — fermentation science, grain-to-glass brewing, distillation chemistry, sensory evaluation, and taproom operations management. Directly aligned with the craft production district's brewery and distillery recruitment. Graduates are immediately employable at new craft beverage employers and can launch microbreweries independently through the downtown incubator.</p>
+    <div class="prog-link">→ Supports: Food &amp; Beverage Manufacturing District, Downtown Incubator</div>
+   </div>
+   <div class="edu-program-card">
+    <div class="prog-icon">🏡</div>
+    <h4>Real Estate, Property Management &amp; Construction Trades Supervision</h4>
+    <p>Kansas real estate licensure prep, property management certification, and construction project management courses targeting the growing workforce required to manage 1,200+ new housing units, commercial development projects, and rental properties created by Vision 2040. Creates an internal real estate professional pipeline so Butler County development is managed locally, not by Wichita firms.</p>
+    <div class="prog-link">→ Supports: All Residential Projects, Downtown Rehab Program</div>
+   </div>
+  </div>
+  <div class="edu-k12 reveal" style="transition-delay:.15s">
+   <div>
+    <h3>K–12 Partnership: USD 490 El Dorado</h3>
+    <p>USD 490 serves <strong>2,133 students</strong> across 6 schools with a student-teacher ratio of 18.6:1. The district's current 79% graduation rate (vs. 89% statewide) and math proficiency of 24% (vs. 31% statewide) represent the most urgent long-term challenge in this plan. USD 490's own stated goal is to reach a 95% graduation rate and reduce chronic absenteeism to 10%. Vision 2040 supports that goal by attacking root causes: child poverty (22.8%), housing instability, and limited workforce opportunity. El Dorado's public schools (USD 490) are a direct pipeline into Butler CC and the local workforce. Strengthen that pipeline with structural programming — not just aspirational partnerships.</p>
+    <ul>
+     <li>Dual enrollment: high school juniors/seniors earn Butler CC credits free of charge</li>
+     <li>Career &amp; Technical Education (CTE) expansion at El Dorado High School</li>
+     <li>Paid internship program placing high school seniors with local employers</li>
+     <li>Industry tours and job shadowing at energy, aerospace, and medical employers</li>
+     <li>STEM curriculum alignment with Butler CC engineering prerequisites</li>
+     <li>Early college pathway: 30+ credit hours by graduation (two semesters saved)</li>
+     <li>Registered apprenticeship partnerships: 20+ paid apprenticeship slots per year for juniors/seniors — administered through the <strong>Kansas Office of Registered Apprenticeship</strong> (KDC) and <strong>Talent Ready</strong> grant program (KDC subsidizes employer apprenticeship costs); <strong>CareerWise Kansas</strong> (expanding from Colorado model) provides turnkey apprenticeship management for employers not set up to run programs independently</li>
+     <li>School-to-work pipeline agreements with every Vision 2040 anchor employer</li>
+     <li>Annual Career Expo at Butler CC — 500+ students, 40+ employers, live hiring</li>
+     <li>Financial literacy curriculum requirement — personal finance, credit, and homeownership</li>
+     <li>Entrepreneurship elective — product development, business plan competition with $5,000 seed grant</li>
+     <li>Athletic scholarship gap-fill program: El Dorado employer consortium offers partial scholarships to keep local athletic talent local</li>
+    </ul>
+   </div>
+   <div>
+    <h3>Employer Partnership Program</h3>
+    <p>For Vision 2040 to succeed, Butler CC programs must be co-designed by the employers who will hire the graduates — not developed in isolation and then marketed to industry.</p>
+    <ul>
+     <li>Employers co-write curriculum and provide adjunct instructors from their workforce</li>
+     <li>Industry-funded tool kits and lab equipment (reducing cost to Butler CC)</li>
+     <li>Paid co-ops and apprenticeships guaranteed to enrolled students</li>
+     <li>Employer seat on Butler CC Advisory Council for each new program</li>
+     <li>Annual skills gap report published jointly by city, Butler CC, and Chamber</li>
+     <li>Graduate retention incentive: $3,000 bonus for graduates who stay in Butler County 3 years</li>
+     <li>Employer hiring commitment letters signed before new program launches — graduates are not trained into unemployment</li>
+     <li>Rapid training track: 90-day emergency workforce programs when a new employer arrives and needs staff immediately</li>
+     <li>Incumbent worker training: existing El Dorado employees upskilled without disrupting current employment</li>
+     <li>National certification pathway: every program ends in a nationally recognized credential, not just a local certificate</li>
+     <li>Wage data publishing: annual report on starting wages by program graduate, maintaining program accountability</li>
+     <li>Joint butler CC–employer R&amp;D projects: students apply classroom skills to real employer problems with employer funding</li>
+    </ul>
+   </div>
+  </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<div class="wave-divider" aria-hidden="true" style="background:#0D1B2A">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" style="height:72px"><path d="M0,45 C480,0 960,72 1440,30 L1440,72 L0,72 Z" fill="#F8F4EC"/></svg>
+</div>
+<!-- ════ WORKFORCE / CHILDCARE ════ -->
+
+<section id="public-safety">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label">Police · Fire · Emergency Medical</span>
+   <h2>Public Safety Expansion</h2>
+   <p class="lead">Growth without safety infrastructure is unsustainable. El Dorado's current police and fire capacity was designed for a city of 12,000. As population expands toward 18,000 and development extends north and south, response times and coverage become a genuine public safety concern — and a development liability.</p>
+  </div>
+  <div class="safety-intro reveal">
+   <div class="safety-stat-box"><span class="sval" style="color:var(--sky)">35</span><span class="slbl">Current sworn officers</span></div>
+   <div class="safety-stat-box"><span class="sval" style="color:var(--gold)">1</span><span class="slbl">Fire stations (downtown)</span></div>
+   <div class="safety-stat-box"><span class="sval" style="color:#4CAF50">8 min</span><span class="slbl">Average response time</span></div>
+  </div>
+  <div class="safety-tabs reveal" style="transition-delay:.1s">
+   <div class="safety-dept">
+    <h3>🚔 Police Department</h3>
+    <span class="dept-subtitle">El Dorado Police Department</span>
+    <p>Current: approximately 35 sworn officers, 1 main station downtown. The existing station serves the city well for the current footprint. As the North Gateway District, West Gateway residential, and data center campus develop, coverage gaps will emerge on the city's western and northern perimeters.</p>
+    <ul>
+     <li>North Gateway substation (shared space with Fire Station 2)</li>
+     <li>15 additional sworn officers by 2030 (phased hiring)</li>
+     <li>Citywide body camera program</li>
+     <li>New CAD (Computer-Aided Dispatch) system</li>
+     <li>K-9 unit expansion (1 additional handler)</li>
+     <li>School resource officer for El Dorado Middle School</li>
+     <li>Traffic enforcement expansion (US-54 corridor)</li>
+     <li>Community policing program in North Gateway</li>
+     <li>Butler CC Criminal Justice pipeline: 5 hires/year</li>
+     <li>Public-facing crime data dashboard: real-time incident transparency map</li>
+     <li>Mental health co-responder program: licensed clinician on select dispatched calls</li>
+     <li>De-escalation and crisis intervention training — all officers, required annually</li>
+     <li>Neighborhood watch expansion to North Gateway and Lakeside Village districts</li>
+     <li>Strategic traffic enforcement detail on US-54 and US-77 commercial corridors</li>
+     <li>Automated license plate reader network: 6 cameras at strategic city entry points</li>
+     <li>Records management system upgrade — real-time data sharing with Butler County</li>
+     <li>Youth Police Academy — 2-week summer program for USD 490 students</li>
+     <li>Succession planning: 5 internal promotion candidates formally identified annually</li>
+     <li>Community advisory board — quarterly public town halls with Police Chief</li>
+     <li>Social media monitoring for early identification of community safety concerns</li>
+     <li>Bike patrol unit for downtown and lake trail corridors</li>
+     <li>SRO (School Resource Officer) program expansion to El Dorado Middle School</li>
+    </ul>
+    <span class="safety-need">Needs: Substation · 15 officers · CAD upgrade</span>
+   </div>
+   <div class="safety-dept">
+    <h3>🚒 Fire Department</h3>
+    <span class="dept-subtitle">El Dorado Fire Department</span>
+    <p>Current: Fire Station 1 downtown, mix of career and volunteer personnel. The existing station provides acceptable response times to the city core, but a second station is critical as development expands north (North Gateway District) and south (data center campus, south industrial park).</p>
+    <ul>
+     <li><strong>Fire Station 2 (North Gateway)</strong> — top priority</li>
+     <li>Reduces north response time from 12+ min to &lt;5 min</li>
+     <li>New 100-ft aerial/platform ladder truck</li>
+     <li>4 additional career firefighters (Station 2 crew)</li>
+     <li>HAZMAT capability upgrade (chemical/industrial response)</li>
+     <li>ISO rating improvement: Class 4 → Class 3</li>
+     <li>Improved ISO saves residential insurance premiums citywide</li>
+     <li>Mutual aid agreement expansion with Augusta, Andover, Benton</li>
+     <li>Butler CC Fire Science program pipeline: 3 hires/year</li>
+     <li>Technical rescue team — trench rescue, high-angle, and water rescue cross-training</li>
+     <li>Drone program for aerial incident assessment and active search operations</li>
+     <li>Wildland-urban interface training: Flint Hills prairie fire response protocols</li>
+     <li>Medical first responder (MFR) cross-training for all career firefighters</li>
+     <li>Pre-incident planning for critical facilities: refinery, data center, hospital</li>
+     <li>Community risk reduction: 500+ home fire safety visits annually by firefighters</li>
+     <li>Residential sprinkler retrofit incentive: $500 rebate for voluntary sprinkler installation</li>
+     <li>Community CPR and Stop the Bleed training: 1,000 residents certified per year</li>
+     <li>Apparatus replacement schedule: preventive replacement every 15 years</li>
+     <li>Annual community open house during National Fire Prevention Week</li>
+     <li>Knox Box program: emergency key access for all commercial and multifamily buildings</li>
+     <li>Gas detection and confined space rescue equipment upgrade</li>
+     <li>Training tower construction at Station 2 for live fire and rope training</li>
+    </ul>
+    <span class="safety-need">Needs: Station 2 · Ladder truck · HAZMAT</span>
+   </div>
+   <div class="safety-dept">
+    <h3>🚑 Emergency Medical Services</h3>
+    <span class="dept-subtitle">Butler County EMS</span>
+    <p>EMS in Butler County is provided at the county level. As El Dorado grows and El Dorado Lake sees increased recreational use (water emergencies, trail accidents, event injuries), the city should advocate for dedicated EMS resources and invest in supportive infrastructure.</p>
+    <ul>
+     <li>ALS (Advanced Life Support) unit dedicated to lake district</li>
+     <li>AED network expansion: 30 new public AEDs (parks, trails, lake)</li>
+     <li>Telemedicine dispatch for rural Butler County calls</li>
+     <li>Water rescue capability at El Dorado Lake</li>
+     <li>Event medical plan for amphitheater (5,000+ attendance events)</li>
+     <li>Butler CC EMT/Paramedic program: 10+ grads/year feeding EMS</li>
+     <li>Quick-response unit at Fire Station 2 (north district)</li>
+     <li>Drone-deployed AED trial program (Butler CC tech partnership)</li>
+     <li>Community paramedic program: home visits for high-frequency 911 callers to address root causes</li>
+     <li>Mobile integrated health (MIH): chronic disease management home visits for seniors</li>
+     <li>STEMI (heart attack) receiving center protocol formalized with SBA Hospital</li>
+     <li>Stroke response telemedicine consult initiated on every suspected CVA call</li>
+     <li>Mass casualty incident supply cache: equipment and triage supplies for 50+ patients</li>
+     <li>Pediatric-specific resuscitation equipment on all ALS units — infant through adolescent</li>
+     <li>Mental health crisis response team: trained co-responders for behavioral health calls</li>
+     <li>Annual EMS performance report: response time, patient outcomes, and call volume by type</li>
+     <li>EMS–SBA Hospital information system integration for seamless patient hand-off</li>
+     <li>Reserve corps program: 10 EMT volunteers trained, credentialed, and drill-ready</li>
+     <li>Mass gathering event medical plan for amphitheater events (5,000+ attendance)</li>
+     <li>Hazmat medical surveillance protocol for refinery and data center incidents</li>
+    </ul>
+    <span class="safety-need good">Good: County EMS structure</span>
+   </div>
+  </div>
+  <div style="margin-top:2rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:1.75rem" class="reveal">
+   <h3 style="color:#fff;margin-bottom:.65rem">Fire Station 2 — North Gateway: The Non-Negotiable</h3>
+   <p style="font-size:.9rem;color:rgba(255,255,255,.7);max-width:none">Fire Station 2 is not a nice-to-have. It is the infrastructure prerequisite for North Gateway District development. Insurance underwriters assess residential construction risk based on ISO ratings and response times — a 12-minute response time from Station 1 to the north gateway will increase homeowner insurance premiums by 15–25%, reducing the financial viability of the $45M residential investment in that district. Station 2 costs approximately $4.5M (land + construction + equipment). It should be included in Phase 1 as an enabling investment, not deferred to Phase 3 after the problem becomes acute.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ════ YOUTH RETENTION & FUTURES ════ -->
+<section id="youth-retention" class="section section--people">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">People & Education</span>
+   <h2>Youth Retention & Futures Program</h2>
+   <span class="section-label">Mentorship, career pathways, entrepreneurship fellowships</span>
+  </div>
+  <div class="grid-3 reveal">
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Future Makers Fellowship Program</h3>
+    <p>Mentor high school seniors in tech, entrepreneurship, and creative fields. $500/month stipends for 3-month cohorts. Job placement + startup support post-graduation. Target: retain 75% of graduates in El Dorado.</p>
+    <a href="initiative-youth-retention.html" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Local Startup Accelerator</h3>
+    <p>Launch 12-week startup accelerator for young entrepreneurs (18–30). $25K grants for selected startups. Co-working space + mentor network + investor connections. Build culture of entrepreneurship locally.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Alumni Network & Career Hub</h3>
+    <p>Maintain connections with El Dorado graduates living elsewhere. Reverse recruitment program to bring experienced professionals back home. Job board + networking events.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ MENTAL HEALTH & WELLNESS HUB ════ -->
+<section id="wellness-hub" class="section section--people">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">People & Education</span>
+   <h2>Mental Health & Wellness Hub</h2>
+   <span class="section-label">Behavioral health, crisis services, wellness programs, prevention</span>
+  </div>
+  <div class="grid-3 reveal">
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Integrated Behavioral Health Center</h3>
+    <p>Co-locate mental health + substance abuse counseling + crisis services in one downtown hub. Partner with SBA Hospital + Kansas mental health provider network. 24/7 crisis hotline + walk-in services.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Community Wellness Programs</h3>
+    <p>Free fitness classes, yoga, meditation, and nutrition workshops in parks + schools. Partner with Butler CC + SBA Hospital. Focus on prevention + lifestyle health. Reduce healthcare costs downstream.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Peer Support & Recovery Network</h3>
+    <p>Establish peer-led support groups for mental health recovery + substance abuse. AA/NA + peer counselor training. Destigmatize mental health through community connection.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ INTERGENERATIONAL EL DORADO ════ -->
+<section id="intergenerational" class="section section--people">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">People & Education</span>
+   <h2>Intergenerational El Dorado</h2>
+   <span class="section-label">Mentoring, legacy programs, age-integrated community life</span>
+  </div>
+  <div class="grid-3 reveal">
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Senior-Youth Mentorship Program</h3>
+    <p>Pair retirees (65+) with teenagers (14–18) for 1:1 mentoring relationships. Focus on local history, career exploration, life skills. Biweekly meetings + group events. Addresses isolation in both age groups.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Legacy Skills & Crafts Workshops</h3>
+    <p>Retired craftspeople + artisans teach youth traditional skills (woodworking, quilting, gardening, cooking). Knowledge transfer + community building. Link to maker economy initiatives.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+   <div class="top-card" style="border-top-color: #A64A7D;">
+    <h3>Intergenerational Community Events</h3>
+    <p>Monthly potlucks, game nights, and service projects mixing ages. Designed to break down age silos. El Dorado as place where all ages actively contribute + connect.</p>
+    <a href="initiatives.html?section=people" class="btn btn--primary">Learn More →</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<div class="wave-divider" aria-hidden="true" style="background:#0D1B2A">
+ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 72" preserveAspectRatio="none" style="height:72px"><path d="M0,40 C480,72 960,0 1440,50 L1440,72 L0,72 Z" fill="#F8F4EC"/></svg>
+</div>
+<!-- ════ TAX IMPLICATIONS ════ -->
+
+<!-- ════ NEXT PAGE CTA ════ -->
+<div class="next-page-card">
+ <h3>Continue Exploring</h3>
+ <p>Discover Infrastructure & Build</p>
+ <a href="build.html" class="btn btn--primary">Next: Infrastructure & Build →</a>
+</div>
+
+
+ <div class="container">
+  <div class="footer-inner">
+   <div class="footer-brand">
+    <span class="city">El Dorado, Kansas — Vision 2040</span>
+    <p>A comprehensive community improvement plan covering economic development, the North Gateway District, education, residential growth, infrastructure, El Dorado Lake, downtown revitalization, parks and recreation, transportation, public safety, tax implications, zoning, and data visualizations.</p>
+    <p style="margin-top:.65rem;font-size:.8rem">Butler County Seat · Founded 1857 · Pop. 12,694 (2024 Census est.) · 29 mi E of Wichita · Not an official city document</p>
+   </div>
+   <div>
+    <h4>Plan Sections</h4>
+    <ul>
+     <li><a href="#vision">Vision &amp; Overview</a></li>
+     <li><a href="#partners">Anchor City Partners</a></li>
+     <li><a href="#north-gateway">North Gateway District</a></li>
+     <li><a href="#industry">Industry &amp; Economy</a></li>
+     <li><a href="#health-economy">Health Economy</a></li>
+     <li><a href="#k12-education">K–12 Education Excellence (USD 490)</a></li>
+     <li><a href="#education">Higher Education &amp; Workforce (Butler CC)</a></li>
+     <li><a href="#workforce-childcare">Childcare &amp; Housing Stability</a></li>
+     <li><a href="#residential">Residential Development</a></li>
+     <li><a href="#infrastructure">Infrastructure</a></li>
+     <li><a href="#lake">El Dorado Lake</a></li>
+     <li><a href="#downtown">Downtown</a></li>
+     <li><a href="#arts-heritage">Arts, Culture &amp; Heritage</a></li>
+     <li><a href="#tourism">Tourism Capital</a></li>
+     <li><a href="#parks">Parks &amp; Recreation</a></li>
+     <li><a href="#golf">Golf Club Renovation</a></li>
+     <li><a href="#beautification">Beautification &amp; Fountains</a></li>
+     <li><a href="#transportation">Transportation</a></li>
+     <li><a href="#public-safety">Public Safety</a></li>
+     <li><a href="#tax-impact">Tax Implications</a></li>
+     <li><a href="#data-charts">Data &amp; Charts</a></li>
+     <li><a href="#zoning">Zoning Map</a></li>
+     <li><a href="#timeline">Timeline</a></li>
+     <li><a href="#funding">Funding Sources</a></li>
+     <li><a href="#foreign-investment">Foreign Direct Investment</a></li>
+     <li><a href="#niche-industries">Niche Industries &amp; Emerging Opp.</a></li>
+     <li><a href="#government-cooperation">Government &amp; Representatives</a></li>
+     <li><a href="#butler-county">Butler County — Regional Integration</a></li>
+     <li><a href="#surrounding-region">Surrounding Region — 100-Mile Context</a></li>
+     <li><a href="#glossary">Glossary of Terms</a></li>
+     <li><a href="#action">Take Action</a></li>
+    </ul>
+   </div>
+   <div>
+    <h4>Key Resources</h4>
+    <ul>
+     <li><a href="https://www.eldoradoks.net" target="_blank">City of El Dorado</a></li>
+     <li><a href="https://www.butlercountychamber.com" target="_blank">Butler County Chamber</a></li>
+     <li><a href="https://www.butlercc.edu" target="_blank">Butler Community College</a></li>
+     <li><a href="https://kdwpt.state.ks.us" target="_blank">KS Dept of Wildlife &amp; Parks</a></li>
+     <li><a href="https://www.kansascommerce.gov" target="_blank">KS Department of Commerce</a></li>
+     <li><a href="https://www.eda.gov" target="_blank">EDA Grant Portal</a></li>
+     <li><a href="https://www.grants.gov" target="_blank">Grants.gov (Federal)</a></li>
+     <li><a href="https://hazards.fema.gov/femaportal/wps/portal/NFHLWMS" target="_blank">FEMA Flood Map Service</a></li>
+    </ul>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <span>El Dorado, KS — Vision 2040 Planning Framework</span>
+   <span class="gold">Community planning resource · Not an official city document</span>
+  </div>
+ </div>
+</footer>
+
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+<script src="js/analytics.js" defer></script>
+</body>
+</html>

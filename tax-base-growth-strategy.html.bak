@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tax Base Growth Strategy | El Dorado Vision 2040</title>
+ <meta name="description" content="Financial modeling for Vision 2040's tax base expansion through economic growth, new development, and strategic investment.">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="tax-strategy">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <!-- HERO -->
+ <div class="page-hero">
+  <div class="page-hero-inner">
+   <div class="breadcrumb"><a href="index.html">Home</a> › <a href="finance.html">Finance</a> › Tax Base Growth Strategy</div>
+   <h1>Tax Base Growth Strategy</h1>
+   <p class="page-subtitle">Comprehensive financial modeling for Vision 2040's revenue expansion and economic development ROI</p>
+  </div>
+ </div>
+
+ <!-- NAV PILLS -->
+ <nav class="page-nav">
+  <div class="page-nav-inner">
+   <a href="#baseline" class="page-nav__pill">Baseline Assessment</a>
+   <a href="#growth-drivers" class="page-nav__pill">Growth Drivers</a>
+   <a href="#revenue-model" class="page-nav__pill">Revenue Model</a>
+   <a href="#roi-analysis" class="page-nav__pill">ROI Analysis</a>
+   <a href="#5-year-projection" class="page-nav__pill">5-Year Projection</a>
+  </div>
+ </nav>
+
+ <!-- SECTIONS -->
+ <section id="baseline" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-category">Finance & Investment</span>
+    <span class="section-label">Financial Foundation</span>
+    <h2>Current Tax Base & Revenue Baseline (2024)</h2>
+    <p class="lead">Understanding El Dorado's current tax structure and revenue sources is essential for modeling Vision 2040's growth trajectory. The city's diversified base (residential, commercial, industrial, utilities) provides a foundation for 15-year sustainable expansion.</p>
+   </div>
+
+   <!-- Current Tax Base -->
+   <div class="stats-grid reveal" style="margin: 2.5rem 0;">
+    <div class="stat-card">
+     <div class="stat-value">$185M</div>
+     <div class="stat-label">Total Assessed Property Value</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">$22M</div>
+     <div class="stat-label">Annual Municipal Revenue</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">9.8%</div>
+     <div class="stat-label">Combined Tax Rate</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">95%</div>
+     <div class="stat-label">Residential (% of base)</div>
+    </div>
+   </div>
+
+   <!-- Revenue Breakdown -->
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Current Annual Revenue Sources</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Property Tax</h4>
+      <div style="display: grid; gap: 1rem;">
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Residential</span>
+        <span style="font-weight: 600; color: var(--navy);">$12.5M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Commercial</span>
+        <span style="font-weight: 600; color: var(--navy);">$2.1M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Industrial</span>
+        <span style="font-weight: 600; color: var(--navy);">$1.8M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; font-weight: 600;">
+        <span style="color: var(--navy);">Subtotal</span>
+        <span style="color: #C8902A; font-size: 1.1rem;">$16.4M</span>
+       </div>
+      </div>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Other Revenue</h4>
+      <div style="display: grid; gap: 1rem;">
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Sales Tax</span>
+        <span style="font-weight: 600; color: var(--navy);">$3.2M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Utility Tax</span>
+        <span style="font-weight: 600; color: var(--navy);">$1.5M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.75rem; border-bottom: 1px solid #eee;">
+        <span style="color: #555;">Fees & Permits</span>
+        <span style="font-weight: 600; color: var(--navy);">$0.9M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; font-weight: 600;">
+        <span style="color: var(--navy);">Subtotal</span>
+        <span style="color: #C8902A; font-size: 1.1rem;">$5.6M</span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div style="border-top: 2px solid #C8902A; margin-top: 1.5rem; padding-top: 1rem;">
+     <div style="display: flex; justify-content: space-between; align-items: baseline; font-weight: 700;">
+      <span style="color: var(--navy);">Total Annual Revenue</span>
+      <span style="color: #C8902A; font-size: 1.2rem;">$22.0M</span>
+     </div>
+    </div>
+   </div>
+
+   <!-- Property Value Composition -->
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Property Tax Base Composition</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 4px;">
+      <div style="font-size: 2rem; font-weight: 700; color: #4A90BF;">$175M</div>
+      <div style="font-size: 0.95rem; color: #555;">Residential Property</div>
+      <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">94.6% of base</div>
+     </div>
+     <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 4px;">
+      <div style="font-size: 2rem; font-weight: 700; color: #4A90BF;">$6.2M</div>
+      <div style="font-size: 0.95rem; color: #555;">Commercial Property</div>
+      <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">3.4% of base</div>
+     </div>
+     <div style="text-align: center; padding: 1.5rem; background: white; border-radius: 4px;">
+      <div style="font-size: 2rem; font-weight: 700; color: #4A90BF;">$3.8M</div>
+      <div style="font-size: 0.95rem; color: #555;">Industrial Property</div>
+      <div style="font-size: 0.85rem; color: #999; margin-top: 0.5rem;">2.0% of base</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="growth-drivers" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Vision 2040 Growth Catalysts</span>
+    <h2>Key Drivers of Tax Base Expansion</h2>
+    <p class="lead">Vision 2040 accelerates tax base growth through strategic initiatives across six core areas. Each driver adds commercial/industrial property value, sales tax revenue, and employment tax contributions.</p>
+   </div>
+
+   <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #C8902A;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">1. Waterfront Development</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Marina complex, waterfront dining, boutique resort, retail. Commercial value concentration on highest-use lakefront land.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $45-55M commercial property
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #4A90BF;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">2. North Gateway District</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Mixed-use neighborhood with 1,000+ residential units + 200K sf retail/office. Highest density = highest tax value per acre.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $120-150M (residential+commercial)
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #28A745;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">3. Industrial Mega-Site</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">500+ acres + infrastructure attracts manufacturing, distribution, advanced technology. Generates sales tax + property tax.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $85-110M industrial property
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #FFB81C;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">4. Tourism & Hospitality</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Restaurants, lodging, attractions. Drives sales tax revenue directly (10% of visitor spending) + property value.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $35-45M commercial property
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #E74C3C;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">5. Employment Growth</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Higher-wage jobs attract workers + families. Supports 200-300 new households + supporting commercial activity.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $60-80M residential property
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-left: 4px solid #9B59B6;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">6. Regional Integration</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Position El Dorado as regional hub for Wichita MSA. Spillover commercial development + regional event hosting.</p>
+     <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.9rem; color: var(--navy);">
+      <strong>Est. Value Add:</strong> $25-35M commercial property
+     </div>
+    </div>
+   </div>
+
+   <!-- Total Growth Potential -->
+   <div class="reveal" style="background: var(--navy); color: white; padding: 2.5rem; border-radius: var(--radius); text-align: center;">
+    <h3 style="margin-top: 0;">Total Vision 2040 Tax Base Growth Potential</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+     <div>
+      <div style="font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">CURRENT BASE</div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">$185M</div>
+     </div>
+     <div>
+      <div style="font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">TARGET (Year 15)</div>
+      <div style="font-size: 2rem; font-weight: 700; color: #FFD700;">$620-700M</div>
+     </div>
+    </div>
+    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+     <div style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-bottom: 0.75rem;">Expansion Multiple:</div>
+     <div style="font-size: 1.8rem; font-weight: 700; color: #FFD700;">3.3x - 3.8x</div>
+     <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">$435-515M in new property value</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="revenue-model" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Financial Projections</span>
+    <h2>Revenue Modeling & Tax Impact</h2>
+    <p class="lead">Conservative modeling of Vision 2040's tax revenue impact assumes staggered project completion over 15 years. Each project type (residential, commercial, industrial) generates different tax profiles based on rate structure and multiplier effects.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Tax Revenue by Category</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 4px;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Property Tax (est. Year 15)</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem;">$52-58M</div>
+      <p style="color: #555; margin: 0; font-size: 0.9rem;"><strong>+$35-42M</strong> from baseline</p>
+     </div>
+     <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 4px;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Sales Tax (est. Year 15)</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem;">$8-10M</div>
+      <p style="color: #555; margin: 0; font-size: 0.9rem;"><strong>+$4.8-6.8M</strong> from baseline</p>
+     </div>
+     <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 4px;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Employment/Payroll Tax (est. Year 15)</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem;">$2.5-3.5M</div>
+      <p style="color: #555; margin: 0; font-size: 0.9rem;"><strong>+$2.5-3.5M</strong> new</p>
+     </div>
+     <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 4px;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem;">Total Operating Revenue (est. Year 15)</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #C8902A; margin-bottom: 0.75rem;">$62-71M</div>
+      <p style="color: #555; margin: 0; font-size: 0.9rem;"><strong>+$40-49M</strong> from baseline</p>
+     </div>
+    </div>
+   </div>
+
+   <!-- Economic Multiplier Effects -->
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Secondary Revenue Streams (Multiplier Effects)</h3>
+    <p style="color: #555; margin-bottom: 1.5rem;">Beyond direct taxation, Vision 2040 projects generate secondary economic activity and tax revenue:</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Sales Tax Multiplier</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Direct:</strong> $8-10M (new retail + hospitality)</li>
+       <li><strong>Indirect:</strong> +$1-1.5M (supplier purchases)</li>
+       <li><strong>Induced:</strong> +$1.5-2M (employee spending)</li>
+       <li><strong>Total:</strong> $10.5-13.5M sales tax impact</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Economic Activity Multiplier</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Direct Investment:</strong> $800M+ (construction)</li>
+       <li><strong>Multiplier Factor:</strong> 1.5-1.8x (Kansas average)</li>
+       <li><strong>Total Regional Impact:</strong> $1.2-1.4B</li>
+       <li><strong>Year 15 Annual Impact:</strong> $80-120M</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+
+   <!-- Break-Even Analysis -->
+   <div class="reveal" style="background: rgba(40,167,69,.08); border: 1px solid rgba(40,167,69,.3); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Break-Even Timeline: Public Investment ROI</h3>
+    <p style="color: #555; margin-bottom: 1.5rem;">City's Vision 2040 infrastructure investments (roads, utilities, incentives) estimated at $50-75M. Tax revenue growth covers this investment within:</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="text-align: center;">
+      <div style="font-size: 2rem; font-weight: 700; color: #28A745;">5-7</div>
+      <div style="font-size: 0.95rem; color: #555;">Years</div>
+      <p style="font-size: 0.85rem; color: #999; margin: 0.75rem 0 0 0;">to break even</p>
+     </div>
+     <div style="text-align: center;">
+      <div style="font-size: 2rem; font-weight: 700; color: #28A745;">2-3x</div>
+      <div style="font-size: 0.95rem; color: #555;">ROI</div>
+      <p style="font-size: 0.85rem; color: #999; margin: 0.75rem 0 0 0;">by Year 15</p>
+     </div>
+     <div style="text-align: center;">
+      <div style="font-size: 2rem; font-weight: 700; color: #28A745;">$500M+</div>
+      <div style="font-size: 0.95rem; color: #555;">Net Benefit</div>
+      <p style="font-size: 0.85rem; color: #999; margin: 0.75rem 0 0 0;">cumulative by 2040</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="roi-analysis" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Cost-Benefit Analysis</span>
+    <h2>Investment Returns: Public vs. Private Sector</h2>
+    <p class="lead">Vision 2040's financial sustainability depends on balanced public and private investment. Public infrastructure investment (roads, utilities, incentives) is recovered through increased tax base + property value appreciation.</p>
+   </div>
+
+   <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Public Sector Investment (City)</h3>
+     <div style="margin-bottom: 1.5rem;">
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Capital Costs (15 years)</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Road/Utility Infrastructure:</strong> $25-30M</li>
+       <li><strong>Municipal Facilities:</strong> $8-12M</li>
+       <li><strong>Parks/Public Realm:</strong> $5-8M</li>
+       <li><strong>Incentive Programs:</strong> $10-15M</li>
+       <li><strong>Planning/Admin:</strong> $2-3M</li>
+      </ul>
+      <div style="border-top: 1px solid #eee; margin-top: 1rem; padding-top: 1rem; font-weight: 600; color: var(--navy); font-size: 1.1rem;">Total: $50-68M</div>
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+     <h3 style="margin-top: 0; color: var(--navy);">Private Sector Investment</h3>
+     <div style="margin-bottom: 1.5rem;">
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Capital Investment (15 years)</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Waterfront Development:</strong> $60-75M</li>
+       <li><strong>North Gateway District:</strong> $180-220M</li>
+       <li><strong>Industrial Mega-Site:</strong> $120-180M</li>
+       <li><strong>Tourism/Hospitality:</strong> $35-50M</li>
+       <li><strong>Other Development:</strong> $50-75M</li>
+      </ul>
+      <div style="border-top: 1px solid #eee; margin-top: 1rem; padding-top: 1rem; font-weight: 600; color: var(--navy); font-size: 1.1rem;">Total: $445-600M</div>
+     </div>
+    </div>
+   </div>
+
+   <!-- Cumulative Impact -->
+   <div class="reveal" style="background: var(--navy); color: white; padding: 2.5rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0;">Vision 2040: Cumulative Financial Impact (15 years)</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2rem;">
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;">TOTAL INVESTMENT</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #FFD700;">$495-668M</div>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">Public + Private</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;">CUMULATIVE TAX REVENUE GAIN</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #FFD700;">$420-540M</div>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">vs. baseline projection</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;">PROPERTY VALUE APPRECIATION</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #FFD700;">$350-450M</div>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">Wealth creation for residents</p>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;">NET ECONOMIC BENEFIT</div>
+      <div style="font-size: 1.8rem; font-weight: 700; color: #FFD700;">$770-990M</div>
+      <p style="font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-top: 0.5rem;">Tax + appreciation + multiplier</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="5-year-projection" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Near-Term Outlook</span>
+    <h2>Phase 1: First 5-Year Revenue Projection (2025-2030)</h2>
+    <p class="lead">Conservative modeling of 2025-2030 assumes first major projects go live by 2027-2028 (North Gateway phase 1, West Marina, Tourism District). Tax impacts compound from Year 3 onward.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem; overflow-x: auto;">
+    <h3 style="margin-top: 0; color: var(--navy); margin-bottom: 1.5rem;">Annual Revenue Projection (2025-2030)</h3>
+    <table style="width: 100%; border-collapse: collapse; color: #555;">
+     <thead>
+      <tr style="background: #f5f5f5;">
+       <th style="padding: 1rem; text-align: left; border-bottom: 2px solid #C8902A;">Year</th>
+       <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #C8902A;">Property Tax</th>
+       <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #C8902A;">Sales Tax</th>
+       <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #C8902A;">Other Revenue</th>
+       <th style="padding: 1rem; text-align: center; border-bottom: 2px solid #C8902A; font-weight: 700; color: var(--navy);">Total</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr style="border-bottom: 1px solid #eee;">
+       <td style="padding: 1rem;"><strong>2025 (baseline)</strong></td>
+       <td style="padding: 1rem; text-align: center;">$16.4M</td>
+       <td style="padding: 1rem; text-align: center;">$3.2M</td>
+       <td style="padding: 1rem; text-align: center;">$2.4M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600; color: var(--navy);">$22.0M</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+       <td style="padding: 1rem;">2026</td>
+       <td style="padding: 1rem; text-align: center;">$17.2M</td>
+       <td style="padding: 1rem; text-align: center;">$3.4M</td>
+       <td style="padding: 1rem; text-align: center;">$2.5M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600; color: var(--navy);">$23.1M</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+       <td style="padding: 1rem;">2027 (first projects)</td>
+       <td style="padding: 1rem; text-align: center;">$19.8M</td>
+       <td style="padding: 1rem; text-align: center;">$4.2M</td>
+       <td style="padding: 1rem; text-align: center;">$3.0M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600; color: var(--navy);">$27.0M</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+       <td style="padding: 1rem;">2028</td>
+       <td style="padding: 1rem; text-align: center;">$24.5M</td>
+       <td style="padding: 1rem; text-align: center;">$5.1M</td>
+       <td style="padding: 1rem; text-align: center;">$3.6M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600; color: var(--navy);">$33.2M</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #eee;">
+       <td style="padding: 1rem;">2029</td>
+       <td style="padding: 1rem; text-align: center;">$29.2M</td>
+       <td style="padding: 1rem; text-align: center;">$6.2M</td>
+       <td style="padding: 1rem; text-align: center;">$4.2M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600; color: var(--navy);">$39.6M</td>
+      </tr>
+      <tr style="background: var(--cream);">
+       <td style="padding: 1rem; font-weight: 600;"><strong>2030</strong></td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600;">$32.8M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600;">$7.1M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 600;">$4.8M</td>
+       <td style="padding: 1rem; text-align: center; font-weight: 700; color: #C8902A; font-size: 1.1rem;">$44.7M</td>
+      </tr>
+     </tbody>
+    </table>
+    <p style="color: #999; font-size: 0.85rem; margin-top: 1rem; margin-bottom: 0;"><strong>Key Assumptions:</strong> 2% baseline annual growth; first major projects operational mid-2027; conservative ramp-up through 2030.</p>
+   </div>
+
+   <!-- 5-Year Impact Summary -->
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">2025-2030 Impact Summary</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div style="background: white; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #C8902A;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase;">Total Incremental Revenue</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: var(--navy); margin: 0.75rem 0;">$72.6M</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0;">vs. 2025-2030 baseline projection</p>
+     </div>
+     <div style="background: white; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #4A90BF;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase;">Year-over-Year Growth (2025→2030)</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: var(--navy); margin: 0.75rem 0;">+$22.7M</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0;">103% increase in annual revenue</p>
+     </div>
+     <div style="background: white; padding: 1.5rem; border-radius: 4px; border-left: 4px solid #28A745;">
+      <div style="font-size: 0.85rem; color: #777; text-transform: uppercase;">Jobs Created (2025-2030)</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: var(--navy); margin: 0.75rem 0;">800-1,200</div>
+      <p style="font-size: 0.85rem; color: #555; margin: 0;">Direct + indirect employment</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- FOOTER NAVIGATION -->
+ <section class="section" style="text-align: center;">
+  <div class="container">
+   <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Next Steps</h3>
+   <p style="color: #555; margin-bottom: 2rem;">Review Strategy about specific investment areas or review El Dorado's broader financial planning strategy.</p>
+   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="finance.html" class="btn btn--primary">← Back to Finance Hub</a>
+    <a href="index.html" class="btn btn--outline">Back to Home →</a>
+   </div>
+  </div>
+ </section>
+
+ <script src="js/nav.js" defer></script>
+ <script src="js/analytics.js" defer></script>
+</body>
+</html>

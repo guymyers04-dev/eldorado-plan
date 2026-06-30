@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Development Finder | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Searchable database of available properties and development opportunities in El Dorado, KS. Investment calculator, market data, and direct deal flow for developers." />
+ <meta property="og:title" content="Development Finder | El Dorado Vision 2040" />
+ <meta property="og:description" content="Find available properties, calculate ROI, and connect with El Dorado development opportunities." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <style>
+ .dev-finder-container {
+   display: grid;
+   grid-template-columns: 300px 1fr;
+   gap: 2rem;
+   margin-bottom: 2rem;
+  }
+ .filter-sidebar {
+   background: #f8f4ec;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 1.5rem;
+   height: fit-content;
+   position: sticky;
+   top: 100px;
+  }
+ .filter-sidebar h4 {
+   color: var(--navy);
+   border-bottom: 2px solid var(--gold);
+   padding-bottom: 0.5rem;
+   margin-bottom: 1rem;
+   font-size: 0.95em;
+  }
+ .filter-group {
+   margin-bottom: 1.25rem;
+  }
+ .filter-group label {
+   display: block;
+   font-weight: 600;
+   font-size: 0.85em;
+   color: var(--navy);
+   margin-bottom: 0.4rem;
+  }
+ .filter-group select,
+ .filter-group input {
+   width: 100%;
+   padding: 0.5rem;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 0.85em;
+  }
+ .filter-button {
+   width: 100%;
+   padding: 0.75rem;
+   background: var(--navy);
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-weight: 600;
+   transition: all 0.2s;
+   margin-top: 0.5rem;
+  }
+ .filter-button:hover {
+   background: #1a2d4a;
+  }
+ .results-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+   gap: 1.5rem;
+  }
+ .property-card {
+   background: white;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 1.5rem;
+   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+   transition: all 0.2s;
+  }
+ .property-card:hover {
+   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+   transform: translateY(-2px);
+  }
+ .property-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: start;
+   margin-bottom: 0.75rem;
+  }
+ .property-name {
+   font-size: 1.1em;
+   font-weight: 700;
+   color: var(--navy);
+  }
+ .property-zone {
+   background: rgba(0,0,0,0.08);
+   padding: 0.25rem 0.5rem;
+   border-radius: 3px;
+   font-size: 0.75em;
+   font-weight: 600;
+   color: var(--navy);
+  }
+ .property-details {
+   font-size: 0.9em;
+   line-height: 1.8;
+   margin-bottom: 1rem;
+   border-bottom: 1px solid #eee;
+   padding-bottom: 1rem;
+  }
+ .detail-row {
+   display: flex;
+   justify-content: space-between;
+  }
+ .detail-label {
+   color: #666;
+   font-weight: 500;
+  }
+ .detail-value {
+   font-weight: 700;
+   color: var(--navy);
+  }
+ .property-price {
+   font-size: 1.4em;
+   font-weight: bold;
+   color: var(--green);
+   margin-bottom: 0.5rem;
+  }
+ .property-status {
+   display: inline-block;
+   padding: 0.4rem 0.75rem;
+   border-radius: 4px;
+   font-size: 0.8em;
+   font-weight: 600;
+   margin-bottom: 1rem;
+  }
+ .status-available {
+   background: #e8f5e9;
+   color: #2e7d32;
+  }
+ .status-pending {
+   background: #fff3e0;
+   color: #e65100;
+  }
+ .property-actions {
+   display: flex;
+   gap: 0.5rem;
+  }
+ .btn-small {
+   flex: 1;
+   padding: 0.6rem 0.75rem;
+   border: 1px solid var(--navy);
+   background: transparent;
+   color: var(--navy);
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 0.85em;
+   font-weight: 600;
+   transition: all 0.2s;
+  }
+ .btn-small:hover {
+   background: var(--navy);
+   color: white;
+  }
+ .btn-roi {
+   background: var(--green);
+   color: white;
+   border-color: var(--green);
+  }
+ .btn-roi:hover {
+   background: #2e7d32;
+   border-color: #2e7d32;
+  }
+ .no-results {
+   grid-column: 1 / -1;
+   text-align: center;
+   padding: 2rem;
+   color: #999;
+  }
+ .roi-modal {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: rgba(0,0,0,0.6);
+   z-index: 1000;
+   align-items: center;
+   justify-content: center;
+  }
+ .roi-modal.active {
+   display: flex;
+  }
+ .roi-content {
+   background: white;
+   border-radius: 8px;
+   padding: 2rem;
+   max-width: 600px;
+   max-height: 80vh;
+   overflow-y: auto;
+   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+ .roi-content h3 {
+   color: var(--navy);
+   margin-bottom: 1rem;
+  }
+ .roi-form {
+   display: grid;
+   gap: 1rem;
+   margin-bottom: 1.5rem;
+  }
+ .roi-form label {
+   display: flex;
+   flex-direction: column;
+   font-size: 0.9em;
+   font-weight: 600;
+   color: var(--navy);
+  }
+ .roi-form input {
+   padding: 0.6rem;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   margin-top: 0.3rem;
+   font-size: 0.95em;
+  }
+ .roi-results {
+   background: #f8f4ec;
+   padding: 1.5rem;
+   border-radius: 8px;
+   border-left: 4px solid var(--green);
+   display: none;
+  }
+ .roi-results.active {
+   display: block;
+  }
+ .roi-metric {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 0.75rem;
+   font-size: 0.95em;
+  }
+ .roi-metric-label {
+   font-weight: 600;
+   color: var(--navy);
+  }
+ .roi-metric-value {
+   font-weight: bold;
+   color: var(--green);
+  }
+ .close-modal {
+   float: right;
+   font-size: 1.5em;
+   cursor: pointer;
+   color: #999;
+  }
+ .close-modal:hover {
+   color: var(--navy);
+  }
+  @media (max-width: 900px) {
+  .dev-finder-container {
+    grid-template-columns: 1fr;
+   }
+  .filter-sidebar {
+    position: relative;
+    top: auto;
+   }
+  .results-grid {
+    grid-template-columns: 1fr;
+   }
+  }
+ </style>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="development-finder">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar"></nav>
+
+<div class="breadcrumb">
+ <a href="index.html">Home</a>
+ <span>/</span>
+ <a href="reference.html">Reference</a>
+ <span>/</span>
+ <span>Development Finder</span>
+</div>
+
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #1a5f7a 0%, #2d8a9d 100%);">
+ <div class="hero-content">
+  <h1>Development Finder</h1>
+  <p class="hero-tagline">Investment & Deal Flow Opportunities</p>
+  <p class="hero-subtitle">Searchable database of available properties in El Dorado. Filter by zone, size, price. Calculate ROI and connect directly with development opportunities.</p>
+ </div>
+</header>
+
+<main class="content-container">
+
+ <!-- QUICK ACCESS CTA -->
+ <section style="background: linear-gradient(135deg, #f0f4f8 0%, #fafafa 100%); padding: 1.25rem; border-radius: 8px; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+  <div>
+   <h3 style="margin: 0 0 0.3rem 0; color: #1a3a52; font-size: 1.1em;">💼 Investment Brief</h3>
+   <p style="margin: 0; color: #666; font-size: 0.9em; max-width: 400px;">One-page executive summary with ROI models, market comparables, and deal flow overview for institutional investors.</p>
+  </div>
+  <a href="investor-pitch-deck.html" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.25rem; background: #1a3a52; color: white; border-radius: 4px; text-decoration: none; font-weight: 600; white-space: nowrap; font-size: 0.95em;">📥 Download Pitch Deck</a>
+ </section>
+
+ <section id="finder" class="content-section">
+  <div class="dev-finder-container">
+   <!-- FILTER SIDEBAR -->
+   <div class="filter-sidebar">
+    <h4>🔍 SEARCH FILTERS</h4>
+
+    <div class="filter-group">
+     <label for="zone-type">Zone Type:</label>
+     <select id="zone-type">
+      <option value="">All Zones</option>
+      <option value="C-1">C-1 Highway Commercial</option>
+      <option value="C-2">C-2 Downtown Commercial</option>
+      <option value="I-1">I-1 Light Industrial</option>
+      <option value="I-2">I-2 Heavy Industrial</option>
+      <option value="R-2">R-2 Multi-Family Residential</option>
+      <option value="Mixed-Use">Mixed-Use</option>
+     </select>
+    </div>
+
+    <div class="filter-group">
+     <label for="price-min">Min Price ($M):</label>
+     <input type="number" id="price-min" placeholder="0" min="0" step="0.5" />
+    </div>
+
+    <div class="filter-group">
+     <label for="price-max">Max Price ($M):</label>
+     <input type="number" id="price-max" placeholder="50" min="0" step="0.5" />
+    </div>
+
+    <div class="filter-group">
+     <label for="size-min">Min Acres:</label>
+     <input type="number" id="size-min" placeholder="0" min="0" step="0.5" />
+    </div>
+
+    <div class="filter-group">
+     <label for="size-max">Max Acres:</label>
+     <input type="number" id="size-max" placeholder="100" min="0" step="0.5" />
+    </div>
+
+    <div class="filter-group">
+     <label for="district">Growth District:</label>
+     <select id="district">
+      <option value="">All Districts</option>
+      <option value="North Gateway">North Gateway</option>
+      <option value="Downtown TIF">Downtown TIF</option>
+      <option value="South Industrial">South Industrial</option>
+      <option value="Lakeside">Lakeside</option>
+      <option value="Other">Other</option>
+     </select>
+    </div>
+
+    <button class="filter-button" onclick="applyFilters()">Search</button>
+    <button class="filter-button" style="background: #999;" onclick="resetFilters()">Reset</button>
+
+    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(26,95,122,.08); border-radius: 4px; border-left: 3px solid var(--sky); font-size: 0.85em;">
+     <p style="margin: 0; font-weight: 600; color: var(--navy);">💡 Investor Tip:</p>
+     <p style="margin: 0.25rem 0 0 0; color: #666;">Filter by district and ROI potential. North Gateway offers residential/mixed-use. South Industrial favors logistics/manufacturing.</p>
+    </div>
+   </div>
+
+   <!-- RESULTS GRID -->
+   <div>
+    <div style="margin-bottom: 1.5rem;">
+     <h3 style="margin: 0 0 0.5rem 0;">Available Properties</h3>
+     <p style="color: #666; margin: 0; font-size: 0.95em;"><span id="result-count">0</span> properties found</p>
+    </div>
+
+    <div id="results-grid" class="results-grid"></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- MARKET DATA SECTION -->
+ <section id="market-data" class="content-section">
+  <h2>Market Context & Comparables</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h4>📊 El Dorado Market Overview</h4>
+    <ul style="font-size: 0.95em;">
+     <li><strong>Available Commercial/Industrial Land:</strong> ~120–150 acres across all zones</li>
+     <li><strong>Land Cost (Avg):</strong> $12,000–18,000/acre (industrial); $25,000–35,000/acre (commercial)</li>
+     <li><strong>Median Commercial Rent:</strong> $8–12/sq ft/year</li>
+     <li><strong>Residential Market:</strong> Median $153K (strong growth opportunity)</li>
+     <li><strong>Job Growth (Target):</strong> +150–200 net new jobs/year through 2040</li>
+     <li><strong>Tax Incentives:</strong> 10–15 year tax abatement; TIF financing available</li>
+    </ul>
+   </div>
+
+   <div class="content-block">
+    <h4>🏘️ Comparable Regional Markets</h4>
+    <ul style="font-size: 0.95em;">
+     <li><strong>Andover, KS (Wichita suburb):</strong> $18–25K/acre commercial; rapid residential growth</li>
+     <li><strong>Augusta, KS (Regional hub):</strong> $10–15K/acre industrial; established logistics cluster</li>
+     <li><strong>Newton, KS (AGCO headquarters):</strong> $15–22K/acre industrial; manufacturing corridor</li>
+     <li><strong>Emporia, KS (University town):</strong> $12–18K/acre mixed-use; education-anchored growth</li>
+    </ul>
+    <p style="font-size: 0.9em; color: #666; margin-top: 1rem;"><strong>El Dorado Advantage:</strong> 20–30% lower land costs than Wichita suburbs; superior highway access (I-35 + US-54/77); established utilities & water supply.</p>
+   </div>
+  </div>
+ </section>
+
+ <!-- ROI CALCULATOR SECTION -->
+ <section id="roi-guide" class="content-section">
+  <h2>ROI Calculator & Investment Models</h2>
+
+  <div class="content-block">
+   <p style="margin-bottom: 1.5rem;">Click "Calculate ROI" on any property card to estimate your investment returns based on:</p>
+   <ul>
+    <li><strong>Acquisition Cost:</strong> Land + development fees</li>
+    <li><strong>Construction Timeline:</strong> Phased development schedule</li>
+    <li><strong>Revenue Model:</strong> Rent, occupancy assumptions, or sales price</li>
+    <li><strong>Operating Costs:</strong> Utilities, maintenance, property tax</li>
+    <li><strong>Financing:</strong> Loan terms, down payment, interest rate</li>
+    <li><strong>Exit Strategy:</strong> 5-year hold or long-term rent</li>
+   </ul>
+  </div>
+
+  <div class="content-block highlight">
+   <h4>📈 Sample Investment Scenarios</h4>
+   <ul style="font-size: 0.95em;">
+    <li><strong>Scenario 1 (Industrial/Logistics):</strong> 8-acre site + $800K investment = $2.2M revenue (5-yr), 35% ROI</li>
+    <li><strong>Scenario 2 (Residential):</strong> 15-acre site + $3M investment = $1.8M annual rent (80-unit), 32% ROI</li>
+    <li><strong>Scenario 3 (Mixed-Use):</strong> 5-acre downtown TIF site + $2.5M = $2.8M blended revenue, 28% ROI</li>
+   </ul>
+   <p style="font-size: 0.9em; color: #666; margin-top: 1rem;">All scenarios assume 70–80% occupancy, market-rate pricing, and standard financing. Use the ROI calculator for property-specific analysis.</p>
+  </div>
+ </section>
+
+ <!-- NEXT STEPS -->
+ <section id="next-steps" class="content-section">
+  <h2>Next Steps: From Interest to Investment</h2>
+
+  <div class="content-grid">
+   <div class="content-block" style="border-left: 4px solid var(--green);">
+    <h4>Step 1: Identify Your Property</h4>
+    <p>Use filters above to find available land matching your project type, size, and budget. Property cards show zoning, price, and key metrics.</p>
+   </div>
+
+   <div class="content-block" style="border-left: 4px solid var(--sky);">
+    <h4>Step 2: Calculate ROI</h4>
+    <p>Click "Calculate ROI" to model your specific investment (acquisition, financing, revenue). Scenarios show 5-year and 10-year returns.</p>
+   </div>
+
+   <div class="content-block" style="border-left: 4px solid var(--navy);">
+    <h4>Step 3: Contact Team</h4>
+    <p>Click "Inquire" to connect with El Dorado economic development. We'll send property details, zoning info, permitting timeline, and tax incentive options.</p>
+   </div>
+
+   <div class="content-block" style="border-left: 4px solid #F57C00;">
+    <h4>Step 4: Site Visit & Negotiation</h4>
+    <p>Schedule tour. Review preliminary title, survey, environmental reports. Discuss land price, financing, tax abatement, and buildout timeline.</p>
+   </div>
+  </div>
+
+  <div class="content-block" style="padding: 1.5rem; background: linear-gradient(135deg, rgba(26,95,122,.08) 0%, rgba(46,110,53,.08) 100%); border-radius: 8px; margin-top: 1.5rem;">
+   <h4 style="color: var(--navy); margin-top: 0;">🤝 Direct Contact</h4>
+   <p><strong>El Dorado Economic Development:</strong><br>
+    📧 <a href="mailto:econ-dev@eldoradoks.net" style="color: var(--sky);">econ-dev@eldoradoks.net</a><br>
+    📞 (316) 321-9100<br>
+    🏛️ City Manager: David Dillner<br>
+    <strong>Response time:</strong> Within 24 hours for serious inquiries</p>
+  </div>
+ </section>
+
+</main>
+
+<footer class="footer">
+ <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<!-- ROI CALCULATOR MODAL -->
+<div id="roi-modal" class="roi-modal">
+ <div class="roi-content">
+  <span class="close-modal" onclick="closeROI()">&times;</span>
+  <h3 id="roi-title">Investment ROI Calculator</h3>
+
+  <div class="roi-form">
+   <label>
+    Acquisition Cost ($M):
+    <input type="number" id="roi-cost" placeholder="2.5" step="0.1" />
+   </label>
+   <label>
+    Annual Revenue ($M):
+    <input type="number" id="roi-revenue" placeholder="0.5" step="0.05" />
+   </label>
+   <label>
+    Annual Operating Costs ($M):
+    <input type="number" id="roi-costs" placeholder="0.1" step="0.05" />
+   </label>
+   <label>
+    Investment Hold Period (years):
+    <input type="number" id="roi-years" placeholder="5" step="1" min="1" max="30" />
+   </label>
+   <label>
+    Exit/Resale Value ($M, optional):
+    <input type="number" id="roi-exit" placeholder="4" step="0.1" />
+   </label>
+   <button class="filter-button" onclick="calculateROI()">Calculate</button>
+  </div>
+
+  <div id="roi-results" class="roi-results">
+   <div class="roi-metric">
+    <span class="roi-metric-label">Annual Net Cash Flow:</span>
+    <span class="roi-metric-value" id="roi-cashflow">$0.00M</span>
+   </div>
+   <div class="roi-metric">
+    <span class="roi-metric-label">Cumulative Cash Flow (Hold Period):</span>
+    <span class="roi-metric-value" id="roi-cumulative">$0.00M</span>
+   </div>
+   <div class="roi-metric">
+    <span class="roi-metric-label">Total Return (with Exit):</span>
+    <span class="roi-metric-value" id="roi-total">$0.00M</span>
+   </div>
+   <div class="roi-metric" style="border-top: 2px solid var(--navy); padding-top: 0.75rem; margin-top: 0.75rem;">
+    <span class="roi-metric-label" style="font-size: 1.05em;">ROI %:</span>
+    <span class="roi-metric-value" id="roi-percent" style="font-size: 1.05em;">0%</span>
+   </div>
+   <p style="font-size: 0.8em; color: #666; margin-top: 1rem;">
+    <em>Calculation assumes linear revenue and costs over hold period. Actual returns depend on market conditions, operational efficiency, and exit timing. Consult with financial advisor for formal projections.</em>
+   </p>
+  </div>
+ </div>
+</div>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+// DEVELOPMENT FINDER DATABASE
+const properties = [
+ // NORTH GATEWAY ZONE
+ { id: 1, name: 'North Gateway — Commercial Pad Site A', zone: 'C-1', district: 'North Gateway', acres: 2.5, price: 0.35, status: 'available', description: 'Highway commercial; ideal for hotel/retail/services' },
+ { id: 2, name: 'North Gateway — Mixed-Use Village', zone: 'Mixed-Use', district: 'North Gateway', acres: 8.0, price: 1.2, status: 'available', description: '150-unit residential + ground floor retail/office' },
+ { id: 3, name: 'North Gateway — Residential Park', zone: 'R-2', district: 'North Gateway', acres: 12.0, price: 1.8, status: 'available', description: '180-200 multi-family units (apartments/townhomes)' },
+ { id: 4, name: 'North Gateway — Medical/Office Complex', zone: 'C-1', district: 'North Gateway', acres: 4.0, price: 0.65, status: 'available', description: 'Medical offices, clinics, professional services' },
+
+ // DOWNTOWN TIF DISTRICT
+ { id: 5, name: 'Downtown — Central Ave. Revitalization Site', zone: 'C-2', district: 'Downtown TIF', acres: 0.5, price: 0.28, status: 'available', description: '60-80 residential lofts + ground floor retail (TIF eligible)' },
+ { id: 6, name: 'Downtown — Historic Building Conversion', zone: 'C-2', district: 'Downtown TIF', acres: 0.3, price: 0.15, status: 'pending', description: 'Adaptive reuse opportunity; 40-unit loft conversion' },
+ { id: 7, name: 'Downtown — Public Parking with Mixed-Use', zone: 'C-2', district: 'Downtown TIF', acres: 1.2, price: 0.42, status: 'available', description: '200 parking spaces + office/retail above' },
+
+ // SOUTH INDUSTRIAL PARK
+ { id: 8, name: 'South Industrial — Light Manufacturing', zone: 'I-1', district: 'South Industrial', acres: 5.0, price: 0.55, status: 'available', description: 'Aerospace supply chain, precision manufacturing, tech assembly' },
+ { id: 9, name: 'South Industrial — Warehouse & Logistics', zone: 'I-1', district: 'South Industrial', acres: 8.0, price: 0.72, status: 'available', description: 'Cold storage, food processing, distribution hub (HQ-adjacent)' },
+ { id: 10, name: 'South Industrial — Project Horizon Data Center Campus', zone: 'I-2', district: 'South Industrial', acres: 15.0, price: 3.5, status: 'available', description: '50+ MW capable, fiber backbone, dedicated water supply' },
+ { id: 11, name: 'South Industrial — Automotive/Heavy Equipment', zone: 'I-2', district: 'South Industrial', acres: 6.0, price: 0.68, status: 'available', description: 'Equipment storage, maintenance, fleet operations' },
+
+ // LAKESIDE DISTRICT
+ { id: 12, name: 'Lakeside — Hotel + Resort Development', zone: 'Mixed-Use', district: 'Lakeside', acres: 8.0, price: 2.2, status: 'available', description: '100-150 room hotel + conference center + waterfront dining' },
+ { id: 13, name: 'Lakeside — RV Park Expansion', zone: 'Mixed-Use', district: 'Lakeside', acres: 5.0, price: 0.95, status: 'available', description: '80-100 full-hookup RV sites with amenities' },
+ { id: 14, name: 'Lakeside — Marina & Water Sports Hub', zone: 'Mixed-Use', district: 'Lakeside', acres: 3.0, price: 1.1, status: 'available', description: 'Boat rental, water sports instruction, restaurant/bar' },
+
+ // OTHER ZONES
+ { id: 15, name: 'US-54 Corridor — Quick Service Restaurant', zone: 'C-1', district: 'Other', acres: 0.75, price: 0.18, status: 'available', description: 'Highway visibility; high traffic volume' },
+ { id: 16, name: 'EQA Airport — Aerospace Supply Chain', zone: 'I-2', district: 'Other', acres: 10.0, price: 1.2, status: 'available', description: 'Airport-adjacent; aerospace parts manufacturing, maintenance' },
+];
+
+// FILTER & DISPLAY LOGIC
+function applyFilters() {
+ const zoneType = document.getElementById('zone-type').value;
+ const priceMin = parseFloat(document.getElementById('price-min').value) || 0;
+ const priceMax = parseFloat(document.getElementById('price-max').value) || Infinity;
+ const sizeMin = parseFloat(document.getElementById('size-min').value) || 0;
+ const sizeMax = parseFloat(document.getElementById('size-max').value) || Infinity;
+ const district = document.getElementById('district').value;
+
+ const filtered = properties.filter(p =>
+  (!zoneType || p.zone === zoneType) &&
+  p.price >= priceMin &&
+  p.price <= priceMax &&
+  p.acres >= sizeMin &&
+  p.acres <= sizeMax &&
+  (!district || p.district === district)
+ );
+
+ displayResults(filtered);
+}
+
+function displayResults(results) {
+ const grid = document.getElementById('results-grid');
+ const count = document.getElementById('result-count');
+
+ count.textContent = results.length;
+
+ if (results.length === 0) {
+  grid.innerHTML = '<div class="no-results">No properties match your criteria. Try adjusting filters.</div>';
+  return;
+ }
+
+ grid.innerHTML = results.map(p => `
+  <div class="property-card">
+   <div class="property-header">
+    <div class="property-name">${p.name}</div>
+    <div class="property-zone">${p.zone}</div>
+   </div>
+   <div class="property-status status-${p.status}">${p.status === 'available'? '✓ Available' : '⏳ Pending'}</div>
+   <div class="property-price">$${p.price.toFixed(2)}M</div>
+   <div class="property-details">
+    <div class="detail-row">
+     <span class="detail-label">Size:</span>
+     <span class="detail-value">${p.acres} acres</span>
+    </div>
+    <div class="detail-row">
+     <span class="detail-label">District:</span>
+     <span class="detail-value">${p.district}</span>
+    </div>
+    <div class="detail-row">
+     <span class="detail-label">$/Acre:</span>
+     <span class="detail-value">$${(p.price * 1000000 / p.acres / 1000).toFixed(0)}K</span>
+    </div>
+    <p style="margin-top: 0.75rem; font-size: 0.9em; color: #666;">${p.description}</p>
+   </div>
+   <div class="property-actions">
+    <button class="btn-small btn-roi" onclick="openROI('${p.name}', ${p.price})">Calculate ROI</button>
+    <button class="btn-small" onclick="inquire('${p.name}')">Inquire</button>
+   </div>
+  </div>
+ `).join('');
+}
+
+function resetFilters() {
+ document.getElementById('zone-type').value = '';
+ document.getElementById('price-min').value = '';
+ document.getElementById('price-max').value = '';
+ document.getElementById('size-min').value = '';
+ document.getElementById('size-max').value = '';
+ document.getElementById('district').value = '';
+ applyFilters();
+}
+
+function openROI(name, price) {
+ document.getElementById('roi-title').textContent = name;
+ document.getElementById('roi-cost').value = price.toFixed(1);
+ document.getElementById('roi-results').classList.remove('active');
+ document.getElementById('roi-modal').classList.add('active');
+}
+
+function closeROI() {
+ document.getElementById('roi-modal').classList.remove('active');
+}
+
+function calculateROI() {
+ const cost = parseFloat(document.getElementById('roi-cost').value) || 0;
+ const revenue = parseFloat(document.getElementById('roi-revenue').value) || 0;
+ const opCosts = parseFloat(document.getElementById('roi-costs').value) || 0;
+ const years = parseInt(document.getElementById('roi-years').value) || 5;
+ const exit = parseFloat(document.getElementById('roi-exit').value) || 0;
+
+ const annualNet = revenue - opCosts;
+ const cumulative = annualNet * years;
+ const totalReturn = cumulative + exit - cost;
+ const roiPercent = cost > 0? ((totalReturn / cost) * 100).toFixed(1) : 0;
+
+ document.getElementById('roi-cashflow').textContent = '$' + annualNet.toFixed(2) + 'M';
+ document.getElementById('roi-cumulative').textContent = '$' + cumulative.toFixed(2) + 'M';
+ document.getElementById('roi-total').textContent = '$' + totalReturn.toFixed(2) + 'M';
+ document.getElementById('roi-percent').textContent = roiPercent + '%';
+ document.getElementById('roi-results').classList.add('active');
+}
+
+function inquire(name) {
+ const message = encodeURIComponent(`I'm interested in learning more about: ${name}. Please send property details, zoning information, and permitting timeline.`);
+ window.location.href = `mailto:econ-dev@eldoradoks.net?subject=Development Inquiry: ${encodeURIComponent(name)}&body=${message}`;
+}
+
+// INIT: Display all properties on load
+document.addEventListener('DOMContentLoaded', function() {
+ displayResults(properties);
+});
+</script>
+
+</body>
+</html>

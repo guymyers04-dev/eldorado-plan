@@ -20,9 +20,13 @@
       body { padding-top: 60px; }
     </style>
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <!-- MODERN CSS SYSTEM -->
+    <link rel="preload" href="css/styles-modern.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.css">
+    <link rel="stylesheet" href="css/components-advanced.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- CSS already loaded above --> onload="this.media='all';this.onload=null;">
+    <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
  <style>
  .benefit-box { background: #f5f5f5; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid var(--gold); }
  .example-box { background: rgba(200,144,42,0.08); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border-left: 4px solid var(--gold); font-size: 0.95rem; }

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>North Expansion Zone: Residential & Marina | El Dorado, KS — Vision 2040</title>
+ <meta name="description" content="Strategic residential and marina development on El Dorado's north side. 400–600 new residential units, expanded marina facilities, waterfront amenities over 15 years." />
+ <meta property="og:title" content="North Expansion Zone | El Dorado Vision 2040" />
+ <meta property="og:description" content="El Dorado's primary growth vector: lakefront residential development and expanded water recreation infrastructure." />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="north-expansion-zone">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<nav id="navbar"></nav>
+
+<div class="breadcrumb">
+ <a href="index.html">Home</a>
+ <span>/</span>
+ <a href="index.html">Region</a>
+ <span>/</span>
+ <span>North Expansion Zone</span>
+</div>
+
+<header class="hero hero-sm" style="background: linear-gradient(135deg, #1a5f7a 0%, #2a8ab5 100%);">
+ <div class="hero-content">
+  <h1>North Expansion Zone</h1>
+  <p class="hero-tagline">Residential Growth + Marina Development</p>
+  <p class="hero-subtitle">Strategic waterfront development on El Dorado's north side: 400–600 new residential units, expanded marina, water sports infrastructure by 2040</p>
+ </div>
+</header>
+
+<main class="content-container">
+
+ <section id="context" class="content-section">
+  <h2>Why North: El Dorado's Primary Growth Vector</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h3>The Opportunity</h3>
+    <p>El Dorado's north side offers optimal conditions for residential expansion:</p>
+    <ul>
+     <li><strong>Proximity to lake:</strong> Direct waterfront access (vs. other sides with mixed use)</li>
+     <li><strong>Growth pressure:</strong> Current demand exceeds housing supply; 50–80 new units needed annually</li>
+     <li><strong>Demographic target:</strong> Retirees (60+ age group), young families, recreational enthusiasts</li>
+     <li><strong>Infrastructure readiness:</strong> Water/sewer lines serviceable with extensions</li>
+     <li><strong>Land availability:</strong> Mix of public, private, developable parcels</li>
+    </ul>
+   </div>
+
+   <div class="content-block highlight">
+    <h3>📊 Market Baseline</h3>
+    <ul class="metric-list">
+     <li><strong>Current population:</strong> 12,800</li>
+     <li><strong>Projected 2040:</strong> 14,500–15,500 (+1,700–2,700)</li>
+     <li><strong>Housing units needed:</strong> 400–600 net new units</li>
+     <li><strong>Target price range:</strong> $150–350K (starter to mid-range homes)</li>
+     <li><strong>Marina demand:</strong> 50–100 new boat slips (recreational boating growth)</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="content-block">
+   <h3>Development Model: Mixed-Income, Mixed-Use Waterfront</h3>
+   <p>Not just residential—the north zone combines:</p>
+   <ul>
+    <li><strong>Residential:</strong> 60–70% single-family homes + 20–30% townhomes/condos</li>
+    <li><strong>Marina/water sports:</strong> Expanded slip capacity, rental fleet (kayaks, paddleboards), watersports school</li>
+    <li><strong>Mixed-use village core:</strong> Small retail, restaurants, coffee shops within walking distance of waterfront</li>
+    <li><strong>Recreation:</strong> Greenways, parks, dog parks, picnic areas</li>
+    <li><strong>Age-friendly design:</strong> Walkability, accessibility, proximity to healthcare/senior services</li>
+   </ul>
+  </div>
+
+  <!-- INTERACTIVE MAP -->
+  <div class="content-block">
+   <h3>📍 North Expansion Zone Map</h3>
+   <div id="north-dev-map" style="width: 100%; height: 400px; border-radius: 8px; margin-top: 20px;"></div>
+   <p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+    <em>North side waterfront: Primary growth zone for 400–600 residential units + expanded marina.
+    Proximity to El Dorado Lake creates premium positioning. Planned phases show development progression.</em>
+   </p>
+  </div>
+ </section>
+
+ <section id="vision" class="content-section">
+  <h2>15-Year Development Plan: Phased Residential & Marina Growth</h2>
+
+  <div class="timeline-section">
+   <h3>Phase 1: Foundation (Years 1–3)</h3>
+   <div class="content-block">
+    <ul>
+     <li><strong>Housing:</strong> 100–150 new units (mix of single-family, townhomes)</li>
+     <li><strong>Marina:</strong> 20–30 new slips; rental watersports fleet (kayaks, sailboats)</li>
+     <li><strong>Infrastructure:</strong> Water/sewer line extensions; road improvements (North Ave)</li>
+     <li><strong>Commercial:</strong> Small mixed-use village center (coffee shop, restaurant, retail)</li>
+     <li><strong>Investment:</strong> $30–40M (residential) + $5–8M (marina)</li>
+    </ul>
+   </div>
+
+   <h3>Phase 2: Acceleration (Years 4–7)</h3>
+   <div class="content-block">
+    <ul>
+     <li><strong>Housing:</strong> 150–200 additional units</li>
+     <li><strong>Marina:</strong> 30–50 additional slips; watersports school opening</li>
+     <li><strong>Recreation:</strong> Greenway network; expanded parks; dog parks</li>
+     <li><strong>Investment:</strong> $45–60M (cumulative)</li>
+    </ul>
+   </div>
+
+   <h3>Phase 3: Maturity (Years 8–15)</h3>
+   <div class="content-block">
+    <ul>
+     <li><strong>Housing:</strong> 150–200 additional units (total: 400–550)</li>
+     <li><strong>Marina:</strong> Full capacity (100–130 total slips)</li>
+     <li><strong>Community amenities:</strong> Waterfront promenade, event space, senior housing specialized district</li>
+     <li><strong>Investment:</strong> $75–90M (cumulative)</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="content-block highlight">
+   <h3>💡 Age-Friendly Development: The Retirement Vector</h3>
+   <p>El Dorado's north zone targets retirees (60+ demographic):</p>
+   <ul>
+    <li>Proximity to medical services (new medical office at lake edge)</li>
+    <li>Walkable waterfront entertainment district</li>
+    <li>Senior-focused housing (active adult communities, assisted living partnerships)</li>
+    <li>Recreational programs (sailing lessons, water aerobics, walking clubs)</li>
+    <li>Regional draw: El Dorado becomes a "retirement destination" like Table Rock, Branson</li>
+   </ul>
+  </div>
+ </section>
+
+ <section id="economics" class="content-section">
+  <h2>Economic Impact: Tax Base, Employment, Multiplier Effects</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h3>Direct Economic Benefits</h3>
+    <ul class="metric-list">
+     <li><strong>Tax base growth:</strong> $75–90M new residential value = $600K–900K annual property tax</li>
+     <li><strong>Employment:</strong> 300–400 jobs (construction, hospitality, marina operations, retail)</li>
+     <li><strong>Payroll:</strong> $12–16M annually (at maturity)</li>
+     <li><strong>Retail/hospitality:</strong> $3–5M annual sales (restaurants, shops, services)</li>
+    </ul>
+   </div>
+
+   <div class="content-block">
+    <h3>Multiplier Effects</h3>
+    <ul class="metric-list">
+     <li><strong>Household spending:</strong> New residents spend locally (schools, grocery, retail, services)</li>
+     <li><strong>Healthcare:</strong> Retirees attract medical offices, clinics, specialist practices</li>
+     <li><strong>Tourism overlay:</strong> Expanded marina = more visiting boaters, event tourism (regattas, water sports competitions)</li>
+     <li><strong>Total economic impact:</strong> $30–50M cumulative by 2040</li>
+    </ul>
+   </div>
+
+   <div class="content-block highlight">
+    <h3>📈 Comparable Case Study: Lake Communities</h3>
+    <p>Table Rock Lake (Missouri) added 15,000 residents in 30 years through waterfront residential development. El Dorado's target is more modest (3% population growth) but achievable with focused strategy.</p>
+   </div>
+  </div>
+ </section>
+
+ <section id="next-steps" class="content-section">
+  <h2>What Needs to Happen: City, Developers, Utilities</h2>
+
+  <div class="content-grid">
+   <div class="content-block">
+    <h3>🏛️ City of El Dorado</h3>
+    <ul>
+     <li>Adopt North Expansion Zone Master Plan (zoning, density targets, design guidelines)</li>
+     <li>Coordinate with utilities on water/sewer capacity and extensions</li>
+     <li>Identify public land for parks, greenways, community facilities</li>
+     <li>Establish design review process (architectural standards, lake view preservation)</li>
+    </ul>
+   </div>
+
+   <div class="content-block">
+    <h3>💼 Private Developers</h3>
+    <ul>
+     <li>Partner with City on phased development (100–150 units per phase)</li>
+     <li>Provide market-rate housing AND age-friendly units</li>
+     <li>Develop mixed-use village center (anchor tenants: coffee, restaurant)</li>
+     <li>Timeline: Phase 1 site prep (Year 1), construction (Years 2–3)</li>
+    </ul>
+   </div>
+
+   <div class="content-block">
+    <h3>💧 Utility Infrastructure</h3>
+    <ul>
+     <li>City Water/Sewer: Design for 400–600 unit capacity; plan extensions</li>
+     <li>Electric/Telecom: Underground utility infrastructure (modern development standard)</li>
+     <li>Investment: $8–12M (utilities)</li>
+    </ul>
+   </div>
+
+   <div class="content-block">
+    <h3>⛵ Marina/Recreation</h3>
+    <ul>
+     <li>Private concession operator OR city partnerships for expanded slips</li>
+     <li>Watersports school, equipment rentals (business model focus)</li>
+     <li>Event programming (regattas, water festivals, summer concerts)</li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="content-block highlight">
+   <h3>🎯 Year 1 Priorities</h3>
+   <ol>
+    <li>Adopt North Expansion Zone Master Plan (Month 3)</li>
+    <li>Utilities planning: water/sewer expansion engineering study (Months 4–8)</li>
+    <li>RFP for development partners (Months 6–9)</li>
+    <li>Begin Phase 1 infrastructure: roads, utilities (Months 9–12)</li>
+   </ol>
+  </div>
+ </section>
+
+ <section id="related" class="content-section">
+  <h2>Related Strategies</h2>
+  <div class="related-links">
+   <a href="lakeside-development.html" class="related-card">
+    <h4>Lake-Side Development Zones</h4>
+    <p>Comprehensive lakefront strategy</p>
+   </a>
+   <a href="lake-activity-zones.html" class="related-card">
+    <h4>Lake Activity Zones</h4>
+    <p>Recreation and conservation planning</p>
+   </a>
+   <a href="housing-strategy.html" class="related-card">
+    <h4>Housing Strategy</h4>
+    <p>Comprehensive housing development plan</p>
+   </a>
+   <a href="place.html" class="related-card">
+    <h4>Place: Lake & Recreation</h4>
+    <p>Regional destination positioning</p>
+   </a>
+  </div>
+ </section>
+
+ <section id="sources" class="content-section">
+  <h2>Sources & Data References</h2>
+  <ul class="citation-list">
+   <li>U.S. Census Bureau. "El Dorado, KS Population Projections" (2020–2040).</li>
+   <li>Kansas Housing Resources Commission. "Statewide Housing Needs Assessment" (2023).</li>
+   <li>El Dorado Economic Development. "Housing Market Analysis" (2023).</li>
+   <li>Comparable communities analysis: Table Rock Lake (MO), Beaver Lake (AR), Perry Lake (KS).</li>
+  </ul>
+ </section>
+
+</main>
+
+<footer class="footer">
+ <p>&copy; 2026 El Dorado Vision 2040. All rights reserved.</p>
+</footer>
+
+<script src="js/nav.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+// NORTH EXPANSION ZONE MAP (Leaflet.js)
+document.addEventListener('DOMContentLoaded', function() {
+ const map = L.map('north-dev-map').setView([37.86, -96.87], 12);
+
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 19
+ }).addTo(map);
+
+ // Draw expansion zone (approximate)
+ const zoneCorners = [
+  [37.90, -96.85],
+  [37.90, -96.90],
+  [37.82, -96.90],
+  [37.82, -96.85]
+ ];
+
+ const polygon = L.polygon(zoneCorners, {
+  color: '#1a5f7a',
+  weight: 2,
+  opacity: 0.5,
+  fillColor: '#2a8ab5',
+  fillOpacity: 0.2
+ }).addTo(map);
+
+ // Key locations
+ const locations = [
+  { name: 'Downtown El Dorado', lat: 37.825, lng: -96.870, type: 'anchor', desc: 'City center reference point' },
+  { name: 'El Dorado Lake', lat: 37.900, lng: -96.920, type: 'feature', desc: 'Waterfront focal point' },
+  { name: 'North Expansion Zone', lat: 37.86, lng: -96.87, type: 'primary', desc: 'Residential growth (400–600 units)' },
+  { name: 'Planned Marina', lat: 37.88, lng: -96.88, type: 'development', desc: 'Expanded marina (100–130 slips)' }
+ ];
+
+ locations.forEach(loc => {
+  const color = loc.type === 'primary'? '#00aa00' :
+         loc.type === 'feature'? '#0099ff' :
+         loc.type === 'development'? '#ff6600' : '#666666';
+
+  const marker = L.circleMarker([loc.lat, loc.lng], {
+   radius: loc.type === 'primary'? 10 : 6,
+   fillColor: color,
+   color: '#fff',
+   weight: 2,
+   opacity: 1,
+   fillOpacity: 0.8
+  }).addTo(map);
+
+  marker.bindPopup(`<strong>${loc.name}</strong><br>${loc.desc}`);
+ });
+
+ const legend = L.control({ position: 'bottomright' });
+ legend.onAdd = function(map) {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = '<div style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">' +
+   '<p style="margin: 0 0 5px 0;"><strong>North Expansion Zone</strong></p>' +
+   '<p style="margin: 2px 0;"><span style="background: #2a8ab5; opacity: 0.3; padding: 2px 5px;">█</span> Development zone</p>' +
+   '<p style="margin: 2px 0;"><span style="color: #00aa00; font-size: 20px;">●</span> Residential growth hub</p>' +
+   '<p style="margin: 2px 0;"><span style="color: #ff6600; font-size: 20px;">●</span> Marina expansion</p>' +
+   '<p style="margin: 2px 0;"><span style="color: #0099ff; font-size: 20px;">●</span> Lake waterfront</p>' +
+   '</div>';
+  return div;
+ };
+ legend.addTo(map);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Competitive Benchmarking | El Dorado Vision 2040</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <style>
+ .benchmark-table { font-size: 0.85rem; margin: 2rem 0; }
+ .benchmark-table th,.benchmark-table td { padding: 0.75rem; border: 1px solid #ddd; }
+ .benchmark-table th { background: var(--navy); color: white; font-weight: 600; }
+ .benchmark-table tr:hover { background: #f5f5f5; }
+ .winner { background: rgba(46,110,53,0.1); color: var(--green); font-weight: 600; }
+ .comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+ .comparison-card { border: 1px solid #ddd; padding: 1.5rem; border-radius: 8px; background: #fafafa; }
+ .comparison-card h4 { color: var(--navy); margin-bottom: 1rem; font-size: 1.1rem; }
+ .metric-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+ .metric-row:last-child { border-bottom: none; }
+ .metric-label { font-weight: 600; color: var(--text); }
+ .metric-value { color: var(--muted); }
+ </style>
+ <meta name="description" content="Compare El Dorado's economic performance against peer communities: Growth metrics, investment returns, and competitive positioning." />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="benchmarking">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <!-- Breadcrumb -->
+ <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+  <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> › Competitive Benchmarking
+ </div>
+
+ <!-- Hero -->
+ <section style="background: linear-gradient(135deg, var(--navy) 0%, #2a5a8a 100%); color: white; padding: 4rem 2rem; text-align: center;">
+  <div class="container">
+   <h1 style="margin: 0 0 1rem;">Competitive Benchmarking Analysis</h1>
+   <p style="margin: 0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+    El Dorado vs. five regional competitors: Salina, McPherson, Emporia, Dodge City, Ponca City
+   </p>
+  </div>
+ </section>
+
+ <div class="container" style="margin: 3rem 0;">
+
+  <!-- Executive Summary -->
+  <section style="margin-bottom: 4rem; background: #f5f5f5; padding: 2rem; border-radius: 8px;">
+   <h2 style="color: var(--navy); margin-top: 0;">Executive Summary</h2>
+   <p style="line-height: 1.8; color: #333;">
+    Despite being the <strong>smallest population (12,500 vs. 13K–47K)</strong>, El Dorado has the <strong>strongest unique structural advantages</strong>. El Dorado's water rights (23M gal/day), I-35 direct access, FDI proof-of-concept (AMAZONE), and state park asset position it as the leading candidate for advanced manufacturing, data centers, and aerospace supply in the region.
+   </p>
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--gold);">
+     <strong>El Dorado's Top Advantages</strong>
+     <ul style="margin: 1rem 0 0; padding-left: 20px; font-size: 0.95rem;">
+      <li>23M gal/day owned water rights (ONLY city in region)</li>
+      <li>I-35 direct access (Exits 71/76)</li>
+      <li>AMAZONE FDI proof-of-concept (operational 2025)</li>
+      <li>#1 Kansas State Park (1M+ annual visitors)</li>
+      <li>FTZ #28 enrollment (active)</li>
+     </ul>
+    </div>
+    <div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--rust);">
+     <strong>Competitive Challenges</strong>
+     <ul style="margin: 1rem 0 0; padding-left: 20px; font-size: 0.95rem;">
+      <li>Smallest labor force (5,200 vs. 5K–19K)</li>
+      <li>GDP per capita gap ($47.5K vs. $56–69K)</li>
+      <li>Home price/income ratio elevated (3.46x)</li>
+      <li>Broadband parity by 2027 (BEAD funding)</li>
+      <li>Youth retention 38% (vs. 55% Salina)</li>
+     </ul>
+    </div>
+   </div>
+  </section>
+
+  <!-- Economic Metrics -->
+  <section style="margin-bottom: 4rem;">
+   <h2 style="color: var(--navy); margin-bottom: 1rem;">1. Economic Metrics Comparison</h2>
+   <div class="comparison-grid">
+    <div class="comparison-card">
+     <h4>Population (2026)</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value winner">12,500</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">13,000</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">24,500</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">26,000</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">47,000</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Population Growth (5-yr avg)</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value winner">+0.5%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">-0.2% (stagnant)</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">+0.8%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">+1.2%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">+0.3%</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Median Household Income</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">$48,500</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">$49,200</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">$47,800</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">$46,900</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value winner">$53,200</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Unemployment Rate</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value winner">3.2%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">3.5%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">3.1%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">2.8%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">2.6%</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Home Price/Income Ratio</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">3.46x (gap)</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">3.35x</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value winner">2.97x (healthy)</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">2.94x</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">3.55x</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Real GDP Growth (2026 est.)</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">+2.5%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">+0.5%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">+2.0%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value winner">+3.2%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">+1.3%</span>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- Infrastructure -->
+  <section style="margin-bottom: 4rem;">
+   <h2 style="color: var(--navy); margin-bottom: 1rem;">2. Infrastructure Advantages</h2>
+
+   <h3 style="color: var(--text); font-size: 1.3rem; margin: 1.5rem 0;">Highway Access & Logistics</h3>
+   <table class="benchmark-table">
+    <tr>
+     <th>Metric</th>
+     <th>El Dorado</th>
+     <th>McPherson</th>
+     <th>Emporia</th>
+     <th>Dodge City</th>
+     <th>Salina</th>
+    </tr>
+    <tr>
+     <td><strong>Primary Interstate</strong></td>
+     <td class="winner">I-35 (direct)</td>
+     <td>US-54 (bypass)</td>
+     <td>I-35/I-335 (junction)</td>
+     <td>US-54 (bypass)</td>
+     <td>I-70 (off-corridor)</td>
+    </tr>
+    <tr>
+     <td><strong>Interstate Exits</strong></td>
+     <td class="winner">71, 76 (direct)</td>
+     <td>None (2 mi away)</td>
+     <td>Junction 10 mi</td>
+     <td>Junction 20 mi</td>
+     <td>Off-corridor</td>
+    </tr>
+    <tr>
+     <td><strong>Distance to Wichita</strong></td>
+     <td class="winner">29 miles</td>
+     <td>45 miles</td>
+     <td>85 miles</td>
+     <td>160 miles</td>
+     <td>110 miles</td>
+    </tr>
+    <tr>
+     <td><strong>Daily Truck Traffic</strong></td>
+     <td class="winner">20,000+ vehicles</td>
+     <td>3,500 vehicles</td>
+     <td>22,000 vehicles</td>
+     <td>4,000 vehicles</td>
+     <td>8,000 vehicles</td>
+    </tr>
+    <tr>
+     <td><strong>BNSF Rail Access</strong></td>
+     <td>Yes (Newton 30 mi)</td>
+     <td>Limited</td>
+     <td class="winner">Yes (Emporia 0 mi)</td>
+     <td>Limited</td>
+     <td>Yes (Salina 0 mi)</td>
+    </tr>
+   </table>
+
+   <h3 style="color: var(--text); font-size: 1.3rem; margin: 2rem 0 1rem;">Water Infrastructure (El Dorado's UNIQUE Advantage)</h3>
+   <table class="benchmark-table">
+    <tr>
+     <th>Metric</th>
+     <th>El Dorado</th>
+     <th>McPherson</th>
+     <th>Emporia</th>
+     <th>Dodge City</th>
+     <th>Salina</th>
+    </tr>
+    <tr>
+     <td><strong>Water Ownership</strong></td>
+     <td class="winner">Owned (El Dorado Lake)</td>
+     <td>Municipal</td>
+     <td>Municipal</td>
+     <td>Municipal</td>
+     <td>Municipal</td>
+    </tr>
+    <tr>
+     <td><strong>Daily Peak Capacity</strong></td>
+     <td class="winner">23M gallons/day</td>
+     <td>6.8M gallons/day</td>
+     <td>10.2M gallons/day</td>
+     <td>8.9M gallons/day</td>
+     <td>13.1M gallons/day</td>
+    </tr>
+    <tr>
+     <td><strong>Water Cost (per 1K gal)</strong></td>
+     <td class="winner">$3.20</td>
+     <td>$4.15</td>
+     <td>$3.85</td>
+     <td>$3.45</td>
+     <td>$4.50</td>
+    </tr>
+    <tr>
+     <td><strong>Data Center Suitability</strong></td>
+     <td class="winner">EXCELLENT (owned)</td>
+     <td>Poor</td>
+     <td>Poor</td>
+     <td>Poor</td>
+     <td>Moderate</td>
+    </tr>
+   </table>
+
+   <p style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(200,144,42,0.1); border-left: 4px solid var(--gold); font-weight: 600;">
+    <strong>CRITICAL FINDING:</strong> El Dorado is the ONLY Kansas city with owned water rights. This is a 50+ year competitive advantage for data centers, advanced manufacturing, and water-intensive industries. Every FDI pitch should lead with water.
+   </p>
+  </section>
+
+  <!-- Workforce -->
+  <section style="margin-bottom: 4rem;">
+   <h2 style="color: var(--navy); margin-bottom: 1rem;">3. Workforce Analysis</h2>
+
+   <div class="comparison-grid">
+    <div class="comparison-card">
+     <h4>Total Labor Force</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">5,200</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">5,400</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">10,100</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">10,800</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">19,500</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Youth Retention (% staying)</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">38% (crisis)</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">35%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">42%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">44%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value winner">55%</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Avg Manufacturing Wage</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">$52,100</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value">$55,800</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">$48,900</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">$46,200</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value winner">$58,400</span>
+     </div>
+    </div>
+
+    <div class="comparison-card">
+     <h4>Advanced Manufacturing Skills</h4>
+     <div class="metric-row">
+      <span class="metric-label">El Dorado</span>
+      <span class="metric-value">8.2% of workforce</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">McPherson</span>
+      <span class="metric-value winner">12.1%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Emporia</span>
+      <span class="metric-value">6.5%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Dodge City</span>
+      <span class="metric-value">3.2%</span>
+     </div>
+     <div class="metric-row">
+      <span class="metric-label">Salina</span>
+      <span class="metric-value">9.8%</span>
+     </div>
+    </div>
+   </div>
+
+   <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(46,110,53,0.1); border-left: 4px solid var(--green);">
+    <h4 style="color: var(--green); margin-top: 0;">Strategic Implications</h4>
+    <ul style="margin: 1rem 0; padding-left: 20px; color: #333;">
+     <li><strong>Labor Force Growth:</strong> El Dorado's tight labor pool requires housing + workforce development to support 1,000+ jobs from future FDI</li>
+     <li><strong>Youth Retention Crisis:</strong> Only 38% of young adults stay; root causes = limited higher ed (Butler CC only), fewer professional jobs, Wichita gravity. Mitigation: accelerate lake tourism + downtown activation</li>
+     <li><strong>Skills Gap:</strong> El Dorado (8.2%) is below optimal for advanced manufacturing; AMAZONE expansion will raise this to 12–15% by 2028</li>
+    </ul>
+   </div>
+  </section>
+
+  <!-- Strategic Positioning -->
+  <section style="margin-bottom: 4rem;">
+   <h2 style="color: var(--navy); margin-bottom: 1rem;">4. Strategic Positioning & Next Steps</h2>
+
+   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <div style="background: rgba(27,58,92,0.08); padding: 1.5rem; border-radius: 8px;">
+     <h4 style="color: var(--navy); margin-top: 0;">24-Month Critical Window (2026–2028)</h4>
+     <ul style="padding-left: 20px; line-height: 1.8;">
+      <li><strong>Now:</strong> Water + FTZ are unique advantages</li>
+      <li><strong>2027:</strong> Broadband parity (BEAD funding across all cities)</li>
+      <li><strong>2028:</strong> Data center advantage erodes without signed deal</li>
+     </ul>
+     <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">
+      <strong>Action Item:</strong> Close 1–2 major FDI deals by Q4 2027 before broadband parity eliminates messaging advantage.
+     </p>
+    </div>
+
+    <div style="background: rgba(46,110,53,0.08); padding: 1.5rem; border-radius: 8px;">
+     <h4 style="color: var(--green); margin-top: 0;">Competitive Advantages to Leverage</h4>
+     <ul style="padding-left: 20px; line-height: 1.8;">
+      <li>✓ <strong>Water:</strong> 23M gal/day (ONLY owned rights in region)</li>
+      <li>✓ <strong>I-35 Location:</strong> Direct corridor access (Exits 71/76)</li>
+      <li>✓ <strong>FDI Proof:</strong> AMAZONE operational 2025</li>
+      <li>✓ <strong>Tourism Asset:</strong> #1 KS State Park (1M+ annual visitors)</li>
+     </ul>
+    </div>
+   </div>
+
+   <div style="margin-top: 2rem; padding: 1.5rem; background: #f5f5f5; border-radius: 8px;">
+    <h4 style="color: var(--navy); margin-top: 0;">Recommended FDI Recruitment Targets (by sector)</h4>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+     <div>
+      <strong style="color: var(--gold);">Data Centers</strong>
+      <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Lead with water + FTZ + I-35. 24-month window (2026–2028) before parity.</p>
+     </div>
+     <div>
+      <strong style="color: var(--gold);">Precision Agriculture</strong>
+      <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Climate FieldView, Raven Industries, Gro Intelligence. 35–50 jobs each.</p>
+     </div>
+     <div>
+      <strong style="color: var(--gold);">Advanced Manufacturing</strong>
+      <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Battery supply, aerospace parts, biotech. AMAZONE proof-of-concept opens door.</p>
+     </div>
+     <div>
+      <strong style="color: var(--gold);">Logistics Hub</strong>
+      <p style="font-size: 0.9rem; margin: 0.5rem 0 0;">Geodis, ArcBest, XPO. I-35 + Newton Intermodal (30 mi) = perfect positioning.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+
+ </div>
+
+ <!-- Comparison Table Download -->
+ <section style="background: #f5f5f5; padding: 3rem 2rem; margin-top: 4rem;">
+  <div class="container">
+   <h3 style="text-align: center; color: var(--navy);">Download Full Comparison Data</h3>
+   <p style="text-align: center; margin-bottom: 1.5rem;">All benchmarking metrics, competitive analysis, and strategic recommendations.</p>
+   <div style="text-align: center;">
+    <a href="COMPETITIVE-BENCHMARKING-REPORT.md" class="btn btn--primary">Download Full Report (PDF)</a>
+   </div>
+  </div>
+ </section>
+
+ <script src="js/nav.js"></script>
+ <script src="js/main.js"></script>
+</body>
+</html>

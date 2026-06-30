@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Youth Retention Program | Initiatives</title>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <style>
+  body[data-page="initiative-youth-retention"].page-nav { display: none; }
+ </style>
+ <meta name="description" content="Youth retention programs designed to keep talented young professionals in El Dorado through career pathways and community engagement." />
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="initiative-youth-retention">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+ <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+  <a href="index.html" style="color: inherit; text-decoration: none;">Home</a> › <a href="initiatives.html" style="color: inherit; text-decoration: none;">Initiatives</a> › Youth Retention Program
+ </div>
+ <div class="initiative-sub-hero">
+  <div class="container">
+   <h1>Youth Retention & Futures Program</h1>
+   <div class="initiative-sub-hero-meta">
+    <div class="initiative-sub-hero-badge" style="background: #A64A7D;">People</div>
+    <div class="initiative-sub-hero-badge">Quick Win</div>
+    <div class="initiative-sub-hero-badge">< $75K</div>
+    <div class="initiative-sub-hero-badge">< 6 months</div>
+   </div>
+  </div>
+ </div>
+ <div class="container">
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Initiative Overview</h2>
+   <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+    <h3 style="font-size: 1.2rem; margin-top: 0; color: var(--text);">What Is It?</h3>
+    <p style="line-height: 1.6; color: #555;">Create a "Future Makers" fellowship program pairing high school seniors (ages 16–18) with mentors in tech, entrepreneurship, and creative fields. Participants get $500/month stipends, attend 3-month cohorts, and gain job-ready skills. Goal: retain 75% of participants post-graduation.</p>
+    <h3 style="font-size: 1.2rem; margin-top: 2rem; color: var(--text);">Why El Dorado?</h3>
+    <p style="line-height: 1.6; color: #555;">40% of El Dorado high school graduates leave town after graduation. Youth lack local role models and career pathways. A structured mentorship program with stipends + job placement creates reasons to stay and launch careers locally.</p>
+   </div>
+  </section>
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Implementation Plan</h2>
+   <div class="implementation-phases">
+    <div class="phase-card">
+     <div class="phase-number">1</div>
+     <div class="phase-title">Mentor Network & Curriculum Design</div>
+     <div class="phase-description">Recruit 8–10 local mentors (tech entrepreneurs, creatives, business leaders). Develop 3-month curriculum covering startup basics, personal branding, freelance opportunities. Create mentorship matching system. Partner with El Dorado High School. Months: 1–2.</div>
+    </div>
+    <div class="phase-card">
+     <div class="phase-number">2</div>
+     <div class="phase-title">Launch Cohort 1</div>
+     <div class="phase-description">Recruit 15 high school seniors. Distribute stipends ($500/month × 3 = $1,500 per participant). Hold weekly 2-hour mentorship sessions + group events. Months: 2–4.</div>
+    </div>
+    <div class="phase-card">
+     <div class="phase-number">3</div>
+     <div class="phase-title">Job Placement & Alumni Network</div>
+     <div class="phase-description">Connect graduates to local job opportunities, apprenticeships, or startup incubators. Track post-graduation outcomes (employment, education, retention). Launch alumni network for ongoing support. Scale to 2 cohorts/year.</div>
+    </div>
+   </div>
+  </section>
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Budget Breakdown</h2>
+   <div class="budget-breakdown">
+    <div class="budget-item">
+     <span class="budget-label">Stipends for Cohort 1 (15 participants × $1,500)</span>
+     <span class="budget-value">$22,500</span>
+    </div>
+    <div class="budget-item">
+     <span class="budget-label">Curriculum development + mentor training</span>
+     <span class="budget-value">$4,000</span>
+    </div>
+    <div class="budget-item">
+     <span class="budget-label">Program coordinator (part-time, 6 months)</span>
+     <span class="budget-value">$12,000</span>
+    </div>
+    <div class="budget-item">
+     <span class="budget-label">Venue + materials + events (group outings, demo day)</span>
+     <span class="budget-value">$3,500</span>
+    </div>
+    <div class="budget-item">
+     <span class="budget-label">Job placement & alumni tracking platform</span>
+     <span class="budget-value">$2,000</span>
+    </div>
+    <div class="budget-item" style="border-top: 2px solid var(--gold); margin-top: 1rem; padding-top: 1rem;">
+     <span class="budget-label" style="font-weight: 700;">Total Year 1 Investment</span>
+     <span class="budget-value" style="font-weight: 700;">$44,000</span>
+    </div>
+   </div>
+   <p style="font-size: 0.95rem; color: #555; margin-top: 1rem;"><strong>Funding:</strong> Local nonprofits ($15K), city/county youth grants ($20K), corporate sponsorships ($9K).</p>
+  </section>
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Partners & Resources</h2>
+   <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow);">
+    <h3 style="font-size: 1.1rem; margin-top: 0; color: var(--text);">Key Partners</h3>
+    <ul style="line-height: 1.8; color: #555;">
+     <li><strong>El Dorado High School:</strong> Student recruitment, venue access, partnerships with guidance counselors</li>
+     <li><strong>Butler County Youth Services:</strong> Program oversight, outcome tracking</li>
+     <li><strong>Local Tech/Entrepreneur Community:</strong> Mentors, guest speakers, job placement</li>
+     <li><strong>Chamber of Commerce:</strong> Corporate partnerships, sponsorships</li>
+    </ul>
+    <h3 style="font-size: 1.1rem; margin-top: 2rem; color: var(--text);">Resources</h3>
+    <ul style="line-height: 1.8; color: #555;">
+     <li>NFTE (Network for Teaching Entrepreneurship) curriculum templates</li>
+     <li>AmeriCorps VistA support for program coordination</li>
+     <li>Kansas Youth Initiative grants and best practices</li>
+    </ul>
+   </div>
+  </section>
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Success Metrics</h2>
+   <div class="success-metrics">
+    <div class="metric-card">
+     <div class="metric-card-value">15</div>
+     <div class="metric-card-label">Participants in Year 1 cohort</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-card-value">75%</div>
+     <div class="metric-card-label">Post-graduation retention rate</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-card-value">85%</div>
+     <div class="metric-card-label">Job placement or higher-ed rate</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-card-value">10</div>
+     <div class="metric-card-label">Active mentors engaged</div>
+    </div>
+    <div class="metric-card">
+     <div class="metric-card-value">$500K</div>
+     <div class="metric-card-label">Est. economic output (5-yr avg wages)</div>
+    </div>
+   </div>
+  </section>
+  <section class="section" style="margin: 3rem 0;">
+   <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--navy);">Related Initiatives</h2>
+   <div class="related-initiatives">
+    <div class="related-links">
+     <a href="initiatives.html?section=people" class="related-link"><strong>Intergenerational El Dorado</strong><br>Bridge age groups through mentorship and shared events</a>
+     <a href="initiatives.html?section=people" class="related-link"><strong>Mental Health & Wellness Hub</strong><br>Support youth and community mental health services</a>
+     <a href="initiatives.html?section=economy" class="related-link"><strong>Entrepreneurship Bootcamp</strong><br>Advanced startup training for alumni</a>
+    </div>
+   </div>
+  </section>
+  <section class="section" style="margin: 3rem 0; text-align: center;">
+   <div style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0;">Ready to Launch the Future Makers Program?</h3>
+    <p style="color: #555;">Build mentor networks. Develop curriculum. Recruit first cohort of high school seniors.</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+     <a href="initiatives.html" class="btn btn--primary">← Back to Initiatives</a>
+     <a href="project-tracker.html" class="btn btn--outline">View Project Tracker →</a>
+    </div>
+   </div>
+  </section>
+ </div>
+ <footer style="background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem;">
+  <p style="margin: 0; opacity: 0.8;">Vision 2040 | El Dorado, Kansas | <a href="index.html" style="color: var(--gold); text-decoration: none;">Back to Home</a></p>
+ </footer>
+ <script src="js/nav.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/analytics.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>500+ Acre Industrial Park | El Dorado Vision 2040</title>
+ <meta name="description" content="Mega-site industrial park opportunity: 500+ acres of industrial development land positioned for manufacturing, logistics, advanced technology, and food processing.">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+     <!-- CRITICAL CSS -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+ <!-- Google Analytics 4 -->n <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>n <script>n  window.dataLayer = window.dataLayer || [];n  function gtag(){dataLayer.push(arguments);}n  gtag('js', new Date());n  gtag('config', 'G-PLACEHOLDER-ID');n </script>
+</head>
+<body data-page="mega-site">
+ <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+ <div id="nav-mount"></div>
+
+ <div class="page-hero">
+  <div class="page-hero-inner">
+   <div class="breadcrumb"><a href="index.html">Home</a> › <a href="economy.html">Economy</a> › Mega-Site Industrial Park</div>
+   <h1>500+ Acre Industrial Mega-Site</h1>
+   <p class="page-subtitle">Regional manufacturing, logistics, and food processing hub development</p>
+  </div>
+ </div>
+
+ <nav class="page-nav">
+  <div class="page-nav-inner">
+   <a href="#overview" class="page-nav__pill">Strategic Overview</a>
+   <a href="#site-analysis" class="page-nav__pill">Site Analysis</a>
+   <a href="#infrastructure" class="page-nav__pill">Infrastructure</a>
+   <a href="#anchor-industries" class="page-nav__pill">Target Industries</a>
+   <a href="#financial-model" class="page-nav__pill">Financial Model</a>
+  </div>
+ </nav>
+
+ <section id="overview" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-category">Economy & Industry</span>
+    <span class="section-label">Industrial Development Strategy</span>
+    <h2>Mega-Site: 500+ Acres of Shovel-Ready Industrial Land</h2>
+    <p class="lead">El Dorado's geographic position in south-central Kansas, proximity to Wichita, and existing industrial infrastructure make it an ideal location for a large-scale industrial park. Vision 2040 assembles 500+ acres of industrial land, invests in regional transportation and utility infrastructure, and positions El Dorado as the preferred alternative to Wichita for manufacturing, logistics, and advanced food processing operations.</p>
+   </div>
+
+   <div class="stats-grid reveal" style="margin: 2.5rem 0;">
+    <div class="stat-card">
+     <div class="stat-value">500+</div>
+     <div class="stat-label">Industrial Acres</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">$85-110M</div>
+     <div class="stat-label">Property Value at Full Build</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">1,500-2,000</div>
+     <div class="stat-label">Direct Manufacturing Jobs</div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-value">$15-20M</div>
+     <div class="stat-label">Annual Regional Sales Tax</div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Why a Mega-Site Matters</h3>
+    <p style="color: #555; margin-bottom: 1.5rem;">Manufacturing and logistics operations need contiguous, carefully-planned industrial land. A 500+ acre master-planned park offers competitive advantages over scattered development:</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">✓ Site Certainty</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Pre-planned utility capacity, zoning, environmental clearance, and infrastructure ready for immediate deployment.</p>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">✓ Cost Efficiency</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Shared infrastructure reduces per-acre costs compared to scattered sites. Regional developer incentives + bulk procurement reduce site prep costs.</p>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">✓ Ecosystem</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Multiple anchor tenants + suppliers create supply-chain advantages and skilled workforce concentration.</p>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 0.75rem;">✓ Transportation Network</h4>
+      <p style="color: #555; margin: 0; font-size: 0.95rem;">Regional highway access (US-77, US-54, I-35 proximity) makes for efficient logistics operations.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="site-analysis" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Land Assembly & Location</span>
+    <h2>Mega-Site Site Analysis & Positioning</h2>
+    <p class="lead">El Dorado's location between Wichita and the Oklahoma border, combined with available land and existing industrial infrastructure, makes it the ideal location for a regional industrial hub. The mega-site sits on the US-77 corridor, the state's primary north-south industrial transportation axis.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Site Characteristics</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Physical Attributes</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Total Land:</strong> 500-600 acres</li>
+       <li><strong>Developable:</strong> 450-550 acres (5% reserved for stormwater, wetlands)</li>
+       <li><strong>Topography:</strong> Relatively flat (ideal for manufacturing)</li>
+       <li><strong>Soil Conditions:</strong> Industrial-suitable</li>
+       <li><strong>Environmental:</strong> No major wetlands or protected habitat</li>
+       <li><strong>Zoning:</strong> Existing heavy industrial or easy conversion</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Strategic Position</h4>
+      <ul style="color: #555; line-height: 1.9; font-size: 0.95rem;">
+       <li><strong>Highway Access:</strong> US-77 (primary site frontage), US-54 (10 mi), I-35 (25 mi)</li>
+       <li><strong>Distance to Wichita:</strong> 40 miles south (1-hour drive)</li>
+       <li><strong>Distance to Oklahoma:</strong> 35 miles south</li>
+       <li><strong>Regional Population:</strong> 350K+ within 100-mile radius</li>
+       <li><strong>Labor Shed:</strong> 50K+ available workers</li>
+       <li><strong>Railway Access:</strong> BNSF rail line adjacent to site</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: rgba(74,144,191,.08); border: 1px solid rgba(74,144,191,.3); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Competitive Advantages vs. Wichita</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+     <div>
+      <h4 style="color: #4A90BF; margin-bottom: 1rem;">El Dorado Mega-Site</h4>
+      <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+       <li>Land cost: $3,500-4,500/acre</li>
+       <li>Site prep: $75-100K/acre</li>
+       <li>Real estate tax: 18-20% discount</li>
+       <li>Local incentives: $1-2M per anchor</li>
+       <li>Permitting: 90-120 days</li>
+       <li>Workforce: Lower wage expectations</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #4A90BF; margin-bottom: 1rem;">Typical Wichita Industrial</h4>
+      <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+       <li>Land cost: $6,500-9,500/acre</li>
+       <li>Site prep: $120-180K/acre</li>
+       <li>Real estate tax: Market rate</li>
+       <li>Local incentives: $500K-1M</li>
+       <li>Permitting: 150-200 days</li>
+       <li>Workforce: Higher wage expectations</li>
+      </ul>
+     </div>
+    </div>
+    <p style="color: #555; margin-top: 1.5rem; font-size: 0.95rem;">El Dorado's cost advantage = $40-60 per square foot for a 100,000 sf facility vs. Wichita. For a 500,000 sf plant, that's $20-30M in total cost savings.</p>
+   </div>
+  </div>
+ </section>
+
+ <section id="infrastructure" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Site Development</span>
+    <h2>Mega-Site Infrastructure Requirements & Investment</h2>
+    <p class="lead">Developing a 500+ acre industrial park requires significant upfront infrastructure investment: internal road networks, utility extensions, stormwater management, environmental compliance. Vision 2040 funds this through a combination of city capital, state infrastructure incentives, and private developer contributions.</p>
+   </div>
+
+   <div class="reveal" style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Phase 1 Infrastructure Investment</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Road & Access</h4>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Main arterial road (4-lane, 3 mi)</span>
+        <span style="font-weight: 600;">$12-15M</span>
+       </div>
+      </div>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Internal collector roads (10 mi)</span>
+        <span style="font-weight: 600;">$8-10M</span>
+       </div>
+      </div>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Site access improvements (US-77)</span>
+        <span style="font-weight: 600;">$3-5M</span>
+       </div>
+      </div>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Utilities & Services</h4>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Water main extension (8-10 mi)</span>
+        <span style="font-weight: 600;">$6-8M</span>
+       </div>
+      </div>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; margin-bottom: 0.75rem; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Wastewater treatment expansion</span>
+        <span style="font-weight: 600;">$8-12M</span>
+       </div>
+      </div>
+      <div style="background: #f5f5f5; padding: 0.75rem; border-radius: 4px; font-size: 0.95rem; color: #555;">
+       <div style="display: flex; justify-content: space-between;">
+        <span>Electrical & natural gas feeds</span>
+        <span style="font-weight: 600;">$4-6M</span>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div style="border-top: 2px solid #C8902A; margin-top: 1.5rem; padding-top: 1rem;">
+     <div style="display: flex; justify-content: space-between; font-weight: 700;">
+      <span style="color: var(--navy);">Total Phase 1 Infrastructure</span>
+      <span style="color: #C8902A; font-size: 1.1rem;">$41-56M</span>
+     </div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius);">
+    <h3 style="margin-top: 0; color: var(--navy);">Funding Strategy</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Public Funding (60-65%)</h4>
+      <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+       <li><strong>Federal/State Infrastructure Grants:</strong> $12-15M</li>
+       <li><strong>City of El Dorado Bonds:</strong> $10-12M</li>
+       <li><strong>Kansas Economic Development:</strong> $5-8M</li>
+       <li><strong>Utility District:</strong> $3-5M (utility infrastructure)</li>
+      </ul>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Private Funding (35-40%)</h4>
+      <ul style="color: #555; line-height: 1.8; font-size: 0.95rem;">
+       <li><strong>Developer On-Site Costs:</strong> $10-15M</li>
+       <li><strong>Anchor Tenant Contributions:</strong> $3-6M (for customization)</li>
+       <li><strong>Utility Companies:</strong> $1-2M (infrastructure matching)</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="anchor-industries" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Target Tenants</span>
+    <h2>Primary Industries & Anchor Tenants</h2>
+    <p class="lead">Vision 2040's mega-site targets five primary industry categories that align with regional demand, labor availability, and El Dorado's infrastructure advantages. A diversified industrial portfolio reduces economic risk and creates complementary supply-chain opportunities.</p>
+   </div>
+
+   <div class="reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2.5rem;">
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #C8902A;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">Advanced Manufacturing</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">CNC machining, metal fabrication, precision components for aerospace + agriculture.</p>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.75rem;"><strong>Target Facilities:</strong> 3-4 plants (30K-100K sf each)</div>
+      <div style="margin-bottom: 0.75rem;"><strong>Employment:</strong> 400-600 jobs</div>
+      <div><strong>Avg. Wage:</strong> $48K-65K</div>
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #4A90BF;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">Food Processing & Packaging</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Specialty meat processing, grain milling, food ingredient production.</p>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.75rem;"><strong>Target Facilities:</strong> 1-2 major plants (150K-300K sf)</div>
+      <div style="margin-bottom: 0.75rem;"><strong>Employment:</strong> 300-500 jobs</div>
+      <div><strong>Avg. Wage:</strong> $35K-52K + benefits</div>
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #28A745;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">Logistics & Distribution</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Regional warehousing, cross-dock facilities, 3PL operations.</p>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.75rem;"><strong>Target Facilities:</strong> 2-3 warehouses (200K-500K sf each)</div>
+      <div style="margin-bottom: 0.75rem;"><strong>Employment:</strong> 300-500 jobs</div>
+      <div><strong>Avg. Wage:</strong> $42K-58K</div>
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #FFB81C;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">Advanced Technology & Ag-Tech</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Agricultural technology R&D, equipment manufacturing, precision agriculture.</p>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.75rem;"><strong>Target Facilities:</strong> 1-2 operations (50K-100K sf)</div>
+      <div style="margin-bottom: 0.75rem;"><strong>Employment:</strong> 150-250 jobs</div>
+      <div><strong>Avg. Wage:</strong> $55K-75K</div>
+     </div>
+    </div>
+
+    <div style="background: white; padding: 2rem; border-radius: var(--radius); box-shadow: var(--card-shadow); border-top: 4px solid #E74C3C;">
+     <h3 style="margin-top: 0; color: var(--navy); font-size: 1.1rem;">Renewable Energy Equipment</h3>
+     <p style="color: #555; font-size: 0.95rem; margin-bottom: 1rem;">Wind turbine component manufacturing, solar panel assembly.</p>
+     <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; font-size: 0.9rem;">
+      <div style="margin-bottom: 0.75rem;"><strong>Target Facilities:</strong> 1-2 plants (100K-200K sf)</div>
+      <div style="margin-bottom: 0.75rem;"><strong>Employment:</strong> 200-350 jobs</div>
+      <div><strong>Avg. Wage:</strong> $52K-68K</div>
+     </div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--navy); color: white; padding: 2rem; border-radius: var(--radius); text-align: center;">
+    <h3 style="margin-top: 0;">Total Mega-Site Employment Target (Full Build-Out)</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #FFD700; margin-bottom: 0.5rem;">1,500-2,000</div>
+      <div style="font-size: 0.95rem;">Direct Industrial Jobs</div>
+     </div>
+     <div>
+      <div style="font-size: 1.5rem; font-weight: 700; color: #FFD700; margin-bottom: 0.5rem;">2,500-3,500</div>
+      <div style="font-size: 0.95rem;">Total Regional Jobs (incl. indirect)</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="financial-model" class="section">
+  <div class="container">
+   <div class="section-header reveal">
+    <span class="section-label">Economic Impact</span>
+    <h2>Mega-Site Financial Model & ROI</h2>
+    <p class="lead">A fully developed 500+ acre industrial park generates $85-110M in property value, $1.5-2.0M in annual property tax, and $4-6M in annual sales tax revenue. The public infrastructure investment is recovered within 4-5 years through increased tax collections.</p>
+   </div>
+
+   <div class="reveal" style="background: var(--cream); padding: 2rem; border-radius: var(--radius); margin-bottom: 2.5rem;">
+    <h3 style="margin-top: 0; color: var(--navy);">Year 15 Fully-Built Mega-Site Model</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Property Values & Tax Base</h4>
+      <div style="background: white; padding: 1rem; border-radius: 4px; margin-bottom: 0.75rem;">
+       <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="color: #555;">Building/Facility Values</span>
+        <span style="font-weight: 600; color: var(--navy);">$65-85M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="color: #555;">Land Value (developed)</span>
+        <span style="font-weight: 600; color: var(--navy);">$20-25M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between;">
+        <span style="font-weight: 600; color: var(--navy);">Total Assessed Value</span>
+        <span style="font-weight: 600; color: #C8902A;">$85-110M</span>
+       </div>
+      </div>
+     </div>
+     <div>
+      <h4 style="color: #C8902A; margin-bottom: 1rem;">Annual Tax Revenue</h4>
+      <div style="background: white; padding: 1rem; border-radius: 4px; margin-bottom: 0.75rem;">
+       <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="color: #555;">Property Tax (18% rate)</span>
+        <span style="font-weight: 600; color: var(--navy);">$1.5-2.0M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="color: #555;">Sales Tax (on mfg. activity)</span>
+        <span style="font-weight: 600; color: var(--navy);">$4-6M</span>
+       </div>
+       <div style="display: flex; justify-content: space-between;">
+        <span style="font-weight: 600; color: var(--navy);">Total Annual Tax</span>
+        <span style="font-weight: 600; color: #C8902A;">$5.5-8.0M</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="reveal" style="background: var(--navy); color: white; padding: 2rem; border-radius: var(--radius); text-align: center;">
+    <h3 style="margin-top: 0;">Mega-Site ROI Summary</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">PUBLIC INFRASTRUCTURE INVESTMENT</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #FFD700;">$41-56M</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">CUMULATIVE TAX REVENUE (15 yrs)</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #FFD700;">$60-90M</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">BREAK-EVEN TIMELINE</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #FFD700;">4-5 years</div>
+     </div>
+     <div>
+      <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">NET BENEFIT (Year 15)</div>
+      <div style="font-size: 1.6rem; font-weight: 700; color: #FFD700;">$19-49M</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="section" style="text-align: center;">
+  <div class="container">
+   <h3 style="color: var(--navy); margin-bottom: 1.5rem;">Mega-Site: Regional Economic Anchor</h3>
+   <p style="color: #555; margin-bottom: 2rem;">A fully-developed 500+ acre industrial park positions El Dorado as the primary manufacturing and logistics hub for south-central Kansas. Combined with waterfront development and urban growth, it transforms the community from a regional center into a destination for significant economic investment.</p>
+   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+    <a href="economy.html" class="btn btn--primary">← Back to Economy Hub</a>
+    <a href="index.html" class="btn btn--outline">Back to Home →</a>
+   </div>
+  </div>
+ </section>
+
+ <script src="js/nav.js" defer></script>
+ <script src="js/analytics.js" defer></script>
+</body>
+</html>

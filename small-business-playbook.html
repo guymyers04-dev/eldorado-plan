@@ -23,9 +23,13 @@
       body { padding-top: 60px; }
     </style>
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <!-- MODERN CSS SYSTEM -->
+    <link rel="preload" href="css/styles-modern.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.css">
+    <link rel="stylesheet" href="css/components-advanced.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- CSS already loaded above --> onload="this.media='all';this.onload=null;">
+    <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
  <style>
  .playbook-hero { background: linear-gradient(135deg, #C8902A 0%, #1B3A5C 100%); color: white; padding: 4rem 2rem; text-align: center; margin-top: 76px; }
  .playbook-hero h1 { font-size: 2.5rem; font-family: 'Playfair Display', serif; margin-bottom: 1rem; font-weight: 700; }

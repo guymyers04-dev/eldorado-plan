@@ -22,9 +22,13 @@
       body { padding-top: 60px; }
     </style>
 
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <!-- MODERN CSS SYSTEM -->
+    <link rel="preload" href="css/styles-modern.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.css">
+    <link rel="stylesheet" href="css/components-advanced.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <!-- CSS already loaded above --> onload="this.media='all';this.onload=null;">
+    <!-- fallback --><noscript><link rel="stylesheet" href="css/styles.css"></noscript>
  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
  <style>
  .visualization-container { max-width: 1400px; margin: 0 auto; padding: 48px 24px; }
