@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Pathways & Talent Match | El Dorado, KS</title>
+  <meta name="description" content="Connect with El Dorado employers and educational pathways. Find career opportunities that match your skills." />
+  <meta property="og:title" content="Career Pathways — El Dorado" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .job-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .job-card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; transition: all 0.3s; }
+    .job-card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-color: var(--gold); }
+    .job-title { font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+    .employer { color: var(--gold); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .job-meta { font-size: 0.9rem; color: #666; margin: 0.5rem 0; }
+    .skills-tag { display: inline-block; background: rgba(200,144,42,0.1); color: var(--gold); padding: 4px 8px; border-radius: 4px; font-size: 0.8rem; margin: 0.25rem 0.25rem 0.25rem 0; }
+  </style>
+</head>
+<body data-page="talent-match">
+  <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+  <div id="nav-mount"></div>
+
+  <div class="breadcrumb" style="background: var(--dark); color: white; padding: 1rem 2rem; margin-top: 76px;">
+    <a href="../index.html" style="color: inherit; text-decoration: none;">Home</a> › <a href="../people.html" style="color: inherit; text-decoration: none;">Community</a> › Career Pathways
+  </div>
+
+  <section style="background: linear-gradient(135deg, var(--green) 0%, #2e7e35 100%); color: white; padding: 4rem 2rem; text-align: center;">
+    <div class="container">
+      <h1 style="margin: 0 0 1rem;">Career Pathways</h1>
+      <p style="margin: 0; font-size: 1.1rem; max-width: 700px; margin: 0 auto;">
+        Discover jobs, training programs, and career growth opportunities in El Dorado.
+      </p>
+    </div>
+  </section>
+
+  <div class="container" style="margin: 4rem 0;">
+    <h2 style="color: var(--navy); margin-bottom: 2rem;">Featured Opportunities</h2>
+
+    <div class="job-grid">
+      <div class="job-card">
+        <div class="job-title">Precision Agriculture Tech Specialist</div>
+        <div class="employer">Technology Innovator Startup</div>
+        <div class="job-meta">📍 El Dorado, KS | 💼 Full-time | 💰 $55K - $75K</div>
+        <div style="margin: 1rem 0;">
+          <span class="skills-tag">AgTech</span>
+          <span class="skills-tag">IoT Sensors</span>
+          <span class="skills-tag">Data Analysis</span>
+        </div>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn More →</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-title">Advanced Manufacturing Technician</div>
+        <div class="employer">Industrial Production Company</div>
+        <div class="job-meta">📍 El Dorado, KS | 💼 Full-time | 💰 $48K - $62K</div>
+        <div style="margin: 1rem 0;">
+          <span class="skills-tag">CNC Machining</span>
+          <span class="skills-tag">Quality Control</span>
+          <span class="skills-tag">Welding</span>
+        </div>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn More →</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-title">Downtown Entrepreneur</div>
+        <div class="employer">Self-Employed / Startup</div>
+        <div class="job-meta">📍 Downtown El Dorado | 💼 Flexible | 💰 Varies</div>
+        <div style="margin: 1rem 0;">
+          <span class="skills-tag">Small Business</span>
+          <span class="skills-tag">Retail/Service</span>
+          <span class="skills-tag">Community Impact</span>
+        </div>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn More →</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-title">Education Program Coordinator</div>
+        <div class="employer">Butler Community College</div>
+        <div class="job-meta">📍 El Dorado, KS | 💼 Full-time | 💰 $42K - $55K</div>
+        <div style="margin: 1rem 0;">
+          <span class="skills-tag">Program Development</span>
+          <span class="skills-tag">Student Support</span>
+          <span class="skills-tag">Community Outreach</span>
+        </div>
+        <a href="#" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn More →</a>
+      </div>
+    </div>
+
+    <section style="margin: 4rem 0; padding: 2rem; background: rgba(46,110,53,0.08); border-left: 4px solid var(--green); border-radius: 8px;">
+      <h3 style="color: var(--navy);">Education & Training Paths</h3>
+      <p>USD 490 offers vocational programs, and Butler Community College has full degree paths in:</p>
+      <ul style="columns: 2; line-height: 2;">
+        <li>Advanced Manufacturing</li>
+        <li>Information Technology</li>
+        <li>Agriculture Technology</li>
+        <li>Healthcare</li>
+        <li>Business & Entrepreneurship</li>
+        <li>Skilled Trades</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+</body>
+</html>
