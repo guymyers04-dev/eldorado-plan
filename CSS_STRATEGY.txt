@@ -1,0 +1,13 @@
+CSS Optimization Strategy:
+
+CRITICAL (must load immediately):
+  - styles-modern.min.css (layout, nav, typography)
+  
+NON-CRITICAL (can load after DOMContentLoaded):
+  - components-advanced.min.css (cards, modals)
+  - utilities.min.css (spacing, color utils)
+
+Implementation:
+  Load critical CSS normally
+  Load non-critical CSS with <link rel="stylesheet" href="..." async>
+  This avoids layout shift while improving perceived performance
