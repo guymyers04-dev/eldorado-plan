@@ -20,7 +20,16 @@
  <link rel="stylesheet" href="css/utilities.min.css">
  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 
- <style>
+   <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER-ID');
+  </script>
+
+  <style>
    .risk-card { background: #fff; padding: 30px; border-radius: 8px; border-top: 4px solid #c54a31; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
    .risk-card.high { border-top-color: #c54a31; }
    .risk-card.medium { border-top-color: #f59e0b; }

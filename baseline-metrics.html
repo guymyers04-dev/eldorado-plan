@@ -19,9 +19,18 @@
  <link rel="stylesheet" href="css/styles-modern.min.css">
  <link rel="stylesheet" href="css/components-advanced.min.css">
  <link rel="stylesheet" href="css/utilities.min.css">
- <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+ <noscript><link rel="stylesheet" href="css/styles-modern.min.css"></noscript>
 
- <style>
+   <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER-ID');
+  </script>
+
+  <style>
    .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0; }
    .metric-card { background: #f9f7f4; padding: 30px; border-radius: 8px; border-top: 4px solid #c8902a; }
    .metric-card h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: #8a7d73; margin-bottom: 10px; }

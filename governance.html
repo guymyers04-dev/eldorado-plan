@@ -21,9 +21,18 @@
  <link rel="stylesheet" href="css/styles-modern.min.css">
  <link rel="stylesheet" href="css/components-advanced.min.css">
  <link rel="stylesheet" href="css/utilities.min.css">
- <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+ <noscript><link rel="stylesheet" href="css/styles-modern.min.css"></noscript>
 
- <style>
+   <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PLACEHOLDER-ID');
+  </script>
+
+  <style>
    .governance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0; }
    @media (max-width: 768px) { .governance-grid { grid-template-columns: 1fr; gap: 30px; } }
 
