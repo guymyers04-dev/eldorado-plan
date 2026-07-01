@@ -421,7 +421,77 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Post-tool CTA functions
+function shareOnLinkedIn() {
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+}
+function shareOnTwitter() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(`Exploring career opportunities in El Dorado with Vision 2040`);
+  window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+}
+function emailResults() {
+  window.location.href = `mailto:?subject=El%20Dorado%20Vision%202040%20-%20Labor%20Forecast&body=Check%20out%20the%20job%20market%20forecast:%0A${encodeURIComponent(window.location.href)}`;
+}
+function handleEmailSignup(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  const name = event.target.querySelector('input[type="text"]').value;
+  if (window.gtag) gtag('event', 'email_signup', { 'email': email, 'name': name, 'page': 'Labor Forecast' });
+  alert(`✅ Thanks, ${name}! Career resources coming to ${email}.`);
+  event.target.reset();
+}
 </script>
+
+<!-- POST-TOOL CTA MODULE + EMAIL CAPTURE -->
+<section style="background: white; border-top: 2px solid #e0e0e0; padding: 48px 20px; margin-top: 60px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="margin-bottom: 30px; text-align: center;">Share & Download Your Results</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px;">
+      <button style="padding: 14px 20px; background: #1B3A5C; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;" onclick="shareOnLinkedIn()">📌 Share on LinkedIn</button>
+      <button style="padding: 14px 20px; background: #1DA1F2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;" onclick="shareOnTwitter()">𝕏 Share on X</button>
+      <button style="padding: 14px 20px; background: #C8902A; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;" onclick="alert('PDF export coming soon')">📄 Download Report</button>
+      <button style="padding: 14px 20px; background: #2E6E35; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;" onclick="emailResults()">✉️ Email to Colleague</button>
+    </div>
+  </div>
+</section>
+
+<section style="background: linear-gradient(135deg, #1B3A5C 0%, #2C5282 100%); padding: 60px 20px; color: white;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <h2 style="margin-bottom: 12px; text-align: center;">Get Career & Training Resources</h2>
+    <p style="text-align: center; font-size: 1.05rem; margin-bottom: 32px; color: rgba(255,255,255,0.9);">Unlock career pathways, training partnerships, and job matching resources.</p>
+    <form onsubmit="handleEmailSignup(event)" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; margin-bottom: 24px;">
+      <input type="email" placeholder="Your email" required style="padding: 14px 16px; border: none; border-radius: 6px;" />
+      <input type="text" placeholder="Your name" required style="padding: 14px 16px; border: none; border-radius: 6px;" />
+      <button type="submit" style="padding: 14px 24px; background: #C8902A; color: white; border: none; border-radius: 6px; font-weight: 600;">Get Resources</button>
+    </form>
+  </div>
+</section>
+
+<section style="padding: 60px 20px; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="margin-bottom: 40px; text-align: center;">What's Your Next Step?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <div style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border: 2px solid #C8902A; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #C8902A; margin-bottom: 16px; font-size: 1.2rem;">🎯 Job Seekers</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Ready to find your next role?</p>
+        <a href="mailto:careers@eldorado2040.com?subject=Career%20Coaching" style="display: block; padding: 12px 16px; background: #C8902A; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Get Career Coaching →</a>
+      </div>
+      <div style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border: 2px solid #2E6E35; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #2E6E35; margin-bottom: 16px; font-size: 1.2rem;">🏢 Employers</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Need to hire skilled talent?</p>
+        <a href="mailto:business@eldorado2040.com?subject=Hiring%20Partnership" style="display: block; padding: 12px 16px; background: #2E6E35; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Explore Hiring →</a>
+      </div>
+      <div style="background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%); border: 2px solid #7B1FA2; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #7B1FA2; margin-bottom: 16px; font-size: 1.2rem;">🎓 Educators</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Align programs with job demand?</p>
+        <a href="mailto:education@eldorado2040.com?subject=Training%20Partnership" style="display: block; padding: 12px 16px; background: #7B1FA2; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Develop Programs →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <script src="js/nav.min.js" defer></script>
 </body>
