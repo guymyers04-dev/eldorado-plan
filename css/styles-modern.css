@@ -499,6 +499,48 @@ a:not(.btn):not(.nav-brand):not(.logo):not(.icon-link):hover::after {
 .mx-auto { margin-left: auto; margin-right: auto; }
 
 /* ──────────────────────────────────────────────────────────
+   6A. HERO SECTIONS (OPTIMIZED)
+   ────────────────────────────────────────────────────────── */
+
+/* Reduce hero heights for better UX and faster scroll-to-content */
+#hero {
+  min-height: 50vh !important;
+}
+
+.page-hero {
+  min-height: 45vh !important;
+}
+
+/* On mobile, reduce further to get content visible quickly */
+@media (max-width: 768px) {
+  #hero { min-height: 40vh !important; }
+  .page-hero { min-height: 35vh !important; }
+}
+
+/* ──────────────────────────────────────────────────────────
+   6B. COLOR CONTRAST FIXES
+   ────────────────────────────────────────────────────────── */
+
+/* Use darker gold (#9B6F1F) on navy backgrounds for WCAG AA compliance */
+.section--navy .section-label,
+.section--dark .section-label {
+  color: var(--gold-dark) !important;
+}
+
+/* Section labels on navy backgrounds should use gold-dark */
+[style*="background:var(--navy)"] .section-label,
+[style*="background:#0D1B2A"] .section-label,
+[style*="background:#0d1b2a"] .section-label {
+  color: var(--gold-dark);
+}
+
+/* Improve contrast on dark backgrounds */
+.section--bg-navy h2,
+.section--navy h2 {
+  color: #fff;
+}
+
+/* ──────────────────────────────────────────────────────────
    7. NAVIGATION (MODERN STICKY NAV)
    ────────────────────────────────────────────────────────── */
 
@@ -719,7 +761,7 @@ nav#navbar.nav-scrolled {
 
 #hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -727,6 +769,12 @@ nav#navbar.nav-scrolled {
   margin-top: var(--space-16);
   background: var(--gradient-navy);
   color: white;
+}
+
+@media (max-width: 768px) {
+  #hero {
+    min-height: 45vh;
+  }
 }
 
 #hero::before {

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Risk Assessment — El Dorado Vision 2040 | Challenges & Mitigation</title>
+ <meta name="description" content="Vision 2040 risk assessment: market risks, execution risks, regulatory challenges, and mitigation strategies." />
+ <meta property="og:title" content="Risk Assessment — El Dorado Vision 2040" />
+ <meta property="og:description" content="Comprehensive risk assessment for El Dorado's 15-year strategic plan with mitigation strategies." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://eldorado2040.com/risk-assessment.html" />
+ <meta property="og:site_name" content="El Dorado Vision 2040" />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="preload" href="css/styles-modern.min.css" as="style">
+ <link rel="stylesheet" href="css/styles-modern.min.css">
+ <link rel="stylesheet" href="css/components-advanced.min.css">
+ <link rel="stylesheet" href="css/utilities.min.css">
+ <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+
+ <style>
+   .risk-card { background: #fff; padding: 30px; border-radius: 8px; border-top: 4px solid #c54a31; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+   .risk-card.high { border-top-color: #c54a31; }
+   .risk-card.medium { border-top-color: #f59e0b; }
+   .risk-card.low { border-top-color: #22c55e; }
+
+   .risk-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+   .risk-header h3 { font-size: 1.1rem; margin: 0; color: #0d1b2a; flex: 1; }
+   .risk-badge { display: inline-block; padding: 6px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; white-space: nowrap; margin-left: 10px; }
+   .risk-badge.high { background: #fecaca; color: #991b1b; }
+   .risk-badge.medium { background: #fef3c7; color: #92400e; }
+   .risk-badge.low { background: #dcfce7; color: #166534; }
+
+   .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+   @media (max-width: 768px) { .risk-grid { grid-template-columns: 1fr; } }
+
+   .risk-item { background: #f9f7f4; padding: 15px; border-radius: 6px; }
+   .risk-item h4 { font-size: 0.85rem; font-weight: 600; color: #8a7d73; text-transform: uppercase; margin: 0 0 8px; }
+   .risk-item p { font-size: 0.95rem; color: #4a4238; margin: 0; line-height: 1.5; }
+
+   .risk-matrix { width: 100%; margin: 30px 0; border-collapse: collapse; }
+   .risk-matrix th, .risk-matrix td { padding: 12px; text-align: center; border: 1px solid #d8d0c8; font-size: 0.9rem; }
+   .risk-matrix th { background: #0d1b2a; color: #fff; font-weight: 600; }
+   .risk-matrix tr:nth-child(odd) { background: #f9f7f4; }
+   .risk-matrix .risk-name { text-align: left; font-weight: 600; color: #0d1b2a; }
+
+   .timeline-path { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 30px 0; }
+   .timeline-box { background: #f9f7f4; padding: 20px; border-radius: 6px; border-left: 4px solid #c8902a; }
+   .timeline-box h4 { font-size: 0.85rem; font-weight: 600; color: #8a7d73; text-transform: uppercase; margin: 0 0 10px; }
+   .timeline-box p { font-size: 0.9rem; color: #4a4238; margin: 0; line-height: 1.5; }
+
+   .go-nogo { background: #e8f5e9; border-left: 4px solid #1fa36b; padding: 20px; border-radius: 6px; margin: 30px 0; }
+   .go-nogo h3 { color: #1b5e20; margin: 0 0 10px; }
+   .go-nogo p { color: #2e7d32; margin: 0; font-weight: 500; }
+ </style>
+</head>
+<body data-page="risk-assessment">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
+
+<!-- ════ PAGE HERO ════ -->
+<div class="page-hero">
+ <div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Reference › Risk Assessment</div>
+  <h1>Risk Assessment</h1>
+  <p class="page-subtitle">Vision 2040 challenges, market risks, and mitigation strategies. Transparency about what could derail this plan—and how we'll respond.</p>
+ </div>
+</div>
+
+<!-- ════ PAGE NAV PILLS ════ -->
+<nav class="page-nav">
+ <div class="page-nav-inner">
+  <a href="#critical" class="page-nav__pill">Critical Risks</a>
+  <a href="#market" class="page-nav__pill">Market Risks</a>
+  <a href="#execution" class="page-nav__pill">Execution Risks</a>
+  <a href="#regulatory" class="page-nav__pill">Regulatory Risks</a>
+  <a href="#matrix" class="page-nav__pill">Risk Matrix</a>
+  <a href="#gonogo" class="page-nav__pill">GO/NO-GO Framework</a>
+ </div>
+</nav>
+
+<!-- ════ INTRO ════ -->
+<section style="padding:60px 0;background:#f9f7f4">
+ <div class="container">
+  <div class="section-header reveal">
+   <h2>Why Risk Assessment Matters</h2>
+   <p class="lead">Every strategic plan carries risks. Vision 2040 is no exception. This section identifies the biggest challenges, their probability and impact, and our mitigation strategies.</p>
+  </div>
+
+  <div class="container-narrow reveal" style="max-width:700px;margin:40px auto">
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:20px">
+    This is not a guarantee that all projections will be achieved. Rather, it's a realistic acknowledgment that market cycles, policy shifts, and unforeseen events can derail plans. By identifying risks upfront and planning responses, El Dorado maximizes the probability of success.
+   </p>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238">
+    Each risk is assigned a probability (Low/Medium/High) and impact (Low/Medium/High). The most critical risks (High probability × High impact) receive the most attention and the most robust mitigation strategies.
+   </p>
+  </div>
+ </div>
+</section>
+
+<!-- ════ CRITICAL RISKS ════ -->
+<section id="critical" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:#c54a31">Highest Priority</span>
+   <h2>Critical Risks (High Probability × High Impact)</h2>
+   <p class="lead">These risks pose the greatest threat to Vision 2040 success. Mitigation strategies are in place.</p>
+  </div>
+
+  <!-- Risk 1 -->
+  <div class="risk-card high reveal">
+   <div class="risk-header">
+    <h3>Mega-Site Industrial Recruitment Fails</h3>
+    <span class="risk-badge high">High Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">The 1,131-acre mega-site is central to Vision 2040's economic diversification. If major industrial tenants don't materialize (due to labor shortage, logistics changes, or supply chain shifts), the plan's financial foundation cracks.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium-High (40%)</strong> — Industrial recruitment is unpredictable; neighboring states compete aggressively.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Very High</strong> — Could reduce projected job growth by 500–800 jobs and $200M+ in investment.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>AMAZONE win (2025)</strong> validates site market fit; use as reference case for future prospects</li>
+    <li>✅ <strong>Diversify target sectors</strong> — Don't rely solely on one industry. Pursue precision ag, batteries, aerospace, logistics equally</li>
+    <li>✅ <strong>Accelerate Phase 1 infrastructure</strong> — Complete road, rail, and utility infrastructure 2026–2027 to reduce prospect risk perception</li>
+    <li>✅ <strong>Create incentive reserve</strong> — Establish $3–5M incentive fund (tax abatement, infrastructure rebates) to close deals</li>
+    <li>✅ <strong>Weekly prospect tracking</strong> — El Dorado Inc. maintains pipeline of 20+ active prospects; quarterly reviews with City Council</li>
+    <li>✅ <strong>Contingency pivot</strong> — If major industrial deal delays 2+ years, redirect focus to housing and small business growth as Plan B</li>
+   </ul>
+
+   <div class="risk-item" style="margin-top:20px;background:#fff5f5;border-left:3px solid #c54a31">
+    <h4>GO/NO-GO Decision Point</h4>
+    <p><strong>If by end of 2028:</strong> No secondary major industrial commitment beyond AMAZONE → Review and possibly revise manufacturing targets. Shift to logistics, health, education sectors as primary growth drivers.</p>
+   </div>
+  </div>
+
+  <!-- Risk 2 -->
+  <div class="risk-card high reveal">
+   <div class="risk-header">
+    <h3>Macro Recession Delays Housing & Consumer Spending</h3>
+    <span class="risk-badge high">High Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Housing demand and disposable income drive retail, restaurant, and service sector growth. A national recession (2027–2029?) could delay residential development and consumer spending in El Dorado.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium-High (50%)</strong> — Economic cycles are inevitable; recessions occur roughly every 7–10 years.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>High</strong> — Could delay housing starts 2–3 years and reduce tax base growth by 15–25%.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Counter-cyclical investing</strong> — Accelerate public infrastructure investment during recession (roads, parks, downtown) to create jobs locally</li>
+    <li>✅ <strong>Workforce stability programs</strong> — Support unemployment insurance, job retraining for laid-off workers to maintain consumer spending</li>
+    <li>✅ <strong>Lending support for small business</strong> — Partner with SBA and local banks to maintain credit availability for business expansion</li>
+    <li>✅ <strong>Affordable housing priority</strong> — In recession, shift focus to LIHTC-funded affordable units over luxury development to serve recession-impacted residents</li>
+    <li>✅ <strong>15-year flexibility</strong> — Plan extends to 2040; if recession delays 2–3 years, we have room to recover. Targets shift right on timeline, not down.</li>
+   </ul>
+
+   <div class="risk-item" style="margin-top:20px;background:#fff5f5;border-left:3px solid #c54a31">
+    <h4>GO/NO-GO Decision Point</h4>
+    <p><strong>If recession occurs 2027–2029:</strong> Extend Phase 1 timeline to 2029. Don't force housing development; let market recover naturally. Maintain public investment in infrastructure to support recovery.</p>
+   </div>
+  </div>
+
+  <!-- Risk 3 -->
+  <div class="risk-card high reveal">
+   <div class="risk-header">
+    <h3>Regional Labor Shortage Persists</h3>
+    <span class="risk-badge high">High Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Vision 2040 projects 1,600+ net new jobs. But if the regional labor shortage continues (workers migrate to coasts, birth rates stay low), employers may not find workers to fill jobs—limiting growth.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium-High (55%)</strong> — Demographic trends (low birth rates, urban migration) are strong and difficult to reverse short-term.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Very High</strong> — Could limit job growth to 800 (vs. 1,600 target) and slow population growth to +15% (vs. +41% target).</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Remote worker attraction</strong> — Market El Dorado to remote workers (cost of living 30% below coasts, quality of life high). Target 200–300 remote workers by 2030.</li>
+    <li>✅ <strong>Youth retention relentlessly</strong> — Higher-wage jobs + housing affordability + quality of life investments explicitly designed to keep 20–35 year-olds in El Dorado</li>
+    <li>✅ <strong>Immigrant-welcoming strategy</strong> — Partner with regional immigrant services to attract workers and their families. Expand ESL programs in USD 490.</li>
+    <li>✅ <strong>Automation & productivity</strong> — Encourage employers to invest in automation and productivity gains rather than pure headcount growth</li>
+    <li>✅ <strong>Workforce training partnerships</strong> — Expand BCC health, manufacturing, and trade programs. Partner with employers for pre-hire training (CDL, welding, CNC).</li>
+   </ul>
+
+   <div class="risk-item" style="margin-top:20px;background:#fff5f5;border-left:3px solid #c54a31">
+    <h4>GO/NO-GO Decision Point</h4>
+    <p><strong>If by 2030:</strong> Labor shortage persists and job creation lags (600 jobs vs. 1,000 target) → Shift strategy to higher-wage/fewer-job growth model. Quality-over-quantity emphasis.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ MARKET RISKS ════ -->
+<section id="market" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:#f59e0b">External Factors</span>
+   <h2>Market & External Risks (Medium Probability)</h2>
+   <p class="lead">Market conditions and external events beyond our control that could impact Vision 2040.</p>
+  </div>
+
+  <!-- Risk 4 -->
+  <div class="risk-card medium reveal">
+   <div class="risk-header">
+    <h3>Lake Tourism Market Shifts</h3>
+    <span class="risk-badge medium">Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">El Dorado Lake drives <$50M+/year in visitor spending. If technology (remote work reduces weekend travel) or demographics (younger people prefer urban experiences) shift leisure patterns, lake tourism could plateau.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium (30%)</strong> — Leisure patterns do change, but lake destinations remain popular nationally.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Medium</strong> — Could reduce projected tourism revenue by 20–30% but doesn't derail overall plan.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ Diversify beyond lake — Invest equally in downtown, arts, and heritage tourism</li>
+    <li>✅ Event programming — Create year-round events (races, festivals, concerts) to drive off-season visitation</li>
+    <li>✅ Experiential tourism — Focus on authentic El Dorado experiences (oil history, agricultural heritage) vs. generic lakeside resorts</li>
+   </ul>
+  </div>
+
+  <!-- Risk 5 -->
+  <div class="risk-card medium reveal">
+   <div class="risk-header">
+    <h3>Energy Transition Disrupts Oil Industry Base</h3>
+    <span class="risk-badge medium">Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">HF Sinclair (local refinery) is a major employer. Faster-than-expected energy transition could reduce refinery demand. However, Vision 2040 deliberately diversifies away from oil dependency.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Low-Medium (25%)</strong> — Transition is happening but refineries will operate 20+ more years.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Medium</strong> — Could reduce refinery employment 10–20%, but plan targets diversified economy, so impact is limited.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ Economic diversification is the primary mitigation — Plan targets 6 industries, not oil</li>
+    <li>✅ Workforce transition support — If refinery reduces workforce, prioritize transition training and placement for workers</li>
+    <li>✅ Refinery diversification conversation — Partner with HF Sinclair on alternative biofuel and renewable projects to extend viability</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ════ EXECUTION RISKS ════ -->
+<section id="execution" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:#f59e0b">Internal Factors</span>
+   <h2>Execution & Leadership Risks</h2>
+   <p class="lead">Risks related to implementation, leadership, and organizational capacity.</p>
+  </div>
+
+  <div class="risk-card medium reveal">
+   <div class="risk-header">
+    <h3>Leadership Turnover Stalls Progress</h3>
+    <span class="risk-badge medium">Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">City Manager, El Dorado Inc. director, or key department heads leave before Vision 2040 is embedded in organizational culture. Replacement may not have same commitment.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium (40%)</strong> — Staff turnover in small cities is common; 15-year plan spans multiple administration changes.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Medium</strong> — Could delay initiatives 12–18 months if transition is poor, but won't derail long-term vision.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Governance institutionalization</strong> — Vision 2040 is adopted by City Council, not dependent on single leader</li>
+    <li>✅ <strong>Leadership succession planning</strong> — Identify and mentor internal leaders 2–3 years before expected departures</li>
+    <li>✅ <strong>Annual public reporting</strong> — Vision 2040 progress is presented publicly each January so community holds leadership accountable</li>
+    <li>✅ <strong>Quarterly City Council updates</strong> — Keeps vision in front of elected officials regardless of management changes</li>
+   </ul>
+  </div>
+
+  <div class="risk-card medium reveal">
+   <div class="risk-header">
+    <h3>Funding Constraints Delay Infrastructure</h3>
+    <span class="risk-badge medium">Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Infrastructure (roads, utilities, fiber) costs $18–25M in Phase 1. If grants don't materialize or bond capacity is limited, projects delay.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Medium (35%)</strong> — Federal/state grant funding is competitive and unpredictable.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Medium</strong> — Could delay infrastructure 1–2 years but doesn't stop private development.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Diversify funding sources</strong> — Don't rely solely on grants. Mix bonds, TIF, developer contributions, county support.</li>
+    <li>✅ <strong>Grant program manager hired</strong> — Dedicate staff to pursue federal/state grants (B.A.S.E., RAISE, ARPA, etc.)</li>
+    <li>✅ <strong>Developer contributions</strong> — Require new developments to contribute to infrastructure (traffic impact fees, utility extensions)</li>
+    <li>✅ <strong>Phased infrastructure</strong> — Build roads/utilities in sequence, not all at once. Private development funds later phases.</li>
+   </ul>
+  </div>
+
+  <div class="risk-card low reveal">
+   <div class="risk-header">
+    <h3>Community Opposition to Growth</h3>
+    <span class="risk-badge low">Low-Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Some long-term residents may resist growth—new traffic, schools crowding, changing community character. Organized opposition could delay zoning or development approvals.</p>
+
+   <div class="risk-grid">
+    <div class="risk-item">
+     <h4>Probability</h4>
+     <p><strong>Low-Medium (25%)</strong> — Growth-friendly communities usually have low resistance, but some friction is normal.</p>
+    </div>
+    <div class="risk-item">
+     <h4>Impact</h4>
+     <p><strong>Low-Medium</strong> — Could delay specific projects 6–12 months but unlikely to stop overall plan.</p>
+    </div>
+   </div>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Early & continuous community engagement</strong> — Quarterly community forums, not just approvals meetings</li>
+    <li>✅ <strong>Transparency on growth impacts</strong> — Proactively communicate traffic, school, and service impacts + mitigation plans</li>
+    <li>✅ <strong>Quality-of-life investments upfront</strong> — Parks, trails, downtown improvements show commitment to livability alongside growth</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ════ REGULATORY RISKS ════ -->
+<section id="regulatory" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:#f59e0b">Policy & Compliance</span>
+   <h2>Regulatory & Policy Risks</h2>
+   <p class="lead">Changes in state/federal policy or regulation that could affect plan implementation.</p>
+  </div>
+
+  <div class="risk-card medium reveal">
+   <div class="risk-header">
+    <h3>Tax Credit/Incentive Policy Changes</h3>
+    <span class="risk-badge medium">Medium Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Plan relies on LIHTC (housing), Historic Tax Credits (downtown), and SB 98 (industrial). State/federal policy changes could reduce availability or competitiveness of these tools.</p>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Diversify incentive tools</strong> — Mix tax credits, direct grants, TIF, and developer contributions so plan doesn't depend on single tool</li>
+    <li>✅ <strong>Advocacy participation</strong> — El Dorado Inc. joins advocacy groups (ICMA, EDAC) to lobby for tax credit preservation</li>
+    <li>✅ <strong>Contingency programs</strong> — If tax credits sunset, develop alternative funding mechanisms (municipal bonds, enterprise zones)</li>
+   </ul>
+  </div>
+
+  <div class="risk-card low reveal">
+   <div class="risk-header">
+    <h3>Environmental Regulation Impacts</h3>
+    <span class="risk-badge low">Low Risk</span>
+   </div>
+   <p style="color:#4a4238;margin-bottom:20px">Stricter environmental regs (water quality, air quality, stormwater) could increase development costs or delay projects. However, El Dorado's water quality is a strength, not a vulnerability.</p>
+
+   <h4 style="margin-top:20px;margin-bottom:10px;color:#0d1b2a">Mitigation Strategy</h4>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin:10px 0">
+    <li>✅ <strong>Proactive compliance</strong> — Exceed environmental standards for water, air, and stormwater to build buffer against future regulations</li>
+    <li>✅ <strong>Green development incentives</strong> — Encourage LEED certification and renewable energy as competitive advantage</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ════ RISK MATRIX ════ -->
+<section id="matrix" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <h2>Risk Matrix (Probability × Impact)</h2>
+   <p class="lead">Visual summary of all identified risks and their severity.</p>
+  </div>
+
+  <div style="overflow-x:auto;margin:30px 0">
+   <table class="risk-matrix">
+    <thead>
+     <tr>
+      <th>Risk</th>
+      <th>Probability</th>
+      <th>Impact</th>
+      <th>Severity</th>
+      <th>Status</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="risk-name">Mega-site recruitment fails</td>
+      <td>Medium-High (40%)</td>
+      <td>Very High</td>
+      <td style="color:#c54a31;font-weight:600">🔴 CRITICAL</td>
+      <td>Monitored quarterly</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Macro recession delays growth</td>
+      <td>Medium-High (50%)</td>
+      <td>High</td>
+      <td style="color:#c54a31;font-weight:600">🔴 CRITICAL</td>
+      <td>Contingency planned</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Regional labor shortage persists</td>
+      <td>Medium-High (55%)</td>
+      <td>Very High</td>
+      <td style="color:#c54a31;font-weight:600">🔴 CRITICAL</td>
+      <td>Active mitigation</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Lake tourism market shifts</td>
+      <td>Low-Medium (30%)</td>
+      <td>Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Monitor trends</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Energy transition disrupts refinery</td>
+      <td>Low (25%)</td>
+      <td>Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Diversification mitigates</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Leadership turnover stalls progress</td>
+      <td>Medium (40%)</td>
+      <td>Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Succession planning</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Funding constraints delay infrastructure</td>
+      <td>Medium (35%)</td>
+      <td>Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Multi-source strategy</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Community opposition to growth</td>
+      <td>Low-Medium (25%)</td>
+      <td>Low-Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Engagement planned</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Tax credit/incentive policy changes</td>
+      <td>Medium (35%)</td>
+      <td>Medium</td>
+      <td style="color:#f59e0b;font-weight:600">🟡 MEDIUM</td>
+      <td>Diversified toolset</td>
+     </tr>
+     <tr>
+      <td class="risk-name">Environmental regulation tightens</td>
+      <td>Low (15%)</td>
+      <td>Low</td>
+      <td style="color:#22c55e;font-weight:600">🟢 LOW</td>
+      <td>Proactive compliance</td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</section>
+
+<!-- ════ GO/NO-GO FRAMEWORK ════ -->
+<section id="gonogo" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <h2>GO/NO-GO Decision Framework</h2>
+   <p class="lead">How we'll know if Vision 2040 is on track or needs major revision.</p>
+  </div>
+
+  <div class="container-narrow reveal" style="max-width:800px;margin:40px auto">
+   <h3 style="margin-bottom:20px">Annual Assessment (January Each Year)</h3>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:30px">
+    Vision 2040 is assessed annually against Phase-specific targets. If 80%+ of targets are met, the plan continues. If 60–80%, course corrections are made. If &lt;60%, major strategy revision is considered.
+   </p>
+
+   <div style="background:#fff;padding:20px;border-radius:8px;margin-bottom:30px">
+    <h4 style="margin:0 0 15px;color:#0d1b2a">Phase 1 Targets (2026–2027)</h4>
+    <ul style="font-size:0.9rem;line-height:1.8;color:#4a4238;margin:0;padding:0 0 0 20px">
+     <li>✅ North Gateway infrastructure 50% complete (roads, utilities, parks spine)</li>
+     <li>✅ 1 major industrial prospect advanced (signed letter of intent)</li>
+     <li>✅ Downtown Phase 1 (5 buildings rehabbed via Historic Tax Credits)</li>
+     <li>✅ 150+ housing units permitted (North Gateway + Mixed-Income)</li>
+     <li>✅ City Council commitment to 3-year capital plan ($500K+ annually)</li>
+    </ul>
+    <p style="font-size:0.85rem;color:#8a7d73;margin-top:15px"><strong>Threshold:</strong> 4/5 targets met = GO | 3/5 met = CAUTION | &lt;3 met = REVIEW</p>
+   </div>
+
+   <div style="background:#fff;padding:20px;border-radius:8px;margin-bottom:30px">
+    <h4 style="margin:0 0 15px;color:#0d1b2a">Phase 2–3 Targets (2028–2033)</h4>
+    <ul style="font-size:0.9rem;line-height:1.8;color:#4a4238;margin:0;padding:0 0 0 20px">
+     <li>✅ Population growth tracking at 2%+ annually (200+ new residents/year)</li>
+     <li>✅ 2+ additional industrial tenants committed or under negotiation</li>
+     <li>✅ 500+ net new housing units occupied</li>
+     <li>✅ Median household income growth 3%+ annually</li>
+     <li>✅ Tax base growth 4%+ annually (inflation-adjusted)</li>
+    </ul>
+    <p style="font-size:0.85rem;color:#8a7d73;margin-top:15px"><strong>Threshold:</strong> 4–5/5 targets met = ON TRACK | 3/5 met = COURSE CORRECTION | &lt;3 met = STRATEGY REVISION</p>
+   </div>
+
+   <h3 style="margin-top:40px;margin-bottom:20px">Decision Process</h3>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:20px">
+    <strong>January Annual Review:</strong> City Manager presents Vision 2040 progress report to City Council. Data on all Phase targets presented publicly.
+   </p>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:20px">
+    <strong>GO (80%+ targets met):</strong> Plan continues. Celebrate wins, identify gaps, maintain course.
+   </p>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:20px">
+    <strong>CAUTION (60–80% targets met):</strong> Course corrections made. What's blocking progress? Remove obstacles. Adjust timeline for off-track initiatives.
+   </p>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:20px">
+    <strong>NO-GO (&lt;60% targets met):</strong> Major strategy review. Convene community forum. Update targets based on new market conditions. Revise if warranted.
+   </p>
+  </div>
+ </div>
+</section>
+
+<!-- ════ FOOTER CTA ════ -->
+<section style="background:var(--navy);color:#fff;padding:60px 0;margin-top:60px">
+ <div class="container reveal">
+  <div class="text-center">
+   <h2 style="color:#fff;margin-bottom:20px">Transparent Planning. Honest Risk Assessment.</h2>
+   <p style="font-size:1.05rem;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto">
+    Vision 2040 succeeds because we acknowledge risks, plan mitigation, and stay adaptable. Ask questions. Challenge assumptions. Help shape the plan.
+   </p>
+   <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+    <a href="governance.html" class="btn" style="background:#c8902a;padding:14px 28px">Learn About Governance</a>
+    <a href="baseline-metrics.html" class="btn" style="background:transparent;border:2px solid #c8902a;color:#c8902a;padding:12px 26px">See Current Baseline</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<script defer src="js/nav.js"></script>
+<script defer src="js/main.js"></script>
+</body>
+</html>

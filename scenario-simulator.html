@@ -307,7 +307,110 @@ function exportScenario() {
 function sharePDF() { alert('PDF export: Use browser Print to PDF feature'); }
 
 document.addEventListener('DOMContentLoaded', updateSimulation);
+
+// Post-tool CTA functions
+function shareOnLinkedIn() {
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent(document.title);
+  window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+}
+function shareOnTwitter() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent(`Testing El Dorado economic scenarios with Vision 2040`);
+  window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+}
+function emailResults() {
+  const toolName = 'Scenario Simulator Results';
+  window.location.href = `mailto:?subject=El%20Dorado%20Vision%202040%20-%20${encodeURIComponent(toolName)}&body=Check%20out%20this%20economic%20scenario%20analysis:%0A${encodeURIComponent(window.location.href)}`;
+}
+function handleEmailSignup(event) {
+  event.preventDefault();
+  const email = event.target.querySelector('input[type="email"]').value;
+  const name = event.target.querySelector('input[type="text"]').value;
+  if (window.gtag) {
+    gtag('event', 'email_signup', { 'email': email, 'name': name, 'page': 'Scenario Simulator' });
+  }
+  alert(`✅ Thanks, ${name}! Check your email for the full development strategy.\n\nYou'll receive city council updates 2–3x/month.`);
+  event.target.reset();
+}
 </script>
+
+<!-- POST-TOOL CTA MODULE + EMAIL CAPTURE -->
+<section style="background: white; border-top: 2px solid #e0e0e0; padding: 48px 20px; margin-top: 60px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="margin-bottom: 30px; text-align: center;">Share & Download Your Results</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px;">
+      <button style="padding: 14px 20px; background: #1B3A5C; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;" onclick="shareOnLinkedIn()">📌 Share on LinkedIn</button>
+      <button style="padding: 14px 20px; background: #1DA1F2; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;" onclick="shareOnTwitter()">𝕏 Share on X</button>
+      <button style="padding: 14px 20px; background: #C8902A; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;" onclick="exportScenario()">📄 Download Results</button>
+      <button style="padding: 14px 20px; background: #2E6E35; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.95rem;" onclick="emailResults()">✉️ Email to Colleague</button>
+    </div>
+  </div>
+</section>
+
+<section style="background: linear-gradient(135deg, #1B3A5C 0%, #2C5282 100%); padding: 60px 20px; color: white;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <h2 style="margin-bottom: 12px; text-align: center;">Get the Full Development Strategy</h2>
+    <p style="text-align: center; font-size: 1.05rem; margin-bottom: 32px; color: rgba(255,255,255,0.9);">Get the complete Vision 2040 strategic plan with implementation roadmap, funding sources, and risk mitigation strategies.</p>
+    <form onsubmit="handleEmailSignup(event)" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; margin-bottom: 24px;">
+      <input type="email" placeholder="Your email address" required style="padding: 14px 16px; border: none; border-radius: 6px; font-size: 0.95rem;" />
+      <input type="text" placeholder="Your name" required style="padding: 14px 16px; border: none; border-radius: 6px; font-size: 0.95rem;" />
+      <button type="submit" style="padding: 14px 24px; background: #C8902A; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; white-space: nowrap;">Get Strategy</button>
+    </form>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+      <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; border-left: 3px solid #C8902A;"><strong>📊 30-Year Economic Model</strong><div style="font-size: 0.9rem; margin-top: 8px; color: rgba(255,255,255,0.9);">Complete tax revenue projections, job creation forecasts, and fiscal impact analysis through 2056.</div></div>
+      <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; border-left: 3px solid #C8902A;"><strong>🔧 Implementation Roadmap</strong><div style="font-size: 0.9rem; margin-top: 8px; color: rgba(255,255,255,0.9);">Phase-by-phase action items, permitting timelines, funding sources, and infrastructure requirements.</div></div>
+      <div style="background: rgba(255,255,255,0.1); padding: 16px; border-radius: 8px; border-left: 3px solid #C8902A;"><strong>⚠️ Risk Assessment</strong><div style="font-size: 0.9rem; margin-top: 8px; color: rgba(255,255,255,0.9);">Identified risks, mitigation strategies, monitoring metrics, and contingency plans for all scenarios.</div></div>
+    </div>
+    <p style="text-align: center; font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 20px;">✓ No spam. City council updates only 2–3x/month. Secure and confidential.</p>
+  </div>
+</section>
+
+<section style="padding: 60px 20px; background: white;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="margin-bottom: 40px; text-align: center;">What's Your Next Step?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+      <div style="background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%); border: 2px solid #C8902A; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #C8902A; margin-bottom: 16px; font-size: 1.2rem;">🏛️ City Council & Planning</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Need to present to council or refine strategy?</p>
+        <ul style="list-style: none; margin-bottom: 20px;">
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Council briefing presentation deck</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Alternative scenarios analysis</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Fiscal impact detailed report</li>
+          <li style="padding: 8px 0; color: #333;">✓ Public engagement strategy</li>
+        </ul>
+        <a href="mailto:planning@eldorado2040.com?subject=Council%20Briefing%20Request" style="display: block; padding: 12px 16px; background: #C8902A; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Request Council Briefing →</a>
+      </div>
+      <div style="background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%); border: 2px solid #2E6E35; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #2E6E35; margin-bottom: 16px; font-size: 1.2rem;">💼 Economic Development</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Ready to attract investment & entrepreneurs?</p>
+        <ul style="list-style: none; margin-bottom: 20px;">
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Investment recruitment strategy</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Sales collateral package</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Investor outreach program</li>
+          <li style="padding: 8px 0; color: #333;">✓ Deal flow tracking system</li>
+        </ul>
+        <a href="mailto:invest@eldorado2040.com?subject=Investment%20Strategy%20Meeting" style="display: block; padding: 12px 16px; background: #2E6E35; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Develop Recruitment Plan →</a>
+      </div>
+      <div style="background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%); border: 2px solid #7B1FA2; border-radius: 12px; padding: 32px;">
+        <h3 style="color: #7B1FA2; margin-bottom: 16px; font-size: 1.2rem;">📋 Community Engagement</h3>
+        <p style="color: #5A5A5A; margin-bottom: 20px;">Want to build public support & buy-in?</p>
+        <ul style="list-style: none; margin-bottom: 20px;">
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Community forum series</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ Stakeholder mapping & outreach</li>
+          <li style="padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.1); color: #333;">✓ FAQ & objection handling guide</li>
+          <li style="padding: 8px 0; color: #333;">✓ Communications calendar</li>
+        </ul>
+        <a href="mailto:info@eldorado2040.com?subject=Community%20Engagement%20Plan" style="display: block; padding: 12px 16px; background: #7B1FA2; color: white; text-align: center; border-radius: 6px; text-decoration: none; font-weight: 600;">Build Engagement Strategy →</a>
+      </div>
+    </div>
+    <div style="background: #FFF3E0; border-left: 4px solid #C8902A; padding: 24px; border-radius: 8px; margin-top: 40px;">
+      <strong style="color: #C8902A;">💡 Questions about implementing your scenario?</strong>
+      <p style="color: #5A5A5A; margin: 8px 0 12px 0;">Connect with El Dorado's economic development team for strategy sessions and planning support.</p>
+      <a href="mailto:info@eldorado2040.com?subject=Strategic%20Planning%20Support" style="color: #C8902A; font-weight: 600; text-decoration: none;">Schedule a Strategy Session →</a>
+    </div>
+  </div>
+</section>
 
 <script src="js/nav.min.js" defer></script>
 </body>
