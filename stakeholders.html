@@ -8,6 +8,11 @@
  <meta property="og:title" content="El Dorado Vision 2040 | Stakeholder Directory" />
  <meta property="og:description" content="Searchable directory of mayors, commissioners, economic leaders, and community advocates" />
  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eldorado2040.com/stakeholders.html" />
+  <meta property="og:site_name" content="El Dorado Vision 2040" />
+  <meta property="og:image" content="https://eldorado2040.com/img/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eldorado2040.com/img/og-preview.png" />
  <link rel="preconnect" href="https://fonts.googleapis.com" />
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -31,7 +36,7 @@
     <link rel="stylesheet" href="css/styles-modern.min.css">
     <link rel="stylesheet" href="css/components-advanced.min.css">
     <link rel="stylesheet" href="css/utilities.min.css">
-    <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
  <style>
  .stakeholder-hero {
    background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
@@ -451,7 +456,7 @@ function renderStakeholders(stakeholders) {
 
  container.innerHTML = stakeholders.map(s => `
   <div class="stakeholder-card">
-   <img src="${s.photo}" alt="${s.name}" class="stakeholder-photo" / alt="El Dorado development initiative">
+   <img src="${s.photo}" alt="${s.name}" class="stakeholder-photo" / alt="El Dorado development initiative" loading="lazy" loading="lazy">
    <div class="stakeholder-content">
     <div class="stakeholder-name">${s.name}</div>
     <div class="stakeholder-title">${s.title}</div>

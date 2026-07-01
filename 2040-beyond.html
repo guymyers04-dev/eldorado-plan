@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>El Dorado, KS — Vision 2040 Beyond | Long-Term Legacy & Innovation</title>
+ <meta name="description" content="El Dorado's strategic vision beyond 2040: climate resilience, innovation hubs, next-generation industries, regional leadership, and multigenerational prosperity." />
+ <meta property="og:title" content="El Dorado, KS — Vision 2040 Beyond | Long-Term Legacy" />
+ <meta property="og:description" content="Strategic vision beyond 2040: climate resilience, innovation economy, regional leadership, and sustainable growth." />
+ <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://eldorado2040.com/2040-beyond.html" />
+  <meta property="og:site_name" content="El Dorado Vision 2040" />
+  <meta property="og:image" content="https://eldorado2040.com/img/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eldorado2040.com/img/og-preview.png" />
+ <meta name="geo.region" content="US-KS" />
+ <meta name="geo.placename" content="El Dorado, Kansas" />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { font-size: 16px; }
+      body { font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fff; color: #222; }
+      nav { position: fixed; top: 0; left: 0; right: 0; height: 60px; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; }
+      .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+      .nav-brand { font-size: 18px; font-weight: 600; text-decoration: none; color: #222; }
+      #hero { min-height: 60vh; display: flex; align-items: center; justify-content: center; }
+      h1, h2 { font-weight: 700; margin-bottom: 20px; }
+      a { color: #d4a574; text-decoration: none; }
+      button, .btn { padding: 12px 24px; background: #d4a574; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+      body { padding-top: 60px; }
+    </style>
+
+    <link rel="preload" href="css/styles-modern.min.css" as="style">
+    <link rel="stylesheet" href="css/styles-modern.min.css">
+    <link rel="stylesheet" href="css/components-advanced.min.css">
+    <link rel="stylesheet" href="css/utilities.min.css">
+    <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLACEHOLDER-ID"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PLACEHOLDER-ID');
+ </script>
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "El Dorado, KS — Vision 2040 Beyond",
+  "url": "https://eldorado2040.com/2040-beyond.html",
+  "description": "El Dorado's strategic vision beyond 2040: climate resilience, innovation hubs, and regional leadership",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "El Dorado Vision 2040",
+    "url": "https://eldorado2040.com"
+  }
+}
+ </script>
+</head>
+<body data-page="2040-beyond">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+
+<!-- ════ NAV MOUNT ════ -->
+<div id="nav-mount"></div>
+
+<!-- ════ PAGE HERO ════ -->
+<div class="page-hero">
+ <div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Home</a> › 2040 Beyond</div>
+  <h1>2040 Beyond: Long-Term Vision & Legacy</h1>
+  <p class="page-subtitle">Strategic framework for El Dorado's post-2040 era: climate resilience, innovation leadership, and multigenerational prosperity</p>
+ </div>
+</div>
+
+<!-- ════ PAGE NAV PILLS ════ -->
+<nav class="page-nav">
+ <div class="page-nav-inner">
+  <a href="#framework" class="page-nav__pill">Strategic Framework</a>
+  <a href="#climate" class="page-nav__pill">Climate Resilience</a>
+  <a href="#innovation" class="page-nav__pill">Innovation Economy</a>
+  <a href="#next-gen-industries" class="page-nav__pill">Next-Gen Industries</a>
+  <a href="#regional-ecosystem" class="page-nav__pill">Regional Ecosystem</a>
+  <a href="#knowledge-economy" class="page-nav__pill">Knowledge Economy</a>
+  <a href="#sustainability" class="page-nav__pill">Sustainability</a>
+  <a href="#legacy" class="page-nav__pill">Multigenerational Legacy</a>
+ </div>
+</nav>
+
+<!-- ════ SECTIONS ════ -->
+
+<!-- STRATEGIC FRAMEWORK -->
+<section id="framework" style="background:var(--dark);padding:var(--section-pad)" class="section section--primary">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">Long-Term Vision</span>
+   <span class="section-label" style="color:var(--gold)">2040–2055+ Strategy</span>
+   <h2 style="color:#fff">Strategic Framework for Post-2040 Prosperity</h2>
+   <p class="lead" style="color:rgba(255,255,255,.78)">Vision 2040 is not an endpoint but a foundation. By 2040, El Dorado will have established diversified industry bases, modernized infrastructure, and a talented resident workforce. The 2040 Beyond framework extends this momentum by positioning El Dorado as a model for sustainable, innovation-driven regional leadership in the Great Plains—a place where climate adaptation, technological advancement, and human flourishing align. The post-2040 era demands that El Dorado think beyond incremental growth toward transformational resilience and competitive advantage in a rapidly changing global economy.</p>
+  </div>
+
+  <div class="feature-grid reveal">
+   <div class="feature-card" style="border-color:rgba(212,165,116,.3)">
+    <div class="feature-icon">🌱</div>
+    <h3>Sustainability First</h3>
+    <p>By 2050, El Dorado operates at net-zero carbon emissions in city operations and incentivizes carbon-neutral growth. Water stewardship, renewable energy, and regenerative agriculture define the regional economy. El Dorado becomes a model for sustainable rural development in America's heartland.</p>
+   </div>
+   <div class="feature-card" style="border-color:rgba(74,144,191,.3)">
+    <div class="feature-icon">🚀</div>
+    <h3>Innovation Leadership</h3>
+    <p>El Dorado hosts a thriving ecosystem of research institutions, innovation labs, and emerging technology ventures. From autonomous agriculture to precision manufacturing to clean energy, the city is a testing ground for technologies that define the 21st-century economy.</p>
+   </div>
+   <div class="feature-card" style="border-color:rgba(166,61,47,.3)">
+    <div class="feature-icon">🌍</div>
+    <h3>Global Connectivity</h3>
+    <p>Despite its rural Kansas location, El Dorado is digitally and logistically integrated into global value chains. Advanced telecommunications, logistics infrastructure, and talent drawn from worldwide networks make the city competitive in international markets.</p>
+   </div>
+   <div class="feature-card" style="border-color:rgba(46,110,53,.3)">
+    <div class="feature-icon">👨‍👩‍👧‍👦</div>
+    <h3>Generational Equity</h3>
+    <p>Growth is designed to benefit all generations: young people find opportunity and can build wealth; working-age adults have competitive wages and career pathways; elders have dignity, healthcare, and meaningful community participation. No demographic is left behind.</p>
+   </div>
+   <div class="feature-card" style="border-color:rgba(123,94,167,.3)">
+    <div class="feature-icon">🎓</div>
+    <h3>Learning Economy</h3>
+    <p>By 2050, El Dorado is recognized for continuous learning infrastructure—from childhood through late adulthood. The city invests heavily in K-12 excellence, higher education, workforce development, and lifelong learning that equips residents for a rapidly changing job market.</p>
+   </div>
+   <div class="feature-card" style="border-color:rgba(200,144,42,.3)">
+    <div class="feature-icon">💪</div>
+    <h3>Community Resilience</h3>
+    <p>Social networks, civic participation, and mutual aid define El Dorado's character. The city is prepared for shocks—climate disruption, economic displacement, technological disruption—because residents have built deep relationships and institutions of trust.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- CLIMATE RESILIENCE -->
+<section id="climate" class="section section--bg-navy" style="padding: 60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color: var(--gold)">Adaptation Strategy</span>
+   <h2 style="color: #fff">Climate Resilience: Building for 2050 Weather</h2>
+   <p class="lead" style="color:rgba(255,255,255,.78)">El Dorado's location in central Kansas will experience more volatile weather patterns by 2050: more intense summer heat, more extreme rainfall events, longer droughts interspersed with flooding. Vision 2040 Beyond positions the city to thrive despite these changes through adaptive infrastructure, regenerative practices, and proactive planning.</p>
+  </div>
+
+  <div class="infra-grid reveal">
+   <div class="infra-item" style="border-color:rgba(212,165,116,.3)">
+    <div class="infra-icon">💧</div>
+    <div class="infra-text">
+     <h4 style="color:var(--gold)">Water Resilience Infrastructure</h4>
+     <p><strong>Goal by 2050:</strong> El Dorado achieves 80% water independence through rainwater harvesting, aquifer recharge, and wastewater reclamation. Key initiatives: (1) City-wide green infrastructure program—permeable pavements, bioswales, and retention ponds in every district reduce flooding and recharge groundwater; (2) El Dorado Lake is positioned as a resilience reserve, supplying irrigation and industrial needs during droughts while supporting recreation and wildlife during wet periods; (3) Walnut River corridor is restored as a functioning floodplain ecosystem rather than a constrained channel, reducing downstream flood risk to Wichita while creating habitat and recreation; (4) Every new development includes water neutrality requirements—rainfall captured on-site must balance site water demand. Implementation: $45M public + private investment over 15 years. Lead agency: Walnut River Watershed Partnership + El Dorado City Government.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Budget: $45M total</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(74,144,191,.3)">
+    <div class="infra-icon">🌿</div>
+    <div class="infra-text">
+     <h4 style="color:var(--sky)">Urban Forest & Cooling Strategy</h4>
+     <p><strong>Goal by 2050:</strong> Triple El Dorado's tree canopy coverage from ~12% to 35% of the city, creating cooler neighborhoods that reduce heat-island effect and lower cooling costs. Key initiatives: (1) Street tree program plants 10,000 native trees, prioritizing east-side neighborhoods and industrial corridors; (2) Incentive program for private property tree planting—offer tax credits for landowners who establish native tree groves; (3) Rooftop garden and green roof mandate on all new commercial and multifamily development—reduces building cooling loads and absorbs stormwater; (4) Walnut River linear park and trail system becomes El Dorado's "cool corridor," shaded by native trees and accessible to all neighborhoods. Implementation: $12M over 15 years. Lead agency: City Parks + USD 490 + Chamber of Commerce.</p>
+     <span class="cost">Phase 3–5 (2035–2055) · Budget: $12M total</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(166,61,47,.3)">
+    <div class="infra-icon">☀️</div>
+    <div class="infra-text">
+     <h4 style="color:#e8806c">100% Renewable Energy Transition</h4>
+     <p><strong>Goal by 2050:</strong> El Dorado operates on 100% renewable energy—municipal operations (water, power, vehicles) plus a grid-wide commitment to wind and solar. Key initiatives: (1) City-led renewable energy procurement—El Dorado signs long-term PPAs with Kansas wind and solar operators to supply city facilities and residents; (2) Distributed solar deployment—rooftop solar on public buildings, community solar gardens accessible to renters, and an open rooftop marketplace where residents and businesses can sell excess generation back to the grid; (3) Energy storage—battery and thermal storage systems stabilize intermittent renewable supply; (4) Electric vehicle transition—by 2050, all city vehicles and transit are electric, and EV charging stations are ubiquitous in public parking; (5) Energy efficiency mandate—all buildings built or substantially renovated after 2035 meet Passive House standards, reducing heating and cooling demand by 75%. Implementation: $80M public + private over 20 years. Lead agency: City Utilities + Kansas Energy Council.</p>
+     <span class="cost">Phase 4–5 (2040–2060) · Budget: $80M total</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(46,110,53,.3)">
+    <div class="infra-icon">🌾</div>
+    <div class="infra-text">
+     <h4 style="color:var(--green)">Regenerative Agriculture Ecosystem</h4>
+     <p><strong>Goal by 2050:</strong> El Dorado's surrounding agricultural region becomes a model for regenerative practices—rebuilding soil carbon, increasing biodiversity, and improving farmer profitability while sequestering atmospheric carbon. Key initiatives: (1) Regional carbon farming cooperative—farmers are paid for carbon credits generated by cover-cropping, reduced tillage, and crop rotation practices; (2) Agritech innovation hub—startup incubation and university research focused on soil health, precision ag, and climate-resilient crop varieties based in El Dorado; (3) Direct-to-consumer food system—El Dorado's farmers markets and farm-to-table restaurants create premium markets for regenerative crops; (4) Soil health testing infrastructure—accessible soil labs where farmers can test carbon, biology, and nutrient status and receive custom recommendations. Implementation: $25M public + $60M private over 15 years. Lead agency: Butler CC + K-State Research + El Dorado Inc.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Budget: $85M total</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(123,94,167,.3)">
+    <div class="infra-icon">🛡️</div>
+    <div class="infra-text">
+     <h4 style="color:var(--purple)">Disaster Resilience Planning</h4>
+     <p><strong>Goal by 2050:</strong> El Dorado's critical infrastructure, supply chains, and community support systems are hardened against climate shocks—extreme heat events, severe weather, and drought. Key initiatives: (1) Cooling centers and emergency shelters in every district with backup power and water; (2) Critical infrastructure resilience review—hospitals, water treatment, power, communications audited for climate risk and upgraded with redundancy; (3) Community early warning system—real-time data on heat, flooding, and air quality delivered to all residents via SMS, app, and community radio; (4) Regional mutual aid network—El Dorado coordinates with Butler County communities on resource sharing during emergencies; (5) Indigenous knowledge integration—El Dorado partners with tribal nations on traditional ecological knowledge that informed adaptation in Kansas for millennia. Implementation: $15M over 15 years. Lead agency: FEMA + El Dorado Emergency Management + Kansas Division of Emergency Management.</p>
+     <span class="cost">Phase 3–5 (2035–2055) · Budget: $15M total</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- INNOVATION ECONOMY -->
+<section id="innovation" class="section section--primary" style="padding: var(--section-pad)">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">Knowledge Economy</span>
+   <span class="section-label" style="color:var(--gold)">2045–2055</span>
+   <h2>Innovation Economy: From Rural to Globally Competitive</h2>
+   <p class="lead">El Dorado's post-2040 competitive advantage is not raw materials or labor cost—it's intellectual capital. By 2050, El Dorado will host innovation clusters that attract talent, capital, and intellectual resources from across the world. The city becomes a proving ground for technologies that address climate, food, water, and energy challenges in ways that benefit small towns and rural regions globally.</p>
+  </div>
+
+  <div class="feature-grid reveal">
+   <div class="feature-card" style="border-color:rgba(212,165,116,.3)">
+    <div class="feature-icon">🔬</div>
+    <h3>Innovation Campus & Research Hub</h3>
+    <p><strong>By 2045:</strong> El Dorado establishes an Innovation Campus in the North Gateway District—a mixed-use district housing research labs, prototype facilities, startup incubators, and talent housing. Anchors include: (1) Regenerative Agriculture Research Facility (partnership with K-State and USDA); (2) Clean Water Technology Testbed (water treatment, desalination, agricultural water efficiency); (3) Rural Energy Lab (distributed renewable, microgrid, battery storage, EV charging); (4) Advanced Manufacturing Center (additive manufacturing, precision agriculture equipment, automation for small-scale production); (5) Digital Resilience Institute (cybersecurity, broadband infrastructure, digital inclusion). Each facility combines university research, corporate R&D, startup incubation, and workforce training. Target: 500+ jobs in innovation sectors by 2050. Investment: $150M public + $200M private over 20 years.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(74,144,191,.3)">
+    <div class="feature-icon">🚀</div>
+    <h3>Venture Capital & Startup Ecosystem</h3>
+    <p><strong>By 2050:</strong> El Dorado hosts a thriving community of venture-backed startups focused on solving rural challenges—climate adaptation, water efficiency, precision agriculture, renewable energy, rural healthcare, workforce development. Key infrastructure: (1) Rural Innovation Fund—$50M seed capital fund managed by El Dorado-based VCs, investing in pre-seed and seed stage companies; (2) Startup Housing—affordable housing for founders and early employees; (3) Legal/Accounting Services—subsidized support for early-stage companies; (4) Demo Sites & Testbeds—rural land available for free or low-cost to companies testing agricultural and environmental technologies; (5) Global Talent Pipeline—remote work, visa sponsorship, and digital nomad benefits attract international talent. Target: 50+ startups operating in El Dorado by 2050, $500M+ in venture funding raised. Success case studies: Precision water tech (Series A, $10M), Soil carbon platforms (Series B, $25M), Rural broadband (IPO, $100M+).</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(166,61,47,.3)">
+    <div class="feature-icon">🎓</div>
+    <h3>University Partnerships & Education Anchors</h3>
+    <p><strong>By 2050:</strong> El Dorado becomes a satellite innovation hub for leading universities. Butler Community College expands as a full 4-year institution with engineering and agricultural technology programs. K-State, Oklahoma State, Wichita State, and KU establish research centers in El Dorado focused on rural innovation, food systems, energy, and water. University-industry partnerships generate technology transfer and student internship pipelines. Target: 1,000+ students in university programs; 100+ university research projects based in El Dorado annually.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(46,110,53,.3)">
+    <div class="feature-icon">🌐</div>
+    <h3>Digital Infrastructure & Broadband</h3>
+    <p><strong>By 2045:</strong> El Dorado and Butler County achieve universal broadband access—gigabit fiber to every home and business, with 5G and satellite backup for resilience. This infrastructure enables: remote work for global companies; telemedicine and healthcare access; digital education and training; precision agriculture data systems; IoT-enabled smart city services. Investment: $75M (federal + state + private). Lead: Butler County Broadband Authority + USDA Rural Development.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(123,94,167,.3)">
+    <div class="feature-icon">💡</div>
+    <h3>Intellectual Property & Tech Transfer</h3>
+    <p><strong>By 2050:</strong> El Dorado creates a collaborative IP framework—universities, government, and companies share research results and commercialize innovations together. A tech transfer office connects inventors with capital, manufacturing, and markets. By 2050, 30+ patents per year originate from El Dorado research, generating licensing revenue and spin-off companies.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(200,144,42,.3)">
+    <div class="feature-icon">🤝</div>
+    <h3>Industry Partnerships & Corporate R&D</h3>
+    <p><strong>By 2050:</strong> Fortune 500 companies establish innovation satellites in El Dorado—Bayer, BASF, Syngenta, John Deere, Caterpillar, and others place R&D and product testing teams in the city. These partnerships accelerate technology adoption, create high-wage jobs, and position El Dorado as a proving ground for next-generation products. Target: 10+ major corporate R&D centers by 2050, 2,000+ high-wage innovation jobs.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- NEXT-GEN INDUSTRIES -->
+<section id="next-gen-industries" class="section section--bg-navy" style="padding: 60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color: var(--gold)">Economic Diversification</span>
+   <h2 style="color: #fff">Next-Generation Industries for 2045–2055</h2>
+   <p class="lead" style="color:rgba(255,255,255,.78)">Beyond the manufacturing, aerospace, and food industries established by Vision 2040, El Dorado expands into emerging sectors that define 21st-century prosperity: precision agriculture, renewable energy, biotechnology, digital health, and advanced materials. These industries align with rural competitive advantages (land, water, natural resources) and global megatrends (climate, food security, energy transition).</p>
+  </div>
+
+  <div class="infra-grid reveal">
+   <div class="infra-item" style="border-color:rgba(212,165,116,.3)">
+    <div class="infra-icon">🌾</div>
+    <div class="infra-text">
+     <h4 style="color:var(--gold)">Precision & Regenerative Agriculture</h4>
+     <p><strong>Market opportunity by 2050: $500M–$1B sector size</strong>. El Dorado becomes the epicenter of agricultural technology innovation for the Great Plains—sensors, AI, robotics, and biotech that enable farms to produce more food with fewer inputs while regenerating soil and sequestering carbon. Key companies: AgriTech startups (drone spraying, soil monitoring, robotic harvesting), equipment manufacturers, seed biotech (climate-resilient varieties), inputs (biological fertilizers, natural pest management). Workforce: 500+ technical jobs (agronomists, data scientists, technicians). Supporting infrastructure: research labs, testing fields, equipment manufacturing, cold storage, processing, and logistics. By 2050, El Dorado's surrounding counties are globally recognized as models for productive, sustainable agriculture.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Job creation: 500–800 technical roles</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(74,144,191,.3)">
+    <div class="infra-icon">⚡</div>
+    <div class="infra-text">
+     <h4 style="color:var(--sky)">Renewable Energy & Energy Storage</h4>
+     <p><strong>Market opportunity by 2050: $300M–$800M sector</strong>. El Dorado positions itself as a renewable energy hub—manufacturing components, testing systems, and operating utility-scale generation. Key opportunities: (1) Battery manufacturing—lithium-ion and advanced battery assembly; (2) Wind & Solar manufacturing—turbine components, panel assembly; (3) Energy storage systems—thermal storage, mechanical storage, battery systems for grid stability; (4) Microgrids & Controls—software and systems that manage distributed renewable + storage + demand; (5) Critical minerals processing—rare earth refining and battery material recovery. Workforce: 800–1,200 manufacturing and technical jobs. Investment catalyst: $250M in manufacturing facilities. By 2050, El Dorado supplies renewable energy components to global markets and operates as a net-positive energy exporter.</p>
+     <span class="cost">Phase 4–5 (2042–2055) · Job creation: 800–1,200</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(166,61,47,.3)">
+    <div class="infra-icon">🧬</div>
+    <div class="infra-text">
+     <h4 style="color:#e8806c">Biotechnology & Food Science</h4>
+     <p><strong>Market opportunity by 2050: $200M–$400M sector</strong>. El Dorado's convergence of agricultural land, water, research infrastructure, and workforce makes it an ideal location for food and agricultural biotech. Key sectors: (1) Cellular agriculture—lab-grown meat and dairy proteins; (2) Food bioprocessing—fermentation, enzymes, natural food ingredients; (3) Plant biotech—gene editing for climate resilience, nutritional enhancement, yield improvement; (4) Microbial biotech—soil microbiomes, natural pest control, probiotic agriculture; (5) Health-food processing—functional foods, nutraceuticals, natural supplements. Workforce: 300–500 research and manufacturing roles. Investment: $100M+ in biotech facilities and equipment. By 2050, El Dorado is known as the "Food Future Capital" of the Great Plains.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Job creation: 300–500</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(46,110,53,.3)">
+    <div class="infra-icon">🏥</div>
+    <div class="infra-text">
+     <h4 style="color:var(--green)">Rural Healthcare Innovation & Digital Health</h4>
+     <p><strong>Market opportunity by 2050: $150M–$300M sector</strong>. El Dorado becomes a test market and center for rural healthcare innovation—telemedicine platforms, remote diagnostics, wearable health tech, and clinical trials focused on rural health challenges. Key initiatives: (1) Telemedicine centers—clinical hubs offering virtual specialist access; (2) Digital health startups—local companies building rural-specific health apps and devices; (3) Clinical research—university partnerships running trials for rural populations; (4) Medical device manufacturing—wearables, diagnostics, adaptive equipment for remote care; (5) Health workforce training—training rural health workers, nurse practitioners, and community health ambassadors. By 2050, El Dorado is a model for delivering 21st-century healthcare to rural America.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Job creation: 200–400</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(123,94,167,.3)">
+    <div class="infra-icon">🤖</div>
+    <div class="infra-text">
+     <h4 style="color:var(--purple)">Advanced Manufacturing & Robotics</h4>
+     <p><strong>Market opportunity by 2050: $200M–$500M sector</strong>. Building on the aerospace and precision manufacturing base established by Vision 2040, El Dorado expands into advanced manufacturing and robotics—particularly automation that solves rural labor challenges and increases productivity. Key sectors: (1) Autonomous vehicles—testing and manufacturing of farm vehicles and logistics robots; (2) Industrial robotics—custom automation for small and medium manufacturers; (3) Additive manufacturing—3D metal and composite production for specialized components; (4) Precision tools—specialty tooling and equipment for high-value applications; (5) Process automation—integrated systems that reduce labor intensity and improve consistency. Workforce: 400–700 engineering and technical jobs. Investment: $150M+ in facilities. By 2050, El Dorado is known for human-centered automation that augments rather than displaces workers.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Job creation: 400–700</span>
+    </div>
+   </div>
+
+   <div class="infra-item" style="border-color:rgba(200,144,42,.3)">
+    <div class="infra-icon">🌍</div>
+    <div class="infra-text">
+     <h4 style="color:var(--gold)">Impact & Social Economy</h4>
+     <p><strong>Market opportunity by 2050: $100M–$200M sector</strong>. El Dorado cultivates a diverse base of impact businesses—companies solving social and environmental challenges with commercial sustainability. Key sectors: (1) Sustainable packaging—alternatives to plastic, compostable materials; (2) Regenerative tourism—eco-lodging, farm stays, educational experiences; (3) Fair-trade supply chains—specialty foods, textiles, handcrafts from developing countries; (4) Community development finance—platforms connecting impact investors with rural projects; (5) Cooperative enterprises—worker-owned and stakeholder-governed businesses. By 2050, impact companies represent 5–10% of El Dorado's economic base, providing meaningful work and generating positive social and environmental outcomes.</p>
+     <span class="cost">Phase 4–5 (2040–2055) · Job creation: 200–400</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- REGIONAL ECOSYSTEM -->
+<section id="regional-ecosystem" class="section section--primary" style="padding: var(--section-pad)">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">Regional Strategy</span>
+   <span class="section-label" style="color:var(--gold)">2045–2055</span>
+   <h2>Regional Ecosystem Leadership: Butler County & Beyond</h2>
+   <p class="lead">El Dorado's post-2040 success depends on the prosperity of the surrounding region. Vision 2040 Beyond expands El Dorado's economic and civic leadership to position Butler County as a model for rural regional development—coordinated infrastructure, shared institutions, and collaborative economic development that benefits the entire county while anchoring El Dorado as the regional hub.</p>
+  </div>
+
+  <div class="feature-grid reveal">
+   <div class="feature-card" style="border-color:rgba(212,165,116,.3)">
+    <div class="feature-icon">🛣️</div>
+    <h3>Regional Transportation & Logistics Network</h3>
+    <p><strong>By 2050:</strong> El Dorado becomes the logistics hub for southern Kansas—strategically positioned on US-77, I-35 interchange, and rail connections (BNSF, UP). Key infrastructure: (1) Regional warehouse and distribution hub serving a 5-state region; (2) Multimodal terminal (rail + truck + air) coordinating cargo movement; (3) Last-mile delivery network for e-commerce and rural logistics; (4) Autonomous vehicle testing corridor—I-35 to I-49 becomes an AV testbed region. El Dorado's geography—equidistant from Kansas City, Tulsa, and Colorado—makes it a natural regional distribution center. Target: $1B+ in logistics and supply chain investment; 1,000+ logistics jobs.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(74,144,191,.3)">
+    <div class="feature-icon">🏥</div>
+    <h3>Regional Medical & Wellness Hub</h3>
+    <p><strong>By 2050:</strong> El Dorado's Susan B. Allen Memorial Hospital and expanded Butler Community College serve as the health and wellness anchor for the entire region. Expansion includes: (1) Specialty surgical centers (orthopedics, cardiac, cancer); (2) Rural health clinic network across Butler County and neighboring counties; (3) Behavioral health campus (addiction treatment, mental health, psychiatric services); (4) Senior living and long-term care (100+ facilities); (5) Sports medicine and wellness centers. Investment: $200M+ over 15 years. Target: 1,500+ healthcare jobs; serving 150,000+ residents across 5-county region.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(166,61,47,.3)">
+    <div class="feature-icon">🎓</div>
+    <h3>Regional Education & Workforce Development</h3>
+    <p><strong>By 2050:</strong> USD 490 and Butler Community College coordinate to create a world-class education pipeline for the entire region. Key initiatives: (1) K-12 Excellence—USD 490 becomes a model district for rural excellence; satellite schools established in smaller Butler County towns; (2) Early Childhood Centers—accessible pre-K and daycare in every Butler County community; (3) 4-Year University Campus—Butler CC transitions to a full regional university offering engineering, ag tech, and health programs; (4) Workforce Development—continuous training programs for manufacturing, healthcare, agriculture, technology; (5) Lifelong Learning—community colleges offering skills training from age 5 to 85. Investment: $150M+ over 15 years. Target: 5,000+ students in regional programs; 90%+ workforce alignment with regional job demand by 2050.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(46,110,53,.3)">
+    <div class="feature-icon">💚</div>
+    <h3>Regional Conservation & Land Stewardship</h3>
+    <p><strong>By 2050:</strong> Butler County becomes a model for conservation-based economics—preserving natural systems while supporting agricultural productivity. Key initiatives: (1) Conservation easements—protecting sensitive habitats and watersheds; (2) Wildlife corridors—regional habitat networks supporting native species; (3) Floodplain restoration—Walnut River and Elk Creek restored to functioning ecosystems; (4) Grassland conservation—tallgrass prairie protection and restoration; (5) Payment for ecosystem services—farmers compensated for carbon sequestration, water filtration, and habitat provisioning. Investment: $50M+ over 20 years. By 2050, Butler County is nationally recognized as a conservation success story where agriculture, conservation, and prosperity align.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(123,94,167,.3)">
+    <div class="feature-icon">📡</div>
+    <h3>Regional Digital & Data Infrastructure</h3>
+    <p><strong>By 2050:</strong> Butler County operates a unified regional digital backbone—fiber broadband connecting all communities, unified data systems enabling regional coordination, and digital platforms supporting commerce, education, and civic participation. Key infrastructure: (1) County-wide gigabit broadband network; (2) Regional data center hosting agricultural sensors, healthcare data, educational platforms; (3) Digital marketplace connecting rural producers to buyers; (4) Unified municipal systems (permitting, licensing, planning) accessible from any county location; (5) Open data commons providing regional data to researchers, entrepreneurs, and community leaders. Investment: $100M+ over 15 years. By 2050, Butler County's digital infrastructure rivals any metro area in Kansas.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(200,144,42,.3)">
+    <div class="feature-icon">🤝</div>
+    <h3>Regional Governance & Collaboration Framework</h3>
+    <p><strong>By 2050:</strong> El Dorado, Butler County, and regional partners operate an integrated governance framework—coordinating economic development, infrastructure, workforce, and civic strategy across municipal and county boundaries. Key structures: (1) Regional Development Board—public-private partnership with representatives from city, county, schools, businesses, nonprofits; (2) Shared service agreements—coordinating purchasing, equipment, and services across municipalities; (3) Regional master plan—5-year rolling strategic plan updated annually; (4) Data governance—unified performance metrics and accountability; (5) Equity framework—ensuring growth benefits all demographics and geographies in the region. By 2050, El Dorado's regional leadership model is studied and replicated in rural areas nationwide.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- KNOWLEDGE ECONOMY -->
+<section id="knowledge-economy" class="section section--bg-navy" style="padding: 60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color: var(--gold)">Intellectual Capital</span>
+   <h2 style="color: #fff">Knowledge Economy: From Workers to Creators</h2>
+   <p class="lead" style="color:rgba(255,255,255,.78)">By 2050, El Dorado's primary competitive asset is not land or natural resources but intellectual capital—talent, ideas, institutions, and networks. Vision 2040 Beyond invests in knowledge workers, creative entrepreneurs, and research institutions that generate innovations and intellectual property that benefit the world.</p>
+  </div>
+
+  <div class="feature-grid reveal">
+   <div class="feature-card" style="border-color:rgba(212,165,116,.3)">
+    <div class="feature-icon">🧠</div>
+    <h3>Talent Attraction & Retention</h3>
+    <p><strong>By 2050:</strong> El Dorado is known as a place where talented people—researchers, engineers, entrepreneurs, artists, educators—choose to live and work. Key initiatives: (1) Competitive salaries in knowledge sectors ($60K–$150K+ for engineers, researchers, managers); (2) Quality of life investments (parks, culture, dining, recreation) that compete with urban centers; (3) Housing affordability—El Dorado's cost of living allows talented professionals to build wealth and start families; (4) Career growth—clear pathways from entry-level to leadership roles; (5) Community integration—talent programs that connect newcomers with local networks and leadership opportunities. Target: 30% of El Dorado's workforce in knowledge sectors by 2050 (vs. 10% in 2026).</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(74,144,191,.3)">
+    <div class="feature-icon">💻</div>
+    <h3>Remote Work Infrastructure & Digital Talent</h3>
+    <p><strong>By 2050:</strong> El Dorado is a hub for remote workers and digital professionals—individuals and teams working for global companies but living in rural Kansas. Enablers: (1) Gigabit broadband and reliable power infrastructure; (2) Coworking spaces and collaboration hubs; (3) Remote work housing—apartments and homes designed for professional remote work; (4) Community for remote workers—meetups, networking, collaboration spaces; (5) Tax incentives and visa sponsorship for international remote workers. By 2050, 20–30% of El Dorado's professional workforce works for companies headquartered elsewhere but chooses to live locally. This brings global salaries and competencies to rural Kansas while supporting the local tax base and community.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(166,61,47,.3)">
+    <div class="feature-icon">🏆</div>
+    <h3>Innovation Prizes & Challenge Competitions</h3>
+    <p><strong>By 2050:</strong> El Dorado hosts annual innovation competitions and prizes focused on solving rural challenges—climate adaptation, food security, water efficiency, rural healthcare, sustainable manufacturing. Key competitions: (1) $1M+ annual prize purse for breakthrough innovations; (2) Open ideation platform—anyone globally can submit ideas; (3) Incubation support for winning teams; (4) Demo days and investor pitches; (5) Global media and recognition. Target: 500+ submissions annually; 10+ startup teams launched from competitions by 2050. Model: X Prize, XSEED, and similar large-scale innovation platforms.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(46,110,53,.3)">
+    <div class="feature-icon">📚</div>
+    <h3>Continuous Learning & Lifelong Development</h3>
+    <p><strong>By 2050:</strong> El Dorado operates a comprehensive lifelong learning infrastructure—from early childhood through retirement. Key programs: (1) Early childhood education (birth–5): high-quality center-based and family care; (2) K-12 excellence: personalized learning, project-based education, career exploration; (3) Higher education: affordable pathways to degrees and credentials; (4) Workforce training: just-in-time skills development for emerging job market; (5) Adult education: community college courses, certificates, capstone degrees; (6) Retirement learning: elder hostels, mentorship opportunities, continued growth. By 2050, El Dorado's residents average 200+ hours of learning annually—far above the national average—creating a community that is constantly adapting and growing.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(123,94,167,.3)">
+    <div class="feature-icon">🎨</div>
+    <h3>Creative Economy & Arts Innovation</h3>
+    <p><strong>By 2050:</strong> El Dorado is known not just for innovation in tech and agriculture but for creative arts and cultural innovation. Key initiatives: (1) Artist residencies—subsidized housing and studio space for visual artists, musicians, writers, performers; (2) Creative industries—digital media, design, music production, film, publishing; (3) Cultural institutions—museums, galleries, performance venues; (4) Arts education—access to arts training for all ages; (5) Cultural tourism—festivals and events drawing visitors from across the region. Target: 200–300 creative professionals working in El Dorado by 2050; $50M+ annual arts and creative economy. By 2050, El Dorado is recognized as a vibrant cultural destination in rural Kansas.</p>
+   </div>
+
+   <div class="feature-card" style="border-color:rgba(200,144,42,.3)">
+    <div class="feature-icon">🌐</div>
+    <h3>Global Learning Networks & International Partnerships</h3>
+    <p><strong>By 2050:</strong> El Dorado is globally connected—with university partnerships, business networks, and cultural exchanges spanning the world. Key initiatives: (1) Sister city partnerships—ongoing exchange with cities in Europe, Asia, Africa, Latin America; (2) International student and scholar hosting; (3) Student exchange programs—El Dorado students study abroad; international students study in El Dorado; (4) Global research collaborations—joint projects with universities worldwide; (5) International business partnerships—El Dorado companies doing business globally; global companies operating in El Dorado. Target: 5% of El Dorado's population has lived or studied abroad; 20% speak a second language fluently; 50+ international partnerships. By 2050, El Dorado feels connected to the world despite its rural Kansas location.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- SUSTAINABILITY FRAMEWORK -->
+<section id="sustainability" class="section section--primary" style="padding: var(--section-pad)">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-category">Long-Term Viability</span>
+   <span class="section-label" style="color:var(--gold)">2040–2100 Vision</span>
+   <h2>Sustainability Framework: Regenerative Growth Model</h2>
+   <p class="lead">Vision 2040 Beyond advances a regenerative growth model—one where economic growth actively improves environmental and social systems rather than depleting them. El Dorado by 2050 leaves the region healthier, more prosperous, more connected, and more resilient than it was in 2026.</p>
+  </div>
+
+  <div class="three-col-grid reveal">
+   <div class="text-block">
+    <h3 style="color:var(--gold);margin-bottom:12px">Environmental Sustainability</h3>
+    <p><strong>Net Positive Outcomes by 2050:</strong> (1) Carbon—El Dorado operates at net-zero carbon emissions in city operations; surrounding region sequesters more carbon than it emits through regenerative agriculture and forest restoration; (2) Water—groundwater levels are rising, not falling; water quality is improving through reduced pollution; (3) Biodiversity—native species populations are recovering; habitat connectivity is improving; (4) Soil—soil organic matter is increasing; erosion has stopped; soil health is visibly improving; (5) Air quality—cleaner than 2026 due to eliminated fossil fuel use and reduced industrial emissions.</p>
+   </div>
+
+   <div class="text-block">
+    <h3 style="color:var(--sky);margin-bottom:12px">Economic Sustainability</h3>
+    <p><strong>Inclusive, Distributed Prosperity by 2050:</strong> (1) Wage growth—median household income in El Dorado exceeds state and national averages; wealth distribution is more equitable; (2) Job quality—jobs offer benefits, career growth, and dignity; not just subsistence wages; (3) Small business—locally owned businesses thrive; 50% of retail and service sectors are locally owned; (4) Cooperative enterprises—worker ownership increases to 15–20% of economy; (5) Wealth building—homeownership, small business ownership, and investment participation are accessible to all income levels; no community is systematically excluded from wealth-building opportunities.</p>
+   </div>
+
+   <div class="text-block">
+    <h3 style="color:var(--green);margin-bottom:12px">Social Sustainability</h3>
+    <p><strong>Thriving Communities by 2050:</strong> (1) Health—life expectancy increases; chronic disease rates decrease; mental health and substance abuse services are accessible and effective; (2) Education—K-12 graduation rates exceed 95%; higher education participation exceeds 70%; (3) Civic participation—75%+ of adults volunteer, vote, or participate in community leadership; (4) Diversity & inclusion—all demographic groups are represented in leadership; disparities in outcomes by race, gender, and socioeconomic status have narrowed significantly; (5) Trust—community members trust each other and institutions; civic engagement is high; conflict is resolved constructively; (6) Family stability—family incomes are sufficient; housing is affordable; childcare is accessible; single parents can thrive.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- MULTIGENERATIONAL LEGACY -->
+<section id="legacy" class="section section--bg-navy" style="padding: 60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color: var(--gold)">Long-Term Impact</span>
+   <h2 style="color: #fff">Multigenerational Legacy: What We Leave Behind</h2>
+   <p class="lead" style="color:rgba(255,255,255,.78)">Vision 2040 Beyond is ultimately about what El Dorado leaves to future generations. Not just economic assets but environmental health, civic institutions, human relationships, and spiritual inheritance. By 2050 and beyond, El Dorado has built something that lasts—a model for how rural communities can thrive in the 21st century.</p>
+  </div>
+
+  <div class="legacy-grid reveal" style="display:grid;gap:40px;margin-top:40px">
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--gold)">
+    <h3 style="color:var(--gold);margin-bottom:16px">For Young People: Opportunity & Home</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">By 2050, El Dorado youth do not have to leave to find opportunity. Whether your passion is agriculture, technology, healthcare, arts, or business, there are pathways to meaningful work with competitive wages and career growth. The city invests in your education and development. Homeownership is achievable on professional salaries. You can start a business without moving to a metropolis. You can build a life and a family in your hometown. Some will still choose to leave and explore—that's healthy. But those who stay or return are not making a sacrifice; they're choosing a place that offers opportunity, community, and quality of life.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--sky)">
+    <h3 style="color:var(--sky);margin-bottom:16px">For Working-Age Adults: Dignity & Growth</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">El Dorado's economy by 2050 offers middle-class wages for skilled work across many sectors. You can support a family on one income if you choose. Benefits—healthcare, retirement, paid time off—are standard, not luxury. There are clear pathways for advancement and skill development. Wage growth keeps pace with productivity and cost of living. If you lose a job, the community supports retraining and transition. Entrepreneurs are not just tolerated but celebrated. By 2050, work in El Dorado means dignity, security, and the possibility of building wealth.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--green)">
+    <h3 style="color:var(--green);margin-bottom:16px">For Elders: Respect & Integration</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">By 2050, aging in El Dorado means choice, respect, and continued contribution. You can age in your own home with support services available. Senior housing options range from active communities to assisted living to memory care. Healthcare is accessible and affordable. But more importantly, you are not isolated or invisible. The community values your experience and wisdom. There are mentorship programs, lifelong learning opportunities, and volunteer roles where you contribute meaningfully. You can be with grandchildren and extended family. El Dorado honors its elders and creates space for them to flourish in their final chapters.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--purple)">
+    <h3 style="color:var(--purple);margin-bottom:16px">For All Communities: Equity & Belonging</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">By 2050, El Dorado is genuinely welcoming to people of all racial and ethnic backgrounds, faiths, gender identities, and national origins. Representation in leadership and opportunities matches community demographics. Disparities in income, health, education, and housing have narrowed significantly. Historic discrimination is acknowledged and repaired. The city actively recruits and retains talent from communities that have been excluded from rural opportunity. Immigrants and their children feel at home and can build lives and legacies. By 2050, diversity strengthens El Dorado—culturally, economically, and morally.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--gold)">
+    <h3 style="color:var(--gold);margin-bottom:16px">Environmental Inheritance: A Healed Landscape</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">The greatest gift El Dorado can leave future generations is a healed, thriving natural environment. By 2050, the Walnut River is clean and flowing, supporting fisheries and recreation. Groundwater levels are stable or rising. Soil is alive—rich with microorganisms, storing carbon, holding water. Native plants and animals have returned. The air is clean. The landscape that sustained El Dorado in the past sustains it in the future. This is not nostalgia; it's regeneration. El Dorado proves that human prosperity and environmental health are not opposites but partners.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--sky)">
+    <h3 style="color:var(--sky);margin-bottom:16px">Institutional Legacy: Knowledge & Capability</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">El Dorado by 2050 has built institutions—research centers, educational systems, cultural organizations, civic networks—that continue generating knowledge and capability for generations. These institutions are endowed and sustainable. They attract talent and capital. They partner with global networks. But they are rooted in El Dorado and accountable to the community. They exist not as extractive forces but as generative forces—creating knowledge, training the next generation, solving problems. This institutional capital is as valuable as financial capital and more lasting.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--green)">
+    <h3 style="color:var(--green);margin-bottom:16px">Civic Legacy: Relationships & Trust</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">The deepest legacy is relational. By 2050, El Dorado is a place where people know each other and trust each other. Neighbors help neighbors. Civic institutions work. People participate. Conflict is navigated constructively. Newcomers are welcomed. Relationships transcend demographic lines. This relational wealth—built through decades of intentional community building—is the most resilient asset a city can have. It survives recessions, climate disruption, and technological change. El Dorado's legacy is a community that works because people are invested in each other's flourishing.</p>
+   </div>
+
+   <div style="background:rgba(255,255,255,.05);padding:30px;border-radius:8px;border-left:4px solid var(--purple)">
+    <h3 style="color:var(--purple);margin-bottom:16px">Model for the World: A Proof of Concept</h3>
+    <p style="color:rgba(255,255,255,.85);line-height:1.7">Perhaps most importantly, El Dorado by 2050 is a living proof of concept. It demonstrates that rural communities can thrive in the 21st century. That prosperity is possible in places far from major metros. That communities can be economically dynamic while environmentally regenerative. That diversity strengthens rather than threatens community. That technology can serve human flourishing rather than replacing it. Students, leaders, and innovators from around the world come to El Dorado to learn and replicate what's been built. The city becomes a beacon—proof that another rural future is possible, practical, and desirable.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section--primary" style="padding: 80px 0; text-align: center">
+ <div class="container">
+  <div class="reveal">
+   <h2 style="margin-bottom:24px">Join the Vision Beyond 2040</h2>
+   <p style="font-size:18px; line-height:1.7; color:#666; margin-bottom:40px; max-width:600px; margin-left:auto; margin-right:auto">Vision 2040 Beyond is not a predetermined outcome. It's a direction and an invitation. The future depends on choices we make starting today—investments in infrastructure, talent, institutions, and relationships. If you're an entrepreneur, investor, educator, government leader, or community member who sees possibility in this vision, there's work to do.</p>
+   <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap">
+    <a href="index.html" class="btn" style="background:var(--gold); color:#fff; padding:16px 32px; border-radius:4px; font-weight:600">Return to Vision 2040</a>
+    <a href="brief.html" class="btn" style="background:#666; color:#fff; padding:16px 32px; border-radius:4px; font-weight:600">Vision 2040 Brief</a>
+    <a href="mailto:info@eldorado2040.com" class="btn" style="background:#666; color:#fff; padding:16px 32px; border-radius:4px; font-weight:600">Contact Us</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer style="background:#222; color:#fff; padding:60px 0; border-top:1px solid #444">
+ <div class="container">
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:40px; margin-bottom:40px">
+   <div>
+    <h4 style="margin-bottom:16px">El Dorado Vision 2040</h4>
+    <p style="font-size:14px; line-height:1.6; color:#aaa">A comprehensive 15-year development plan for El Dorado, Kansas—rooted in heritage and positioned for regional leadership.</p>
+   </div>
+   <div>
+    <h4 style="margin-bottom:16px">Navigation</h4>
+    <ul style="list-style:none; font-size:14px; line-height:1.8">
+     <li><a href="index.html" style="color:#d4a574; text-decoration:none">Home</a></li>
+     <li><a href="economy.html" style="color:#d4a574; text-decoration:none">Economy & Growth</a></li>
+     <li><a href="place.html" style="color:#d4a574; text-decoration:none">Place & Recreation</a></li>
+     <li><a href="people.html" style="color:#d4a574; text-decoration:none">Community & People</a></li>
+    </ul>
+   </div>
+   <div>
+    <h4 style="margin-bottom:16px">Contact</h4>
+    <p style="font-size:14px; color:#aaa">City of El Dorado<br/>El Dorado, KS 67042<br/>+1 (316) 321-9100<br/><a href="mailto:info@eldorado2040.com" style="color:#d4a574">info@eldorado2040.com</a></p>
+   </div>
+  </div>
+  <div style="border-top:1px solid #444; padding-top:20px; text-align:center; color:#888; font-size:12px">
+   <p>&copy; 2026 El Dorado Vision 2040. All rights reserved. <a href="#" style="color:#d4a574">Privacy Policy</a> · <a href="#" style="color:#d4a574">Terms of Use</a></p>
+  </div>
+ </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="js/nav.min.js" defer></script>
+<script src="js/main.min.js" defer></script>
+
+</body>
+</html>

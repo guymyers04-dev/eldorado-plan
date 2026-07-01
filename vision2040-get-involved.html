@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | Vision 2040</title>
+    <meta name="description" content="Three ways to help Vision 2040: Become an ambassador, sponsor events, or partner for business development.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* PATHWAY CARDS */
+        .pathways {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pathway-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pathway-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+            transform: translateY(-6px);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .card-body {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-highlight {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .card-benefits {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-benefits li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .card-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .card-benefits li:before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-light);
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--white);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .pathways {
+                grid-template-columns: 1fr;
+            }
+
+            .card-header {
+                padding: 1.5rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="/vision2040-what-is.html">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Get Involved</h1>
+        <p>Choose Your Path to Shape El Dorado's Future</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <p class="intro-text">There are three powerful ways to help Vision 2040 succeed. Choose the path that fits your interests, schedule, and goals.</p>
+
+            <div class="pathways">
+                <!-- AMBASSADOR CARD -->
+                <div class="pathway-card">
+                    <div class="card-header">
+                        <div class="card-icon">🌟</div>
+                        <div class="card-title">Become an Ambassador</div>
+                        <div class="card-subtitle">Lead by Example</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Help spread the word about Vision 2040 to your personal and professional networks.</p>
+
+                        <div class="card-highlight">30 minutes per month</div>
+
+                        <ul class="card-benefits">
+                            <li>Exclusive early access to deals & job data</li>
+                            <li>Monthly training calls (optional)</li>
+                            <li>Branded toolkit (slides, graphics, talking points)</li>
+                            <li>Community recognition & newsletter feature</li>
+                            <li>Network with 100+ other ambassadors</li>
+                        </ul>
+
+                        <a href="/vision2040-ambassador.html" class="btn">Learn More & Apply</a>
+                    </div>
+                </div>
+
+                <!-- SPONSOR CARD -->
+                <div class="pathway-card">
+                    <div class="card-header">
+                        <div class="card-icon">💰</div>
+                        <div class="card-title">Sponsor an Event</div>
+                        <div class="card-subtitle">Support Growth</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Get brand visibility while supporting community growth and economic development.</p>
+
+                        <div class="card-highlight">$250 - $1,500 investment</div>
+
+                        <ul class="card-benefits">
+                            <li>Logo placement at events</li>
+                            <li>Social media coverage & mentions</li>
+                            <li>Networking opportunities</li>
+                            <li>Community recognition</li>
+                            <li>Brand visibility to 1,000s+</li>
+                        </ul>
+
+                        <a href="/vision2040-sponsor.html" class="btn btn-secondary">View Sponsorship Options</a>
+                    </div>
+                </div>
+
+                <!-- PARTNER CARD -->
+                <div class="pathway-card">
+                    <div class="card-header">
+                        <div class="card-icon">🤝</div>
+                        <div class="card-title">Business Partnership</div>
+                        <div class="card-subtitle">Shape the Future</div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">Lead economic development in your sector. Recruit talent, attract investment, drive growth.</p>
+
+                        <div class="card-highlight">Quarterly commitment</div>
+
+                        <ul class="card-benefits">
+                            <li>Lead sector-specific recruitment</li>
+                            <li>Host industry roundtables</li>
+                            <li>Access to market intelligence</li>
+                            <li>Priority deal flow access</li>
+                            <li>Thought leadership positioning</li>
+                        </ul>
+
+                        <a href="#partner-form" class="btn btn-secondary">Tell Us More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can I do more than one of these?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Many people are ambassadors AND sponsors. You can mix and match based on your interests and capacity. Choose what feels right for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What if I don't have much time?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Ambassador is just 30 minutes per month, and the monthly training call is optional. You can also simply share content when it fits your schedule. No pressure—do what works for you.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Is there a cost to be an ambassador?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No! Being an ambassador is completely free. We provide all materials, training, and support. The only cost is if you decide to sponsor an event.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Who can be an ambassador?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Anyone who is passionate about El Dorado's future! Business owners, nonprofit leaders, educators, community advocates, young professionals, students—we're looking for all kinds of leaders.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What sponsorship options are available?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Several! July 4 Independence Day Booth ($250-$500), Butler County Fair ($750-$1,500), and monthly First Fridays ($250+). Check the sponsorship page for full details and benefits at each level.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I sign up?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Ambassadors: Fill out the form on the Ambassador page. Sponsors: Contact us via the sponsorship page. Partners: Send us a message using the form below or email info@eldorado.gov.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNER FORM -->
+        <section id="partner-form">
+            <h2>Business Partnership Form</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Tell us about your business development interests.</p>
+
+            <form style="max-width: 600px; margin: 0 auto; background: var(--bg-light); padding: 2rem; border-radius: 12px;">
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="name" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Name *</label>
+                    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="company" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Company *</label>
+                    <input type="text" id="company" name="company" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="email" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Email *</label>
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="phone" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Phone</label>
+                    <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="sector" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">Industry/Sector *</label>
+                    <select id="sector" name="sector" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem;">
+                        <option value="">Select a sector...</option>
+                        <option value="tech">Technology</option>
+                        <option value="housing">Housing & Real Estate</option>
+                        <option value="logistics">Logistics & Supply Chain</option>
+                        <option value="agriculture">Agriculture & Precision Ag</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="retail">Retail & Services</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label for="interest" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">What interests you most? *</label>
+                    <textarea id="interest" name="interest" required placeholder="Tell us about your business development goals or how you'd like to contribute..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; min-height: 120px; font-family: inherit;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" name="subscribe" style="margin-right: 0.75rem;">
+                        <span style="color: var(--text-light);">Yes, add me to the Vision 2040 email list</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Send Partnership Inquiry</button>
+            </form>
+        </section>
+
+        <!-- CTA BANNER -->
+        <div class="cta-banner">
+            <h2>Ready to Make a Difference?</h2>
+            <p>No matter which path you choose, you'll be helping shape El Dorado's future.</p>
+            <a href="/vision2040-ambassador.html" class="btn" style="background: var(--accent-light); margin-right: 1rem;">Become Ambassador</a>
+            <a href="/vision2040-sponsor.html" class="btn" style="background: var(--accent);">Sponsor Event</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

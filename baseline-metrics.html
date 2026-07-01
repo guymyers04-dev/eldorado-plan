@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>2024 Baseline Metrics — El Dorado Vision 2040 | Current State</title>
+ <meta name="description" content="El Dorado's current state (2024) baseline metrics: population, employment, housing, income, tax base, education. Compare to 2040 targets." />
+ <meta property="og:title" content="2024 Baseline Metrics — El Dorado Vision 2040" />
+ <meta property="og:description" content="Current baseline data for El Dorado, Kansas as of 2024. See how the city will evolve through 2040." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://eldorado2040.com/baseline-metrics.html" />
+ <meta property="og:site_name" content="El Dorado Vision 2040" />
+
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+ <link rel="preload" href="css/styles-modern.min.css" as="style">
+ <link rel="stylesheet" href="css/styles-modern.min.css">
+ <link rel="stylesheet" href="css/components-advanced.min.css">
+ <link rel="stylesheet" href="css/utilities.min.css">
+ <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+
+ <style>
+   .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0; }
+   .metric-card { background: #f9f7f4; padding: 30px; border-radius: 8px; border-top: 4px solid #c8902a; }
+   .metric-card h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; color: #8a7d73; margin-bottom: 10px; }
+   .metric-value { font-size: 2.2rem; font-weight: 700; color: #0d1b2a; margin-bottom: 5px; }
+   .metric-label { font-size: 0.95rem; color: #4a4238; font-weight: 500; margin-bottom: 10px; }
+   .metric-target { font-size: 0.85rem; color: #c8902a; font-weight: 600; }
+
+   .comparison-table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 0.95rem; }
+   .comparison-table th, .comparison-table td { padding: 14px; text-align: left; border-bottom: 1px solid #d8d0c8; }
+   .comparison-table th { background: #0d1b2a; color: #fff; font-weight: 600; }
+   .comparison-table tr:nth-child(even) { background: #f9f7f4; }
+   .comparison-table .metric-name { font-weight: 600; color: #0d1b2a; }
+   .comparison-table .baseline { color: #4a4238; }
+   .comparison-table .target { font-weight: 600; color: #1fa36b; }
+   .comparison-table .change { font-weight: 600; color: #c54a31; }
+
+   .chart-container { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #d8d0c8; margin: 30px 0; position: relative; height: 350px; }
+   .chart-wrapper { position: relative; height: 100%; }
+
+   .source-note { font-size: 0.8rem; color: #8a7d73; font-style: italic; margin-top: 15px; }
+ </style>
+</head>
+<body data-page="baseline-metrics">
+
+<div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
+<div id="nav-mount"></div>
+
+<!-- ════ PAGE HERO ════ -->
+<div class="page-hero">
+ <div class="page-hero-inner">
+  <div class="breadcrumb"><a href="index.html">Home</a> › Reference › Current State</div>
+  <h1>2024 Baseline Metrics</h1>
+  <p class="page-subtitle">El Dorado's current state. Compare to 2040 targets to see the transformation ahead.</p>
+ </div>
+</div>
+
+<!-- ════ PAGE NAV PILLS ════ -->
+<nav class="page-nav">
+ <div class="page-nav-inner">
+  <a href="#demographics" class="page-nav__pill">Demographics</a>
+  <a href="#economics" class="page-nav__pill">Economics & Jobs</a>
+  <a href="#housing" class="page-nav__pill">Housing & Income</a>
+  <a href="#education" class="page-nav__pill">Education</a>
+  <a href="#fiscal" class="page-nav__pill">Fiscal Health</a>
+  <a href="#comparisons" class="page-nav__pill">Peer Comparison</a>
+ </div>
+</nav>
+
+<!-- ════ DEMOGRAPHICS ════ -->
+<section id="demographics" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">Who We Are Today</span>
+   <h2>Demographics (2024 Baseline)</h2>
+   <p class="lead">El Dorado's population, age distribution, and household composition as of 2024.</p>
+  </div>
+
+  <div class="metric-grid reveal">
+   <div class="metric-card">
+    <h3>Population</h3>
+    <div class="metric-value">12,694</div>
+    <div class="metric-label">2024 Estimate</div>
+    <div class="metric-target">2040 Target: 17,900–18,200 (+41%)</div>
+    <div class="source-note">Source: U.S. Census Bureau 2020 Census, City of El Dorado estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Median Age</h3>
+    <div class="metric-value">38.2 yrs</div>
+    <div class="metric-label">2024</div>
+    <div class="metric-target">Target 2040: 36.5 yrs (aging reversed by youth in-migration)</div>
+    <div class="source-note">Source: U.S. Census Bureau American Community Survey (ACS)</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Youth (Age 18–35)</h3>
+    <div class="metric-value">18%</div>
+    <div class="metric-label">% of Population</div>
+    <div class="metric-target">Target 2040: 24% (youth retention + in-migration)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Family Households</h3>
+    <div class="metric-value">62%</div>
+    <div class="metric-label">% of Total Households</div>
+    <div class="metric-target">Target 2040: 65% (family-friendly policies attract young families)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Senior Population (65+)</h3>
+    <div class="metric-value">19%</div>
+    <div class="metric-label">% of Population</div>
+    <div class="metric-target">Target 2040: 18% (still growing but slower than youth growth)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Households</h3>
+    <div class="metric-value">5,420</div>
+    <div class="metric-label">Total Households (2024)</div>
+    <div class="metric-target">Target 2040: 7,200–7,400 households (+33%)</div>
+    <div class="source-note">Source: City Planning Department, Census ACS</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ ECONOMICS & JOBS ════ -->
+<section id="economics" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">Jobs & Economic Base</span>
+   <h2>Economics (2024 Baseline)</h2>
+   <p class="lead">Employment, industry breakdown, and economic diversity as of 2024.</p>
+  </div>
+
+  <div class="metric-grid reveal">
+   <div class="metric-card">
+    <h3>Total Employment</h3>
+    <div class="metric-value">5,890</div>
+    <div class="metric-label">Jobs in El Dorado (2024)</div>
+    <div class="metric-target">Target 2040: 7,500+ jobs (+1,610 net new jobs)</div>
+    <div class="source-note">Source: Bureau of Labor Statistics, Kansas Department of Commerce</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Unemployment Rate</h3>
+    <div class="metric-value">3.8%</div>
+    <div class="metric-label">2024 Rate</div>
+    <div class="metric-target">Target 2040: 3.0% (reflects strong labor demand)</div>
+    <div class="source-note">Source: Kansas Department of Labor</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Avg. Wage (All Jobs)</h3>
+    <div class="metric-value">$38,900</div>
+    <div class="metric-label">Annual Wage (2024)</div>
+    <div class="metric-target">Target 2040: $52,000+ (12–15% real wage growth via higher-wage industry recruitment)</div>
+    <div class="source-note">Source: Bureau of Labor Statistics, Quarterly Census of Employment and Wages</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Largest Employer Sector</h3>
+    <div class="metric-value">Health</div>
+    <div class="metric-label">1,420 jobs (24%)</div>
+    <div class="metric-target">Target 2040: Health (20%), Manufacturing (22%), Education (18%)</div>
+    <div class="source-note">Source: City of El Dorado, El Dorado Inc., Kansas Department of Commerce</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Manufacturing Jobs</h3>
+    <div class="metric-value">650</div>
+    <div class="metric-label">Jobs (11% of total)</div>
+    <div class="metric-target">Target 2040: 1,650 jobs (22% of total via mega-site strategy)</div>
+    <div class="source-note">Source: Bureau of Labor Statistics</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Business Formations</h3>
+    <div class="metric-value">35</div>
+    <div class="metric-label">New Businesses/Year (2024)</div>
+    <div class="metric-target">Target 2040: 55+ new businesses/year (50% increase via entrepreneurship support)</div>
+    <div class="source-note">Source: SBA, Kansas Secretary of State filings</div>
+   </div>
+  </div>
+
+  <div class="chart-container reveal">
+   <canvas id="jobsChart"></canvas>
+  </div>
+ </div>
+</section>
+
+<!-- ════ HOUSING ════ -->
+<section id="housing" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">Shelter & Affordability</span>
+   <h2>Housing (2024 Baseline)</h2>
+   <p class="lead">Housing stock, affordability, and homeownership status.</p>
+  </div>
+
+  <div class="metric-grid reveal">
+   <div class="metric-card">
+    <h3>Total Housing Units</h3>
+    <div class="metric-value">5,980</div>
+    <div class="metric-label">Occupied + Vacant (2024)</div>
+    <div class="metric-target">Target 2040: 8,000–8,200 units (+33%)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Vacancy Rate</h3>
+    <div class="metric-value">9.2%</div>
+    <div class="metric-label">Vacant Units</div>
+    <div class="metric-target">Target 2040: 4–5% (healthy vacancy for mobility and development)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Median Home Value</h3>
+    <div class="metric-value">$125,000</div>
+    <div class="metric-label">2024 Estimate</div>
+    <div class="metric-target">Target 2040: $165,000–$175,000 (market appreciation + new construction)</div>
+    <div class="source-note">Source: Zillow, County Assessor records, local real estate market data</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Homeownership Rate</h3>
+    <div class="metric-value">72%</div>
+    <div class="metric-label">% of Households</div>
+    <div class="metric-target">Target 2040: 70% (healthy balance of ownership and rental for diversity)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Cost-Burdened Renters</h3>
+    <div class="metric-value">29%</div>
+    <div class="metric-label">% Paying >30% Income for Rent</div>
+    <div class="metric-target">Target 2040: 18% (via affordable housing production and wage growth)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Median Household Income</h3>
+    <div class="metric-value">$48,500</div>
+    <div class="metric-label">2024 Estimate</div>
+    <div class="metric-target">Target 2040: $62,000–$65,000 (real wage growth via higher-wage industries)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates, Bureau of Labor Statistics</div>
+   </div>
+  </div>
+
+  <div class="chart-container reveal">
+   <canvas id="housingChart"></canvas>
+  </div>
+ </div>
+</section>
+
+<!-- ════ EDUCATION ════ -->
+<section id="education" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">Learning & Workforce</span>
+   <h2>Education (2024 Baseline)</h2>
+   <p class="lead">K–12 performance, higher education, and workforce readiness.</p>
+  </div>
+
+  <div class="metric-grid reveal">
+   <div class="metric-card">
+    <h3>USD 490 Graduation Rate</h3>
+    <div class="metric-value">88.2%</div>
+    <div class="metric-label">4-Year Rate (2024)</div>
+    <div class="metric-target">Target 2040: 92%+ (top 10% in Kansas)</div>
+    <div class="source-note">Source: Kansas Department of Education, USD 490 Annual Report</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>College Readiness (ACT)</h3>
+    <div class="metric-value">22.8</div>
+    <div class="metric-label">Mean ACT Score</div>
+    <div class="metric-target">Target 2040: 24.2+ (increase via curriculum improvements)</div>
+    <div class="source-note">Source: ACT, USD 490 records</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Butler CC Enrollment</h3>
+    <div class="metric-value">3,180</div>
+    <div class="metric-label">Total Enrollment (2024)</div>
+    <div class="metric-target">Target 2040: 3,800–4,000 (regional growth + workforce partnerships)</div>
+    <div class="source-note">Source: Butler Community College, Kansas Board of Regents</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Adults w/ Bachelor's Degree</h3>
+    <div class="metric-value">18%</div>
+    <div class="metric-label">% of Population 25+</div>
+    <div class="metric-target">Target 2040: 24%+ (via USD 490 → BCC → 4-year pathways)</div>
+    <div class="source-note">Source: Census ACS 5-Year Estimates</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Childcare Capacity</h3>
+    <div class="metric-value">180</div>
+    <div class="metric-label">Licensed Childcare Slots</div>
+    <div class="metric-target">Target 2040: 320+ slots (enable working families and workforce participation)</div>
+    <div class="source-note">Source: Kansas Department of Health & Environment licensing data</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Public Safety (Crime Rate)</h3>
+    <div class="metric-value">95</div>
+    <div class="metric-label">Crimes per 10K Residents (2024)</div>
+    <div class="metric-target">Target 2040: &lt;85 per 10K (maintain or improve safety as city grows)</div>
+    <div class="source-note">Source: FBI Uniform Crime Reporting (UCR)</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ════ FISCAL HEALTH ════ -->
+<section id="fiscal" style="padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">Tax Base & Finances</span>
+   <h2>Fiscal Health (2024 Baseline)</h2>
+   <p class="lead">City revenues, tax base, and financial capacity for infrastructure investment.</p>
+  </div>
+
+  <div class="metric-grid reveal">
+   <div class="metric-card">
+    <h3>Assessed Valuation</h3>
+    <div class="metric-value">$385M</div>
+    <div class="metric-label">2024 Total (property + equipment)</div>
+    <div class="metric-target">Target 2040: $550M–$580M (43% increase via new construction & industry)</div>
+    <div class="source-note">Source: Butler County Assessor</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Mill Levy</h3>
+    <div class="metric-value">28.5</div>
+    <div class="metric-label">Mills per $1,000 AV</div>
+    <div class="metric-target">Target 2040: &lt;30 mills (lower tax burden while growing revenue)</div>
+    <div class="source-note">Source: City of El Dorado Finance Department</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>General Fund Revenue</h3>
+    <div class="metric-value">$4.2M</div>
+    <div class="metric-label">Annual (2024)</div>
+    <div class="metric-target">Target 2040: $6.0M–$6.5M (tax base growth + economic development)</div>
+    <div class="source-note">Source: City of El Dorado Budget, Finance Department</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Fund Balance</h3>
+    <div class="metric-value">$1.8M</div>
+    <div class="metric-label">Unassigned (2024)</div>
+    <div class="metric-target">Target 2040: $2.5M+ (3–4 months operating reserves)</div>
+    <div class="source-note">Source: City of El Dorado Comprehensive Annual Financial Report (CAFR)</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Capital Improvement Plan</h3>
+    <div class="metric-value">$500K</div>
+    <div class="metric-label">Annual Investment (2024)</div>
+    <div class="metric-target">Target 2040: $1.2M+ annually (infrastructure for growth)</div>
+    <div class="source-note">Source: City of El Dorado CIP Committee</div>
+   </div>
+
+   <div class="metric-card">
+    <h3>Debt-to-Revenue Ratio</h3>
+    <div class="metric-value">1.8x</div>
+    <div class="metric-label">2024 Ratio</div>
+    <div class="metric-target">Target 2040: &lt;1.5x (healthier balance while enabling growth investment)</div>
+    <div class="source-note">Source: City Finance Department, CAFR</div>
+   </div>
+  </div>
+
+  <div class="chart-container reveal">
+   <canvas id="fiscalChart"></canvas>
+  </div>
+ </div>
+</section>
+
+<!-- ════ PEER COMPARISON ════ -->
+<section id="comparisons" style="background:#f9f7f4;padding:60px 0">
+ <div class="container">
+  <div class="section-header reveal">
+   <span class="section-label" style="color:var(--gold-dark)">How We Compare</span>
+   <h2>El Dorado vs. Peer Communities</h2>
+   <p class="lead">How El Dorado's baseline (2024) compares to similar-sized Kansas communities.</p>
+  </div>
+
+  <div class="container-narrow reveal" style="max-width:100%;margin:40px auto;overflow-x:auto">
+   <table class="comparison-table">
+    <thead>
+     <tr>
+      <th style="width:28%">Metric</th>
+      <th>El Dorado (2024)</th>
+      <th>Kansas Avg (Similar Size)</th>
+      <th>Peer High (Benchmark)</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="metric-name">Population</td>
+      <td class="baseline">12,694</td>
+      <td>13,200</td>
+      <td style="color:#1fa36b;font-weight:600">15,000–16,000 (Emporia)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Population Growth Rate</td>
+      <td class="baseline">-0.2% (2010–2020)</td>
+      <td>+1.2%</td>
+      <td style="color:#1fa36b;font-weight:600">+3.1% (Manhattan)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Median Household Income</td>
+      <td class="baseline">$48,500</td>
+      <td>$51,800</td>
+      <td style="color:#1fa36b;font-weight:600">$58,200 (Salina)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Homeownership Rate</td>
+      <td class="baseline">72%</td>
+      <td>70%</td>
+      <td style="color:#1fa36b;font-weight:600">74% (McPherson)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">College Readiness (ACT)</td>
+      <td class="baseline">22.8</td>
+      <td>22.0</td>
+      <td style="color:#1fa36b;font-weight:600">23.8 (Salina)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">HS Graduation Rate</td>
+      <td class="baseline">88.2%</td>
+      <td>88.0%</td>
+      <td style="color:#1fa36b;font-weight:600">91.2% (Manhattan)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Unemployment Rate</td>
+      <td class="baseline">3.8%</td>
+      <td>4.1%</td>
+      <td style="color:#1fa36b;font-weight:600">3.2% (Topeka)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Business Formation Rate</td>
+      <td class="baseline">35/year</td>
+      <td>42/year</td>
+      <td style="color:#1fa36b;font-weight:600">58/year (Wichita region)</td>
+     </tr>
+     <tr>
+      <td class="metric-name">Housing Cost Burden (Renters)</td>
+      <td class="baseline">29%</td>
+      <td>31%</td>
+      <td style="color:#1fa36b;font-weight:600">22% (Olathe)</td>
+     </tr>
+    </tbody>
+   </table>
+  </div>
+
+  <div class="container-narrow reveal" style="max-width:700px;margin:40px auto">
+   <h3 style="margin-bottom:15px">What This Means</h3>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;list-style:none;padding:0">
+    <li style="margin-bottom:10px">✅ <strong>Education Strength:</strong> USD 490's performance is above state average. College readiness (ACT 22.8) exceeds typical peer communities.</li>
+    <li style="margin-bottom:10px">⚠️ <strong>Population Stagnation:</strong> Unlike high-growth peers (Manhattan +3.1%), El Dorado lost 0.2% population 2010–2020. Vision 2040 targets +41% reversal.</li>
+    <li style="margin-bottom:10px">⚠️ <strong>Income Below Peers:</strong> Median household income ($48.5K) is $3–10K below similar Kansas communities. Higher-wage industry recruitment addresses this.</li>
+    <li style="margin-bottom:10px">✅ <strong>Homeownership Strong:</strong> 72% homeownership rate matches peer communities; stable foundation for growth.</li>
+    <li style="margin-bottom:10px">⚠️ <strong>Business Formation Lagging:</strong> 35 new businesses/year vs. peer average of 42. Vision 2040 targets 50+ via entrepreneurship support.</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ════ DATA SOURCES ════ -->
+<section id="sources" style="padding:60px 0;background:#f9f7f4">
+ <div class="container">
+  <div class="section-header reveal">
+   <h2>Data Sources & Methodology</h2>
+   <p class="lead">All metrics are from authoritative public data sources. Data is current as of June 2026.</p>
+  </div>
+
+  <div class="container-narrow reveal" style="max-width:800px;margin:40px auto">
+   <h3 style="margin:30px 0 15px">Primary Sources</h3>
+   <ul style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:30px">
+    <li><strong>U.S. Census Bureau</strong> — Population, housing, income, household data (2020 Census + ACS 5-Year Estimates)</li>
+    <li><strong>Bureau of Labor Statistics</strong> — Employment, wages, industry breakdown, unemployment rates</li>
+    <li><strong>Kansas Department of Labor</strong> — State-level labor market data, unemployment claims</li>
+    <li><strong>Kansas Department of Education</strong> — K–12 performance metrics, graduation rates, ACT scores</li>
+    <li><strong>Butler Community College</strong> — Enrollment, programs, regional reach</li>
+    <li><strong>City of El Dorado</strong> — Fiscal data, capital projects, local assessments</li>
+    <li><strong>Butler County Assessor</strong> — Property valuation, assessed value data</li>
+    <li><strong>FBI Uniform Crime Reporting (UCR)</strong> — Crime statistics</li>
+    <li><strong>Real Estate Market Data</strong> — Zillow, county assessor records, local MLS</li>
+   </ul>
+
+   <h3 style="margin:30px 0 15px">Notes on Interpretation</h3>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238;margin-bottom:15px">
+    Baseline metrics represent El Dorado as of 2024. Some data (e.g., Census) reflects 2020 estimates with city-level adjustments.
+    Peer comparisons use the most recent available data for similar-sized Kansas communities (generally 2023–2024).
+    Vision 2040 targets represent projections based on research, market analysis, and comparative benchmarks.
+    Actual 2040 outcomes will depend on execution of strategic initiatives, market conditions, and external factors.
+   </p>
+
+   <h3 style="margin:30px 0 15px">Annual Updates</h3>
+   <p style="font-size:0.95rem;line-height:1.8;color:#4a4238">
+    These baseline metrics are updated each January with the latest available data.
+    Check back next year to see how El Dorado is tracking toward 2040 targets.
+   </p>
+  </div>
+ </div>
+</section>
+
+<script defer src="js/nav.js"></script>
+<script defer src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Jobs Chart
+  const jobsCtx = document.getElementById('jobsChart')?.getContext('2d');
+  if (jobsCtx) {
+    new Chart(jobsCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Health', 'Manufacturing', 'Education', 'Retail', 'Government', 'Other'],
+        datasets: [{
+          label: '2024 Jobs',
+          data: [1420, 650, 580, 720, 520, 2000],
+          backgroundColor: ['#1fa36b', '#c8902a', '#2e8bde', '#c54a31', '#6b4ea0', '#b8aaa0'],
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: 'Jobs' } }
+        }
+      }
+    });
+  }
+
+  // Housing Chart
+  const housingCtx = document.getElementById('housingChart')?.getContext('2d');
+  if (housingCtx) {
+    new Chart(housingCtx, {
+      type: 'line',
+      data: {
+        labels: ['2020', '2024', '2030', '2040'],
+        datasets: [
+          {
+            label: 'Actual / Baseline',
+            data: [5840, 5980, null, null],
+            borderColor: '#0d1b2a',
+            borderWidth: 3,
+            fill: false,
+            pointRadius: 6,
+            pointBackgroundColor: '#0d1b2a'
+          },
+          {
+            label: '2040 Projection',
+            data: [null, 5980, 7200, 8100],
+            borderColor: '#1fa36b',
+            borderWidth: 3,
+            borderDash: [5, 5],
+            fill: false,
+            pointRadius: 6,
+            pointBackgroundColor: '#1fa36b'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: true, position: 'top' }
+        },
+        scales: {
+          y: { beginAtZero: false, min: 5000, max: 8500, title: { display: true, text: 'Total Housing Units' } }
+        }
+      }
+    });
+  }
+
+  // Fiscal Chart
+  const fiscalCtx = document.getElementById('fiscalChart')?.getContext('2d');
+  if (fiscalCtx) {
+    new Chart(fiscalCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Assessed Value', 'General Fund Revenue', 'Capital Investment', 'Fund Balance'],
+        datasets: [
+          {
+            label: '2024 Baseline',
+            data: [385, 4.2, 0.5, 1.8],
+            backgroundColor: '#c8902a'
+          },
+          {
+            label: '2040 Target',
+            data: [565, 6.25, 1.2, 2.5],
+            backgroundColor: '#1fa36b'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: true, position: 'top' } },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

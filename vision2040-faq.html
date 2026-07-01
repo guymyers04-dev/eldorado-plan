@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Vision 2040</title>
+    <meta name="description" content="Frequently asked questions about Vision 2040: What it is, how to get involved, events, sponsorship, and more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--white);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 0 1.5rem;
+            color: var(--text-light);
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-question {
+            background: var(--bg-light);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            max-height: 1000px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .search-box {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .contact-section h3 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .contact-section p {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-method {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-method strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-method a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+            }
+
+            .faq-answer {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="/vision2040-what-is.html">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Got questions? We've got answers.</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search FAQs..." onkeyup="filterFAQ()">
+            </div>
+
+            <!-- ABOUT VISION 2040 -->
+            <h2>About Vision 2040</h2>
+
+            <div class="faq-item" data-category="about">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is Vision 2040?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Vision 2040 is a digital platform connecting business leaders, investors, young professionals, students, and community members around shared goals of economic growth, opportunity, and community belonging. It's built BY El Dorado, FOR El Dorado, uniting our city's 1,559 Chamber businesses, 2,000+ students, and 160+ nonprofit organizations into one coordinated ecosystem.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="about">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Why is it called "Vision 2040"?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We're building toward 2040 with a long-term perspective on sustainable economic growth, creating opportunities for all, and fostering community belonging. Vision 2040 represents our shared aspiration for El Dorado's future.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="about">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Who created Vision 2040?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Vision 2040 is a collaborative initiative of the City of El Dorado, El Dorado Chamber of Commerce, Main Street El Dorado, USD 490, Butler Community College, and 160+ nonprofit and civic organizations. It's truly a community effort.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="about">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is Vision 2040 a government project?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>It's a partnership between city government and community organizations. Everyone leads it together. It's not a top-down government initiative—it's a grassroots movement supported by city resources.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="about">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>When will Vision 2040 launch publicly?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>The platform launches publicly in November 2026. July–October is our community activation and beta testing phase. Events start July 1 with the Chamber Chat pitch.</p>
+                </div>
+            </div>
+
+            <!-- GETTING INVOLVED -->
+            <h2>Getting Involved</h2>
+
+            <div class="faq-item" data-category="involved">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I get involved in Vision 2040?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Three ways: (1) Become an Ambassador—share Vision 2040 with your network (30 min/month), (2) Sponsor an Event—support community growth while building your brand ($250–$1,500), (3) Business Development Partnership—lead recruitment in your sector or industry. Learn more on our Get Involved page.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="involved">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What does it cost to be an ambassador?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>It's completely free! We provide all materials, training, and support. The only cost is if you decide to sponsor an event in addition to being an ambassador.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="involved">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much time does being an ambassador really take?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>About 30 minutes per month on average. This includes optional monthly training calls and sharing content whenever it fits your schedule. You can do more if you want to, but 30 minutes/month is the baseline commitment.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="involved">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I be an ambassador if I don't have a business?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We're looking for community leaders of all kinds: nonprofit directors, civic leaders, educators, parents, students, young professionals, and anyone passionate about El Dorado's future. All backgrounds welcome.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="involved">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if I want to do more than one thing?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Great idea! Many people are ambassadors AND sponsors. You can do as much or as little as you want. Check out the Ambassador, Sponsor, and Get Involved pages for all your options.</p>
+                </div>
+            </div>
+
+            <!-- EVENTS -->
+            <h2>Events & Activities</h2>
+
+            <div class="faq-item" data-category="events">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>When are the Vision 2040 events?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Main events in July 2026: Chamber Chat (Jul 1), July 4 Independence Day Booth, Butler County Fair (Jul 16–21), Farmers Markets (bi-weekly), First Fridays (monthly). See our full calendar for details and registration.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="events">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I bring my kids to the events?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Most events are family-friendly. July 4 and County Fair especially. Check individual event pages for specifics about activities for kids.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="events">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do I need to register for events?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Registration is encouraged but not required for most events. Some may require advance signup for planning purposes. Check individual event pages for details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="events">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I volunteer at the events?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We need 80–120 volunteers across July events. Whether you can help for one hour or one full day, we'd love your support. Sign-up coming soon on the Events page.</p>
+                </div>
+            </div>
+
+            <!-- SPONSORSHIP -->
+            <h2>Sponsorship</h2>
+
+            <div class="faq-item" data-category="sponsor">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much does it cost to sponsor an event?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sponsorship ranges from $250–$1,500 depending on the event and sponsorship level. Options include: July 4 Booth ($250–$500), County Fair ($750–$1,500), First Fridays ($250–$500). See the Sponsor page for full details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sponsor">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What do sponsors get in return?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Logo placement, social media coverage, networking opportunities, and community recognition. Benefits increase with sponsorship level. See the Sponsor page for a complete benefits comparison.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sponsor">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can we sponsor more than one event?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Many sponsors support multiple events. Contact us for multi-event packages and custom arrangements at info@eldorado.gov or (316) 321-9100.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="sponsor">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I become a sponsor?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Fill out the sponsorship inquiry form on the Sponsor page. We'll follow up within 24 hours with details and next steps.</p>
+                </div>
+            </div>
+
+            <!-- OTHER QUESTIONS -->
+            <h2>Other Questions</h2>
+
+            <div class="faq-item" data-category="other">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What are the benefits of Vision 2040 for businesses?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Market intelligence (real-time job forecasts, property pipeline), investor access (deal flow, ROI analysis), talent pipeline (direct access to 2,000+ students), network amplification (reach 1,559+ Chamber members), and more. Learn more on our About page.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="other">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What about students and young professionals?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Vision 2040 offers career pathways, skills marketplace, internship opportunities, and networking events. Students can explore opportunities in El Dorado. Young professionals can find jobs, mentorship, and community. Check out our Community pages when the platform launches in November.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="other">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Still have questions?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Contact us! We're here to help. Reach out any time via email, phone, or contact form.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <div class="contact-section">
+            <h3>Still have questions?</h3>
+            <p>We're here to help! Reach out to us through any of these channels:</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <strong>📧 Email</strong>
+                    <a href="mailto:info@eldorado.gov">info@eldorado.gov</a>
+                </div>
+                <div class="contact-method">
+                    <strong>📞 Phone</strong>
+                    <a href="tel:+13163219100">(316) 321-9100</a>
+                </div>
+                <div class="contact-method">
+                    <strong>🌐 Website</strong>
+                    <a href="/vision2040-launch-hub.html">vision2040.eldorado.gov</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            element.parentElement.classList.toggle('active');
+        }
+
+        function filterFAQ() {
+            const search = document.getElementById('search').value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(search)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

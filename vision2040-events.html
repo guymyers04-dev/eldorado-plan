@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision 2040 Events Calendar | El Dorado</title>
+    <meta name="description" content="Vision 2040 events calendar: July 1 Chamber Chat, July 4 booth, County Fair (Jul 16-21), Farmers Markets, First Fridays.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .event-item {
+            background: var(--white);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .event-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .event-date {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail {
+            background: var(--bg-light);
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--primary);
+        }
+
+        .detail strong {
+            display: block;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .event-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--accent-light);
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+        }
+
+        .month-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .newsletter-signup {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .newsletter-signup h3 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-form input {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            min-width: 250px;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .event-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="/vision2040-what-is.html">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Vision 2040 Events Calendar</h1>
+        <p>Join Us Throughout 2026</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <!-- JULY EVENTS -->
+            <div class="month-header">📅 July 2026 — Major Community Activation</div>
+
+            <!-- EVENT 1 -->
+            <div class="event-item">
+                <div class="event-header">
+                    <div>
+                        <div class="event-title">Chamber Chat Pitch</div>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0; color: var(--text-light);">Business pitch to Chamber leaders</p>
+                    </div>
+                    <div class="event-date">Jul 1 • 8:00 AM</div>
+                </div>
+                <div class="event-details">
+                    <div class="detail"><strong>Location:</strong> Civic Center</div>
+                    <div class="detail"><strong>Attendees:</strong> 30-50 Chamber members</div>
+                </div>
+                <p>City leadership presents Vision 2040 to Chamber members. Learn about opportunities and sign up as an ambassador or event sponsor.</p>
+                <div class="event-ctas">
+                    <a href="/vision2040-ambassador.html" class="btn">Become Ambassador</a>
+                    <a href="/vision2040-sponsor.html" class="btn btn-secondary">Sponsor Event</a>
+                </div>
+            </div>
+
+            <!-- EVENT 2 -->
+            <div class="event-item">
+                <div class="event-header">
+                    <div>
+                        <div class="event-title">Independence Day Booth</div>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0; color: var(--text-light);">Community engagement & lead capture</p>
+                    </div>
+                    <div class="event-date">Jul 4 • 5:15 PM - 8:30 PM</div>
+                </div>
+                <div class="event-details">
+                    <div class="detail"><strong>Location:</strong> East Park</div>
+                    <div class="detail"><strong>Expected:</strong> 2,000+ attendees</div>
+                </div>
+                <p>Interactive Vision 2040 booth featuring housing models, job marketplace, entrepreneurship resources, photo booth, and conversations with city leadership.</p>
+                <div class="event-ctas">
+                    <a href="/vision2040-sponsor.html" class="btn">Sponsor Booth</a>
+                    <button class="btn btn-secondary" onclick="alert('Volunteer sign-up coming soon!')">Volunteer</button>
+                </div>
+            </div>
+
+            <!-- EVENT 3 -->
+            <div class="event-item">
+                <div class="event-header">
+                    <div>
+                        <div class="event-title">Butler County Fair Bootcamp</div>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0; color: var(--text-light);">4-station education hub (7 days)</p>
+                    </div>
+                    <div class="event-date">Jul 16-21 • All Day</div>
+                </div>
+                <div class="event-details">
+                    <div class="detail"><strong>Location:</strong> Butler County Fairgrounds</div>
+                    <div class="detail"><strong>Expected:</strong> 5,000-10,000 attendees</div>
+                </div>
+                <p><strong>Four rotating education stations:</strong></p>
+                <ul style="margin-left: 1.5rem; color: var(--text-light);">
+                    <li>🏠 Housing Futures (124 Lofts, affordability, ROOMS grant)</li>
+                    <li>💼 Jobs Marketplace (243 jobs, skills, training partners)</li>
+                    <li>🚀 Start Your Business (entrepreneurship resources, mentorship)</li>
+                    <li>🎯 Future El Dorado (interactive voting, digital display)</li>
+                </ul>
+                <div class="event-ctas">
+                    <a href="/vision2040-sponsor.html" class="btn">Sponsor Station</a>
+                    <button class="btn btn-secondary" onclick="alert('Volunteer sign-up coming soon!')">Volunteer</button>
+                </div>
+            </div>
+
+            <!-- EVENT 4 -->
+            <div class="event-item">
+                <div class="event-header">
+                    <div>
+                        <div class="event-title">Farmers Market Mini-Booth</div>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0; color: var(--text-light);">Community conversations</p>
+                    </div>
+                    <div class="event-date">Jul 27 • 9:00 AM - 1:00 PM</div>
+                </div>
+                <div class="event-details">
+                    <div class="detail"><strong>Location:</strong> East Park</div>
+                    <div class="detail"><strong>Expected:</strong> 300-500 attendees</div>
+                </div>
+                <p>Casual Vision 2040 conversations with local community members. Conversation game, job board, housing info, and vision 2040 brochures.</p>
+                <div class="event-ctas">
+                    <button class="btn" onclick="alert('Volunteer sign-up coming soon!')">Volunteer</button>
+                </div>
+            </div>
+
+            <!-- EVENT 5 -->
+            <div class="event-item">
+                <div class="event-header">
+                    <div>
+                        <div class="event-title">First Fridays Downtown Pop-Up</div>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0; color: var(--text-light);">Downtown activation & networking</p>
+                    </div>
+                    <div class="event-date">Jul 29 • 5:00 PM - 8:00 PM</div>
+                </div>
+                <div class="event-details">
+                    <div class="detail"><strong>Location:</strong> Downtown El Dorado</div>
+                    <div class="detail"><strong>Expected:</strong> 200-400 attendees</div>
+                </div>
+                <p>Live music, food vendors, Vision 2040 booth, downtown housing project tours, and community networking. Monthly event running July through October.</p>
+                <div class="event-ctas">
+                    <a href="/vision2040-sponsor.html" class="btn">Sponsor Event</a>
+                    <button class="btn btn-secondary" onclick="alert('Volunteer sign-up coming soon!')">Volunteer</button>
+                </div>
+            </div>
+
+            <!-- AUGUST+ PLACEHOLDER -->
+            <div class="month-header">📅 August - October 2026 — (Details coming soon)</div>
+            <div class="event-item">
+                <p style="text-align: center; color: var(--text-light); margin: 0;">More events coming for August, September, and October. Check back in early August for the full August-October calendar.</p>
+            </div>
+
+            <!-- NEWSLETTER SIGNUP -->
+            <div class="newsletter-signup">
+                <h3>Stay Updated on Vision 2040 Events</h3>
+                <p>Get reminders about upcoming events, registration links, and volunteer opportunities delivered to your inbox.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button style="padding: 0.75rem 2rem; background: var(--accent-light); color: var(--white); border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#e67e22'" onmouseout="this.style.background='var(--accent-light)'">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- VOLUNTEER -->
+            <section style="background: var(--bg-light); padding: 2rem; border-radius: 12px; margin: 3rem 0; text-align: center;">
+                <h3 style="margin-top: 0;">Want to Volunteer?</h3>
+                <p>We're recruiting 80-120 volunteers for our July events. Whether you can help for one hour or one full day, we need your support!</p>
+                <button style="padding: 1rem 2rem; background: var(--accent); color: var(--white); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.3s;" onclick="alert('Volunteer sign-up form coming soon!')" onmouseover="this.style.backgroundColor='#c0392b'" onmouseout="this.style.backgroundColor='var(--accent)'">Sign Up to Volunteer</button>
+            </section>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Vision 2040? | El Dorado</title>
+    <meta name="description" content="Learn about Vision 2040: El Dorado's platform connecting business leaders, investors, students, and community around shared economic growth.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .problem-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+        }
+
+        .solution-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .benefit-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-marker {
+            background: var(--accent);
+            color: var(--white);
+            width: 100px;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-right: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            min-width: 100px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            border: none;
+            padding: 0;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.95);
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-marker {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>What is Vision 2040?</h1>
+        <p>El Dorado's Platform for Shared Economic Growth</p>
+    </div>
+
+    <div class="container">
+        <section id="definition">
+            <h2>Vision 2040 Explained</h2>
+            <p><strong>Vision 2040 is a digital platform connecting business leaders, investors, young professionals, students, and community members around shared goals of economic growth, opportunity, and community belonging.</strong></p>
+
+            <p>It's built BY El Dorado, FOR El Dorado. The platform unites the city's existing assets—1,559 Chamber member businesses, 2,000+ students, 160+ nonprofit organizations—into one coordinated community leadership ecosystem.</p>
+        </section>
+
+        <section id="problem">
+            <h2>The Problem We're Solving</h2>
+
+            <div class="problem-box">
+                <h3 style="margin-top: 0;">El Dorado Has Momentum. But We're Fragmented.</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>1,559 Chamber businesses</strong> working in silos, limited coordination</li>
+                    <li><strong>2,000+ students</strong> with no visibility into opportunities in their hometown</li>
+                    <li><strong>160+ nonprofit organizations</strong> with overlapping missions, limited collaboration</li>
+                    <li><strong>Young talent leaving</strong> because they don't see opportunity in El Dorado</li>
+                    <li><strong>Business owners burning out</strong> serving on too many committees</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="solution">
+            <h2>Our Solution</h2>
+
+            <div class="solution-box">
+                <h3 style="margin-top: 0;">One Unified Platform. Connecting Everyone.</h3>
+                <p><strong>Vision 2040 is where all these groups meet, collaborate, and accelerate growth together.</strong></p>
+
+                <p>Instead of fragmented efforts, Vision 2040 creates:</p>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Market Intelligence:</strong> Real-time data on jobs, properties, investment opportunities</li>
+                    <li><strong>Investor Access:</strong> Deal flow, ROI calculators, capital connections</li>
+                    <li><strong>Talent Pipeline:</strong> Direct connection between employers and 2,000+ students</li>
+                    <li><strong>Network Amplification:</strong> One message reaching all 1,559 Chamber members</li>
+                    <li><strong>Community Engagement:</strong> Transparent communication and shared decision-making</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="benefits">
+            <h2>Four Key Benefits</h2>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Market Intelligence</h4>
+                    <p>Real-time data on job forecasts, property development pipeline, market trends, and competitive benchmarking.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">💼</div>
+                    <h4>Investor Access</h4>
+                    <p>Deal flow dashboard with 12+ active projects, ROI calculators, and direct connections to capital sources.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h4>Talent Pipeline</h4>
+                    <p>Direct connection to 2,000+ USD 490 students, skills assessments, and apprenticeship programs.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h4>Network Amplification</h4>
+                    <p>Co-branded marketing reaching 1,559+ Chamber members. Collaboration opportunities with complementary businesses.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline">
+            <h2>Our Timeline</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">July - Aug</div>
+                    <div class="timeline-content">
+                        <h4>Community Activation</h4>
+                        <p>Launch events, social media campaigns, ambassador recruitment. Goal: 2,000-5,000 leads, 100-200 ambassadors.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">Sept - Oct</div>
+                    <div class="timeline-content">
+                        <h4>Platform Development</h4>
+                        <p>Build data dashboards, tools, integrations. Beta testing with early partners (Chamber, schools, nonprofits).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">November</div>
+                    <div class="timeline-content">
+                        <h4>Public Launch</h4>
+                        <p>Full platform goes live. Vision 2040 website public. Media campaign. Celebration event.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">Dec+</div>
+                    <div class="timeline-content">
+                        <h4>Sustained Growth</h4>
+                        <p>Monthly events, webinars, updates. Continuous data integration. Annual "State of Vision 2040" town hall.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="who">
+            <h2>Who is Vision 2040 For?</h2>
+
+            <h3>Business Leaders</h3>
+            <p>Get market intelligence, talent access, and investor connections. Stay informed about opportunities in your market.</p>
+
+            <h3>Investors</h3>
+            <p>Explore deal flow, analyze opportunities, connect with local leaders. Discover returns in El Dorado.</p>
+
+            <h3>Young Professionals</h3>
+            <p>Discover careers, build your network, find community. Stay in El Dorado or come back after college.</p>
+
+            <h3>Students</h3>
+            <p>Explore internships, apprenticeships, mentorship. See your future in El Dorado.</p>
+
+            <h3>Community Members</h3>
+            <p>Engage in decision-making, stay informed, build community. Shape El Dorado's future.</p>
+        </section>
+
+        <section id="support">
+            <h2>Who's Behind Vision 2040?</h2>
+
+            <p>Vision 2040 is a collaborative initiative of:</p>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li>City of El Dorado government</li>
+                <li>El Dorado Chamber of Commerce</li>
+                <li>Main Street El Dorado</li>
+                <li>USD 490 School District</li>
+                <li>Butler Community College</li>
+                <li>160+ nonprofit and civic organizations</li>
+            </ul>
+
+            <p style="margin-top: 1.5rem;"><strong>Everyone leads it together.</strong></p>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Shape El Dorado's Future?</h2>
+            <p>There are many ways to get involved. Become an ambassador, sponsor an event, or explore opportunities.</p>
+            <a href="/vision2040-get-involved.html" class="btn" style="background: var(--accent-light); margin-top: 1.5rem;">Get Involved Now</a>
+        </div>
+
+        <section style="text-align: center; padding: 2rem;">
+            <p style="color: var(--text-light);">
+                Want to learn more? <a href="/vision2040-faq.html" style="color: var(--accent);">Check our FAQ</a> or <a href="mailto:info@eldorado.gov" style="color: var(--accent);">contact us</a>.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

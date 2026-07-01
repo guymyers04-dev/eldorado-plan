@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision 2040 Launch Hub | El Dorado</title>
+    <meta name="description" content="Join Vision 2040: El Dorado's Community Leadership Platform. Become an ambassador, sponsor events, or explore opportunities.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+            --success: #27ae60;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--accent-light);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: #e67e22;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* PATHWAY CARDS */
+        .pathways {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .pathway-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .pathway-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .pathway-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pathway-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .pathway-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .pathway-card .commitment {
+            background: var(--bg-light);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* STATS SECTION */
+        .stats {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FEATURED EVENTS */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .event-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-body {
+            padding: 1.5rem;
+        }
+
+        .event-body p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .event-attendance {
+            background: var(--bg-light);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* NEWS SECTION */
+        .news-section {
+            background: var(--bg-light);
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .news-list {
+            list-style: none;
+        }
+
+        .news-item {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .news-date {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-direction: column;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="/index.html" class="logo">Vision 2040</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <h1>Vision 2040</h1>
+        <p>El Dorado's Community Leadership Platform</p>
+        <p style="font-size: 1.1rem; opacity: 0.9;">Connecting business leaders, investors, young professionals, students, and community members around shared economic growth goals</p>
+        <div class="cta-buttons">
+            <a href="/vision2040-get-involved.html" class="btn btn-primary">Get Involved Now</a>
+            <a href="/vision2040-events.html" class="btn btn-secondary">Explore Events</a>
+            <a href="/vision2040-what-is.html" class="btn btn-outline">Learn More</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <!-- STATISTICS -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1,559</h3>
+                    <p>Chamber Member Businesses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2,000+</h3>
+                    <p>USD 490 Students</p>
+                </div>
+                <div class="stat-item">
+                    <h3>160+</h3>
+                    <p>Nonprofit & Civic Organizations</p>
+                </div>
+                <div class="stat-item">
+                    <h3>243</h3>
+                    <p>In-Demand Jobs Identified</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PATHWAYS SECTION -->
+        <section id="pathways">
+            <h2>How to Get Involved</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.1rem;">Choose your path to shape El Dorado's future</p>
+
+            <div class="pathways">
+                <div class="pathway-card">
+                    <div class="pathway-icon">🌟</div>
+                    <h3>Become an Ambassador</h3>
+                    <p>Help spread the word about Vision 2040 to your networks</p>
+                    <div class="commitment">30 minutes per month</div>
+                    <a href="/vision2040-ambassador.html" class="btn btn-primary">Learn More</a>
+                </div>
+
+                <div class="pathway-card">
+                    <div class="pathway-icon">💰</div>
+                    <h3>Sponsor an Event</h3>
+                    <p>Support community growth while building your brand</p>
+                    <div class="commitment">$250 - $1,500</div>
+                    <a href="/vision2040-sponsor.html" class="btn btn-primary">View Options</a>
+                </div>
+
+                <div class="pathway-card">
+                    <div class="pathway-icon">🤝</div>
+                    <h3>Business Partnership</h3>
+                    <p>Shape El Dorado's economic development in your sector</p>
+                    <div class="commitment">Quarterly commitment</div>
+                    <a href="/vision2040-get-involved.html#partner" class="btn btn-primary">Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED EVENTS -->
+        <section id="events">
+            <h2>Coming in July 2026</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 3rem; font-size: 1.1rem;">Major community activation events</p>
+
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">July 1, 2026 • 8:00 AM</div>
+                        <div class="event-title">Chamber Chat Pitch</div>
+                    </div>
+                    <div class="event-body">
+                        <p>Business pitch to Chamber members. Learn about opportunities and become an ambassador.</p>
+                        <div class="event-attendance">📍 Civic Center • 30-50 attendees</div>
+                        <a href="/vision2040-events.html" class="btn btn-secondary" style="width: 100%;">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">July 4, 2026 • 5:15 PM - 8:30 PM</div>
+                        <div class="event-title">Independence Day Booth</div>
+                    </div>
+                    <div class="event-body">
+                        <p>Interactive Vision 2040 booth at East Park with housing info, job marketplace, and more.</p>
+                        <div class="event-attendance">📍 East Park • 2,000+ attendees</div>
+                        <a href="/vision2040-sponsor.html" class="btn btn-secondary" style="width: 100%;">Sponsor</a>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">July 16-21, 2026 • All Week</div>
+                        <div class="event-title">County Fair Bootcamp</div>
+                    </div>
+                    <div class="event-body">
+                        <p>4-station education hub: Housing, Jobs, Business, and Future El Dorado.</p>
+                        <div class="event-attendance">📍 County Fairgrounds • 5,000-10,000 attendees</div>
+                        <a href="/vision2040-sponsor.html" class="btn btn-secondary" style="width: 100%;">Sponsor</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/vision2040-events.html" class="btn btn-primary">View Full Calendar</a>
+            </div>
+        </section>
+
+        <!-- NEWS SECTION -->
+        <section class="news-section">
+            <h2>Latest Updates</h2>
+            <ul class="news-list">
+                <li class="news-item">
+                    <div class="news-date">June 30, 2026</div>
+                    <div class="news-title">Vision 2040 Launch Campaign Begins</div>
+                    <p>Community activation starts July 1 with Chamber Chat pitch. Sign up as ambassador today!</p>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">June 25, 2026</div>
+                    <div class="news-title">County Fair Partnership Confirmed</div>
+                    <p>Butler County Fair welcomes Vision 2040 with 4-station education bootcamp July 16-21.</p>
+                </li>
+                <li class="news-item">
+                    <div class="news-date">June 15, 2026</div>
+                    <div class="news-title">Community Leadership Coalition Formed</div>
+                    <p>Chamber, Main Street, Schools, and 160+ organizations unite behind Vision 2040 initiative.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: var(--white); text-align: center; padding: 3rem 2rem; border-radius: 12px; margin: 3rem 0;">
+            <h2 style="color: var(--white);">Ready to Shape El Dorado's Future?</h2>
+            <p style="color: rgba(255,255,255,0.95); margin-bottom: 2rem; font-size: 1.1rem;">Join the movement. Become an ambassador, sponsor an event, or explore opportunities.</p>
+            <a href="/vision2040-get-involved.html" class="btn" style="background: var(--accent-light);">Get Started Today</a>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /backups-20260629-213247/
+Disallow: /backups-20260629-213333/
+Disallow: /.superpowers/
+Disallow: /.git/
+
+Sitemap: https://eldorado2040.com/sitemap.xml

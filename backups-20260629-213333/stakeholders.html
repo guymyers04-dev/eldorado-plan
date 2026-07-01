@@ -11,7 +11,7 @@
  <link rel="preconnect" href="https://fonts.googleapis.com" />
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="css/styles.css" />
+ <link rel="stylesheet" href="css/styles.min.css" />
  <style>
  .stakeholder-hero {
    background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 100%);
@@ -431,7 +431,7 @@ function renderStakeholders(stakeholders) {
 
  container.innerHTML = stakeholders.map(s => `
   <div class="stakeholder-card">
-   <img src="${s.photo}" alt="${s.name}" class="stakeholder-photo" />
+   <img src="${s.photo}" alt="${s.name}" class="stakeholder-photo" / loading="lazy" loading="lazy">
    <div class="stakeholder-content">
     <div class="stakeholder-name">${s.name}</div>
     <div class="stakeholder-title">${s.title}</div>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Vision 2040 Events | El Dorado</title>
+    <meta name="description" content="Sponsor Vision 2040 events: July 4 booth, Butler County Fair, First Fridays. Get brand visibility and community recognition.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* EVENT CARDS */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .event-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .event-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .event-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+        }
+
+        .event-date {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .event-body {
+            padding: 1.5rem;
+        }
+
+        .event-stat {
+            background: var(--bg-light);
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .sponsorship-levels {
+            margin-top: 1.5rem;
+        }
+
+        .level {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .level:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .level-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .level-price {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .level-benefits {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .level-benefits li {
+            padding: 0.25rem 0;
+        }
+
+        .level-benefits li:before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* FORM */
+        .form-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .required {
+            color: var(--accent);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .benefits-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .benefits-table thead {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .benefits-table th, .benefits-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .benefits-table tbody tr:hover {
+            background: var(--bg-light);
+        }
+
+        .benefits-table .checkmark {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-table {
+                font-size: 0.9rem;
+            }
+
+            .benefits-table th, .benefits-table td {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="/vision2040-what-is.html">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Sponsor Vision 2040 Events</h1>
+        <p>Support Community Growth. Build Your Brand.</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>Why Sponsor?</h2>
+            <p>Vision 2040 events bring together business leaders, investors, young professionals, students, and community members. Sponsoring puts your brand in front of your target audience while supporting El Dorado's economic future.</p>
+        </section>
+
+        <section>
+            <h2>Event Sponsorship Options</h2>
+
+            <div class="events-grid">
+                <!-- EVENT 1: JULY 4 -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">July 4, 2026 • 5:15 PM - 8:30 PM</div>
+                        <div class="event-title">Independence Day Booth</div>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-stat">📍 East Park | 2,000+ Expected Attendees</div>
+
+                        <p><strong>Your Booth Will Feature:</strong> Vision 2040 opportunities, interactive displays, housing models, job board, Q&A with city leadership, photo opportunity.</p>
+
+                        <div class="sponsorship-levels">
+                            <div class="level">
+                                <div class="level-name">💎 Platinum Sponsor</div>
+                                <div class="level-price">$500</div>
+                                <ul class="level-benefits">
+                                    <li>Logo on booth signage (large)</li>
+                                    <li>2 free booth staffing positions</li>
+                                    <li>3 social media posts (tagged)</li>
+                                    <li>Event recap feature</li>
+                                </ul>
+                            </div>
+
+                            <div class="level">
+                                <div class="level-name">⭐ Gold Sponsor</div>
+                                <div class="level-price">$250</div>
+                                <ul class="level-benefits">
+                                    <li>Logo on booth signage</li>
+                                    <li>Social media mention</li>
+                                    <li>Event recap feature</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button class="btn" onclick="scrollToForm('july4')">Sponsor Now</button>
+                    </div>
+                </div>
+
+                <!-- EVENT 2: COUNTY FAIR -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">July 16-21, 2026 • All Week</div>
+                        <div class="event-title">County Fair Bootcamp</div>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-stat">📍 Fairgrounds | 5,000-10,000 Expected Attendees</div>
+
+                        <p><strong>Your Investment Sponsors:</strong> One of four education stations (Housing, Jobs, Business, or Future El Dorado).</p>
+
+                        <div class="sponsorship-levels">
+                            <div class="level">
+                                <div class="level-name">💎 Title Sponsor</div>
+                                <div class="level-price">$1,500</div>
+                                <ul class="level-benefits">
+                                    <li>Station named after your company</li>
+                                    <li>Large logo on all signage</li>
+                                    <li>3 free staffing positions</li>
+                                    <li>10+ social media posts</li>
+                                    <li>Lead recognition in materials</li>
+                                </ul>
+                            </div>
+
+                            <div class="level">
+                                <div class="level-name">⭐ Partner Sponsor</div>
+                                <div class="level-price">$750</div>
+                                <ul class="level-benefits">
+                                    <li>Co-branded station signage</li>
+                                    <li>1 free staffing position</li>
+                                    <li>5+ social media posts</li>
+                                    <li>Event recap feature</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button class="btn" onclick="scrollToForm('fair')">Sponsor Now</button>
+                    </div>
+                </div>
+
+                <!-- EVENT 3: FIRST FRIDAYS -->
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">Monthly • July 29, Aug 26, Sept 30, Oct 31 • 5-8 PM</div>
+                        <div class="event-title">First Fridays Downtown</div>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-stat">📍 Downtown El Dorado | 200-400 Expected Per Event</div>
+
+                        <p><strong>Event Features:</strong> Live music, food vendors, Vision 2040 booth, downtown housing tours, networking.</p>
+
+                        <div class="sponsorship-levels">
+                            <div class="level">
+                                <div class="level-name">💎 Presenting Sponsor</div>
+                                <div class="level-price">$500 (Single Month)</div>
+                                <ul class="level-benefits">
+                                    <li>Logo on all promotional materials</li>
+                                    <li>2-minute announcement at event</li>
+                                    <li>Social media spotlight</li>
+                                </ul>
+                            </div>
+
+                            <div class="level">
+                                <div class="level-name">⭐ Supporting Sponsor</div>
+                                <div class="level-price">$250 (Single Month)</div>
+                                <ul class="level-benefits">
+                                    <li>Logo on event signage</li>
+                                    <li>Social media mention</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <button class="btn" onclick="scrollToForm('firstfridays')">Sponsor Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS COMPARISON -->
+        <section>
+            <h2>Benefits at a Glance</h2>
+            <table class="benefits-table">
+                <thead>
+                    <tr>
+                        <th>Benefit</th>
+                        <th>$250</th>
+                        <th>$500</th>
+                        <th>$750</th>
+                        <th>$1,500</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Logo on Signage</strong></td>
+                        <td class="checkmark">✓</td>
+                        <td class="checkmark">✓</td>
+                        <td class="checkmark">✓</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Social Media Posts</strong></td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>5</td>
+                        <td>10+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Free Staffing</strong></td>
+                        <td>—</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Naming Rights</strong></td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="checkmark">✓</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lead Recognition</strong></td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td class="checkmark">✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SPONSORSHIP FORM -->
+        <section id="sponsorship-form">
+            <h2>Sponsorship Inquiry Form</h2>
+            <form class="form-section" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="company">Company Name <span class="required">*</span></label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-name">Contact Name <span class="required">*</span></label>
+                    <input type="text" id="contact-name" name="contact_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Email <span class="required">*</span></label>
+                    <input type="email" id="contact-email" name="contact_email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-phone">Phone <span class="required">*</span></label>
+                    <input type="tel" id="contact-phone" name="contact_phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Which event(s) interest you? <span class="required">*</span></label>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" id="event1" name="events" value="july4">
+                            <label for="event1" style="margin: 0; margin-left: 0.75rem; font-weight: 400;">July 4 Booth ($250-$500)</label>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" id="event2" name="events" value="fair">
+                            <label for="event2" style="margin: 0; margin-left: 0.75rem; font-weight: 400;">County Fair ($750-$1,500)</label>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" id="event3" name="events" value="firstfridays">
+                            <label for="event3" style="margin: 0; margin-left: 0.75rem; font-weight: 400;">First Fridays ($250-$500)</label>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" id="event4" name="events" value="multiple">
+                            <label for="event4" style="margin: 0; margin-left: 0.75rem; font-weight: 400;">Multiple / Custom</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sponsorship Budget <span class="required">*</span></label>
+                    <select name="budget" required>
+                        <option value="">Select...</option>
+                        <option value="250">$250</option>
+                        <option value="500">$500</option>
+                        <option value="750">$750</option>
+                        <option value="1500">$1,500</option>
+                        <option value="custom">Custom Amount</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Questions or Special Requests?</label>
+                    <textarea id="message" name="message" placeholder="Tell us anything else we should know..."></textarea>
+                </div>
+
+                <div class="form-group" style="display: flex; align-items: center;">
+                    <input type="checkbox" id="subscribe" name="subscribe" checked>
+                    <label for="subscribe" style="margin: 0; margin-left: 0.75rem; font-weight: 400;">Yes, add me to the Vision 2040 email list</label>
+                </div>
+
+                <button type="submit" class="btn">Submit Sponsorship Inquiry</button>
+            </form>
+        </section>
+
+        <section style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: var(--white); padding: 2rem; border-radius: 12px; text-align: center; margin: 2rem 0;">
+            <h3 style="color: var(--white); margin-top: 0;">Want to Discuss Custom Sponsorship?</h3>
+            <p style="color: rgba(255,255,255,0.95); margin-bottom: 1.5rem;">Call or email us to discuss multi-event packages or custom sponsorship opportunities.</p>
+            <p style="color: var(--accent-light);">📧 info@eldorado.gov | 📞 (316) 321-9100</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function scrollToForm(event) {
+            document.getElementById('sponsorship-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your sponsorship inquiry! We\'ll be in touch within 24 hours with details and next steps.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

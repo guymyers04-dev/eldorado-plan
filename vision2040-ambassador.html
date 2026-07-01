@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become an Ambassador | Vision 2040</title>
+    <meta name="description" content="Become a Vision 2040 Ambassador. Share Vision 2040 with your network (30 min/month). Get exclusive early access to deals and job data.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --accent: #e74c3c;
+            --accent-light: #f39c12;
+            --text: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #ecf0f1;
+            --white: #ffffff;
+            --border: #bdc3c7;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .commitment-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .commitment-box h3 {
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .commitment-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefits-list {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .benefits-list h3 {
+            margin-top: 0;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefits-list li {
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .benefits-list li:before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+
+        .timeline {
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-number {
+            background: var(--accent);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+        }
+
+        /* FORM STYLES */
+        .form-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .required {
+            color: var(--accent);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 0.75rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .faq-section {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .cta-section h3 {
+            color: var(--white);
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        footer a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .commitment-time {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/vision2040-launch-hub.html" class="logo">Vision 2040</a></li>
+            <li><a href="/vision2040-what-is.html">About</a></li>
+            <li><a href="/vision2040-get-involved.html">Get Involved</a></li>
+            <li><a href="/vision2040-events.html">Events</a></li>
+            <li><a href="/vision2040-faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Become a Vision 2040 Ambassador</h1>
+        <p>Lead El Dorado's Future (30 Minutes Per Month)</p>
+    </div>
+
+    <div class="container">
+        <section>
+            <h2>What is an Ambassador?</h2>
+            <p>A Vision 2040 Ambassador is a trusted community leader who helps spread the word about Vision 2040 to their personal and professional networks.</p>
+            <p>You're not selling anything. You're sharing opportunities and inviting people to explore El Dorado's future.</p>
+        </section>
+
+        <div class="commitment-box">
+            <h3>Your Commitment</h3>
+            <div class="commitment-time">30 Minutes/Month</div>
+            <p style="margin-top: 1rem; opacity: 0.95;">We provide all materials. You share them with your networks whenever it fits your schedule.</p>
+        </div>
+
+        <section>
+            <h2>What You Get</h2>
+            <div class="benefits-list">
+                <h3>5 Exclusive Benefits</h3>
+                <ul>
+                    <li>Early access to job forecasts and skills marketplace</li>
+                    <li>First look at property development pipeline and deals</li>
+                    <li>Monthly branded toolkit (slides, graphics, talking points)</li>
+                    <li>Optional monthly training calls with city leadership</li>
+                    <li>Community recognition and newsletter features</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h4>You Sign Up</h4>
+                        <p>Fill out the form below. Takes 3 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h4>You Get Trained</h4>
+                        <p>Join our first Ambassador Training Call (August 15, 6 PM). Optional but highly recommended. Learn about Vision 2040, get talking points, ask questions.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h4>You Share Content</h4>
+                        <p>Each month, we send you a toolkit: slides, graphics, email templates, talking points. Share what resonates with you, when you want, how you want.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h4>You Inspire Others</h4>
+                        <p>Your network learns about Vision 2040 and the opportunities in El Dorado. Some will sign up as ambassadors too. Others will attend events or explore tools on the website.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h4>You Stay Connected</h4>
+                        <p>Monthly newsletter, optional training calls, community recognition. You're part of a growing movement of 100+ leaders shaping El Dorado's future.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Who Should Apply?</h2>
+            <h3>Perfect for:</h3>
+            <ul style="margin-left: 1.5rem; line-height: 2;">
+                <li><strong>Business owners & managers</strong> — Share opportunities with your team and peers</li>
+                <li><strong>Community leaders & influencers</strong> — Amplify the message through your networks</li>
+                <li><strong>Nonprofit directors</strong> — Connect your communities to opportunities</li>
+                <li><strong>Civic organization leaders</strong> — Lead by example in community development</li>
+                <li><strong>Young professionals</strong> — Help peers see opportunity in El Dorado</li>
+                <li><strong>Passionate community members</strong> — Anyone who cares about El Dorado's future</li>
+            </ul>
+        </section>
+
+        <!-- SIGN-UP FORM -->
+        <section>
+            <h2>Ambassador Sign-Up Form</h2>
+            <form class="form-section" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company/Organization</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Your Title/Role</label>
+                    <input type="text" id="title" name="title">
+                </div>
+
+                <div class="form-group">
+                    <label>What networks do you reach? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network1" name="networks" value="employees">
+                            <label for="network1">Employees</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network2" name="networks" value="customers">
+                            <label for="network2">Customers/Clients</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network3" name="networks" value="social">
+                            <label for="network3">Social Media Followers</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network4" name="networks" value="professional">
+                            <label for="network4">Professional/Civic Groups</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network5" name="networks" value="family">
+                            <label for="network5">Family & Friends</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="network6" name="networks" value="other">
+                            <label for="network6">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="why">Why are you interested in being an ambassador? <span class="required">*</span></label>
+                    <textarea id="why" name="why" required placeholder="Tell us what excites you about Vision 2040..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Preferred contact method:</label>
+                    <select id="contact" name="contact">
+                        <option value="">Select...</option>
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                        <option value="either">Either</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="subscribe" name="subscribe" checked>
+                        <label for="subscribe">Yes, add me to the Vision 2040 email list</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Become an Ambassador</button>
+            </form>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h2 style="margin-bottom: 2rem; border: none; padding: 0;">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What if I don't have time for the monthly call?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No problem! The monthly training call is completely optional. You get all the materials via email regardless. Just share what resonates with you, when you want.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    How do I promote Vision 2040?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We give you everything you need: 15 social media graphics (post weekly), slide deck (share in meetings), 1-pagers (print & hand out), email templates (forward to your contacts), and talking points (use in conversations). Choose what works for your networks.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Will I have to sell anything?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>No. You're just sharing information about opportunities in El Dorado and inviting people to learn more. It's more like being an enthusiastic friend than a salesperson.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    When is the first training call?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>August 15, 2026 at 6 PM CT (Zoom). We'll brief you on Vision 2040 data, give you talking points, teach you storytelling techniques, and answer all your questions. Recording available if you can't attend live.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Can multiple people from my company be ambassadors?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Invite your team. The more ambassadors you have, the more networks you reach. We've had entire leadership teams sign up.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    What if I want to do more than just be an ambassador?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Great! Many ambassadors also sponsor events or become business development partners. You can do as much or as little as you want. Check out the sponsorship and partnership pages for other ways to get involved.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                    Still have questions?
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Contact us! Email info@eldorado.gov or call (316) 321-9100. We're happy to answer any questions before you commit.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h3>Ready to Lead El Dorado's Future?</h3>
+            <p>Sign up above to become an ambassador. It's the most impactful 30 minutes per month you can invest in your community.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vision 2040 • El Dorado's Community Leadership Platform</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+            <a href="/vision2040-what-is.html">About</a> •
+            <a href="/vision2040-get-involved.html">Get Involved</a> •
+            <a href="/vision2040-events.html">Events</a> •
+            <a href="/vision2040-faq.html">FAQ</a> •
+            <a href="mailto:info@eldorado.gov">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            // In production, this would send data to a backend or email service
+            alert('Thank you for signing up as a Vision 2040 Ambassador! We\'ll be in touch soon with your welcome packet and training call details.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

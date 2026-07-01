@@ -5,13 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Economic Scenario Simulator — El Dorado Vision 2040</title>
   <meta name="description" content="Interactive economic modeling tool for El Dorado. Test growth scenarios and see projected impacts on tax revenue, jobs, and population through 2040." />
+  <meta property="og:title" content="Economic Scenario Simulator — El Dorado Vision 2040" />
+  <meta property="og:description" content="Interactive economic modeling tool for El Dorado. Test growth scenarios and see projected impacts on tax revenue, jobs, and population through 2040." />
+  <meta property="og:url" content="https://eldorado2040.com/scenario-simulator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="El Dorado Vision 2040" />
+  <meta property="og:image" content="https://eldorado2040.com/img/og-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://eldorado2040.com/img/og-preview.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
-  <link rel="preload" href="css/styles.css" as="style">
-  <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all';this.onload=null;">
-  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+  <link rel="preload" href="css/styles-modern.min.css" as="style">
+  <link rel="stylesheet" href="css/styles.min.css" media="print" onload="this.media='all';this.onload=null;">
+  <noscript><link rel="stylesheet" href="css/styles-modern.min.css"></noscript>
   <style>
     .simulator-container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
     .simulator-header { text-align: center; margin-bottom: 50px; }
@@ -56,17 +65,7 @@
 
 <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
 
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-brand"><span class="city">El Dorado, KS</span><span class="tagline">Vision 2040</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="economy.html">Economy</a></li>
-      <li><a href="community-signals.html">Signals Hub</a></li>
-      <li><a href="brief.html">Resources</a></li>
-    </ul>
-  </div>
-</nav>
+<div id="nav-mount"></div>
 
 <div id="hero" style="background: linear-gradient(135deg, rgba(212,165,116,0.1) 0%, rgba(212,165,116,0.05) 100%); min-height: 40vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
   <div class="simulator-header">
@@ -310,5 +309,6 @@ function sharePDF() { alert('PDF export: Use browser Print to PDF feature'); }
 document.addEventListener('DOMContentLoaded', updateSimulation);
 </script>
 
+<script src="js/nav.min.js" defer></script>
 </body>
 </html>
